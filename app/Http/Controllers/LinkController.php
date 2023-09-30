@@ -46,7 +46,7 @@ class LinkController extends Controller
         }
 
 
-        return view('User.Link', compact('user','urlshort', 'shortCode','result', 'history'));
+        return view('User.link', compact('user','urlshort', 'shortCode','result', 'history'));
     }
 
     public function archive($id)
