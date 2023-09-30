@@ -39,5 +39,5 @@ jobs:
           **/vendor/**
           **/storage/imports/**
           **/public/template/**
-          **/Landingpage/**
+          **/Landingpage/LP**
 
