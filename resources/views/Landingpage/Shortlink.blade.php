@@ -12,19 +12,19 @@
     <title>Go Link</title>
 
     <!-- icofont-css-link -->
-    <link rel="stylesheet" href="{{ asset('landingPage/css/icofont.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/css/icofont.min.css') }}">
     <!-- Owl-Carosal-Style-link -->
-    <link rel="stylesheet" href="{{ asset('landingPage/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/css/owl.carousel.min.css') }}">
     <!-- Bootstrap-Style-link -->
-    <link rel="stylesheet" href="{{ asset('landingPage/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/css/bootstrap.min.css') }}">
     <!-- Aos-Style-link -->
-    <link rel="stylesheet" href="{{ asset('landingPage/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/css/aos.css') }}">
     <!-- Coustome-Style-link -->
-    <link rel="stylesheet" href="{{ asset('landingPage/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/css/style.css') }}">
     <!-- Responsive-Style-link -->
-    <link rel="stylesheet" href="{{ asset('landingPage/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/css/responsive.css') }}">
     <!-- waveanimation-Style-link -->
-    <link rel="stylesheet" href="{{ asset('landingPage/css/wave-animation-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/css/wave-animation-style.css') }}">
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}" style="width: 200px; height: 200px;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -272,15 +272,15 @@
     <!-- Page-wrapper-End -->
 
     <!-- Jquery-js-Link -->
-    <script src="{{ asset('landingPage/js/jquery.js') }}"></script>
+    <script src="{{ asset('landingpage/js/jquery.js') }}"></script>
     <!-- owl-js-Link -->
-    <script src="{{ asset('landingPage/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('landingpage/js/owl.carousel.min.js') }}"></script>
     <!-- bootstrap-js-Link -->
-    <script src="{{ asset('landingPage/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('landingpage/js/bootstrap.min.js') }}"></script>
     <!-- aos-js-Link -->
-    <script src="{{ asset('landingPage/js/aos.js') }}"></script>
+    <script src="{{ asset('landingpage/js/aos.js') }}"></script>
     <!-- main-js-Link -->
-    <script src="{{ asset('landingPage/js/main.js') }}"></script>
+    <script src="{{ asset('landingpage/js/main.js') }}"></script>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Include SweetAlert library -->

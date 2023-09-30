@@ -15,7 +15,7 @@
     <div class="d-flex align-items-center justify-content-center vh-100">
         <div class="text-center">
             <h1 class="display-1 fw-bold">403</h1>
-            <p class="fs-3"> <span class="text-danger">Ups, Anda tidak memiliki izin untuk mengakses halaman
+            <p class="fs-3"> <span class="text-danger">Maaf, Anda tidak memiliki izin untuk mengakses halaman
                     ini.</span></p>
             <p class="lead">
                 Server mengirim kode status HTTP 403 "Terlarang" saat server menolak akses ke sumber daya yang diminta
@@ -29,8 +29,6 @@
                 @else
                     <a class="btn btn-primary text-white" href="{{ route('login') }}">Kembali ke Login</a>
                 @endif
-            @else
-                <a class="btn btn-primary text-white" href="{{ route('login') }}">Kembali ke Login</a>
             @endauth
         </div>
     </div>

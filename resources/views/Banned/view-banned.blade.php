@@ -1,5 +1,5 @@
 @extends('layout.admin.app')
-@section('title', 'Data Pengguna')
+@section('title', 'Data Blokir')
 @section('style')
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/sweetalert2/sweetalert2.min.css') }}"
         rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="col-10">
                                     <h3 class="mb-4 custom-icon-size" style="float: right;"><span class="counter-value"
-                                            data-target="{{ $totalUser }}">0</span> </h3>
+                                            data-target="{{ $totalUser }}">{{ $totalUser }}</span> </h3>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="col-10">
                                     <h3 class="mb-4 custom-icon-size" style="float: right;"><span class="counter-value"
-                                            data-target="{{ $totaldiblokir }}">0</span> </h3>
+                                            data-target="{{ $totaldiblokir }}">{{ $totaldiblokir }}</span> </h3>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                                             src="{{ asset('images/Empty.jpg') }}" alt="Gambar">
                                                         <div class="d-flex justify-content-center align-items-center mt-2">
                                                             <i class="ph-magnifying-glass fs-2 text-primary"></i>
-                                                            <h5 class="mt-2">Maaf! Tidak Ada Data Ditemukan</h5>
+                                                            <h5 class="mt-2">Maaf! Belum Ada Data Yang Ditemukan</h5>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -148,18 +148,49 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-center justify-content-sm-end mt-2">
-                                <div class="pagination-wrap hstack gap-2">
-                                    <a class="page-item pagination-prev disabled" href="javascript:void(0)">
-                                        <i class="mdi mdi-chevron-left align-middle"></i>
-                                    </a>
-                                    <ul class="pagination listjs-pagination mb-0"></ul>
-                                    <a class="page-item pagination-next" href="javascript:void(0)">
-                                        <i class="mdi mdi-chevron-right align-middle"></i>
-                                    </a>
-                                </div>
-                            </div>
+                           
                         </div>
+                    </div>
+                    <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
+                        <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}"
+                            href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
+                            Sebelumnya
+                        </a>
+                        <ul class="pagination listjs-pagination mb-0">
+                            @if ($d->currentPage() > 2)
+                                <li>
+                                    <a class="page" href="{{ $d->url(1) }}">1</a>
+                                </li>
+                                @if ($d->currentPage() > 3)
+                                    <li class="ellipsis">
+                                        <span>...</span>
+                                    </li>
+                                @endif
+                            @endif
+    
+                            @for ($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
+                                <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
+                                    <a class="page" href="{{ $d->url($i) }}"
+                                        data-i="{{ $i }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+    
+                            @if ($d->currentPage() < $d->lastPage() - 1)
+                                @if ($d->currentPage() < $d->lastPage() - 2)
+                                    <li class="ellipsis">
+                                        <span>...</span>
+                                    </li>
+                                @endif
+                                <li>
+                                    <a class="page"
+                                        href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
+                                </li>
+                            @endif
+                        </ul>
+                        <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}"
+                            href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
+                            Selanjutnya
+                            </a>
                     </div>
                     <!-- end card -->
                 </div>
