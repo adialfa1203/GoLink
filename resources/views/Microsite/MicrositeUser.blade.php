@@ -94,6 +94,15 @@
             }
         }
     </style>
+    <style>
+        /* Gaya CSS untuk tampilan hp */
+        @media (max-width: 576px) {
+            .search-box {
+                width: 100%; /* Lebar 100% untuk tampilan hp */
+                margin-top: 10px; /* Spasi atas untuk tampilan hp */
+            }
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -107,7 +116,7 @@
                         <h4 class="mb-sm-0">Microsite</h4>
                     </div>
                 </div>
-                <div class=" col-8 col-sm mb-3">
+                <div class=" col-8 col-sm-12 mb-3">
                     <div class="d-flex justify-content-sm-end">
                         <div class="search-box ms-2">
                             <input type="text" class="form-control search" placeholder="Cari...">
@@ -152,7 +161,7 @@
                         <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.jpg') }}" alt="Gambar">
                         <div class="d-flex justify-content-center align-items-center mt-2 mb-4">
                             <i class="ph-magnifying-glass fs-2 text-primary"></i>
-                            <h5 class="mt-2">Maaf! Tidak Ada Data Ditemukan</h5>
+                            <h5 class="mt-2">Maaf! Belum Ada Data Yang Ditemukan</h5>
                         </div>
                     </div>
                 @else
@@ -228,10 +237,10 @@
                                                                     {{-- @dd( $row->shortUrl->destination_url) --}}
                                                                     <div class="countdown-input-subscribe">
                                                                         <lfabel class="platform" data-platform="copy"
-                                                                            @if ($row->oneShortUrl) data-url="{{ $row->oneShortUrl->destination_url }}"
-                                                        data-id-microsite="{{ $row->oneShortUrl->id }}"
-                                                        @else
-                                                        data-url="" data-id-microsite="" @endif
+                                                                            @if ($row->oneShortUrl) data-url="{{ $row->oneShortUrl->default_short_url }}"
+                                                                            data-id-microsite="{{ $row->oneShortUrl->id }}"
+                                                                            @else
+                                                                            data-url="" data-id-microsite="" @endif
                                                                             data-id-alert="{{ $i }}">
                                                                             <i class="bi bi-clipboard-fill"></i>
                                                                             &nbsp;
@@ -302,11 +311,6 @@
                                                 <div class="col-10">
                                                     <h5><i class="bi bi-bar-chart-line-fill"></i> statistik</h5>
                                                 </div>
-                                                <div class="col-2 d-flex flex-row justify-content-end">
-                                                    <button type="button" class="btn btn-light "><span>Lihat
-                                                            Detail</span>&nbsp;<i
-                                                            class="fa-solid fa-arrow-right"></i></button>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="card">
@@ -324,7 +328,7 @@
                 <div class="pagination-wrap hstack justify-content-center gap-2">
                     <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}"
                         href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
-                        Previous
+                        Sebelumnya
                     </a>
                     <ul class="pagination listjs-pagination mb-0">
                         @if ($d->currentPage() > 2)
@@ -359,7 +363,7 @@
                     </ul>
                     <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}"
                         href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
-                        Next
+                        Selanjutnya
                         </a>
                 </div>
             </div>
@@ -393,7 +397,7 @@
                     curve: 'straight'
                 },
                 title: {
-                    text: 'Product Trends by Month',
+                    text: 'Data Perbulan',
                     align: 'left'
                 },
                 grid: {

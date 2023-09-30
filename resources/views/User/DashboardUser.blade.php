@@ -457,7 +457,7 @@
                                         <div class="d-flex flex-column h-100">
                                             <p class="fs-md text-muted mb-4">Pengunjung </p>
                                             <h3 class="mb-0 mt-auto"><span class="counter-value"
-                                                    data-target="{{ $totalVisits }}">0</span></h3>
+                                                    data-target="{{ $totalVisits }}">{{ $totalVisits }}</span></h3>
                                         </div>
                                     </div>
                                     <div class="flex-shrink-0">
@@ -475,7 +475,7 @@
                                         <div class="d-flex flex-column h-100">
                                             <p class="fs-md text-muted mb-4">Pengunjung Microsite</p>
                                             <h3 class="mb-0 mt-auto"><span class="counter-value"
-                                                    data-target="{{ $totalVisitsMicrosite }}">0</span></h3>
+                                                    data-target="{{ $totalVisitsMicrosite }}">{{ $totalVisitsMicrosite }}</span></h3>
                                         </div>
                                     </div>
                                     <div class="flex-shrink-0">
@@ -525,7 +525,7 @@
                             @endphp
                             @if ($userType === 'yes')
                             <h6 class="card-title">Nama yang telah diubah/bulan
-                                <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                <span class="tooltip-icon" data-tooltip="Kuota nama yang telah diubah berlaku untuk setiap kali pengguna melakukan pengubahan nama pendek tautan yang sebelumnya sudah diubah.">
                                     <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                   </span>
                             </h6>
@@ -593,7 +593,7 @@
                                                 @endphp
                                                 @if ($userType === 'yes')
                                                 <h6 class="card-title">Nama yang telah diubah/bulan
-                                                    <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                    <span class="tooltip-icon" data-tooltip="Kuota nama yang telah diubah berlaku untuk setiap kali pengguna melakukan pengubahan nama pendek tautan yang sebelumnya sudah diubah.">
                                                         <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                       </span>
                                                 </h6>
@@ -605,16 +605,9 @@
                                                             style="width: {{ ($countNameChanged / 5) * 100 }}%;"></div>
                                                     </div>
                                                     <p class="text-muted mb-0"><b>{{ $countNameChanged }} dari 5</b></p>
-                                                @endif
-                                            </div>
-                                            <div class="card-body">
-                                                @php
-                                                    $userType = Auth::user()->subscribe; // Gantilah dengan logika yang sesuai dengan aplikasi Anda
-                                                @endphp
-                                                @if ($userType === 'yes')
-                                                <div>
-                                                    <h6 for="AmountInput" class="card-title">Nama tautan
-                                                        terbatas/bulan
+                                                    <br>
+                                                    <h6 for="cardNumber" class="card-title">Tautan original
+                                                        diubah/bulan
                                                         <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                                             <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                         </span>
@@ -626,32 +619,27 @@
                                                             aria-valuemax="5"></div>
                                                     </div>
                                                     <p class="text-muted mb-0"><b>0 dari 5</b></p>
+                                            </div>
+                                            <div class="card-body">
+                                                {{-- @php
+                                                    $userType = Auth::user()->subscribe; // Gantilah dengan logika yang sesuai dengan aplikasi Anda
+                                                @endphp
+                                                @if ($userType === 'yes') --}}
+                                                <div>
+
                                                 </div>
                                                 <br>
                                                     <div>
-                                                        <h6 for="cardNumber" class="card-title">Tautan original
-                                                            diubah/bulan
-                                                            <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
-                                                                <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
-                                                            </span>
-                                                        </h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                                                id="progress-bar" role="progressbar"
-                                                                aria-valuenow="0" aria-valuemin="0"
-                                                                aria-valuemax="5"></div>
-                                                        </div>
-                                                        <p class="text-muted mb-0"><b>0 dari 5</b></p>
+
                                                     </div>
                                                 <br>
-                                                <div class="quota-reset">
+                                                {{-- <div class="quota-reset">
                                                     Kuota direset pada <span id="nextMonthDate"></span> pukul 00.00
-                                                </div>
+                                                </div> --}}
                                                 @else
                                                 <div class="col-lg-12">
                                                     <div>
-                                                        <label for="AmountInput" class="form-label">Nama tautan
-                                                            terbatas/bulan</label>
+                                                        <label for="AmountInput" class="form-label">Nama yang telah diubah/bulan</label>
                                                         <label for="AmountInput" class="unavailable-text" style="color: red;"><i>Tidak
                                                                 tersedia pada layanan ini</i></label>
                                                     </div>
@@ -665,11 +653,11 @@
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="quota-reset">
-                                                        Kuota direset pada <span id="nextMonthDate"></span> pukul 00.00
-                                                    </div>
                                                 </div>
                                                 @endif
+                                                <div class="quota-reset">
+                                                    Kuota direset pada <span id="nextMonthDate"></span> pukul 00.00
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
