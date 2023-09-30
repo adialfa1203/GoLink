@@ -31,9 +31,10 @@ class LinkAdminController extends Controller
         // foreach ($users as $user) {
         //     $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();
         //
-        $users = User::where('email', '!=', 'admin@gmail.com')->get();
-        $userData = [];
-
+        $users = User::where('email', '!=', 'admin@gmail.com')
+                ->where('is_banned', '!=', '1')
+                ->paginate(10);
+        $d=$users;
         foreach ($users as $user) {
             $userData[$user->id] = [
                 'total_links' => ShortUrl::where('user_id', $user->id)->whereNull('microsite_uuid')->count(),
@@ -49,6 +50,6 @@ class LinkAdminController extends Controller
                     ->first(),
             ];
         }
-        return view('Admin.Link', compact('totalUser', 'totalUrl', 'totalVisits', 'users', 'totalMicrosite', 'userData'));
+        return view('Admin.Link', compact('d','totalUser', 'totalUrl', 'totalVisits', 'users', 'totalMicrosite', 'userData'));
     }
 }
