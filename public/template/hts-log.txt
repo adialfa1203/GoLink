@@ -1,0 +1,27 @@
+HTTrack3.49-2+htsswf+htsjava launched on Thu, 10 Aug 2023 08:40:50 at https://themesbrand.com/steex/layouts/auth-signin.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://themesbrand.com/steex/layouts/auth-signin.html -O1 "C:\ShortLink\9" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+08:41:55	Warning: 	Retry after error -4 (Connect Error) at link https://themesbrand.com/steex/layouts/assets/fonts/materialdesignicons-webfont.woff2?v=6.5.95 (from https://themesbrand.com/steex/layouts/assets/css/icons.min.css)
+08:41:55	Warning: 	File not parsed, looks like binary: https://themesbrand.com/steex/layouts/assets/fonts/boxicons.woff2
+08:41:58	Warning: 	File not parsed, looks like binary: https://themesbrand.com/steex/layouts/assets/fonts/remixicon.woff2?t=1590207869815
+08:42:20	Warning: 	File not parsed, looks like binary: https://themesbrand.com/steex/layouts/assets/fonts/bootstrap-icons.woff2?24e3eb84d0bcaf83d77f904c78ac1f47
+08:42:20	Warning: 	File not parsed, looks like binary: https://themesbrand.com/steex/layouts/assets/fonts/Phosphor.woff2
+08:43:39	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/layouts/assets/images/modal-bg.png (from https://themesbrand.com/steex/layouts/assets/css/app.min.css)
+08:44:50	Warning: 	File not parsed, looks like binary: https://themesbrand.com/steex/layouts/assets/fonts/materialdesignicons-webfont.woff2?v=6.5.95
+08:49:58	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/layouts/apps-ecommerce-seller-details.html (from https://themesbrand.com/steex/layouts/index.html)
+08:50:02	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/assets/libs/prismjs/prism.js (from https://themesbrand.com/steex/layouts/ui-colors.html)
+08:50:02	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/assets/images/users/avatar-2.jpg (from https://themesbrand.com/steex/layouts/ui-utilities.html)
+08:50:02	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/assets/images/small/img-2.jpg (from https://themesbrand.com/steex/layouts/ui-utilities.html)
+08:50:02	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/assets/images/users/avatar-1.jpg (from https://themesbrand.com/steex/layouts/ui-utilities.html)
+08:50:02	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/assets/images/small/img-3.jpg (from https://themesbrand.com/steex/layouts/ui-utilities.html)
+08:50:02	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/assets/images/users/avatar-3.jpg (from https://themesbrand.com/steex/layouts/ui-utilities.html)
+08:50:02	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/assets/images/users/avatar-4.jpg (from https://themesbrand.com/steex/layouts/ui-utilities.html)
+08:50:02	Error: 	"Not Found" (404) at link https://themesbrand.com/steex/assets/images/users/avatar-5.jpg (from https://themesbrand.com/steex/layouts/ui-utilities.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 9 minutes 14 seconds : 535 links scanned, 523 files written (63107362 bytes overall) [29585839 bytes received at 53404 bytes/sec], 39269041 bytes transferred using HTTP compression in 316 files, ratio 14%, 9.3 requests per connection
+(10 errors, 6 warnings, 0 messages)
