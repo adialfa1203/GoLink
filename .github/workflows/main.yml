@@ -39,3 +39,4 @@ jobs:
           **/vendor/**
           **/storage/imports/**
           **/public/template/**
+          
