@@ -77,11 +77,6 @@
                                                     <input type="hidden" name="email" value="{{ $user->email }}">
                                                     <!-- Hidden input for email -->
                                                     <div>
-                                                        @error('password')
-                                                            <div class="alert alert-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                    <div>
                                                         @error('password_confirmation')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror
@@ -91,6 +86,11 @@
                                                         <div class="position-relative auth-pass-inputgroup">
                                                             <input name="password" type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Masukkan kata sandi" id="password-input">
                                                             <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                        </div>
+                                                        <div>
+                                                            @if ($errors->has('password'))
+                                                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                                            @endif
                                                         </div>
                                                         <div id="passwordInput"
                                                             class="form-text">Kata sandi Anda harus sepanjang 8-20
