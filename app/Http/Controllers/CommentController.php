@@ -18,8 +18,6 @@ class CommentController extends Controller
         return view('Komentar.ViewKomentar', compact('komentar', 'user', 'd'));
     }
 
-
-
     public function create(Request $request, $user) // Menggunakan route model binding untuk mendapatkan objek User
     {
         // Validasi input, pastikan isikomentar ada dan tidak lebih dari 200 karakter
