@@ -130,7 +130,6 @@ Route::get('/go.microsite/{micrositeLink}', [ShortLinkController::class, 'micros
 
 Route::post('update-profil', [ProfilController::class, 'updateProfile'])->name('updateProfile');
 Route::post('/updateAdmin', [ProfilController::class, 'updateAdmin'])->name('updateAdmin');
-
 //Middleware Admin
 Route::group(['middleware' => ['role:admin']], function () {
 //Dashboard Admin
