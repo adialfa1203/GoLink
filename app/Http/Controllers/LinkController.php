@@ -21,11 +21,11 @@ class LinkController extends Controller
         $this->deleteDeactive();
 
         $urlshort = ShortUrl::withCount('visits')
-        // ->selectRaw('MONTH(created_at) as created_at')
-        ->where('user_id', $user_id)
-        ->whereNull('microsite_uuid')
-        ->orderBy('created_at', 'desc')
-        ->paginate(5);
+            ->where('user_id', $user_id)
+            ->whereNull('microsite_uuid')
+            ->orderByDesc('visits_count') // Mengurutkan berdasarkan jumlah tautan terbanyak
+            ->paginate(5);
+
         $history = History::paginate(5);
         $result = [
             'labels' => DateHelper::getAllMonths(5),
@@ -34,19 +34,18 @@ class LinkController extends Controller
         $startDate = DateHelper::getSomeMonthsAgoFromNow(5)->format('Y-m-d H:i:s');
         $endDate = DateHelper::getCurrentTimestamp('Y-m-d H:i:s');
 
-        $template = [0,0,0,0,0];
+        $template = [0, 0, 0, 0, 0];
 
         foreach ($urlshort as $i => $data) {
             $parse = Carbon::parse($data->created_at);
             $date = $parse->shortMonthName . ' ' . $parse->year;
             $index = array_search($date, array_values($result['labels']));
             $visits = $template;
-            $visits[4] = (int)$data->visits_count;
+            $visits[4] = (int) $data->visits_count;
             $result['series'][$i] = $visits;
         }
 
-
-        return view('User.link', compact('user','urlshort', 'shortCode','result', 'history'));
+        return view('User.link', compact('user', 'urlshort', 'shortCode', 'result', 'history'));
     }
 
     public function archive($id)
