@@ -25,8 +25,9 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="abt_side">
                         <div class="logo">
-                            <img src="{{ asset('linkbaru.png') }}" alt="image" style="margin-top: -7%;">
-                            <ul style="margin-right:10px; margin-top:7%;">
+                            <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image"
+                                style="margin-top: -10%;">
+                            <ul style="margin-bottom: -5%; margin-right:10px;">
                                 <li style="color: white; font-size:14px;">{!! $data->description !!}</li>
                             </ul>
                         </div>
@@ -59,9 +60,9 @@
 
                 <!-- Contact Information -->
                 <div class="col-lg-2 col-md-6 col-12">
-                    <div class="links">
+                    <div class="links" >
                         <h3>Hubungi Kami</h3>
-                        <ul style="text-align: justify;">
+                        <ul style="text-align: justify-center;">
                             <li>
                                 <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20GOLINK"
                                     target="_blank">
@@ -133,8 +134,8 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="abt_side">
                             <div class="logo">
-                                <img src="{{ asset('linkbaru.png') }}" alt="image" style="margin-top: -7%;">
-                                <ul style="margin-right:10px; margin-top:7%;">
+                                <img src="{{ asset('linkbaru.png') }}" alt="image" style="margin-top: -10%;">
+                                <ul  style="margin-top: 10%; margin-right:10px;">
                                     <li style="color: white; font-size:14px;">{!! $data->description !!}</li>
                                 </ul>
                             </div>
