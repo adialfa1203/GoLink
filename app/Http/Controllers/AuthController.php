@@ -164,8 +164,8 @@ class AuthController extends Controller
         $this->validate($request, [
             'verification_code' => 'required|digits:6',
         ],[
-            'verification_code.required' => 'Kode verifikasi harus diisi.',
-            'verification_code.digits' => 'Kode verifikasi harus terdiri dari 6 angka.',
+            'verification_code.required' => 'Kode verifikasi harus diisi',
+            'verification_code.digits' => 'Kode verifikasi harus terdiri dari 6 angka',
         ]);
 
         $user = User::where('verification_code', $request->verification_code)
@@ -196,11 +196,11 @@ class AuthController extends Controller
             'password' => 'required|min:8|confirmed',
             'password_confirmation' => 'required_with:password|same:password'
         ], [
-            'password.required' => 'Kata sandi harus diisi.',
-            'password.min' => 'Kata sandi minimal terdiri dari 8 karakter.',
-            'password.confirmed' => 'Konfirmasi kata sandi tidak cocok.',
-            'password_confirmation.required_with' => 'Konfirmasi kata sandi harus diisi.',
-            'password_confirmation.same' => 'Kata sandi dan Konfirmasi Kata sandi tidak cocok.',
+            'password.required' => 'Kata sandi harus diisi',
+            'password.min' => 'Kata sandi minimal terdiri dari 8 karakter',
+            'password.confirmed' => 'Konfirmasi kata sandi tidak cocok',
+            'password_confirmation.required_with' => 'Konfirmasi kata sandi harus diisi',
+            'password_confirmation.same' => 'Kata sandi dan Konfirmasi Kata sandi tidak cocok',
         ]);
 
         $user = User::where('email', $request->email)->first();

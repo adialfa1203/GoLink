@@ -89,15 +89,16 @@
                                             <div class="p-2">
                                                 <form action="{{ route('verificationCode')}}" method="POST">
                                                     @csrf
-                                                    <div>
-                                                        @error('verification_code')
-                                                            <div class="alert alert-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
+                                                    
                                                     <div class="mb-4">
                                                         <label class="form-label">Kode Verifikasi</label>
                                                         <input type="text" name="verification_code" class="form-control password-input" id="verification_code" placeholder="Masukkan Kode Verifikasi">
                                                     </div>
+                                                     <div>
+                                                            @if ($errors->has('verification_code'))
+                                                                <span class="text-danger">{{ $errors->first('verification_code') }}</span>
+                                                            @endif
+                                                        </div>
                                                     
                                                     <div class="text-center mt-4">
                                                         <button class="btn btn-primary w-100" type="submit">Verifikasi Kode</button>
