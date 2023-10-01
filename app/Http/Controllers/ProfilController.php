@@ -36,15 +36,13 @@ class ProfilController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $user->id,
-            'number' => 'required|min:11|max:12', // Tambahkan aturan min dan max di sini
+            'number' => 'required|min:11|max:12',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ],[
             'number' => 'Nomor tidak boleh kurang dari 11 dan tidak boleh lebih dari 12!',
             'email' => 'E-mail sudah pernah digunakan',
-
-            // 'old_password' =>
 
         ]);
 
@@ -62,13 +60,13 @@ class ProfilController extends Controller
         if ($request->hasFile('profile_picture')) {
             $oldProfilePicture = $user->profile_picture;
             if ($oldProfilePicture) {
-                $oldProfilePath = Public_path('profile_pictures/' . $oldProfilePicture);
+                $oldProfilePath = public_path('profile_pictures/' . $oldProfilePicture);
                 if (file_exists($oldProfilePath)) {
                     unlink($oldProfilePath);
                 }
             }
-
-            $profilePicturePath = $request->file('profile_picture')->move(Public_path('profile_pictures'), $user->id . '.jpg');
+            // dd($request->profile_picture);
+            $profilePicturePath = $request->file('profile_picture')->move(public_path('profile_pictures'), $user->id . '.jpg');
             $user->profile_picture = 'profile_pictures/' . $user->id . '.jpg';
         }
         // dd('profile_picture');
@@ -111,13 +109,13 @@ class ProfilController extends Controller
         if ($request->hasFile('profile_picture')) {
             $oldProfilePicture = $admin->profile_picture;
             if ($oldProfilePicture) {
-                $oldProfilePath = Public_path('profile_pictures/' . $oldProfilePicture);
+                $oldProfilePath = public_path('profile_pictures/' . $oldProfilePicture);
                 if (file_exists($oldProfilePath)) {
                     unlink($oldProfilePath);
                 }
             }
 
-            $profilePicturePath = $request->file('profile_picture')->move(Public_path('profile_pictures'), $admin->id . '.jpg');
+            $profilePicturePath = $request->file('profile_picture')->move(public_path('profile_pictures'), $admin->id . '.jpg');
             $admin->profile_picture = 'profile_pictures/' . $admin->id . '.jpg';
         }
         $admin->update();

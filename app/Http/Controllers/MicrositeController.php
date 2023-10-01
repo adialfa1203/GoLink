@@ -80,7 +80,7 @@ class MicrositeController extends Controller
 
         $button = Button::all();
         $micrositeCount = $user->microsites()->count(); // Mendapatkan jumlah microsite pengguna
-        return view('microsite.AddMicrosite', compact('data', 'button', 'micrositeCount'));
+        return view('Microsite.AddMicrosite', compact('data', 'button', 'micrositeCount'));
     }
 
 
@@ -145,7 +145,7 @@ class MicrositeController extends Controller
         $social = Social::where('microsite_uuid', $id)->get();
         $short_url = ShortUrl::where('microsite_uuid', $id)->first();
         // $buttonLink = ButtonLink::findorFail($id);
-        return view('microsite.EditMicrosite', compact('microsite', 'id', 'social', 'short_url'));
+        return view('Microsite.EditMicrosite', compact('microsite', 'id', 'social', 'short_url'));
     }
 
     public function micrositeUpdate(Request $request, $id)
