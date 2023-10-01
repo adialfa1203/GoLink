@@ -27,6 +27,11 @@ class ShortLinkController extends Controller
                 return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi. ', 'status' => 'gagal']);
             }
         }
+
+        $validatedData = $request->validate([
+            'default_short_url' => 'required|string'
+        ]);
+
         $builder = new \AshAllenDesign\ShortURL\Classes\Builder();
         $shortURLObject = $builder
             ->destinationUrl($request->destination_url)
@@ -46,9 +51,7 @@ class ShortLinkController extends Controller
             'user_id' => auth()->id(),
             'default_short_url' => $shortURLObject->default_short_url,
             'password' => Hash::make($request->password),
-            'archive' => 'no',
             'deleted_add' => $request->deleted_add,
-            'click_count' => $request->click_count,
             'qr_code' => $request->qr_code,
             'title' => $request->title,
             'deactivated_at' => $request->deactivated_at
