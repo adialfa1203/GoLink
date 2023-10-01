@@ -37,13 +37,13 @@ class ProfilController extends Controller
         $validator = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $user->id,
-            'number' => 'required|min:11|max:12',
+            'number' => 'required|min:10|max:15',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ],[
-            'number.min' => 'Nomor tidak boleh kurang dari 11!',
-            'number.max' => 'Nomor tidak boleh lebih dari 12!',
+            'number.min' => 'Nomor tidak boleh kurang dari 10!',
+            'number.max' => 'Nomor tidak boleh lebih dari 15!',
             'email.unique' => 'Email sudah pernah digunakan',
             'email.required' => 'Kolom Email harus diisi',
             'old_password.required_with' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
@@ -99,14 +99,14 @@ class ProfilController extends Controller
 
         $validator = Validator::make($request->all(),[
             'name' => 'required',
-            'number' => 'required',
             'email' => 'email|unique:users,email,' . $admin->id,
+            'number' => 'required|min:10|max:15',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ],[
-            'number.min' => 'Nomor tidak boleh kurang dari 11!',
-            'number.max' => 'Nomor tidak boleh lebih dari 12!',
+            'number.min' => 'Nomor tidak boleh kurang dari 10!',
+            'number.max' => 'Nomor tidak boleh lebih dari 15!',
             'email.unique' => 'Email sudah pernah digunakan',
             'email.required' => 'Kolom Email harus diisi',
             'old_password.required_with' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
