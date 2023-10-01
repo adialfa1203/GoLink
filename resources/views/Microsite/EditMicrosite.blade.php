@@ -80,7 +80,7 @@
                                                                     data-bs-target="#{{ $data->button->name_button }}"
                                                                     aria-expanded="false"
                                                                     aria-controls="{{ $data->button->name_button }}">
-                                                                    {{ $data->button->name_button }}
+                                                                    Silahkan  isi URL {{ $data->button->name_button }} anda disini!
                                                                 </button>
                                                             </h2>
                                                             <div id="{{ $data->button->name_button }}"

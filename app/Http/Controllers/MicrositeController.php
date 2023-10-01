@@ -156,21 +156,21 @@ class MicrositeController extends Controller
         $buttonLinks = $request->input('button_link');
 
         $validator = Validator::make($request->all(), [
-            'name' => 'nullable|string|max:10',
-            'name_microsite' => 'nullable|string|max:10',
-            'description' => 'nullable|string|max:115',
-            'company_name' => 'required|string|max:15', // Menghapus 'nullable'
+            'name' => 'nullable|string|max:35',
+            'name_microsite' => 'nullable|string|max:35',
+            'description' => 'nullable|string|max:200',
+            'company_name' => 'required|string|max:35', // Menghapus 'nullable'
             'company_address' => 'required|string|max:35', // Menghapus 'nullable'
             'button_link.*' => 'required|string|url',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ], [
-            'name_microsite' => 'Kolom nama microsite tidak boleh lebih besar dari 10 karakter.',
-            'description' => 'Deskripsi tidak boleh lebih besar dari 115 karakter.',
+            'name_microsite' => 'Kolom nama microsite tidak boleh lebih besar dari 35 karakter.',
+            'description' => 'Deskripsi tidak boleh lebih besar dari 200 karakter.',
             'image.image' => 'Kolom harus berupa gambar!',
             'button_link.*.required' => 'Kolom ini wajib diisi!',
             'button_link.*.url' => 'URL tidak valid.',
             'company_name.required' => 'Nama perusahaan wajib diisi!', // Menambah pesan validasi baru
-            'company_name.max' => 'Nama perusahaan tidak boleh lebih besar dari 15 karakter.', // Memindahkan pesan validasi max ke sini
+            'company_name.max' => 'Nama perusahaan tidak boleh lebih besar dari 35 karakter.', // Memindahkan pesan validasi max ke sini
             'company_address.required' => 'Alamat perusahaan wajib diisi!', // Menambah pesan validasi baru
             'company_address.max' => 'Alamat perusahaan tidak boleh lebih besar dari 35 karakter.', // Memindahkan pesan validasi max ke sini
         ]);
@@ -218,7 +218,7 @@ class MicrositeController extends Controller
             }
         }
 
-        return redirect()->route('microsite')->with('success', 'Microsite sudah berhasil dibuat.');
+        return redirect()->route('microsite')->with('success', 'Microsite berhasil diedit.');
     }
 
     public function createComponent()
@@ -286,7 +286,7 @@ class MicrositeController extends Controller
         $micrositeCount = Microsite::where('components_uuid', $id)->count();
 
         if ($micrositeCount > 0) {
-            return Response::json($micrositeCount, 'Tidak dapat mengedit komponen ini karena masih ada data terkait.', 400);
+            return Response::json($micrositeCount, 'Tidak dapat mengedit komponen ini karena data masih digunakan.', 400);
         }
 
         if ($request->hasFile('cover_img')) {
@@ -325,7 +325,7 @@ class MicrositeController extends Controller
 
         if ($micrositeCount > 0) {
             // return redirect()->back();
-            return redirect()->back()->with('error', 'Tidak dapat menghapus komponen ini karena masih ada data terkait.');
+            return redirect()->back()->with('error', 'Tidak dapat menghapus komponen ini karena data masih digunakan.');
         }
 
         if (file_exists(public_path('component/' . $component->cover_img))) {
