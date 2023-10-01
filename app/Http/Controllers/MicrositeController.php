@@ -128,7 +128,7 @@ class MicrositeController extends Controller
         $link_microsite = str_replace(' ', '-', $request->link_microsite);
         ShortUrl::findOrFail($short_id)->update([
             'url_key' => $link_microsite,
-            'default_short_url' => env('APP_URL')."go.microsite/" . $link_microsite,
+            'default_short_url' => env('APP_URL')."/go.microsite/" . $link_microsite,
         ]);
 
 
