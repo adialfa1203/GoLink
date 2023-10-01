@@ -21,7 +21,7 @@
                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                     </div>
                                     <div class="mt-3">
-                                        <h5>{{ $accessMicrosite->name }}<i class="align-baseline text-info ms-1"></i>
+                                        <h5>{{ $accessMicrosite->name_microsite }}<i class="align-baseline text-info ms-1"></i>
                                         </h5>
                                         <p class="text-muted">{!! $accessMicrosite->description !!}</p>
                                     </div>
