@@ -295,14 +295,14 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <label class="form-label">Judul</label>
-                                                <input class="form-control" id="title" disabled>
+                                                <input class="form-control" id="title" >
                                             </div>
                                             <hr>
                                             <div class="col-lg-12">
                                                 <div class="input-group align-items-center rounded"
                                                     style="background: #E9EEF5">
                                                     <input id="default_short_url" class="form-control" type="text"
-                                                        id="salin" disabled>
+                                                        id="salin" >
                                                     {{-- salin --}}
                                                     <div id="successCopy" class="alert alert-success mt-3"
                                                         style="display: none; position: fixed; bottom: 570px; right: 560px; max-width: 500px;">
@@ -321,7 +321,7 @@
                                             <div class="col-lg-12">
                                                 <div class="countdown-input-subscribe">
                                                     <label for="cardNumber" class="form-label">URL asli</label>
-                                                    <input class="form-control" id="destination_url" disabled>
+                                                    <input class="form-control" id="destination_url" >
                                                 </div>
                                             </div>
                                         </div>
