@@ -104,8 +104,6 @@
                     <div class="card-body pb-0 mb-n4">
                         <div class="d-flex z-1 position-relative">
                             <div class="flex-shrink-0">
-                                <div data-provider="flatpickr" data-range-date="true" data-date-format="d M, Y" data-default-date="01 March 2023 to 31 March 2023">01 March 2023 to 31 March
-                                    2023 <i class="ph-caret-down align-middle ms-1"></i></div>
                                     @php
                                     $firstDayOfMonth = now()
                                         ->startOfMonth()
