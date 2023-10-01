@@ -18,9 +18,7 @@ class LinkAdminController extends Controller
         //Menghitung total url
         $totalUrl = ShortUrl::where('archive', '!=', 'yes')->count();
         //Menghitung total pengunjung
-        $totalVisits = ShortURLVisit::query()
-                        ->whereRelation('shortURL', 'archive', '!=', 'yes')
-                        ->count();
+        $totalVisits = ShortURLVisit::query()->count();
 
         $totalMicrosite = ShortUrl::whereNotNull('microsite_uuid')->count();
 
