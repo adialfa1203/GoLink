@@ -22,14 +22,6 @@
                                 </ul>
                             </div>
                         @endif --}}
-
-                            {{-- <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-                                <li class="breadcrumb-item active">Profile Settings</li>
-                            </ol>
-                        </div> --}}
-
                         </div>
                     </div>
                 </div>
@@ -65,9 +57,13 @@
                                             </label>
                                         </div>
                                     </div>
+                                    <div>
+                                        @if ($errors->has('profile_picture'))
+                                            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+                                        @endif
+                                    </div>
                                     <div class="mt-3">
-                                        <h5>{{ $user->name }}<i
-                                                class=" align-baseline text-info ms-1"></i></h5>
+                                        <h5>{{ $user->name }}<i class=" align-baseline text-info ms-1"></i></h5>
                                         <p class="text-muted">{{ $accountStatus }}</p>
                                     </div>
                                 </div>

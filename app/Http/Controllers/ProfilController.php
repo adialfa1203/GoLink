@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ProfilController extends Controller
 {
@@ -33,20 +34,29 @@ class ProfilController extends Controller
     {
         $user = User::FindOrFail(Auth::user()->id);
 
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $user->id,
-            'number' => 'required|min:11|max:12', // Tambahkan aturan min dan max di sini
+            'number' => 'required|min:11|max:12',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ],[
-            'number' => 'Nomor tidak boleh kurang dari 11 dan tidak boleh lebih dari 12!',
-            'email' => 'E-mail sudah pernah digunakan',
-
-            // 'old_password' =>
-
+            'number.min' => 'Nomor tidak boleh kurang dari 11!',
+            'number.max' => 'Nomor tidak boleh lebih dari 12!',
+            'email.unique' => 'Email sudah pernah digunakan',
+            'email.required' => 'Kolom Email harus diisi',
+            'old_password.required_with' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
+            'new_password.min' => 'Password baru harus memiliki panjang minimal 8 karakter.',
+            'new_password.confirmed' => 'Konfirmasi password baru tidak cocok dengan password baru.',
+            'profile_picture.image' => 'Kolom ini harus berisi gambar dengan format yang sesuai (jpeg, png, jpg).',
+            'profile_picture.mimes' => 'Kolom ini harus berisi gambar dengan format yang sesuai (jpeg, png, jpg).',
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -86,7 +96,8 @@ class ProfilController extends Controller
     public function updateAdmin(Request $request)
     {
         $admin = User::FindOrFail(Auth::user()->id);
-        $request->validate([
+
+        $validator = Validator::make($request->all(),[
             'name' => 'required',
             'number' => 'required',
             'email' => 'email|unique:users,email,' . $admin->id,
@@ -94,9 +105,21 @@ class ProfilController extends Controller
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ],[
-            'new_password' => 'Konfirmasi kata sandi baru tidak cocok.',
+            'number.min' => 'Nomor tidak boleh kurang dari 11!',
+            'number.max' => 'Nomor tidak boleh lebih dari 12!',
+            'email.unique' => 'Email sudah pernah digunakan',
+            'email.required' => 'Kolom Email harus diisi',
+            'old_password.required_with' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
+            'new_password.min' => 'Password baru harus memiliki panjang minimal 8 karakter.',
+            'new_password.confirmed' => 'Konfirmasi password baru tidak cocok dengan password baru.',
+            'profile_picture.image' => 'Kolom ini harus berisi gambar dengan format yang sesuai (jpeg, png, jpg).',
+            'profile_picture.mimes' => 'Kolom ini harus berisi gambar dengan format yang sesuai (jpeg, png, jpg).',
         ]);
-
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         $admin->name = $request->name;
         $admin->email = $request->email;
         $admin->number = $request->number;
