@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <div class="card-body pt-0 mt-4 mt-md-0">
-                        <div id="line_chart_basic" data-colors='["--tb-primary", "--tb-danger"]' class="apex-charts" dir="ltr"></div>
+                        <canvas id="line_chart_basic" data-colors='["--tb-primary", "--tb-danger"]' class="apex-charts" dir="ltr" width="50%"></canvas>
                     </div>
                 </div>
             </div><!--end col-->

@@ -117,7 +117,7 @@
                             <div class="card-body pb-0 mb-n4">
                                 <div class="d-flex z-1 position-relative"></div>
                                 <div class="card-body pt-0">
-                                    <div id="chartDataDashboard"></div>
+                                    <div id="chartDataDashboard" ></div>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +139,7 @@
 
                         var options = {
                             chart: {
-                                height: 350,
+                                height: 100,
                                 type: "line",
                                 stacked: false
                             },
