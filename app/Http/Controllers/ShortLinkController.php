@@ -19,6 +19,34 @@ class ShortLinkController extends Controller
     {
         $user = auth()->user();
 
+        // $validator = Validator::make($request->all(), [
+        //     'default_short_url' => ['required', 'string', 'url'],
+        // ], [
+        //     'default_short_url.required' => 'Kolom URL harus diisi.',
+        //     'default_short_url.url' => 'URL tidak valid.',
+        // ]);
+        // if ($validator->fails()) {
+        //     return response()->json(['message' => 'Masukkan URL yang valid dengan protokol HTTP atau HTTPS atau tautan yang valid.', 'status' => 'gagal']);
+        // }
+        $validator = Validator::make($request->all(), [
+            'default_short_url.*' => 'required|string|url|regex:/^(https?:\/\/)?[^\s/$.?#].[^\s]*$/i',
+        ], [
+            'default_short_url.*.required' => 'Kolom ini wajib diisi!',
+            'default_short_url.*.url' => 'URL tidak valid.',
+        ]);
+        
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            $errorMessages = [];
+        
+            foreach ($errors->all() as $message) {
+                $errorMessages[] = $message;
+            }
+        
+            return response()->json(['message' => implode('<br>', $errorMessages), 'status' => 'gagal']);
+        }
+        
+    
         if ($user->subscribe == 'yes') {
         } else {
             $shortLinkTotal = $user->shortUrls()->count();
@@ -27,11 +55,6 @@ class ShortLinkController extends Controller
                 return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi. ', 'status' => 'gagal']);
             }
         }
-
-        $validatedData = $request->validate([
-            'default_short_url' => 'required|url|starts_with:http://'
-        ]);
-
         $builder = new \AshAllenDesign\ShortURL\Classes\Builder();
         $shortURLObject = $builder
             ->destinationUrl($request->destination_url)
@@ -51,7 +74,9 @@ class ShortLinkController extends Controller
             'user_id' => auth()->id(),
             'default_short_url' => $shortURLObject->default_short_url,
             'password' => Hash::make($request->password),
+            'archive' => 'no',
             'deleted_add' => $request->deleted_add,
+            'click_count' => $request->click_count,
             'qr_code' => $request->qr_code,
             'title' => $request->title,
             'deactivated_at' => $request->deactivated_at
