@@ -212,7 +212,7 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->verification_code = null; // Clear verification code
         $user->save();
-        return redirect()->route('login')->with('success', 'Password berhasil diubah. Silahkan login.');
+        return redirect()->route('login')->with('success', 'Kata sandi berhasil diubah. Silahkan login.');
     }
     public function logout(Request $request)
     {
