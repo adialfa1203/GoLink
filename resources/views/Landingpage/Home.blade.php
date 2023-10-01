@@ -157,7 +157,7 @@
                             <p>Ingin membuat tautan lebih singkat dan lebih mudah diingat?</p>
                             <p>Go Link adalah solusi terbaik untuk Anda!</p>
                             <span style="color: #ffffff;">Sekarang, Anda dapat dengan mudah mengubah tautan panjang menjadi tautan yang simpel dan mudah diingat. Dengan Go Link, mempersingkat URL sesuai dengan keinginan Anda lebih cepat dan lebih sederhana dari sebelumnya.</span>
-                        </div>
+                        </div>                        
                     </div>
                     <!-- banner slides start -->
                     <div class="col-lg-6 col-md-12 aos-init aos-animate d-flex justify-content-start" data-aos="fade-in"
@@ -332,7 +332,7 @@
             <!-- container start -->
             <div class="container">
                 <div class="section_title" data-aos="" data-aos-duration="1500" data-aos-delay="100">
-                    <h2 style="color: #104898;">Dukungan Pembayaran</h2>
+                    <h2 style="color: #104898;">Suport Pembayaran</h2>
                 </div>
                 <!-- logos slider start -->
                 <div class="company_logos">
