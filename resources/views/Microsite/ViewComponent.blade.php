@@ -147,13 +147,7 @@
                 confirmButtonText: 'Ya, Hapus!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire(
-                        'Berhasil!',
-                        'Data telah dihapus.',
-                        'success'
-                    ).then(() => {
-                        window.location.href = '/delete-component/' + id;
-                    });
+                    window.location.href = '/delete-component/' + id;
                 } else if (result.dismiss === Swal.DismissReason.cancel) {
                     Swal.fire(
                         'Dibatalkan',
