@@ -140,7 +140,6 @@ class MicrositeController extends Controller
             ];
             Social::create($socialData);
         }
-        // dd($request);
 
         return redirect()->route('edit.microsite', ['id' => $microsite->id])->with('success', 'Microsite berhasil dibuat');
     }

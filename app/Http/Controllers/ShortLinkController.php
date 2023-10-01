@@ -18,20 +18,35 @@ class ShortLinkController extends Controller
     public function shortLink(Request $request, Toastr $toastr)
     {
         $user = auth()->user();
-        $validator = Validator::make($request->all(), [
-            'default_short_url' => 'required|url',
-        ]);
-        if ($validator->fails()) {
-            return response()->json(['message' => 'Masukkan URL yang valid.', 'status' => 'gagal']);
-        }
+
         if ($user->subscribe == 'yes') {
         } else {
             $shortLinkTotal = $user->shortUrls()->count();
             $historyTotal = $user->history()->count();
             if ($shortLinkTotal + $historyTotal >= 100) {
-                return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi. ', 'status' => 'gagal']);
+                return response()->json([
+                    'message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi.',
+                    'status' => 'gagal'
+                ]);
             }
         }
+
+        // Validasi default_short_url
+        $defaultShortUrl = $request->default_short_url;
+        if (strlen($defaultShortUrl) < 6 || strlen($defaultShortUrl) > 20) {
+            return response()->json([
+                'message' => 'Panjang default_short_url harus antara 6 hingga 20 karakter.',
+                'status' => 'gagal'
+            ]);
+        }
+
+        if (!preg_match('/^[a-zA-Z0-9]+$/', $defaultShortUrl)) {
+            return response()->json([
+                'message' => 'default_short_url hanya boleh berisi huruf dan angka.',
+                'status' => 'gagal'
+            ]);
+        }
+
         $builder = new \AshAllenDesign\ShortURL\Classes\Builder();
         $shortURLObject = $builder
             ->destinationUrl($request->destination_url)
@@ -49,7 +64,7 @@ class ShortLinkController extends Controller
 
         $find->update([
             'user_id' => auth()->id(),
-            'default_short_url' => $shortURLObject->default_short_url,
+            'default_short_url' => $defaultShortUrl,
             'password' => Hash::make($request->password),
             'archive' => 'no',
             'deleted_add' => $request->deleted_add,
