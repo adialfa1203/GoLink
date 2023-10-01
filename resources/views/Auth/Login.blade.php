@@ -99,14 +99,15 @@
                                             <p class="text-muted">Masuk untuk melanjutkan ke Go.Link</p>
                                         </div>
                                         <div class="p-2 mt-5">
-                                            <form action="{{ route('login.user') }}" method="">
+                                            <form action="{{ route('login.user') }}" method="POST">
                                                 @csrf
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Email</label>
                                                     <div class="position-relative ">
                                                         <input type="text" class="form-control password-input"
-                                                            name="email" id="username" placeholder="Masukkan Email"
-                                                            required value="{{ old('email') }}">
+                                                            name="email" id="email" placeholder="Masukkan Email"
+                                                             value="{{ old('email') }}">
+                                                            
                                                     </div>
                                                 </div>
 
@@ -118,7 +119,7 @@
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input type="password" class="form-control pe-5 password-input"
                                                             name="password" placeholder="Kata Sandi" id="password-input"
-                                                            required value="{{ old('password') }}">
+                                                            required >
                                                         <button
                                                             class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                                                             type="button" id="password-addon"><i
