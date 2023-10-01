@@ -36,7 +36,7 @@
                     <!-- Footer Links -->
 
                     <div class="col-lg-2 col-md-6 col-12">
-                        <div class="links">
+                        <div class="links text-center">
                             <h3>Dukungan</h3>
                             <ul>
                                 <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-12">
-                        <div class="links">
+                        <div class="links text-center">
                             <h3>SiteMaps</h3>
                             <ul>
                                 <li><a href="/">Beranda</a></li>
@@ -61,7 +61,7 @@
 
                     <!-- Contact Information -->
                     <div class="col-lg-2 col-md-6 col-12">
-                        <div class="links">
+                        <div class="links text-center">
                             <h3>Hubungi Kami</h3>
                             <ul style="text-align: justify;">
                                 <li>
