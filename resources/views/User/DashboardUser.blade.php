@@ -1,6 +1,6 @@
 @extends('layout.user.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Beranda')
 @section('style')
     <style>
         .custom-icon-size {
@@ -84,7 +84,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0">Dashboard</h4>
+                            <h4 class="mb-sm-0">Bernada</h4>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 @extends('layout.user.app')
 
-@section('title', 'Profile')
+@section('title', 'Profil')
 
 @section('content')
     <form action="{{ route('updateProfile') }}" method="POST" enctype="multipart/form-data">

@@ -1,6 +1,6 @@
 @extends('layout.user.app')
 
-@section('title', 'Link')
+@section('title', 'Tautan')
 @section('style')
     <style>
         .card-header .col-12 {
