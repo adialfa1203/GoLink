@@ -69,7 +69,7 @@ class ProfilController extends Controller
             $user->password = Hash::make($request->new_password);
         }
         if ($request->hasFile('profile_picture')) {
-            if (file_exists(public_path('profile_pictures/' . $user->profile_picture))) {
+            if ($user->profile_picture && file_exists(public_path('profile_pictures/' . $user->profile_picture))) {
                 unlink(public_path('profile_pictures/' . $user->profile_picture));
             }
 
@@ -128,7 +128,7 @@ class ProfilController extends Controller
             $admin->password = Hash::make($request->new_password);
         }
         if ($request->hasFile('profile_picture')) {
-            if (file_exists(public_path('profile_pictures/' . $admin->profile_picture))) {
+            if ($admin->profile_picture && file_exists(public_path('profile_pictures/' . $admin->profile_picture))) {
                 unlink(public_path('profile_pictures/' . $admin->profile_picture));
             }
 
@@ -137,6 +137,7 @@ class ProfilController extends Controller
             $coverImage->move(public_path('profile_pictures'), $coverImageName);
             $admin->profile_picture = $coverImageName;
         }
+        // dd($request->profile_picture);
         $admin->save();
         return redirect()->back()->with('success', 'Data berhasil diperbarui.');
     }
