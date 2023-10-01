@@ -77,7 +77,7 @@ class ProfilController extends Controller
                     unlink($oldProfilePath);
                 }
             }
-
+            dd($request->profile_picture);
             $profilePicturePath = $request->file('profile_picture')->move(public_path('profile_pictures'), $user->id . '.jpg');
             $user->profile_picture = 'profile_pictures/' . $user->id . '.jpg';
         }
