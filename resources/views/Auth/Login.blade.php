@@ -14,7 +14,8 @@
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}" style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
+        style="width: 200px; height: 200px;">
 
 
     <!-- Fonts css load -->
@@ -70,7 +71,7 @@
     <script>
         window.addEventListener('resize', function() {
             var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body
-            .clientWidth;
+                .clientWidth;
             if (screenWidth <= 768) { // Adjusted to 768px to match the tablet width
                 var imgElement = document.querySelector('.img');
                 if (imgElement) {
@@ -99,14 +100,20 @@
                                             <p class="text-muted">Masuk untuk melanjutkan ke Go.Link</p>
                                         </div>
                                         <div class="p-2 mt-5">
-                                            <form action="{{ route('login.user') }}" method="">
+                                            <form action="{{ route('login.user') }}" method="GET">
                                                 @csrf
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Email</label>
                                                     <div class="position-relative ">
                                                         <input type="text" class="form-control password-input"
-                                                            name="email" id="username" placeholder="Masukkan Email"
-                                                            required value="{{ old('email') }}">
+                                                            name="email" id="username" value="{{ old('email') }}"
+                                                            placeholder="Masukkan Email" required>
+                                                    </div>
+                                                    <div>
+                                                        @if ($errors->has('email'))
+                                                            <span
+                                                                class="text-danger">{{ $errors->first('email') }}</span>
+                                                        @endif
                                                     </div>
                                                 </div>
 
@@ -119,6 +126,12 @@
                                                         <input type="password" class="form-control pe-5 password-input"
                                                             name="password" placeholder="Kata Sandi" id="password-input"
                                                             required value="{{ old('password') }}">
+                                                        <div>
+                                                            @if ($errors->has('password'))
+                                                                <span
+                                                                    class="text-danger">{{ $errors->first('password') }}</span>
+                                                            @endif
+                                                        </div>
                                                         <button
                                                             class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                                                             type="button" id="password-addon"><i
@@ -150,7 +163,8 @@
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="myModalLabel">Kebijakan
+                                                                    <h5 class="modal-title" id="myModalLabel">
+                                                                        Kebijakan
                                                                         Privasi</h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal"

@@ -22,11 +22,17 @@ class AuthController extends Controller
 
     public function loginUser(Request $request){
         $credentials = $request->only('email', 'password');
-        $remember = $request->input('remember'); 
+        $remember = $request->input('remember');
 
         $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|min:6', 
             'remember' => 'required|string|max:15'
         ], [
+            'email.required' => 'Alamat email wajib diisi.',
+            'email.email' => 'Alamat email tidak valid.',
+            'password.required' => 'Password wajib diisi.',
+            'password.min' => 'Password harus memiliki panjang minimal :min karakter.',
             'remember.required' => 'Anda harus menyetujui Kebijakan Privasi.'
         ]);
 
