@@ -144,13 +144,6 @@
                                                         populer</span>
                                                 @endif
                                             </td>
-                                            {{-- <td>
-            <ul class="d-flex gap-2 list-unstyled mb-0">
-                <li>
-                    <a href="#deleteRecordModal" class="btn btn-subtle-danger btn-icon btn-sm me-3"><i class="fas fa-ban"></i></a>
-                </li>
-            </ul>
-        </td> --}}
                                         </tr>
                                     @endforeach
 
