@@ -33,7 +33,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 Route::middleware(['guest'])->group(function () {
 Route::get('/login',[AuthController::class,'login'])->name('login');
-Route::get('/login-user',[AuthController::class,'loginUser'])->name('login.user');
+Route::POST('/login-user',[AuthController::class,'loginUser'])->name('login.user');
 Route::get('/Link', [LinkController::class, 'Link'])->name('Link');
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register.user');
