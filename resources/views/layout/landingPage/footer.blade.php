@@ -26,9 +26,7 @@
                         <div class="abt_side">
                             <div class="logo">
                                 <img src="{{ asset('linkbaru.png') }}" alt="image" style="margin-top: -10%;">
-                                <ul style="margin-bottom: -50%; margin-right:10px;">
-                                    <li style="color: white; font-size:14px;">{!! $data->description !!}</li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -63,7 +61,7 @@
                     <div class="col-lg-2 col-md-6 col-12">
                         <div class="links text-center">
                             <h3>Hubungi Kami</h3>
-                            <ul style="text-align: justify;">
+                            <ul style="text-align: center;">
                                 <li>
                                     <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20LINKID"
                                         target="_blank">
@@ -114,7 +112,7 @@
         <div class="bottom_footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 text-right">
+                    <div class="col-md-12 text-center">
                         <p>© Go.Link Dikelola oleh PT. Hummatech</p>
                     </div>
                 </div>
