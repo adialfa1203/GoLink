@@ -9,7 +9,6 @@ use App\Models\ShortUrl;
 use App\Models\Microsite;
 use App\Models\Components;
 use App\Helpers\DateHelper;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
@@ -94,11 +93,17 @@ class MicrositeController extends Controller
             return redirect()->back();
         }
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'microsite_selection' => 'required',
             'name' => 'required|string|regex:/^[^-+]+$/u|max:10',
             'link_microsite' => 'required|regex:/^[^+]+$/u|unique:microsites,link_microsite,id',
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('error', 'Kesalahan, ada kolom yang belum terisi dengan benar!');
+        }
         $link = $request->link_microsite;
         $micrositeStr = str_replace(' ', '-', $link);
         $data = [
