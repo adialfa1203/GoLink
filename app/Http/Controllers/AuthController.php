@@ -17,7 +17,7 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthController extends Controller
 {
     public function login(Request $request){
-        return view('Auth.login');
+        return view('Auth.Login');
     }
 
     public function loginUser(Request $request){
