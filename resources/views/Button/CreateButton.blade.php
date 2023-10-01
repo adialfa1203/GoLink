@@ -40,9 +40,9 @@
                                             {{ old('icon') === 'bi bi-facebook' ? 'selected' : '' }}>Facebook</option>
                                         <option value="bi bi-twitter"
                                             {{ old('icon') === 'bi bi-twitter' ? 'selected' : '' }}>Twitter</option>
-                                        <option value="bi bi-telephone-fill"
+                                        {{-- <option value="bi bi-telephone-fill"
                                             {{ old('icon') === 'bi bi-telephone-fill' ? 'selected' : '' }}>Telephone
-                                        </option>
+                                        </option> --}}
                                         <option value="bi bi-instagram"
                                             {{ old('icon') === 'bi bi-instagram' ? 'selected' : '' }}>Instagram</option>
                                         <option value="bi bi-linkedin"
