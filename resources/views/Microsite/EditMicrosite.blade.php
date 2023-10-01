@@ -62,6 +62,7 @@
                                                 @endif
                                             </div>
                                         </div>
+                                        <label for="employeeName" class="form-label">Deskripsi</label>
                                         <textarea name="description" id="editor">{{ old('description', $microsite->description) }}</textarea>
                                         <div>
                                             @if ($errors->has('description'))
