@@ -129,7 +129,7 @@
                     <button class="nav-link bg-transparent text-white" type="button" role="button"
                         aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">
                         <img class="header-profile-user"
-                            src="{{ Auth::user()->profile_picture ? asset(Auth::user()->profile_picture) : asset('profile_pictures/default.jpg') }}"
+                            src="{{ Auth::user()->profile_picture ? asset('profile_pictures/' . Auth::user()->profile_picture) : asset('profile_pictures/default.jpg') }}"
                             alt="Header Avatar" style="margin-right:10px;">
                         <div class="text-start ms-xl-2">
                             <span><b>Hai! {{ Auth::user()->name }}</b></span>
@@ -182,7 +182,8 @@
                         <span data-key="t-email">Tautan</span> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('view.component') ? 'active' : '' }} {{ request()->routeIs('create.component') ? 'active' : '' }} {{ request()->routeIs('edit.component') ? 'active' : '' }}" href="{{ url('view-component') }}" class="nav-link menu-link"><i class="bi bi-grid"></i>
+                    <a class="nav-link menu-link {{ request()->routeIs('view.component') ? 'active' : '' }} {{ request()->routeIs('create.component') ? 'active' : '' }} {{ request()->routeIs('edit.component') ? 'active' : '' }}"
+                        href="{{ url('view-component') }}" class="nav-link menu-link"><i class="bi bi-grid"></i>
                         <span data-key="t-email">Kategori</span> </a>
                 </li>
                 <li class="nav-item">
@@ -203,8 +204,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->routeIs('view.footer') ? 'active' : '' }}"
-                        href="{{ url('view-footer') }}" class="nav-link menu-link"> <i
-                            class="bi bi-exclude"></i> <span data-key="t-chat">Footer</span> </a>
+                        href="{{ url('view-footer') }}" class="nav-link menu-link"> <i class="bi bi-exclude"></i>
+                        <span data-key="t-chat">Footer</span> </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->routeIs('profileAdmin') ? 'active' : '' }}"
