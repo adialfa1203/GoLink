@@ -205,7 +205,7 @@
                                     <a class="nav-link" href="/Subscribe">Berlangganan</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link dark_btn" href="/login">Login / Register</a>
+                                    <a class="nav-link dark_btn" href="/login">Masuk / Daftar</a>
                                 </li>
                             </ul>
                         </div>
