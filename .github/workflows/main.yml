@@ -38,6 +38,5 @@ jobs:
           **/node_modules/**
           **/vendor/**
           **/storage/imports/**
-          **/public/template/**
           **/Landingpage/LP/**
 
