@@ -136,7 +136,7 @@
                                             <div class="col-lg-12">
                                                 <div>
                                                     <label for="AmountInput" class="form-label">Tautan Panjang</label>
-                                                    <input class="form-control" name="destination_url" id="AmountInput"
+                                                    <input type="text" class="form-control" name="destination_url" id="AmountInput"
                                                         placeholder="http://domain-mu.id/yang-paling-panjang-disini">
                                                 </div>
                                                 <div>
@@ -295,14 +295,14 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <label class="form-label">Judul</label>
-                                                <input class="form-control" id="title">
+                                                <input class="form-control" id="title" disabled>
                                             </div>
                                             <hr>
                                             <div class="col-lg-12">
                                                 <div class="input-group align-items-center rounded"
                                                     style="background: #E9EEF5">
                                                     <input id="default_short_url" class="form-control" type="text"
-                                                        id="salin">
+                                                        id="salin" disabled>
                                                     {{-- salin --}}
                                                     <div id="successCopy" class="alert alert-success mt-3"
                                                         style="display: none; position: fixed; bottom: 570px; right: 560px; max-width: 500px;">
@@ -321,7 +321,7 @@
                                             <div class="col-lg-12">
                                                 <div class="countdown-input-subscribe">
                                                     <label for="cardNumber" class="form-label">URL asli</label>
-                                                    <input class="form-control" id="destination_url">
+                                                    <input class="form-control" id="destination_url" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -1064,14 +1064,14 @@
     <script>
         // Dapatkan tanggal saat ini
         var currentDate = new Date();
-    
+
         // Hitung tanggal awal bulan depan
         var nextMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
-    
+
         // Format tanggal menjadi 'DD Month YYYY'
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
         var formattedDate = nextMonthDate.toLocaleDateString('id-ID', options);
-    
+
         // Setel tanggal yang dihasilkan ke dalam elemen HTML
         document.getElementById('nextMonthDate').textContent = formattedDate;
     </script>

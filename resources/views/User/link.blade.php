@@ -156,11 +156,14 @@
                                                                                     </div>
 
                                                                                     <div class="countdown-input-subscribe">
-                                                                                        <label class="platform"
-                                                                                            onclick="window.open(` https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${document.getElementById('default_short_url{{ $i }}').innerText}`)"><i
-                                                                                                class="bi bi-qr-code"></i>
-                                                                                            &nbsp; QR Code</label>
-                                                                                    </div>
+                                                                        <a id="tombol-modal"
+                                                                            onclick="tombolmodal('{{ $row->id }}')"
+                                                                            type="button" data-bs-toggle="modal"
+                                                                            data-bs-target="#tombol-modal-{{ $row->id }}"
+                                                                            data-id="{{ $row->id }}"><i
+                                                                                class="bi bi-qr-code"></i> &nbsp; QR
+                                                                            Code</a>
+                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

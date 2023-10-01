@@ -56,6 +56,7 @@ class ShortLinkController extends Controller
 
         return response()->json($find);
     }
+   
     public function accessShortLink(Request $request, $shortCode)
     {
         // Anda mungkin perlu menyesuaikan ini dengan metode yang digunakan oleh pustaka tautan pendek yang Anda gunakan.
