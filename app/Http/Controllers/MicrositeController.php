@@ -313,7 +313,7 @@ class MicrositeController extends Controller
         $component->component_name = $request->component_name;
         $component->save();
 
-        return redirect()->route('view.component')->with('success', 'Komponen berhasil diupdate.');
+        return redirect()->route('view.component')->with('success', 'Komponen berhasil di edit.');
     }
 
     public function deleteComponent($id)

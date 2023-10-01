@@ -40,7 +40,7 @@ class ButtonController extends Controller
             'icon' => $request->icon,
             'color_hex' => $request->color_hex,
         ]);
-        return redirect()->route('view.button')->with('success', 'Button berhasil ditambah.');
+        return redirect()->route('view.button')->with('success', 'Media Sosial berhasil ditambah.');
     }
 
 
@@ -77,10 +77,10 @@ class ButtonController extends Controller
         $socialCount = Social::where('buttons_uuid', $id)->count();
 
         if ($socialCount > 0) {
-            return redirect()->back()->with('error', 'Tidak dapat mengupdate Sosial ini karena masih ada data terkait.');
+            return redirect()->back()->with('error', 'Tidak dapat mengedit Media Sosial ini karena masih ada data terkait.');
         }
 
-        return redirect()->route('view.button')->with('success', 'Button berhasil diupdate.');
+        return redirect()->route('view.button')->with('success', 'Media Sosial berhasil diedit.');
     }
 
     public function deleteButton($id)
@@ -89,12 +89,12 @@ class ButtonController extends Controller
         $socialCount = Social::where('buttons_uuid', $id)->count();
 
         if ($socialCount > 0) {
-            return redirect()->back()->with('error', 'Tidak dapat menghapus Sosial ini karena masih ada data terkait.');
+            return redirect()->back()->with('error', 'Tidak dapat menghapus Media Sosial ini karena masih ada data terkait.');
         }
 
         $button->delete();
 
-        return redirect()->route('view.button')->with('success', 'Button sukses dihapus.');
+        return redirect()->route('view.button')->with('success', 'Media Sosial sukses dihapus.');
     }
 
 }

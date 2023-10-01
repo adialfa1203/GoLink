@@ -70,7 +70,7 @@ document.getElementById("sa-basic") && document.getElementById("sa-basic").addEv
                 showCancelButton: true,
                 confirmButtonColor: confirmButtonColor,
                 cancelButtonColor: "#3085d6",
-                confirmButtonText: `Ya, ${actionText} user Ini!`,
+                confirmButtonText: `Ya, ${actionText} Pengguna Ini!`,
             }).then((result) => {
                 if (result.isConfirmed) {
                     const actionRoute = isBanned ? `/admin/user/${userId}/unban` : `/admin/user/${userId}/ban`;
