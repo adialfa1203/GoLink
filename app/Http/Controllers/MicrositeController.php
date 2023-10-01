@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\DateHelper;
+use Carbon\Carbon;
 use App\Models\Button;
 use App\Models\Social;
 use App\Models\ShortUrl;
 use App\Models\Microsite;
 use App\Models\Components;
-use Carbon\Carbon;
+use App\Helpers\DateHelper;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 class MicrositeController extends Controller
@@ -285,7 +286,7 @@ class MicrositeController extends Controller
         $micrositeCount = Microsite::where('components_uuid', $id)->count();
 
         if ($micrositeCount > 0) {
-            return redirect()->back()->with('error', 'Tidak dapat mengedit komponen ini karena masih ada data terkait.');
+            return Response::json($micrositeCount, 'Tidak dapat mengedit komponen ini karena masih ada data terkait.', 400);
         }
 
         if ($request->hasFile('cover_img')) {
