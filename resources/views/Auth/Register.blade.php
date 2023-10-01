@@ -150,18 +150,18 @@
                                                             <div class="position-relative auth-pass-inputgroup mb-3">
                                                                 <input name="password" type="password"
                                                                     class="form-control pe-5 password-input "
-                                                                    placeholder="Kata Sandi" id="password-input"
+                                                                    placeholder="Masukkan Kata Sandi" id="password-input"
                                                                     value="{{ old('password') }}">
                                                                 <button
                                                                     class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                                                                     type="button" id="password-addon"><i
                                                                         class="ri-eye-fill align-middle"></i></button>
-                                                            </div>
-                                                            <div>
-                                                                @if ($errors->has('password'))
-                                                                    <span
-                                                                        class="text-danger">{{ $errors->first('password') }}</span>
-                                                                @endif
+                                                                        <div>
+                                                                            @if ($errors->has('password'))
+                                                                                <span
+                                                                                    class="text-danger">{{ $errors->first('password') }}</span>
+                                                                            @endif
+                                                                        </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -189,26 +189,6 @@
                                                     <div class="mt-4">
                                                         <button class="btn btn-primary w-100 custom-btn"
                                                             type="submit">Daftar</button>
-                                                    </div>
-
-                                                    <div class="mt-4 pt-2 text-center">
-                                                        <div class="signin-other-title position-relative">
-                                                            <h5 class="fs-sm mb-4 title">Masuk Dengan</h5>
-                                                        </div>
-                                                        <div class="pt-2 hstack gap-2 justify-content-center">
-                                                            <button type="button"
-                                                                class="btn btn-subtle-primary btn-icon"><i
-                                                                    class="ri-facebook-fill fs-lg"></i></button>
-                                                            <button type="button"
-                                                                class="btn btn-subtle-danger btn-icon"><i
-                                                                    class="ri-google-fill fs-lg"></i></button>
-                                                            <button type="button"
-                                                                class="btn btn-subtle-dark btn-icon"><i
-                                                                    class="ri-github-fill fs-lg"></i></button>
-                                                            <button type="button"
-                                                                class="btn btn-subtle-info btn-icon"><i
-                                                                    class="ri-twitter-fill fs-lg"></i></button>
-                                                        </div>
                                                     </div>
                                                 </form>
 

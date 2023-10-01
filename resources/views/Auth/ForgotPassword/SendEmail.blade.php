@@ -89,21 +89,22 @@
                                             <div class="p-2">
                                                 <form action="{{ route('sendEmail')}}" method="POST">
                                                     @csrf
-                                                    <div>
-                                                        @error('email')
-                                                            <div class="alert alert-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
+
                                                     <div class="mb-4">
                                                         <label class="form-label">Email</label>
-                                                        <input type="email" name="email" class="form-control password-input" id="email" placeholder="Masukkan Email" required >
+                                                        <input type="email" name="email" class="form-control password-input" id="email" placeholder="Masukkan Email" >
+                                                        <div>
+                                                            @if ($errors->has('email'))
+                                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                     <div class="text-center mt-4">
                                                         <button class="btn btn-primary w-100" type="submit">Kirim Email</button>
-                                                    </div>                                                    
+                                                    </div>
                                                 </form><!-- end form -->
                                             </div>
-                                            
+
                                             <div class="mt-4 text-center">
                                                 <p class="mb-0">Tunggu, saya ingat kata sandi saya ... <a href="{{ url ('login')}}" class="fw-semibold text-primary text-decoration-underline"> Masuk </a> </p>
                                             </div>

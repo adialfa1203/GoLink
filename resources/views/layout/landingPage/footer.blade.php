@@ -43,15 +43,14 @@
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-12">
-                        <div class="links text-center">
+                        <div class="links">
                             <h3>SiteMaps</h3>
                             <ul>
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/Shortlink">Perpendek Link</a></li>
                                 <li><a href="/Microsite">Situs Mikro</a></li>
                                 <li><a href="/Subscribe">Berlanggaan</a></li>
-                                <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                <li><a href="/Privacy">Kebijakan Privasi</a></li>
+
 
                             </ul>
                         </div>
@@ -154,14 +153,13 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="links text-center">
-                            <h3>SiteMaps</h3>
+                            <h3>Peta Situs</h3>
                             <ul>
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/Shortlink">Perpendek Link</a></li>
                                 <li><a href="/Microsite">Situs Mikro</a></li>
                                 <li><a href="/Subscribe">Berlanggaan</a></li>
-                                <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                <li><a href="/Privacy">Kebijakan Privasi</a></li>
+                              
 
                             </ul>
                         </div>

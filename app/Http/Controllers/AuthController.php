@@ -17,7 +17,7 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthController extends Controller
 {
     public function login(Request $request){
-        return view('Auth.Login');
+        return view('Auth.login');
     }
 
     public function loginUser(Request $request){
@@ -25,16 +25,20 @@ class AuthController extends Controller
         $remember = $request->input('remember');
 
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|min:5',
-            'remember' => 'required|string|max:15'
+            'remember' => 'required|string|max:15',
+            'email' => 'required|string|email|regex:/^[^-+]+$/u|exists:users,email',
+            'password' => 'required|string',
         ], [
-            'email.required' => 'Alamat email wajib diisi.',
-            'email.email' => 'Alamat email tidak valid.',
-            'password.required' => 'Password wajib diisi.',
-            'password.min' => 'Password harus memiliki panjang minimal :min karakter.',
-            'remember.required' => 'Anda harus menyetujui Kebijakan Privasi.'
+            'remember.required' => 'Anda harus menyetujui Kebijakan Privasi.',
+            'email.required' => 'Email tidak boleh kosong',
+            'email.email' => 'Email harus memiliki format yang valid.',
+            'email.exists' => 'Email belum terdaftar.',
+            'email.regex' => 'Email tidak boleh mengandung simbol',
+            'password.required' => 'Password tidak boleh kosong',
+            'password.password' => 'Kata sandi yang Anda inputkan tidak sesuai'
         ]);
+
+
 
         if ($validator->fails()) {
             return redirect()->back()
@@ -71,18 +75,21 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:15',
-            'email' => 'required|email|unique:users',
-            'number' => 'required|max:12|regex:/^[^-+]+$/u|min:6',
+            'email' => 'required|email|regex:/^[^-+]+$/u|unique:users',
+            'number' => 'required|max:13|regex:/^[^-+]+$/u|min:11',
             'password' => 'required|min:8',
             'password_confirmation' => 'required_with:password|same:password'
         ], [
-            'name.required' => 'Nama Lengkap harus diisi',
-            'email.required' => 'Email harus diisi',
+            'name.required' => 'Nama Lengkap tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'email.regex' => 'Email tidak boleh dengan simbol',
             'email.email' => 'Email harus menyertakan karakter @ untuk menjadi alamat email yang valid.',
-            'number.required' => 'Nomor Ponsel harus diisi',
+            'number.required' => 'Nomor tidak boleh kosong',
+            'number' => 'Nomor tidak boleh kurang dari 10 dan tidak boleh lebih dari 13!',
+            'number.regex' => 'Nomor wajib angka',
             'password_confirmation.same' => 'Password dan Konfirmasi Password tidak cocok.',
             'email.unique' => 'Email sudah terdaftar, silahkan gunakan email lain.',
-            'password.required' => 'Kata sandi harus diisi.',
+            'password.required' => 'Kata sandi tidak boleh kosong',
             'password.min' => 'Kata sandi minimal terdiri dari 8 karakter.'
         ]);
         if ($validator->fails()) {
@@ -114,13 +121,16 @@ class AuthController extends Controller
         return view('Auth.ForgotPassword.SendEmail');
     }
 
-
-
     public function sendSampleEmail(Request $request)
     {
         $this->validate($request, [
             'email' => 'required|email',
+        ], [
+            'email.required' => 'Email tidak boleh kosong',
         ]);
+
+        // Lakukan logika pengiriman email jika validasi berhasil.
+
 
         $user = User::where('email', $request->email)->first();
 
