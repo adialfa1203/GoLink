@@ -43,7 +43,7 @@
                             <div class="card-body pt-0 mt-n5">
                                 <div class="text-center">
                                     <div class="profile-user position-relative d-inline-block mx-auto">
-                                        <img src="{{ asset($user->profile_picture ? $user->profile_picture : 'profile_pictures/default.jpg') }}"
+                                        <img src="{{ asset('profile_pictures/' . ($user->profile_picture ? $user->profile_picture : 'default.jpg')) }}"
                                             alt="{{ $user->name }}"
                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                         <div

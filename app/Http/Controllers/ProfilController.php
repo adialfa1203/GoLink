@@ -68,21 +68,18 @@ class ProfilController extends Controller
             }
             $user->password = Hash::make($request->new_password);
         }
-
         if ($request->hasFile('profile_picture')) {
-            $oldProfilePicture = $user->profile_picture;
-            if ($oldProfilePicture) {
-                $oldProfilePath = public_path('profile_pictures/' . $oldProfilePicture);
-                if (file_exists($oldProfilePath)) {
-                    unlink($oldProfilePath);
-                }
+            if (file_exists(public_path('profile_pictures/' . $user->profile_picture))) {
+                unlink(public_path('profile_pictures/' . $user->profile_picture));
             }
 
-            $profilePicturePath = $request->file('profile_picture')->move(public_path('profile_pictures'), $user->id . '.jpg');
-            $user->profile_picture = 'profile_pictures/' . $user->id . '.jpg';
+            $coverImage = $request->file('profile_picture');
+            $coverImageName = time() . '_cover.' . $coverImage->getClientOriginalExtension();
+            $coverImage->move(public_path('profile_pictures'), $coverImageName);
+            $user->profile_picture = $coverImageName;
         }
-        // dd('profile_picture');
-        $user->update();
+        // dd($request->profile_picture);
+        $user->save();
 
         return redirect()->back()->with('success', 'Data berhasil diperbarui.');
     }
@@ -130,20 +127,17 @@ class ProfilController extends Controller
             }
             $admin->password = Hash::make($request->new_password);
         }
-
         if ($request->hasFile('profile_picture')) {
-            $oldProfilePicture = $admin->profile_picture;
-            if ($oldProfilePicture) {
-                $oldProfilePath = public_path('profile_pictures/' . $oldProfilePicture);
-                if (file_exists($oldProfilePath)) {
-                    unlink($oldProfilePath);
-                }
+            if (file_exists(public_path('profile_pictures/' . $admin->profile_picture))) {
+                unlink(public_path('profile_pictures/' . $admin->profile_picture));
             }
 
-            $profilePicturePath = $request->file('profile_picture')->move(public_path('profile_pictures'), $admin->id . '.jpg');
-            $admin->profile_picture = 'profile_pictures/' . $admin->id . '.jpg';
+            $coverImage = $request->file('profile_picture');
+            $coverImageName = time() . '_cover.' . $coverImage->getClientOriginalExtension();
+            $coverImage->move(public_path('profile_pictures'), $coverImageName);
+            $admin->profile_picture = $coverImageName;
         }
-        $admin->update();
+        $admin->save();
         return redirect()->back()->with('success', 'Data berhasil diperbarui.');
     }
 }
