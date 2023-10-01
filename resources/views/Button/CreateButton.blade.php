@@ -25,7 +25,7 @@
                                 <div class="mt-2">
                                     <label for="name_button" class="form-label">Nama Button</label>
                                     <input type="text" name="name_button" class="form-control" id="name_button"
-                                        placeholder="Nama Button" required value="{{ old('name_button') }}">
+                                        placeholder="Masukkan Nama Button" required value="{{ old('name_button') }}">
                                     <div class="invalid-feedback">
                                         Harap isi kolom ini sebelum melanjutkan proses.
                                     </div>

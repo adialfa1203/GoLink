@@ -65,7 +65,7 @@
                                     <div class="mt-3">
                                         <h5>{{ $admin->name }}<i
                                                 class="bi bi-patch-check-fill align-baseline text-info ms-1"></i></h5>
-                                        <p class="text-muted">Web Developer</p>
+                                        <p class="text-muted">Admin</p>
                                     </div>
                                 </div>
                             </div>

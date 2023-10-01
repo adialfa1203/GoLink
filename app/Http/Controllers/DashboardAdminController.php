@@ -102,11 +102,20 @@ class DashboardAdminController extends Controller
         $footer = Footer::first();
         $validator = Validator::make($request->all(), [
             'description' => 'string|max:225',
-            'whatsapp' => 'string|integer',
+            'whatsapp' => 'string|min:11|max:13', // Gunakan aturan regex untuk memeriksa panjang nomor
             'instagram' => 'string',
             'twitter' => 'string',
-            // 'logo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ],[
+            'whatsapp' => 'Nomor tidak boleh kurang dari 10 dan tidak boleh lebih dari 13!',
+            'whatsapp.min' => 'Nomor tidak boleh kurang dari 10 dan tidak boleh lebih dari 13!',
+            'whatsapp.max' => 'Nomor tidak boleh kurang dari 10 dan tidak boleh lebih dari 13!'
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        
 
         // if ($request->hasFile('logo')) {
         //     $oldProfilePicture = $footer->logo;
