@@ -3142,7 +3142,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background-color: #ffff;
+    /* background-color: #ffff; */
     color: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
