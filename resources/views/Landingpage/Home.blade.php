@@ -121,8 +121,17 @@
             height: auto;
             /* Menjaga aspek rasio gambar */
         }
+        //active
+        
     </style>
-
+<style>
+    .navbar-nav a.nav-link.active {
+        background-color: #ffffff;
+        color: #104898;
+        border-start-end-radius: 10px;
+        border-top-left-radius: 10px;
+        }
+</style>
     <!-- Page-wrapper-Start -->
     <div class="page_wrapper">
 
@@ -163,7 +172,7 @@
                     <div class="col-lg-6 col-md-12 aos-init aos-animate d-flex justify-content-start" data-aos="fade-in"
                         data-aos-duration="1500">
                         <div class="banner_image">
-                            <img class="moving_animation" src="{{ asset('landingpage.png') }}"
+                            <img class="moving_animation" src="{{ asset('landing-page 2.png') }}"
                                 alt="image">
                         </div>
                     </div>

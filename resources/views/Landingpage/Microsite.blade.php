@@ -98,6 +98,14 @@
             /* Atur padding sesuai kebutuhan Anda */
         }
     </style>
+    <style>
+        .navbar-nav a.nav-link.active {
+            background-color: #ffffff;
+            color: #104898;
+            border-start-end-radius: 10px;
+            border-top-left-radius: 10px;
+            }
+    </style>
     <!-- Page-wrapper-Start -->
     <div class="page_wrapper">
 
@@ -139,7 +147,7 @@
                     <div class="col-lg-6 col-md-12 aos-init aos-animate d-flex justify-content-start" data-aos="fade-in"
                         data-aos-duration="1500">
                         <div class="banner_image m-0">
-                            <img class="moving_animation" src="{{ asset('template/image/situs mikro.png') }}"
+                            <img class="moving_animation" src="{{ asset('situs mikro.png') }}"
                                 alt="image">
                         </div>
                     </div>
@@ -188,7 +196,7 @@
                         <!--end col-->
                         <div class="col-lg-1 offset-xl-1">
                             <div class="mt-lg-0 mt-5 d-flex justify-content-center">
-                                <img src="https://i.postimg.cc/ZqHQGxQD/Landing-Page2.png" alt="home04" class="home-img" width="300" height="200">
+                                <img src="{{ asset('landing-page 2.png') }}" alt="home04" class="home-img" width="300" height="200">
                             </div>
                         </div>
                     </div>
@@ -204,7 +212,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-5 col-lg-6">
                             <div class="mt-lg-0 mt-5 d-flex justify-content-center">
-                                <img src="{{ asset('template/image/situs mikro.png') }}" alt="home04" class="home-img d-flex justify-content-start" width="350" height="200">
+                                <img src="{{ asset('situs mikro.png') }}" alt="home04" class="home-img d-flex justify-content-start" width="350" height="200">
                             </div>
                         </div>
                         <div class="col-lg-6 offset-xl-1">
