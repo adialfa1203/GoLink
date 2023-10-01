@@ -43,9 +43,9 @@ class ProfilController extends Controller
         ],[
             'number' => 'Nomor tidak boleh kurang dari 11 dan tidak boleh lebih dari 12!',
             'email' => 'E-mail sudah pernah digunakan',
-            
-            // 'old_password' => 
-        
+
+            // 'old_password' =>
+
         ]);
 
         $user->name = $request->name;
@@ -62,13 +62,13 @@ class ProfilController extends Controller
         if ($request->hasFile('profile_picture')) {
             $oldProfilePicture = $user->profile_picture;
             if ($oldProfilePicture) {
-                $oldProfilePath = public_path('profile_pictures/' . $oldProfilePicture);
+                $oldProfilePath = Public_path('profile_pictures/' . $oldProfilePicture);
                 if (file_exists($oldProfilePath)) {
                     unlink($oldProfilePath);
                 }
             }
 
-            $profilePicturePath = $request->file('profile_picture')->move(public_path('profile_pictures'), $user->id . '.jpg');
+            $profilePicturePath = $request->file('profile_picture')->move(Public_path('profile_pictures'), $user->id . '.jpg');
             $user->profile_picture = 'profile_pictures/' . $user->id . '.jpg';
         }
         // dd('profile_picture');
@@ -111,13 +111,13 @@ class ProfilController extends Controller
         if ($request->hasFile('profile_picture')) {
             $oldProfilePicture = $admin->profile_picture;
             if ($oldProfilePicture) {
-                $oldProfilePath = public_path('profile_pictures/' . $oldProfilePicture);
+                $oldProfilePath = Public_path('profile_pictures/' . $oldProfilePicture);
                 if (file_exists($oldProfilePath)) {
                     unlink($oldProfilePath);
                 }
             }
 
-            $profilePicturePath = $request->file('profile_picture')->move(public_path('profile_pictures'), $admin->id . '.jpg');
+            $profilePicturePath = $request->file('profile_picture')->move(Public_path('profile_pictures'), $admin->id . '.jpg');
             $admin->profile_picture = 'profile_pictures/' . $admin->id . '.jpg';
         }
         $admin->update();
