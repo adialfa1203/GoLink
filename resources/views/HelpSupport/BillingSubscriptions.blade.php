@@ -155,7 +155,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link dark_btn" href="/dashboard-user">
-                                        Dashboard&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
+                                        Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -253,20 +253,20 @@
                                 <div id="genques-collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="genques-headingOne" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body">
-                                        <p><strong>Apa saja keuntungan dari layanan Starter?</strong></p>
+                                        <p>Apa saja keuntungan dari layanan Starter?</p>
 
                                         <p>Berikut ini adalah fitur-fitur yang tersedia dalam layanan Starter:</p>
-                                            <p><strong>1. Kustomisasi Nama URL</strong> - Anda dapat mengganti nama URL
+                                            <p>1. Kustomisasi Nama URL - Anda dapat mengganti nama URL
                                                 hingga 30 kali per bulan.</p>
-                                            <p><strong>2. Mengganti Alamat Tujuan Shortlink</strong> - Anda dapat
+                                            <p>2. Mengganti Alamat Tujuan Shortlink - Anda dapat
                                                 mengganti alamat tujuan shortlink hingga 3 kali per bulan.</p>
-                                            <p><strong>3. Mengganti Nama Microsite</strong></p>
-                                            <p><strong>4. Menyembunyikan Watermark</strong></p>
-                                            <p><strong>5. Tampilan Rentang Analitik</strong> - Sampai dengan 60 hari.
+                                            <p>3. Mengganti Nama Microsite</p>
+                                            <p>4. Menyembunyikan Watermark</p>
+                                            <p>5. Tampilan Rentang Analitik - Sampai dengan 60 hari.
                                             </p>
-                                            <p><strong>6. Retensi Analitik</strong> - Data analitik dapat disimpan
+                                            <p>6. Retensi Analitik - Data analitik dapat disimpan
                                                 hingga 180 hari ke belakang.</p>
-                                            <p><strong>7. Bebas Iklan</strong></p>
+                                            <p>7. Bebas Iklan</p>
                                     </div>
 
                                 </div>
@@ -282,17 +282,17 @@
                                 <div id="genques-collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="genques-headingTwo" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body">
-                                        <p><strong>1. Kunjungi https://home.Go.Link/subscription </strong></p>
-                                        <p><strong>2. Silahkan Login dahulu dengan klik Masuk/Daftar sebelah kanan
-                                                atas</strong></p>
-                                        <p><strong>3. Pilih paket yang kamu butuhkan</strong></p>
-                                        <p><strong>4. Klik process <i>payment</i> atau pembayaran</strong></p>
-                                        <p><strong>5. Pilih metode pembayaran</strong></p>
-                                        <p><strong>6. Selamat, pembayaran Anda berhasil</strong></p>
-                                        <p><strong>7. Riwayat pembayaran Anda akan ada di pengaturan -
-                                                berlangganan.</strong></p>
-                                        <p><strong>8. Luar biasa! Kini Anda bisa menikmati semua fitur yang
-                                                ada.</strong></p>
+                                        <p>1. Kunjungi https://home.Go.Link/subscription </p>
+                                        <p>2. Silahkan Login dahulu dengan klik Masuk/Daftar sebelah kanan
+                                                atas</p>
+                                        <p>3. Pilih paket yang kamu butuhkan</p>
+                                        <p>4. Klik process <i>payment</i> atau pembayaran</p>
+                                        <p>5. Pilih metode pembayaran</p>
+                                        <p>6. Selamat, pembayaran Anda berhasil</p>
+                                        <p>7. Riwayat pembayaran Anda akan ada di pengaturan -
+                                                berlangganan.</p>
+                                        <p>8. Luar biasa! Kini Anda bisa menikmati semua fitur yang
+                                                ada.</p>
                                     </div>
                                 </div>
                             </div>
@@ -335,14 +335,12 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-12">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style="padding: 0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>
@@ -447,14 +445,12 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-12" style="margin-left: 6%;">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style=" padding:0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>

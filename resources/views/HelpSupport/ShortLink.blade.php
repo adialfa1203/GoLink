@@ -155,7 +155,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link dark_btn" href="/dashboard-user">
-                                        Dashboard&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
+                                        Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -253,8 +253,7 @@
                                 <div id="genques-collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="genques-headingOne" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body">
-                                        <ul>
-                                            <li>Jika Link Anda sudah Kaaluarsa atau lewat tenggat maka link Anda akan berada di menu History. Dimana Menu History atau riwayat adalah untuk menampung semua Link anda yang telah Kadaluarsa</li>
+                                        <p>Jika Link Anda sudah Kaaluarsa atau lewat tenggat maka link Anda akan berada di menu History. Dimana Menu History atau riwayat adalah untuk menampung semua Link anda yang telah Kadaluarsa</p>
                                     </div>
 
                                 </div>
@@ -315,14 +314,12 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-12">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style="padding: 0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>
@@ -427,14 +424,12 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-12" style="margin-left: 6%;">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style=" padding:0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>

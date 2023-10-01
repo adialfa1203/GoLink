@@ -121,7 +121,7 @@
                     <!-- navigation bar -->
                     <nav class="navbar navbar-expand-lg" style="margin-top: -30px;">
                         <a class="navbar-brand" href="#">
-                            <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image">
+                            <img src="{{ asset('linkbaru.png') }}" alt="image">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -155,7 +155,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link dark_btn" href="/dashboard-user">
-                                        Dashboard&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
+                                        Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -172,7 +172,7 @@
                     <!-- navigation bar -->
                     <nav class="navbar navbar-expand-lg" style="margin-top: -30px;">
                         <a class="navbar-brand" href="#">
-                            <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image">
+                            <img src="{{ asset('linkbaru.png') }}" alt="image">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -261,15 +261,12 @@
                                             tersebut beberapa kali dalam periode waktu yang sama.</p>
 
                                         <p><strong>Contoh:</strong></p>
-
-                                        <ul>
-                                            <li>10 orang dalam 1 jaringan WIFI mengunjungi tautan atau microsite Anda,
+                                            <p>10 orang dalam 1 jaringan WIFI mengunjungi tautan atau microsite Anda,
                                                 maka akan terhitung sebagai 1 <strong>pengunjung unik</strong> dan 10
-                                                pengunjung.</li>
-                                            <li>3 orang dalam koneksi yang berbeda, baik itu menggunakan selular maupun
+                                                pengunjung.</p>
+                                            <p>3 orang dalam koneksi yang berbeda, baik itu menggunakan selular maupun
                                                 WIFI, maka akan terhitung sebagai 3 <strong>pengunjung unik</strong> dan
-                                                3 pengunjung.</li>
-                                        </ul>
+                                                3 pengunjung.</p>
 
                                         <p>Hal ini disebabkan karena jika seseorang kembali mengunjungi situs tautan
                                             atau microsite Anda, sistem akan memeriksa apakah informasi unik tersebut
@@ -313,9 +310,9 @@
                         <div class="col-lg-3 col-md-6 col-12">
                             <div class="abt_side">
                                 <div class="logo">
-                                    <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image"
-                                        style="margin-top: -5%;">
-                                    <ul style="margin-bottom: -50%; margin-right:10px;">
+                                    <img src="{{ asset('linkbaru.png') }}" alt="image"
+                                    style="margin-top: -7%;">
+                                    <ul style="margin-right:10px; margin-top:7%;">
                                         <li style="color: white; font-size:14px;">{!! $data->description !!}</li>
                                     </ul>
                                 </div>
@@ -335,14 +332,12 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-12">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style="padding: 0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>
@@ -425,7 +420,7 @@
                         <div class="col-lg-3 col-md-6 col-12">
                             <div class="abt_side">
                                 <div class="logo">
-                                    <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image"
+                                    <img src="{{ asset('linkbaru.png') }}" alt="image"
                                         style="margin-top: -10%;">
                                     <ul style="margin-bottom: -50%; margin-right:10px;">
                                         <li style="color: white; font-size:14px;">{!! $data->description !!}</li>
@@ -447,14 +442,12 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-12" style="margin-left: 6%;">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style=" padding:0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>

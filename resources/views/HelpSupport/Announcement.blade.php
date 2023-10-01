@@ -155,7 +155,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link dark_btn" href="/dashboard-user">
-                                        Dashboard&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
+                                        Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -261,25 +261,19 @@
                                             dalam cara kami beroperasi dan telah memperbarui Kebijakan Privasi serta
                                             Kebijakan Privasi kami untuk mencerminkan perubahan ini. Perbaikan-perbaikan
                                             ini termasuk:</p>
-
-                                        <ul>
-                                            <li><strong>Perubahan dalam cara tautan Go Link berfungsi</strong> - Kami telah
+                                            <p><strong>Perubahan dalam cara tautan Go Link berfungsi</strong> - Kami telah
                                                 mengubah arah pengembangan Go Link. Tidak hanya sebagai penyingkat tautan,
                                                 Go Link sekarang juga merupakan pembangun microsite yang dapat digunakan
                                                 untuk membuat tautan di bio media sosial Anda lebih menarik dan
-                                                informatif.</li>
-                                        </ul>
+                                                informatif.</p>
 
-                                        <p>Kami mendorong Anda untuk membaca Kebijakan Privasi lengkap kami <a
+                                        <p>Kami mendorong Anda untuk membaca Kebijakan Privasi lengkap kami <a style="color: #104898"
                                                 href="/privacy">di sini</a></p>
 
                                         <p>Harap pastikan bahwa Anda menerima perubahan ini melalui popup setelah Anda
                                             masuk ke situs kami. Ini akan membantu Anda dan komunitas kami memaksimalkan
                                             fitur-fitur yang baru. Jika Anda tidak menerima perubahan tersebut, Anda
                                             tidak akan dapat terus menggunakan layanan kami hingga Anda menerimanya.</p>
-
-                                        <p>Jika Anda memerlukan bantuan lebih lanjut, jangan ragu untuk menghubungi kami
-                                            di <a href="go.link.id">go.link.id</a></p>
 
                                         <p>Terima kasih banyak,</p>
                                         <p>Go Link - Penyingkat Tautan dan Pembangun Microsite</p>
@@ -325,14 +319,12 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-12">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style="padding: 0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>
@@ -437,14 +429,12 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-12" style="margin-left: 6%;">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style=" padding:0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>

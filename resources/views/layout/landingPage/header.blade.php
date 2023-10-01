@@ -39,7 +39,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link dark_btn" href="/dashboard-user">
-                            Dashboard&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
+                            Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
                 </ul>

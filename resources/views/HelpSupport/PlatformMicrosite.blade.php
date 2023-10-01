@@ -155,7 +155,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link dark_btn" href="/dashboard-user">
-                                        Dashboard&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
+                                        Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -226,7 +226,7 @@
                                 alt="..." style="max-height: 200px;">
                             <!-- Menggunakan style untuk mengatur tinggi gambar -->
                             <div class="image-text">
-                                <p style="color: white; font-size:35px;"><b>Platform&nbsp;Microsite</b></p>
+                                <p style="color: white; font-size:35px;"><b>Layanan&nbsp;Microsite</b></p>
                             </div>
                         </div>
                     </div>
@@ -253,14 +253,14 @@
                                 <div id="genques-collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="genques-headingTwo" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body">
-                                        <p><strong>1. Login ke dalam akun Go.Link anda dan masuk ke Dashboard </strong>
+                                        <p>1. Login ke dalam akun Go.Link anda dan masuk ke Dashboard 
                                         </p>
-                                        <p><strong>2. Pilih Microsite yang ingin anda edit dengan pilih Edit</strong>
+                                        <p>2. Pilih Microsite yang ingin anda edit dengan pilih Edit
                                         </p>
-                                        <p><strong>3. Pilih pengaturan</strong></p>
-                                        <p><strong>4. Scroll kebawah dan pilih Hapus Microsite</strong></p>
-                                        <p><strong>5. Ketik nama microsite/alamat microsite nya dan klik Hapus
-                                                Microsite</strong></p>
+                                        <p>3. Pilih pengaturan</p>
+                                        <p>4. Scroll kebawah dan pilih Hapus Microsite</p>
+                                        <p>5. Ketik nama microsite/alamat microsite nya dan klik Hapus
+                                                Microsite</p>
                                     </div>
                                 </div>
                             </div>
@@ -276,9 +276,9 @@
                                     aria-labelledby="genques-headingThree" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body">
                                         <p>Untuk saat ini, batas pembuatan microsite untuk</p>
-                                        <p><strong>Pengguna Gratis - 5 Microsite</strong></p>
-                                        <p><strong>Pengguna Lite - 10 Microsite</strong></p>
-                                        <p><strong>Pengguna Berlangganan - 30 Microsite</strong></p>
+                                        <p>Pengguna Gratis - 5 Microsite</p>
+                                        <p>Pengguna Lite - 10 Microsite</p>
+                                        <p>Pengguna Berlangganan - 30 Microsite</p>
                                     </div>
                                 </div>
                             </div>
@@ -293,11 +293,11 @@
                                 <div id="genques-collapsefour" class="accordion-collapse collapse"
                                     aria-labelledby="genques-headingFour" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body">
-                                        <p><strong>1. Di Dashboard Go.Link Anda Klik Microsite</strong></p>
-                                        <p><strong>2. Kemudian pilih URL Microsite yang ingin Anda bagikan</strong>
+                                        <p>1. Di Dashboard Go.Link Anda Klik Microsite</p>
+                                        <p>2. Kemudian pilih URL Microsite yang ingin Anda bagikan
                                         </p>
-                                        <p><strong>3. Klik Bagikan</strong></p>
-                                        <p><strong>4. Pilih Media social yang ingin kamu bagikan</strong></p>
+                                        <p>3. Klik Bagikan</p>
+                                        <p>4. Pilih Media social yang ingin kamu bagikan</p>
                                     </div>
                                 </div>
                             </div>
@@ -339,14 +339,12 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-12">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style="padding: 0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>
@@ -451,14 +449,12 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-12" style="margin-left: 6%;">
                             <div class="links">
-                                <h3>SiteMaps</h3>
+                                <h3>Peta Situs</h3>
                                 <ul style=" padding:0;">
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/Shortlink">Perpendek Link</a></li>
                                     <li><a href="/Microsite">Situs Mikro</a></li>
                                     <li><a href="/Subscribe">Berlanggaan</a></li>
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
 
                                 </ul>
                             </div>

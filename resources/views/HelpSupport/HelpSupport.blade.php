@@ -124,7 +124,7 @@
                     <div class="col-12 text-center">
                         <a href="/BillingSubscriptions" class="btn btn-outline-info custom-btn">Penagihan dan
                             Langganan</a>
-                        <a href="/PlatformMicrosite" class="btn btn-outline-info custom-btn">Platform Microsite</a>
+                        <a href="/PlatformMicrosite" class="btn btn-outline-info custom-btn">Layanan Microsite</a>
                         <a href="/ShortLink" class="btn btn-outline-info custom-btn">Penyingkat Tautan</a>
                     </div>
                 </div>
