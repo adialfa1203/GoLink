@@ -31,7 +31,7 @@ class ProfilController extends Controller
 
     public function updateProfile(Request $request)
     {
-        $user = Auth::user();
+        $user = User::FindOrFail(Auth::user()->id);
 
         $request->validate([
             'name' => 'required',
@@ -85,7 +85,7 @@ class ProfilController extends Controller
 
     public function updateAdmin(Request $request)
     {
-        $admin = Auth::user();
+        $admin = User::FindOrFail(Auth::user()->id);
         $request->validate([
             'name' => 'required',
             'number' => 'required',

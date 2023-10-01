@@ -1,5 +1,5 @@
 @extends('layout.admin.app')
-@section('title', 'Microsite')
+@section('title', 'Kategori')
 
 @section('content')
     <div class="page-content">
@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="d-flex align-items-start gap-3 mt-4">
                     <a class="btn btn-success btn-label" href="{{ route('create.component') }}" role="button">
-                        <i class="ri-add-line label-icon align-middle fs-lg ms-2"></i>Tambah Komponen
+                        <i class="ri-add-line label-icon align-middle fs-lg ms-2"></i>Tambah Kategori
                     </a>
                 </div>
                 <div class="row mt-4">
@@ -19,7 +19,7 @@
                                         alt="Gambar">
                                     <div class="d-flex justify-content-center align-items-center mt-2">
                                         <i class="ph-magnifying-glass mb-2 fs-2 text-primary"></i>
-                                        <h5 class="mt-2 mb-3">Maaf! Tidak Ada Data Ditemukan</h5>
+                                        <h5 class="mt-2 mb-3">Maaf! Belum Ada Data Yang Ditemukan</h5>
                                     </div>
                                 </div>
                             </div>
@@ -39,8 +39,7 @@
                                                 <a class="dropdown-item"
                                                     href="{{ route('edit.component', ['id' => $item->id]) }}">Edit</a>
                                                 <button type="button" class="dropdown-item"
-                                                    data-bs-target="#hapus{{ $item->id }}"
-                                                    data-bs-toggle="modal">Hapus</button>
+                                                    onclick="confirmDelete('{{ $item->id }}')">Hapus</button>
                                                 {{-- <a class="dropdown-item"
                                                 href="{{ route('delete.component', ['id' => $item->id]) }}">Hapus</a> --}}
                                             </div>
@@ -62,7 +61,7 @@
                                     </div>
                                 </div>
                                 {{-- modal hapus --}}
-                                <div class="modal fade" id="hapus{{ $item->id }}">
+                                {{-- <div class="modal fade" id="hapus{{ $item->id }}">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <form action="/delete-component/{{ $item->id }}" method="GET">
@@ -84,14 +83,14 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         @endforeach
                     @endif
-                    <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
+                    <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
                         <a class="page-item pagination-prev {{ $component->previousPageUrl() ? '' : 'disabled' }}"
                             href="{{ $component->previousPageUrl() ? $component->previousPageUrl() : '#' }}">
-                            Previous
+                            Sebelumnya
                         </a>
                         <ul class="pagination listjs-pagination mb-0">
                             @if ($component->currentPage() > 2)
@@ -126,11 +125,43 @@
                         </ul>
                         <a class="page-item pagination-next {{ $component->nextPageUrl() ? '' : 'disabled' }}"
                             href="{{ $component->nextPageUrl() ? $component->nextPageUrl() : '#' }}">
-                            Next
+                            Selanjutnya
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Tindakan ini tidak dapat dibatalkan!",
+                icon: 'warning',
+                showCancelButton: true,$user = User::FindOrFail(Auth::user()->id);
+                confirmButtonColor: '#28a745',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Berhasil!',
+                        'Data telah dihapus.',
+                        'success'
+                    ).then(() => {
+                        window.location.href = '/delete-component/' + id;
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire(
+                        'Dibatalkan',
+                        'Data tetap aman :)',
+                        'error'
+                    );
+                }
+            });
+        }
+    </script>
 @endsection
