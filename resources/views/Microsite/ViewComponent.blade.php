@@ -141,7 +141,7 @@
                 title: 'Apakah Anda yakin?',
                 text: "Tindakan ini tidak dapat dibatalkan!",
                 icon: 'warning',
-                showCancelButton: true,$user = User::FindOrFail(Auth::user()->id);
+                showCancelButton: true,
                 confirmButtonColor: '#28a745',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Ya, Hapus!'

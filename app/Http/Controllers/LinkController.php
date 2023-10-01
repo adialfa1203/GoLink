@@ -26,7 +26,7 @@ class LinkController extends Controller
         ->whereNull('microsite_uuid')
         ->orderBy('created_at', 'desc')
         ->paginate(5);
-        $history = History::paginate(5);
+        $history = History::where('user_id', $user_id)->paginate(5);
         $result = [
             'labels' => DateHelper::getAllMonths(5),
             'series' => []
