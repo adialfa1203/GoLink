@@ -199,36 +199,6 @@
                                                             <a href="{{ $row->destination_url }}"
                                                                 class="card-subtitle font-14 text-muted">{{ $row->destination_url }}</a>
                                                         </div>
-                                                        {{-- modal hapus --}}
-                                                        <div class="modal fade" id="arsip{{ $row->id }}">
-                                                            <div class="modal-dialog modal-dialog-centered"
-                                                                role="document">
-                                                                <div class="modal-content">
-                                                                    <form action="/archive/{{ $row->id }}"
-                                                                        method="GET">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"></h5>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal">
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="modal-body">
-                                                                            <h4 style="font-size: 19px">Yakin Ingin
-                                                                                Mengarsip
-                                                                                Data?</h4>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-secondary"
-                                                                                data-bs-dismiss="modal">Batal</button>
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary btn-xs form-control1">Arsip</button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         <div class="card-footer">
                                                             <div
                                                                 class="d-flex flex-column flex-sm-row justify-content-between">
