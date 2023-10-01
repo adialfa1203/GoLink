@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\BlokirEmail;
-use App\Mail\unblockEmail;
+use App\Mail\UnblockEmail;
 use App\Models\ShortUrl;
 use App\Models\Takedown;
 use App\Models\User;
@@ -170,7 +170,7 @@ class DataUserController extends Controller
             }
 
             // Proses unban berhasil, kirim email
-            Mail::to($user->email)->send(new unblockEmail());
+            Mail::to($user->email)->send(new UnblockEmail());
 
             // Hapus tanggal deactivated_at dari semua tautan pendek milik pengguna
             $userShortUrls = ShortUrl::where('user_id', $user->id)->get();
