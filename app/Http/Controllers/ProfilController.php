@@ -61,6 +61,9 @@ class ProfilController extends Controller
             $oldProfilePicture = $user->profile_picture;
             if ($oldProfilePicture) {
                 $oldProfilePath = public_path('profile_pictures/' . $oldProfilePicture);
+                if (file_exists($oldProfilePath)) {
+                    unlink($oldProfilePath);
+                }
             }
             // dd($request->profile_picture);
             $profilePicturePath = $request->file('profile_picture')->move(public_path('profile_pictures'), $user->id . '.jpg');
@@ -107,6 +110,9 @@ class ProfilController extends Controller
             $oldProfilePicture = $admin->profile_picture;
             if ($oldProfilePicture) {
                 $oldProfilePath = public_path('profile_pictures/' . $oldProfilePicture);
+                if (file_exists($oldProfilePath)) {
+                    unlink($oldProfilePath);
+                }
             }
 
             $profilePicturePath = $request->file('profile_picture')->move(public_path('profile_pictures'), $admin->id . '.jpg');
