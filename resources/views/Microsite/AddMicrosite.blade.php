@@ -274,7 +274,7 @@
                                                             data-previous="v-pills-bill-address-tab"><i
                                                                 class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
                                                             Sebelumnya</button>
-                                                            <button type="submit" id="submitButton" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="v-pills-finish-tab" onclick="return validateForm();"><i class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Submit</button>
+                                                            <button type="submit" id="submitButton" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="v-pills-finish-tab" onclick="return validateForm();"><i class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Kirim</button>
 
                                                     </div>
                                                 </div>
