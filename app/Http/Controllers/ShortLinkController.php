@@ -29,7 +29,7 @@ class ShortLinkController extends Controller
         }
 
         $validatedData = $request->validate([
-            'default_short_url' => 'required|string'
+            'default_short_url' => 'required|url|starts_with:http://'
         ]);
 
         $builder = new \AshAllenDesign\ShortURL\Classes\Builder();
