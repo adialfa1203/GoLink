@@ -133,7 +133,7 @@
                             <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
                                 <a class="page-item pagination-prev {{ $data->previousPageUrl() ? '' : 'disabled' }}"
                                     href="{{ $data->previousPageUrl() ? $data->previousPageUrl() : '#' }}">
-                                    Previous
+                                    Sebelumnya
                                 </a>
                                 <ul class="pagination listjs-pagination mb-0">
                                     @if ($data->currentPage() > 2)
@@ -168,7 +168,7 @@
                                 </ul>
                                 <a class="page-item pagination-next {{ $data->nextPageUrl() ? '' : 'disabled' }}"
                                     href="{{ $data->nextPageUrl() ? $data->nextPageUrl() : '#' }}">
-                                    Next
+                                    Selanjutnya
                                 </a>
                             </div>
                         </div><!--end card-->
