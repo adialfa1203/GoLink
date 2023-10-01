@@ -802,7 +802,7 @@
                                 <input class="form-check-input" type="radio" name="data-sidebar-image"
                                     id="sidebarimg-01" value="img-1">
                                 <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-01">
-                                    <img src="assets/images/sidebar/img-sm-1.jpg" alt=""
+                                    <img src="{{ asset('assets/logo.jpg') }}" alt=""
                                         class="avatar-md w-auto object-cover">
                                 </label>
                             </div>
