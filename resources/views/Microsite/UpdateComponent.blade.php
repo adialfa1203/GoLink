@@ -49,7 +49,7 @@
                                                 class="profile-foreground-img-file-input d-none" name="cover_img">
                                             <label for="profile-foreground-img-file-input"
                                                 class="profile-photo-edit btn btn-light btn-sm position-absolute end-0 top-0 m-3">
-                                                <i class="ri-image-edit-line align-bottom me-1"></i> Edit Gambar Cover
+                                                <i class="ri-image-edit-line align-bottom me-1"></i> Edit Gambar Sampul
                                             </label>
                                         </div>
                                     </div>

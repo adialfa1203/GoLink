@@ -25,7 +25,7 @@
                                 <div class="mb-3">
                                     <label for="validationCustom01" class="form-label">Nama Komponen</label>
                                     <input type="text" class="form-control" id="validationCustom01"
-                                        placeholder="Designation" name="component_name" required>
+                                        placeholder="Masukkan nama komponen" name="component_name" required>
 
                                     @if ($errors->has('component_name'))
                                         <span class="text-danger">{{ $errors->first('component_name') }}</span>
@@ -52,11 +52,11 @@
                                             <input id="profile-foreground-img-file-input" type="file"
                                                 class="profile-foreground-img-file-input d-none" name="cover_img" required>
                                             <div class="invalid-feedback">
-                                                Harap isi cover dan profil sebelum melanjutkan proses.
+                                                Harap isi sampul dan profil sebelum melanjutkan proses.
                                             </div>
                                             <label for="profile-foreground-img-file-input"
                                                 class="profile-photo-edit btn btn-light btn-sm position-absolute end-0 top-0 m-3">
-                                                <i class="ri-image-edit-line align-bottom me-1"></i> Edit Gambar Cover
+                                                <i class="ri-image-edit-line align-bottom me-1"></i> Edit Gambar Sampul
                                             </label>
                                         </div>
                                     </div>
