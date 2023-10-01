@@ -142,11 +142,11 @@
                 <!-- row start -->
                 <div class="row">
                     <!-- shape animation  -->
-                    <span class="banner_shape1"> <img src="https://i.postimg.cc/3RVg0kJv/banner-shape1.png"
+                    <span class="banner_shape1"> <img src="{{ asset('banner-shape1.png') }}"
                             alt="image"> </span>
-                    <span class="banner_shape2"> <img src="https://i.postimg.cc/rp6XjJnn/banner-shape2.png"
+                    <span class="banner_shape2"> <img src="{{ asset('banner-shape2.png') }}"
                             alt="image"> </span>
-                    <span class="banner_shape3"> <img src="https://i.postimg.cc/wxrWDBbF/banner-shape3.png"
+                    <span class="banner_shape3"> <img src="{{ asset('banner-shape3.png') }}"
                             alt="image"> </span>
                     <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1500">
                         <!-- banner text -->
@@ -163,7 +163,7 @@
                     <div class="col-lg-6 col-md-12 aos-init aos-animate d-flex justify-content-start" data-aos="fade-in"
                         data-aos-duration="1500">
                         <div class="banner_image">
-                            <img class="moving_animation" src="https://i.postimg.cc/ydmKZzJW/Landing-Page.png"
+                            <img class="moving_animation" src="{{ asset('landingpage.png') }}"
                                 alt="image">
                         </div>
                     </div>
@@ -275,7 +275,7 @@
                 <div class="row justify-content-center mt-5">
                     <!--end col-->
                     <div class="col-md-3" style="margin-bottom: 2%;">
-                        <div class="story_box" data-aos="fade-up" data-aos-duration="1500" >
+                        <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500" >
                             <div class="story_text">
                                 <h4>
                                     <span class="counter_value" data-target="{{($url)}}">{{($url)}}</span><span>+</span>
@@ -287,7 +287,7 @@
                         </div>
                     </div>
                     <div class="col-md-3" style="margin-bottom: 2%;">
-                        <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500">
                             <div class="story_text">
                                 <h4>
                                     <span class="counter_value" data-target="{{( $micrositeuuid )}}">{{( $micrositeuuid )}}</span><span>+</span>
@@ -298,7 +298,7 @@
                     </div>
                     <!--end col-->
                     <div class="col-md-3" style="margin-bottom: 2%;">
-                        <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500">
                             <div class="story_text">
                                 <h4>
                                     <h3 class="counter_value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</h3>
@@ -309,7 +309,7 @@
                     </div>
                     <!--end col-->
                     <div class="col-md-3" style="margin-bottom: 2%;">
-                        <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
+                        <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
                             <div class="story_text">
                                 <h4>
                                     <h3 class="counter_value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</h3>
@@ -339,7 +339,7 @@
                     <div id="company_slider" class="owl-carousel owl-theme">
                         <div class="item">
                             <div class="logo">
-                                <img src="https://i.postimg.cc/Z52QP3Cp/bri.png" alt="image"
+                                <img src="{{ asset('bri.png') }}" alt="image"
                                     style="object-fit: cover; width: 160px; height: 80px;">
                             </div>
                         </div>
