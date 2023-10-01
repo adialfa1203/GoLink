@@ -340,37 +340,31 @@
                         <div class="item">
                             <div class="logo">
                                 <img src="{{ asset('bri.png') }}" alt="image"
-                                    style="object-fit: cover; width: 160px; height: 80px;">
+                                    style="object-fit: cover; width: auto; height: 80px;">
                             </div>
                         </div>
                         <div class="item">
                             <div class="logo">
-                                <img src="https://i.postimg.cc/65yPSYsF/Logo-Bank-BCA-1.png" alt="image"
-                                    style="object-fit: cover;width: 160px; height: 80px;">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="logo">
-                                <img src="https://i.postimg.cc/3wFJ0YXV/bank-tabungan-negara-btn-removebg-preview.png"
+                                <img src="{{ asset('logo-bank-btn.png') }}"
                                     alt="image" style="object-fit: cover;width: 160px; height: 80px;">
                             </div>
                         </div>
                         <div class="item">
                             <div class="logo">
-                                <img src="https://i.postimg.cc/sxG0NPJW/Cube-Logo-Bank-Mega-removebg-preview.png"
+                                <img src="{{ asset('bank-mega.png') }}"
                                     alt="image" style="object-fit: cover;width: 160px; height: 80px;">
                             </div>
                         </div>
                         <div class="item">
                             <div class="logo">
-                                <img src="https://i.postimg.cc/ht3rmQnQ/kisspng-logo-bank-bjb-syariah-portable-network-graphics-de-5c650ba45fb0d6-262763741550125988392-remo.png"
+                                <img src="{{ asset('Logo BCA_Biru.png') }}"
                                     alt="image" style="object-fit: cover;width: 160px; height: 80px;">
                             </div>
                         </div>
                         <div class="item">
                             <div class="logo">
-                                <img src="https://i.postimg.cc/g2xQXWhs/Cube-Logo-Bank-Danamon.png" alt="image"
-                                    style="object-fit: cover;width: 160px; height: 80px;">
+                                <img src="{{ asset('bni.png') }}" alt="image"
+                                    style="object-fit: cover;width: auto; height: 50px;margin-top:10px;">
                             </div>
                         </div>
                     </div>
