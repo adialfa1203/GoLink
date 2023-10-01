@@ -291,7 +291,7 @@ class MicrositeController extends Controller
         $micrositeCount = Microsite::where('components_uuid', $id)->count();
 
         if ($micrositeCount > 0) {
-            return Response::json($micrositeCount, 'Tidak dapat mengedit komponen ini karena data masih digunakan.', 400);
+            return redirect()->route('view.component')->with('error', 'Tidak dapat mengedit komponen ini karena masih ada data terkait.');
         }
 
         if ($request->hasFile('cover_img')) {

@@ -77,7 +77,7 @@ class ButtonController extends Controller
         $socialCount = Social::where('buttons_uuid', $id)->count();
 
         if ($socialCount > 0) {
-            return redirect()->back()->with('error', 'Tidak dapat mengedit Media Sosial ini karena masih ada data terkait.');
+            return redirect()->route('view.button')->with('error', 'Tidak dapat mengedit Media Sosial ini karena masih ada data terkait.');
         }
 
         return redirect()->route('view.button')->with('success', 'Media Sosial berhasil diedit.');
