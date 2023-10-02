@@ -48,7 +48,7 @@ class LinkAdminController extends Controller
                     ->first(),
             ];
         }
-        dd($totalMicrosite);
+        // dd($totalMicrosite);
         return view('Admin.Link', compact('d','totalUser', 'totalUrl', 'totalVisits', 'users', 'totalMicrosite', 'userData'));
     }
 }
