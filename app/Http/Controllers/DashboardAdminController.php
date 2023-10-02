@@ -102,20 +102,35 @@ class DashboardAdminController extends Controller
         $footer = Footer::first();
         $validator = Validator::make($request->all(), [
             'description' => 'string|max:225',
-            'whatsapp' => 'string|min:11|max:13', // Gunakan aturan regex untuk memeriksa panjang nomor
-            'instagram' => 'string',
-            'twitter' => 'string',
-        ],[
-            'whatsapp' => 'Nomor tidak boleh kurang dari 10 dan tidak boleh lebih dari 13!',
-            'whatsapp.min' => 'Nomor tidak boleh kurang dari 10 dan tidak boleh lebih dari 13!',
-            'whatsapp.max' => 'Nomor tidak boleh kurang dari 10 dan tidak boleh lebih dari 13!'
+            'whatsapp' => [
+                'string',
+                'regex:/^\+62[0-9]*$/',
+                'min:13',
+                'max:18',
+            ],
+            'instagram' => [
+                'string',
+                'not_regex:/https?:\/\/(www\.)?instagram\.com/',
+            ],
+            'twitter' => [
+                'string',
+                'not_regex:/https?:\/\/(www\.)?twitter\.com/',
+            ],
+        ], [
+            'whatsapp.regex' => 'Format nomor WhatsApp tidak valid. Pastikan dimulai dengan +62 dan hanya mengandung angka.',
+            'whatsapp.min' => 'Nomor WhatsApp tidak boleh kurang dari 13 karakter.',
+            'whatsapp.max' => 'Nomor WhatsApp tidak boleh lebih dari 18 karakter.',
+            'description.max' => 'Deskripsi tidak boleh lebih dari 225 karakter.',
+            'instagram.not_regex' => 'Kolom Instagram wajib diisi dengan username dan tidak boleh berupa URL atau link.',
+            'twitter.not_regex' => 'Kolom Twitter wajib diisi dengan username dan tidak boleh berupa URL atau link.',
         ]);
+
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
-        
+
 
         // if ($request->hasFile('logo')) {
         //     $oldProfilePicture = $footer->logo;

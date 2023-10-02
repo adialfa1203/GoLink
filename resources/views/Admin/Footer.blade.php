@@ -9,12 +9,13 @@
     <form action="{{ route('edit.footer') }}" method="POST" class="page-content" enctype="multipart/form-data">
         @method('PUT')
         @csrf
-
-        <!-- start page title -->
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Footer</h4>
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Footer</h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,7 +49,12 @@
                         <textarea name="description" id="editor">{{ $data->description }}</textarea>
                     </div>
                 </div>
-                <div class="mb-3 d-flex">
+                <div>
+                    @if ($errors->has('description'))
+                        <span class="text-danger">{{ $errors->first('description') }}</span>
+                    @endif
+                </div>
+                <div class="mb-2 mt-2 d-flex">
                     <div class="avatar-xs d-block flex-shrink-0 me-3">
                         <span class="avatar-title rounded-circle bg-success-subtle text-success">
                             <i class="bi bi-whatsapp"></i>
@@ -56,13 +62,13 @@
                     </div>
                     <input type="text" name="whatsapp" class="form-control" id="whatsapp" placeholder="+62..."
                         value="{{ $data->whatsapp }}">
-                    </div>
-                    <div class="mb-3 d-flex">
-                        @if ($errors->has('whatsapp'))
+                </div>
+                <div class="mb-2 mt-2 d-flex">
+                    @if ($errors->has('whatsapp'))
                         <span class="text-danger">{{ $errors->first('whatsapp') }}</span>
-                        @endif
-                    </div>
-                <div class="mb-3 d-flex">
+                    @endif
+                </div>
+                <div class="mb-2 mt-2 d-flex">
                     <div class="avatar-xs d-block flex-shrink-0 me-3">
                         <span class="avatar-title rounded-circle bg-danger-subtle text-danger">
                             <i class="bi bi-instagram"></i>
@@ -71,7 +77,12 @@
                     <input type="text" name="instagram" class="form-control" id="instagram" placeholder="Link_id"
                         value="{{ $data->instagram }}">
                 </div>
-                <div class="mb-3 d-flex">
+                <div>
+                    @if ($errors->has('instagram'))
+                        <span class="text-danger">{{ $errors->first('instagram') }}</span>
+                    @endif
+                </div>
+                <div class="mb-2 mt-2 d-flex">
                     <div class="avatar-xs d-block flex-shrink-0 me-3">
                         <span class="avatar-title rounded-circle bg-info-subtle text-info">
                             <i class="bi bi-twitter"></i>
@@ -80,13 +91,17 @@
                     <input type="text" name="twitter" class="form-control" id="twitter" placeholder="LinkId_"
                         value="{{ $data->twitter }}">
                 </div>
+                <div class="mb-2 mt-2 d-flex">
+                    @if ($errors->has('twitter'))
+                        <span class="text-danger">{{ $errors->first('twitter') }}</span>
+                    @endif
+                </div>
             </div>
             <div class="col-lg-12">
                 <div class="hstack gap-2 justify-content-end">
                     <button type="submit" class="btn btn-success">Simpan</button>
                 </div>
             </div>
-        </div>
         </div>
     </form>
     <br>
