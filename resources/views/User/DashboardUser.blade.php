@@ -3,6 +3,9 @@
 @section('title', 'Beranda')
 @section('style')
     <style>
+          .page-content{
+            overflow-x: hidden;
+          }
         .custom-icon-size {
             font-size: 24px;
             /* Ubah ukuran sesuai kebutuhan */
