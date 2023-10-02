@@ -18,35 +18,38 @@ class ShortLinkController extends Controller
     public function shortLink(Request $request, Toastr $toastr)
     {
         $user = auth()->user();
+        if ($request->has('deactivated_at')) {
+            $deactivatedAt = $request->deactivated_at;
 
-        // $validator = Validator::make($request->all(), [
-        //     'default_short_url' => ['required', 'string', 'url'],
-        // ], [
-        //     'default_short_url.required' => 'Kolom URL harus diisi.',
-        //     'default_short_url.url' => 'URL tidak valid.',
-        // ]);
-        // if ($validator->fails()) {
-        //     return response()->json(['message' => 'Masukkan URL yang valid dengan protokol HTTP atau HTTPS atau tautan yang valid.', 'status' => 'gagal']);
-        // }
+            if (!is_null($deactivatedAt)) {
+                $deactivatedAt = Carbon::parse($deactivatedAt);
+
+                if ($deactivatedAt->isBefore(now())) {
+                    return response()->json(['message' => 'Tanggal dan waktu harus lebih besar dari sekarang.', 'status' => 'gagal']);
+                }
+            }
+        }
         $validator = Validator::make($request->all(), [
-            'default_short_url.*' => 'required|string|url|regex:/^(https?:\/\/)?[^\s/$.?#].[^\s]*$/i',
+            'default_short_url.*' => 'nullable|string|url|regex:/^(https?:\/\/)?[^\s/$.?#].[^\s]*$/i',
+            'deactivated_at' => [
+                'nullable',
+                'date',
+            ],
         ], [
-            'default_short_url.*.required' => 'Kolom ini wajib diisi!',
             'default_short_url.*.url' => 'URL tidak valid.',
         ]);
-        
+
         if ($validator->fails()) {
             $errors = $validator->errors();
             $errorMessages = [];
-        
+
             foreach ($errors->all() as $message) {
                 $errorMessages[] = $message;
             }
-        
+
             return response()->json(['message' => implode('<br>', $errorMessages), 'status' => 'gagal']);
         }
-        
-    
+
         if ($user->subscribe == 'yes') {
         } else {
             $shortLinkTotal = $user->shortUrls()->count();
@@ -55,12 +58,6 @@ class ShortLinkController extends Controller
                 return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi. ', 'status' => 'gagal']);
             }
         }
-
-        $validatedData = $request->validate([
-            'default_short_url' => 'required|url|starts_with:http://',
-            'title' => 'required|string'
-        ]);
-
         $builder = new \AshAllenDesign\ShortURL\Classes\Builder();
         $shortURLObject = $builder
             ->destinationUrl($request->destination_url)
@@ -90,7 +87,7 @@ class ShortLinkController extends Controller
 
         return response()->json($find);
     }
-   
+
     public function accessShortLink(Request $request, $shortCode)
     {
         // Anda mungkin perlu menyesuaikan ini dengan metode yang digunakan oleh pustaka tautan pendek yang Anda gunakan.

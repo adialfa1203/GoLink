@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
             'number' => "089637885692",
             'email' => 'mizu@gmail.com',
             'password' => bcrypt('gataumales'),
-            'profile_picture' => 'profile_pictures/2.jpg'
+            'profile_picture' => 'default.jpg'
         ]);
         $user->assignRole($role);
     }
