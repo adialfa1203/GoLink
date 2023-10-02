@@ -194,10 +194,14 @@
                                         </div>
                                         <div class="col-xl-7 col-lg-7 col-md-9 col-sm-3 col-9">
                                             <h5 class="card-title ">{{ $row->name }}</h5>
-                                            <a>
+                                            {{-- <a>
                                                 <h3 class="garisbawah card-title mb-2">
                                                     {{ $row->shortUrl[0]->default_short_url }}
                                                 </h3>
+                                            </a> --}}
+                                            <a href="{{ $row->shortUrl[0]->default_short_url }}" target="_blank"
+                                                class="garisbawah card-title mb-2">
+                                                <h4>{{ $row->shortUrl[0]->default_short_url }}</h4>
                                             </a>
                                             <div id="customAlert" class="custom-alert">
                                                 <span class="alert-text"></span>

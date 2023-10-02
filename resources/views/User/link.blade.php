@@ -50,10 +50,10 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-
             <div class="d-flex flex-column flex-sm-row">
                 <div class="col-12 col-sm-4">
                     <h5 class="mb-2">Tautan yang Dihasilkan Terbaru</h5>
+                    <p id="clickCount" hidden>0 klik</p>
                 </div>
                 <div class="col-12 col-sm-8 mb-3">
                     <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-end">
@@ -64,7 +64,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-body">
@@ -199,9 +198,9 @@
                                                                 </button>
                                                             </div>
                                                             <br>
-                                                            <a>
-                                                                <h3 class="garisbawah card-title mb-2">
-                                                                    {{ $row->default_short_url }}</h3>
+                                                            <a href="{{ $row->default_short_url }}" target="_blank"
+                                                                class="garisbawah card-title mb-2">
+                                                                <h4>{{ $row->default_short_url }}</h4>
                                                             </a>
                                                             <a href="{{ $row->destination_url }}"
                                                                 class="card-subtitle font-14 text-muted">{{ $row->destination_url }}</a>

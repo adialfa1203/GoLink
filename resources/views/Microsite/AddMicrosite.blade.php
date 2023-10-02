@@ -191,7 +191,7 @@
                                                                 <label for="address" class="form-label">Nama
                                                                     Microsite</label>
                                                                 <input type="text" class="form-control" id="address"
-                                                                    name="name" placeholder="aqua-link">
+                                                                    name="name" placeholder="Nama Microsite">
                                                             </div>
                                                             <div>
                                                                 @if ($errors->has('name'))
@@ -206,7 +206,7 @@
                                                                     <button type="button"
                                                                         class="btn btn-danger bg-gradient">Go.Link/</button>
                                                                     <input type="text" class="form-control"
-                                                                        id="link" placeholder="aqua-link"
+                                                                        id="link" placeholder="Tautan Microsite"
                                                                         name="link_microsite">
                                                                 </div>
                                                                 <div>
