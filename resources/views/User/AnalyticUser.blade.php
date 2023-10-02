@@ -135,7 +135,7 @@
         <div class="row">
             <div id="popularDataContainer" class="row">
                 <div class="col-lg-6">
-                    <div class="card" data-simplebar style="max-height: 320px;" id="agenciesList">
+                    <div class="card" id="agenciesList">
                         <div class="card-header fw-bold">
                             Tautan Populer
                         </div>
@@ -169,24 +169,26 @@
                             Microsite Populer
                         </div>
                         <div class="card-body">
-                            <table class="table table-borderless table-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Tautan</th>
-                                        <th scope="col">Pengunjung</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($microsites->sortByDesc('totalVisits') as $microsite)
-                                    <tr>
-                                        <th scope="row">{{ $loop->iteration }}</th>
-                                        <td>{{ $microsite->default_short_url }}</td>
-                                        <td>{{ $microsite->totalVisits }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-borderless table-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Tautan</th>
+                                            <th scope="col">Pengunjung</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($microsites->sortByDesc('totalVisits') as $microsite)
+                                        <tr>
+                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td>{{ $microsite->default_short_url }}</td>
+                                            <td>{{ $microsite->totalVisits }} Pengunjung</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div><!--end col-->
