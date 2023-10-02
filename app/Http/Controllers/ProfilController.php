@@ -36,7 +36,7 @@ class ProfilController extends Controller
 
         $validator = Validator::make($request->all(),[
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            'email' => 'required|regex:/^[^-+]+$/u|email|unique:users,email,' . $user->id,
             'number' => 'required|min:11|max:13|regex:/^[^-+]+$/u',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
