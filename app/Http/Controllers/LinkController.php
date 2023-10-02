@@ -16,7 +16,6 @@ class LinkController extends Controller
     public function showLink($shortCode)
     {
         $user = auth()->user();
-        if($user->is_banned) abort(404);
         $user_id = $user->id;
 
         $this->deleteDeactive();

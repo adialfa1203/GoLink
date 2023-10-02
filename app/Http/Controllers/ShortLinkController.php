@@ -95,6 +95,7 @@ class ShortLinkController extends Controller
 
     public function accessShortLink(Request $request, $shortCode)
     {
+        dd('test');
         // Anda mungkin perlu menyesuaikan ini dengan metode yang digunakan oleh pustaka tautan pendek yang Anda gunakan.
         // Contoh permintaan HTTP ke tautan pendek yang telah Anda buat.
         $response = Http::get($shortCode);
