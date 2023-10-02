@@ -463,7 +463,7 @@
                 }).then(function() {
                     setTimeout(function() {
                         location.reload(); // Memuat ulang halaman setelah pengguna menekan "OK"
-                    }, 0);
+                    }, 2000);
                 });
                 return false;
             }
@@ -480,7 +480,7 @@
                 }).then(function() {
                     setTimeout(function() {
                         location.reload(); // Memuat ulang halaman setelah pengguna menekan "OK"
-                    }, 0);
+                    }, 2000);
                 });
                 return false;
             }
