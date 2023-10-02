@@ -117,7 +117,7 @@
                                 $popularMicrosites = $userData[$user->id]['popular_microsites'] ?? null;
                                 @endphp
                                 <tr>
-                                    <td class="order_id">{{ $users->firstItem() + $index }}</td>
+                                    <td class="order_id">{{ $loop->iteration }}</td>
                                     <td class="order_date">
                                         {{ $user->name }}
                                     </td>
