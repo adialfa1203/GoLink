@@ -25,7 +25,7 @@ class AuthController extends Controller
         $remember = $request->input('remember');
 
         $validator = Validator::make($request->all(), [
-            'remember' => 'required|string|min:8|max:16',
+            'remember' => 'required|string',
             'email' => 'required|string|email|regex:/^[^-+]+$/u|exists:users,email',
             'password' => 'required|string|min:8|max:16',
         ], [
@@ -74,7 +74,7 @@ class AuthController extends Controller
     public function registerUser(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:50',
+            'name' => 'required|string|max:50|regex:/^[^-+]+$/u',
             'email' => 'required|email|regex:/^[^-+]+$/u|unique:users',
             'number' => 'required|max:15|regex:/^[^-+]+$/u|min:11',
             'password' => 'required|min:8|max:16',
