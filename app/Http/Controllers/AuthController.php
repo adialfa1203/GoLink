@@ -25,9 +25,9 @@ class AuthController extends Controller
         $remember = $request->input('remember');
 
         $validator = Validator::make($request->all(), [
-            'remember' => 'required|string|max:15',
+            'remember' => 'required|string|min:8|max:16',
             'email' => 'required|string|email|regex:/^[^-+]+$/u|exists:users,email',
-            'password' => 'required|string',
+            'password' => 'required|string|min:8|max:16',
         ], [
             'remember.required' => 'Anda harus menyetujui Kebijakan Privasi.',
             'email.required' => 'Email tidak boleh kosong',
@@ -74,10 +74,10 @@ class AuthController extends Controller
     public function registerUser(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:15',
+            'name' => 'required|string|max:50',
             'email' => 'required|email|regex:/^[^-+]+$/u|unique:users',
-            'number' => 'required|max:13|regex:/^[^-+]+$/u|min:11',
-            'password' => 'required|min:8',
+            'number' => 'required|max:15|regex:/^[^-+]+$/u|min:11',
+            'password' => 'required|min:8|max:16',
             'password_confirmation' => 'required_with:password|same:password'
         ], [
             'name.required' => 'Nama Lengkap tidak boleh kosong',
@@ -85,7 +85,7 @@ class AuthController extends Controller
             'email.regex' => 'Email tidak boleh dengan simbol',
             'email.email' => 'Email harus menyertakan karakter @ untuk menjadi alamat email yang valid.',
             'number.required' => 'Nomor tidak boleh kosong',
-            'number' => 'Nomor tidak boleh kurang dari 10 dan tidak boleh lebih dari 13!',
+            'number' => 'Nomor tidak boleh kurang dari 11 dan tidak boleh lebih dari 15!',
             'number.regex' => 'Nomor wajib angka',
             'password_confirmation.same' => 'Password dan Konfirmasi Password tidak cocok.',
             'email.unique' => 'Email sudah terdaftar, silahkan gunakan email lain.',
