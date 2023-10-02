@@ -200,7 +200,7 @@
                     <div class="card">
                         <div class="card-header fw-bold">
                             <div>
-                                Referensi Teratas
+                                Referedata Teratas
                             </div><br>
                             <div class="avatar-sm mx-auto mb-3">
                                 <div class="avatar-title bg-custom text-primary fs-xl rounded">
@@ -246,7 +246,7 @@
                     <div class="card">
                         <div class="card-header fw-bold">
                             <div>
-                                Peramban Teratas
+                                Browser Teratas
                             </div><br>
                             <div class="avatar-sm mx-auto mb-3">
                                 <div class="avatar-title bg-custom text-primary fs-xl rounded">
