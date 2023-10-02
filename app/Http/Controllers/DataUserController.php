@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Mail\BlokirEmail;
 use App\Mail\UnblockEmail;
+use App\Models\Microsite;
 use App\Models\ShortUrl;
 use App\Models\Takedown;
+use App\Models\TakedownMicrosite;
 use App\Models\User;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 use Illuminate\Support\Facades\Mail;
@@ -47,6 +49,7 @@ class DataUserController extends Controller
 
         if (!$user->ban()) {
             $takedownUser = ShortUrl::where('user_id', $user->id)->get();
+            $takedownMicrosite = Microsite::where('user_id', $user->id)->get();
 
             foreach ($takedownUser as $takedown) {
                 Takedown::create([
@@ -75,6 +78,22 @@ class DataUserController extends Controller
                     'track_device_type' => $takedown->track_device_type,
                     'activated_at' => $takedown->activated_at,
                     'deactivated_at' => $takedown->deactivated_at,
+                ]);
+                $takedown->delete();
+            }
+            foreach ($takedownMicrosite as $takedown) {
+                TakedownMicrosite::create([
+                    'id_microsite' => $takedown->id,
+                    'components_uuid' => $takedown->components_uuid,
+                    'user_id' => $takedown->user_id,
+                    'name' => $takedown->name,
+                    'link_microsite' => $takedown->link_microsite,
+                    'image' => $takedown->image,
+                    'name_microsite' => $takedown->name_microsite,
+                    'description' => $takedown->description,
+                    'company_name' => $takedown->company_name,
+                    'company_address' => $takedown->company_address,
+                    'qr_code' => $takedown->qr_code
                 ]);
                 $takedown->delete();
             }
@@ -137,6 +156,7 @@ class DataUserController extends Controller
 
         if (!$user->unban()) {
             $takedownUser = Takedown::where('user_id', $user->id)->get();
+            $takedownMicrosite = TakedownMicrosite::where('user_id', $user->id)->get();
 
             foreach ($takedownUser as $takedown) {
                 ShortUrl::create([
@@ -165,6 +185,22 @@ class DataUserController extends Controller
                     'track_device_type' => $takedown->track_device_type,
                     'activated_at' => $takedown->activated_at,
                     'deactivated_at' => $takedown->deactivated_at,
+                ]);
+                $takedown->delete();
+            }
+            foreach ($takedownMicrosite as $takedown) {
+                Microsite::create([
+                    'id' => $takedown->id_microsite,
+                    'components_uuid' => $takedown->components_uuid,
+                    'user_id' => $takedown->user_id,
+                    'name' => $takedown->name,
+                    'link_microsite' => $takedown->link_microsite,
+                    'image' => $takedown->image,
+                    'name_microsite' => $takedown->name_microsite,
+                    'description' => $takedown->description,
+                    'company_name' => $takedown->company_name,
+                    'company_address' => $takedown->company_address,
+                    'qr_code' => $takedown->qr_code
                 ]);
                 $takedown->delete();
             }
