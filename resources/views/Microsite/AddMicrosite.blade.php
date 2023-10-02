@@ -75,7 +75,7 @@
                             <h4 class="card-title mb-0">Buat Microsite Baru</h4>
                         </div><!-- end card header -->
                         <div class="card-body form-steps">
-                            <form action="{{ route('create.microsite') }}" class="vertical-navs-step needs-validation"
+                            <form action="{{ route('create.microsite') }}" id="form-create" class="vertical-navs-step needs-validation"
                                 novalidate method="POST">
                                 @csrf
                                 <div class="row gy-5">
@@ -191,7 +191,8 @@
                                                                 <label for="address" class="form-label">Nama
                                                                     Microsite</label>
                                                                 <input type="text" class="form-control" id="address"
-                                                                    name="name" placeholder="Nama Microsite">
+                                                                    name="name" placeholder="aqua-link">
+                                                                    <p class="is-invalid" id="error-regex"></p>
                                                             </div>
                                                             <div>
                                                                 @if ($errors->has('name'))
@@ -208,7 +209,8 @@
                                                                     <input type="text" class="form-control"
                                                                         id="link" placeholder="Tautan Microsite"
                                                                         name="link_microsite">
-                                                                </div>
+                                                                    </div>
+                                                                    <p class="is-invalid text-danger"  id="error-link"></p>
                                                                 <div>
                                                                     @if ($errors->has('link_microsite'))
                                                                         <span
@@ -274,7 +276,11 @@
                                                             data-previous="v-pills-bill-address-tab"><i
                                                                 class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
                                                             Sebelumnya</button>
-                                                            <button type="submit" id="submitButton" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="v-pills-finish-tab" onclick="return validateForm();"><i class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Kirim</button>
+                                                        <button type="button" id="submitButton"
+                                                            class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                                                            data-nexttab="v-pills-finish-tab"
+                                                            onclick="return validateForm();"><i
+                                                                class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Kirim</button>
 
                                                     </div>
                                                 </div>
@@ -313,30 +319,52 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script>
-    // Fungsi untuk menampilkan SweetAlert saat tombol submit ditekan
-    function showSweetAlert() {
-        var maxMicrosites = 10; // Batas maksimum microsite
-        var existingMicrosites = {{ $micrositeCount ?? 0 }}; // Menggunakan data yang telah dikirimkan dari controller
+    <script>
+        // Get references to the input field, button, and result element
+        const inputField = document.getElementById("inputField");
+        const validateButton = document.getElementById("validateButton");
+        const resultElement = document.getElementById("result");
 
-        // Periksa apakah pengguna mencapai batas maksimum
-        if (existingMicrosites >= maxMicrosites) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Anda telah mencapai batas maksimum 10 microsite',
-            });
-        }
-    }
+        validateButton.addEventListener("click", function() {
+            // Get the value from the input field
+            const inputValue = inputField.value;
 
-    // Menambahkan penanganan klik pada tombol submit
-    document.addEventListener("DOMContentLoaded", function () {
-        var submitButton = document.getElementById("submitButton"); // Ganti "submitButton" dengan ID tombol submit Anda
-        if (submitButton) {
-            submitButton.addEventListener("click", showSweetAlert);
+            // Define a regex pattern (for example, allowing only alphabetic characters)
+            const regexPattern = /^[a-zA-Z]+$/;
+
+            // Test the input value against the regex pattern
+            if (regexPattern.test(inputValue)) {
+                resultElement.textContent = "Valid input!";
+            } else {
+                resultElement.textContent = "Invalid input. Only alphabetic characters allowed.";
+            }
+        });
+    </script>
+    <script>
+        // Fungsi untuk menampilkan SweetAlert saat tombol submit ditekan
+        function showSweetAlert() {
+            var maxMicrosites = 10; // Batas maksimum microsite
+            var existingMicrosites = {{ $micrositeCount ?? 0 }}; // Menggunakan data yang telah dikirimkan dari controller
+
+            // Periksa apakah pengguna mencapai batas maksimum
+            if (existingMicrosites >= maxMicrosites) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Anda telah mencapai batas maksimum 10 microsite',
+                });
+            }
         }
-    });
-</script>
+
+        // Menambahkan penanganan klik pada tombol submit
+        document.addEventListener("DOMContentLoaded", function() {
+            var submitButton = document.getElementById(
+                "submitButton"); // Ganti "submitButton" dengan ID tombol submit Anda
+            if (submitButton) {
+                submitButton.addEventListener("click", showSweetAlert);
+            }
+        });
+    </script>
 
 
 
@@ -501,13 +529,30 @@
             }
         }
 
-        // Menambahkan event listener untuk input field dengan ID "address"
         var addressInput = document.getElementById("micrositeUrl");
         if (addressInput) {
-            addressInput.addEventListener("input", function () {
+            addressInput.addEventListener("input", function() {
                 replaceSpacesWithDash(this);
             });
         }
+        $('#submitButton').click(function() {
+            var input = document.getElementById('link')
+            const validateButton = document.getElementById("form-create");
+                const inputValue = input.value;
+                console.log(inputValue);
+
+                const regexPattern = /^[a-zA-Z\s-]+$/;
+                if (regexPattern.test(inputValue)) {
+                    validateButton.submit()
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error!!",
+                        text: "Terjadi kesalahan saat input data"
+                    })
+                    $('#error-link').text('Text yang anda masukkan tidak valid atau mengandung kata terlarang!')
+                }
+            });
     </script>
-`
+    `
 @endsection

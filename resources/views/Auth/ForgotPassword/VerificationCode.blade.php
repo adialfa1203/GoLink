@@ -74,7 +74,7 @@
                                                     <img src="{{('template/themesbrand.com/steex/layouts/assets/images/auth/email.png')}}" alt="" class="avatar-md">
                                                 </div>
                                             </div>
-                                            @if (isset($success) || (isset($error)))
+                                            {{-- @if (isset($success) || (isset($error)))
                                             <div class="alert border-0 {{ isset($success) ? 'alert-success' : 'alert-danger' }} text-center mb-2 mx-2" role="alert">
                                                 @if (isset($success))
                                                     Instruksi telah dikirimkan ke email Anda!
@@ -82,14 +82,14 @@
                                                     Terjadi kesalahan saat mengirimkan instruksi. Silakan coba lagi.
                                                 @endif
                                             </div>
-                                            @endif
+                                            @endif --}}
                                             <div class="alert border-0 alert-warning text-center mb-2 mx-2" role="alert">
                                                 Masukkan kode yang telah dikirimkan kepada Anda!
                                             </div>
                                             <div class="p-2">
                                                 <form action="{{ route('verificationCode')}}" method="POST">
                                                     @csrf
-                                                    
+
                                                     <div class="mb-4">
                                                         <label class="form-label">Kode Verifikasi</label>
                                                         <input type="text" name="verification_code" class="form-control password-input" id="verification_code" placeholder="Masukkan Kode Verifikasi">
@@ -99,11 +99,11 @@
                                                                @endif
                                                            </div>
                                                     </div>
-                                                    
+
                                                     <div class="text-center mt-4">
                                                         <button class="btn btn-primary w-100" type="submit">Verifikasi Kode</button>
                                                     </div>
-                                                </form>                                                
+                                                </form>
                                             </div>
                                             <div class="mt-4 text-center">
                                                 <p class="mb-0">Tunggu, saya ingat kata sandi saya ... <a href="{{ url ('login')}}" class="fw-semibold text-primary text-decoration-underline"> Masuk </a> </p>

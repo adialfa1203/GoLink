@@ -64,6 +64,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-body">
@@ -198,9 +199,9 @@
                                                                 </button>
                                                             </div>
                                                             <br>
-                                                            <a href="{{ $row->default_short_url }}" target="_blank"
-                                                                class="garisbawah card-title mb-2">
-                                                                <h4>{{ $row->default_short_url }}</h4>
+                                                            <a>
+                                                                <h3 class="garisbawah card-title mb-2">
+                                                                    {{ $row->default_short_url }}</h3>
                                                             </a>
                                                             <a href="{{ $row->destination_url }}"
                                                                 class="card-subtitle font-14 text-muted">{{ $row->destination_url }}</a>
@@ -314,8 +315,8 @@
                                                                             <p>{{ $row->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                        <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                    </center> -->
+                                                                                                                            <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                        </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -652,10 +653,17 @@
                                                                 </button>
                                                             </div>
                                                             <br>
-                                                            <a>
-                                                                <h3 class="garisbawah card-title mb-2">
-                                                                    {{ $url->default_short_url }}</h3>
-                                                            </a>
+                                                            @if ($url->deactivated_at == null)
+                                                                <a href="{{ $url->default_short_url }}" target="_blank">
+                                                                    <h3 class="garisbawah card-title mb-2">
+                                                                        {{ $url->default_short_url }}
+                                                                    </h3>
+                                                                </a>
+                                                            @else
+                                                                <h3 class="garisbawah text-muted card-title mb-2">
+                                                                    {{ $url->default_short_url }}
+                                                                </h3>
+                                                            @endif
                                                             <a href="{{ $url->destination_url }}"
                                                                 class="card-subtitle font-14 text-muted">{{ $url->destination_url }}</a>
                                                         </div>
@@ -799,8 +807,8 @@
                                                                             <p>{{ $url->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                        <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                    </center> -->
+                                                                                                                            <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                        </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>

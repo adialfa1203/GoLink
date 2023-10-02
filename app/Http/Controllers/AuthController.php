@@ -38,8 +38,6 @@ class AuthController extends Controller
             'password.password' => 'Kata sandi yang Anda inputkan tidak sesuai'
         ]);
 
-
-
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)

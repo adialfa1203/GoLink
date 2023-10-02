@@ -105,13 +105,17 @@
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Email</label>
                                                     <div class="position-relative ">
-                                                        <input type="text" class="form-control password-input"
+                                                        <input type="text"
+                                                            class="form-control password-input @error('email')
+                                                        is-invalid
+                                                        @enderror"
                                                             name="email" id="username" placeholder="Masukkan Email"
                                                             value="{{ old('email') }}">
                                                     </div>
                                                     <div>
                                                         @if ($errors->has('email'))
-                                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                            <span
+                                                                class="text-danger">{{ $errors->first('email') }}</span>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -123,17 +127,18 @@
                                                     <label class="form-label" for="password-input">Kata Sandi</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input type="password" class="form-control pe-5 password-input"
-                                                            name="password" placeholder="Masukkan Kata Sandi" id="password-input"
-                                                             value="{{ old('password') }}">
+                                                            name="password" placeholder="Masukkan Kata Sandi"
+                                                            id="password-input" value="{{ old('password') }}">
                                                         <button
                                                             class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                                                             type="button" id="password-addon"><i
                                                                 class="ri-eye-fill align-middle"></i></button>
-                                                                <div>
-                                                                    @if ($errors->has('email'))
-                                                                        <span class="text-danger">{{ $errors->first('password') }}</span>
-                                                                    @endif
-                                                                </div>
+                                                        <div>
+                                                            @if ($errors->has('password'))
+                                                                <span
+                                                                    class="text-danger">{{ $errors->first('password') }}</span>
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                     <div class="float-end">
                                                         <a href="{{ url('send-email') }}" class="text-muted">Lupa kata
