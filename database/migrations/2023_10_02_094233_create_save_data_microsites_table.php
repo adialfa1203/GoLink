@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('takedown_microsites', function (Blueprint $table) {
+        Schema::create('save_data_microsites', function (Blueprint $table) {
             $table->id();
             $table->string('id_microsite')->nullable();
             $table->string('components_uuid')->nullable();

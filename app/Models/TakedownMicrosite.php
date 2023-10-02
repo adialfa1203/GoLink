@@ -8,19 +8,30 @@ use Illuminate\Database\Eloquent\Model;
 class TakedownMicrosite extends Model
 {
     use HasFactory;
-
     protected $table = "takedown_microsites";
     protected $fillable = [
-        'id_microsite',
-        'components_uuid',
+        'deactivated_at',
+        'activated_at',
+        'track_device_type',
+        'track_referer_url',
+        'track_browser_version',
+        'track_browser',
+        'track_operating_system_version',
+        'track_operating_system',
+        'track_ip_address',
+        'redirect_status_code',
+        'track_visits',
+        'archive',
+        'click_count',
+        'single_use',
+        'default_short_url',
+        'deleted_add',
+        'qr_code',
+        'password',
+        'title',
+        'custom_name',
+        'microsite_uuid',
         'user_id',
-        'name',
-        'link_microsite',
-        'image',
-        'name_microsite',
-        'description',
-        'company_name',
-        'company_address',
-        'qr_code'
-    ];
+        'url_key',
+        'destination_url'];
 }
