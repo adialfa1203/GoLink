@@ -46,7 +46,7 @@ class DataUserController extends Controller
         $user = User::findOrFail($userId);
 
         if (!$user->ban()) {
-            $takedownUser = ShortUrl::where('user_id', $user->id)->get();
+            $takedownUser = ShortUrl::where('user_id', $user->id)->whereNotNull('microsite_uuid')->delete();
 
             foreach ($takedownUser as $takedown) {
                 Takedown::create([
