@@ -1,6 +1,10 @@
 @extends('layout.admin.app')
 @section('title', 'Kategori')
-
+<style>
+        .page-content{
+            overflow-x: hidden;
+          }
+</style>
 @section('content')
     <div class="page-content">
         <div class="container-fluid">

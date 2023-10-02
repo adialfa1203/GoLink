@@ -124,23 +124,21 @@
     <div class="page-content">
         <div class="container-fluid">
             <!-- start page title -->
-            <div class="row">
-                <div class="col-9">
-                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <div class="d-flex flex-column flex-sm-row">
+                <div class="col-12 col-sm-4">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0">Microsite</h4>
                     </div>
                 </div>
-                <div class=" col-8 col-sm-12 mb-3">
-                    <div class="d-flex justify-content-sm-end">
-                        <div class="search-box ms-2">
+                <div class="col-12 col-sm-8 mb-3">
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-end">
+                        <div class="search-box mb-2 mb-sm-0">
                             <input type="text" class="form-control search" placeholder="Cari...">
                             <i class="ri-search-line search-icon"></i>
                         </div>
                     </div>
-
                 </div>
             </div>
-
             <!-- end page title -->
 
             <div class="card mt-1">

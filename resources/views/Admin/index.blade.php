@@ -3,6 +3,9 @@
     @section('title', 'Beranda')
     @section('style')
         <style>
+                .page-content{
+            overflow-x: hidden;
+          }
             @import url(https://fonts.googleapis.com/css?family=Roboto);
 
             body {

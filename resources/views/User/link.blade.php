@@ -50,10 +50,10 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
+
             <div class="d-flex flex-column flex-sm-row">
                 <div class="col-12 col-sm-4">
                     <h5 class="mb-2">Tautan yang Dihasilkan Terbaru</h5>
-                    <p id="clickCount" hidden>0 klik</p>
                 </div>
                 <div class="col-12 col-sm-8 mb-3">
                     <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-end">
@@ -64,6 +64,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-body">
