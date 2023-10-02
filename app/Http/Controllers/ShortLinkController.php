@@ -30,13 +30,18 @@ class ShortLinkController extends Controller
             }
         }
         $validator = Validator::make($request->all(), [
-            'default_short_url.*' => 'nullable|string|url|regex:/^(https?:\/\/)?[^\s/$.?#].[^\s]*$/i',
+            'default_short_url.*' => 'required|string|url|regex:/^(https?:\/\/)?[^\s\/$.?#].[^\s]*$/i',
             'deactivated_at' => [
                 'nullable',
                 'date',
+                'after_or_equal:today', 
             ],
         ], [
+            'default_short_url.*.required' => 'Kolom ini wajib diisi.',
+            'default_short_url.*.string' => 'Kolom ini harus berupa teks.',
             'default_short_url.*.url' => 'URL tidak valid.',
+            'default_short_url.*.regex' => 'Format URL tidak valid.',
+            'deactivated_at.after_or_equal' => 'Tanggal dan waktu harus lebih besar dari atau sama dengan hari ini.',
         ]);
 
         if ($validator->fails()) {
@@ -55,7 +60,7 @@ class ShortLinkController extends Controller
             $shortLinkTotal = $user->shortUrls()->count();
             $historyTotal = $user->history()->count();
             if ($shortLinkTotal + $historyTotal >= 100) {
-                return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi. ', 'status' => 'gagal']);
+                return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi. ', 'status' => 422]);
             }
         }
         $builder = new \AshAllenDesign\ShortURL\Classes\Builder();

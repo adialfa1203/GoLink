@@ -767,7 +767,12 @@
                         error: function(error) {
                             $("#addAmount").modal("hide");
                             $('#singkatkan').modal('hide')
-                            console.error("Error:", error);
+                            Swal.fire({
+                                icon: "error",
+                                title: "Kesalahan!",
+                                text: error.responseJSON.message,
+                            });
+                            console.error("Error:", );
                         }
                     });
 
