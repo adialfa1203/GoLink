@@ -82,7 +82,7 @@
 
             /* Tampilkan teks hanya di perangkat selain seluler */
             .square-button {
-                width: 40px;
+                width: 20px;
                 /* Ubah lebar sesuai kebutuhan Anda */
                 height: 40px;
                 /* Ubah tinggi sesuai kebutuhan Anda */
@@ -91,6 +91,17 @@
                 justify-content: center;
                 text-align: center;
                 /* Tambahkan ini */
+            }
+            .btn-danger{
+                width: 70px;
+                height: 40px;
+                font-size: 10px;
+            }
+            .btn-secondary{
+                width: 120px;
+                height: 40px;
+                font-size: 8px;
+
             }
         }
     </style>
@@ -136,7 +147,7 @@
                             <a href="{{ route('add.microsite') }}" type="button"
                                 class="btn btn-success btn-label square-button">
                                 <i class="ri-add-line label-icon align-middle fs-lg"></i>
-                                <span class="btn-text">Buat Baru</span>
+                                <span class="btn-text square-button">Buat Baru</span>
                             </a>
                         </div>
 
