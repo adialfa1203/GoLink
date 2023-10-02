@@ -3,9 +3,10 @@
 @section('title', 'Beranda')
 @section('style')
     <style>
-          .page-content{
+        .page-content {
             overflow-x: hidden;
-          }
+        }
+
         .custom-icon-size {
             font-size: 24px;
             /* Ubah ukuran sesuai kebutuhan */
@@ -263,7 +264,7 @@
                                     <div class="col-lg-12">
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-danger" style="width: 100%;"
-                                                data-bs-toggle="modal" data-bs-target="#singkatkan">
+                                                data-bs-toggle="modal" data-bs-target="">
                                                 <i class="bi bi-link-45deg"></i> Singkatkan!
                                             </button>
                                         </div>
@@ -733,7 +734,7 @@
                     var formData = $(this).serialize(); // Mengambil data form
                     $.ajax({
                         type: "POST",
-                        url: "short-link", // Ganti dengan URL endpoint Anda
+                        url: "short-link",
                         data: formData,
                         success: function(response) {
                             // Tangani respons dari server
@@ -763,16 +764,18 @@
 
                             // Menampilkan tombol Copy
                             $("#copyButton").show();
+                            $('#singkatkan').modal('show')
                         },
                         error: function(error) {
                             $("#addAmount").modal("hide");
-                            $('#singkatkan').modal('hide')
+                            $('#singkatkan').modal('hide');
+                            $('#defa')
                             Swal.fire({
                                 icon: "error",
                                 title: "Kesalahan!",
-                                text: error.responseJSON.message,
+                                text: "URL tidak valid",
                             });
-                            console.error("Error:", );
+                            console.error("Error:", error.responseJSON.message);
                         }
                     });
 

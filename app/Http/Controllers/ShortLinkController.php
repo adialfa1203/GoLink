@@ -34,7 +34,7 @@ class ShortLinkController extends Controller
             'deactivated_at' => [
                 'nullable',
                 'date',
-                'after_or_equal:today', 
+                'after_or_equal:today',
             ],
         ], [
             'default_short_url.*.required' => 'Kolom ini wajib diisi.',
