@@ -27,7 +27,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'remember' => 'required|string',
             'email' => 'required|string|email|regex:/^[^-+]+$/u|exists:users,email',
-            'password' => 'required|string|min:8|max:16',
+            'password' => 'required|string|min:5|max:16',
         ], [
             'remember.required' => 'Anda harus menyetujui Kebijakan Privasi.',
             'email.required' => 'Email tidak boleh kosong',
