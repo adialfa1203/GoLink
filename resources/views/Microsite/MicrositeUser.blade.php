@@ -3,6 +3,9 @@
 
 @section('style')
     <style>
+          .page-content{
+            overflow-x: hidden;
+          }
         .custom-alert {
             display: none;
             position: absolute;
@@ -92,7 +95,7 @@
                 text-align: center;
                 /* Tambahkan ini */
             }
-            .btn-danger{
+            .button{
                 width: 70px;
                 height: 40px;
                 font-size: 10px;
@@ -153,7 +156,7 @@
 
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-10 col-10 mb-2">
                             <div class="hstack gap-2 justify-content-end">
-                                <button type="button" class="btn rounded-pill btn-danger" id="semuaButton">Semua</button>
+                                <button type="button" class="btn rounded-pill btn-danger button" id="semuaButton">Semua</button>
                                 <button type="button" class="btn rounded-pill btn-secondary"
                                     onclick="filterTerakhirDiperbarui()">Terakhir Diperbarui</button>
                             </div>

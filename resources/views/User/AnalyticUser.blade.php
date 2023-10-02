@@ -4,6 +4,9 @@
 
 @section('style')
 <style>
+        .page-content{
+            overflow-x: hidden;
+          }
     .bg-custom {
         background-color: #CDF0EA;
     }
