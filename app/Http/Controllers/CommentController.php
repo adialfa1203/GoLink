@@ -29,7 +29,7 @@ class CommentController extends Controller
 
         // Buat objek komentar
         $komentar = new Comment;
-        $komentar->user_id = $user; // Menggunakan ID dari objek User yang diberikan melalui route model binding
+        $komentar->user_id = Auth::user()->id; // Menggunakan ID dari objek User yang diberikan melalui route model binding
         $komentar->isikomentar = $request->input('isikomentar');
         $komentar->save();
 
