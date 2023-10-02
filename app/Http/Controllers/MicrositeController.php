@@ -234,9 +234,12 @@ class MicrositeController extends Controller
     public function saveComponent(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'component_name' => 'required|string|max:12',
+            'component_name' => 'required|string|max:20',
             'cover_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             // 'profile_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ],[
+            'component_name.required' => 'Nama wajib diisi',
+            'component_name.max' => 'Tidak boleh lebih besar dari 20 karakter',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -269,12 +272,12 @@ class MicrositeController extends Controller
     public function updateComponent(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'component_name' => 'required|max:10',
+            'component_name' => 'required|max:20',
             'cover_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'profile_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ], [
             'component_name.required' => 'Nama komponen harus diisi',
-            'component_name.max' => 'Jumlah karakter tidak boleh lebih dari 10',
+            'component_name.max' => 'Jumlah karakter tidak boleh lebih dari 20',
             'cover_img.image' => 'Data yang diizinkan hanya jpeg, png, jpg dan gif',
             'cover_img.mimes' => 'Data yang diizinkan hanya jpeg, png, jpg dan gif',
             'cover_img.max' => 'Ukuran background tidak boleh lebih dari 2048 pixel',
