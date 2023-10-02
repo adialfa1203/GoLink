@@ -217,19 +217,19 @@
                                                                 <div class="row g-3">
                                                                     <div class="countdown-input-subscribe">
                                                                         <label class="platform"
-                                                                            onclick="window.open(`https://www.facebook.com/sharer/sharer.php?u=${document.getElementById('link_microsite{{ $i }}').innerText}`)"><i
+                                                                            onclick="window.open(`https://www.facebook.com/sharer/sharer.php?u={{ $row->oneShortUrl->default_short_url }}`)"><i
                                                                                 class="bi bi-facebook"></i> &nbsp;
                                                                             Facebook</label>
                                                                     </div>
                                                                     <div class="countdown-input-subscribe">
                                                                         <label class="platform"
-                                                                            onclick="window.open(`https://twitter.com/intent/tweet?url=${document.getElementById('link_microsite{{ $i }}').innerText}`)"><i
+                                                                            onclick="window.open(`https://twitter.com/intent/tweet?url={{ $row->oneShortUrl->default_short_url }}`)"><i
                                                                                 class="bi bi-twitter"></i> &nbsp;
                                                                             Twitter</label>
                                                                     </div>
                                                                     <div class="countdown-input-subscribe">
                                                                         <label class="platform"
-                                                                            onclick="window.open(`https://api.whatsapp.com/send?text=${document.getElementById('link_microsite{{ $i }}').innerText}`)"><i
+                                                                            onclick="window.open(`https://api.whatsapp.com/send?text={{ $row->oneShortUrl->default_short_url }}`)"><i
                                                                                 class="bi bi-whatsapp"></i> &nbsp;
                                                                             WhatsApp</label>
                                                                     </div>
