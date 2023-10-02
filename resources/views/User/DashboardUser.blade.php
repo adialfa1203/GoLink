@@ -46,32 +46,33 @@
         .text-white {
             color: white !important;
         }
+
         .tooltip-icon {
-         position: relative;
-         cursor: pointer;
+            position: relative;
+            cursor: pointer;
         }
 
         .tooltip-icon::before {
-        content: attr(data-tooltip);
-        position: absolute;
-        top: -25px;
-        left: 0;
-        width: 200px; /* Sesuaikan dengan lebar tooltip yang Anda inginkan */
-        background-color: #333;
-        color: #fff;
-        padding: 5px;
-        border-radius: 5px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-        z-index: 1;
-        font-weight: normal;
+            content: attr(data-tooltip);
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 200px;
+            /* Sesuaikan dengan lebar tooltip yang Anda inginkan */
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+            font-weight: normal;
         }
 
         .tooltip-icon:hover::before {
-        opacity: 1;
+            opacity: 1;
         }
-
     </style>
 @endsection
 @section('content')
@@ -136,7 +137,8 @@
                                             <div class="col-lg-12">
                                                 <div>
                                                     <label for="AmountInput" class="form-label">Tautan Panjang</label>
-                                                    <input type="text" class="form-control" name="destination_url" id="AmountInput"
+                                                    <input type="text" class="form-control" name="destination_url"
+                                                        id="AmountInput"
                                                         placeholder="http://domain-mu.id/yang-paling-panjang-disini">
                                                 </div>
                                                 <div>
@@ -225,7 +227,7 @@
                                                                             <input name="deactivated_at"
                                                                                 type="datetime-local" id="old_password"
                                                                                 class="form-control pe-5 time-input"
-                                                                                min="">
+                                                                                min="{{ now()->format('Y-m-d\TH:i:s') }}">
                                                                             <button
                                                                                 class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                                                                                 type="button" id="password-addon">
@@ -295,14 +297,14 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <label class="form-label">Judul</label>
-                                                <input class="form-control" id="title" >
+                                                <input class="form-control" id="title">
                                             </div>
                                             <hr>
                                             <div class="col-lg-12">
                                                 <div class="input-group align-items-center rounded"
                                                     style="background: #E9EEF5">
                                                     <input id="default_short_url" class="form-control" type="text"
-                                                        id="salin" >
+                                                        id="salin">
                                                     {{-- salin --}}
                                                     <div id="successCopy" class="alert alert-success mt-3"
                                                         style="display: none; position: fixed; bottom: 570px; right: 560px; max-width: 500px;">
@@ -321,7 +323,7 @@
                                             <div class="col-lg-12">
                                                 <div class="countdown-input-subscribe">
                                                     <label for="cardNumber" class="form-label">URL asli</label>
-                                                    <input class="form-control" id="destination_url" >
+                                                    <input class="form-control" id="destination_url">
                                                 </div>
                                             </div>
                                         </div>
@@ -475,7 +477,8 @@
                                         <div class="d-flex flex-column h-100">
                                             <p class="fs-md text-muted mb-4">Pengunjung Microsite</p>
                                             <h3 class="mb-0 mt-auto"><span class="counter-value"
-                                                    data-target="{{ $totalVisitsMicrosite }}">{{ $totalVisitsMicrosite }}</span></h3>
+                                                    data-target="{{ $totalVisitsMicrosite }}">{{ $totalVisitsMicrosite }}</span>
+                                            </h3>
                                         </div>
                                     </div>
                                     <div class="flex-shrink-0">
@@ -493,10 +496,11 @@
                                 <div class="flex-grow-1">
                                     <h6 class="card-title">
                                         Tautan dibuat/bulan
-                                        <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
-                                          <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
+                                        <span class="tooltip-icon"
+                                            data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                            <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                         </span>
-                                      </h6>
+                                    </h6>
                                 </div>
                             </div>
                             <div class="progress" data-bs-toggle="tooltip"
@@ -508,9 +512,10 @@
                             <p class="text-muted mb-0"><b>{{ $countURL }} dari 100</p>
                             <br>
                             <h6 class="card-title">Microsite dibuat/bulan
-                                <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                <span class="tooltip-icon"
+                                    data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                     <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
-                                  </span>
+                                </span>
                             </h6>
                             <div class="progress" data-bs-toggle="tooltip"
                                 data-bs-title="{{ $countMIcrosite }} Nama diubah">
@@ -524,11 +529,12 @@
                                 $userType = Auth::user()->subscribe; // Gantilah dengan logika yang sesuai dengan aplikasi Anda
                             @endphp
                             @if ($userType === 'yes')
-                            <h6 class="card-title">Nama yang telah diubah/bulan
-                                <span class="tooltip-icon" data-tooltip="Kuota nama yang telah diubah berlaku untuk setiap kali pengguna melakukan pengubahan nama pendek tautan yang sebelumnya sudah diubah.">
-                                    <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
-                                  </span>
-                            </h6>
+                                <h6 class="card-title">Nama yang telah diubah/bulan
+                                    <span class="tooltip-icon"
+                                        data-tooltip="Kuota nama yang telah diubah berlaku untuk setiap kali pengguna melakukan pengubahan nama pendek tautan yang sebelumnya sudah diubah.">
+                                        <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
+                                    </span>
+                                </h6>
                                 <div class="progress" data-bs-toggle="tooltip"
                                     data-bs-title="{{ $countNameChanged }} Nama diubah">
                                     <div class="progress-bar progress-bar-striped progress-bar-animated" id="name-changed"
@@ -559,12 +565,13 @@
                                     <div class="modal-body">
                                         <div class="row g-3">
                                             <div class="card-body">
-                                                    <h6 class="card-title">
-                                                        Tautan dibuat/bulan
-                                                        <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
-                                                          <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
-                                                        </span>
-                                                    </h6>
+                                                <h6 class="card-title">
+                                                    Tautan dibuat/bulan
+                                                    <span class="tooltip-icon"
+                                                        data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                        <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
+                                                    </span>
+                                                </h6>
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated"
                                                         role="progressbar" aria-valuenow="{{ $countURL }}"
@@ -575,9 +582,10 @@
                                                 <p class="text-muted mb-0"><b>{{ $countURL }} dari 100</p>
                                                 <br>
                                                 <h3 class="card-title">Microsite dibuat/bulan
-                                                    <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                    <span class="tooltip-icon"
+                                                        data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                                         <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
-                                                      </span>
+                                                    </span>
                                                 </h3>
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated"
@@ -592,11 +600,13 @@
                                                     $userType = Auth::user()->subscribe; // Gantilah dengan logika yang sesuai dengan aplikasi Anda
                                                 @endphp
                                                 @if ($userType === 'yes')
-                                                <h6 class="card-title">Nama yang telah diubah/bulan
-                                                    <span class="tooltip-icon" data-tooltip="Kuota nama yang telah diubah berlaku untuk setiap kali pengguna melakukan pengubahan nama pendek tautan yang sebelumnya sudah diubah.">
-                                                        <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
-                                                      </span>
-                                                </h6>
+                                                    <h6 class="card-title">Nama yang telah diubah/bulan
+                                                        <span class="tooltip-icon"
+                                                            data-tooltip="Kuota nama yang telah diubah berlaku untuk setiap kali pengguna melakukan pengubahan nama pendek tautan yang sebelumnya sudah diubah.">
+                                                            <i
+                                                                class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
+                                                        </span>
+                                                    </h6>
                                                     <div class="progress">
                                                         <div class="progress-bar progress-bar-striped progress-bar-animated"
                                                             id="progress-bar" role="progressbar"
@@ -608,15 +618,16 @@
                                                     <br>
                                                     <h6 for="cardNumber" class="card-title">Tautan original
                                                         diubah/bulan
-                                                        <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
-                                                            <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
+                                                        <span class="tooltip-icon"
+                                                            data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                            <i
+                                                                class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                         </span>
                                                     </h6>
                                                     <div class="progress">
                                                         <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                                            id="progress-bar" role="progressbar"
-                                                            aria-valuenow="0" aria-valuemin="0"
-                                                            aria-valuemax="5"></div>
+                                                            id="progress-bar" role="progressbar" aria-valuenow="0"
+                                                            aria-valuemin="0" aria-valuemax="5"></div>
                                                     </div>
                                                     <p class="text-muted mb-0"><b>0 dari 5</b></p>
                                             </div>
@@ -629,18 +640,20 @@
 
                                                 </div>
                                                 <br>
-                                                    <div>
+                                                <div>
 
-                                                    </div>
+                                                </div>
                                                 <br>
                                                 {{-- <div class="quota-reset">
                                                     Kuota direset pada <span id="nextMonthDate"></span> pukul 00.00
                                                 </div> --}}
-                                                @else
+                                            @else
                                                 <div class="col-lg-12">
                                                     <div>
-                                                        <label for="AmountInput" class="form-label">Nama yang telah diubah/bulan</label>
-                                                        <label for="AmountInput" class="unavailable-text" style="color: red;"><i>Tidak
+                                                        <label for="AmountInput" class="form-label">Nama yang telah
+                                                            diubah/bulan</label>
+                                                        <label for="AmountInput" class="unavailable-text"
+                                                            style="color: red;"><i>Tidak
                                                                 tersedia pada layanan ini</i></label>
                                                     </div>
                                                     <br>
@@ -648,7 +661,8 @@
                                                         <div>
                                                             <label for="cardNumber" class="form-label">Tautan original
                                                                 diubah/bulan</label>
-                                                            <label for="AmountInput" class="unavailable-text" style="color: red;"><i>Tidak
+                                                            <label for="AmountInput" class="unavailable-text"
+                                                                style="color: red;"><i>Tidak
                                                                     tersedia pada layanan ini</i></label>
                                                         </div>
                                                     </div>
@@ -1069,7 +1083,11 @@
         var nextMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
 
         // Format tanggal menjadi 'DD Month YYYY'
-        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        var options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
         var formattedDate = nextMonthDate.toLocaleDateString('id-ID', options);
 
         // Setel tanggal yang dihasilkan ke dalam elemen HTML
