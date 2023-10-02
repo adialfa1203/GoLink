@@ -95,9 +95,9 @@ class ProfilController extends Controller
         $admin = User::FindOrFail(Auth::user()->id);
 
         $validator = Validator::make($request->all(),[
-            'name' => 'required',
-            'email' => 'email|unique:users,email,' . $admin->id,
-            'number' => 'required|min:11|max:13',
+            'name' => 'required|regex:/^[^-+]+$/u',
+            'email' => 'email|regex:/^[^-+]+$/u|unique:users,email,' . $admin->id,
+            'number' => 'required|min:11|max:13|regex:/^[^-+]+$/u',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
