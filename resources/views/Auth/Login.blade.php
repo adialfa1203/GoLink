@@ -152,6 +152,23 @@
                                                     <button class="btn btn-primary w-100 custom-btn"
                                                         type="submit">Masuk</button>
                                                 </div>
+                                                <div class="mt-4 pt-2 text-center">
+                                                    <div class="signin-other-title position-relative">
+                                                        <h5 class="fs-sm mb-4 title">Login dengan</h5>
+                                                    </div>
+                                                    <div class="pt-2 hstack gap-2 justify-content-center">
+                                                        {{-- <button type="button"
+                                                            class="btn btn-subtle-primary btn-icon"><i
+                                                                class="ri-facebook-fill fs-lg"></i></button> --}}
+                                                        <a href="{{ route('redirect.google') }}" type="button"
+                                                            class="btn btn-subtle-danger btn-icon"><i
+                                                                class="ri-google-fill fs-lg"></i></a>
+                                                        {{-- <button type="button" class="btn btn-subtle-dark btn-icon"><i
+                                                                class="ri-github-fill fs-lg"></i></button> --}}
+                                                        {{-- <button type="button" class="btn btn-subtle-info btn-icon"><i
+                                                                class="ri-twitter-fill fs-lg"></i></button> --}}
+                                                    </div>
+                                                </div>
                                             </form>
                                             <div class="text-center mt-5">
                                                 <p class="mb-0">Tidak mempunyai akun ? <a

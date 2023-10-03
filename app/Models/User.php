@@ -26,6 +26,7 @@ class User extends Authenticatable
         'password',
         'number',
         'is_banned',
+        'google_id',
         'profile_picture',
         'verification_code',
         'github_id',

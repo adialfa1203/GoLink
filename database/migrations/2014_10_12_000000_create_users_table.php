@@ -19,6 +19,7 @@ return new class extends Migration
             $table->datetime('email_verified_at')->nullable();
             $table->enum('subscribe', ['yes', 'no'])->default('no');
             $table->string('password');
+            $table->string('google_id')->nullable();
             $table->string('profile_picture')->nullable();
             $table->string('verification_code')->nullable();
             $table->boolean('is_banned')->default(false);

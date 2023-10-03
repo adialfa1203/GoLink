@@ -17,6 +17,7 @@ use App\Http\Controllers\MicrositeController;
 use App\Http\Controllers\ButtonController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Route;
 // use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -37,6 +38,8 @@ Route::POST('/login-user',[AuthController::class,'loginUser'])->name('login.user
 Route::get('/Link', [LinkController::class, 'Link'])->name('Link');
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register.user');
+Route::get('/auth/redirect', [SocialController::class, 'redirectGoogle'])->name('redirect.google');
+Route::get('/google/redirect', [SocialController::class, 'googleCallback'])->name('google.callback');
 //Send email
 Route::get('send-email', [AuthController::class, 'sendEmail']);
 Route::get('change-password/{email}', [AuthController::class, 'changePassword'])->name('changePassword');
