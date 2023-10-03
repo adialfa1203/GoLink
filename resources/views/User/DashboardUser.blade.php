@@ -215,7 +215,7 @@
                                                         style="color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; width: 100%; text-align: left;">
                                                         <i class="bi bi-clock"
                                                             style="font-size: 12px; margin-right: 5px;"></i>Tautan
-                                                        Berjangka
+                                                        Berjangka (opsional)
                                                     </button>
                                                     <div class="collapse" id="tautanberjangka">
                                                         <div class="card card-body">
