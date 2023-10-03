@@ -347,6 +347,11 @@
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addAmountLabel">Judul Modal</h5>
+                                        <button id="close-bagikan" type="button" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
                                     <div class="modal-body">
                                         <div class="row g-3">
                                             <div class="countdown-input-subscribe">
@@ -365,17 +370,6 @@
                                                 <label class="platform" data-platform="copy" id="copyButton"><i
                                                         class="bi bi-clipboard-fill"></i> &nbsp; Copy</label>
                                             </div>
-                                            {{-- <div class="countdown-input-subscribe">
-                                                <label class="platform copyButton" data-platform="copy"
-                                                    data-url="{{ $ShortLink->default_short_url }}"
-                                                    data-id-copy="{{ $ShortLink }}">
-                                                    <i class="bi bi-clipboard-fill"></i> &nbsp; Copy
-                                                </label>
-                                            </div> --}}
-                                            {{-- <div id="successCopyAlert" class="alert alert-success mt-3"
-                                                style="display: none; position: fixed; bottom: 570px; right: 433px; max-width: 500px;">
-                                                Tautan berhasil disalin ke clipboard
-                                            </div> --}}
                                             <div class="countdown-input-subscribe">
                                                 <label class="platform" data-platform="qr"><i class="bi bi-qr-code"></i>
                                                     &nbsp; QR Code</label>
@@ -515,19 +509,19 @@
                             </div>
                             <p class="text-muted mb-0"><b>{{ $countURL }} dari 100</p>
                             <br>
-                            <h6 class="card-title">Microsite dibuat/bulan
+                            <h6 class="card-title">Microsite dibuat
                                 <span class="tooltip-icon"
                                     data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                     <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                 </span>
                             </h6>
                             <div class="progress" data-bs-toggle="tooltip"
-                                data-bs-title="{{ $countMIcrosite }} Nama diubah">
+                                data-bs-title="{{ $countMicrosite }} Nama diubah">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite"
-                                    role="progressbar" aria-valuenow="{{ $countMIcrosite }}" aria-valuemin="0"
-                                    aria-valuemax="10" style="width: {{ ($countMIcrosite / 10) * 100 }}%"></div>
+                                    role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
+                                    aria-valuemax="10" style="width: {{ ($countMicrosite / 10) * 100 }}%"></div>
                             </div>
-                            <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMIcrosite }} dari 10</b></p>
+                            <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMicrosite }} dari 10</b></p>
                             <br>
                             @php
                                 $userType = Auth::user()->subscribe; // Gantilah dengan logika yang sesuai dengan aplikasi Anda
@@ -594,11 +588,11 @@
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated"
                                                         id="progress-bar" role="progressbar"
-                                                        aria-valuenow="{{ $countMIcrosite }}" aria-valuemin="0"
+                                                        aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
                                                         aria-valuemax="10"
-                                                        style="width: {{ ($countMIcrosite / 10) * 100 }}%;"></div>
+                                                        style="width: {{ ($countMicrosite / 10) * 100 }}%;"></div>
                                                 </div>
-                                                <p class="text-muted mb-0"><b>{{ $countMIcrosite }} dari 10</b></p>
+                                                <p class="text-muted mb-0"><b>{{ $countMicrosite }} dari 10</b></p>
                                                 <br>
                                                 @php
                                                     $userType = Auth::user()->subscribe; // Gantilah dengan logika yang sesuai dengan aplikasi Anda
@@ -701,6 +695,14 @@
 
 @section('script')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#close-bagikan").click(function() {
+                $('#singkatkan').modal('show');
+            });
+        });
+    </script>
+
     <script>
         let edit = false;
 
@@ -989,7 +991,7 @@
     </script>
     <script>
         // Ambil data dari {{ $countURL }} (misalnya menggunakan AJAX)
-        var countData = {{ $countMIcrosite }}; // Contoh nilai statis
+        var countData = {{ $countMicrosite }}; // Contoh nilai statis
 
         // Ubah lebar bar progres sesuai dengan data yang diperoleh
         var progressBar = document.getElementById("progress-bar");
@@ -1014,8 +1016,8 @@
         progressText.textContent = countURLValue + ' dari 100';
     </script>
     <script>
-        // Get the value from the server-side variable {{ $countMIcrosite }}
-        var countURLValue = {{ $countMIcrosite }};
+        // Get the value from the server-side variable {{ $countMicrosite }}
+        var countURLValue = {{ $countMicrosite }};
 
         // Update the progress bar width based on a maximum value of 10
         var progressBar = document.querySelector('#total-microsite');

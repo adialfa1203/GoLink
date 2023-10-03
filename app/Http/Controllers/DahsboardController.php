@@ -35,9 +35,11 @@ class DahsboardController extends Controller
         $countURL = $totalUrl + $countHistory;
         } if ($user) {
             $userId = $user->id;
-        $countMIcrosite = ShortURL::where('user_id', $userId)
-                            ->whereNotNull('microsite_uuid')
-                            ->count();
+            $countMicrosite = ShortURL::where('user_id', $userId)
+            ->whereNotNull('microsite_uuid')
+            ->orderBy('created_at', 'asc')
+            ->limit(10)
+            ->count();
         }if($user) {
             $userId = $user->id;
         $countNameChanged = ShortUrl::where('user_id', $userId)
@@ -47,7 +49,7 @@ class DahsboardController extends Controller
         }
         $qr = ShortUrl::get()->sum('qr_code');
 
-        return view('User.DashboardUser', compact( 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMIcrosite'));
+        return view('User.DashboardUser', compact( 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite'));
     }
 
     public function HelpSupport()

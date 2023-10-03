@@ -87,8 +87,6 @@ class MicrositeController extends Controller
     public function createMicrosite(Request $request, Microsite $microsite)
     {
         $user = auth()->user();
-
-        // Jika pengguna adalah non-premium (subscribe == 'no') dan telah mencapai batas 10 microsite
         if ($user->subscribe === 'no' && $user->microsites()->count() >= 10) {
             return redirect()->back();
         }
