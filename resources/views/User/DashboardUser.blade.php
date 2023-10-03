@@ -155,7 +155,7 @@
 
                                             <div class="col-lg-12">
                                                 <div>
-                                                    <label for="cardNumber" class="form-label">Judul</label>
+                                                    <label for="cardNumber" class="form-label">Judul (opsional)</label>
                                                     <input name="title" class="form-control" id="cardNumber"
                                                         placeholder="Judul">
                                                 </div>
@@ -714,10 +714,10 @@
 
                 // Mengambil nilai dari input tautan panjang dan judul
                 var destinationUrl = $("#AmountInput").val();
-                var title = $("#cardNumber").val();
+                // var title = $("#cardNumber").val();
 
                 // Cek apakah input kosong
-                if (!destinationUrl || !title) {
+                if (!destinationUrl) {
                     Swal.fire({
                         icon: "error",
                         title: "Kesalahan!",

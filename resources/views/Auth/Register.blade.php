@@ -99,8 +99,7 @@
                                             <div class="p-2 mt-5">
                                                 <form action="{{ route('register.user') }}" method="POST">
                                                     @csrf
-                                                    <div class="row">
-                                                        <div class="col-6 mb-3">
+                                                        <div class="mb-3">
                                                             <label class="form-label">Nomer Ponsel</label>
                                                             <div class="position-relative ">
                                                                 <input name="number" type="number"
@@ -114,7 +113,7 @@
                                                                 @endif
                                                             </div>
                                                         </div>
-                                                        <div class="col-6 mb-3">
+                                                        <div class="mb-3">
                                                             <label for="username" class="form-label">Email</label>
                                                             <div class="position-relative ">
                                                                 <input name="email" type="text"
@@ -129,9 +128,7 @@
                                                                 @endif
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-6 mb-3">
+                                                        <div class="mb-3">
                                                             <label class="form-label">Nama Lengkap</label>
                                                             <div class="position-relative ">
                                                                 <input name="name" type="text"
@@ -145,7 +142,7 @@
                                                                 @endif
                                                             </div>
                                                         </div>
-                                                        <div class="col-6 mb-3">
+                                                        <div class="mb-3">
                                                             <label class="form-label">Kata Sandi</label>
                                                             <div class="position-relative auth-pass-inputgroup mb-3">
                                                                 <input name="password" type="password"
@@ -164,10 +161,9 @@
                                                                         </div>
                                                             </div>
                                                         </div>
-                                                    </div>
                                                     <div class="mb-3">
                                                         <label class="form-label" for="password-input">Ulangi
-                                                            Password</label>
+                                                            Kata Sandi</label>
                                                         <div class="position-relative auth-pass-inputgroup mb-3">
                                                             <input name="password_confirmation" type="password"
                                                                 class="form-control pe-5 password-input "

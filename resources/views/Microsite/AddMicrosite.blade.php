@@ -191,7 +191,7 @@
                                                                 <label for="address" class="form-label">Nama
                                                                     Microsite</label>
                                                                 <input type="text" class="form-control" id="address"
-                                                                    name="name" placeholder="aqua-link">
+                                                                    name="name" placeholder="Nama Microsite">
                                                                     <p class="is-invalid" id="error-regex"></p>
                                                             </div>
                                                             <div>

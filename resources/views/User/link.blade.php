@@ -199,9 +199,9 @@
                                                                 </button>
                                                             </div>
                                                             <br>
-                                                            <a>
-                                                                <h3 class="garisbawah card-title mb-2">
-                                                                    {{ $row->default_short_url }}</h3>
+                                                            <a href="{{ $row->default_short_url }}" target="_blank"
+                                                                class="garisbawah card-title mb-2">
+                                                                <h4>{{ $row->default_short_url }}</h4>
                                                             </a>
                                                             <a href="{{ $row->destination_url }}"
                                                                 class="card-subtitle font-14 text-muted">{{ $row->destination_url }}</a>
