@@ -17,14 +17,27 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
-        $guards = empty($guards) ? [null] : $guards;
+        // $guards = empty($guards) ? [null] : $guards;
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+        // foreach ($guards as $guard) {
+        //     if (Auth::guard($guard)->check()) {
+        //         return redirect(RouteServiceProvider::HOME);
+        //     }
+        // }
+
+        if (auth()->check()) {
+            $user = Auth::user();
+            if ($user->hasRole('admin')) {
+                return redirect()->route('dashboard.admin');
+            } elseif ($user->hasRole('user')) {
+                if ($user->is_banned) {
+                    Auth::logout();
+                    return redirect('/login')->with('error', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
+                } else {
+                    return redirect()->route('dashboard.user')->withCookie(cookie('remember_web', true, 3));
+                }
             }
         }
-
         return $next($request);
     }
 }
