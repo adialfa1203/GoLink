@@ -20,22 +20,21 @@ class AuthController extends Controller
         return view('Auth.Login');
     }
 
-    public function loginUser(Request $request){
+    public function loginUser(Request $request)
+    {
         $credentials = $request->only('email', 'password');
-        $remember = $request->input('remember');
+        $remember = $request->has('remember_me') ? true : false;
 
         $validator = Validator::make($request->all(), [
-            'remember' => 'required|string',
             'email' => 'required|string|email|regex:/^[^-+]+$/u|exists:users,email',
             'password' => 'required|string|min:5',
         ], [
-            'remember.required' => 'Anda harus menyetujui Kebijakan Privasi.',
             'email.required' => 'Email tidak boleh kosong',
             'email.email' => 'Email harus memiliki format yang valid.',
             'email.exists' => 'Email belum terdaftar.',
             'email.regex' => 'Email tidak boleh mengandung simbol',
             'password.required' => 'Password tidak boleh kosong',
-            'password.password' => 'Kata sandi yang Anda inputkan tidak sesuai'
+            'password.min' => 'Kata sandi harus memiliki panjang minimal 5 karakter',
         ]);
 
         if ($validator->fails()) {
@@ -53,15 +52,13 @@ class AuthController extends Controller
                     Auth::logout();
                     return redirect('/login')->with('error', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
                 } else {
-                    return redirect()->route('dashboard.user');
+                    return redirect()->route('dashboard.user')->withCookie(cookie('remember_web', true, 3));
                 }
             }
         }
 
         return redirect()->route('login')->with('error', 'Email atau Password Yang Anda Masukkan Salah');
     }
-
-
 
 
     public function register()
@@ -75,6 +72,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:50|regex:/^[^-+]+$/u',
             'email' => 'required|email|regex:/^[^-+]+$/u|unique:users|ends_with:.com',
             'number' => 'required|max:15|regex:/^[^-+]+$/u|min:11',
+            'remember' => 'required|string',
             'password' => 'required|min:8',
             'password_confirmation' => 'required_with:password|same:password'
         ], [
@@ -88,6 +86,7 @@ class AuthController extends Controller
             'number.regex' => 'Nomor wajib angka',
             'password_confirmation.same' => 'Password dan Konfirmasi Password tidak cocok.',
             'email.unique' => 'Email sudah terdaftar, silahkan gunakan email lain.',
+            'remember.required' => 'Anda harus menyetujui Kebijakan Privasi.',
             'password.required' => 'Kata sandi tidak boleh kosong',
             'password.min' => 'Kata sandi minimal terdiri dari 8 karakter.'
         ]);

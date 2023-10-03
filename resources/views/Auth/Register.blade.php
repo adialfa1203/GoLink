@@ -14,7 +14,8 @@
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}" style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
+        style="width: 200px; height: 200px;">
 
     <!-- Fonts css load -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -80,7 +81,6 @@
         });
     </script>
 
-
     <section
         class="auth-page-wrapper py-5 position-relative d-flex align-items-center justify-content-center min-vh-100">
         <div class="container">
@@ -99,80 +99,83 @@
                                             <div class="p-2 mt-5">
                                                 <form action="{{ route('register.user') }}" method="POST">
                                                     @csrf
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Nomer Ponsel</label>
-                                                            <div class="position-relative ">
-                                                                <input name="number" type="number"
-                                                                    class="form-control" placeholder="Masukan Nomor Ponsel"
-                                                                    value="{{ old('number') }}">
-                                                            </div>
-                                                            <div>
-                                                                @if ($errors->has('number'))
-                                                                    <span
-                                                                        class="text-danger">{{ $errors->first('number') }}</span>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="username" class="form-label">Email</label>
-                                                            <div class="position-relative ">
-                                                                <input name="email" type="text"
-                                                                    class="form-control  password-input" id="username"
-                                                                    placeholder="Masukan Email"
-                                                                    value="{{ old('email') }}">
-                                                            </div>
-                                                            <div>
-                                                                @if ($errors->has('email'))
-                                                                    <span
-                                                                        class="text-danger">{{ $errors->first('email') }}</span>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Nama Lengkap</label>
-                                                            <div class="position-relative ">
-                                                                <input name="name" type="text"
-                                                                    class="form-control  password-input"placeholder="Masukan Nama Lengkap"
-                                                                    value="{{ old('name') }}">
-                                                            </div>
-                                                            <div>
-                                                                @if ($errors->has('name'))
-                                                                    <span
-                                                                        class="text-danger">{{ $errors->first('name') }}</span>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Kata Sandi</label>
-                                                            <div class="position-relative auth-pass-inputgroup mb-3">
-                                                                <input name="password" type="password"
-                                                                    class="form-control pe-5 password-input "
-                                                                    placeholder="Masukkan Kata Sandi" id="password-input"
-                                                                    value="{{ old('password') }}">
-                                                                <button
-                                                                    class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
-                                                                    type="button" id="password-addon"><i
-                                                                        class="ri-eye-fill align-middle"></i></button>
-                                                                        <div>
-                                                                            @if ($errors->has('password'))
-                                                                                <span
-                                                                                    class="text-danger">{{ $errors->first('password') }}</span>
-                                                                            @endif
-                                                                        </div>
-                                                            </div>
-                                                        </div>
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="password-input">Ulangi
-                                                            Kata Sandi</label>
+                                                        <label class="form-label">Nomer Ponsel</label>
+                                                        <div class="position-relative">
+                                                            <input name="number" type="number" class="form-control"
+                                                                placeholder="Masukkan Nomor Ponsel"
+                                                                value="{{ old('number') }}">
+                                                        </div>
+                                                        <div>
+                                                            @if ($errors->has('number'))
+                                                                <span
+                                                                    class="text-danger">{{ $errors->first('number') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="username" class="form-label">Email</label>
+                                                        <div class="position-relative">
+                                                            <input name="email" type="text"
+                                                                class="form-control password-input" id="username"
+                                                                placeholder="Masukkan Email"
+                                                                value="{{ old('email') }}">
+                                                        </div>
+                                                        <div>
+                                                            @if ($errors->has('email'))
+                                                                <span
+                                                                    class="text-danger">{{ $errors->first('email') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Nama Lengkap</label>
+                                                        <div class="position-relative">
+                                                            <input name="name" type="text"
+                                                                class="form-control password-input"
+                                                                placeholder="Masukkan Nama Lengkap"
+                                                                value="{{ old('name') }}">
+                                                        </div>
+                                                        <div>
+                                                            @if ($errors->has('name'))
+                                                                <span
+                                                                    class="text-danger">{{ $errors->first('name') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Kata Sandi</label>
+                                                        <div class="position-relative auth-pass-inputgroup mb-3">
+                                                            <input name="password" type="password"
+                                                                class="form-control pe-5 password-input"
+                                                                placeholder="Masukkan Kata Sandi" id="password-input"
+                                                                value="{{ old('password') }}">
+                                                            <button
+                                                                class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                                type="button" id="password-addon">
+                                                                <i class="ri-eye-fill align-middle"></i>
+                                                            </button>
+                                                            <div>
+                                                                @if ($errors->has('password'))
+                                                                    <span
+                                                                        class="text-danger">{{ $errors->first('password') }}</span>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="password-input">Ulangi Kata
+                                                            Sandi</label>
                                                         <div class="position-relative auth-pass-inputgroup mb-3">
                                                             <input name="password_confirmation" type="password"
-                                                                class="form-control pe-5 password-input "
+                                                                class="form-control pe-5 password-input"
                                                                 placeholder="Masukkan ulang Kata Sandi"
                                                                 id="password-input">
                                                             <button
                                                                 class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
-                                                                type="button" id="password-addon"><i
-                                                                    class="ri-eye-fill align-middle"></i></button>
+                                                                type="button" id="password-addon">
+                                                                <i class="ri-eye-fill align-middle"></i>
+                                                            </button>
                                                         </div>
                                                         <div>
                                                             @if ($errors->has('password_confirmation'))
@@ -181,13 +184,67 @@
                                                             @endif
                                                         </div>
                                                     </div>
+                                                    <div>
+                                                        <input class="form-check-input" type="checkbox"
+                                                            name="remember" id="remember">
+                                                        <label class="form-check-label" for="remember">Saya setuju
+                                                            dengan <a href="#" data-bs-target="#myModal"
+                                                                data-bs-toggle="modal" id="privacyLink">Kebijakan
+                                                                Privasi</a></label>
+                                                    </div>
+                                                    <div>
+                                                        @if ($errors->has('remember'))
+                                                            <span
+                                                                class="text-danger">{{ $errors->first('remember') }}</span>
+                                                        @endif
+                                                    </div>
+                                                    <div id="myModal" class="modal fade" tabindex="-1"
+                                                        aria-labelledby="myModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myModalLabel">
+                                                                        Kebijakan Privasi</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Hummasoft Technology membangun aplikasi LinkID
+                                                                        sebagai aplikasi Komersial. LAYANAN ini adalah
+                                                                        disediakan oleh Hummasoft Technology dan
+                                                                        dimaksudkan untuk digunakan sebagaimana adanya.
+                                                                    </p <p>Halaman ini digunakan untuk memberi tahu
+                                                                    pengunjung mengenai kebijakan kami terkait
+                                                                    pengumpulan, penggunaan, dan pengungkapan Informasi
+                                                                    Pribadi jika ada yang memutuskan untuk menggunakan
+                                                                    Layanan kami.</p>
 
+                                                                    <p>Jika Anda memilih untuk menggunakan Layanan kami,
+                                                                        maka Anda menyetujui pengumpulan dan penggunaan
+                                                                        informasi di kaitannya dengan kebijakan ini.
+                                                                        Informasi Pribadi yang kami kumpulkan digunakan
+                                                                        untuk menyediakan dan meningkatkan Layanan. Kami
+                                                                        tidak akan menggunakan atau membagikan informasi
+                                                                        Anda kepada siapa pun kecuali sebagai dijelaskan
+                                                                        dalam Kebijakan Privasi ini.</p>
+
+                                                                    <p>Istilah yang digunakan dalam Kebijakan Privasi
+                                                                        ini memiliki arti yang sama dengan <a
+                                                                            href="/Privacy">Syarat dan Ketentuan</a>,
+                                                                        yang dapat diakses di LinkID kecuali ditentukan
+                                                                        lain dalam Kebijakan Privasi ini.</p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="mt-4">
                                                         <button class="btn btn-primary w-100 custom-btn"
                                                             type="submit">Daftar</button>
                                                     </div>
                                                 </form>
-
                                                 <div class="text-center mt-5">
                                                     <p class="mb-0">Sudah memiliki akun ? <a
                                                             href="{{ url('login') }}"

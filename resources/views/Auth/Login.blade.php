@@ -121,9 +121,6 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    {{-- <div class="float-end">
-                                                            <a href="{{ url('send-email')}}" class="text-muted">Lupa kata sandi?</a>
-                                                        </div> --}}
                                                     <label class="form-label" for="password-input">Kata Sandi</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input type="password" class="form-control pe-5 password-input"
@@ -144,96 +141,18 @@
                                                         <a href="{{ url('send-email') }}" class="text-muted">Lupa kata
                                                             sandi?</a>
                                                     </div>
-                                                    <div>
-                                                        <input class="form-check-input" type="checkbox" name="remember"
-                                                            id="remember">
-                                                        <label class="form-check-label" for="remember">Saya setuju
-                                                            dengan <a href="#" data-bs-target="#myModal"
-                                                                data-bs-toggle="modal" id="privacyLink">Kebijakan
-                                                                Privasi</a></label>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="remember"
+                                                            name="remember_me">
+                                                        <label class="form-check-label" for="remember">Ingat
+                                                            saya</label>
                                                     </div>
-                                                    <div>
-                                                        @if ($errors->has('remember'))
-                                                            <span
-                                                                class="text-danger">{{ $errors->first('remember') }}</span>
-                                                        @endif
-                                                    </div>
-                                                    {{-- <div id="requiredAlert" style="display: none; color: red;">Anda harus menyetujui Kebijakan Privasi.</div> --}}
-                                                    <!-- Default Modals -->
-                                                    <div id="myModal" class="modal fade" tabindex="-1"
-                                                        aria-labelledby="myModalLabel" aria-hidden="true"
-                                                        style="display: none;">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="myModalLabel">
-                                                                        Kebijakan
-                                                                        Privasi</h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal"
-                                                                        aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <p>Hummasoft Technology membangun aplikasi LinkID
-                                                                        sebagai aplikasi Komersial. LAYANAN ini adalah
-                                                                        disediakan oleh Hummasoft Technology dan
-                                                                        dimaksudkan untuk digunakan sebagaimana adanya.
-                                                                    </p>
-
-                                                                    <p>Halaman ini digunakan untuk memberi tahu
-                                                                        pengunjung mengenai kebijakan kami terkait
-                                                                        pengumpulan, penggunaan, dan
-                                                                        pengungkapan Informasi Pribadi jika ada yang
-                                                                        memutuskan untuk menggunakan Layanan kami.</p>
-
-                                                                    <p>Jika Anda memilih untuk menggunakan Layanan kami,
-                                                                        maka Anda menyetujui pengumpulan dan penggunaan
-                                                                        informasi di
-                                                                        kaitannya dengan kebijakan ini. Informasi
-                                                                        Pribadi yang kami kumpulkan digunakan untuk
-                                                                        menyediakan dan
-                                                                        meningkatkan Layanan. Kami tidak akan
-                                                                        menggunakan atau membagikan informasi Anda
-                                                                        kepada siapa pun kecuali sebagai
-                                                                        dijelaskan dalam Kebijakan Privasi ini.</p>
-
-                                                                    <p>Istilah yang digunakan dalam Kebijakan Privasi
-                                                                        ini memiliki arti yang sama dengan <a
-                                                                            href="/Privacy">Syarat dan Ketentuan</a>,
-                                                                        yang dapat diakses di
-                                                                        LinkID kecuali ditentukan lain dalam Kebijakan
-                                                                        Privasi ini.</p>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
                                                 <div class="mt-4">
                                                     <button class="btn btn-primary w-100 custom-btn"
                                                         type="submit">Masuk</button>
                                                 </div>
-
-                                                {{-- <div class="mt-4 pt-2 text-center">
-                                                    <div class="signin-other-title position-relative">
-                                                        <h5 class="fs-sm mb-4 title">Daftar Dengan</h5>
-                                                    </div>
-                                                    <div class="pt-2 hstack gap-2 justify-content-center">
-                                                        <button type="button"
-                                                            class="btn btn-subtle-primary btn-icon"><i
-                                                                class="ri-facebook-fill fs-lg"></i></button>
-                                                        <button type="button"
-                                                            class="btn btn-subtle-danger btn-icon"><i
-                                                                class="ri-google-fill fs-lg"></i></button>
-                                                        <button type="button" class="btn btn-subtle-dark btn-icon"><i
-                                                                class="ri-github-fill fs-lg"></i></button>
-                                                        <button type="button" class="btn btn-subtle-info btn-icon"><i
-                                                                class="ri-twitter-fill fs-lg"></i></button>
-                                                    </div>
-                                                </div> --}}
                                             </form>
-
                                             <div class="text-center mt-5">
                                                 <p class="mb-0">Tidak mempunyai akun ? <a
                                                         href="{{ url('register') }}"
