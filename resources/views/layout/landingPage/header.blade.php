@@ -96,7 +96,7 @@
                         </li>
                         <li class="nav-item">
                             <div class="nav-link dark_btn">
-                                <a class="text-dark"><strong>Masuk /</strong></a><a class="text-dark"><strong> Daftar</strong></a>
+                                <a class="text-dark" href="/login">Masuk /</a><a class="text-dark" href="/register"> Daftar</a>
                             </div>
                         </li>
                     </ul>
