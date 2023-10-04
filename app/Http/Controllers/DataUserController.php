@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Mail;
 class DataUserController extends Controller
 {
     public function dataUser() {
-        $data = User::where('is_banned', 0)->role('user')->get();
+        $data = User::where('is_banned', 0)->role('user')->paginate(10);
+        $d=$data;
 
         $totalUser = User::where('email', '!=', 'admin@gmail.com')
                     ->where('is_banned', '!=', '1')
@@ -35,9 +36,10 @@ class DataUserController extends Controller
             $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();
         }
 
+
         // Mengurutkan data berdasarkan jumlah pengunjung
         arsort($count);
-        return view('Admin.DataUserAdmin', compact('data','totalUser', 'totalUrl', 'totalVisits', 'users', 'count','totalMicrosite', 'totaldiblokir'));
+        return view('Admin.DataUserAdmin', compact('d', 'data','totalUser', 'totalUrl', 'totalVisits', 'users', 'count','totalMicrosite', 'totaldiblokir'));
     }
 
 
