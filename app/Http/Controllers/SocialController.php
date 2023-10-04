@@ -46,6 +46,7 @@ class SocialController extends Controller
             return redirect()->route('dashboard.user');
         }
     }
+
     public function redirectFacebook(){
         return Socialite::driver('facebook')->redirect();
     }
@@ -64,7 +65,44 @@ class SocialController extends Controller
                 'email' => $facebookUser->getEmail(),
                 'number' => $facebookUser->number ?? 'default_number',
                 'password' => bcrypt('12345678'),
-                'google_id' => $facebookUser->id,
+                'facebook_id' => $facebookUser->id,
+                'profile_picture' => 'default.jpg'
+            ]);
+
+            if (!Role::where('name', 'user')->exists()) {
+                Role::create(['name' => 'user', 'guard_name' => 'web']);
+            }
+
+            $roleUser = Role::where('name', 'user')->first();
+
+            if ($roleUser) {
+                $newUser->assignRole($roleUser);
+            }
+
+            Auth::login($newUser);
+            return redirect()->route('dashboard.user');
+        }
+    }
+
+    public function redirectTwitter(){
+        return Socialite::driver('twitter')->redirect();
+    }
+
+    public function twitterCallback()
+    {
+        $twitterUser = Socialite::driver('twitter')->user();
+        $user = User::where('email', '=', $twitterUser->email)->first();
+
+        if ($user) {
+            Auth::login($user);
+            return redirect()->route('dashboard.user');
+        } else {
+            $newUser = User::create([
+                'name' => $twitterUser->name,
+                'email' => $twitterUser->getEmail(),
+                'number' => $twitterUser->number ?? 'default_number',
+                'password' => bcrypt('12345678'),
+                'twitter_id' => $twitterUser->id,
                 'profile_picture' => 'default.jpg'
             ]);
 
