@@ -38,8 +38,13 @@ Route::POST('/login-user',[AuthController::class,'loginUser'])->name('login.user
 Route::get('/Link', [LinkController::class, 'Link'])->name('Link');
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register.user');
+
 Route::get('/auth/redirect', [SocialController::class, 'redirectGoogle'])->name('redirect.google');
 Route::get('/google/redirect', [SocialController::class, 'googleCallback'])->name('google.callback');
+
+Route::get('/auth/redirect/facebook', [SocialController::class, 'redirectFacebook'])->name('redirect.facebook');
+Route::get('/facebook/redirect', [SocialController::class, 'facebookCallback'])->name('facebook.callback');
+
 //Send email
 Route::get('send-email', [AuthController::class, 'sendEmail']);
 Route::get('change-password/{email}', [AuthController::class, 'changePassword'])->name('changePassword');

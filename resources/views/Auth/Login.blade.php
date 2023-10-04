@@ -157,9 +157,9 @@
                                                         <h5 class="fs-sm mb-4 title">Login dengan</h5>
                                                     </div>
                                                     <div class="pt-2 hstack gap-2 justify-content-center">
-                                                        {{-- <button type="button"
+                                                        <a href="{{ route('redirect.facebook') }}" type="button"
                                                             class="btn btn-subtle-primary btn-icon"><i
-                                                                class="ri-facebook-fill fs-lg"></i></button> --}}
+                                                                class="ri-facebook-fill fs-lg"></i></a>
                                                         <a href="{{ route('redirect.google') }}" type="button"
                                                             class="btn btn-subtle-danger btn-icon"><i
                                                                 class="ri-google-fill fs-lg"></i></a>

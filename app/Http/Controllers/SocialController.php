@@ -46,5 +46,40 @@ class SocialController extends Controller
             return redirect()->route('dashboard.user');
         }
     }
+    public function redirectFacebook(){
+        return Socialite::driver('facebook')->redirect();
+    }
 
+    public function facebookCallback()
+    {
+        $facebookUser = Socialite::driver('facebook')->user();
+        $user = User::where('email', '=', $facebookUser->email)->first();
+
+        if ($user) {
+            Auth::login($user);
+            return redirect()->route('dashboard.user');
+        } else {
+            $newUser = User::create([
+                'name' => $facebookUser->name,
+                'email' => $facebookUser->getEmail(),
+                'number' => $facebookUser->number ?? 'default_number',
+                'password' => bcrypt('12345678'),
+                'google_id' => $facebookUser->id,
+                'profile_picture' => 'default.jpg'
+            ]);
+
+            if (!Role::where('name', 'user')->exists()) {
+                Role::create(['name' => 'user', 'guard_name' => 'web']);
+            }
+
+            $roleUser = Role::where('name', 'user')->first();
+
+            if ($roleUser) {
+                $newUser->assignRole($roleUser);
+            }
+
+            Auth::login($newUser);
+            return redirect()->route('dashboard.user');
+        }
+    }
 }
