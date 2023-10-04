@@ -52,7 +52,7 @@
         .navbar-expand-lg .navbar-nav .nav-link {
     padding: 5px 20px;
     font-weight: 500;
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
     color: var(--text-white);
 }
 .nav-link {
@@ -352,7 +352,7 @@
                                 <h3>Hubungi Kami</h3>
                                 <ul style="text-align: justify; padding:0;">
                                     <li>
-                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20LINKID"
+                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20GOLINK"
                                             target="_blank">
                                             <i class="fab fa-whatsapp"></i>
                                             Whatsapp
@@ -462,7 +462,7 @@
                                 <h3>Hubungi Kami</h3>
                                 <ul style="text-align: justify;  padding:0;">
                                     <li>
-                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20LINKID"
+                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20GOLINK"
                                             target="_blank">
                                             <i class="fab fa-whatsapp"></i>
                                             Whatsapp

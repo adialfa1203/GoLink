@@ -187,8 +187,8 @@
                             <div class="" >
                                 <div>
                                     <h1 style="color: #1B5A6F; font-size:25px;">Jelajahi dengan Microsite</h1>
-                                    <h6 class="" style="color: #1B5A6F;">Microsite adalah kanvas kreatif Anda, 
-                                        bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini, 
+                                    <h6 class="" style="color: #1B5A6F;">Microsite adalah kanvas kreatif Anda,
+                                        bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini,
                                         Anda dapat menuangkan ide dan konten lebih bebas.</h6>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
             </div>
             <!--end container-->
         </section>
-        
+
         <section class="bg-white overflow-hidden mb-4" id="home" >
             <div class="container" data-aos="fade-in" data-aos-duration="1500">
                 <div class="position-relative" style="z-index: 1;">
@@ -217,16 +217,16 @@
                         </div>
                         <div class="col-lg-6 offset-xl-1">
                             <div class="" >
-                                <h1 style="color: #104898; font-size:25px;">Buat Acaramu Lebih Menarik!</h1>
-                                <h6 style="color: #104898;">Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan, seperti hitungan mundur, peta, dan masih banyak lagi untuk membuat halaman acaramu menjadi lebih menarik, informatif, dan meyakinkan.</h6>
+                                <h1 style="color: #1B5A6F; font-size:25px;">Buat Acaramu Lebih Menarik!</h1>
+                                <h6 style="color: #1B5A6F;">Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan, seperti hitungan mundur, peta, dan masih banyak lagi untuk membuat halaman acaramu menjadi lebih menarik, informatif, dan meyakinkan.</h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        
+
+
 
         <!-- Trusted Section start -->
 

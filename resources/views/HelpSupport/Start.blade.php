@@ -52,7 +52,7 @@
         .navbar-expand-lg .navbar-nav .nav-link {
     padding: 5px 20px;
     font-weight: 500;
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
     color: var(--text-white);
 }
 .nav-link {
@@ -315,16 +315,16 @@
                                             ditampilkan di bio media sosial Anda?</p>
 
                                         <p>Membuat microsite sangat mudah:</p>
-                                        
+
                                             <p>1. Masuk ke akun <b>Go.Link</b> Anda yang ada.</p>
                                             <p>2. Dari menu Beranda, Klik Buat Microsite Baru kemudian Klik. Kemudian Anda akan diarahkan ke Buat Microsite Baru</p>
                                             <p>3. Pilih satu tema microsite dan klik Selajutnya.</p>
                                             <p>4. Masukkan Nama dan URL microsite Anda dan klik Selanjutnya.</p>
-                                            <p>5. Kemudian, mulailah menambahkan media sosial apa saja yang anda punya. 
+                                            <p>5. Kemudian, mulailah menambahkan media sosial apa saja yang anda punya.
                                             </p>
                                             <p>6. Terakhir, Anda akan diarahkan ke halaman Edit Microsite untuk melengkapi Microsite Anda.
                                             </p>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -409,7 +409,7 @@
                                 <h3>Hubungi Kami</h3>
                                 <ul style="text-align: justify; padding:0;">
                                     <li>
-                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20LINKID"
+                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20GOLINK"
                                             target="_blank">
                                             <i class="fab fa-whatsapp"></i>
                                             Whatsapp
@@ -519,7 +519,7 @@
                                 <h3>Hubungi Kami</h3>
                                 <ul style="text-align: justify;  padding:0;">
                                     <li>
-                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20LINKID"
+                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20GOLINK"
                                             target="_blank">
                                             <i class="fab fa-whatsapp"></i>
                                             Whatsapp

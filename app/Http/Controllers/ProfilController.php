@@ -35,13 +35,14 @@ class ProfilController extends Controller
         $user = User::FindOrFail(Auth::user()->id);
 
         $validator = Validator::make($request->all(),[
-            'name' => 'required',
+            'name' => 'required|max:50',
             'email' => 'required|regex:/^[^-+]+$/u|email|unique:users,email,' . $user->id,
             'number' => 'required|min:11|max:13|regex:/^[^-+]+$/u',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ],[
+            'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
             'number.max' => 'Nomor tidak boleh lebih dari 13!',
             'email.unique' => 'Email sudah pernah digunakan',

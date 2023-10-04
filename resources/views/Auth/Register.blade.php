@@ -211,7 +211,7 @@
                                                                         aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <p>Hummasoft Technology membangun aplikasi LinkID
+                                                                    <p>Hummasoft Technology membangun aplikasi GoLink
                                                                         sebagai aplikasi Komersial. LAYANAN ini adalah
                                                                         disediakan oleh Hummasoft Technology dan
                                                                         dimaksudkan untuk digunakan sebagaimana adanya.
@@ -233,7 +233,7 @@
                                                                     <p>Istilah yang digunakan dalam Kebijakan Privasi
                                                                         ini memiliki arti yang sama dengan <a
                                                                             href="/Privacy">Syarat dan Ketentuan</a>,
-                                                                        yang dapat diakses di LinkID kecuali ditentukan
+                                                                        yang dapat diakses di GoLink kecuali ditentukan
                                                                         lain dalam Kebijakan Privasi ini.</p>
 
                                                                 </div>
