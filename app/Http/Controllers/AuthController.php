@@ -111,7 +111,7 @@ class AuthController extends Controller
         if ($roleUser) {
             $user->assignRole($roleUser);
         }
-        return redirect()->route('login')->with('success', 'Regristrasi berhasil. Silahkan login');
+        return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login untuk mulai menggunakan akun Anda.');
         }
 
     public function sendEmail()

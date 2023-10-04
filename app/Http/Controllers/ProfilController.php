@@ -82,7 +82,7 @@ class ProfilController extends Controller
         // dd($request->profile_picture);
         $user->save();
 
-        return redirect()->back()->with('success', 'Data berhasil diperbarui.');
+        return redirect()->back()->with('success', 'Berhasil mengubah foto profil.');
     }
 
     public function profileAdmin()
@@ -140,6 +140,6 @@ class ProfilController extends Controller
         }
         // dd($request->profile_picture);
         $admin->save();
-        return redirect()->back()->with('success', 'Data berhasil diperbarui.');
+        return redirect()->back()->with('success', 'Berhasil mengubah foto profil.');
     }
 }

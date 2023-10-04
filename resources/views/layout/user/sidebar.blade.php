@@ -141,7 +141,7 @@
                             src="{{ Auth::user()->profile_picture ? asset('profile_pictures/' . Auth::user()->profile_picture) : asset('profile_pictures/default.jpg') }}"
                             alt="Header Avatar" style="margin-right:10px;object-fit: cover;">
                         <div class="text-start ms-xl-2">
-                            <span><b>Hai! {{ Auth::user()->name }}</b></span>
+                            <span><b>{{ Auth::user()->name }}</b></span>
 
                             {{-- @php
                                 $email = Auth::user()->email;
@@ -153,16 +153,6 @@
                             </span> --}}
                         </div>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
-                        <h6 class="dropdown-header">Selamat Datang {{ Auth::user()->name }}!</h6>
-                        <a class="dropdown-item" href="{{ url('profil-user') }}"><i
-                                class="mdi mdi-account-circle text-muted fs-lg align-middle me-1"></i> <span
-                                class="align-middle">Profil</span></a>
-                        <a class="dropdown-item" href="{{ url('logout') }}"><i
-                                class="mdi mdi-logout text-muted fs-lg align-middle me-1"></i> <span
-                                class="align-middle" data-key="t-logout">Keluar</span></a>
-                    </div>
                 </li>
 
                 <style>
@@ -230,6 +220,11 @@
                     <a class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}"
                         href="{{ url('profil-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
                         <span data-key="t-chat">Profil</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link"
+                        href="{{ url('logout') }}" class="nav-link menu-link"> <i class="mdi mdi-logout"></i>
+                        <span data-key="t-chat">Keluar</span> </a>
                 </li>
             </ul>
         </div>

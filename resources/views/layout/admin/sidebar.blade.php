@@ -144,16 +144,6 @@
                             </span> --}}
                         </div>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
-                        <h6 class="dropdown-header">Selamat Datang {{ Auth::user()->name }}!</h6>
-                        <a class="dropdown-item" href="/profil-admin"><i
-                                class="mdi mdi-account-circle text-muted fs-lg align-middle me-1"></i> <span
-                                class="align-middle">Profil</span></a>
-                        <a class="dropdown-item" href="{{ url('logout') }}"><i
-                                class="mdi mdi-logout text-muted fs-lg align-middle me-1"></i> <span
-                                class="align-middle" data-key="t-logout">Keluar</span></a>
-                    </div>
                 </li>
 
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
@@ -211,6 +201,11 @@
                     <a class="nav-link menu-link {{ request()->routeIs('profileAdmin') ? 'active' : '' }}"
                         href="{{ url('profil-admin') }}" class="nav-link menu-link"> <i
                             class="bi bi-person-fill"></i> <span data-key="t-chat">Profil</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link"
+                        href="{{ url('logout') }}" class="nav-link menu-link"> <i class="mdi mdi-logout"></i>
+                        <span data-key="t-chat">Keluar</span> </a>
                 </li>
             </ul>
         </div>
