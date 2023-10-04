@@ -178,6 +178,3 @@ Route::get('/view-komentar', [CommentController::class, 'viewkomentar'])->name('
 Route::get('/blokir', [CommentController::class, 'blokir'])->name('blokir');
 
 });
-Route::get('/ngetes', function () {
-    return view('welcome');
-});
