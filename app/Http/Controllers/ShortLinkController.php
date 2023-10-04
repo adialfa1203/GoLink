@@ -146,7 +146,7 @@ class ShortLinkController extends Controller
         // Memperbarui URL key dan default short URL
         $updateUrl->update([
             'url_key' => $newUrlKey,
-            'default_short_url' => "http://127.0.0.1:8000/go/" . $newUrlKey,
+            'default_short_url' => "http://127.0.0.1:8000/go.link/" . $newUrlKey,
             'custom_name' => 'yes',
         ]);
 
