@@ -86,8 +86,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-11">
-                    <div class="card mb-0">
-                        <div class="row g-0 align-items-center">
+                    <div class="card mb-0 p-0 d-flex justify-content-between">
                             <div class="row">
                                 <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6">
                                     <div class="card mb-0 border-0 shadow-none mb-0">
@@ -256,19 +255,20 @@
                                     </div><!-- end card -->
                                 </div>
                                 <div class="col-6 right-section img col-lg-6">
-                                    <div class="text-center" style="margin-top: 20%">
-                                        <img src="{{ asset('template/image/Login.png') }} " width="400"
+                                    <center>
+                                        <div class="w-100" style="margin-top: 20% ">
+                                            <img src="{{ asset('template/image/Login.png') }} " width="400"
                                             height="400">
                                     </div>
+                                </center>
                                 </div>
                             </div>
                             <!--end col-->
+                            <!--end row-->
                         </div>
-                        <!--end row-->
                     </div>
+                     <!--end col-->
                 </div>
-                <!--end col-->
-            </div>
             <!--end row-->
         </div>
         <!--end container-->
