@@ -129,7 +129,7 @@ Route::get('/delete-expired-links', [LinkController::class, 'deleteDeactive']);
 //Takedown User
 Route::get('/takedown', [DataUserController::class, 'takedownUser']);
 });
-Route::get('/go.microsite/{micrositeLink}', [ShortLinkController::class, 'micrositeLink'])->name('microsite.short.link');
+Route::get('/{micrositeLink}', [ShortLinkController::class, 'micrositeLink'])->name('microsite.short.link');
 
 Route::post('/update-profil', [ProfilController::class, 'updateProfile'])->name('updateProfile');
 Route::post('/updateAdmin', [ProfilController::class, 'updateAdmin'])->name('updateAdmin');

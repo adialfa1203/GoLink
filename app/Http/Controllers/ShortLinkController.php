@@ -93,21 +93,15 @@ class ShortLinkController extends Controller
         return response()->json($find);
     }
 
-    public function accessShortLink(Request $request, $shortCode)
+    public function accessShortLink($shortCode)
     {
-        // Anda mungkin perlu menyesuaikan ini dengan metode yang digunakan oleh pustaka tautan pendek yang Anda gunakan.
-        // Contoh permintaan HTTP ke tautan pendek yang telah Anda buat.
-        $response = Http::get($shortCode);
-
-        // Ambil parameter dari permintaan yang masuk.
-        $parameterValue = $request->query('parameter_name'); // Ganti 'parameter_name' dengan nama parameter yang sesuai.
-
-        // Lakukan apa pun yang diperlukan dengan $parameterValue atau $response.
-        // Misalnya, tampilkan tautan asli dan parameter di view.
-        return view('shortlink', [
-            'originalLink' => $response->body(),
-            'parameterValue' => $parameterValue,
-        ]);
+        $shortUrl = ShortUrl::where('url_key', $shortCode)->first();
+        
+        if ($shortUrl) {
+            return redirect()->away($shortUrl->destination_url, 301);
+        } else {
+            return response(404);
+        }
     }
     public function updateShortLink(Request $request, $shortCode)
     {
@@ -146,7 +140,7 @@ class ShortLinkController extends Controller
         // Memperbarui URL key dan default short URL
         $updateUrl->update([
             'url_key' => $newUrlKey,
-            'default_short_url' => "http://127.0.0.1:8000/go.link/" . $newUrlKey,
+            'default_short_url' => "http://127.0.0.1:8000/" . $newUrlKey,
             'custom_name' => 'yes',
         ]);
 
