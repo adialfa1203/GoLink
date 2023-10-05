@@ -63,7 +63,7 @@
                     <input type="text" name="whatsapp" class="form-control" id="whatsapp" placeholder="+62..."
                         value="{{ $data->whatsapp }}">
                 </div>
-                <div class="mb-2 mt-2 d-flex">
+                <div>
                     @if ($errors->has('whatsapp'))
                         <span class="text-danger">{{ $errors->first('whatsapp') }}</span>
                     @endif
