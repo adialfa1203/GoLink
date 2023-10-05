@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \App\Http\Middleware\HandleMobileLoginError::class,
     ];
 
     /**
@@ -69,9 +70,10 @@ class Kernel extends HttpKernel
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
     ];
-    
+
     protected $routeMiddleware = [
         'checkBanStatus' => \App\Http\Middleware\CheckUserBanStatus::class,
     ];
+
 
 }

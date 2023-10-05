@@ -116,7 +116,7 @@ class ShortLinkController extends Controller
         if (!$updateUrl->exists()) {
             return response()->json(['error' => 'Short link not found'], 404);
         }
-
+// dd($updateUrl);
         $validator = Validator::make($request->all(), [
             'newUrlKey' => 'required|unique:short_urls,url_key'
         ],[
