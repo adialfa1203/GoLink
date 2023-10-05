@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Role;
+use Ramsey\Uuid\Uuid;
 
 class SocialController extends Controller
 {
@@ -24,11 +25,11 @@ class SocialController extends Controller
             return redirect()->route('dashboard.user');
         } else {
             $newUser = User::create([
+                'id' => Uuid::uuid4()->toString(),
                 'name' => $googleUser->name,
                 'email' => $googleUser->getEmail(),
                 'number' => $googleUser->number ?? 'default_number',
                 'password' => bcrypt('12345678'),
-                'google_id' => $googleUser->id,
                 'profile_picture' => 'default.jpg'
             ]);
 
@@ -61,6 +62,7 @@ class SocialController extends Controller
             return redirect()->route('dashboard.user');
         } else {
             $newUser = User::create([
+                'id' => Uuid::uuid4()->toString(),
                 'name' => $facebookUser->name,
                 'email' => $facebookUser->getEmail(),
                 'number' => $facebookUser->number ?? 'default_number',
