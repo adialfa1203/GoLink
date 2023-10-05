@@ -217,6 +217,12 @@
             const newPassword = newPasswordInput.value;
             const confirmPassword = confirmPasswordInput.value;
 
+            if (newPassword.length < 8) {
+                newPasswordError.textContent = 'Kata sandi harus memiliki setidaknya 8 karakter.';
+            } else {
+                newPasswordError.textContent = '';
+            }
+
             if (confirmPassword !== newPassword) {
                 confirmPasswordError.textContent = 'Konfirmasi password tidak cocok.';
                 confirmPasswordSuccess.textContent = '';
