@@ -54,11 +54,14 @@ class DahsboardController extends Controller
 
     public function HelpSupport()
     {
-        $komentar = Comment::orderBy('created_at', 'desc')->get();
+        $komentar = Comment::orderBy('created_at', 'desc')
+        ->with('user')
+        ->get();
         $data = Footer::first();
         // $user = User::all();
         $users = Auth::user();
         $userId = User::all();
+        // dd($komentar);
         return view('HelpSupport.HelpSupport', compact('komentar','users', 'userId','data'));
     }
     public function Start (){

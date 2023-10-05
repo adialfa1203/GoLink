@@ -150,8 +150,8 @@
                                     <div
                                         class="d-flex align-items-center text-muted mb-4 comment-container{{ $key < 1 ? '' : ' hidden' }}">
                                         <div class="flex-shrink-0 me-3">
-                                            <img src="{{ asset('profile_pictures/' . $users->profile_picture) }}"
-                                                alt="{{ $users->name }}" class="avatar-sm rounded" width="50px"
+                                            <img src="{{ asset('profile_pictures/' . $row->user->profile_picture) }}"
+                                                alt="{{ $users->row }}" class="avatar-sm rounded" width="50px"
                                                 height="50px" style="object-fit: cover;">
                                         </div>
                                         <div class="flex-grow-1 d-flex flex-column">
