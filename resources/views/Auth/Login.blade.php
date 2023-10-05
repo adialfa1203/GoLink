@@ -264,7 +264,7 @@
                                                         <a href="{{ url('send-email') }}" class="text-muted">Lupa kata
                                                             sandi?</a>
                                                     </div>
-                                                    <div class="mb-3 form-check col-3">
+                                                    <div class="mb-3 form-check col-4">
                                                         <input type="checkbox" class="form-check-input" id="remember"
                                                             name="remember_me">
                                                         <label class="form-check-label" for="remember">Ingat
@@ -289,6 +289,8 @@
                                                                 <p class="btn-text">Login dengan Google</p>
                                                             </div>
                                                         </a>
+                                                    </div>
+                                                    <div class="pt-2 hstack gap-2 justify-content-center">
                                                         <a href="{{ route('redirect.facebook') }}">
                                                             <div class="google-btn">
                                                                 <div class="google-icon-wrapper">
