@@ -45,6 +45,12 @@ Route::get('/google/redirect', [SocialController::class, 'googleCallback'])->nam
 Route::get('/auth/redirect/facebook', [SocialController::class, 'redirectFacebook'])->name('redirect.facebook');
 Route::get('/facebook/redirect', [SocialController::class, 'facebookCallback'])->name('facebook.callback');
 
+// Route::get('/auth/redirect/twitter', [SocialController::class, 'redirectTwitter'])->name('redirect.twitter');
+// Route::get('/twitter/redirect', [SocialController::class, 'twitterCallback'])->name('twitter.callback');
+
+// Route::get('/auth/redirect/github', [SocialController::class, 'redirectGithub'])->name('redirect.github');
+// Route::get('/github/redirect', [SocialController::class, 'githubCallback'])->name('github.callback');
+
 //Send email
 Route::get('send-email', [AuthController::class, 'sendEmail']);
 Route::get('change-password/{email}', [AuthController::class, 'changePassword'])->name('changePassword');

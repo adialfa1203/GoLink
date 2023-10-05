@@ -157,16 +157,17 @@
                                                         <h5 class="fs-sm mb-4 title">Login dengan</h5>
                                                     </div>
                                                     <div class="pt-2 hstack gap-2 justify-content-center">
-                                                        <a href="{{ route('redirect.facebook') }}" type="button"
-                                                            class="btn btn-subtle-primary btn-icon"><i
-                                                                class="ri-facebook-fill fs-lg"></i></a>
                                                         <a href="{{ route('redirect.google') }}" type="button"
                                                             class="btn btn-subtle-danger btn-icon"><i
                                                                 class="ri-google-fill fs-lg"></i></a>
-                                                        {{-- <button type="button" class="btn btn-subtle-dark btn-icon"><i
+                                                        <strong class="text-black-bold">Atau</strong>
+                                                        <a href="{{ route('redirect.facebook') }}" type="button"
+                                                            class="btn btn-subtle-primary btn-icon"><i
+                                                                class="ri-facebook-fill fs-lg"></i></a>
+                                                        {{-- <a href="{{ route('redirect.github') }}" type="button" class="btn btn-subtle-dark btn-icon"><i
                                                                 class="ri-github-fill fs-lg"></i></button> --}}
-                                                        {{-- <button type="button" class="btn btn-subtle-info btn-icon"><i
-                                                                class="ri-twitter-fill fs-lg"></i></button> --}}
+                                                        {{-- <a href="{{ route('redirect.twitter') }}" type="button" class="btn btn-subtle-info btn-icon"><i
+                                                                class="ri-twitter-fill fs-lg"></i></a> --}}
                                                     </div>
                                                 </div>
                                             </form>
