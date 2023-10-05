@@ -165,7 +165,7 @@
                                                 @endforeach
                                                 @if ($row->created_at)
                                                     <h6 style="font-size:14px;">
-                                                        {{ $row->created_at->format('d F Y H:i') }}</h6>
+                                                        {{ \Carbon\Carbon::parse($row->created_at)->format('d M Y') }}</h6>
                                                 @else
                                                     <h6 style="font-size:14px;">Tanggal tidak tersedia</h6>
                                                 @endif
