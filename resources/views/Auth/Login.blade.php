@@ -141,7 +141,7 @@
                                                         <a href="{{ url('send-email') }}" class="text-muted">Lupa kata
                                                             sandi?</a>
                                                     </div>
-                                                    <div class="mb-3 form-check">
+                                                    <div class="mb-3 form-check col-3">
                                                         <input type="checkbox" class="form-check-input" id="remember"
                                                             name="remember_me">
                                                         <label class="form-check-label" for="remember">Ingat
