@@ -145,7 +145,7 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Kata Sandi</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input name="password" type="password"
+                                                        <input name="password" type="password" id="newPassword"
                                                             class="form-control pe-5 password-input"
                                                             placeholder="Masukkan Kata Sandi" id="password-input"
                                                             value="{{ old('password') }}">
@@ -154,6 +154,8 @@
                                                             type="button" id="password-addon">
                                                             <i class="ri-eye-fill align-middle"></i>
                                                         </button>
+                                                        <div id="newPasswordError" class="text-danger mt-2">
+                                                        </div>
                                                         <div>
                                                             @if ($errors->has('password'))
                                                                 <span
@@ -167,6 +169,7 @@
                                                         Sandi</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input name="password_confirmation" type="password"
+                                                            id="confirmPassword"
                                                             class="form-control pe-5 password-input"
                                                             placeholder="Masukkan ulang Kata Sandi"
                                                             id="password-input">
@@ -175,6 +178,9 @@
                                                             type="button" id="password-addon">
                                                             <i class="ri-eye-fill align-middle"></i>
                                                         </button>
+                                                        <div id="confirmPasswordError" class="text-danger mt-2"></div>
+                                                        <div id="confirmPasswordSuccess" class="text-success mt-2">
+                                                        </div>
                                                     </div>
                                                     <div>
                                                         @if ($errors->has('password_confirmation'))
@@ -289,6 +295,53 @@
     <!-- swiper.init js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/swiper.init.js') }}"></script>
 
+    <script>
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+
+        emailInput.addEventListener('input', validateEmail);
+
+        function validateEmail() {
+            const email = emailInput.value;
+            const emailPattern = /.+@.+\.com$/;
+
+            if (!emailPattern.test(email)) {
+                emailError.textContent = 'Alamat email harus berakhir dengan ".com".';
+            } else {
+                emailError.textContent = '';
+            }
+        }
+    </script>
+    {{-- Validation Conrifmation New Password --}}
+    <script>
+        const newPasswordInput = document.getElementById('newPassword');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const newPasswordError = document.getElementById('newPasswordError');
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+        const confirmPasswordSuccess = document.getElementById('confirmPasswordSuccess');
+
+        newPasswordInput.addEventListener('input', validatePassword);
+        confirmPasswordInput.addEventListener('input', validatePassword);
+
+        function validatePassword() {
+            const newPassword = newPasswordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            if (newPassword.length < 8) {
+                newPasswordError.textContent = 'Kata sandi harus memiliki setidaknya 8 karakter.';
+            } else {
+                newPasswordError.textContent = '';
+            }
+
+            if (confirmPassword !== newPassword) {
+                confirmPasswordError.textContent = 'Konfirmasi password tidak cocok.';
+                confirmPasswordSuccess.textContent = '';
+            } else {
+                confirmPasswordError.textContent = '';
+                confirmPasswordSuccess.textContent = 'Konfirmasi password sudah benar';
+            }
+        }
+    </script>
     <script>
         const emailInput = document.getElementById('email');
         const emailError = document.getElementById('emailError');

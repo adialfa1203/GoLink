@@ -68,125 +68,171 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xxl-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-pills animation-nav nav-justified gap-2 mb-3" role="tablist">
+                                            <li class="nav-item ">
+                                                <a class="nav-link active" data-bs-toggle="tab" href="#animation-home"
+                                                    role="tab">
+                                                    Profil
+                                                </a>
+                                            </li>
+                                            <li class="nav-item ">
+                                                <a class="nav-link" data-bs-toggle="tab" href="#animation-profile"
+                                                    role="tab">
+                                                    Kata Sandi
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content text-muted">
+                                            <div class="tab-pane active" id="animation-home" role="tabpanel">
+                                                <div class="card-body border-top">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <!-- Div untuk input nama lengkap -->
+                                                                <div class="mb-3">
+                                                                    <label for="firstnameInput" class="form-label">Nama
+                                                                        Lengkap</label>
+                                                                    <input type="text" name="name"
+                                                                        class="form-control" value="{{ $user->name }}">
+                                                                </div>
+                                                                <div>
+                                                                    @if ($errors->has('name'))
+                                                                        <span
+                                                                            class="text-danger">{{ $errors->first('name') }}</span>
+                                                                    @endif
+                                                                </div>
 
-                            <div class="card-body border-top">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="firstnameInput" class="form-label">Nama Lengkap</label>
-                                                <input type="text" name="name" class="form-control"
-                                                    value="{{ $user->name }}">
-                                            </div>
-                                            <div>
-                                                @if ($errors->has('name'))
-                                                    <span class="text-danger">{{ $errors->first('name') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="lastnameInput" class="form-label">Nomor Telepon</label>
-                                                <input type="number" name="number" class="form-control"
-                                                    value="{{ $user->number }}">
-                                            </div>
-                                            <div>
-                                                @if ($errors->has('number'))
-                                                    <span class="text-danger">{{ $errors->first('number') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="lastnameInput" class="form-label">E-mail</label>
-                                                <input type="text" name="email" class="form-control"
-                                                    value="{{ $user->email }}">
-                                            </div>
-                                            <div>
-                                                @if ($errors->has('email'))
-                                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="phonenumberInput" class="form-label">Kata sandi lama</label>
-                                                <div class="position-relative auth-pass-inputgroup mb-3">
-                                                    <input name="old_password" type="password"
-                                                        class="form-control pe-5 password-input"
-                                                        placeholder="Kata sandi lama">
-                                                    <button
-                                                        class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
-                                                        type="button" id="password-addon">
-                                                        <i class="ri-eye-fill align-middle"></i>
-                                                    </button>
-                                                </div>
-                                                <div>
-                                                    @if ($errors->has('old_password'))
-                                                        <span
-                                                            class="text-danger">{{ $errors->first('old_password') }}</span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="emailInput" class="form-label">Kata sandi baru</label>
-                                                <div class="position-relative auth-pass-inputgroup mb-3">
-                                                    <input name="new_password" id="newPassword" type="password"
-                                                        class="form-control pe-5 password-input "
-                                                        placeholder="Kata sandi baru">
-                                                    <button
-                                                        class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
-                                                        type="button" id="password-addon">
-                                                        <i class="ri-eye-fill align-middle"></i>
-                                                    </button>
-                                                    <div id="newPasswordError" class="text-danger"></div>
-                                                </div>
-                                                <div>
-                                                    @if ($errors->has('new_password'))
-                                                        <span
-                                                            class="text-danger">{{ $errors->first('new_password') }}</span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="emailInput" class="form-label">Konfirmasi kata sandi
-                                                    baru</label>
-                                                <div class="position-relative auth-pass-inputgroup mb-3">
-                                                    <input name="new_password_confirmation" id="confirmPassword"
-                                                        type="password" class="form-control pe-5 password-input "
-                                                        placeholder="Konfirmasi kata sandi">
-                                                    <button
-                                                        class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
-                                                        type="button" id="password-addon">
-                                                        <i class="ri-eye-fill align-middle"></i>
-                                                    </button>
-                                                    <div id="confirmPasswordError" class="text-danger mt-2"></div>
-                                                    <div id="confirmPasswordSuccess" class="text-success mt-2"></div>
-                                                </div>
-                                                <div>
-                                                    @if ($errors->has('new_password_confirmation'))
-                                                        <span
-                                                            class="text-danger">{{ $errors->first('new_password_confirmation') }}</span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                <!-- Div untuk input email -->
+                                                                <div class="mb-3">
+                                                                    <label for="lastnameInput"
+                                                                        class="form-label">E-mail</label>
+                                                                    <input type="text" name="email"
+                                                                        class="form-control" value="{{ $user->email }}">
+                                                                </div>
+                                                                <div>
+                                                                    @if ($errors->has('email'))
+                                                                        <span
+                                                                            class="text-danger">{{ $errors->first('email') }}</span>
+                                                                    @endif
+                                                                </div>
 
-                                        <div class="col-lg-12">
-                                            <div class="hstack gap-2 justify-content-end">
-                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                                                <!-- Div untuk input nomor telepon -->
+                                                                <div class="mb-3">
+                                                                    <label for="lastnameInput" class="form-label">Nomor
+                                                                        Telepon</label>
+                                                                    <input type="number" name="number"
+                                                                        class="form-control" value="{{ $user->number }}">
+                                                                </div>
+                                                                <div>
+                                                                    @if ($errors->has('number'))
+                                                                        <span
+                                                                            class="text-danger">{{ $errors->first('number') }}</span>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="animation-profile" role="tabpanel">
+                                                <div class="card-body border-top">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <!-- Div untuk input kata sandi lama -->
+                                                                <div class="mb-3">
+                                                                    <label for="phonenumberInput" class="form-label">Kata
+                                                                        sandi lama</label>
+                                                                    <div
+                                                                        class="position-relative auth-pass-inputgroup mb-3">
+                                                                        <input name="old_password" type="password"
+                                                                            class="form-control pe-5 password-input"
+                                                                            placeholder="Kata sandi lama">
+                                                                        <button
+                                                                            class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                                            type="button" id="password-addon">
+                                                                            <i class="ri-eye-fill align-middle"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        @if ($errors->has('old_password'))
+                                                                            <span
+                                                                                class="text-danger">{{ $errors->first('old_password') }}</span>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Div untuk input kata sandi baru -->
+                                                                <div class="mb-3">
+                                                                    <label for="emailInput" class="form-label">Kata sandi
+                                                                        baru</label>
+                                                                    <div
+                                                                        class="position-relative auth-pass-inputgroup mb-3">
+                                                                        <input name="new_password" id="newPassword"
+                                                                            type="password"
+                                                                            class="form-control pe-5 password-input "
+                                                                            placeholder="Kata sandi baru">
+                                                                        <button
+                                                                            class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                                            type="button" id="password-addon">
+                                                                            <i class="ri-eye-fill align-middle"></i>
+                                                                        </button>
+                                                                        <div id="newPasswordError" class="text-danger">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        @if ($errors->has('new_password'))
+                                                                            <span
+                                                                                class="text-danger">{{ $errors->first('new_password') }}</span>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Div untuk konfirmasi kata sandi baru -->
+                                                                <div class="mb-3">
+                                                                    <label for="emailInput" class="form-label">Konfirmasi
+                                                                        kata sandi
+                                                                        baru</label>
+                                                                    <div
+                                                                        class="position-relative auth-pass-inputgroup mb-3">
+                                                                        <input name="new_password_confirmation"
+                                                                            id="confirmPassword" type="password"
+                                                                            class="form-control pe-5 password-input "
+                                                                            placeholder="Konfirmasi kata sandi">
+                                                                        <button
+                                                                            class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                                            type="button" id="password-addon">
+                                                                            <i class="ri-eye-fill align-middle"></i>
+                                                                        </button>
+                                                                        <div id="confirmPasswordError"
+                                                                            class="text-danger mt-2"></div>
+                                                                        <div id="confirmPasswordSuccess"
+                                                                            class="text-success mt-2"></div>
+                                                                    </div>
+                                                                    <div>
+                                                                        @if ($errors->has('new_password_confirmation'))
+                                                                            <span
+                                                                                class="text-danger">{{ $errors->first('new_password_confirmation') }}</span>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!--end col-->
-                                    </div>
-                                    <!--end row-->
+                                    </div><!-- end card-body -->
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <button type="submit"
+                                        class="btn btn-success mb-3 me-3">Simpan</button>
                                 </div>
                             </div>
                         </div>
