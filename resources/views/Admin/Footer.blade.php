@@ -63,7 +63,7 @@
                     <input type="text" name="whatsapp" class="form-control" id="whatsapp" placeholder="+62..."
                         value="{{ $data->whatsapp }}">
                 </div>
-                <div>
+                <div class="mb-2 mt-2 d-flex">
                     @if ($errors->has('whatsapp'))
                         <span class="text-danger">{{ $errors->first('whatsapp') }}</span>
                     @endif
@@ -77,7 +77,7 @@
                     <input type="text" name="instagram" class="form-control" id="instagram" placeholder="Link_id"
                         value="{{ $data->instagram }}">
                 </div>
-                <div>
+                <div class="mb-2 mt-2 d-flex">
                     @if ($errors->has('instagram'))
                         <span class="text-danger">{{ $errors->first('instagram') }}</span>
                     @endif
