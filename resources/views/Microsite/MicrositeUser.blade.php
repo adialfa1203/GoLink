@@ -252,7 +252,7 @@
                                                                     {{-- @dd($short_urls->destination_url) --}}
                                                                     {{-- @dd( $row->shortUrl->destination_url) --}}
                                                                     <div class="countdown-input-subscribe">
-                                                                        <lfabel class="platform" data-platform="copy"
+                                                                        <label class="platform" data-platform="copy"
                                                                             @if ($row->oneShortUrl) data-url="{{ $row->oneShortUrl->default_short_url }}"
                                                                             data-id-microsite="{{ $row->oneShortUrl->id }}"
                                                                             @else
@@ -261,7 +261,7 @@
                                                                             <i class="bi bi-clipboard-fill"></i>
                                                                             &nbsp;
                                                                             Copy
-                                                                        </lfabel>
+                                                                        </label>
                                                                     </div>
                                                                     <div class="countdown-input-subscribe">
                                                                         <a id="tombol-modal"
