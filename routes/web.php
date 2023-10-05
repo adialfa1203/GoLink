@@ -33,7 +33,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 Route::fallback(function() {
-    return Route::get('/login',[AuthController::class,'login'])->name('login');
+    return view('Login');
 });
 Route::middleware(['guest'])->group(function () {
 Route::get('/login',[AuthController::class,'login'])->name('login');
