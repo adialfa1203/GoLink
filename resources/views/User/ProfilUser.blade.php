@@ -84,31 +84,6 @@
                                                 @endif
                                             </div>
                                         </div>
-                                         <!--end col-->
-                                         <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="lastnameInput" class="form-label">Nomor Telepon</label>
-                                                <input type="number" name="number" class="form-control"
-                                                    value="{{ $user->number }}">
-                                            </div>
-                                            <div>
-                                                @if ($errors->has('number'))
-                                                    <span class="text-danger">{{ $errors->first('number') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="lastnameInput" class="form-label">E-mail</label>
-                                                <input type="text" name="email" class="form-control"
-                                                    value="{{ $user->email }}">
-                                            </div>
-                                            <div>
-                                                @if ($errors->has('email'))
-                                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
                                         <!--end col-->
                                         <div class="col-lg-6">
                                             <div class="mb-3">
@@ -134,6 +109,19 @@
                                         <!--end col-->
                                         <div class="col-lg-6">
                                             <div class="mb-3">
+                                                <label for="lastnameInput" class="form-label">Nomor Telepon</label>
+                                                <input type="number" name="number" class="form-control"
+                                                    value="{{ $user->number }}">
+                                            </div>
+                                            <div>
+                                                @if ($errors->has('number'))
+                                                    <span class="text-danger">{{ $errors->first('number') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
                                                 <label for="emailInput" class="form-label">Kata sandi baru</label>
                                                 <div class="position-relative auth-pass-inputgroup mb-3">
                                                     <input name="new_password" type="password"
@@ -151,6 +139,18 @@
                                                             class="text-danger">{{ $errors->first('new_password') }}</span>
                                                     @endif
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+                                                <label for="lastnameInput" class="form-label">E-mail</label>
+                                                <input type="text" name="email" class="form-control"
+                                                    value="{{ $user->email }}">
+                                            </div>
+                                            <div>
+                                                @if ($errors->has('email'))
+                                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
