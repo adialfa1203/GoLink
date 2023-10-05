@@ -138,17 +138,18 @@
                         @else
                         <img class="header-profile-user" src="{{ asset('profile_pictures/default.jpg') }}" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
                         @endif
-                        <div class="text-start ms-xl-2">
-                            <span><b>{{ Auth::user()->name }}</b></span>
-
-                            {{-- @php
-                                $email = Auth::user()->email;
-                            @endphp
-
-
-                            <span data-key="t-hot">
-                                {{ $email }}
-                            </span> --}}
+                        <div class="text-start ms-xl-2 ">
+                            <span>
+                                <div class="ellipsis" style=" text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  display: -webkit-box !important;
+  word-break: break-word !important;
+  max-width: 100px; /* Sesuaikan dengan lebar yang sesuai */">
+                                    {!! Auth::user()->name !!}
+                                </div>
+                            </span>
                         </div>
                     </button>
                 </li>
