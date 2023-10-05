@@ -32,6 +32,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::fallback(function() {
+    return Route::get('/login',[AuthController::class,'login'])->name('login');
+});
 Route::middleware(['guest'])->group(function () {
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::POST('/login-user',[AuthController::class,'loginUser'])->name('login.user');

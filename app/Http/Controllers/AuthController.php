@@ -50,8 +50,7 @@ class AuthController extends Controller
             } elseif ($user->hasRole('user')) {
                 if ($user->is_banned) {
                     Auth::logout();
-                    session()->flash('error_message', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
-                    session()->put('error_occurred', true);
+                    return redirect('/login')->with('error', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
                 } else {
                     return redirect()->route('dashboard.user')->withCookie(cookie('remember_web', true, 3));
                 }
