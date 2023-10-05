@@ -152,7 +152,7 @@
                                         <div class="flex-shrink-0 me-3">
                                             <img src="{{ asset('profile_pictures/' . $users->profile_picture) }}"
                                                 alt="{{ $users->name }}" class="avatar-sm rounded" width="50px"
-                                                height="50px">
+                                                height="50px" style="object-fit: cover;">
                                         </div>
                                         <div class="flex-grow-1 d-flex flex-column">
                                             <div class="d-flex justify-content-between align-items-start">
