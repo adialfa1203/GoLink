@@ -75,8 +75,8 @@
                             <h4 class="card-title mb-0">Buat Microsite Baru</h4>
                         </div><!-- end card header -->
                         <div class="card-body form-steps">
-                            <form action="{{ route('create.microsite') }}" id="form-create" class="vertical-navs-step needs-validation"
-                                novalidate method="POST">
+                            <form action="{{ route('create.microsite') }}" id="form-create"
+                                class="vertical-navs-step needs-validation" novalidate method="POST">
                                 @csrf
                                 <div class="row gy-5">
                                     <div class="col-lg-3">
@@ -192,7 +192,7 @@
                                                                     Microsite</label>
                                                                 <input type="text" class="form-control" id="address"
                                                                     name="name" placeholder="Nama Microsite">
-                                                                    <p class="is-invalid" id="error-regex"></p>
+                                                                <p class="is-invalid" id="error-regex"></p>
                                                             </div>
                                                             <div>
                                                                 @if ($errors->has('name'))
@@ -207,10 +207,12 @@
                                                                     <button type="button"
                                                                         class="btn btn-danger bg-gradient">Go.Link/</button>
                                                                     <input type="text" class="form-control"
-                                                                        id="link" placeholder="Tautan Microsite"
+                                                                        id="linkMicrosite" placeholder="Tautan Microsite"
                                                                         name="link_microsite">
-                                                                    </div>
-                                                                    <p class="is-invalid text-danger"  id="error-link"></p>
+                                                                </div>
+                                                                <span class="is-invalid text-danger mt-2"
+                                                                    id="linkMicrositeError"></span>
+                                                                <span class="text-success mt-3" id="successMessage"></span>
                                                                 <div>
                                                                     @if ($errors->has('link_microsite'))
                                                                         <span
@@ -320,33 +322,39 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
-        // Get references to the input field, button, and result element
-        const inputField = document.getElementById("inputField");
-        const validateButton = document.getElementById("validateButton");
-        const resultElement = document.getElementById("result");
+        const linkMicrositeInput = document.getElementById('linkMicrosite');
+        const linkMicrositeError = document.getElementById('linkMicrositeError');
+        const successMessage = document.getElementById('successMessage');
 
-        validateButton.addEventListener("click", function() {
-            // Get the value from the input field
-            const inputValue = inputField.value;
+        linkMicrositeInput.addEventListener('input', validateLinkMicrosite);
 
-            // Define a regex pattern (for example, allowing only alphabetic characters)
-            const regexPattern = /^[a-zA-Z]+$/;
+        function validateLinkMicrosite() {
+            const linkMicrosite = linkMicrositeInput.value;
 
-            // Test the input value against the regex pattern
-            if (regexPattern.test(inputValue)) {
-                resultElement.textContent = "Valid input!";
-            } else {
-                resultElement.textContent = "Invalid input. Only alphabetic characters allowed.";
+            if (linkMicrosite.trim() === '') {
+                linkMicrositeError.textContent = '';
+                successMessage.textContent = '';
+                return;
             }
-        });
-    </script>
-    <script>
-        // Fungsi untuk menampilkan SweetAlert saat tombol submit ditekan
-        function showSweetAlert() {
-            var maxMicrosites = 3; // Batas maksimum microsite
-            var existingMicrosites = {{ $micrositeCount ?? 0 }}; // Menggunakan data yang telah dikirimkan dari controller
 
-            // Periksa apakah pengguna mencapai batas maksimum
+            const regexPattern = /^[a-zA-Z0-9\s-]+$/;
+
+            if (!regexPattern.test(linkMicrosite)) {
+                linkMicrositeError.textContent =
+                    'Link Microsite hanya boleh berisi huruf (a-z atau A-Z), angka(0-9), spasi, dan tanda "-"';
+            } else {
+                linkMicrositeError.textContent = '';
+                successMessage.textContent = 'Link Microsite Anda sudah berisi data yang valid!';
+            }
+        }
+    </script>
+
+
+    <script>
+        function showSweetAlert() {
+            var maxMicrosites = 3;
+            var existingMicrosites = {{ $micrositeCount ?? 0 }};
+
             if (existingMicrosites >= maxMicrosites) {
                 Swal.fire({
                     icon: 'error',
@@ -356,17 +364,14 @@
             }
         }
 
-        // Menambahkan penanganan klik pada tombol submit
         document.addEventListener("DOMContentLoaded", function() {
             var submitButton = document.getElementById(
-                "submitButton"); // Ganti "submitButton" dengan ID tombol submit Anda
+                "submitButton");
             if (submitButton) {
                 submitButton.addEventListener("click", showSweetAlert);
             }
         });
     </script>
-
-
 
     <script>
         // Ambil semua elemen card
@@ -538,21 +543,21 @@
         $('#submitButton').click(function() {
             var input = document.getElementById('link')
             const validateButton = document.getElementById("form-create");
-                const inputValue = input.value;
-                console.log(inputValue);
+            const inputValue = input.value;
+            console.log(inputValue);
 
-                const regexPattern = /^[a-zA-Z\s-]+$/;
-                if (regexPattern.test(inputValue)) {
-                    validateButton.submit()
-                } else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Error!!",
-                        text: "Terjadi kesalahan saat input data"
-                    })
-                    $('#error-link').text('Text yang anda masukkan tidak valid atau mengandung kata terlarang!')
-                }
-            });
+            const regexPattern = /^[a-zA-Z\s-]+$/;
+            if (regexPattern.test(inputValue)) {
+                validateButton.submit()
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error!!",
+                    text: "Terjadi kesalahan saat input data"
+                })
+                $('#error-link').text('Text yang anda masukkan tidak valid atau mengandung kata terlarang!')
+            }
+        });
     </script>
     `
 @endsection
