@@ -125,12 +125,12 @@
 
         /* Google Button */
         @import url(https://fonts.googleapis.com/css?family=Roboto:300,
- 400,
+     400,
         500,
         700&subset=cyrillic);
 
         .google-btn {
-            width: 200px;
+            width: 90%;
             height: 40px;
             background-color: #4285f4;
             border-radius: 2px;
@@ -159,13 +159,11 @@
         }
 
         .google-btn .btn-text {
-            float: right;
-            margin: 11px 18px 0 0;
+            padding-left: 10%;
             color: #fff;
             font-size: 14px;
-            letter-spacing: 0.2px;
-            font-family: "Roboto";
             font-weight: 500;
+            font-family: "Poppins", sans-serif;
         }
 
         .google-btn:hover {
@@ -175,6 +173,9 @@
 
         .google-btn:active {
             background: #1669f2;
+        }
+        .log{
+            margin-bottom: 5px;
         }
     </style>
     <style>
@@ -280,18 +281,18 @@
                                                         <h5 class="fs-sm mb-4 title">Login dengan</h5>
                                                     </div>
                                                     <div class="pt-2 hstack gap-2 justify-content-center">
-                                                        <a href="{{ route('redirect.google') }}">
+                                                        <a href="{{ route('redirect.google') }}"  style="width: 100%;">
                                                             <div class="google-btn">
                                                                 <div class="google-icon-wrapper">
                                                                     <img class="google-icon d-flex justify-content-center"
                                                                         src="https://i.ibb.co/ydLySMx/google.png" />
                                                                 </div>
-                                                                <p class="btn-text">Login dengan Google</p>
+                                                                <h6 class="btn-text">Login dengan Google</h6>
                                                             </div>
                                                         </a>
                                                     </div>
                                                     <div class="pt-2 hstack gap-2 justify-content-center">
-                                                        <a href="{{ route('redirect.facebook') }}">
+                                                        <a href="{{ route('redirect.facebook') }}"  style="width: 100%;">
                                                             <div class="google-btn">
                                                                 <div class="google-icon-wrapper">
                                                                     <img class="google-icon d-flex justify-content-center"
