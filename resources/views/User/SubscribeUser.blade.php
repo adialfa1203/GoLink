@@ -63,6 +63,7 @@
                                         <img class="card-img-top img-fluid" src="{{ asset('plugin/cat-free.jpg') }}"
                                             style="width: 100%;" alt="Card image cap">
                                     </div>
+                                    <br>
                                     <div class="col-lg-7">
                                         <h6 class="card-title long-text">Go.Link - Layanan Gratis (Selamanya)</h6>
                                         <p class="card-text text-muted long-text">Anda menggunakan layanan gratis dari
