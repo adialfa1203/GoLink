@@ -574,22 +574,6 @@
                                                 </div>
                                                 <p class="text-muted mb-0"><b>{{ $countMicrosite }} dari 10</b></p>
                                                 <br>
-                                                <h6 class="card-title">Nama yang telah diubah/bulan
-                                                    <span class="tooltip-icon"
-                                                        data-tooltip="Kuota nama yang telah diubah berlaku untuk setiap kali pengguna melakukan pengubahan nama pendek tautan yang sebelumnya sudah diubah.">
-                                                        <i
-                                                            class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
-                                                    </span>
-                                                </h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                                        id="progress-bar" role="progressbar"
-                                                        aria-valuenow="{{ $countNameChanged }}" aria-valuemin="0"
-                                                        aria-valuemax="5"
-                                                        style="width: {{ ($countNameChanged / 5) * 100 }}%;"></div>
-                                                </div>
-                                                <p class="text-muted mb-0"><b>{{ $countNameChanged }} dari 5</b></p>
-                                                <br>
                                                 @php
                                                     $userType = Auth::user()->subscribe; // Gantilah dengan logika yang sesuai dengan aplikasi Anda
                                                 @endphp
