@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="col-lg-3 text-center">
                                         <a href="/subscribe-product-user" type="button"
-                                            class="btn btn-outline-danger">Berlangganan Sekarang</a>
+                                            class="btn btn-outline-danger mt-3">Berlangganan Sekarang</a>
                                     </div>
                                 </div>
                             </div>
