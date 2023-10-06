@@ -523,10 +523,6 @@
                             </div>
                             <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMicrosite }} dari 10</b></p>
                             <br>
-                            @php
-                                $userType = Auth::user()->subscribe; // Gantilah dengan logika yang sesuai dengan aplikasi Anda
-                            @endphp
-                            @if ($userType === 'yes')
                                 <h6 class="card-title">Nama yang telah diubah/bulan
                                     <span class="tooltip-icon"
                                         data-tooltip="Kuota nama yang telah diubah berlaku untuk setiap kali pengguna melakukan pengubahan nama pendek tautan yang sebelumnya sudah diubah.">
@@ -541,7 +537,6 @@
                                 </div>
                                 <p class="text-muted mb-0" id="name-changed-text"><b>{{ $countNameChanged }} dari 5</b>
                                 </p>
-                            @endif
                         </div>
                         <div class="d-flex justify-content-end pe-3" data-bs-toggle="modal"
                             data-bs-target="#lihatlebihbanyak">
