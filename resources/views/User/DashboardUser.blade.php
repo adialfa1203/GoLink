@@ -519,9 +519,9 @@
                                 data-bs-title="{{ $countMicrosite }} Nama diubah">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite"
                                     role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
-                                    aria-valuemax="10" style="width: {{ ($countMicrosite / 10) * 100 }}%"></div>
+                                    aria-valuemax="10" style="width: {{ ($countMicrosite / 3) * 100 }}%"></div>
                             </div>
-                            <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMicrosite }} dari 10</b></p>
+                            <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMicrosite }} dari 3</b></p>
                             <br>
                                 <h6 class="card-title">Nama yang telah diubah
                                     <span class="tooltip-icon"
@@ -998,7 +998,7 @@
 
         // Ubah lebar bar progres sesuai dengan data yang diperoleh
         var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / 10) * 100; // Maksimum adalah 10
+        var progressBarWidth = (countData / 3) * 100; // Maksimum adalah 10
         progressBar.style.width = progressBarWidth + "%";
         progressBar.setAttribute("aria-valuenow", countData);
     </script>
@@ -1024,7 +1024,7 @@
 
         // Update the progress bar width based on a maximum value of 10
         var progressBar = document.querySelector('#total-microsite');
-        progressBar.style.width = ((countURLValue / 10) * 100) + '%';
+        progressBar.style.width = ((countURLValue / 3) * 100) + '%';
         progressBar.setAttribute('aria-valuenow', countURLValue);
 
         // Update the text

@@ -343,7 +343,7 @@
     <script>
         // Fungsi untuk menampilkan SweetAlert saat tombol submit ditekan
         function showSweetAlert() {
-            var maxMicrosites = 10; // Batas maksimum microsite
+            var maxMicrosites = 3; // Batas maksimum microsite
             var existingMicrosites = {{ $micrositeCount ?? 0 }}; // Menggunakan data yang telah dikirimkan dari controller
 
             // Periksa apakah pengguna mencapai batas maksimum
@@ -351,7 +351,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Anda telah mencapai batas maksimum 10 microsite',
+                    text: 'Anda telah mencapai batas maksimum 3 microsite',
                 });
             }
         }
