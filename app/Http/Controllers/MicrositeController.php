@@ -104,8 +104,7 @@ class MicrositeController extends Controller
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
-                ->withInput()
-                ->with('error', 'Kesalahan, ada kolom yang belum terisi dengan benar!');
+                ->withInput();
         }
         $link = $request->link_microsite;
         $micrositeStr = str_replace(' ', '-', $link);
