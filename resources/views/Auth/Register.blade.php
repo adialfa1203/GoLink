@@ -99,35 +99,6 @@
                                             <form action="{{ route('register.user') }}" method="POST">
                                                 @csrf
                                                 <div class="mb-3">
-                                                    <label class="form-label">Nomer Ponsel</label>
-                                                    <div class="position-relative">
-                                                        <input name="number" type="number" class="form-control"
-                                                            placeholder="Masukkan Nomor Ponsel"
-                                                            value="{{ old('number') }}">
-                                                    </div>
-                                                    <div>
-                                                        @if ($errors->has('number'))
-                                                            <span
-                                                                class="text-danger">{{ $errors->first('number') }}</span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="username" class="form-label">Email</label>
-                                                    <div class="position-relative">
-                                                        <input name="email" type="text"
-                                                            class="form-control password-input" id="email"
-                                                            placeholder="Masukkan Email" value="{{ old('email') }}">
-                                                    </div>
-                                                    <span id="emailError" class="text-danger"></span>
-                                                    <div>
-                                                        @if ($errors->has('email'))
-                                                            <span
-                                                                class="text-danger">{{ $errors->first('email') }}</span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
                                                     <label class="form-label">Nama Lengkap</label>
                                                     <div class="position-relative">
                                                         <input name="name" type="text"
@@ -143,6 +114,37 @@
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
+                                                    <label class="form-label">Nomer Ponsel</label>
+                                                    <div class="position-relative">
+                                                        <input name="number" type="number" class="form-control"
+                                                            placeholder="Masukkan Nomor Ponsel"
+                                                            value="{{ old('number') }}">
+                                                    </div>
+                                                    <div>
+                                                        @if ($errors->has('number'))
+                                                            <span
+                                                                class="text-danger">{{ $errors->first('number') }}</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="email" class="form-label">Email</label>
+                                                    <div class="position-relative">
+                                                        <input name="email" type="text"
+                                                            class="form-control password-input" id="email"
+                                                            placeholder="Masukkan Email" value="{{ old('email') }}">
+                                                    </div>
+                                                    <span id="emailError" class="text-danger"></span>
+                                                    <span id="successMessage" class="text-success"></span>
+                                                    <div>
+                                                        @if ($errors->has('email'))
+                                                            <span
+                                                                class="text-danger">{{ $errors->first('email') }}</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
                                                     <label class="form-label">Kata Sandi</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input name="password" type="password" id="newPassword"
@@ -155,6 +157,8 @@
                                                             <i class="ri-eye-fill align-middle"></i>
                                                         </button>
                                                         <div id="newPasswordError" class="text-danger mt-2">
+                                                        </div>
+                                                        <div id="newPasswordSuccess" class="text-success mt-2">
                                                         </div>
                                                         <div>
                                                             @if ($errors->has('password'))
@@ -295,28 +299,51 @@
     <!-- swiper.init js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/swiper.init.js') }}"></script>
 
+    {{-- Email Validation --}}
     <script>
         const emailInput = document.getElementById('email');
         const emailError = document.getElementById('emailError');
+        const successMessage = document.getElementById('successMessage');
 
         emailInput.addEventListener('input', validateEmail);
 
         function validateEmail() {
             const email = emailInput.value;
-            const emailPattern = /.+@.+\.com$/;
+            let isAtIncluded = false;
+            let isDotComIncluded = false;
 
-            if (!emailPattern.test(email)) {
-                emailError.textContent = 'Alamat email harus berakhir dengan ".com".';
-            } else {
-                emailError.textContent = '';
+            if (email.includes('@')) {
+                isAtIncluded = true;
+            }
+
+            if (email.endsWith('.com')) {
+                isDotComIncluded = true;
+            }
+
+            emailError.textContent = '';
+            successMessage.textContent = '';
+
+            if (!isAtIncluded) {
+                emailError.textContent = 'Alamat email harus menyertakan kata "@".';
+            }
+
+            if (!isDotComIncluded && isAtIncluded) {
+                emailError.textContent = 'Alamat email harus berakhir dengan kata ".com".';
+            }
+
+            if (isAtIncluded && isDotComIncluded) {
+                successMessage.textContent = 'Email Anda valid!';
             }
         }
     </script>
+
+
     {{-- Validation Conrifmation New Password --}}
     <script>
         const newPasswordInput = document.getElementById('newPassword');
         const confirmPasswordInput = document.getElementById('confirmPassword');
         const newPasswordError = document.getElementById('newPasswordError');
+        const newPasswordSuccess = document.getElementById('newPasswordSuccess');
         const confirmPasswordError = document.getElementById('confirmPasswordError');
         const confirmPasswordSuccess = document.getElementById('confirmPasswordSuccess');
 
@@ -331,31 +358,15 @@
                 newPasswordError.textContent = 'Kata sandi harus memiliki setidaknya 8 karakter.';
             } else {
                 newPasswordError.textContent = '';
+                newPasswordSuccess.textContent = 'Kata sandi sudah benar';
             }
 
             if (confirmPassword !== newPassword) {
-                confirmPasswordError.textContent = 'Konfirmasi password tidak cocok.';
+                confirmPasswordError.textContent = 'Ulangi kata sandi tidak cocok.';
                 confirmPasswordSuccess.textContent = '';
             } else {
                 confirmPasswordError.textContent = '';
-                confirmPasswordSuccess.textContent = 'Konfirmasi password sudah benar';
-            }
-        }
-    </script>
-    <script>
-        const emailInput = document.getElementById('email');
-        const emailError = document.getElementById('emailError');
-
-        emailInput.addEventListener('input', validateEmail);
-
-        function validateEmail() {
-            const email = emailInput.value;
-            const emailPattern = /.+@.+\.com$/;
-
-            if (!emailPattern.test(email)) {
-                emailError.textContent = 'Alamat email harus berakhir dengan ".com".';
-            } else {
-                emailError.textContent = '';
+                confirmPasswordSuccess.textContent = 'Ulangi kata sandi sudah benar';
             }
         }
     </script>

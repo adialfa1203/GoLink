@@ -108,17 +108,23 @@
 
                                                                 <!-- Div untuk input email -->
                                                                 <div class="mb-3">
-                                                                    <label for="lastnameInput"
-                                                                        class="form-label">E-mail</label>
-                                                                    <input type="text" name="email"
-                                                                        class="form-control" value="{{ $user->email }}">
+                                                                    <label for="email" class="form-label">Email</label>
+                                                                    <div class="position-relative">
+                                                                        <input name="email" type="text"
+                                                                            class="form-control password-input"
+                                                                            id="email" placeholder="Masukkan Email"
+                                                                            value="{{ old('email') }}">
+                                                                    </div>
+                                                                    <span id="emailError" class="text-danger"></span>
+                                                                    <span id="successMessage" class="text-success"></span>
+                                                                    <div>
+                                                                        @if ($errors->has('email'))
+                                                                            <span
+                                                                                class="text-danger">{{ $errors->first('email') }}</span>
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
-                                                                <div>
-                                                                    @if ($errors->has('email'))
-                                                                        <span
-                                                                            class="text-danger">{{ $errors->first('email') }}</span>
-                                                                    @endif
-                                                                </div>
+
 
                                                                 <!-- Div untuk input nomor telepon -->
                                                                 <div class="mb-3">
@@ -168,7 +174,7 @@
 
                                                                 <!-- Div untuk input kata sandi baru -->
                                                                 <div class="mb-3">
-                                                                    <label for="emailInput" class="form-label">Kata sandi
+                                                                    <label for="newPassword" class="form-label">Kata sandi
                                                                         baru</label>
                                                                     <div
                                                                         class="position-relative auth-pass-inputgroup mb-3">
@@ -181,8 +187,10 @@
                                                                             type="button" id="password-addon">
                                                                             <i class="ri-eye-fill align-middle"></i>
                                                                         </button>
-                                                                        <div id="newPasswordError" class="text-danger">
-                                                                        </div>
+                                                                        <div id="newPasswordError"
+                                                                            class="text-danger mt-2"></div>
+                                                                        <div id="newPasswordSuccess"
+                                                                            class="text-success mt-2"></div>
                                                                     </div>
                                                                     <div>
                                                                         @if ($errors->has('new_password'))
@@ -231,8 +239,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="hstack gap-2 justify-content-end">
-                                    <button type="submit"
-                                        class="btn btn-success mb-3 me-3">Simpan</button>
+                                    <button type="submit" class="btn btn-success mb-3 me-3">Simpan</button>
                                 </div>
                             </div>
                         </div>
@@ -254,6 +261,7 @@
         const confirmPasswordInput = document.getElementById('confirmPassword');
         const newPasswordError = document.getElementById('newPasswordError');
         const confirmPasswordError = document.getElementById('confirmPasswordError');
+        const newPasswordSuccess = document.getElementById('newPasswordSuccess');
         const confirmPasswordSuccess = document.getElementById('confirmPasswordSuccess');
 
         newPasswordInput.addEventListener('input', validatePassword);
@@ -265,8 +273,10 @@
 
             if (newPassword.length < 8) {
                 newPasswordError.textContent = 'Kata sandi harus memiliki setidaknya 8 karakter.';
+                newPasswordSuccess.textContent = '';
             } else {
                 newPasswordError.textContent = '';
+                newPasswordSuccess.textContent = 'Kata sandi sudah berisi data yang valid!';
             }
 
             if (confirmPassword !== newPassword) {
@@ -278,21 +288,42 @@
             }
         }
     </script>
+
     <script>
         const emailInput = document.getElementById('email');
         const emailError = document.getElementById('emailError');
+        const successMessage = document.getElementById('successMessage');
 
         emailInput.addEventListener('input', validateEmail);
 
         function validateEmail() {
             const email = emailInput.value;
-            const emailPattern = /.+@.+\.com$/;
+            let isAtIncluded = false;
+            let isDotComIncluded = false;
 
-            if (!emailPattern.test(email)) {
-                emailError.textContent = 'Alamat email harus berakhir dengan ".com".';
-            } else {
-                emailError.textContent = '';
+            if (email.includes('@')) {
+                isAtIncluded = true;
+            }
+
+            if (email.endsWith('.com')) {
+                isDotComIncluded = true;
+            }
+
+            emailError.textContent = '';
+            successMessage.textContent = '';
+
+            if (!isAtIncluded) {
+                emailError.textContent = 'Alamat email harus menyertakan kata "@".';
+            }
+
+            if (!isDotComIncluded && isAtIncluded) {
+                emailError.textContent = 'Alamat email harus berakhir dengan kata ".com".';
+            }
+
+            if (isAtIncluded && isDotComIncluded) {
+                successMessage.textContent = 'Email Anda valid!';
             }
         }
     </script>
+
 @endsection
