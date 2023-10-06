@@ -287,7 +287,7 @@
                                                                     <img class="google-icon d-flex justify-content-center"
                                                                         src="https://i.ibb.co/ydLySMx/google.png" />
                                                                 </div>
-                                                                <h6 class="btn-text">Login dengan Google</h6>
+                                                                <h6 class="btn-text" style="padding: 11px;">Login dengan Google</h6>
                                                             </div>
                                                         </a>
                                                     </div>
@@ -298,7 +298,7 @@
                                                                     <img class="google-icon d-flex justify-content-center"
                                                                         src="https://i.ibb.co/pnpDRC6/facebook.png" />
                                                                 </div>
-                                                                <p class="btn-text">Login dengan Facebook</p>
+                                                                <p class="btn-text" style="padding: 11px;">Login dengan Facebook</p>
                                                             </div>
                                                         </a>
                                                     </div>
