@@ -519,7 +519,7 @@
                                 data-bs-title="{{ $countMicrosite }} Nama diubah">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite"
                                     role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
-                                    aria-valuemax="10" style="width: {{ ($countMicrosite / 3) * 100 }}%"></div>
+                                    aria-valuemax="3" style="width: {{ ($countMicrosite / 3) * 100 }}%"></div>
                             </div>
                             <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMicrosite }} dari 3</b></p>
                             <br>
@@ -1029,7 +1029,7 @@
 
         // Update the text
         var progressText = document.querySelector('#microsite-total');
-        progressText.textContent = countURLValue + ' dari 10';
+        progressText.textContent = countURLValue + ' dari 3';
     </script>
 
     {{-- <script>
