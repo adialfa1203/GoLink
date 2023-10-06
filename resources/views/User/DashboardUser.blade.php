@@ -522,21 +522,6 @@
                                     aria-valuemax="3" style="width: {{ ($countMicrosite / 3) * 100 }}%"></div>
                             </div>
                             <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMicrosite }} dari 3</b></p>
-                            <br>
-                                <h6 class="card-title">Nama yang telah diubah
-                                    <span class="tooltip-icon"
-                                        data-tooltip="Kuota nama yang telah diubah berlaku untuk setiap kali pengguna melakukan pengubahan nama pendek tautan yang sebelumnya sudah diubah.">
-                                        <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
-                                    </span>
-                                </h6>
-                                <div class="progress" data-bs-toggle="tooltip"
-                                    data-bs-title="{{ $countNameChanged }} Nama diubah">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated" id="name-changed"
-                                        role="progressbar" aria-valuenow="{{ $countNameChanged }}" aria-valuemin="0"
-                                        aria-valuemax="5" style="width: {{ ($countNameChanged / 5) * 100 }}%;"></div>
-                                </div>
-                                <p class="text-muted mb-0" id="name-changed-text"><b>{{ $countNameChanged }} dari 5</b>
-                                </p>
                         </div>
                         <div class="d-flex justify-content-end pe-3" data-bs-toggle="modal"
                             data-bs-target="#lihatlebihbanyak">
