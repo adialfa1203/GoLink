@@ -375,32 +375,22 @@
     </script>
 
     <script>
-        // Ambil semua elemen card
         const cards = document.querySelectorAll('.card');
-
-        // Tambahkan event listener untuk setiap card
         cards.forEach(card => {
             card.addEventListener('click', function() {
-                // Dapatkan ID microsite dari atribut data-kustom
                 const micrositeId = this.getAttribute('data-microsite-id');
 
-                // Dapatkan elemen radio button yang sesuai dengan ID microsite
                 const radio = document.querySelector(`#tema${micrositeId}`);
 
-                // Periksa apakah radio button sudah dipilih atau belum
                 const isChecked = radio.checked;
 
-                // Hapus efek hover dari card-card yang lain
                 cards.forEach(otherCard => {
                     if (otherCard !== this) {
                         otherCard.classList.remove('hover');
                     }
                 });
 
-                // Toggle status radio button saat card diklik
                 radio.checked = !isChecked;
-
-                // Tambahkan atau hapus class 'hover' saat card diklik
                 this.classList.toggle('hover');
             });
         });
@@ -427,7 +417,7 @@
         });
     </script>
     <script>
-        var selectedButtons = []; // Array untuk menyimpan ID sosial media yang dipilih
+        var selectedButtons = [];
 
         function toggleCardHover(cardId) {
             var card = document.getElementById(cardId);
@@ -439,14 +429,13 @@
                 cardElement.removeClass("selected-card hover");
                 cardElement.css("border", "none");
 
-                // Hapus ID sosial media dari array selectedButtons
                 var index = selectedButtons.indexOf(cardId);
                 if (index !== -1) {
                     selectedButtons.splice(index, 1);
                 }
             } else {
                 if (selectedButtons.length >= 4) {
-                    var firstSelectedButtonId = selectedButtons.shift(); // Hapus ID sosial media pertama dari array
+                    var firstSelectedButtonId = selectedButtons.shift();
                     var firstSelectedButton = document.getElementById(firstSelectedButtonId);
                     var firstSelectedCheckbox = $("input[type='checkbox'][value='" + firstSelectedButtonId + "']");
                     firstSelectedCheckbox.prop("checked", false);
@@ -457,8 +446,6 @@
                 checkbox.prop("checked", true);
                 cardElement.addClass("selected-card hover");
                 cardElement.css("border", "1px solid black");
-
-                // Tambahkan ID sosial media ke array selectedButtons
                 selectedButtons.push(cardId);
             }
         }
@@ -467,18 +454,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function validateForm() {
-            // Validasi langkah pertama
             var micrositeSelection = document.querySelector('input[name="microsite_selection"]:checked');
             if (!micrositeSelection) {
                 Swal.fire({
                     text: 'Silakan pilih jenis microsite yang cocok dengan kebutuhan Anda!',
                     onClose: function() {
-                        // Mengarahkan kembali ke halaman awal tab
                         document.getElementById('v-pills-bill-info-tab').click();
                     }
                 }).then(function() {
                     setTimeout(function() {
-                        location.reload(); // Memuat ulang halaman setelah pengguna menekan "OK"
+                        location.reload();
                     }, 0);
                 });
                 return false;
@@ -491,42 +476,34 @@
                 Swal.fire({
                     text: 'Silakan isi nama dan tautan microsite sesuai keinginan Anda!',
                     onClose: function() {
-                        // Mengarahkan kembali ke halaman awal tab
                         document.getElementById('v-pills-bill-info-tab').click();
                     }
                 }).then(function() {
                     setTimeout(function() {
-                        location.reload(); // Memuat ulang halaman setelah pengguna menekan "OK"
+                        location.reload();
                     }, 2000);
                 });
                 return false;
             }
 
-            // Validasi langkah ketiga
             var selectedButtons = document.querySelectorAll('input[name="selectedButtons[]"]:checked');
             if (selectedButtons.length === 0) {
                 Swal.fire({
                     text: 'Silakan pilih setidaknya satu sosial media!',
                     onClose: function() {
-                        // Mengarahkan kembali ke halaman awal tab
                         document.getElementById('v-pills-bill-info-tab').click();
                     }
                 }).then(function() {
                     setTimeout(function() {
-                        location.reload(); // Memuat ulang halaman setelah pengguna menekan "OK"
+                        location.reload();
                     }, 2000);
                 });
                 return false;
             }
-
-            // Semua input telah valid, lanjutkan dengan menyimpan data
-            // ...
-
             return true;
         }
     </script>
     <script>
-        // Fungsi untuk mengganti spasi dengan tanda "-" hanya pada input dengan ID "address"
         function replaceSpacesWithDash(inputField) {
             if (inputField.id === "micrositeUrl") {
                 var value = inputField.value;
