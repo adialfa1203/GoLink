@@ -80,10 +80,10 @@ class ProfilController extends Controller
             $coverImage->move(public_path('profile_pictures'), $coverImageName);
             $user->profile_picture = $coverImageName;
         }
-        // dd($request->profile_picture);
+        // dd($request->email);
         $user->save();
 
-        return redirect()->back()->with('success', 'Berhasil mengubah foto profil.');
+        return redirect()->back()->with('success', 'Berhasil mengubah status profil.');
     }
 
     public function profileAdmin()

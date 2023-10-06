@@ -34,10 +34,6 @@
                             <div>
                                 <img alt="" style="height: 80px;">
                                 <div>
-                                    {{-- <input id="profile-foreground-img-file-input" type="file" class="profile-foreground-img-file-input d-none"> --}}
-                                    {{-- <label for="profile-foreground-img-file-input" class="profile-photo-edit btn btn-light btn-sm position-absolute end-0 top-0 m-3"> --}}
-                                    {{-- <i class="ri-image-edit-line align-bottom me-1"></i> Edit Cover Images --}}
-                                    {{-- </label> --}}
                                 </div>
                             </div>
                             <div class="card-body pt-0 mt-n5">
@@ -113,7 +109,7 @@
                                                                         <input name="email" type="text"
                                                                             class="form-control password-input"
                                                                             id="email" placeholder="Masukkan Email"
-                                                                            value="{{ old('email') }}">
+                                                                            value="{{ $user->email }}">
                                                                     </div>
                                                                     <span id="emailError" class="text-danger"></span>
                                                                     <span id="successMessage" class="text-success"></span>
@@ -325,5 +321,4 @@
             }
         }
     </script>
-
 @endsection
