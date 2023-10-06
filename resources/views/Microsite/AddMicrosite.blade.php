@@ -212,7 +212,8 @@
                                                                 </div>
                                                                 <span class="is-invalid text-danger mt-2"
                                                                     id="linkMicrositeError"></span>
-                                                                <span class="text-success mt-3" id="successMessage"></span>
+                                                                <span class="text-success mt-3"
+                                                                    id="successMessage"></span>
                                                                 <div>
                                                                     @if ($errors->has('link_microsite'))
                                                                         <span
@@ -260,7 +261,7 @@
                                                                                 style="background-color: {{ $data->color_hex }}; color: white;"
                                                                                 type="button" name="button"
                                                                                 value="{{ $data->name_button }}"
-                                                                                class="col-xl-12 btn btn-label rounded-pill"
+                                                                                class="col-xl-12 col-12 btn btn-label rounded-pill"
                                                                                 data-button-value="{{ $data->id }}"
                                                                                 onclick="toggleCardHover('{{ $data->id }}')">
                                                                                 <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
