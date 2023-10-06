@@ -100,7 +100,7 @@
                                             @php
                                                 $i++;
                                             @endphp
-                                            <form action="/archive/{{ $row->id }}">
+                                            <form>
                                                 @csrf
                                                 <div class="col-lg-12">
                                                     <div class="card"
@@ -596,36 +596,6 @@
                                                             <a href="{{ $url->destination_url }}"
                                                                 class="card-subtitle font-14 text-muted">{{ $url->destination_url }}</a>
                                                         </div>
-                                                        {{-- modal hapus --}}
-                                                        <div class="modal fade" id="arsip{{ $url->id }}">
-                                                            <div class="modal-dialog modal-dialog-centered"
-                                                                role="document">
-                                                                <div class="modal-content">
-                                                                    <form action="/archive/{{ $url->id }}"
-                                                                        method="GET">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"></h5>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal">
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="modal-body">
-                                                                            <h4 style="font-size: 19px">Yakin Ingin
-                                                                                Mengarsip
-                                                                                Data?</h4>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-secondary"
-                                                                                data-bs-dismiss="modal">Batal</button>
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary btn-xs form-control1">Arsip</button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         <div class="card-footer">
                                                             <div
                                                                 class="d-flex flex-column flex-sm-row justify-content-between">
@@ -972,13 +942,6 @@
     <script type="text/javascript" src="./jquery.qrcode.js"></script>
     <script type="text/javascript" src="./qrcode.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Sweet Alerts js -->
-    {{-- <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script> --}}
-
-    <!-- Sweet alert init js-->
-    {{-- <script src="{{ asset('assets/js/pages/sweetalerts.init.js') }}"></script> --}}
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
@@ -1020,23 +983,8 @@
 
             $("#copyButton").attr("data-clipboard-text", linkToCopy);
         });
-        // $("#copyButton").click(function() {
-        //     var linkToCopy = $(this).attr("data-clipboard-text");
-
-        //     // Salin tautan ke clipboard
-        //     var tempInput = $("<input>");
-        //     $("body").append(tempInput);
-        //     tempInput.val(linkToCopy).select();
-        //     document.execCommand("copy");
-        //     tempInput.remove();
-
-        //     // Tampilkan pesan sukses
-        //     $("#successCopyAlert").fadeIn().delay(1500).fadeOut();
-        // });
-        // Menangani klik pada label platform dalam modal "bagikan"
         $(".platform").click(function() {
             var platform = $(this).data("platform");
-            //   alert(platform)
             var shortUrl = $("#default_short_url").text();
 
             switch (platform) {
@@ -1052,9 +1000,7 @@
                     break;
                 case "copy":
                     var copyText = $(this).data('url')
-                    // alert(copyText)
                     console.log()
-                    // copyText.focus();
                     try {
                         navigator.clipboard.writeText(copyText);
                         console.log('Content copied to clipboard');
@@ -1062,16 +1008,6 @@
                         console.error('Failed to copy: ', err);
                         alert('gagal ' + err)
                     }
-
-                    // navigator.clipboard.writeText(copyText)
-                    // .then(function() {
-                    // if (edit != true) {
-                    // }
-                    // })
-                    // .catch(function(err) {
-                    // console.error("Penyalinan gagal: ", err);
-                    // alert("Penyalinan gagal. Silakan salin tautan secara manual.");
-                    // });
                     break;
 
                 case "qr":
@@ -1133,8 +1069,6 @@
         tombolModal.addEventListener("click", function() {
 
         });
-        // var tombolClose = document.getElementById("close-modal");
-        // tombolClose.addEventListener("click", tutupModal);
     </script>
 
     <script>
@@ -1212,7 +1146,6 @@
         $('.edit-link').click(function() {
             var link = $(this).data('link');
 
-            // Mengisi nilai input dengan link yang dipilih
             $('#new_url_key').val(link);
             $('#new_url_key').attr("data-original", link);
 
@@ -1221,7 +1154,6 @@
     <script>
         $(document).ready(function() {
             var selectId = $('#deactivated_at').val();
-            // console.log(selectId);
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
             $(document).on('click', '.btn-submit', function() {
@@ -1254,23 +1186,16 @@
         });
     </script>
     <script>
-        // Mendapatkan semua tautan dengan class "access-link"
         var links = document.querySelectorAll('.access-link');
 
-        // Loop melalui setiap tautan
         links.forEach(function(link) {
-            // Menambahkan event listener saat tautan diklik
             link.addEventListener('click', function(event) {
-                // Jika tautan tidak memiliki class "inactive", maka tautan masih aktif
                 if (!link.classList.contains('inactive')) {
-                    // Lanjutkan ke URL tautan
                     return;
                 }
 
-                // Mencegah tautan mengarahkan ke URL
                 event.preventDefault();
 
-                // Tampilkan alert bahwa tautan sudah tidak dapat diakses
                 alert('Tautan sudah tidak dapat diakses.');
             });
         });
@@ -1304,39 +1229,28 @@
         });
     </script>
     <script>
-        // Mendapatkan semua tautan dengan class "access-link"
         var links = document.querySelectorAll('.access-link');
 
-        // Loop melalui setiap tautan
         links.forEach(function(link) {
-            // Menambahkan event listener saat tautan diklik
             link.addEventListener('click', function(event) {
-                // Jika tautan tidak memiliki class "inactive", maka tautan masih aktif
                 if (!link.classList.contains('inactive')) {
-                    // Lanjutkan ke URL tautan
                     return;
                 }
 
-                // Mencegah tautan mengarahkan ke URL
                 event.preventDefault();
 
-                // Tampilkan alert bahwa tautan sudah tidak dapat diakses
                 alert('Tautan sudah tidak dapat diakses.');
             });
         });
     </script>
     <script>
-        // Mendapatkan elemen input berdasarkan ID yang sesuai
         var inputTanggal = document.querySelector('input[name="deactivated_at"]');
-
-        // Mendapatkan tanggal hari ini dalam format yang sesuai dengan datetime-local
         var today = new Date();
         var year = today.getFullYear();
-        var month = String(today.getMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0
+        var month = String(today.getMonth() + 1).padStart(2, '0');
         var day = String(today.getDate()).padStart(2, '0');
         var waktuHariIni = year + '-' + month + '-' + day + 'T00:00';
 
-        // Mengatur atribut "min" pada elemen input
         inputTanggal.setAttribute('min', waktuHariIni);
     </script>
 

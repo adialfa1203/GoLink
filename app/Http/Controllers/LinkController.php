@@ -49,17 +49,6 @@ class LinkController extends Controller
         return view('User.link', compact('user','urlshort', 'shortCode','result', 'history'));
     }
 
-    public function archive($id)
-    {
-        $link = ShortUrl::find($id);
-        $link->update([
-            'deactivated_at' => now(),
-            'archive' => 'yes'
-        ]);
-        $link->delete();
-        return redirect()->back()->with('success', 'Link telah diarsipkan');
-    }
-
     public function deleteDeactive()
     {
         $now = Carbon::now();
@@ -90,46 +79,27 @@ class LinkController extends Controller
             return response()->json(['error' => 'Short link not found'], 404);
         }
 
-        // Memperbarui kolom deactivated_at
         $updateUrl->update([
             'deactivated_at' => $request->newTime,
         ]);
-
-        // Mengirimkan respon ke JavaScript
         return response()->json(['message' => 'Deactivation status updated successfully']);
     }
-
-    // public function LinkUsersChart()
-    // {
-    //     $user = Auth::user()->id;
-
-    //     $startDate = Carbon::now()->subDays(7);
-
-    //     $totalVisits = ShortURLVisit::query()
-    //     ->whereRelation('shortURL', 'user_id', '=', $user)
-    //     ->selectRaw('DATE(created_at) as date, COUNT(*) as totalVisits')
-    //     ->groupBy('date')
-    //     ->orderBy('date')
-    //     ->get();
-
-    //     return response()->json(compact('startDate', 'user','totalVisits'));
-    // }
 
     public function LinkUsersChart(Request $request)
     {
         $urlKey= $request->id;
-        // Ambil data link berdasarkan url_key
+
         $shortURL = ShortURL::where('url_key', $urlKey)->first();
 
         if (!$shortURL) {
-            // Handle jika link tidak ditemukan
+
             return response()->json(['message' => 'Link not found'], 404);
         }
 
         $startDate = Carbon::now()->subDays(7);
 
         $totalVisits = ShortURLVisit::query()
-            ->where('short_url_id', $shortURL->id) // Filter berdasarkan ID link
+            ->where('short_url_id', $shortURL->id) 
             ->selectRaw('DATE(created_at) as date, COUNT(*) as totalVisits')
             ->where('created_at', '>=', $startDate)
             ->groupBy('date')
