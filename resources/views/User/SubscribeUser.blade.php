@@ -59,16 +59,16 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-2 col-md-3 col-12 mb-3 mb-md-0">
                                         <img class="card-img-top img-fluid" src="{{ asset('plugin/cat-free.jpg') }}"
                                             style="width: 100%;" alt="Card image cap">
                                     </div>
-                                    <div class="col-lg-7">
+                                    <div class="col-lg-7 col-md-6 col-12">
                                         <h6 class="card-title long-text mt-3">Go.Link - Layanan Gratis (Selamanya)</h6>
                                         <p class="card-text text-muted long-text">Anda menggunakan layanan gratis dari
                                             Go.Link</p>
                                     </div>
-                                    <div class="col-lg-3 text-center">
+                                    <div class="col-lg-3 col-md-3 col-12 text-center">
                                         <a href="/subscribe-product-user" type="button"
                                             class="btn btn-outline-danger col-12 mt-3">Berlangganan Sekarang</a>
                                     </div>
