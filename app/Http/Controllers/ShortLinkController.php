@@ -116,7 +116,6 @@ class ShortLinkController extends Controller
         if (!$updateUrl->exists()) {
             return response()->json(['error' => 'Short link not found'], 404);
         }
-// dd($updateUrl);
         $validator = Validator::make($request->all(), [
             'newUrlKey' => 'required|unique:short_urls,url_key'
         ],[
@@ -128,7 +127,7 @@ class ShortLinkController extends Controller
             return response()->json($validator->errors(), 404);
         }
         $validator = Validator::make($request->all(), [
-            'newUrlKey' => 'unique:Takedown,url_key'
+            'newUrlKey' => 'unique:takedown,url_key'
         ],[
             'newUrlKey.unique' => 'Nama sudah digunakan'
         ]);
@@ -138,10 +137,6 @@ class ShortLinkController extends Controller
         }
 
         $newUrlKey = $request->newUrlKey;
-
-        // dd($updateUrl->user->is_banned);
-        // dd($request);
-        // return response()->json(['output' => $newUrlKey]);
 
         // Memperbarui URL key dan default short URL
         $updateUrl->update([

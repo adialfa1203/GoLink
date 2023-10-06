@@ -432,8 +432,8 @@
         </script>
     @endforeach
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/form-wizard.init.js') }}"></script>
-    {{-- <script type="text/javascript" src="./jquery.qrcode.js"></script>
-    <script type="text/javascript" src="./qrcode.js"></script> --}}
+    <script type="text/javascript" src="./jquery.qrcode.js"></script>
+    <script type="text/javascript" src="./qrcode.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
@@ -583,7 +583,7 @@
             });
         });
     </script>
-    <!-- <script>
+    <script>
         $(document).ready(function() {
             $("button.btn").click(function() {
                 var buttonId = $(this).attr("id");
