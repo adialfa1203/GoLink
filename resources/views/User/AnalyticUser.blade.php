@@ -143,7 +143,7 @@
             </div>
             <br>
             <div class="row">
-                <div id="popularDataContainer" class="col-lg-12">
+                <div id="popularDataContainer" class="row">
                     <div class="col-lg-6">
                         <div class="card" id="agenciesList">
                             <div class="card-header fw-bold">
@@ -174,7 +174,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="card col-lg-12" id="agenciesList">
+                        <div class="card" id="agenciesList">
                             <div class="card-header fw-bold">
                                 Microsite Populer
                             </div>
@@ -203,9 +203,9 @@
                         </div>
                     </div><!--end col-->
                 </div>
-                <div id="additionalDataContainer" class="col-lg-12 d-none">
-                    <div class="col-lg-6">
-                        <div class="card col-lg-12">
+                <div id="additionalDataContainer" class="row d-none text-center col-12">
+                    <div class="col-12">
+                         <div class="card text-center mx-auto">
                             <div class="card-header fw-bold">
                                 <div>
                                     Referedata Teratas
@@ -217,18 +217,17 @@
                                 </div>
                             </div>
                             <div class="card-body text-center">
-
                                 <h4 class="card-title">Anda Tidak Bisa Mengakses Fitur Ini!</h4>
                                 <p class="card-text text-muted">Anda perlu Beralih ke Berlangganan Untuk Bisa Menikmati
                                     Fitur Ini</p>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="/subscribe-product-user" style="color :red;"> Mulai Berlangganan? </a>
+                                <a href="/subscribe-product-user" style="color: red;">Mulai Berlangganan?</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="card col-lg-12">
+                    <div class="col-12">
+                         <div class="card text-center mx-auto">
                             <div class="card-header fw-bold">
                                 <div>
                                     Wilayah Teratas
@@ -240,18 +239,17 @@
                                 </div>
                             </div>
                             <div class="card-body text-center">
-
                                 <h4 class="card-title">Anda Tidak Bisa Mengakses Fitur Ini!</h4>
                                 <p class="card-text text-muted">Anda perlu Beralih ke Berlangganan Untuk Bisa Menikmati
                                     Fitur Ini</p>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="/subscribe-product-user" style="color :red;"> Mulai Berlangganan? </a>
+                                <a href="/subscribe-product-user" style="color: red;">Mulai Berlangganan?</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="card col-lg-12">
+                    <div class="col-12">
+                         <div class="card text-center mx-auto">
                             <div class="card-header fw-bold">
                                 <div>
                                     Browser Teratas
@@ -263,18 +261,17 @@
                                 </div>
                             </div>
                             <div class="card-body text-center">
-
                                 <h4 class="card-title">Anda Tidak Bisa Mengakses Fitur Ini!</h4>
                                 <p class="card-text text-muted">Anda perlu Beralih ke Berlangganan Untuk Bisa Menikmati
                                     Fitur Ini</p>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="/subscribe-product-user" style="color :red;"> Mulai Berlangganan? </a>
+                                <a href="/subscribe-product-user" style="color: red;">Mulai Berlangganan?</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="card col-lg-12">
+                    <div class="col-12">
+                         <div class="card text-center mx-auto">
                             <div class="card-header fw-bold">
                                 <div>
                                     Perangkat Teratas
@@ -286,20 +283,20 @@
                                 </div>
                             </div>
                             <div class="card-body text-center">
-
                                 <h4 class="card-title">Anda Tidak Bisa Mengakses Fitur Ini!</h4>
                                 <p class="card-text text-muted">Anda perlu Beralih ke Berlangganan Untuk Bisa Menikmati
                                     Fitur Ini</p>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="/subscribe-product-user" style="color :red;"> Mulai Berlangganan? </a>
+                                <a href="/subscribe-product-user" style="color: red;">Mulai Berlangganan?</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div><!--end row-->
-        </div>
-        <!-- container-fluid -->
+        </div><!--end row-->
+    </div>
+    <!-- container-fluid -->
     </div>
     </div>
 @endsection
