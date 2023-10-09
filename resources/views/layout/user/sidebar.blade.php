@@ -212,9 +212,9 @@
                 <span data-key="t-chat">Profil</span> </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link menu-link" href="{{ url('logout') }}" class="nav-link menu-link"> <i class="mdi mdi-logout"></i>
-                <span data-key="t-chat">Keluar</span> </a>
-        </li>
+    <a class="nav-link menu-link" href="#" onclick="confirmLogout()"> <i class="mdi mdi-logout"></i>
+        <span data-key="t-chat">Keluar</span> </a>
+</li>
         </ul>
     </div>
     <!-- Sidebar -->
@@ -222,3 +222,24 @@
 
 <div class="sidebar-background"></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script>
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Apakah Anda yakin ingin keluar?',
+            text: "Anda akan keluar dari sesi ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Keluar',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirect to logout URL
+                window.location.href = "{{ url('logout') }}";
+            }
+        });
+    }
+</script>
