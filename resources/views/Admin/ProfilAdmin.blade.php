@@ -44,10 +44,10 @@
                         <div class="text-center">
                             <div class="profile-user position-relative d-inline-block mx-auto">
                                 <div class="profile-user position-relative d-inline-block mx-auto">
-                                    @if ($user->profile_picture)
-                                    <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}" alt="{{ $user->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                    @if ($admin->profile_picture)
+                                    <img src="{{ asset('profile_pictures/' . $admin->profile_picture) }}" alt="{{ $admin->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                     @else
-                                    <img src="{{ asset('default/default.jpg') }}" alt="{{ $user->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                    <img src="{{ asset('default/default.jpg') }}" alt="{{ $admin->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                     @endif
                                     <div class="avatar-xs p-0 rounded-circle profile-photo-edit position-absolute end-0 bottom-0">
                                         <input id="profile-img-file-input" name="profile_picture" type="file" class="profile-img-file-input d-none">
