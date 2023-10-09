@@ -36,7 +36,7 @@ class ProfilController extends Controller
 
         $validator = Validator::make($request->all(),[
             'name' => 'required|max:50',
-            'email' => 'required|regex:/^[^-+]+$/u|email|ends_with:.com|unique:users,email,' . $user->id,
+            'email' => 'required|regex:/^[^-+]+$/u|email|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
             'number' => 'required|min:11|max:13|regex:/^[^-+]+$/u',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
@@ -47,7 +47,7 @@ class ProfilController extends Controller
             'number.max' => 'Nomor tidak boleh lebih dari 13!',
             'email.unique' => 'Email sudah pernah digunakan',
             'email.required' => 'Kolom Email harus diisi',
-            'email.ends_with' => 'Email harus berakhir dengan .com',
+            'email.regex' => 'Format alamat email tidak valid.',
             'old_password.required_with' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
             'new_password.min' => 'Password baru harus memiliki panjang minimal 8 karakter.',
             'new_password.confirmed' => 'Konfirmasi password baru tidak cocok dengan password baru.',

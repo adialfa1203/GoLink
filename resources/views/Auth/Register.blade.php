@@ -316,9 +316,9 @@
                 isAtIncluded = true;
             }
 
-            if (email.endsWith('.com')) {
-                isDotComIncluded = true;
-            }
+            // if (email.endsWith('.com')) {
+            //     isDotComIncluded = true;
+            // }
 
             emailError.textContent = '';
             successMessage.textContent = '';
@@ -327,9 +327,9 @@
                 emailError.textContent = 'Alamat email harus menyertakan kata "@".';
             }
 
-            if (!isDotComIncluded && isAtIncluded) {
-                emailError.textContent = 'Alamat email harus berakhir dengan kata ".com".';
-            }
+            // if (!isDotComIncluded && isAtIncluded) {
+            //     emailError.textContent = 'Alamat email harus berakhir dengan kata ".com".';
+            // }
 
             if (isAtIncluded && isDotComIncluded) {
                 successMessage.textContent = 'Email Anda valid!';
