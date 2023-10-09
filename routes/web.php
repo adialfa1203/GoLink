@@ -95,7 +95,7 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 });
 
 //Middleware User
-Route::group(['middleware' => ['checkBanStatus', 'role:user']], function () {
+Route::group(['middleware' => ['auth', 'checkBanStatus', 'role:user']], function () {
 //search
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
@@ -148,7 +148,7 @@ Route::get('/go.microsite/{micrositeLink}', [ShortLinkController::class, 'micros
 Route::post('/update-profil', [ProfilController::class, 'updateProfile'])->name('updateProfile');
 Route::post('/updateAdmin', [ProfilController::class, 'updateAdmin'])->name('updateAdmin');
 //Middleware Admin
-Route::group(['middleware' => ['role:admin']], function () {
+Route::group(['middleware' => ['auth', 'role:admin']], function () {
 //Dashboard Admin
 Route::get('/dashboard-chart', [DashboardAdminController::class, 'dashboardChart'])->name('dashboard.chart');
 Route::get('/dashboard-admin', [DashboardAdminController::class, 'dashboardAdmin'])->name('dashboard.admin');
