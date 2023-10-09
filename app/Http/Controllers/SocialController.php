@@ -68,7 +68,7 @@ class SocialController extends Controller
                 'number' => $facebookUser->number ?? 'default_number',
                 'password' => bcrypt('12345678'),
                 'facebook_id' => $facebookUser->id,
-                'profile_picture' => 'default.jpg'
+                'profile_picture' => null
             ]);
 
             if (!Role::where('name', 'user')->exists()) {
