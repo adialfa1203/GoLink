@@ -30,7 +30,7 @@ class SocialController extends Controller
                 'email' => $googleUser->getEmail(),
                 'number' => $googleUser->number ?? 'default_number',
                 'password' => bcrypt('12345678'),
-                'profile_picture' => 'default.jpg'
+                'profile_picture' => null
             ]);
 
             if (!Role::where('name', 'user')->exists()) {
