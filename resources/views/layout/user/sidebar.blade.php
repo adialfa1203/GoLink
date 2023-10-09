@@ -211,10 +211,10 @@
             <a class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ url('profil-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
                 <span data-key="t-chat">Profil</span> </a>
         </li>
-        <li class="nav-item">
-    <a class="nav-link menu-link" href="#" onclick="confirmLogout()"> <i class="mdi mdi-logout"></i>
-        <span data-key="t-chat">Keluar</span> </a>
-</li>
+            <li class="nav-item">
+        <a class="nav-link menu-link" href="#" onclick="confirmLogout()"> <i class="mdi mdi-logout"></i>
+            <span data-key="t-chat">Keluar</span> </a>
+    </li>
         </ul>
     </div>
     <!-- Sidebar -->
