@@ -100,7 +100,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'number' => $request->number,
             'password' => Hash::make($request->password),
-            'profile_picture' => 'default.jpg'
+            'profile_picture' => $request->profile_picture,
         ]);
 
         if (!Role::where('name', 'user')->exists()) {
