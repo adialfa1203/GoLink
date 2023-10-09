@@ -279,7 +279,7 @@
                                                             data-previous="v-pills-bill-address-tab"><i
                                                                 class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
                                                             Sebelumnya</button>
-                                                        <button type="button" id="submitButton"
+                                                        <button type="submit" id="submitButton"
                                                             class="btn btn-success btn-label right ms-auto nexttab nexttab"
                                                             data-nexttab="v-pills-finish-tab"
                                                             onclick="return validateForm();"><i
