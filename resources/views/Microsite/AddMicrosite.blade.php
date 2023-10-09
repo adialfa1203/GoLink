@@ -3,6 +3,9 @@
 @section('title', 'Microsite')
 @section('style')
     <style>
+        .page-content{
+            overflow-x: hidden;
+          }
         /* CSS untuk hover card */
         .hover {
             background-color: #f8f8f8;
@@ -237,15 +240,13 @@
                                                     </div>
 
                                                     <div class="d-flex align-items-start gap-3 mt-4">
-                                                        <button type="button" class="btn btn-light btn-label previestab"
-                                                            data-previous="v-pills-bill-info-tab"><i
-                                                                class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
-                                                            Sebelumnya</button>
-                                                        <button type="button"
-                                                            class="btn btn-success btn-label right ms-auto nexttab nexttab"
-                                                            data-nexttab="v-pills-payment-tab"><i
-                                                                class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Selanjutnya</button>
+                                                    <div class="col-6 col-md-6">
+                                                        <button type="button" class="btn btn-light btn-label previestab"><i class="ri-arrow-left-line label-icon"></i>Sebelumnya</button>
                                                     </div>
+                                                    <div class="col-6 col-md-6" style="margin-left: -8px;">
+                                                        <button type="button" class="btn btn-success btn-label right ms-auto nexttab nexttab" style="float: right;"><i class="ri-arrow-right-line label-icon"></i>Selanjutnya</button>
+                                                    </div>
+                                                </div>
 
                                                 </div>
                                                 <!-- end tab pane -->
