@@ -27,6 +27,8 @@
                 @else
                     <a class="btn btn-primary text-white" href="{{ route('login') }}">Kembali ke Login</a>
                 @endif
+            @else
+                <a class="btn btn-primary text-white" href="{{ route('login') }}">Kembali ke Login</a>
             @endauth
         </div>
     </div>
