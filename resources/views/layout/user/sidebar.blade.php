@@ -136,7 +136,7 @@
                         @if(Auth::user()->profile_picture)
                         <img class="header-profile-user" src="{{ asset('profile_pictures/' . Auth::user()->profile_picture) }}" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
                         @else
-                        <img class="header-profile-user" src="{{ asset('default.png') }}" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
+                        <img class="header-profile-user" src="{{ asset('default/default.jpg') }}" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
                         @endif
                         <div class="text-start ms-xl-2 ">
                             <span>
