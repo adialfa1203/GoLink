@@ -87,7 +87,7 @@ class MicrositeController extends Controller
     public function createMicrosite(Request $request, Microsite $microsite)
     {
         $user = auth()->user();
-        if ($user->subscribe === 'no' && $user->microsites()->count() >= 10) {
+        if ($user->subscribe === 'no' && $user->microsites()->count() >= 3) {
             return redirect()->back();
         }
 
@@ -130,7 +130,7 @@ class MicrositeController extends Controller
         $link_microsite = str_replace(' ', '-', $request->link_microsite);
         ShortUrl::findOrFail($short_id)->update([
             'url_key' => $link_microsite,
-            'default_short_url' =>  env('APP_URL') . "/microsite/". $link_microsite,
+            'default_short_url' =>  env('APP_URL') . "microsite/". $link_microsite,
         ]);
 
 

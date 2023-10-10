@@ -110,7 +110,7 @@ Route::prefix('user')->group(function(){
     //ActiveLink
     // Route::get('/link-chart', [LinkController::class, 'LinkUsersChart'])->name('link.users.chart');
     Route::get('/link-chart', [LinkController::class, 'LinkUsersChart'])->name('link.users.chart');
-    Route::get('/link/{shortCode}', [LinkController::class, 'showLink'])->name('link.show');
+    Route::get('/Link/{shortCode}', [LinkController::class, 'showLink'])->name('link.show');
     Route::post('active-link', [LinkController::class,'activeLink'])->name('active.link');
     Route::get('/archive/{id}', [LinkController::class, 'archive'])->name('archive');
     //ArchiveLink
