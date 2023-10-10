@@ -150,7 +150,7 @@
                                     <div
                                         class="d-flex align-items-center text-muted mb-4 comment-container{{ $key < 1 ? '' : ' hidden' }}">
                                         <div class="flex-shrink-0 me-3">
-                                        @if$row->user->profile_picture)
+                                        @if($row->user->profile_picture)
                         <img class="header-profile-user" src="{{ asset('profile_pictures/' . $row->user->profile_picture) }}" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
                         @else
                         <img class="header-profile-user" src="{{ asset('default/default.jpg') }}" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
