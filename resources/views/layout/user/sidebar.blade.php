@@ -173,7 +173,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('link.show') ? 'active' : '' }}" href="{{ url('user/Link/short-code') }}">
+                    <a class="nav-link menu-link {{ request()->routeIs('link.show') ? 'active' : '' }}" href="{{ url('user/link/short-code') }}">
                         <i class="bi bi-link-45deg"></i>
                         <span data-key="t-email">Tautan</span>
                     </a>

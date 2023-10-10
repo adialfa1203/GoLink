@@ -1125,7 +1125,7 @@
                     headers: {
                         'X-CSRF-Token': csrfToken,
                     },
-                    url: "/update-short-link/" + $('#new_url_key').data("original"),
+                    url: "/user/update-short-link/" + $('#new_url_key').data("original"),
                     method: 'POST',
                     data: {
                         newUrlKey: newUrlKey
@@ -1169,7 +1169,7 @@
                     headers: {
                         'X-CSRF-Token': csrfToken,
                     },
-                    url: "/update-deactivated/" + key,
+                    url: "/user/update-deactivated/" + key,
                     method: 'POST',
                     data: {
                         newTime: newTime
