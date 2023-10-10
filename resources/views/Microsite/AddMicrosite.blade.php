@@ -397,7 +397,7 @@
 
     <script>
         function showSweetAlert() {
-            var maxMicrosites = 10;
+            var maxMicrosites = 3;
             var existingMicrosites = {{ $micrositeCount ?? 0 }};
             if (existingMicrosites < maxMicrosites) {
                 $('#form-create').submit();
@@ -406,7 +406,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Anda telah mencapai batas maksimum 10 microsite',
+                    text: 'Anda telah mencapai batas maksimum 3 microsite',
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = "{{ route('microsite') }}";

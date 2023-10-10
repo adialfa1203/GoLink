@@ -87,7 +87,7 @@ class MicrositeController extends Controller
     public function createMicrosite(Request $request, Microsite $microsite)
     {
         $user = auth()->user();
-        if ($user->subscribe === 'no' && $user->microsites()->count() >= 10) {
+        if ($user->subscribe === 'no' && $user->microsites()->count() >= 3) {
             return redirect()->back();
         }
 

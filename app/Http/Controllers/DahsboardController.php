@@ -38,7 +38,7 @@ class DahsboardController extends Controller
             $countMicrosite = ShortURL::where('user_id', $userId)
             ->whereNotNull('microsite_uuid')
             ->orderBy('created_at', 'asc')
-            ->limit(10)
+            ->limit(3)
             ->count();
         }if($user) {
             $userId = $user->id;
