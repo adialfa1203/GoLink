@@ -400,7 +400,7 @@
                             </div>
                         </div>
 
-                        <a href="/add-microsite" class="card border-bottom border-2 card-animate">
+                        <a href="{{ url('user/add-microsite') }}" class="card border-bottom border-2 card-animate">
                             <div class="card-body d-flex justify-content-between align-items-center"
                                 style="background-color: rgb(13, 13, 118)">
                                 <div class="wrapper d-flex align-items-center">
@@ -432,7 +432,7 @@
                             </div>
                         </div>
 
-                        <a href="/HelpSupport" class="card border-bottom border-2 card-animate">
+                        <a href="{{ url('user/HelpSupport') }}" class="card border-bottom border-2 card-animate">
                             <div class="card-body d-flex justify-content-between align-items-center"
                                 style="background-color: rgb(224, 113, 34)">
                                 <div class="wrapper d-flex align-items-center">

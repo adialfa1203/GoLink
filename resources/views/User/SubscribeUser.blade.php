@@ -69,7 +69,7 @@
                                             Go.Link</p>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-12 text-center">
-                                        <a href="{{ url('/user/subscribe-product-user') }}" type="button"
+                                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
                                             class="btn btn-outline-danger col-12 mt-3">Berlangganan Sekarang</a>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                 </div>
                 <div>
 
-                    <a href="/subscribe-product-user">Lihat semua layanan kami di sini!</a>
+                    <a href="{{ url('user/subscribe-product-user') }}">Lihat semua layanan kami di sini!</a>
                 </div><br>
                 <div class="row">
                     <div class="col-lg-12">
