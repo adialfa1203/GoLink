@@ -86,13 +86,6 @@ Route::prefix('landingpage')->group(function(){
     Route::get('/HelpSupport', [DahsboardController::class, 'HelpSupport']);
     Route::post('/create/{id}', [CommentController::class, 'create'])->name('create');
 });
-// Route::get('/qr', function()
-// {
-// 	return QrCode::size(250)
-// 	->backgroundColor(255, 255, 204)
-// 	->generate('BELAJAR QR');
-// });
-
 Route::middleware(['auth'])->group(function () {
 Route::prefix('logout')->group(function(){
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');

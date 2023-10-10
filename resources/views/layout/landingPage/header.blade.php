@@ -22,26 +22,26 @@
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('landing.page') ? 'active' : '' }}"
-                                href="/">Beranda</a>
+                                href="{{ url ('landingpage/Home')}}">Beranda</a>
                         </li>
 
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('short.link') ? 'active' : '' }}"
-                                href="/Shortlink">Perpendek Link</a>
+                                href="{{ url ('landingpage/Shortlink')}}">Perpendek Link</a>
                         </li>
                         <!-- secondery menu end -->
 
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('microsite.page') ? 'active' : '' }}"
-                                href="/Microsite">Situs Mikro</a>
+                                href="{{ url ('landingpage/Microsite')}}">Situs Mikro</a>
                         </li>
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('subscribe.page') ? 'active' : '' }}"
-                                href="/Subscribe">Berlangganan</a>
+                                href="{{ url ('landingpage/Subscribe')}}">Berlangganan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dark_btn" href="/dashboard-user">
+                            <a class="nav-link dark_btn" href="{{ url ('landingpage/dashboard-user')}}">
                                 Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                             </a>
                         </li>
@@ -76,23 +76,23 @@
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('landing.page') ? 'active' : '' }}"
-                                href="/">Beranda</a>
+                                href="{{ url ('landingpage/Home')}}">Beranda</a>
                         </li>
 
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('short.link') ? 'active' : '' }}"
-                                href="/Shortlink">Perpendek Link</a>
+                                href="{{ url ('landingpage/Shortlink')}}">Perpendek Link</a>
                         </li>
                         <!-- secondery menu end -->
 
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('microsite.page') ? 'active' : '' }}"
-                                href="/Microsite">Situs Mikro</a>
+                                href="{{ url ('landingpage/Microsite')}}">Situs Mikro</a>
                         </li>
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('subscribe.page') ? 'active' : '' }}"
-                                href="/Subscribe">Berlangganan</a>
+                                href="{{ url ('landingpage/Subscribe')}}">Berlangganan</a>
                         </li>
                         <li class="nav-item">
                             <div class="nav-link dark_btn">
