@@ -42,19 +42,19 @@ Route::prefix('auth')->group(function(){
     Route::get('/Link', [LinkController::class, 'Link'])->name('Link');
     Route::get('/register', [AuthController::class, 'register']);
     Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register.user');
-    
+
     Route::get('/auth/redirect', [SocialController::class, 'redirectGoogle'])->name('redirect.google');
-    Route::get('/google/redirect', [SocialController::class, 'googleCallback'])->name('google.callback');
-    
+    Route::get('/auth/google/redirect', [SocialController::class, 'googleCallback'])->name('google.callback');
+
     Route::get('/auth/redirect/facebook', [SocialController::class, 'redirectFacebook'])->name('redirect.facebook');
-    Route::get('/facebook/redirect', [SocialController::class, 'facebookCallback'])->name('facebook.callback');
-    
+    Route::get('/auth/facebook/redirect', [SocialController::class, 'facebookCallback'])->name('facebook.callback');
+
     // Route::get('/auth/redirect/twitter', [SocialController::class, 'redirectTwitter'])->name('redirect.twitter');
     // Route::get('/twitter/redirect', [SocialController::class, 'twitterCallback'])->name('twitter.callback');
-    
+
     // Route::get('/auth/redirect/github', [SocialController::class, 'redirectGithub'])->name('redirect.github');
     // Route::get('/github/redirect', [SocialController::class, 'githubCallback'])->name('github.callback');
-    
+
     //Send email
     Route::get('/send-email', [AuthController::class, 'sendEmail']);
     Route::get('/change-password/{email}', [AuthController::class, 'changePassword'])->name('changePassword');
@@ -76,7 +76,7 @@ Route::prefix('landingpage')->group(function(){
     Route::get('/Subscribe', [LandingPageController::class, 'subscribePage'])->name('subscribe.page');
     Route::get('/Privacy', [LandingPageController::class, 'privacyPage'])->name('privacy.page');
     Route::get('/footer-landingpage', [LandingPageController::class, 'footerPage'])->name('footer.page');
-    
+
     Route::get('/Start', [DahsboardController::class, 'Start']);
     Route::get('/Announcement', [DahsboardController::class, 'Announcement']);
     Route::get('/Account', [DahsboardController::class, 'Account']);
@@ -97,13 +97,13 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'role:user']], function
 Route::prefix('user')->group(function(){
     //search
     Route::get('/search', [SearchController::class, 'search'])->name('search');
-    
+
     //Dashboard
     Route::get('/dashboard-user', [DahsboardController::class, 'dashboardUser'])->name('dashboard.user');
     //ShortLink
     Route::post('short-link', [ShortLinkController::class,'shortLink'])->name('shortLink');
     Route::post('qr', [ShortLinkController::class,'qr'])->name('qr');
-    
+
     //AccessLink
     Route::post('short/{link}', [ShortLinkController::class, 'accessShortLink'])->name('access.shortlink');
     // Route::post('/microsite/{micrositeLink}', [ShortLinkController::class, 'micrositeLink'])->name('microsite.link');
@@ -122,7 +122,7 @@ Route::prefix('user')->group(function(){
     //analytic
     Route::get('/analytic-user', [AnalyticUserController::class, 'analyticUser'])->name('analytic.user');
     Route::get('/analytic-chart', [AnalyticUserController::class, 'AnalyticUsersChart'])->name('analytic.users.chart');
-    
+
     //subscribe
     Route::get('/subscribe-user', [SubscribeUserController::class, 'subscribeUser'])->name('subscribe.user');
     Route::get('/subscribe-product-user', [SubscribeUserController::class, 'subscribeProductUser'])->name('subscribe.product.user');
@@ -163,7 +163,7 @@ Route::prefix('admin')->group(function(){
     // microsite Admin
     Route::get('/profil-admin', [ProfilController::class, 'profile'])->name('profile');
     Route::get('/user/{userId}/unban', [DataUserController::class, 'unbanUser'])->name('user.unban');
-    
+
     Route::get('/create-component', [MicrositeController::class, 'createComponent'])->name('create.component');
     Route::post('/save-component', [MicrositeController::class, 'saveComponent'])->name('save.component');
     Route::post('/update-component/{id}', [MicrositeController::class, 'updateComponent'])->name('update.component');
@@ -180,15 +180,15 @@ Route::prefix('admin')->group(function(){
     Route::get('/edit-button/{id}', [ButtonController::class, 'editButton'])->name('edit.button');
     Route::get('/delete-button/{id}', [ButtonController::class, 'deleteButton'])->name('delete.button');
     Route::get('/view-button', [ButtonController::class, 'viewButton'])->name('view.button');
-    
+
     Route::get('view-footer', [DashboardAdminController::class, 'viewFooter'])->name('view.footer');
     Route::put('edit-footer', [DashboardAdminController::class, 'editFooter'])->name('edit.footer');
-    
+
     //profile
     Route::get('/profil-admin', [ProfilController::class, 'profileAdmin'])->name('profileAdmin');
     //Komentar
     Route::get('/view-komentar', [CommentController::class, 'viewkomentar'])->name('viewkomentar');
-    
+
     //Banned
     Route::get('/blokir', [CommentController::class, 'blokir'])->name('blokir');
 });
