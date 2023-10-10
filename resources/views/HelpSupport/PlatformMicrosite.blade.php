@@ -259,249 +259,45 @@
             </div>
         </div>
     </div>
-    @auth
-        <footer>
-            <div class="top_footer" id="kontak">
-                <div class="container">
-                    <div class="row">
-                        <!-- Logo -->
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="abt_side">
-                                <div class="logo">
-                                    <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image"
-                                        style="margin-top: -5%;">
-                                    <ul style="margin-bottom: -50%; margin-right:10px;">
-                                        <li style="color: white; font-size:14px;">{!! $data->description !!}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Footer Links -->
+    @include('layout.landingPage.footer')
+    <!-- Footer-Section end -->
 
-                        <div class="col-lg-2 col-md-6 col-12">
-                            <div class="links">
-                                <h3>Dukungan</h3>
-                                <ul style="padding: 0;">
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-12">
-                            <div class="links">
-                                <h3>Peta Situs</h3>
-                                <ul style="padding: 0;">
-                                    <li><a href="/">Beranda</a></li>
-                                    <li><a href="/Shortlink">Perpendek Link</a></li>
-                                    <li><a href="/Microsite">Situs Mikro</a></li>
-                                    <li><a href="/Subscribe">Berlanggaan</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Contact Information -->
-                        <div class="col-lg-2 col-md-6 col-12">
-                            <div class="links">
-                                <h3>Hubungi Kami</h3>
-                                <ul style="text-align: justify; padding:0;">
-                                    <li>
-                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20LINKID"
-                                            target="_blank">
-                                            <i class="fab fa-whatsapp"></i>
-                                            Whatsapp
-                                            {{-- {{ $data->whatsapp }} --}}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/{{ $data->instagram }}" target="_blank">
-                                            <i class="fab fa-instagram"></i>
-                                            Instagram
-                                            {{-- {{ $data->instagram }} --}}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/{{ $data->twitter }}" target="_blank">
-                                            <i class="fab fa-twitter"></i>
-                                            Twitter
-                                            {{-- {{ $data->twitter }} --}}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        @auth
-                            <!-- Comment Form -->
-                            <div class="col-lg-3 col-md-6 col-12 mb-1">
-                                <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm"
-                                    method="POST" enctype="multipart/form-data" class="mt-3">
-
-                                    @csrf
-                                    <textarea class="form-control bg-light border-light" id="exampleFormControlTextarea1" rows="3"
-                                        placeholder="Tambahkan Komentar" name="isikomentar" style="font-size:12px ;"></textarea>
-                                    @error('isikomentar')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                    <div class="text-start mt-2">
-                                        <button type="submit" class="btn btn-success">Kirim</button>
-                                    </div>
-                                </form>
-                            </div>
-                        @endauth
+    <!-- VIDEO MODAL -->
+    <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button id="close-video" type="button" class="button btn btn-default text-right" data-dismiss="modal">
+                    <i class="icofont-close-line-circled"></i>
+                </button>
+                <div class="modal-body">
+                    <div id="video-container" class="video-container">
+                        <iframe id="youtubevideo" src="#" width="640" height="360" frameborder="0"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
-            </div>
-
-            <!-- Bottom Footer -->
-            <div class="bottom_footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-right">
-                            <p>© Go.Link Dikelola oleh PT. Hummatech</p>
-                        </div>
-                    </div>
+                <div class="modal-footer">
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Go Top Button -->
-            <div class="go_top">
-                <span><img src="https://i.postimg.cc/MZtYYpPg/go-top.png" alt="image"></span>
-            </div>
-        </footer>
-        <!-- Footer-Section end -->
-    @else
-        <footer>
-            <div class="top_footer" id="kontak">
-                <div class="container">
-                    <div class="row">
-                        <!-- Logo -->
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="abt_side">
-                                <div class="logo">
-                                    <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image"
-                                        style="margin-top: -10%;">
-                                    <ul style="margin-bottom: -50%; margin-right:10px;">
-                                        <li style="color: white; font-size:14px;">{!! $data->description !!}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+    <div class="purple_backdrop"></div>
 
-                        <!-- Footer Links -->
+    </div>
+    <!-- Page-wrapper-End -->
 
-                        <div class="col-lg-2 col-md-6 col-12">
-                            <div class="links">
-                                <h3>Dukungan</h3>
-                                <ul style=" padding:0;">
-                                    <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                    <li><a href="/Privacy">Kebijakan Privasi</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-12" style="margin-left: 6%;">
-                            <div class="links">
-                                <h3>Peta Situs</h3>
-                                <ul style=" padding:0;">
-                                    <li><a href="/">Beranda</a></li>
-                                    <li><a href="/Shortlink">Perpendek Link</a></li>
-                                    <li><a href="/Microsite">Situs Mikro</a></li>
-                                    <li><a href="/Subscribe">Berlanggaan</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Contact Information -->
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="links">
-                                <h3>Hubungi Kami</h3>
-                                <ul style="text-align: justify;  padding:0;">
-                                    <li>
-                                        <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20LINKID"
-                                            target="_blank">
-                                            <i class="fab fa-whatsapp"></i>
-                                            Whatsapp
-                                            {{-- {{ $data->whatsapp }} --}}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/{{ $data->instagram }}" target="_blank">
-                                            <i class="fab fa-instagram"></i>
-                                            Instagram
-                                            {{-- {{ $data->instagram }} --}}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/{{ $data->twitter }}" target="_blank">
-                                            <i class="fab fa-twitter"></i>
-                                            Twitter
-                                            {{-- {{ $data->twitter }} --}}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        @auth
-                            <!-- Comment Form -->
-                            <div class="col-lg-3 col-md-6 col-12 mb-1">
-                                <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm"
-                                    method="POST" enctype="multipart/form-data" class="mt-3">
-
-                                    @csrf
-                                    <textarea class="form-control bg-light border-light" id="exampleFormControlTextarea1" rows="3"
-                                        placeholder="Tambahkan Komentar" name="isikomentar" style="font-size:12px ;"></textarea>
-                                    @error('isikomentar')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                    <div class="text-start mt-2">
-                                        <button type="submit" class="btn btn-success">Kirim</button>
-                                    </div>
-                                </form>
-                            </div>
-                        @endauth
-
-                    </div>
-                    @include('layout.landingPage.footer')
-                    <!-- Footer-Section end -->
-
-                    <!-- VIDEO MODAL -->
-                    <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog"
-                        aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <button id="close-video" type="button" class="button btn btn-default text-right"
-                                    data-dismiss="modal">
-                                    <i class="icofont-close-line-circled"></i>
-                                </button>
-                                <div class="modal-body">
-                                    <div id="video-container" class="video-container">
-                                        <iframe id="youtubevideo" src="#" width="640" height="360"
-                                            frameborder="0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="purple_backdrop"></div>
-
-                </div>
-                <!-- Page-wrapper-End -->
-
-                <!-- Jquery-js-Link -->
-                <script src="{{ asset('landingpage/js/jquery.js') }}"></script>
-                <!-- owl-js-Link -->
-                <script src="{{ asset('landingpage/js/owl.carousel.min.js') }}"></script>
-                <!-- bootstrap-js-Link -->
-                <script src="{{ asset('landingpage/js/bootstrap.min.js') }}"></script>
-                <!-- aos-js-Link -->
-                <script src="{{ asset('landingpage/js/aos.js') }}"></script>
-                <!-- main-js-Link -->
-                <script src="{{ asset('landingpage/js/main.js') }}"></script>
-                {{-- <script>
+    <!-- Jquery-js-Link -->
+    <script src="{{ asset('landingpage/js/jquery.js') }}"></script>
+    <!-- owl-js-Link -->
+    <script src="{{ asset('landingpage/js/owl.carousel.min.js') }}"></script>
+    <!-- bootstrap-js-Link -->
+    <script src="{{ asset('landingpage/js/bootstrap.min.js') }}"></script>
+    <!-- aos-js-Link -->
+    <script src="{{ asset('landingpage/js/aos.js') }}"></script>
+    <!-- main-js-Link -->
+    <script src="{{ asset('landingpage/js/main.js') }}"></script>
+    {{-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             var tombolLihatSelengkapnya = document.getElementById("tombolLihatSelengkapnya");
 
@@ -514,19 +310,19 @@
             });
         });
     </script> --}}
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Include SweetAlert library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Include SweetAlert library -->
 
-                <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}">
-                </script>
-                <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/simplebar/simplebar.min.js') }}"></script>
-                <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}">
+    </script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/plugins.js') }}"></script>
 
-                <!-- App js -->
-                <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
-    </body>
+    <!-- App js -->
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
+</body>
 
 
-    <!-- Mirrored from kalanidhithemes.com/live-preview/landing-page/apper/all-demo/03-app-landing-page-wave-animation/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 May 2023 08:12:27 GMT -->
+<!-- Mirrored from kalanidhithemes.com/live-preview/landing-page/apper/all-demo/03-app-landing-page-wave-animation/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 May 2023 08:12:27 GMT -->
 
-    </html>
+</html>

@@ -39,8 +39,8 @@
                         <div class="links">
                             <h3>Dukungan</h3>
                             <ul>
-                                <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>
-                                <li><a href="/Privacy">Kebijakan Privasi</a></li>
+                                <li><a href="{{ url ('landingpage/HelpSupport')}}">Bantuan dan Dukungan</a></li>
+                                <li><a href="{{ url ('landingpage/Privacy')}}">Kebijakan Privasi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -48,10 +48,10 @@
                         <div class="links">
                             <h3>Peta Situs</h3>
                             <ul>
-                                <li><a href="/">Beranda</a></li>
-                                <li><a href="/Shortlink">Perpendek Link</a></li>
-                                <li><a href="/Microsite">Situs Mikro</a></li>
-                                <li><a href="/Subscribe">Berlanggaan</a></li>
+                                <li><a href="{{ url ('landingpage/Home')}}">Beranda</a></li>
+                                <li><a href="{{ url ('landingpage/Shortlink')}}">Perpendek Link</a></li>
+                                <li><a href="{{ url ('landingpage/Microsite')}}">Situs Mikro</a></li>
+                                <li><a href="{{ url ('landingpage/Subscribe')}}">Berlanggaan</a></li>
 
                             </ul>
                         </div>
@@ -147,7 +147,7 @@
                         <div class="links" style="margin-left: 6%;">
                             <h3>Dukungan</h3>
                             <ul>
-                                <li><a href="{{ url ('landingpage/HelpSupport')}}">Bantuan dan jkhugyjhfc</a></li>
+                                <li><a href="{{ url ('landingpage/HelpSupport')}}">Bantuan dan Dukungan</a></li>
                                 <li><a href="{{ url ('landingpage/Privacy')}}">Kebijakan Privasi</a></li>
                             </ul>
                         </div>
