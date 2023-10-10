@@ -141,7 +141,7 @@ class ShortLinkController extends Controller
         // Memperbarui URL key dan default short URL
         $updateUrl->update([
             'url_key' => $newUrlKey,
-            'default_short_url' => env('APP_URL') . $newUrlKey,
+            'default_short_url' => env('APP_URL') . "/" . $newUrlKey,
             'custom_name' => 'yes',
         ]);
 
