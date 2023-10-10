@@ -219,7 +219,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('landing.page');
     }
 
     public function registerWith()
