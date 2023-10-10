@@ -154,7 +154,7 @@
                                     <a class="nav-link" href="/Subscribe">Berlangganan</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link dark_btn" href="/dashboard-user">
+                                    <a class="nav-link dark_btn" href="/user/dashboard-user">
                                         Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                                     </a>
                                 </li>

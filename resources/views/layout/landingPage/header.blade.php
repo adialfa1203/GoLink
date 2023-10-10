@@ -22,7 +22,7 @@
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('landing.page') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/Home')}}">Beranda</a>
+                                href="{{ url ('landingpage/HelpSupport')}}">Beranda</a>
                         </li>
 
                         <!-- secondery menu start -->
@@ -41,7 +41,7 @@
                                 href="{{ url ('landingpage/Subscribe')}}">Berlangganan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dark_btn" href="{{ url ('landingpage/dashboard-user')}}">
+                            <a class="nav-link dark_btn" href="{{ url ('user/dashboard-user')}}">
                                 Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                             </a>
                         </li>
