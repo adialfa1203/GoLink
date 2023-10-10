@@ -28,7 +28,7 @@
       </div>
       <!-- end page title -->
       <div>
-          <a href="{{ url ('add-subscribe')}}"> <button type="button" class="btn btn-success">Tambah</button></a>
+          <a href="{{ url ('admin/add-subscribe')}}"> <button type="button" class="btn btn-success">Tambah</button></a>
 
       </div><br>
 

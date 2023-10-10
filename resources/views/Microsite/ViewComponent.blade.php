@@ -151,7 +151,7 @@
                 confirmButtonText: 'Ya, Hapus!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '/delete-component/' + id;
+                    window.location.href = '/admin/delete-component/' + id;
                 } else if (result.dismiss === Swal.DismissReason.cancel) {
                     Swal.fire(
                         'Dibatalkan',
