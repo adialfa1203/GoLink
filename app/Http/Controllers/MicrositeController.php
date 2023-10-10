@@ -79,7 +79,7 @@ class MicrositeController extends Controller
         }
 
         $button = Button::all();
-        $micrositeCount = $user->microsites()->count(); // Mendapatkan jumlah microsite pengguna
+        $micrositeCount = $user->microsites()->count();
         return view('Microsite.AddMicrosite', compact('data', 'button', 'micrositeCount'));
     }
 
