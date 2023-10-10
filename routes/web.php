@@ -44,10 +44,10 @@ Route::prefix('auth')->group(function(){
     Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register.user');
 
     Route::get('/auth/redirect', [SocialController::class, 'redirectGoogle'])->name('redirect.google');
-    Route::get('/auth/google/redirect', [SocialController::class, 'googleCallback'])->name('google.callback');
+    Route::get('/google/redirect', [SocialController::class, 'googleCallback'])->name('google.callback');
 
     Route::get('/auth/redirect/facebook', [SocialController::class, 'redirectFacebook'])->name('redirect.facebook');
-    Route::get('/auth/facebook/redirect', [SocialController::class, 'facebookCallback'])->name('facebook.callback');
+    Route::get('/facebook/redirect', [SocialController::class, 'facebookCallback'])->name('facebook.callback');
 
     // Route::get('/auth/redirect/twitter', [SocialController::class, 'redirectTwitter'])->name('redirect.twitter');
     // Route::get('/twitter/redirect', [SocialController::class, 'twitterCallback'])->name('twitter.callback');
