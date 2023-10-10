@@ -255,7 +255,6 @@
                                                                     class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Selanjutnya</button>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                                 <!-- end tab pane -->
                                                 <div class="tab-pane fade" id="v-pills-payment" role="tabpanel"
@@ -391,7 +390,7 @@
 
                 radio.checked = !isChecked;
                 this.classList.toggle('hover');
-            });     
+            });
         });
     </script>
 
@@ -410,7 +409,8 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = "{{ route('microsite') }}";
-                    }bhbhybn       bnn      
+                    }
+                    bhbhybn bnn
                 });
             }
         }

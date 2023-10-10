@@ -238,7 +238,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 // Redirect to logout URL
-                window.location.href = "{{ url('logout') }}";
+                window.location.href = "{{ url('logout/logout') }}";
             }
         });
     }

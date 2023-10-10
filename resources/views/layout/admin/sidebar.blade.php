@@ -148,13 +148,13 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->routeIs('dashboard.admin') ? 'active' : '' }}" href="{{ url('admin/  dashboard-admin') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="bi bi-house-fill"></i> <span data-key="t-dashboards">Beranda</span>   
-                    </a>    
-                </li>   
-                <li class="nav-item">   
+                        <i class="bi bi-house-fill"></i> <span data-key="t-dashboards">Beranda</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->routeIs('subscribe') ? 'active' : '' }} {{ request()->routeIs('addSubscribe') ? 'active' : '' }}" href="{{ url('admin/subscribe-admin') }}" class="nav-link menu-link"><i class="bi bi-fire"></i>
                         <span data-key="t-widgets">Berlangganan</span> </a>
-                </li>   
+                </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->routeIs('data.user') ? 'active' : '' }}" href="{{ url('admin/data-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
                         <span data-key="t-chat">Pengguna</span> </a>
@@ -214,7 +214,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 // Redirect to logout URL
-                window.location.href = "{{ url('logout') }}";
+                window.location.href = "{{ url('logout/logout') }}";
             }
         });
     }
