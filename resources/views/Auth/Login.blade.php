@@ -306,7 +306,7 @@
                                             </form>
                                             <div class="text-center mt-5">
                                                 <p class="mb-0">Tidak mempunyai akun ? <a
-                                                        href="{{ url('register') }}"
+                                                        href="{{ url('auth/register') }}"
                                                         class="fw-semibold text-secondary text-decoration-underline">
                                                         Daftar</a> </p>
                                             </div>
