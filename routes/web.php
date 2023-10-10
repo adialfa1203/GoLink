@@ -77,13 +77,13 @@ Route::prefix('landingpage')->group(function(){
     Route::get('/Privacy', [LandingPageController::class, 'privacyPage'])->name('privacy.page');
     Route::get('/footer-landingpage', [LandingPageController::class, 'footerPage'])->name('footer.page');
 
-    Route::get('/Start', [DahsboardController::class, 'Start']);
-    Route::get('/Announcement', [DahsboardController::class, 'Announcement']);
-    Route::get('/Account', [DahsboardController::class, 'Account']);
-    Route::get('/BillingSubscriptions', [DahsboardController::class, 'BillingSubscriptions']);
-    Route::get('/PlatformMicrosite', [DahsboardController::class, 'PlatformMicrosite']);
-    Route::get('/ShortLink', [DahsboardController::class, 'ShortLink']);
-    Route::get('/HelpSupport', [DahsboardController::class, 'HelpSupport']);
+    Route::get('/Start', [DahsboardController::class, 'Start'])->name('landing.start');
+    Route::get('/Announcement', [DahsboardController::class, 'Announcement'])->name('landing.announcement');
+    Route::get('/Account', [DahsboardController::class, 'Account'])->name('landing.account');
+    Route::get('/BillingSubscriptions', [DahsboardController::class, 'BillingSubscriptions'])->name('landing.billingSubscriptions');
+    Route::get('/PlatformMicrosite', [DahsboardController::class, 'PlatformMicrosite'])->name('landing.platformMicrosite');
+    Route::get('/ShortLink', [DahsboardController::class, 'ShortLink'])->name('landing.shortlink');
+    Route::get('/HelpSupport', [DahsboardController::class, 'HelpSupport'])->name('landing.helpsupport');
     Route::post('/create/{id}', [CommentController::class, 'create'])->name('create');
 });
 Route::middleware(['auth'])->group(function () {

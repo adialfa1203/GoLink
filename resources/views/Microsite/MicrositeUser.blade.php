@@ -605,7 +605,7 @@
                 });
             });
         });
-    </script> -->
+    </script>
     <script>
         $(document).ready(function() {
             $(".btn").click(function() {
@@ -719,4 +719,3 @@
 
 
 @endsection
-`

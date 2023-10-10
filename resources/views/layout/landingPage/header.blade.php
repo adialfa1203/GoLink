@@ -22,7 +22,7 @@
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('landing.page') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/HelpSupport')}}">Beranda</a>
+                                href="{{ url ('landingpage/Home')}}">Beranda</a>
                         </li>
 
                         <!-- secondery menu start -->

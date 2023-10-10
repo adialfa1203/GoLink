@@ -43,6 +43,7 @@ class ProfilController extends Controller
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ],[
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
+            'number.required' => 'Kolom Nomer harus diisi',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
             'number.max' => 'Nomor tidak boleh lebih dari 13!',
             'email.unique' => 'Email sudah pernah digunakan',

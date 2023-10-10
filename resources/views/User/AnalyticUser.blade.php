@@ -215,7 +215,7 @@
                                 Fitur Ini</p>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="/subscribe-product-user" style="color :red;"> Mulai Berlangganan? </a>
+                            <a href="{{ url ('user/subscribe-product-user')}}" style="color :red;"> Mulai Berlangganan? </a>
                         </div>
                     </div>
                 </div>
@@ -238,7 +238,7 @@
                                 Fitur Ini</p>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="/subscribe-product-user" style="color :red;"> Mulai Berlangganan? </a>
+                            <a href="{{ url ('user/subscribe-product-user')}}" style="color :red;"> Mulai Berlangganan? </a>
                         </div>
                     </div>
                 </div>
@@ -261,7 +261,7 @@
                                 Fitur Ini</p>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="/subscribe-product-user" style="color :red;"> Mulai Berlangganan? </a>
+                            <a href="{{ url ('user/subscribe-product-user')}}" style="color :red;"> Mulai Berlangganan? </a>
                         </div>
                     </div>
                 </div>
@@ -284,7 +284,7 @@
                                 Fitur Ini</p>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="/subscribe-product-user" style="color :red;"> Mulai Berlangganan? </a>
+                            <a href="{{ url ('user/subscribe-product-user')}}" style="color :red;"> Mulai Berlangganan? </a>
                         </div>
                     </div>
                 </div>
