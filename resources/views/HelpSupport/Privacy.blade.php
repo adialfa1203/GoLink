@@ -50,17 +50,20 @@
 <body>
     <style>
         .navbar-expand-lg .navbar-nav .nav-link {
-    padding: 5px 20px;
-    font-weight: 500;
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-white);
-}
-.nav-link {
-    display: block;
-}
-.a {
-    text-decoration: none;
-}
+            padding: 5px 20px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-white);
+        }
+
+        .nav-link {
+            display: block;
+        }
+
+        .a {
+            text-decoration: none;
+        }
+
         .custom-btn {
             width: 100%;
             max-width: 300px;
@@ -246,7 +249,8 @@
                     <div kelas="col-xl-12">
                         <h2><strong>Kebijakan</strong></h2>
 
-                        <p>Hummasoft Technology membangun aplikasi Go.Link sebagai aplikasi Komersial. LAYANAN ini adalah
+                        <p>Hummasoft Technology membangun aplikasi Go.Link sebagai aplikasi Komersial. LAYANAN ini
+                            adalah
                             disediakan oleh Hummasoft Technology dan dimaksudkan untuk digunakan sebagaimana adanya.</p>
 
                         <p>Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami terkait
@@ -261,8 +265,8 @@
                             siapa pun kecuali sebagai
                             dijelaskan dalam Kebijakan Privasi ini.</p>
 
-                        <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a style="color: #104898"
-                                href="/Privacy">Syarat dan Ketentuan</a>, yang dapat diakses di
+                        <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a
+                                style="color: #104898" href="/Privacy">Syarat dan Ketentuan</a>, yang dapat diakses di
                             Go.Link kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
 
                         <h3>
@@ -374,8 +378,8 @@
                         @auth
                             <!-- Comment Form -->
                             <div class="col-lg-3 col-md-6 col-12 mb-1">
-                                <form action="/create/{{ Auth::user()->id }}" id="commentForm" method="POST"
-                                    enctype="multipart/form-data" class="mt-3">
+                                <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm"
+                                    method="POST" enctype="multipart/form-data" class="mt-3">
                                     @csrf
                                     <textarea class="form-control bg-light border-light" id="exampleFormControlTextarea1" rows="3"
                                         placeholder="Tambahkan Komentar" name="isikomentar" style="font-size:12px ;"></textarea>
@@ -484,8 +488,8 @@
                         @auth
                             <!-- Comment Form -->
                             <div class="col-lg-3 col-md-6 col-12 mb-1">
-                                <form action="/create/{{ Auth::user()->id }}" id="commentForm" method="POST"
-                                    enctype="multipart/form-data" class="mt-3">
+                                <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm"
+                                    method="POST" enctype="multipart/form-data" class="mt-3">
                                     @csrf
                                     <textarea class="form-control bg-light border-light" id="exampleFormControlTextarea1" rows="3"
                                         placeholder="Tambahkan Komentar" name="isikomentar" style="font-size:12px ;"></textarea>

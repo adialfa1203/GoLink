@@ -36,17 +36,20 @@
 <body>
     <style>
         .navbar-expand-lg .navbar-nav .nav-link {
-    padding: 5px 20px;
-    font-weight: 500;
-    font-family: 'Poppins', sans-serif; 
-    color: var(--text-white);
-}
-.nav-link {
-    display: block;
-}
-.a {
-    text-decoration: none;
-}
+            padding: 5px 20px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-white);
+        }
+
+        .nav-link {
+            display: block;
+        }
+
+        .a {
+            text-decoration: none;
+        }
+
         .custom-btn {
             width: 100%;
             max-width: 300px;
@@ -192,31 +195,31 @@
                         <div class="accordion accordion-border-box" id="genques-accordion">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="genques-headingTwo">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#genques-collapseTwo"
-                                        aria-expanded="false" aria-controls="genques-collapseTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#genques-collapseTwo" aria-expanded="false"
+                                        aria-controls="genques-collapseTwo">
                                         Bagaimana cara menghapus microsite?
                                     </button>
                                 </h2>
                                 <div id="genques-collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="genques-headingTwo" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body">
-                                        <p>1. Login ke dalam akun Go.Link anda dan masuk ke Dashboard 
+                                        <p>1. Login ke dalam akun Go.Link anda dan masuk ke Dashboard
                                         </p>
                                         <p>2. Pilih Microsite yang ingin anda edit dengan pilih Edit
                                         </p>
                                         <p>3. Pilih pengaturan</p>
                                         <p>4. Scroll kebawah dan pilih Hapus Microsite</p>
                                         <p>5. Ketik nama microsite/alamat microsite nya dan klik Hapus
-                                                Microsite</p>
+                                            Microsite</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="genques-headingThree">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#genques-collapseThree"
-                                        aria-expanded="false" aria-controls="genques-collapseThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#genques-collapseThree" aria-expanded="false"
+                                        aria-controls="genques-collapseThree">
                                         Apakah ada batasan dalam membuat Microsite
                                     </button>
                                 </h2>
@@ -232,9 +235,9 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="genques-headingFour">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#genques-collapsefour"
-                                        aria-expanded="false" aria-controls="genques-collapsefour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#genques-collapsefour" aria-expanded="false"
+                                        aria-controls="genques-collapsefour">
                                         Cara Membagikan Link Microsite
                                     </button>
                                 </h2>
@@ -331,8 +334,9 @@
                         @auth
                             <!-- Comment Form -->
                             <div class="col-lg-3 col-md-6 col-12 mb-1">
-                                <form action="/create/{{ Auth::user()->id }}" id="commentForm" method="POST"
-                                    enctype="multipart/form-data" class="mt-3">
+                                <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm"
+                                    method="POST" enctype="multipart/form-data" class="mt-3">
+
                                     @csrf
                                     <textarea class="form-control bg-light border-light" id="exampleFormControlTextarea1" rows="3"
                                         placeholder="Tambahkan Komentar" name="isikomentar" style="font-size:12px ;"></textarea>
@@ -441,8 +445,9 @@
                         @auth
                             <!-- Comment Form -->
                             <div class="col-lg-3 col-md-6 col-12 mb-1">
-                                <form action="/create/{{ Auth::user()->id }}" id="commentForm" method="POST"
-                                    enctype="multipart/form-data" class="mt-3">
+                                <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm"
+                                    method="POST" enctype="multipart/form-data" class="mt-3">
+
                                     @csrf
                                     <textarea class="form-control bg-light border-light" id="exampleFormControlTextarea1" rows="3"
                                         placeholder="Tambahkan Komentar" name="isikomentar" style="font-size:12px ;"></textarea>
@@ -456,45 +461,47 @@
                             </div>
                         @endauth
 
-    </div>
-    @include('layout.landingPage.footer')
-    <!-- Footer-Section end -->
-
-    <!-- VIDEO MODAL -->
-    <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <button id="close-video" type="button" class="button btn btn-default text-right" data-dismiss="modal">
-                    <i class="icofont-close-line-circled"></i>
-                </button>
-                <div class="modal-body">
-                    <div id="video-container" class="video-container">
-                        <iframe id="youtubevideo" src="#" width="640" height="360" frameborder="0"
-                            allowfullscreen></iframe>
                     </div>
+                    @include('layout.landingPage.footer')
+                    <!-- Footer-Section end -->
+
+                    <!-- VIDEO MODAL -->
+                    <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog"
+                        aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <button id="close-video" type="button" class="button btn btn-default text-right"
+                                    data-dismiss="modal">
+                                    <i class="icofont-close-line-circled"></i>
+                                </button>
+                                <div class="modal-body">
+                                    <div id="video-container" class="video-container">
+                                        <iframe id="youtubevideo" src="#" width="640" height="360"
+                                            frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="purple_backdrop"></div>
+
                 </div>
-                <div class="modal-footer">
-                </div>
-            </div>
-        </div>
-    </div>
+                <!-- Page-wrapper-End -->
 
-    <div class="purple_backdrop"></div>
-
-    </div>
-    <!-- Page-wrapper-End -->
-
-    <!-- Jquery-js-Link -->
-    <script src="{{ asset('landingpage/js/jquery.js') }}"></script>
-    <!-- owl-js-Link -->
-    <script src="{{ asset('landingpage/js/owl.carousel.min.js') }}"></script>
-    <!-- bootstrap-js-Link -->
-    <script src="{{ asset('landingpage/js/bootstrap.min.js') }}"></script>
-    <!-- aos-js-Link -->
-    <script src="{{ asset('landingpage/js/aos.js') }}"></script>
-    <!-- main-js-Link -->
-    <script src="{{ asset('landingpage/js/main.js') }}"></script>
-    {{-- <script>
+                <!-- Jquery-js-Link -->
+                <script src="{{ asset('landingpage/js/jquery.js') }}"></script>
+                <!-- owl-js-Link -->
+                <script src="{{ asset('landingpage/js/owl.carousel.min.js') }}"></script>
+                <!-- bootstrap-js-Link -->
+                <script src="{{ asset('landingpage/js/bootstrap.min.js') }}"></script>
+                <!-- aos-js-Link -->
+                <script src="{{ asset('landingpage/js/aos.js') }}"></script>
+                <!-- main-js-Link -->
+                <script src="{{ asset('landingpage/js/main.js') }}"></script>
+                {{-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             var tombolLihatSelengkapnya = document.getElementById("tombolLihatSelengkapnya");
 
@@ -507,19 +514,19 @@
             });
         });
     </script> --}}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Include SweetAlert library -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Include SweetAlert library -->
 
-    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}">
-    </script>
-    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/simplebar/simplebar.min.js') }}"></script>
-    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/plugins.js') }}"></script>
+                <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}">
+                </script>
+                <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/simplebar/simplebar.min.js') }}"></script>
+                <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/plugins.js') }}"></script>
 
-    <!-- App js -->
-    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
-</body>
+                <!-- App js -->
+                <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
+    </body>
 
 
-<!-- Mirrored from kalanidhithemes.com/live-preview/landing-page/apper/all-demo/03-app-landing-page-wave-animation/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 May 2023 08:12:27 GMT -->
+    <!-- Mirrored from kalanidhithemes.com/live-preview/landing-page/apper/all-demo/03-app-landing-page-wave-animation/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 May 2023 08:12:27 GMT -->
 
-</html>
+    </html>
