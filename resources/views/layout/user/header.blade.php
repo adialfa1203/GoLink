@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-                <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/subscribe-product-user" type="button"
+                <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/user/subscribe-product-user" type="button"
                         class="btn btn-danger"><i class="bi bi-fire"></i>
                         <span>Berlangganan</span></a>
                 </div>
