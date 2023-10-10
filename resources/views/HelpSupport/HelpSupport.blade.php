@@ -150,9 +150,11 @@
                                     <div
                                         class="d-flex align-items-center text-muted mb-4 comment-container{{ $key < 1 ? '' : ' hidden' }}">
                                         <div class="flex-shrink-0 me-3">
-                                            <img src="{{ asset('profile_pictures/' . $row->user->profile_picture) }}"
-                                                alt="{{ $users->row }}" class="avatar-sm rounded" width="50px"
-                                                height="50px" style="object-fit: cover;">
+                                        @if(Auth::user()->profile_picture)
+                        <img class="header-profile-user" src="{{ asset('profile_pictures/' . Auth::user()->profile_picture) }}" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
+                        @else
+                        <img class="header-profile-user" src="{{ asset('default/default.jpg') }}" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
+                        @endif
                                         </div>
                                         <div class="flex-grow-1 d-flex flex-column">
                                             <div class="d-flex justify-content-between align-items-start">
