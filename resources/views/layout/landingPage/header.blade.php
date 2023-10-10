@@ -96,7 +96,7 @@
                         </li>
                         <li class="nav-item">
                             <div class="nav-link dark_btn">
-                                <a class="text-dark" href="/login">Masuk /</a><a class="text-dark" href="/register"> Daftar</a>
+                                <a class="text-dark" href="{{ url('/user/login') }}">Masuk /</a><a class="text-dark" href="{{ url('/user/register') }}"> Daftar</a>
                             </div>
                         </li>
                     </ul>
