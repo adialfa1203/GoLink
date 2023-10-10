@@ -391,7 +391,7 @@
 
                 radio.checked = !isChecked;
                 this.classList.toggle('hover');
-            });
+            });     
         });
     </script>
 
@@ -410,7 +410,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = "{{ route('microsite') }}";
-                    }
+                    }bhbhybn       bnn      
                 });
             }
         }

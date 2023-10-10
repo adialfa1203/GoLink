@@ -147,45 +147,45 @@
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('dashboard.admin') ? 'active' : '' }}" href="{{ url('dashboard-admin') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="bi bi-house-fill"></i> <span data-key="t-dashboards">Beranda</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('subscribe') ? 'active' : '' }} {{ request()->routeIs('addSubscribe') ? 'active' : '' }}" href="{{ url('subscribe-admin') }}" class="nav-link menu-link"><i class="bi bi-fire"></i>
+                    <a class="nav-link menu-link {{ request()->routeIs('dashboard.admin') ? 'active' : '' }}" href="{{ url('admin/  dashboard-admin') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                        <i class="bi bi-house-fill"></i> <span data-key="t-dashboards">Beranda</span>   
+                    </a>    
+                </li>   
+                <li class="nav-item">   
+                    <a class="nav-link menu-link {{ request()->routeIs('subscribe') ? 'active' : '' }} {{ request()->routeIs('addSubscribe') ? 'active' : '' }}" href="{{ url('admin/subscribe-admin') }}" class="nav-link menu-link"><i class="bi bi-fire"></i>
                         <span data-key="t-widgets">Berlangganan</span> </a>
-                </li>
+                </li>   
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('data.user') ? 'active' : '' }}" href="{{ url('data-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
+                    <a class="nav-link menu-link {{ request()->routeIs('data.user') ? 'active' : '' }}" href="{{ url('admin/data-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
                         <span data-key="t-chat">Pengguna</span> </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('linkAdmin') ? 'active' : '' }}" href="{{ url('link-admin') }}" class="nav-link menu-link"><i class="bi bi-link-45deg"></i>
+                    <a class="nav-link menu-link {{ request()->routeIs('linkAdmin') ? 'active' : '' }}" href="{{ url('admin/link-admin') }}" class="nav-link menu-link"><i class="bi bi-link-45deg"></i>
                         <span data-key="t-email">Tautan</span> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('view.component') ? 'active' : '' }} {{ request()->routeIs('create.component') ? 'active' : '' }} {{ request()->routeIs('edit.component') ? 'active' : '' }}" href="{{ url('view-component') }}" class="nav-link menu-link"><i class="bi bi-grid"></i>
+                    <a class="nav-link menu-link {{ request()->routeIs('view.component') ? 'active' : '' }} {{ request()->routeIs('create.component') ? 'active' : '' }} {{ request()->routeIs('edit.component') ? 'active' : '' }}" href="{{ url('admin/view-component') }}" class="nav-link menu-link"><i class="bi bi-grid"></i>
                         <span data-key="t-email">Kategori</span> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('view.button') ? 'active' : '' }} {{ request()->routeIs('create.button') ? 'active' : '' }} {{ request()->routeIs('edit.button') ? 'active' : '' }}" href="{{ url('view-button') }}" class="nav-link menu-link"><i class="bi bi-back"></i>
+                    <a class="nav-link menu-link {{ request()->routeIs('view.button') ? 'active' : '' }} {{ request()->routeIs('create.button') ? 'active' : '' }} {{ request()->routeIs('edit.button') ? 'active' : '' }}" href="{{ url('admin/view-button') }}" class="nav-link menu-link"><i class="bi bi-back"></i>
                         <span data-key="t-email">Sosial</span> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('viewkomentar') ? 'active' : '' }}" href="{{ url('view-komentar') }}" class="nav-link menu-link"><i class="bi bi-chat-right-text-fill"></i>
+                    <a class="nav-link menu-link {{ request()->routeIs('viewkomentar') ? 'active' : '' }}" href="{{ url('admin/view-komentar') }}" class="nav-link menu-link"><i class="bi bi-chat-right-text-fill"></i>
                         <span data-key="t-email">Komentar</span> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('blokir') ? 'active' : '' }}" href="{{ url('blokir') }}" class="nav-link menu-link"><i class="fa fa-ban"></i>
+                    <a class="nav-link menu-link {{ request()->routeIs('blokir') ? 'active' : '' }}" href="{{ url('admin/blokir') }}" class="nav-link menu-link"><i class="fa fa-ban"></i>
                         <span data-key="t-email">Akun Di Blokir</span> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('view.footer') ? 'active' : '' }}" href="{{ url('view-footer') }}" class="nav-link menu-link"> <i class="bi bi-exclude"></i>
+                    <a class="nav-link menu-link {{ request()->routeIs('view.footer') ? 'active' : '' }}" href="{{ url('admin/view-footer') }}" class="nav-link menu-link"> <i class="bi bi-exclude"></i>
                         <span data-key="t-chat">Footer</span> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('profileAdmin') ? 'active' : '' }}" href="{{ url('profil-admin') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i> <span data-key="t-chat">Profil</span> </a>
+                    <a class="nav-link menu-link {{ request()->routeIs('profileAdmin') ? 'active' : '' }}" href="{{ url('admin/profil-admin') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i> <span data-key="t-chat">Profil</span> </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#" onclick="confirmLogout()"> <i class="mdi mdi-logout"></i>

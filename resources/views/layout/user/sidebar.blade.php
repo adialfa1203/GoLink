@@ -162,18 +162,18 @@
 
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('dashboard.user') ? 'active' : '' }}" href="{{ url('dashboard-user') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                    <a class="nav-link menu-link {{ request()->routeIs('dashboard.user') ? 'active' : '' }}" href="{{ url('user/dashboard-user') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                         <i class="bi bi-house-fill"></i> <span data-key="t-dashboards">Beranda</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('analytic.user') ? 'active' : '' }}" href="{{ url('analytic-user') }}" class="nav-link menu-link"> <i class="bi bi-bar-chart-line-fill"></i>
-                        <span data-key="t-email">Analitik</span> </a>
+                    <a class="nav-link menu-link {{ request()->routeIs('analytic.user') ? 'active' : '' }}" href="{{ url('user/analytic-user') }}" class="nav-link menu-link"> <i class="bi bi-bar-chart-line-fill"></i>
+                        <span data-key="t-email">Analitik</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('link.show') ? 'active' : '' }}" href="{{ url('/Link/short-code') }}">
+                    <a class="nav-link menu-link {{ request()->routeIs('link.show') ? 'active' : '' }}" href="{{ url('user/Link/short-code') }}">
                         <i class="bi bi-link-45deg"></i>
                         <span data-key="t-email">Tautan</span>
                     </a>
@@ -198,17 +198,17 @@
         </li> --}}
 
         <li class="nav-item">
-            <a class="nav-link menu-link {{ request()->routeIs('microsite') ? 'active' : '' }} {{ request()->routeIs('add.microsite') ? 'active' : '' }} {{ request()->routeIs('edit.microsite') ? 'active' : '' }}" href="{{ url('microsite-user') }}"><i class="bi bi-person-badge-fill"></i>
+            <a class="nav-link menu-link {{ request()->routeIs('microsite') ? 'active' : '' }} {{ request()->routeIs('add.microsite') ? 'active' : '' }} {{ request()->routeIs('edit.microsite') ? 'active' : '' }}" href="{{ url('user/microsite-user') }}"><i class="bi bi-person-badge-fill"></i>
                 <span data-key="t-file-manager">Microsite</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link menu-link {{ request()->routeIs('subscribe.user') ? 'active' : '' }} {{ request()->routeIs('subscribe.product.user') ? 'active' : '' }}" href="{{ url('subscribe-user') }}">
+            <a class="nav-link menu-link {{ request()->routeIs('subscribe.user') ? 'active' : '' }} {{ request()->routeIs('subscribe.product.user') ? 'active' : '' }}" href="{{ url('user/subscribe-user') }}">
                 <i class="bi bi-fire"></i> <span data-key="t-widgets">Berlangganan</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ url('profil-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
+            <a class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ url('user/profil-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
                 <span data-key="t-chat">Profil</span> </a>
         </li>
             <li class="nav-item">
