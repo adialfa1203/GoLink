@@ -147,7 +147,7 @@
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('dashboard.admin') ? 'active' : '' }}" href="{{ url('admin/  dashboard-admin') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                    <a class="nav-link menu-link {{ request()->routeIs('dashboard.admin') ? 'active' : '' }}" href="{{ url('admin/dashboard-admin') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                         <i class="bi bi-house-fill"></i> <span data-key="t-dashboards">Beranda</span>
                     </a>
                 </li>
