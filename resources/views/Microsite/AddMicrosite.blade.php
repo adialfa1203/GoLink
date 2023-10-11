@@ -423,12 +423,15 @@
 
             var errorMessage = '';
 
-            if (name_microsite_val === '') {
-                errorMessage += 'Nama microsite harus diisi. ';
-            }
-            if (linkMicrosite_val == '') {
-                errorMessage +=
-                    'Link microsite harus diisi';
+            if (name_microsite_val === '' && linkMicrosite_val === '') {
+                errorMessage = 'Nama microsite dan Link microsite harus diisi.';
+            } else {
+                if (name_microsite_val === '') {
+                    errorMessage += 'Nama microsite harus diisi. ';
+                }
+                if (linkMicrosite_val === '') {
+                    errorMessage += 'Link microsite harus diisi. ';
+                }
             }
 
             if (errorMessage !== '') {
