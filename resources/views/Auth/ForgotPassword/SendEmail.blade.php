@@ -71,7 +71,7 @@
                                                 <h5 class="fs-3xl">Lupa Kata Sandi ?</h5>
                                                 <p class="text-muted mb-4">Atur ulang kata sandi </p>
                                                 <div class="pb-4">
-                                                    <img src="{{('template/themesbrand.com/steex/layouts/assets/images/auth/email.png')}}" alt="" class="avatar-md">
+                                                    <img src="{{asset('template/themesbrand.com/steex/layouts/assets/images/auth/email.png')}}" alt="" class="avatar-md">
                                                 </div>
                                             </div>
                                             @if (isset($success) || (isset($error)))
@@ -106,7 +106,7 @@
                                             </div>
 
                                             <div class="mt-4 text-center">
-                                                <p class="mb-0">Tunggu, saya ingat kata sandi saya ... <a href="{{ url ('login')}}" class="fw-semibold text-primary text-decoration-underline"> Masuk </a> </p>
+                                                <p class="mb-0">Tunggu, saya ingat kata sandi saya ... <a href="{{ url ('auth/login')}}" class="fw-semibold text-primary text-decoration-underline"> Masuk </a> </p>
                                             </div>
                                         </div><!-- end card body -->
                                     </div><!-- end card -->
