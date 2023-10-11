@@ -439,7 +439,7 @@
                             <div class="links">
                                 <h3>Dukungan</h3>
                                 <ul style=" padding:0;">
-                                    <li><a href="{{ url('landing-page/help-support') }}">Bantuan dan jkhugyjhfc</a></li>
+                                    <li><a href="{{ url('landing-page/help-support') }}">Bantuan dan Dukungan</a></li>
                                     <li><a href="{{ url('landing-page/privacy') }}">Kebijakan Privasi</a></li>
                                 </ul>
                             </div>
