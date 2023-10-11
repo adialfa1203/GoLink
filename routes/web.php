@@ -36,6 +36,7 @@ Route::fallback(function() {
     return view('Auth.Login');
 });
 Route::middleware(['guest'])->group(function () {
+    Route::redirect('/', 'landing-page/home');
 Route::prefix('auth')->group(function(){
     Route::get('/login',[AuthController::class,'login'])->name('login');
     Route::POST('/login-user',[AuthController::class,'loginUser'])->name('login.user');
@@ -70,7 +71,7 @@ Route::prefix('auth')->group(function(){
 });
 
 Route::prefix('landing-page')->group(function(){
-    Route::get('/', [LandingPageController::class, 'landingPage'])->name('landing.page');
+    Route::get('/home', [LandingPageController::class, 'landingPage'])->name('landing.page');
     Route::get('/short-link', [LandingPageController::class, 'shortLink'])->name('short.link');
     Route::get('/microsite', [LandingPageController::class, 'micrositePage'])->name('microsite.page');
     Route::get('/subscribe', [LandingPageController::class, 'subscribePage'])->name('subscribe.page');
