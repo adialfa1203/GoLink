@@ -353,7 +353,7 @@
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="row g-3">
+                                        <div class="row g-3" id="body">
                                             <div class="countdown-input-subscribe">
                                                 <label class="platform" data-platform="facebook"><i
                                                         class="bi bi-facebook"></i> &nbsp; Facebook</label>
@@ -757,6 +757,87 @@
                 $("#addAmount").modal("hide");
             });
         });
+
+        $("#password-addon").click(function() {
+            var passwordInput = $(".password-input");
+            var passwordAddon = $("#password-addon");
+
+            if (passwordInput.attr("type") === "password") {
+                passwordInput.attr("type", "text");
+                passwordAddon.html('<i class="ri-eye-off-fill align-middle"></i>');
+            } else {
+                passwordInput.attr("type", "password");
+                passwordAddon.html('<i class="ri-eye-fill align-middle"></i>');
+            }
+        });
+        // $("#copyButton").click(function() {
+        //     var textToCopy = $('#default_short_url').val();
+        //     var tempTextarea = document.createElement("textarea");
+        //     tempTextarea.value = textToCopy;
+        //     document.body.appendChild(tempTextarea);
+        //     tempTextarea.select();
+        //     console.log('Text to copy:', textToCopy);
+        //     try {
+        //         document.execCommand("copy");
+        //         console.log('Teks telah disalin ke clipboard');
+        //     } catch (err) {
+        //         console.error('Gagal menyalin teks: ', err);
+        //         alert('Gagal menyalin teks: ' + err);
+        //     } finally {
+        //         document.body.removeChild(tempTextarea);
+        //     }
+        // });
+
+        $("#resetButton").click(function() {
+            $(".password-input").val("");
+        });
+        $("#time-reset").click(function() {
+            $(".time-input").val("");
+        });
+        $(".platform").click(function() {
+            var platform = $(this).data("platform");
+            var shortUrl = $("#default_short_url").val();
+
+            switch (platform) {
+                case "facebook":
+                    window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(
+                        shortUrl));
+                    break;
+                case "twitter":
+                    window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(shortUrl));
+                    break;
+                case "whatsapp":
+                    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shortUrl));
+                    break;
+                case "copy":
+                    var tempInput = $('<input>');
+                    $('#body').append(tempInput);
+                    console.log(shortUrl)
+                    tempInput.val(shortUrl).select();
+                    document.execCommand('copy');
+                    tempInput.remove();
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        icon: 'success',
+                        text: 'Tautan Berhasil Disalin ke clipboard'
+                    })
+                    console.log(shortUrl)
+                    break;
+                case "qr":
+                    window.open(
+                        `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${ encodeURIComponent(shortUrl)}`
+                    );
+                    break;
+                default:
+                    break;
+            }
+        });
+        $("#simpanButton").click(function() {
+            $("#successAlert").fadeIn();
+            setTimeout(function() {
+                $("#successAlert").fadeOut();
+            }, 3000);
+        });
     </script>
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/echarts/echarts.min.js') }}"></script>
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/js/jsvectormap.min.js') }}">
@@ -771,7 +852,7 @@
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/profile-setting.init.js') }}"></script>
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+    {{-- <script>
         function copyToClipboard(text) {
             if (!navigator.clipboard) {
                 var dummy = document.createElement("textarea");
@@ -807,7 +888,7 @@
                 copyToClipboard(dataUrl);
             });
         });
-    </script>
+    </script> --}}
     <script>
         var countData = {{ $countURL }};
         var progressBar = document.getElementById("progress-bar");
