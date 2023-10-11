@@ -116,6 +116,7 @@ class ShortLinkController extends Controller
         if (!$updateUrl->exists()) {
             return response()->json(['error' => 'Short link not found'], 404);
         }
+
         $validator = Validator::make($request->all(), [
             'newUrlKey' => 'required|unique:short_urls,url_key'
         ],[
@@ -126,19 +127,10 @@ class ShortLinkController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 404);
         }
-        $validator = Validator::make($request->all(), [
-            'newUrlKey' => 'unique:takedown,url_key'
-        ],[
-            'newUrlKey.unique' => 'Nama sudah digunakan'
-        ]);
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 404);
-        }
+        $newUrlKey = str_replace(' ', '-', $request->newUrlKey);
+        $newUrlKey = strtolower($newUrlKey); 
 
-        $newUrlKey = $request->newUrlKey;
-
-        // Memperbarui URL key dan default short URL
         $updateUrl->update([
             'url_key' => $newUrlKey,
             'default_short_url' => env('APP_URL') . "/" . $newUrlKey,
