@@ -184,7 +184,13 @@
                                                 @endif
                                             </div>
                                             <div class="d-flex justify-content-between align-items-start">
-                                                <h6 class="mb-1 mt-2" style="margin-left:12px; font-size:14px;">
+                                                <h6 class="mb-1 mt-2" style="margin-left: 12px; font-size: 14px;text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  display: -webkit-box !important;
+  word-break: break-word !important;
+  max-width: 100%;"">
                                                     {{ $row->isikomentar }}</h6>
                                             </div>
                                         </div>
