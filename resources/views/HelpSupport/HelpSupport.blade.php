@@ -190,7 +190,7 @@
   -webkit-box-orient: vertical !important;
   display: -webkit-box !important;
   word-break: break-word !important;
-  max-width: 100%;"">
+  max-width: 100%;">
                                                     {{ $row->isikomentar }}</h6>
                                             </div>
                                         </div>
