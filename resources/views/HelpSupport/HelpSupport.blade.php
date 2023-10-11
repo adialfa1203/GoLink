@@ -35,9 +35,7 @@
 
 <body>
     <style>
-        body{
-            overflow: hidden;
-        }
+     
         .custom-btn {
             width: 100%;
             max-width: 300px;
