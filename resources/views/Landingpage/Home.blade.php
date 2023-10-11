@@ -122,7 +122,7 @@
             /* Menjaga aspek rasio gambar */
         }
         //active
-        
+
     </style>
 <style>
     .navbar-nav a.nav-link.active {
@@ -349,31 +349,31 @@
                         <div class="item">
                             <div class="logo">
                                 <img src="{{ asset('bri.png') }}" alt="image"
-                                    style="object-fit: cover; width: auto; height: 80px;">
+                                    style="object-fit: contain; width: auto; height: 80px;">
                             </div>
                         </div>
                         <div class="item">
                             <div class="logo">
                                 <img src="{{ asset('logo-bank-btn.png') }}"
-                                    alt="image" style="object-fit: cover;width: 160px; height: 80px;">
+                                    alt="image" style="object-fit: contain;width: 160px; height: 80px;">
                             </div>
                         </div>
                         <div class="item">
                             <div class="logo">
                                 <img src="{{ asset('bank-mega.png') }}"
-                                    alt="image" style="object-fit: cover;width: 160px; height: 80px;">
+                                    alt="image" style="object-fit: contain;width: 160px; height: 80px;">
                             </div>
                         </div>
                         <div class="item">
                             <div class="logo">
                                 <img src="{{ asset('Logo BCA_Biru.png') }}"
-                                    alt="image" style="object-fit: cover;width: 160px; height: 80px;">
+                                    alt="image" style="object-fit: contain;width: 160px; height: 80px;">
                             </div>
                         </div>
                         <div class="item">
                             <div class="logo">
                                 <img src="{{ asset('bni.png') }}" alt="image"
-                                    style="object-fit: cover;width: auto; height: 50px;margin-top:10px;">
+                                    style="object-fit: contain;width: auto; height: 50px;margin-top:10px;">
                             </div>
                         </div>
                     </div>

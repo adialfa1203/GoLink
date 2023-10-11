@@ -255,7 +255,7 @@
                                                 </div>
                                             </form>
                                             <div class="text-center mt-5">
-                                                <p class="mb-0">Sudah memiliki akun ? <a href="{{ url('login') }}"
+                                                <p class="mb-0">Sudah memiliki akun ? <a href="{{ route('login') }}"
                                                         class="fw-semibold text-secondary text-decoration-underline">
                                                         Masuk</a> </p>
                                             </div>

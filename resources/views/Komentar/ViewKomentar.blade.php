@@ -1,6 +1,23 @@
 @extends('layout.admin.app')
 @section('title', 'Komentar')
+@section('style')
+<style>
+    td.products {
+    max-width: 200px; /* Atur lebar maksimum sesuai dengan yang Anda inginkan */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer; /* Jika Anda ingin menambahkan efek hover */
+}
 
+td.products:hover {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    cursor: auto; /* Jika Anda ingin menambahkan efek hover */
+}
+</style>
+@endsection
 @section('content')
     <div class="page-content">
         <div class="container-fluid">

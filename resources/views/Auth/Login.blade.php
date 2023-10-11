@@ -262,7 +262,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="float-end">
-                                                        <a href="{{ url('send-email') }}" class="text-muted">Lupa kata
+                                                        <a href="{{ url('auth/send-email') }}" class="text-muted">Lupa kata
                                                             sandi?</a>
                                                     </div>
                                                     <div class="mb-3 form-check col-4">

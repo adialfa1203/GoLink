@@ -4,9 +4,10 @@
 
 @section('style')
 <style>
-        .page-content{
-            overflow-x: hidden;
-          }
+    .page-content {
+        overflow-x: hidden;
+    }
+
     .bg-custom {
         background-color: #CDF0EA;
     }
@@ -32,6 +33,26 @@
         /* Warna latar belakang saat aktif */
         color: #fff;
         /* Warna teks saat aktif */
+    }
+
+    /* CSS untuk perangkat laptop (misalnya, lebar layar antara 1025px dan 1440px) */
+    @media (min-width: 1025px) {
+        /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+        #popularDataContainer{
+            /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+    }
+    @media (min-width: 1025px) {
+        /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+        #additionalDataContainer{
+            /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
     }
 </style>
 
@@ -135,8 +156,8 @@
         </div>
         <br>
         <div class="row">
-            <div id="popularDataContainer" class="row">
-                <div class="col-lg-6">
+            <div id="popularDataContainer">
+                <div class="">
                     <div class="card" id="agenciesList">
                         <div class="card-header fw-bold">
                             Tautan Populer
@@ -165,7 +186,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="">
                     <div class="card" id="agenciesList">
                         <div class="card-header fw-bold">
                             Microsite Populer
@@ -196,7 +217,7 @@
                 </div><!--end col-->
             </div>
             <div id="additionalDataContainer" class="row d-none">
-                <div class="col-lg-6">
+                <div class="">
                     <div class="card">
                         <div class="card-header fw-bold">
                             <div>
@@ -219,7 +240,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="">
                     <div class="card">
                         <div class="card-header fw-bold">
                             <div>
@@ -242,7 +263,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="">
                     <div class="card">
                         <div class="card-header fw-bold">
                             <div>
@@ -265,7 +286,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="">
                     <div class="card">
                         <div class="card-header fw-bold">
                             <div>
