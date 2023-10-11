@@ -23,7 +23,7 @@
                      <div class="links">
                          <h3>Dukungan</h3>
                          <ul>
-                             <li><a href="/Home">Bantuan</a></li>
+                             <li><a href="{{ route('landing-page') }}">Bantuan</a></li>
                              <li><a href="#features">Laporkan</a></li>
                              <li><a href="#kontak">Status</a></li>
                          </ul>
@@ -34,7 +34,7 @@
                          <h3>SiteMaps</h3>
                          <ul>
                              <li><a href="#kontak">Beranda</a></li>
-                             <li><a href="/Home">Perpendek Link</a></li>
+                             <li><a href="{{ route('landing.page') }}">Perpendek Link</a></li>
                              <li><a href="#features">Situs Mikro</a></li>
                              <li><a href="#kontak">Berlanggaan</a></li>
                              <li><a href="/HelpSupport">Bantuan dan Dukungan</a></li>

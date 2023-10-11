@@ -141,20 +141,20 @@
                             <ul class="navbar-nav ml-auto">
                                 <!-- secondery menu start -->
                                 <li class="nav-item has_dropdown">
-                                    <a class="nav-link" href="/">Beranda</a>
+                                    <a class="nav-link" href="{{ route('landing.page') }}">Beranda</a>
                                 </li>
 
                                 <!-- secondery menu start -->
                                 <li class="nav-item has_dropdown">
-                                    <a class="nav-link" href="/Shortlink">Perpendek Link</a>
+                                    <a class="nav-link" href="{{ route('short.link') }}">Perpendek Link</a>
                                 </li>
                                 <!-- secondery menu end -->
 
                                 <li class="nav-item has_dropdown">
-                                    <a class="nav-link" href="/Microsite">Situs Mikro</a>
+                                    <a class="nav-link" href="{{ route('microsite.page') }}">Situs Mikro</a>
                                 </li>
                                 <li class="nav-item has_dropdown">
-                                    <a class="nav-link" href="/Subscribe">Berlangganan</a>
+                                    <a class="nav-link" href="{{ route('subscribe.page') }}">Berlangganan</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link dark_btn" href="/user/dashboard-user">
@@ -192,23 +192,26 @@
                             <ul class="navbar-nav ml-auto">
                                 <!-- secondery menu start -->
                                 <li class="nav-item has_dropdown">
-                                    <a class="nav-link" href="/">Beranda</a>
+                                    <a class="nav-link" href="{{ route('landing.page') }}">Beranda</a>
                                 </li>
 
                                 <!-- secondery menu start -->
                                 <li class="nav-item has_dropdown">
-                                    <a class="nav-link" href="/Shortlink">Perpendek Link</a>
+                                    <a class="nav-link" href="{{ route('short.link') }}">Perpendek Link</a>
                                 </li>
                                 <!-- secondery menu end -->
 
                                 <li class="nav-item has_dropdown">
-                                    <a class="nav-link" href="/Microsite">Situs Mikro</a>
+                                    <a class="nav-link" href="{{ route('microsite.page') }}">Situs Mikro</a>
                                 </li>
                                 <li class="nav-item has_dropdown">
-                                    <a class="nav-link" href="/Subscribe">Berlangganan</a>
+                                    <a class="nav-link" href="{{ route('subscribe.page') }}">Berlangganan</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link dark_btn" href="/login">Masuk / Daftar</a>
+                                    <div class="nav-link dark_btn">
+                                        <a class="text-dark" href="{{ url('/user/login') }}">Masuk /</a><a
+                                            class="text-dark" href="{{ url('/user/register') }}"> Daftar</a>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -327,8 +330,8 @@
                             <div class="links">
                                 <h3>Dukungan</h3>
                                 <ul style="padding: 0;">
-                                    <li><a href="{{ url ('landingpage/HelpSupport')}}">Bantuan dan Dukungan</a></li>
-                                <li><a href="{{ url ('landingpage/Privacy')}}">Kebijakan Privasi</a></li>
+                                    <li><a href="{{ url('landing-page/help-support') }}">Bantuan dan Dukungan</a></li>
+                                    <li><a href="{{ url('landing-page/Privacy') }}">Kebijakan Privasi</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -336,10 +339,10 @@
                             <div class="links">
                                 <h3>Peta Situs</h3>
                                 <ul style="padding: 0;">
-                                <li><a href="{{ url ('landingpage/Home')}}">Beranda</a></li>
-                                <li><a href="{{ url ('landingpage/Shortlink')}}">Perpendek Link</a></li>
-                                <li><a href="{{ url ('landingpage/Microsite')}}">Situs Mikro</a></li>
-                                <li><a href="{{ url ('landingpage/Subscribe')}}">Berlanggaan</a></li>
+                                    <li><a href="{{ url('landing-page/home') }}">Beranda</a></li>
+                                    <li><a href="{{ url('landing-page/short-link') }}">Perpendek Link</a></li>
+                                    <li><a href="{{ url('landing-page/microsite') }}">Situs Mikro</a></li>
+                                    <li><a href="{{ url('landing-page/subscribe') }}">Berlanggaan</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -436,8 +439,8 @@
                             <div class="links">
                                 <h3>Dukungan</h3>
                                 <ul style=" padding:0;">
-                                    <li><a href="{{ url ('landingpage/HelpSupport')}}">Bantuan dan jkhugyjhfc</a></li>
-                                <li><a href="{{ url ('landingpage/Privacy')}}">Kebijakan Privasi</a></li>
+                                    <li><a href="{{ url('landing-page/help-support') }}">Bantuan dan jkhugyjhfc</a></li>
+                                    <li><a href="{{ url('landing-page/privacy') }}">Kebijakan Privasi</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -445,10 +448,10 @@
                             <div class="links">
                                 <h3>Peta Situs</h3>
                                 <ul style=" padding:0;">
-                                <li><a href="{{ url ('landingpage/Home')}}">Beranda</a></li>
-                                <li><a href="{{ url ('landingpage/Shortlink')}}">Perpendek Link</a></li>
-                                <li><a href="{{ url ('landingpage/Microsite')}}">Situs Mikro</a></li>
-                                <li><a href="{{ url ('landingpage/Subscribe')}}">Berlanggaan</a></li>
+                                    <li><a href="{{ url('landing-page/home') }}">Beranda</a></li>
+                                    <li><a href="{{ url('landing-page/short-link') }}">Perpendek Link</a></li>
+                                    <li><a href="{{ url('landing-page/microsite') }}">Situs Mikro</a></li>
+                                    <li><a href="{{ url('landing-page/subscribe') }}">Berlanggaan</a></li>
                                 </ul>
                             </div>
                         </div>

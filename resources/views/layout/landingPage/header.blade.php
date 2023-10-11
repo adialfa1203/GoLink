@@ -22,26 +22,26 @@
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('landing.page') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/Home')}}">Beranda</a>
+                                href="{{ url('landing-page/home') }}">Beranda</a>
                         </li>
 
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('short.link') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/Shortlink')}}">Perpendek Link</a>
+                                href="{{ url('landing-page/short-link') }}">Perpendek Link</a>
                         </li>
                         <!-- secondery menu end -->
 
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('microsite.page') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/Microsite')}}">Situs Mikro</a>
+                                href="{{ url('landing-page/microsite') }}">Situs Mikro</a>
                         </li>
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('subscribe.page') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/Subscribe')}}">Berlangganan</a>
+                                href="{{ url('landing-page/subscribe') }}">Berlangganan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dark_btn" href="{{ url ('user/dashboard-user')}}">
+                            <a class="nav-link dark_btn" href="{{ url('user/dashboard-user') }}">
                                 Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                             </a>
                         </li>
@@ -76,27 +76,28 @@
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('landing.page') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/Home')}}">Beranda</a>
+                                href="{{ url('landing-page/home') }}">Beranda</a>
                         </li>
 
                         <!-- secondery menu start -->
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('short.link') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/Shortlink')}}">Perpendek Link</a>
+                                href="{{ url('landing-page/short-link') }}">Perpendek Link</a>
                         </li>
                         <!-- secondery menu end -->
 
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('microsite.page') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/Microsite')}}">Situs Mikro</a>
+                                href="{{ url('landing-page/microsite') }}">Situs Mikro</a>
                         </li>
                         <li class="nav-item has_dropdown">
                             <a class="nav-link {{ request()->routeIs('subscribe.page') ? 'active' : '' }}"
-                                href="{{ url ('landingpage/Subscribe')}}">Berlangganan</a>
+                                href="{{ url('landing-page/subscribe') }}">Berlangganan</a>
                         </li>
                         <li class="nav-item">
                             <div class="nav-link dark_btn">
-                                <a class="text-dark" href="{{ url('/user/login') }}">Masuk /</a><a class="text-dark" href="{{ url('/user/register') }}"> Daftar</a>
+                                <a class="text-dark" href="{{ url('/user/login') }}">Masuk /</a><a class="text-dark"
+                                    href="{{ url('/user/register') }}"> Daftar</a>
                             </div>
                         </li>
                     </ul>

@@ -113,19 +113,19 @@
             <div class="container">
                 <div class="row justify-content-between mb-3">
                     <div class="col-12 text-center">
-                        <a href="{{ url ('landingpage/Start')}}" class="btn btn-outline-info custom-btn">Memulai</a>
-                        <a href="{{ url ('landingpage/Announcement')}}" class="btn btn-outline-info custom-btn">Pengumuman</a>
-                        <a href="{{ url ('landingpage/Account')}}" class="btn btn-outline-info custom-btn">Akun</a>
+                        <a href="{{ url ('landing-page/start')}}" class="btn btn-outline-info custom-btn">Memulai</a>
+                        <a href="{{ url ('landing-page/announcement')}}" class="btn btn-outline-info custom-btn">Pengumuman</a>
+                        <a href="{{ url ('landing-page/account')}}" class="btn btn-outline-info custom-btn">Akun</a>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row justify-content-between mb-5">
                     <div class="col-12 text-center">
-                        <a href="{{ url ('landingpage/BillingSubscriptions')}}" class="btn btn-outline-info custom-btn">Penagihan dan
+                        <a href="{{ url ('landing-page/billing-subscriptions')}}" class="btn btn-outline-info custom-btn">Penagihan dan
                             Langganan</a>
-                        <a href="{{ url ('landingpage/PlatformMicrosite')}}" class="btn btn-outline-info custom-btn">Layanan Microsite</a>
-                        <a href="{{ url ('landingpage/ShortLink')}}" class="btn btn-outline-info custom-btn">Penyingkat Tautan</a>
+                        <a href="{{ url ('landing-page/platform-microsite')}}" class="btn btn-outline-info custom-btn">Layanan Microsite</a>
+                        <a href="{{ route('short.link') }}" class="btn btn-outline-info custom-btn">Penyingkat Tautan</a>
                     </div>
                 </div>
             </div>
