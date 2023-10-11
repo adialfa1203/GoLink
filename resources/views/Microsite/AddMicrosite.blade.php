@@ -206,15 +206,15 @@
                                                             <div class="col-12">
                                                                 <label for="address" class="form-label">Nama
                                                                     Microsite</label>
-                                                                <input type="text" class="form-control" id="address"
-                                                                    name="name" placeholder="Nama Microsite">
-                                                                <p class="is-invalid" id="error-regex"></p>
-                                                            </div>
-                                                            <div>
-                                                                @if ($errors->has('name'))
-                                                                    <span
-                                                                        class="text-danger">{{ $errors->first('name') }}</span>
-                                                                @endif
+                                                                <input type="text" class="form-control"
+                                                                    id="name_microsite" name="name"
+                                                                    placeholder="Nama Microsite">
+                                                                <div>
+                                                                    @if ($errors->has('name'))
+                                                                        <span
+                                                                            class="text-danger">{{ $errors->first('name') }}</span>
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <label for="micrositeUrl" class="form-label">Tautan
@@ -399,7 +399,9 @@
         function showSweetAlert() {
             var maxMicrosites = 3;
             var existingMicrosites = {{ $micrositeCount ?? 0 }};
-            if (existingMicrosites < maxMicrosites) {
+            var inputsAreValid = validateInputs();
+
+            if (existingMicrosites < maxMicrosites && inputsAreValid) {
                 $('#form-create').submit();
             }
             if (existingMicrosites >= maxMicrosites) {
@@ -414,6 +416,33 @@
                 });
             }
         }
+
+        function validateInputs() {
+            var name_microsite_val = $('#name_microsite').val();
+            var linkMicrosite_val = $('#linkMicrosite').val();
+
+            var errorMessage = '';
+
+            if (name_microsite_val === '') {
+                errorMessage += 'Nama microsite harus diisi. ';
+            }
+            if (linkMicrosite_val == '') {
+                errorMessage +=
+                    'Link microsite harus diisi';
+            }
+
+            if (errorMessage !== '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: errorMessage,
+                });
+                return false;
+            }
+
+            return true;
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             var submitButton = document.getElementById("submitButton");
             if (submitButton) {
