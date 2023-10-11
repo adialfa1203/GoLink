@@ -59,7 +59,7 @@ class ShortLinkController extends Controller
         } else {
             $shortLinkTotal = $user->shortUrls()->count();
             $historyTotal = $user->history()->count();
-            if ($shortLinkTotal + $historyTotal >= 100) {
+            if ($shortLinkTotal + $historyTotal >= 35) {
                 return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi. ', 'status' => 422]);
             }
         }
@@ -129,7 +129,7 @@ class ShortLinkController extends Controller
         }
 
         $newUrlKey = str_replace(' ', '-', $request->newUrlKey);
-        $newUrlKey = strtolower($newUrlKey); 
+        $newUrlKey = strtolower($newUrlKey);
 
         $updateUrl->update([
             'url_key' => $newUrlKey,

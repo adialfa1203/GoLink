@@ -505,9 +505,9 @@
                                 data-bs-title="{{ $countURL }} Tautan dibuat">
                                 <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
                                     role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                    style="width: {{ ($countURL / 100) * 100 }}%"></div>
+                                    style="width: {{ ($countURL / 35) * 100 }}%"></div>
                             </div>
-                            <p class="text-muted mb-0"><b>{{ $countURL }} dari 100</p>
+                            <p class="text-muted mb-0"><b>{{ $countURL }} dari 35</p>
                             <br>
                             <h6 class="card-title">Microsite dibuat
                                 <span class="tooltip-icon"
@@ -554,10 +554,10 @@
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated"
                                                         role="progressbar" aria-valuenow="{{ $countURL }}"
                                                         aria-valuemin="0" aria-valuemax="100"
-                                                        style="width: {{ ($countURL / 100) * 100 }}%;">
+                                                        style="width: {{ ($countURL / 35) * 100 }}%;">
                                                     </div>
                                                 </div>
-                                                <p class="text-muted mb-0"><b>{{ $countURL }} dari 100</p>
+                                                <p class="text-muted mb-0"><b>{{ $countURL }} dari 35</p>
                                                 <br>
                                                 <h3 class="card-title">Microsite dibuat
                                                     <span class="tooltip-icon"
@@ -570,12 +570,12 @@
                                                         id="progress-bar" role="progressbar"
                                                         aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
                                                         aria-valuemax="10"
-                                                        style="width: {{ ($countMicrosite / 10) * 100 }}%;"></div>
+                                                        style="width: {{ ($countMicrosite / 3) * 100 }}%;"></div>
                                                 </div>
-                                                <p class="text-muted mb-0"><b>{{ $countMicrosite }} dari 10</b></p>
+                                                <p class="text-muted mb-0"><b>{{ $countMicrosite }} dari 3</b></p>
                                                 <br>
                                                 @php
-                                                    $userType = Auth::user()->subscribe; // Gantilah dengan logika yang sesuai dengan aplikasi Anda
+                                                    $userType = Auth::user()->subscribe;
                                                 @endphp
                                                 @if ($userType === 'yes')
                                                     <h6 class="card-title">Nama yang telah diubah
@@ -627,7 +627,7 @@
                                                 </div> --}}
                                             @else
                                                 <div class="col-lg-12">
-                                                   <div class="col-lg-12">
+                                                    <div class="col-lg-12">
                                                         <div>
                                                             <label for="cardNumber" class="form-label">Tautan original
                                                                 diubah/bulan</label>
@@ -647,8 +647,8 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="modal-footer">
-                                            <a href="{{ url('user/subscribe-product-user') }}" type="button" class="btn btn-danger"
-                                                style="width: 100%;">
+                                            <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                                                class="btn btn-danger" style="width: 100%;">
                                                 Langganan untuk mendapatkan kuota
                                             </a>
                                         </div>
@@ -658,9 +658,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-            <!-- container-fluid -->
         </div>
     </form>
 @endsection
@@ -682,15 +680,11 @@
             edit = !edit;
             console.log(edit);
         }
+
         $(document).ready(function() {
             $("#shortlinkSubmit").submit(function(event) {
-                event.preventDefault(); // Mencegah form submission bawaan
-
-                // Mengambil nilai dari input tautan panjang dan judul
+                event.preventDefault();
                 var destinationUrl = $("#AmountInput").val();
-                // var title = $("#cardNumber").val();
-
-                // Cek apakah input kosong
                 if (!destinationUrl) {
                     Swal.fire({
                         icon: "error",
@@ -700,203 +694,80 @@
                     $("#addAmount").modal("hide");
                     $("#addAmount").modal("hide");
                     setTimeout(function() {
-                        // Tempatkan kode yang ingin Anda jalankan di sini
-                        $('#close-singkatkan').click()
+                        $('#close-singkatkan').click();
                     }, 1000);
                 } else {
-                    // Jika input tidak kosong, lanjutkan dengan pengiriman permintaan AJAX
-                    var formData = $(this).serialize(); // Mengambil data form
-                    $.ajax({
-                        type: "POST",
-                        url: "short-link",
-                        data: formData,
-                        success: function(response) {
-                            // Tangani respons dari server
-                            if (response.status == 'gagal') {
+                    $('#singkatkan').modal('hide');
+                    var countURL = {{ $countURL }};
+                    if (countURL >= 35) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Kesalahan!",
+                            text: "Anda telah mencapai batas maksimum 35 link diperpendek.",
+                        });
+                    } else {
+                        var formData = $(this).serialize();
+                        $.ajax({
+                            type: "POST",
+                            url: "short-link",
+                            data: formData,
+                            success: function(response) {
+                                if (response.status == 'gagal') {
+                                    Swal.fire({
+                                        title: 'Kesalahan...',
+                                        icon: 'error',
+                                        html: response.message +
+                                            ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
+                                            'untuk info lebih lanjut tentang langganan premium.',
+                                    });
+                                    setTimeout(function() {
+                                        $('#close-singkatkan').click();
+                                    }, 1000);
+                                }
+                                console.log(response.default_short_url);
+                                var defaultShort = response.default_short_url;
+                                var title = response.title;
+                                var url = response.destination_url;
+                                $("#default_short_url").val(defaultShort);
+                                $("#title").val(title);
+                                $('#destination_url').val(url);
+
+                                $("#copyButton").show();
+                                $('#singkatkan').modal('show');
+                            },
+                            error: function(error) {
+                                $("#addAmount").modal("hide");
+                                $('#singkatkan').modal('hide');
                                 Swal.fire({
-                                    title: 'Kesalahan...',
-                                    icon: 'error',
-                                    html: response.message +
-                                        ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
-                                        'untuk info lebih lanjut tentang langganan premium.',
+                                    icon: "error",
+                                    title: "Kesalahan!",
+                                    text: "URL tidak valid",
                                 });
-                                setTimeout(function() {
-                                    // Tempatkan kode yang ingin Anda jalankan di sini
-                                    $('#close-singkatkan').click()
-                                }, 1000);
+                                console.error("Error:", error.responseJSON.message);
                             }
-                            // Tangani respons dari server
-                            console.log(response.default_short_url);
-                            var defaultShort = response.default_short_url;
-                            var title = response.title;
-                            var url = response.destination_url;
-
-                            // Tampilkan data yang dipotong di dalam input
-                            $("#default_short_url").val(defaultShort);
-                            $("#title").val(title);
-                            $('#destination_url').val(url);
-
-                            // Menampilkan tombol Copy
-                            $("#copyButton").show();
-                            $('#singkatkan').modal('show')
-                        },
-                        error: function(error) {
-                            $("#addAmount").modal("hide");
-                            $('#singkatkan').modal('hide');
-                            $('#defa')
-                            Swal.fire({
-                                icon: "error",
-                                title: "Kesalahan!",
-                                text: "URL tidak valid",
-                            });
-                            console.error("Error:", error.responseJSON.message);
-                        }
-                    });
-
+                        });
+                    }
                 }
-                // Mengosongkan nilai-nilai input di dalam modal
-                $("#AmountInput").val(""); // Mengosongkan input tautan panjang
-                $("#cardNumber").val(""); // Mengosongkan input judul
-                $(".password-input").val(""); // Mengosongkan input kata sandi
-                $(".time-input").val(""); // Mengosongkan input tanggal dan waktu
-                $(".close-edit").val(""); // Mengosongkan button edit
 
-                // Menutup modal saat ini (jika perlu)
+                $("#AmountInput").val("");
+                $("#cardNumber").val("");
+                $(".password-input").val("");
+                $(".time-input").val("");
+                $(".close-edit").val("");
                 $("#addAmount").modal("hide");
-
             });
-            // Menangani klik pada tombol mata
-            $("#password-addon").click(function() {
-                var passwordInput = $(".password-input");
-                var passwordAddon = $("#password-addon");
-
-                if (passwordInput.attr("type") === "password") {
-                    passwordInput.attr("type", "text");
-                    passwordAddon.html('<i class="ri-eye-off-fill align-middle"></i>');
-                } else {
-                    passwordInput.attr("type", "password");
-                    passwordAddon.html('<i class="ri-eye-fill align-middle"></i>');
-                }
-            });
-            // Menangani klik pada tombol Copy
-            $("#copyButton").click(function() {
-                var copyText = document.getElementById("default_short_url");
-                copyText.select();
-                document.execCommand("copy");
-                // Anda bisa menambahkan logika lain untuk memberi tahu pengguna bahwa tautan telah disalin
-            });
-            // Menangani klik pada tombol Reset untuk modal tautan terproteksi
-            $("#resetButton").click(function() {
-                $(".password-input").val(""); // Mengosongkan input kata sandi
-            });
-            // Menangani klik pada tombol Reset untuk modal tautan berjangka
-            $("#time-reset").click(function() {
-                $(".time-input").val(""); // Mengosongkan input tanggal dan waktu
-            });
-            // Menangani klik pada label platform dalam modal "bagikan"
-            $(".platform").click(function() {
-                var platform = $(this).data("platform");
-                var shortUrl = $("#default_short_url").val();
-
-                switch (platform) {
-                    case "facebook":
-                        // Tambahkan logika untuk membagikan tautan ke Facebook
-                        // Misalnya, membuka jendela baru dengan tautan Facebook Share
-                        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(
-                            shortUrl));
-                        break;
-                    case "twitter":
-                        // Tambahkan logika untuk membagikan tautan ke Twitter
-                        // Misalnya, membuka jendela baru dengan tautan Twitter Share
-                        window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(shortUrl));
-                        break;
-                    case "whatsapp":
-                        // Tambahkan logika untuk membagikan tautan ke WhatsApp
-                        // Misalnya, membuka jendela baru dengan tautan WhatsApp Share
-                        window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shortUrl));
-                        break;
-                    case "copy":
-                        var copyText = document.getElementById("default_short_url");
-                        copyText.select();
-
-                        navigator.clipboard.writeText(copyText.value)
-                            .then(function() {
-                                if (edit != true) {}
-                            })
-                            .catch(function(err) {
-                                console.error("Penyalinan gagal: ", err);
-                                alert("Penyalinan gagal. Silakan salin tautan secara manual.");
-                            });
-                        break;
-                    case "qr":
-                        // Tambahkan logika untuk menghasilkan QR Code dari tautan
-                        // Misalnya, membuka jendela baru dengan layanan pembuatan QR Code
-                        window.open(
-                            `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${ encodeURIComponent(shortUrl)}`
-                        );
-                        break;
-                    default:
-                        break;
-                }
-            });
-            // $("#default_short_url").click(function() {
-            //     var copyText = document.getElementById("default_short_url");
-            //     copyText.select();
-            //     document.execCommand("copy");
-            //     if (edit != true) {
-            //         // Menambahkan pesan atau tindakan lain sesuai kebutuhan
-            //         // alert("Tautan telah disalin ke clipboardsdfg.");
-            //         // Setelah data berhasil disimpan, tampilkan pemberitahuan
-            //         $("#successCopy").fadeIn();
-
-            //         // Tunggu beberapa detik (misalnya, 3 detik) kemudian sembunyikan pemberitahuan
-            //         setTimeout(function() {
-            //                 $("#successCopy").fadeOut();
-            //             },
-            //             3000
-            //             ); // Angka 3000 adalah durasi dalam milidetik (3 detik). Sesuaikan sesuai kebutuhan.
-
-
-            //     }
-            // });
-            // Menangani klik pada tombol "Simpan"
-            $("#simpanButton").click(function() {
-                // Lakukan aksi penyimpanan data di sini (misalnya, pengiriman data ke server).
-
-                // Setelah data berhasil disimpan, tampilkan pemberitahuan
-                $("#successAlert").fadeIn();
-
-                // Tunggu beberapa detik (misalnya, 3 detik) kemudian sembunyikan pemberitahuan
-                setTimeout(function() {
-                    $("#successAlert").fadeOut();
-                }, 3000); // Angka 3000 adalah durasi dalam milidetik (3 detik). Sesuaikan sesuai kebutuhan.
-
-                // Reset modal atau lakukan aksi lainnya sesuai kebutuhan
-                // resetEditModal();
-            });
-            // $("#simpanButton").click(function() {
-            //     alert('');
-            // });
         });
     </script>
-    <!-- Echarts -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/echarts/echarts.min.js') }}"></script>
-
-    <!-- Vector map-->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/js/jsvectormap.min.js') }}">
     </script>
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/maps/world-merc.js') }}">
     </script>
-
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/list.js/list.min.js') }}"></script>
-
-    <!-- dashboard-analytics init js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/dashboard-analytics.init.js') }}">
     </script>
 
-    <!-- App js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
-    <!-- profile-setting init js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/profile-setting.init.js') }}"></script>
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -938,96 +809,52 @@
         });
     </script>
     <script>
-        // Ambil data dari {{ $countURL }} (misalnya menggunakan AJAX)
-        var countData = {{ $countURL }}; // Contoh nilai statiskeluar
-
-        // Ubah lebar bar progres sesuai dengan data yang diperoleh
+        var countData = {{ $countURL }};
         var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / 100) * 100; // Ubah 100 menjadi nilai maksimum yang sesuai
+        var progressBarWidth = (countData / 35) * 100;
         progressBar.style.width = progressBarWidth + "%";
         progressBar.setAttribute("aria-valuenow", countData);
     </script>
     <script>
-        // Ambil data dari {{ $countURL }} (misalnya menggunakan AJAX)
-        var countData = {{ $countNameChanged }}; // Contoh nilai statis
-
-        // Ubah lebar bar progres sesuai dengan data yang diperoleh
+        var countData = {{ $countNameChanged }};
         var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / 5) * 100; // Maksimum adalah 5
+        var progressBarWidth = (countData / 5) * 100;
         progressBar.style.width = progressBarWidth + "%";
         progressBar.setAttribute("aria-valuenow", countData);
 
-        // Update teks
         var progressText = document.querySelector('.text-muted.mb-0 b');
         progressText.textContent = countData + " dari 5";
     </script>
     <script>
-        // Ambil data dari {{ $countURL }} (misalnya menggunakan AJAX)
-        var countData = {{ $countMicrosite }}; // Contoh nilai statis
-
-        // Ubah lebar bar progres sesuai dengan data yang diperoleh
+        var countData = {{ $countMicrosite }};
         var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / 3) * 100; // Maksimum adalah 10
+        var progressBarWidth = (countData / 3) * 100;
         progressBar.style.width = progressBarWidth + "%";
         progressBar.setAttribute("aria-valuenow", countData);
     </script>
     <script>
-        // Get the value from the server-side variable {{ $countURL }}
         var countURLValue = {{ $countURL }};
 
         // Calculate the percentage
-        var percentage = (countURLValue / 100) * 100; // Assuming 100 is the total
+        var percentage = (countURLValue / 35) * 100;
 
-        // Update the progress bar width
         var progressBar = document.querySelector('.progress-bar');
         progressBar.style.width = percentage + '%';
         progressBar.setAttribute('aria-valuenow', countURLValue);
 
-        // Update the text
         var progressText = document.querySelector('.text-muted.mb-0 b');
-        progressText.textContent = countURLValue + ' dari 100';
+        progressText.textContent = countURLValue + ' dari 35';
     </script>
     <script>
-        // Get the value from the server-side variable {{ $countMicrosite }}
         var countURLValue = {{ $countMicrosite }};
 
-        // Update the progress bar width based on a maximum value of 10
         var progressBar = document.querySelector('#total-microsite');
         progressBar.style.width = ((countURLValue / 3) * 100) + '%';
         progressBar.setAttribute('aria-valuenow', countURLValue);
 
-        // Update the text
         var progressText = document.querySelector('#microsite-total');
         progressText.textContent = countURLValue + ' dari 3';
     </script>
-
-    {{-- <script>
-        // Ambil data dari {{ $countURL }} (misalnya menggunakan AJAX)
-        var countData = {{ $countNameChanged }}; // Contoh nilai statis
-
-        // Ubah lebar bar progres sesuai dengan data yang diperoleh
-        var progressBar = document.getElementById("name-changed");
-        var progressBarWidth = (countData / 5) * 100; // Maksimum adalah 5
-        progressBar.style.width = progressBarWidth + "%";
-        progressBar.setAttribute("aria-valuenow", countData);
-
-        // Update teks
-        var progressText = document.getElementById("name-changed-text");
-        progressText.textContent = countData + " dari 5";
-    </script> --}}
-    {{-- <script>
-        // Temukan tombol "Keluar" berdasarkan ID
-        var keluarButton = document.getElementById("keluarButton");
-
-        // Temukan modal edit berdasarkan ID
-        var modalEdit = document.getElementById("edit");
-
-        // Tambahkan event listener untuk tombol "Keluar"
-        keluarButton.addEventListener("click", function() {
-            // Tutup modal edit
-            modalEdit.classList.remove("show");
-        });
-    </script> --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
@@ -1047,35 +874,24 @@
         });
     </script>
     <script>
-        // Mendapatkan elemen input
         var inputTanggal = document.getElementById('old_password');
-
-        // Mendapatkan tanggal hari ini dalam format yang sesuai dengan datetime-local
         var today = new Date();
         var year = today.getFullYear();
-        var month = String(today.getMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0
+        var month = String(today.getMonth() + 1).padStart(2, '0');
         var day = String(today.getDate()).padStart(2, '0');
         var waktuHariIni = year + '-' + month + '-' + day + 'T00:00';
 
-        // Mengatur atribut "min" pada elemen input
         inputTanggal.setAttribute('min', waktuHariIni);
     </script>
     <script>
-        // Dapatkan tanggal saat ini
         var currentDate = new Date();
-
-        // Hitung tanggal awal bulan depan
         var nextMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
-
-        // Format tanggal menjadi 'DD Month YYYY'
         var options = {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
         };
         var formattedDate = nextMonthDate.toLocaleDateString('id-ID', options);
-
-        // Setel tanggal yang dihasilkan ke dalam elemen HTML
         document.getElementById('nextMonthDate').textContent = formattedDate;
     </script>
 @endsection
