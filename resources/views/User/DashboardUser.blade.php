@@ -647,7 +647,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="modal-footer">
-                                            <a href="/subscribe-product-user" type="button" class="btn btn-danger"
+                                            <a href="{{ url('user/subscribe-product-user') }}" type="button" class="btn btn-danger"
                                                 style="width: 100%;">
                                                 Langganan untuk mendapatkan kuota
                                             </a>
