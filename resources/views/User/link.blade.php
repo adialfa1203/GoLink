@@ -276,7 +276,7 @@
                                                                                     Untuk Bisa Menikmati Fitur Ini</p>
                                                                             </div>
                                                                             <div class="card-footer text-center">
-                                                                                <a href="/subscribe-product-user"
+                                                                                <a href="{{ url('user/subscribe-product-user') }}"
                                                                                     style="color: red;"> Mulai
                                                                                     Berlangganan? </a>
                                                                             </div>
