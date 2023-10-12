@@ -39,8 +39,8 @@
                         <div class="links">
                             <h3>Dukungan</h3>
                             <ul>
-                                <li><a href="{{ url ('landing-page/help-support')}}">Bantuan dan Dukungan</a></li>
-                                <li><a href="{{ url ('landing-page/privacy')}}">Kebijakan Privasi</a></li>
+                                <li><a href="{{ url ('id/help-support')}}">Bantuan dan Dukungan</a></li>
+                                <li><a href="{{ url ('id/privacy')}}">Kebijakan Privasi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -48,10 +48,10 @@
                         <div class="links">
                             <h3>Peta Situs</h3>
                             <ul>
-                                <li><a href="{{ url ('landing-page/home')}}">Beranda</a></li>
-                                <li><a href="{{ url ('landing-page/short-link')}}">Perpendek Link</a></li>
-                                <li><a href="{{ url ('landing-page/microsite')}}">Situs Mikro</a></li>
-                                <li><a href="{{ url ('landing-page/subscribe')}}">Berlanggaan</a></li>
+                                <li><a href="{{ url ('id/home')}}">Beranda</a></li>
+                                <li><a href="{{ url ('id/short-link')}}">Perpendek Link</a></li>
+                                <li><a href="{{ url ('id/microsite')}}">Situs Mikro</a></li>
+                                <li><a href="{{ url ('id/subscribe')}}">Berlanggaan</a></li>
 
                             </ul>
                         </div>
@@ -147,8 +147,8 @@
                         <div class="links" style="margin-left: 6%;">
                             <h3>Dukungan</h3>
                             <ul>
-                                <li><a href="{{ url ('landing-page/help-support')}}">Bantuan dan Dukungan</a></li>
-                                <li><a href="{{ url ('landing-page/privacy')}}">Kebijakan Privasi</a></li>
+                                <li><a href="{{ url ('id/help-support')}}">Bantuan dan Dukungan</a></li>
+                                <li><a href="{{ url ('id/privacy')}}">Kebijakan Privasi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -156,10 +156,10 @@
                         <div class="links" style="margin-left: 6%;">
                             <h3>Peta Situs</h3>
                             <ul>
-                                <li><a href="{{ url ('landing-page/home')}}">Beranda</a></li>
-                                <li><a href="{{ url ('landing-page/short-link')}}">Perpendek Link</a></li>
-                                <li><a href="{{ url ('landing-page/microsite')}}">Situs Mikro</a></li>
-                                <li><a href="{{ url ('landing-page/subscribe')}}">Berlanggaan</a></li>
+                                <li><a href="{{ url ('id/home')}}">Beranda</a></li>
+                                <li><a href="{{ url ('id/short-link')}}">Perpendek Link</a></li>
+                                <li><a href="{{ url ('id/microsite')}}">Situs Mikro</a></li>
+                                <li><a href="{{ url ('id/subscribe')}}">Berlanggaan</a></li>
                             </ul>
                         </div>
                     </div>
