@@ -282,7 +282,7 @@
                                                     </div>
                                                     <div class="pt-2 hstack gap-2 justify-content-center">
                                                         <a href="{{ route('redirect.google') }}"  style="width: 100%;">
-                                                            <div class="google-btn">
+                                                            <div class="google-btn" style="width: 100%;">
                                                                 <div class="google-icon-wrapper">
                                                                     <img class="google-icon d-flex justify-content-center"
                                                                         src="https://i.ibb.co/ydLySMx/google.png" />
@@ -293,7 +293,7 @@
                                                     </div>
                                                     <div class="pt-2 hstack gap-2 justify-content-center">
                                                         <a href="{{ route('redirect.facebook') }}"  style="width: 100%;">
-                                                            <div class="google-btn">
+                                                            <div class="google-btn" style="width: 100%;">
                                                                 <div class="google-icon-wrapper">
                                                                     <img class="google-icon d-flex justify-content-center"
                                                                         src="https://i.ibb.co/pnpDRC6/facebook.png" />

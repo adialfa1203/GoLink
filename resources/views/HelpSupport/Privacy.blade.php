@@ -178,60 +178,34 @@
                                 <i class="fas fa-arrow-left"></i> Kembali
                             </a> --}}
                             <p></p>
-        
-                            <div kelas="col-xl-12">
-                                <h5><strong>Kebijakan Privasi</strong></h5>
-        
-                                <p>Hummasoft Technology membangun aplikasi Go.Link sebagai aplikasi Komersial. LAYANAN ini
-                                    adalah
-                                    disediakan oleh Hummasoft Technology dan dimaksudkan untuk digunakan sebagaimana adanya.</p>
-        
-                                <p>Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami terkait
-                                    pengumpulan, penggunaan, dan
-                                    pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan kami.</p>
-        
-                                <p>Jika Anda memilih untuk menggunakan Layanan kami, maka Anda menyetujui pengumpulan dan
-                                    penggunaan informasi di
-                                    kaitannya dengan kebijakan ini. Informasi Pribadi yang kami kumpulkan digunakan untuk
-                                    menyediakan dan
-                                    meningkatkan Layanan. Kami tidak akan menggunakan atau membagikan informasi Anda kepada
-                                    siapa pun kecuali sebagai
-                                    dijelaskan dalam Kebijakan Privasi ini.</p>
-        
-                                <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a
-                                        style="color: #104898" href="{{ url ('landingpage/Privacy')}}">Syarat dan Ketentuan</a>, yang dapat diakses di
-                                    Go.Link kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
-        
-                                <h3>
-                                    <kuat></strong>
-                                </h3>
-        
-                                <p>Untuk pengalaman yang lebih baik, saat menggunakan Layanan kami, kami mungkin meminta Anda
-                                    untuk memberikannya kepada kami
-                                    informasi pengenal pribadi tertentu, termasuk namun tidak terbatas pada
-                                    Go.Link. Informasi yang kami minta akan kami simpan dan gunakan sebagai
-                                    dijelaskan dalam kebijakan privasi ini.</p>
-        
-                                <p>Aplikasi ini menggunakan layanan pihak ketiga yang mungkin mengumpulkan informasi yang
-                                    digunakan untuk mengidentifikasi Anda.</p>
-        
-                                <h5><strong>Data Log</strong></h5>
-        
-                                <p>Kami ingin memberi tahu Anda bahwa setiap kali Anda menggunakan Layanan kami, jika terjadi
-                                    kesalahan pada aplikasi, kami
-                                    mengumpulkan data dan informasi (melalui produk pihak ketiga) di ponsel Anda yang disebut
-                                    Data Log.
-                                    Data Log ini mungkin mencakup informasi seperti Protokol Internet (“IP”) perangkat Anda
-                                    alamat, nama perangkat, versi sistem operasi, konfigurasi aplikasi saat digunakan
-                                    Layanan kami, waktu dan tanggal penggunaan Layanan oleh Anda, dan statistik lainnya.</p>
-        
-                                <h5><strong>Cookie</strong></h5>
-        
-                                <p>Cookie adalah file dengan sejumlah kecil data yang biasanya digunakan sebagai unik anonim
-                                    pengidentifikasi. Ini adalah</p>
-                                <p>dikirim ke browser Anda dari situs web yang Anda kunjungi</p>
-        
-                            </div>
+
+                            <div class="col-xl-12">
+    <h5><strong>Kebijakan Privasi</strong></h5>
+
+    <p>Hummasoft Technology membangun aplikasi Go.Link sebagai aplikasi Komersial. LAYANAN ini adalah disediakan oleh Hummasoft Technology dan dimaksudkan untuk digunakan sebagaimana adanya.</p>
+
+    <p>Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami terkait pengumpulan, penggunaan, dan pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan kami.</p>
+
+    <p>Jika Anda memilih untuk menggunakan Layanan kami, maka Anda menyetujui pengumpulan dan penggunaan informasi di kaitannya dengan kebijakan ini. Informasi Pribadi yang kami kumpulkan digunakan untuk menyediakan dan meningkatkan Layanan. Kami tidak akan menggunakan atau membagikan informasi Anda kepada siapa pun kecuali seperti dijelaskan dalam Kebijakan Privasi ini.</p>
+
+    <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a style="color: #104898" href="{{ url('landingpage/Privacy')}}">Syarat dan Ketentuan</a>, yang dapat diakses di Go.Link kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
+
+    <h3><strong>Ketentuan Pengumpulan Informasi</strong></h3>
+
+    <p>Untuk pengalaman yang lebih baik, saat menggunakan Layanan kami, kami mungkin meminta Anda untuk memberikan informasi pengenal pribadi tertentu, termasuk namun tidak terbatas pada Go.Link. Informasi yang kami minta akan kami simpan dan gunakan sebagaimana dijelaskan dalam kebijakan privasi ini.</p>
+
+    <p>Aplikasi ini menggunakan layanan pihak ketiga yang mungkin mengumpulkan informasi yang digunakan untuk mengidentifikasi Anda.</p>
+
+    <h5><strong>Data Log</strong></h5>
+
+    <p>Kami ingin memberi tahu Anda bahwa setiap kali Anda menggunakan Layanan kami, jika terjadi kesalahan pada aplikasi, kami mengumpulkan data dan informasi (melalui produk pihak ketiga) di ponsel Anda yang disebut Data Log. Data Log ini mungkin mencakup informasi seperti Protokol Internet (“IP”) perangkat Anda alamat, nama perangkat, versi sistem operasi, konfigurasi aplikasi saat digunakan Layanan kami, waktu dan tanggal penggunaan Layanan oleh Anda, dan statistik lainnya.</p>
+
+    <h5><strong>Cookie</strong></h5>
+
+    <p>Cookie adalah file dengan sejumlah kecil data yang biasanya digunakan sebagai unik anonim pengidentifikasi. Ini adalah</p>
+    <p>dikirim ke browser Anda dari situs web yang Anda kunjungi</p>
+</div>
+
                         </div><!--end row-->
                     </div>
                 </div>
