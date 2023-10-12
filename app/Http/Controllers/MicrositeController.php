@@ -225,7 +225,7 @@ class MicrositeController extends Controller
             }
         }
 
-        return redirect()->route('microsite')->with('success', 'Microsite berhasil diedit.');
+        return redirect()->route('microsite')->with('success', 'Microsite berhasil dibuat');
     }
 
     public function createComponent()
