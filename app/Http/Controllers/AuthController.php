@@ -70,17 +70,17 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:50|regex:/^[^-+]+$/u',
-            'email' => 'required|regex:/^[^-+]+$/u|email|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,',
+            'email' => 'required|email|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email',
             'number' => 'required|max:15|regex:/^[^-+]+$/u|min:11',
             'remember' => 'required|string',
             'password' => 'required|min:8',
             'password_confirmation' => 'required_with:password|same:password'
         ], [
             'name.required' => 'Nama Lengkap tidak boleh kosong',
-            'email.required' => 'Email tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong.',
+            'email.email' => 'Format alamat email tidak valid.',
             'email.regex' => 'Format alamat email tidak valid.',
-            'email.email' => 'Email harus menyertakan karakter @ untuk menjadi alamat email yang valid.',
-            'email.ends_with' => 'Email harus berakhir dengan .com',
+            'email.unique' => 'Alamat email sudah digunakan.',
             'number.required' => 'Nomor tidak boleh kosong',
             'number' => 'Nomor tidak boleh kurang dari 11 dan tidak boleh lebih dari 15!',
             'number.regex' => 'Nomor wajib angka',

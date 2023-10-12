@@ -241,7 +241,8 @@
 
                                                                 <p>Istilah yang digunakan dalam Kebijakan Privasi
                                                                     ini memiliki arti yang sama dengan <a
-                                                                        href="{{ url ('landing-page/privacy')}}">Syarat dan Ketentuan</a>,
+                                                                        href="{{ url('landing-page/privacy') }}">Syarat
+                                                                        dan Ketentuan</a>,
                                                                     yang dapat diakses di GoLink kecuali ditentukan
                                                                     lain dalam Kebijakan Privasi ini.</p>
 
@@ -255,7 +256,8 @@
                                                 </div>
                                             </form>
                                             <div class="text-center mt-5">
-                                                <p class="mb-0">Sudah memiliki akun ? <a href="{{ route('login') }}"
+                                                <p class="mb-0">Sudah memiliki akun ? <a
+                                                        href="{{ route('login') }}"
                                                         class="fw-semibold text-secondary text-decoration-underline">
                                                         Masuk</a> </p>
                                             </div>
@@ -309,29 +311,15 @@
 
         function validateEmail() {
             const email = emailInput.value;
-            let isAtIncluded = false;
-            let isDotComIncluded = false;
-
-            if (email.includes('@')) {
-                isAtIncluded = true;
-            }
-
-            if (email.includes('.')) {
-                isDotComIncluded = true;
-            }
+            const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            const isValidEmail = emailRegex.test(email);
 
             emailError.textContent = '';
             successMessage.textContent = '';
 
-            if (!isAtIncluded) {
-                emailError.textContent = 'Alamat email harus menyertakan kata "@".';
-            }
-
-            if (!isDotComIncluded && isAtIncluded) {
-                emailError.textContent = 'Alamat email harus menyertakan character "."';
-            }
-
-            if (isAtIncluded && isDotComIncluded) {
+            if (!isValidEmail) {
+                emailError.textContent = 'Alamat email tidak valid. Pastikan formatnya seperti namaemail@domain.ekstensi.';
+            } else {
                 successMessage.textContent = 'Email Anda valid!';
             }
         }
@@ -357,7 +345,6 @@
                 newPasswordError.textContent = 'Kata sandi harus memiliki setidaknya 8 karakter.';
             } else {
                 newPasswordError.textContent = '';
-                newPasswordSuccess.textContent = 'Kata sandi sudah benar';
             }
 
             if (confirmPassword !== newPassword) {
