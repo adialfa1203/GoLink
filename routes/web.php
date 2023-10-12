@@ -70,7 +70,7 @@ Route::prefix('auth')->group(function(){
 });
 });
 
-Route::prefix('landing-page')->group(function(){
+Route::prefix('id')->group(function(){
     Route::get('/home', [LandingPageController::class, 'landingPage'])->name('landing.page');
     Route::get('/short-link', [LandingPageController::class, 'shortLink'])->name('short.link');
     Route::get('/microsite', [LandingPageController::class, 'micrositePage'])->name('microsite.page');
