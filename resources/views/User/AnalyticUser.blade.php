@@ -216,9 +216,9 @@
                     </div>
                 </div><!--end col-->
             </div>
-            <div id="additionalDataContainer" class="row d-none">
+            <div id="additionalDataContainer">
                 <div class="">
-                    <div class="card">
+                    <div class="card" id="agenciesList">
                         <div class="card-header fw-bold">
                             <div>
                                 Referer Teratas
