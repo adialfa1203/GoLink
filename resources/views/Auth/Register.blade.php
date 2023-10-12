@@ -101,7 +101,7 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Nama Lengkap</label>
                                                     <div class="position-relative">
-                                                        <input name="name" type="text"
+                                                        <input name="name" type="text" id="name"
                                                             class="form-control password-input"
                                                             placeholder="Masukkan Nama Lengkap"
                                                             value="{{ old('name') }}">
@@ -117,7 +117,7 @@
                                                     <label class="form-label">Nomer Ponsel</label>
                                                     <div class="position-relative">
                                                         <input name="number" type="number" class="form-control"
-                                                            placeholder="Masukkan Nomor Ponsel"
+                                                            placeholder="Masukkan Nomor Ponsel" id="number"
                                                             value="{{ old('number') }}">
                                                     </div>
                                                     <div>
@@ -304,15 +304,29 @@
 
     <script>
         function enableButton() {
+            const nameInput = document.getElementById('name');
+            const numberInput = document.getElementById('number');
+            const emailInput = document.getElementById('email');
+            const newPasswordInput = document.getElementById('newPassword');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
             const rememberCheckbox = document.getElementById('remember');
             const submitButton = document.getElementById('submitButton');
-            if (rememberCheckbox.checked) {
+
+            const nameValue = nameInput.value.trim();
+            const numberValue = numberInput.value.trim();
+            const emailValue = emailInput.value.trim();
+            const newPasswordValue = newPasswordInput.value.trim();
+            const confirmPasswordValue = confirmPasswordInput.value.trim();
+
+            if (nameValue !== '' && numberValue !== '' && emailValue !== '' && newPasswordValue !== '' &&
+                confirmPasswordValue !== '' && rememberCheckbox.checked) {
                 submitButton.removeAttribute('disabled');
             } else {
                 submitButton.setAttribute('disabled', 'disabled');
             }
         }
     </script>
+
     {{-- Email Validation --}}
     <script>
         const emailInput = document.getElementById('email');
