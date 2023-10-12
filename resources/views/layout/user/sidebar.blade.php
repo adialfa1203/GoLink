@@ -107,7 +107,7 @@
 
             <div id="two-column-menu">
             </div>
-            <ul class="navbar-nav" id="navbar-nav">
+            <ul class="navbar-nav" id="navbar-nav" style="padding-bottom: 20px;">
                 <li class="nav-item">
                     {{-- <button type="button" class="btn shadow-none" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -211,10 +211,10 @@
             <a class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ url('user/profil-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
                 <span data-key="t-chat">Profil</span> </a>
         </li>
-            <li class="nav-item">
-        <a class="nav-link menu-link" href="#" onclick="confirmLogout()"> <i class="mdi mdi-logout"></i>
-            <span data-key="t-chat">Keluar</span> </a>
-    </li>
+        <li class="nav-item">
+            <a class="nav-link menu-link" href="#" onclick="confirmLogout()"> <i class="mdi mdi-logout"></i>
+                <span data-key="t-chat">Keluar</span> </a>
+        </li>
         </ul>
     </div>
     <!-- Sidebar -->
