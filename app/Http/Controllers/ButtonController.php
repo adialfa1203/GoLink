@@ -71,14 +71,14 @@ class ButtonController extends Controller
         $button->name_button = $request->name_button;
         $button->icon = $request->icon;
         $button->color_hex = $request->color_hex;
-
-        $button->save();
-
         $socialCount = Social::where('buttons_uuid', $id)->count();
 
         if ($socialCount > 0) {
             return redirect()->route('view.button')->with('error', 'Tidak dapat mengedit Media Sosial ini karena masih ada data terkait.');
         }
+
+        $button->save(); 
+
 
         return redirect()->route('view.button')->with('success', 'Media Sosial berhasil diedit.');
     }
