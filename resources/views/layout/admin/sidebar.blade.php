@@ -176,10 +176,10 @@
                     <a class="nav-link menu-link {{ request()->routeIs('viewkomentar') ? 'active' : '' }}" href="{{ url('admin/view-komentar') }}" class="nav-link menu-link"><i class="bi bi-chat-right-text-fill"></i>
                         <span data-key="t-email">Komentar</span> </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->routeIs('blokir') ? 'active' : '' }}" href="{{ url('admin/blokir') }}" class="nav-link menu-link"><i class="fa fa-ban"></i>
                         <span data-key="t-email">Akun Di Blokir</span> </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->routeIs('view.footer') ? 'active' : '' }}" href="{{ url('admin/view-footer') }}" class="nav-link menu-link"> <i class="bi bi-exclude"></i>
                         <span data-key="t-chat">Footer</span> </a>

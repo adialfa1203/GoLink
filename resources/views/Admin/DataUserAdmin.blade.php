@@ -3,17 +3,18 @@
 @section('style')
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/sweetalert2/sweetalert2.min.css') }}"
         rel="stylesheet" type="text/css">
-        <style>
-                .custom-icon-size {
-        font-size: 30px;
-        /* Ubah ukuran font sesuai kebutuhan Anda */
-        color: #fafafa;
-        /* Warna merah muda */
-    }
-    .text-white {
-        color: white !important;
-    }
-        </style>
+    <style>
+        .custom-icon-size {
+            font-size: 30px;
+            /* Ubah ukuran font sesuai kebutuhan Anda */
+            color: #fafafa;
+            /* Warna merah muda */
+        }
+
+        .text-white {
+            color: white !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -22,216 +23,313 @@
 
             <!-- start page title -->
             <div class="row">
-                <div class="col-xl-3 col-sm-6">
-                    <div class="card border-bottom border-2 card-animate">
-                        <div class="card-body bg-success">
-                            <h5 class="fs-md text-muted mb-0 text-white">Pengguna</h5>
-
-                            <div class="row mt-3">
-                                <div class="col-2">
-                                    <i class="fa-solid fa-user custom-icon-size " style="font-size: 30px;"></i>
-                                </div>
-                                <div class="col-10">
-                                    <h3 class="mb-4 custom-icon-size " style="float: right;"><span class="counter-value" data-target="{{($totalUser)}}">{{($totalUser)}}</span> </h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--end col-->
-                <div class="col-xl-3 col-sm-6">
-                    <div class="card border-bottom border-2 card-animate">
-                        <div class="card-body bg-primary">
-                            <h5 class="fs-md text-muted mb-0 text-white">Tautan</h5>
-
-                            <div class="row mt-3">
-                                <div class="col-2">
-                                    <i class="fa-solid fa-link custom-icon-size " style="font-size: 30px;"></i>
-                                </div>
-                                <div class="col-10">
-                                    <h3 class="mb-4 custom-icon-size" style="float: right;"><span class="counter-value" data-target="{{($totalUrl)}}">{{($totalUrl)}}</span> </h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--end col-->
-                <div class="col-xl-3 col-sm-6">
+                <div class="col-xl-6 col-sm-6">
                     <div class="card border-bottom border-2 card-animate">
                         <div class="card-body bg-warning">
-                            <h5 class="fs-md text-muted mb-0 text-white">Pengunjung</h5>
+                            <h5 class="fs-md text-muted mb-0 text-white">Pengguna</h5>
                             <div class="row mt-3">
                                 <div class="col-2">
-                                    <i class="fa-solid fa-link custom-icon-size" style="font-size: 30px;"></i>
+                                    <i class="bi bi-person-fill-check custom-icon-size" style="font-size: 30px;"></i>
                                 </div>
                                 <div class="col-10">
-                                    <h3 class="mb-4 custom-icon-size" style="float: right;"><span class="counter-value" data-target="{{($totalVisits)}}">{{($totalVisits)}}</span> </h3>
+                                    <h3 class="mb-4 custom-icon-size" style="float: right;"><span class="counter-value"
+                                            data-target="{{ $totalUser }}">{{ $totalUser }}</span> </h3>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div><!--end col-->
-                <div class="col-xl-3 col-sm-6">
+                <div class="col-xl-6 col-sm-6">
                     <div class="card border-bottom border-2 card-animate">
-                        <div class="card-body" style="background-color : #FF6C6C">
-                            <h5 class="fs-md text-muted mb-0 text-white">Microsite</h5>
+                        <div class="card-body" style="background-color: #FF6C6C">
+                            <h5 class="fs-md text-muted mb-0 text-white">Pengguna Di Blokir</h5>
+
                             <div class="row mt-3">
                                 <div class="col-2">
-                                    <i class="fa-solid fa-user custom-icon-size" style="font-size: 30px;"></i>
+                                    <i class="bi bi-person-fill-slash custom-icon-size" style="font-size: 30px;"></i>
                                 </div>
                                 <div class="col-10">
-                                    <h3 class="mb-4 custom-icon-size" style="float: right;"><span class="counter-value" data-target=" {{($totalMicrosite)}}">{{($totalMicrosite)}}</span> </h3>
+                                    <h3 class="mb-4 custom-icon-size" style="float: right;"><span class="counter-value"
+                                            data-target="{{ $totaldiblokir }}">{{ $totaldiblokir }}</span> </h3>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div><!--end col-->
-            </div><!--end row-->
                 </div>
-                <!-- end page title -->
+            </div><!--end row-->
+        </div>
+        <div class="card-header mb-3">
+            <div class="row align-items-center gy-3">
+                <div class="col-lg-3 col-md-6">
+                    <div class="search-box">
+                        <input type="text" class="form-control search" id="searchInput" placeholder="Cari...">
+                        <i class="ri-search-line search-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-pills animation-nav nav-justified gap-2 mb-3" role="tablist">
+                        <li class="nav-item ">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#animation-home" role="tab">
+                                Pengguna
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" data-bs-toggle="tab" href="#animation-profile" role="tab">
+                                Pengguna Di Blokir
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content text-muted">
+                        <div class="tab-pane active" id="animation-home" role="tabpanel">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card" id="orderList">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table
+                                                    class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                    <thead class="text-muted table-light">
+                                                        <tr class="searchable">
+                                                            <th scope="col" data-sort="order_id">No</th>
+                                                            <th scope="col" data-sort="order_id">Nama
+                                                                Pengguna</th>
+                                                            <th scope="col" data-sort="order_date">E-mail
+                                                            </th>
+                                                            <th scope="col" data-sort="delivery_date">No
+                                                                Telepon</th>
+                                                            <th scope="col" data-sort="status">Berlangganan
+                                                            </th>
+                                                            <th scope="col">Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="list form-check-all">
+                                                        @if ($data->isEmpty())
+                                                            <tr>
+                                                                <td colspan="6">
+                                                                    <div class="d-flex flex-column align-items-center">
+                                                                        <img style="width: 300px; height: 300px;"
+                                                                            src="{{ asset('images/Empty.jpg') }}"
+                                                                            alt="Gambar">
+                                                                        <div
+                                                                            class="d-flex justify-content-center align-items-center mt-2">
+                                                                            <i
+                                                                                class="ph-magnifying-glass fs-2 text-primary"></i>
+                                                                            <h5 class="mt-2">Maaf! Belum Ada Data
+                                                                                Yang Ditemukan</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        @else
+                                                            @foreach ($data as $row)
+                                                                <tr id="user_{{ $row->id }}">
+                                                                    <th class="order_id">{{ $loop->iteration }}
+                                                                    </th>
+                                                                    <td class="order_id">{{ $row->name }}</td>
+                                                                    <td class="order_date">{{ $row->email }}
+                                                                    </td>
+                                                                    <td class="products">{{ $row->number }}</td>
+                                                                    <td class="status">
+                                                                        @if ($row->subscribe === 'yes')
+                                                                            <span
+                                                                                class="badge bg-primary-subtle text-primary">Berlangganan</span>
+                                                                        @elseif ($row->subscribe === 'no')
+                                                                            <span
+                                                                                class="badge bg-danger-subtle text-danger">Tidak
+                                                                                Berlangganan</span>
+                                                                        @endif
+                                                                    </td>
+                                                                    <td>
+                                                                        <ul class="d-flex gap-2 list-unstyled mb-0">
+                                                                            <li>
+                                                                                <a href="#"
+                                                                                    @if ($row->is_banned == 1) class="btn btn-subtle-success btn-icon btn-sm me-3"
+                                                                                            @else
+                                                                                            class="btn btn-subtle-danger btn-icon btn-sm me-3" @endif
+                                                                                    data-bs-toggle="modal"
+                                                                                    data-user-id="{{ $row->id }}"
+                                                                                    data-is-banned="{{ $row->is_banned }}">
+                                                                                    <i class="fas fa-ban"></i>
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody><!-- end tbody -->
+                                                </table>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card" id="orderList">
-                        <div class="card-header">
-                            <div class="row align-items-center gy-3">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="search-box">
-                                        <input type="text" class="form-control search" id="searchInput"
-                                            placeholder="Cari...">
-                                        <i class="ri-search-line search-icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                    <thead class="text-muted table-light">
-                                        <tr class="searchable">
-                                            <th scope="col" data-sort="order_id">No</th>
-                                            <th scope="col" data-sort="order_id">Nama
-                                                Pengguna</th>
-                                            <th scope="col" data-sort="order_date">E-mail
-                                            </th>
-                                            <th scope="col" data-sort="delivery_date">No
-                                                Telepon</th>
-                                            <th scope="col" data-sort="status">Berlangganan
-                                            </th>
-                                            <th scope="col">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="list form-check-all">
-                                        @if ($data->isEmpty())
-                                            <tr>
-                                                <td colspan="6">
-                                                    <div class="d-flex flex-column align-items-center">
-                                                        <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.jpg') }}" alt="Gambar">
-                                                        <div class="d-flex justify-content-center align-items-center mt-2">
-                                                            <i class="ph-magnifying-glass fs-2 text-primary"></i>
-                                                            <h5 class="mt-2">Maaf! Belum Ada Data Yang Ditemukan</h5>
+                                                <br><!-- end table -->
+                                                <div class="noresult" style="display: none">
+                                                    <div class="text-center py-4">
+                                                        <i class="ph-magnifying-glass fs-1 text-primary"></i>
+                                                        <h5 class="mt-2">Sorry! No Result Found</h5>
+                                                        <p class="text-muted mb-0">We've searched more than 150+
+                                                            orders We did not find any
+                                                            orders for you search.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
+                                                id="pagination-element">
+                                                <div class="col-sm">
+                                                    <div class="text-muted">
+                                                        Menampilkan <span class="fw-semibold">{{ $d->firstItem() }}</span>
+                                                        hingga <span class="fw-semibold">{{ $d->lastItem() }}</span>
+                                                        dari total <span class="fw-semibold">{{ $d->total() }}</span>
+                                                        Hasil
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-auto mt-3 mt-sm-0">
+                                                    <div
+                                                        class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
+                                                        <div class="page-item">
+                                                            {{ $d->links('pagination::bootstrap-5') }}
                                                         </div>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                        @else
-                                            @foreach ($data as $row)
-                                                <tr id="user_{{ $row->id }}">
-                                                    <th class="order_id">{{$loop->iteration}}</th>
-                                                    <td class="order_id">{{ $row->name }}</td>
-                                                    <td class="order_date">{{ $row->email }}</td>
-                                                    <td class="products">{{ $row->number }}</td>
-                                                    <td class="status">
-                                                        @if ($row->subscribe === 'yes')
-                                                            <span class="badge bg-primary-subtle text-primary">Berlangganan</span>
-                                                        @elseif ($row->subscribe === 'no')
-                                                            <span class="badge bg-danger-subtle text-danger">Tidak Berlangganan</span>
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        <ul class="d-flex gap-2 list-unstyled mb-0">
-                                                            <li>
-                                                                <a href="#"
-                                                                    @if ($row->is_banned == 1) class="btn btn-subtle-success btn-icon btn-sm me-3"
-                                                                @else
-                                                                class="btn btn-subtle-danger btn-icon btn-sm me-3" @endif
-                                                                    data-bs-toggle="modal" data-user-id="{{ $row->id }}"
-                                                                    data-is-banned="{{ $row->is_banned }}">
-                                                                    <i class="fas fa-ban"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        @endif
-                                    </tbody><!-- end tbody -->
-                                </table>
-
-                                <br><!-- end table -->
-                                <div class="noresult" style="display: none">
-                                    <div class="text-center py-4">
-                                        <i class="ph-magnifying-glass fs-1 text-primary"></i>
-                                        <h5 class="mt-2">Sorry! No Result Found</h5>
-                                        <p class="text-muted mb-0">We've searched more than 150+ orders We did not find any
-                                            orders for you search.</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
-                                <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}"
-                                    href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
-                                    Sebelumnya
-                                </a>
-                                <ul class="pagination listjs-pagination mb-0">
-                                    @if ($d->currentPage() > 2)
-                                        <li>
-                                            <a class="page" href="{{ $d->url(1) }}">1</a>
-                                        </li>
-                                        @if ($d->currentPage() > 3)
-                                            <li class="ellipsis">
-                                                <span>...</span>
-                                            </li>
-                                        @endif
-                                    @endif
+                        </div>
+                        <div class="tab-pane" id="animation-profile" role="tabpanel">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card" id="orderList">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table
+                                                    class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                    <thead class="text-muted table-light">
+                                                        <tr class="searchable">
+                                                            <th scope="col" data-sort="order_id">No</th>
+                                                            <th scope="col" data-sort="order_id">Nama
+                                                                Pengguna</th>
+                                                            <th scope="col" data-sort="order_date">E-mail
+                                                            </th>
+                                                            <th scope="col" data-sort="delivery_date">No
+                                                                Telepon</th>
+                                                            <th scope="col" data-sort="status">Berlangganan
+                                                            </th>
+                                                            <th scope="col">Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="list form-check-all">
+                                                        @if ($bannedUser->isEmpty())
+                                                            <tr>
+                                                                <td colspan="6">
+                                                                    <div class="d-flex flex-column align-items-center">
+                                                                        <img style="width: 300px; height: 300px;"
+                                                                            src="{{ asset('images/Empty.jpg') }}"
+                                                                            alt="Gambar">
+                                                                        <div
+                                                                            class="d-flex justify-content-center align-items-center mt-2">
+                                                                            <i
+                                                                                class="ph-magnifying-glass fs-2 text-primary"></i>
+                                                                            <h5 class="mt-2">Maaf! Belum Ada Data
+                                                                                Yang Ditemukan</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        @else
+                                                            @foreach ($bannedUser as $banned)
+                                                                <tr id="user_{{ $banned->id }}">
+                                                                    <th class="order_id">{{ $loop->iteration }}
+                                                                    </th>
+                                                                    <td class="order_id">{{ $banned->name }}</td>
+                                                                    <td class="order_date">{{ $banned->email }}
+                                                                    </td>
+                                                                    <td class="products">{{ $banned->number }}</td>
+                                                                    <td class="status">
+                                                                        @if ($banned->subscribe === 'yes')
+                                                                            <span
+                                                                                class="badge bg-primary-subtle text-primary">Berlangganan</span>
+                                                                        @elseif ($banned->subscribe === 'no')
+                                                                            <span
+                                                                                class="badge bg-danger-subtle text-danger">Tidak
+                                                                                Berlangganan</span>
+                                                                        @endif
+                                                                    </td>
+                                                                    <td>
+                                                                        <ul class="d-flex gap-2 list-unstyled mb-0">
+                                                                            <li>
+                                                                                <a href="#"
+                                                                                    @if ($banned->is_banned == 1) class="btn btn-subtle-success btn-icon btn-sm me-3"
+                                                                                            @else
+                                                                                            class="btn btn-subtle-danger btn-icon btn-sm me-3" @endif
+                                                                                    data-bs-toggle="modal"
+                                                                                    data-user-id="{{ $banned->id }}"
+                                                                                    data-is-banned="{{ $banned->is_banned }}">
+                                                                                    <i class="fas fa-ban"></i>
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody><!-- end tbody -->
+                                                </table>
 
-                                    @for ($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
-                                        <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
-                                            <a class="page" href="{{ $d->url($i) }}"
-                                                data-i="{{ $i }}">{{ $i }}</a>
-                                        </li>
-                                    @endfor
-
-                                    @if ($d->currentPage() < $d->lastPage() - 1)
-                                        @if ($d->currentPage() < $d->lastPage() - 2)
-                                            <li class="ellipsis">
-                                                <span>...</span>
-                                            </li>
-                                        @endif
-                                        <li>
-                                            <a class="page"
-                                                href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
-                                        </li>
-                                    @endif
-                                </ul>
-                                <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}"
-                                    href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
-                                    Selanjutnya
-                                    </a>
+                                                <br><!-- end table -->
+                                                <div class="noresult" style="display: none">
+                                                    <div class="text-center py-4">
+                                                        <i class="ph-magnifying-glass fs-1 text-primary"></i>
+                                                        <h5 class="mt-2">Sorry! No Result Found</h5>
+                                                        <p class="text-muted mb-0">We've searched more than 150+
+                                                            orders We did not find any
+                                                            orders for you search.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
+                                                id="pagination-element">
+                                                <div class="col-sm">
+                                                    <div class="text-muted">
+                                                        Menampilkan <span
+                                                            class="fw-semibold">{{ $bannedUser->firstItem() }}</span>
+                                                        hingga <span
+                                                            class="fw-semibold">{{ $bannedUser->lastItem() }}</span>
+                                                        dari total <span
+                                                            class="fw-semibold">{{ $bannedUser->total() }}</span>
+                                                        Hasil
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-auto mt-3 mt-sm-0">
+                                                    <div
+                                                        class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
+                                                        <div class="page-item">
+                                                            {{ $bannedUser->links('pagination::bootstrap-5') }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end card -->
                 </div>
-                <!-- end col -->
             </div>
-            <!-- end row -->
-
         </div>
-        <!-- container-fluid -->
+    </div>
+    <!-- container-fluid -->
     </div>
 
 @endsection
 @section('script')
-    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/sweetalert2/sweetalert2.min.js') }}">
+    </script>
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/sweetalerts.init.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.0/list.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -259,43 +357,44 @@
         });
     </script> --}}
     <script>
-        $(document).ready(function () {
-            $("#checkAll").change(function () {
+        $(document).ready(function() {
+            $("#checkAll").change(function() {
                 $(".child-checkbox").prop('checked', $(this).prop('checked'));
             });
 
-            $('#deleteAllSelectedRecord').click(function (e) {
+            $('#deleteAllSelectedRecord').click(function(e) {
                 e.preventDefault();
                 var selectedIds = [];
 
-                $(".child-checkbox:checked").each(function () {
-                    selectedIds.push($(this).val()); // Mengambil nilai ID dari checkbox yang dipilih
+                $(".child-checkbox:checked").each(function() {
+                    selectedIds.push($(this)
+                        .val()); // Mengambil nilai ID dari checkbox yang dipilih
                 });
 
                 $.ajax({
-                    url: "{{ route('data.banned')}}",
+                    url: "{{ route('data.banned') }}",
                     type: "POST",
                     data: {
                         ids: selectedIds, // Mengirim semua ID yang dipilih ke server
                         _token: '{{ csrf_token() }}'
                     },
-                    success: function (response) {
+                    success: function(response) {
                         // Hapus baris akun yang dipilih dari tampilan
-                        $.each(selectedIds, function (index, id) {
+                        $.each(selectedIds, function(index, id) {
                             $("#user_" + id).remove();
                         });
                     }
                 });
             });
         });
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var options = {
-                    valueNames: ['order_id', 'order_date', 'delivery_date', 'status']
-                };
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var options = {
+                valueNames: ['order_id', 'order_date', 'delivery_date', 'status']
+            };
 
-                var userList = new List('your-table-id', options);
-            });
-        </script>
+            var userList = new List('your-table-id', options);
+        });
+    </script>
 @endsection

@@ -16,6 +16,8 @@ class DataUserController extends Controller
         $data = User::where('is_banned', 0)->role('user')->paginate(10);
         $d=$data;
 
+        $bannedUser = User::where('is_banned', 1)->paginate(10);
+
         $totalUser = User::where('email', '!=', 'admin@gmail.com')
                     ->where('is_banned', '!=', '1')
                     ->count();
@@ -37,9 +39,8 @@ class DataUserController extends Controller
         }
 
 
-        // Mengurutkan data berdasarkan jumlah pengunjung
         arsort($count);
-        return view('Admin.DataUserAdmin', compact('d', 'data','totalUser', 'totalUrl', 'totalVisits', 'users', 'count','totalMicrosite', 'totaldiblokir'));
+        return view('Admin.DataUserAdmin', compact('d', 'data','totalUser', 'totalUrl', 'totalVisits', 'users', 'count','totalMicrosite', 'totaldiblokir', 'bannedUser'));
     }
 
 
