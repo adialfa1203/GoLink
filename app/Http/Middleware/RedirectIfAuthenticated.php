@@ -34,7 +34,7 @@ class RedirectIfAuthenticated
                     Auth::logout();
                     return redirect('/login')->with('error', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
                 } else {
-                    return redirect()->route('dashboard.user')->withCookie(cookie('remember_web', true, 3));
+                    return redirect()->route('landing.page')->withCookie(cookie('remember_web', true, 3));
                 }
             }
         }
