@@ -26,11 +26,9 @@
     <!-- waveanimation-Style-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/wave-animation-style.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
-        style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}" style="width: 200px; height: 200px;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -170,48 +168,51 @@
 
         </section>
         <div class="container-fluid">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            {{-- <div class="p-3 mb-2 text-white text-center" style="background-color:#104898; height: 200px; margin-bottom: 10%; font-size:50px;">Memulai</div> --}}
-                            {{-- <a href="/HelpSupport" class="col-1 btn btn-info btn-sm">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        {{-- <div class="p-3 mb-2 text-white text-center" style="background-color:#104898; height: 200px; margin-bottom: 10%; font-size:50px;">Memulai</div> --}}
+                        {{-- <a href="/HelpSupport" class="col-1 btn btn-info btn-sm">
                                 <i class="fas fa-arrow-left"></i> Kembali
                             </a> --}}
-                            <p></p>
+                        <p></p>
 
-                            <div class="col-xl-12">
-    <h5><strong>Kebijakan Privasi</strong></h5>
+                        <div class="col-xl-12">
+                            <h5><strong>Kebijakan Privasi</strong></h5>
 
-    <p>Hummasoft Technology membangun aplikasi Go.Link sebagai aplikasi Komersial. LAYANAN ini adalah disediakan oleh Hummasoft Technology dan dimaksudkan untuk digunakan sebagaimana adanya.</p>
+                            <p>Hummasoft Technology membangun aplikasi Go.Link sebagai aplikasi Komersial. LAYANAN ini adalah disediakan oleh Hummasoft Technology dan dimaksudkan untuk digunakan sebagaimana adanya.</p>
 
-    <p>Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami terkait pengumpulan, penggunaan, dan pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan kami.</p>
+                            <p>Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami terkait pengumpulan, penggunaan, dan pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan kami.</p>
 
-    <p>Jika Anda memilih untuk menggunakan Layanan kami, maka Anda menyetujui pengumpulan dan penggunaan informasi di kaitannya dengan kebijakan ini. Informasi Pribadi yang kami kumpulkan digunakan untuk menyediakan dan meningkatkan Layanan. Kami tidak akan menggunakan atau membagikan informasi Anda kepada siapa pun kecuali seperti dijelaskan dalam Kebijakan Privasi ini.</p>
+                            <p>Jika Anda memilih untuk menggunakan Layanan kami, maka Anda menyetujui pengumpulan dan penggunaan informasi di kaitannya dengan kebijakan ini. Informasi Pribadi yang kami kumpulkan digunakan untuk menyediakan dan meningkatkan Layanan. Kami tidak akan menggunakan atau membagikan informasi Anda kepada siapa pun kecuali seperti dijelaskan dalam Kebijakan Privasi ini.</p>
 
-    <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a style="color: #104898" href="{{ url('landingpage/Privacy')}}">Syarat dan Ketentuan</a>, yang dapat diakses di Go.Link kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
+                            <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a style="color: #104898" href="{{ url('landingpage/Privacy')}}">Syarat dan Ketentuan</a>, yang dapat diakses di Go.Link kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
 
-    <h3><strong>Ketentuan Pengumpulan Informasi</strong></h3>
+                            <h3><strong>Ketentuan Pengumpulan Informasi</strong></h3>
 
-    <p>Untuk pengalaman yang lebih baik, saat menggunakan Layanan kami, kami mungkin meminta Anda untuk memberikan informasi pengenal pribadi tertentu, termasuk namun tidak terbatas pada Go.Link. Informasi yang kami minta akan kami simpan dan gunakan sebagaimana dijelaskan dalam kebijakan privasi ini.</p>
+                            <p>Untuk pengalaman yang lebih baik, saat menggunakan Layanan kami, kami mungkin meminta Anda untuk memberikan informasi pengenal pribadi tertentu, termasuk namun tidak terbatas pada Go.Link. Informasi yang kami minta akan kami simpan dan gunakan sebagaimana dijelaskan dalam kebijakan privasi ini.</p>
 
-    <p>Aplikasi ini menggunakan layanan pihak ketiga yang mungkin mengumpulkan informasi yang digunakan untuk mengidentifikasi Anda.</p>
+                            <p>Aplikasi ini menggunakan layanan pihak ketiga yang mungkin mengumpulkan informasi yang digunakan untuk mengidentifikasi Anda.</p>
 
-    <h5><strong>Data Log</strong></h5>
+                            <h5><strong>Data Log</strong></h5>
 
-    <p>Kami ingin memberi tahu Anda bahwa setiap kali Anda menggunakan Layanan kami, jika terjadi kesalahan pada aplikasi, kami mengumpulkan data dan informasi (melalui produk pihak ketiga) di ponsel Anda yang disebut Data Log. Data Log ini mungkin mencakup informasi seperti Protokol Internet (“IP”) perangkat Anda alamat, nama perangkat, versi sistem operasi, konfigurasi aplikasi saat digunakan Layanan kami, waktu dan tanggal penggunaan Layanan oleh Anda, dan statistik lainnya.</p>
+                            <p>Kami ingin memberi tahu Anda bahwa setiap kali Anda menggunakan Layanan kami, jika terjadi kesalahan pada aplikasi, kami mengumpulkan data dan informasi (melalui produk pihak ketiga) di ponsel Anda yang disebut Data Log. Data Log ini mungkin mencakup informasi seperti Protokol Internet (“IP”) perangkat Anda alamat, nama perangkat, versi sistem operasi, konfigurasi aplikasi saat digunakan Layanan kami, waktu dan tanggal penggunaan Layanan oleh Anda, dan statistik lainnya.</p>
 
-    <h5><strong>Cookie</strong></h5>
+                            <h5><strong>Cookie</strong></h5>
 
-    <p>Cookie adalah file dengan sejumlah kecil data yang biasanya digunakan sebagai unik anonim pengidentifikasi. Ini adalah</p>
-    <p>dikirim ke browser Anda dari situs web yang Anda kunjungi</p>
-</div>
+                            <p>Cookie adalah file dengan sejumlah kecil data yang biasanya digunakan sebagai unik anonim pengidentifikasi. Ini adalah</p>
+                            <p>dikirim ke browser Anda dari situs web yang Anda kunjungi</p>
+                        </div>
 
-                        </div><!--end row-->
-                    </div>
+                    </div><!--end row-->
                 </div>
+            </div>
         </div><!--end col-->
 
     </div>
+    <br>
+    <br>
+    <br>
     @include('layout.landingPage.footer')
     <!-- Footer-Section end -->
 
@@ -224,8 +225,7 @@
                 </button>
                 <div class="modal-body">
                     <div id="video-container" class="video-container">
-                        <iframe id="youtubevideo" src="#" width="640" height="360" frameborder="0"
-                            allowfullscreen></iframe>
+                        <iframe id="youtubevideo" src="#" width="640" height="360" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -242,7 +242,7 @@
 
                                                                 <p>Istilah yang digunakan dalam Kebijakan Privasi
                                                                     ini memiliki arti yang sama dengan <a
-                                                                        href="{{ url('landing-page/privacy') }}">Syarat
+                                                                        href="{{ url('id/privacy') }}">Syarat
                                                                         dan Ketentuan</a>,
                                                                     yang dapat diakses di GoLink kecuali ditentukan
                                                                     lain dalam Kebijakan Privasi ini.</p>
