@@ -88,7 +88,10 @@ class AuthController extends Controller
             'email.unique' => 'Email sudah terdaftar, silahkan gunakan email lain.',
             'remember.required' => 'Anda harus menyetujui Kebijakan Privasi.',
             'password.required' => 'Kata sandi tidak boleh kosong',
-            'password.min' => 'Kata sandi minimal terdiri dari 8 karakter.'
+            'password.min' => 'Kata sandi minimal terdiri dari 8 karakter.',
+            'password_confirmation' => 'required_with:password|same:password',
+            'password_confirmation.required_with' => 'Konfirmasi kata sandi diperlukan ketika kata sandi diisi.',
+            'password_confirmation.same' => 'Konfirmasi kata sandi harus sama dengan kata sandi.'
         ]);
         if ($validator->fails()) {
             return redirect()->back()

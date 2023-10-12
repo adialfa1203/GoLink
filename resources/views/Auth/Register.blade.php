@@ -195,9 +195,9 @@
                                                 </div>
                                                 <div>
                                                     <input class="form-check-input" type="checkbox" name="remember"
-                                                        id="remember">
-                                                    <label class="form-check-label" for="remember">Saya setuju
-                                                        dengan <a href="#" data-bs-target="#myModal"
+                                                        id="remember" onchange="enableButton()">
+                                                    <label class="form-check-label" for="remember">Saya setuju dengan
+                                                        <a href="#" data-bs-target="#myModal"
                                                             data-bs-toggle="modal" id="privacyLink">Kebijakan
                                                             Privasi</a></label>
                                                 </div>
@@ -224,11 +224,12 @@
                                                                     sebagai aplikasi Komersial. LAYANAN ini adalah
                                                                     disediakan oleh Hummasoft Technology dan
                                                                     dimaksudkan untuk digunakan sebagaimana adanya.
-                                                                </p <p>Halaman ini digunakan untuk memberi tahu
-                                                                pengunjung mengenai kebijakan kami terkait
-                                                                pengumpulan, penggunaan, dan pengungkapan Informasi
-                                                                Pribadi jika ada yang memutuskan untuk menggunakan
-                                                                Layanan kami.</p>
+                                                                </p>
+                                                                <p>Halaman ini digunakan untuk memberi tahu
+                                                                    pengunjung mengenai kebijakan kami terkait
+                                                                    pengumpulan, penggunaan, dan pengungkapan Informasi
+                                                                    Pribadi jika ada yang memutuskan untuk menggunakan
+                                                                    Layanan kami.</p>
 
                                                                 <p>Jika Anda memilih untuk menggunakan Layanan kami,
                                                                     maka Anda menyetujui pengumpulan dan penggunaan
@@ -251,8 +252,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="mt-4">
-                                                    <button class="btn btn-primary w-100 custom-btn"
-                                                        type="submit">Daftar</button>
+                                                    <button class="btn btn-primary w-100 custom-btn" type="submit"
+                                                        id="submitButton" disabled>Daftar</button>
                                                 </div>
                                             </form>
                                             <div class="text-center mt-5">
@@ -301,6 +302,17 @@
     <!-- swiper.init js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/swiper.init.js') }}"></script>
 
+    <script>
+        function enableButton() {
+            const rememberCheckbox = document.getElementById('remember');
+            const submitButton = document.getElementById('submitButton');
+            if (rememberCheckbox.checked) {
+                submitButton.removeAttribute('disabled');
+            } else {
+                submitButton.setAttribute('disabled', 'disabled');
+            }
+        }
+    </script>
     {{-- Email Validation --}}
     <script>
         const emailInput = document.getElementById('email');
