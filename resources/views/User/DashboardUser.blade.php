@@ -144,6 +144,7 @@
                                                     <input type="text" class="form-control" name="destination_url"
                                                         id="AmountInput"
                                                         placeholder="http://domain-mu.id/yang-paling-panjang-disini">
+                                                    <span id="urlError" class="text-danger"></span>
                                                 </div>
                                                 <div>
                                                     @if ($errors->has('default_short_url'))
@@ -671,6 +672,26 @@
                 $('#singkatkan').modal('show');
             });
         });
+    </script>
+
+    <script>
+        const urlInput = document.getElementById('AmountInput');
+        const urlError = document.getElementById('urlError');
+
+        urlInput.addEventListener('input', validateURL);
+
+        function validateURL() {
+            const url = urlInput.value;
+            const urlRegex = /^(http|https):\/\/[\w\-.]+\.[a-z]{2,}(\/\S*)?$/i;
+            const isValidURL = urlRegex.test(url);
+
+            urlError.textContent = '';
+
+            if (!isValidURL) {
+                urlError.textContent =
+                    'Tautan tidak valid. Pastikan formatnya seperti http://domain-mu.id.';
+            }
+        }
     </script>
 
     <script>
