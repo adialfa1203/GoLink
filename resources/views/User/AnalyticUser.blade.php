@@ -216,7 +216,7 @@
                     </div>
                 </div><!--end col-->
             </div>
-            <div id="additionalDataContainer">
+            <div id="additionalDataContainer" class="d-none">
                 <div class="">
                     <div class="card" id="agenciesList">
                         <div class="card-header fw-bold">

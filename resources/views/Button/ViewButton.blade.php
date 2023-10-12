@@ -30,7 +30,12 @@
                     @foreach ($button as $data)
                         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                             <div class="card">
-                                <div class="card-footer text-center">
+                            <div class="card-body">
+                                <div class=" text-center d-flex">
+                                    <div class="col-10">
+                                        <p class="ms-2" style="float: left; font-weight: bold;"> {{ $data->name_button }}</p>
+                                    </div>
+                                    <div class="col-2">
                                     <div class="dropdown float-end">
                                         <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
@@ -44,8 +49,8 @@
                                                 data-id="{{ $data->id }}">Hapus</button>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
-                                <div class="card-body">
                                     <button style="background-color: {{ $data->color_hex }}; color: white;" type="button"
                                         class="col-xl-12 col-12 btn btn-label rounded-pill" data-bs-toggle="collapse"
                                         data-bs-target="{{ $data->id }}" aria-expanded="true"
