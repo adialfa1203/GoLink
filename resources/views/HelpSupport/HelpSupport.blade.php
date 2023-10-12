@@ -185,20 +185,20 @@
             <div class="container">
                 <div class="row justify-content-between mb-3">
                     <div class="col-12 text-center">
-                        <a href="{{ url('landing-page/start') }}" class="btn btn-outline-info custom-btn">Memulai</a>
-                        <a href="{{ url('landing-page/announcement') }}"
+                        <a href="{{ url('id/start') }}" class="btn btn-outline-info custom-btn">Memulai</a>
+                        <a href="{{ url('id/announcement') }}"
                             class="btn btn-outline-info custom-btn">Pengumuman</a>
-                        <a href="{{ url('landing-page/account') }}" class="btn btn-outline-info custom-btn">Akun</a>
+                        <a href="{{ url('id/account') }}" class="btn btn-outline-info custom-btn">Akun</a>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row justify-content-between mb-5">
                     <div class="col-12 text-center">
-                        <a href="{{ url('landing-page/billing-subscriptions') }}"
+                        <a href="{{ url('id/billing-subscriptions') }}"
                             class="btn btn-outline-info custom-btn">Penagihan dan
                             Langganan</a>
-                        <a href="{{ url('landing-page/platform-microsite') }}"
+                        <a href="{{ url('id/platform-microsite') }}"
                             class="btn btn-outline-info custom-btn">Layanan Microsite</a>
                         <a href="{{ route('short.link') }}" class="btn btn-outline-info custom-btn">Penyingkat
                             Tautan</a>

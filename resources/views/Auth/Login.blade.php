@@ -315,7 +315,7 @@
                                         </div>
                                     </div><!-- end card body -->
                                     <center>
-                                    <a href="{{ url('landing-page/home') }}">
+                                    <a href="{{ url('id/home') }}">
                                     <button type="button" class="btn btn-link"><i class="fa-solid fa-chevron-left me-1"></i>Halaman Depan</button>
                                     </a>
                                     </center>
