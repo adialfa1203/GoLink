@@ -26,6 +26,7 @@
         crossorigin>
     <link id="fontsLink"
         href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Layout config Js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/layout.js') }}"></script>
@@ -177,6 +178,7 @@
         .log{
             margin-bottom: 5px;
         }
+
     </style>
     <style>
         @media (max-width: 768px) {
@@ -276,7 +278,7 @@
                                                     <button class="btn btn-primary w-100 custom-btn"
                                                         type="submit">Masuk</button>
                                                 </div>
-                                                <div class="mt-4 pt-2 text-center">
+                                                <div class="mt-1 pt-2 text-center">
                                                     <div class="signin-other-title position-relative">
                                                         <h5 class="fs-sm mb-4 title">Login dengan</h5>
                                                     </div>
@@ -304,7 +306,7 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                            <div class="text-center mt-5">
+                                            <div class="text-center mt-2">
                                                 <p class="mb-0">Tidak mempunyai akun ? <a
                                                         href="{{ url('auth/register') }}"
                                                         class="fw-semibold text-secondary text-decoration-underline">
@@ -312,6 +314,11 @@
                                             </div>
                                         </div>
                                     </div><!-- end card body -->
+                                    <center>
+                                    <a href="{{ url('landing-page/home') }}">
+                                    <button type="button" class="btn btn-link"><i class="fa-solid fa-chevron-left me-1"></i>Halaman Depan</button>
+                                    </a>
+                                    </center>
                                 </div><!-- end card -->
                             </div>
                             <div class="col-6 right-section img col-lg-6">
