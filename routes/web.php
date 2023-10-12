@@ -37,7 +37,7 @@ Route::fallback(function() {
 });
 Route::middleware(['guest'])->group(function () {
     Route::redirect('/', 'landing-page/home');
-Route::prefix('auth')->group(function(){
+Route::prefix('id')->group(function(){
     Route::get('/login',[AuthController::class,'login'])->name('login');
     Route::POST('/login-user',[AuthController::class,'loginUser'])->name('login.user');
     Route::get('/Link', [LinkController::class, 'Link'])->name('Link');

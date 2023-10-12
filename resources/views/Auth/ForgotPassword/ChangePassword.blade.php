@@ -131,7 +131,7 @@
                                             </div>
                                             <div class="mt-4 text-center">
                                                 <p class="mb-0">Tunggu, saya ingat kata sandi saya ... <a
-                                                        href="{{ url('auth/login') }}"
+                                                        href="{{ url('id/login') }}"
                                                         class="fw-semibold text-primary text-decoration-underline"> Masuk </a>
                                                 </p>
                                             </div>

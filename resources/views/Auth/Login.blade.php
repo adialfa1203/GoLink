@@ -264,7 +264,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="float-end">
-                                                        <a href="{{ url('auth/send-email') }}" class="text-muted">Lupa kata
+                                                        <a href="{{ url('id/send-email') }}" class="text-muted">Lupa kata
                                                             sandi?</a>
                                                     </div>
                                                     <div class="mb-3 form-check col-4">
@@ -308,7 +308,7 @@
                                             </form>
                                             <div class="text-center mt-2">
                                                 <p class="mb-0">Tidak mempunyai akun ? <a
-                                                        href="{{ url('auth/register') }}"
+                                                        href="{{ url('id/register') }}"
                                                         class="fw-semibold text-secondary text-decoration-underline">
                                                         Daftar</a> </p>
                                             </div>
