@@ -242,7 +242,10 @@ class MicrositeController extends Controller
         ],[
             'component_name.required' => 'Nama wajib diisi',
             'component_name.max' => 'Tidak boleh lebih besar dari 20 karakter',
+            'cover_img' => 'Kolom gambar sampul harus berupa gambar.
+'
         ]);
+
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)

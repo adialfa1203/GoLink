@@ -120,9 +120,13 @@ class DashboardAdminController extends Controller
             'whatsapp.regex' => 'Format nomor WhatsApp tidak valid. Pastikan dimulai dengan +62 dan hanya mengandung angka.',
             'whatsapp.min' => 'Nomor WhatsApp tidak boleh kurang dari 13 karakter.',
             'whatsapp.max' => 'Nomor WhatsApp tidak boleh lebih dari 18 karakter.',
+            'whatsapp' => 'Kolom WhatsApp tidak boleh kosong!',
             'description.max' => 'Deskripsi tidak boleh lebih dari 225 karakter.',
+            'description' => 'Kolom Deskripsi tidak boleh kosong!',
             'instagram.not_regex' => 'Kolom Instagram wajib diisi dengan username dan tidak boleh berupa URL atau link.',
+            'instagram' => 'Kolom Instagram tidak boleh kosong!',
             'twitter.not_regex' => 'Kolom Twitter wajib diisi dengan username dan tidak boleh berupa URL atau link.',
+            'twitter' => 'Kolom Twitter tidak boleh kosong!',
         ]);
 
         if ($validator->fails()) {

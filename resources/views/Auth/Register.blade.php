@@ -283,9 +283,9 @@
                                                                     aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p>Hummasoft Technology membangun aplikasi MiLink
-                                                                    sebagai aplikasi Komersial. LAYANAN ini adalah
-                                                                    disediakan oleh Hummasoft Technology dan
+                                                                <p>PT. Hummatech Digital Indonesia membangun aplikasi MiLink
+                                                                    sebagai aplikasi Komersial. Layanan ini adalah
+                                                                    disediakan oleh PT. Hummatech Digital Indonesia dan
                                                                     dimaksudkan untuk digunakan sebagaimana adanya.
                                                                 </p>
                                                                 <p>Halaman ini digunakan untuk memberi tahu
