@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Link</title>
+    <title>MiLink</title>
 
     <!-- icofont-css-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/icofont.min.css') }}">
@@ -161,11 +161,11 @@
                         <!-- banner text -->
                         <div class="banner_text">
                             <!-- h1 -->
-                            <h2 style="color: #ffffff;">Selamat datang di Go Link!</h2>
+                            <h2 style="color: #ffffff;">Selamat datang di MiLink!</h2>
                             <!-- p -->
                             <p>Ingin membuat tautan lebih singkat dan lebih mudah diingat?</p>
-                            <p>Go Link adalah solusi terbaik untuk Anda!</p>
-                            <span style="color: #ffffff;">Sekarang, Anda dapat dengan mudah mengubah tautan panjang menjadi tautan yang simpel dan mudah diingat. Dengan Go Link, mempersingkat URL sesuai dengan keinginan Anda lebih cepat dan lebih sederhana dari sebelumnya.</span>
+                            <p>MiLink adalah solusi terbaik untuk Anda!</p>
+                            <span style="color: #ffffff;">Sekarang, Anda dapat dengan mudah mengubah tautan panjang menjadi tautan yang simpel dan mudah diingat. Dengan MiLink, mempersingkat URL sesuai dengan keinginan Anda lebih cepat dan lebih sederhana dari sebelumnya.</span>
                         </div>
                     </div>
                     <!-- banner slides start -->
@@ -208,7 +208,7 @@
             <!-- container start -->
             <div class="container">
                 <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                    <h2>Fitur Fitur <span>Go Link</span> Yang Dapat <br> Membantu Anda</h2>
+                    <h2>Fitur Fitur <span>MiLink</span> Yang Dapat <br> Membantu Anda</h2>
                 </div>
                 <!-- row start -->
                 <div class="row d-flex justify-content-md-center" style="margin-top: 2%;">
@@ -223,7 +223,7 @@
                             </svg>
                             <div class="story_text">
                                 <h3>Pemotongan URL</h3>
-                                <p>Dengan Go Link, Anda dapat dengan mudah memotong URL yang panjang
+                                <p>Dengan MiLink, Anda dapat dengan mudah memotong URL yang panjang
                                 menjadi tautan yang singkat dan mudah diingat sesuai dengan keinginan
                                 Anda. Tidak perlu lagi repot dengan tautan yang terlalu panjang.</p>
                             </div>
@@ -240,7 +240,7 @@
                             </svg>
                             <div class="story_text">
                                 <h3>Pembuatan Microsite</h3>
-                                <p>Buat tautan Bio Anda sendiri dengan Go Link. Seringkali digunakan
+                                <p>Buat tautan Bio Anda sendiri dengan MiLink. Seringkali digunakan
                                 di profil media sosial, resume online, CV, dan situs web jejaring
                                 profesional. Tautan Bio Anda sekarang dapat terlihat lebih menarik
                                 dan informatif.</p>
@@ -259,9 +259,9 @@
                             </svg>
                             <div class="story_text">
                                 <h3>Analitik</h3>
-                                <p>Lacak kinerja tautan Go Link Anda dengan mudah. Identifikasi tren dan pola dalam penggunaan
+                                <p>Lacak kinerja tautan MiLink Anda dengan mudah. Identifikasi tren dan pola dalam penggunaan
                                 tautan Anda, dan buat keputusan yang tepat untuk mengoptimalkan kinerja tautan Anda. Dengan
-                                analitik Go Link, Anda dapat mengukur dampak kampanye Anda dengan lebih baik.</p>
+                                analitik MiLink, Anda dapat mengukur dampak kampanye Anda dengan lebih baik.</p>
                             </div>
                         </div>
                     </div>
@@ -275,7 +275,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="text-center">
-                            <h3>Statistik Go Link</h3>
+                            <h3>Statistik MiLink</h3>
                         </div>
                     </div>
                 </div>
@@ -290,7 +290,7 @@
                                     <span class="counter_value" data-target="{{($url)}}">{{($url)}}</span><span>+</span>
                                 </h4>
                                 <p class="text-muted">
-                                    {{($url)}} tautan panjang telah berhasil dipersingkat dengan Go Link.
+                                    {{($url)}} tautan panjang telah berhasil dipersingkat dengan MiLink.
                                 </p>
                             </div>
                         </div>
@@ -301,7 +301,7 @@
                                 <h4>
                                     <span class="counter_value" data-target="{{( $micrositeuuid )}}">{{( $micrositeuuid )}}</span><span>+</span>
                                 </h4>
-                                <p class="text-muted"> Sudah lebih dari {{ $micrositeuuid }} microsite yang berhasil dibuat dengan Go Link.</p>
+                                <p class="text-muted"> Sudah lebih dari {{ $micrositeuuid }} microsite yang berhasil dibuat dengan MiLink.</p>
                             </div>
                         </div>
                     </div>
@@ -312,7 +312,7 @@
                                 <h4>
                                     <h3 class="counter_value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</h3>
                                 </h4>
-                                <p class="text-muted">Ratusan tautan dan pengunjung mengakses situs mikro dengan Go Link</p>
+                                <p class="text-muted">Ratusan tautan dan pengunjung mengakses situs mikro dengan MiLink</p>
                             </div>
                         </div>
                     </div>

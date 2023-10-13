@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Link</title>
+    <title>MiLink</title>
 
     <!-- icofont-css-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/icofont.min.css') }}">
@@ -145,7 +145,7 @@
             <!-- container start -->
             <div class="container">
                 <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                    <h2>Fitur-Fitur <span>Go Link</span> yang Membantu Anda</h2>
+                    <h2>Fitur-Fitur <span>MiLink</span> yang Membantu Anda</h2>
                 </div>
                 <div class="row d-flex justify-content-md-center" style="margin-top: 2%;">
                     <!-- story -->
@@ -232,7 +232,7 @@
                             </svg>
                             <div class="story_text">
                                 <h6 class="mb-3 fs-17">Potong URL dengan Lebih Mudah</h6>
-                                <p class="text-muted">Pemotongan URL yang cepat dan sesuai dengan keinginan Anda menggunakan Go Link.</p>
+                                <p class="text-muted">Pemotongan URL yang cepat dan sesuai dengan keinginan Anda menggunakan MiLink.</p>
                             </div>
                         </div>
                     </div>
