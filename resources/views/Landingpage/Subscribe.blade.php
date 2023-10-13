@@ -326,23 +326,16 @@
                                     <tr style="font-size: 12px;">
                                         <th><span>Batasan Pengunjung Tautan MiLink</span></th>
                                         <th>Gratis</th>
+                                        <th>Tingkatan Dasar</th>
+                                        <th>Premium</th>
                                         <th>Premium</th>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 12px; background-color: white">
                                     <tr>
                                         <td class="lalign"><b>Menyingkat Tautan</b></td>
-                                        <td>100/bln</td>
-                                        <td>Tanpa batas</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="lalign">— Kustomisasi nama tautan</td>
-                                        <td><i class="fas fa-check"></i></td>
-                                        <td><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="lalign">— Mengubah nama tautan kustomisasi</td>
-                                        <td>5/bln</td>
+                                        <td>20/bln</td>
+                                        <td>50/bln</td>
                                         <td>Tanpa batas</td>
                                     </tr>
                                     <tr>
@@ -357,13 +350,13 @@
                                     </tr>
                                     <tr>
                                         <td class="lalign"><b>Membuat Microsite</b></td>
-                                        <td>Hingga 10</td>
-                                        <td>Tanpa batas</td>
+                                        <td>5/bln</td>
+                                        <td>10/bln</td>
                                     </tr>
                                     <tr>
                                         <td class="lalign">— Komponen Microsite</td>
-                                        <td>Hingga 100</td>
-                                        <td>Tanpa batas</td>
+                                        <td>5/bln</td>
+                                        <td>10/bln</td>
                                     </tr>
                                     <tr>
                                         <td class="lalign">— Mengubah nama tautan microsite</td>
@@ -379,11 +372,6 @@
                                         <td colspan="3">
                                             <hr>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="lalign">Nama Pendek untuk Tautan / Microsite terbatas</td>
-                                        <td><i class="fas fa-times"></i></td>
-                                        <td>Tanpa batas</td>
                                     </tr>
                                     <tr>
                                         <td class="lalign">Kode QR</td>
