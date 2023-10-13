@@ -329,7 +329,7 @@
                                             </div>
 
                                             <div class="collapse" id="edit">
-                                                <div class="card card-body">
+                                                <div class="card">
                                                     <div class="container">
                                                         <button type="button" class="btn btn-success me-2"
                                                             id="simpanButton"
@@ -968,5 +968,12 @@
             var editCollapse = document.getElementById('edit');
             $(editCollapse).collapse('hide');
         }
+
+        $(document).ready(function() {
+            $('#addAmount').on('hidden.bs.modal', function(e) {
+                var editCollapse = document.getElementById('edit');
+                $(editCollapse).collapse('hide');
+            });
+        });
     </script>
 @endsection

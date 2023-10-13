@@ -19,13 +19,21 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6 md-12 sm-12">
+                               <div class="col-lg-6 md-12 sm-12">
                                     <div class="mb-3">
-                                        <label for="username" class="form-label">Tipe Langganan</label>
-                                        <div class="position-relative">
-                                            <input type="text" class="form-control password-input" id="username"
-                                                placeholder="Lite" required>
-                                        </div>
+                                        <label for="tipe" class="form-label">Tipe Langganan</label>
+                                        <select name="tipe" class="form-select" id="tipe" required>
+                                            <option value="" disabled selected>Pilih Tipe Langganan...</option>
+                                            <option value="basic_tier" {{ old('tipe') === 'basic_tier' ? 'selected' : '' }}>1
+                                                Tingkatan Dasar
+                                            </option>
+                                            <option value="intermediate_tier" {{ old('tipe') === 'intermediate_tier' ? 'selected' : '' }}>1
+                                                Tingkatan Menengah
+                                            </option>
+                                            <option value="premium_tier" {{ old('tipe') === 'premium_tier' ? 'selected' : '' }}>1
+                                                Tingkatan Premium
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 md-12 sm-12">
