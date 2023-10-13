@@ -316,7 +316,7 @@
                                 <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
                                     <div class="card-body p-sm-5 m-lg-3">
                                         <div class=" mt-5">
-                                            <h5 class="fs-3xl">Selamat Datang Kemabali !</h5>
+                                            <h5 class="fs-3xl">Selamat Datang Kembali !</h5>
                                             <p class="text-muted">Masuk untuk melanjutkan ke MILINK</p>
                                         </div>
                                         <div class=" mt-3">
