@@ -15,7 +15,7 @@ class SubscribeUserController extends Controller
 
     public function subscribeProductUser()
     {
-
-        return view('User.SubscribeProductUser');
+        $subscribe = Subscribe::orderBy('created_at', 'asc')->get();
+        return view('User.SubscribeProductUser', compact('subscribe'));
     }
 }

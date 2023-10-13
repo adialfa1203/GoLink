@@ -176,6 +176,7 @@ Route::prefix('admin')->group(function(){
     //Subscribe
     Route::get('/subscribe-admin', [SubscribeController::class, 'subscribe'])->name ('subscribe');
     Route::get('add-subscribe', [SubscribeController::class, 'addSubscribe'])->name ('addSubscribe');
+    Route::post('create-subscribe', [SubscribeController::class, 'createSubscribe'])->name ('create.subscribe');
     // button
     Route::get('/create-button', [ButtonController::class, 'createButton'])->name('create.button');
     Route::post('/save-button', [ButtonController::class, 'saveButton'])->name('save.button');
