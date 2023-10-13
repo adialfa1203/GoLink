@@ -310,17 +310,38 @@
                                                     style="background: #E9EEF5">
                                                     <input id="default_short_url" class="form-control" type="text"
                                                         id="salin">
-                                                    {{-- salin --}}
                                                     <div id="successCopy" class="alert alert-success mt-3"
                                                         style="display: none; position: fixed; bottom: 570px; right: 560px; max-width: 500px;">
                                                         Tautan berhasil disalin ke clipboard
                                                     </div>
-                                                    {{-- end salin --}}
                                                     <div class="wrapper end-0 position-absolute" style="z-index: 5">
+                                                        <button class="btn btn-transparent btn-sm m-0 p-1" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#edit"
+                                                            id="editclose" onclick="statusEdit()">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </button>
                                                         <button type="button" id="button-email" data-bs-toggle="modal"
-                                                            data-bs-target="#bagikan"
-                                                            class="btn btn-sm btn-danger text-white m-1"><i
-                                                                class="bi bi-share-fill"></i> Bagikan</button>
+                                                            data-bs-target="#bagikan" class="btn btn-danger btn-sm m-1"><i
+                                                                class="fa-solid fa-square-share-nodes"></i>
+                                                            Bagikan</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapse" id="edit">
+                                                <div class="card card-body">
+                                                    <div class="container">
+                                                        <button type="button" class="btn btn-success me-2"
+                                                            id="simpanButton"
+                                                            style="font-size: 13px; padding: 5px 10px; display: flex; align-items: center; justify-content: flex-end; float: right;">
+                                                            <i class="bi bi-check mr-2"></i> Simpan
+                                                        </button>
+                                                        <button type="button" class="btn btn-light me-2"
+                                                            id="keluarButton"
+                                                            style="font-size: 13px; padding: 5px 10px; display: flex; align-items: center; justify-content: flex-end; float: right;"
+                                                            onclick="closeEdit()">
+                                                            <i class="bi bi-x mr-2"></i> Batal
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -941,5 +962,11 @@
         };
         var formattedDate = nextMonthDate.toLocaleDateString('id-ID', options);
         document.getElementById('nextMonthDate').textContent = formattedDate;
+    </script>
+    <script>
+        function closeEdit() {
+            var editCollapse = document.getElementById('edit');
+            $(editCollapse).collapse('hide');
+        }
     </script>
 @endsection
