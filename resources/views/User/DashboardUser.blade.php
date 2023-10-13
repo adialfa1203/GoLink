@@ -144,6 +144,7 @@
                                                     <input type="text" class="form-control" name="destination_url"
                                                         id="AmountInput"
                                                         placeholder="http://domain-mu.id/yang-paling-panjang-disini">
+                                                    <input type="hidden" id="default_short_url_id">
                                                     <span id="urlError" class="text-danger"></span>
                                                 </div>
                                                 <div>
@@ -308,7 +309,7 @@
                                             <div class="col-lg-12">
                                                 <div class="input-group align-items-center rounded"
                                                     style="background: #E9EEF5">
-                                                    <input id="default_short_url" class="form-control" type="text"
+                                                    <input id="default_short_url" name="new_url_key" class="form-control" type="text"
                                                         id="salin">
                                                     <div id="successCopy" class="alert alert-success mt-3"
                                                         style="display: none; position: fixed; bottom: 570px; right: 560px; max-width: 500px;">
@@ -332,7 +333,7 @@
                                                 <div class="card">
                                                     <div class="container">
                                                         <button type="button" class="btn btn-success me-2"
-                                                            id="simpanButton"
+                                                            id="submitKustom"
                                                             style="font-size: 13px; padding: 5px 10px; display: flex; align-items: center; justify-content: flex-end; float: right;">
                                                             <i class="bi bi-check mr-2"></i> Simpan
                                                         </button>
@@ -694,7 +695,50 @@
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            var selectId = $('#new_url_key').val();
+            // console.log(selectId);
+            // Mendapatkan token CSRF dari meta tag
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
+            // Tambahkan kode berikut di bawahnya
+            $('#submitKustom').click(function() {
+                var newUrlKey = $('#default_short_url').val();
+                // alert('masuk')
+                $.ajax({
+                    headers: {
+                        'X-CSRF-Token': csrfToken,
+                    },
+                    url: "/user/update-short-link-id/" + $("#default_short_url_id").val(),
+                    method: 'POST',
+                    data: {
+                        newUrlKey: newUrlKey
+                    },
+                    dataType: 'JSON',
+                    error: function(e) {
+                        console.log(e.responseJSON)
+                        Swal.fire(e.responseJSON.newUrlKey[0])
+                    },
+                    success: function(e) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Nama tautan berhasil diubah",
+                        });
+                        // location.reload()
+                    }
+                })
+            });
+        });
+
+        $('.edit-link').click(function() {
+            var link = $(this).data('link');
+
+            $('#new_url_key').val(link);
+            $('#new_url_key').attr("data-original", link);
+
+        });
+    </script>
     <script>
         const urlInput = document.getElementById('AmountInput');
         const urlError = document.getElementById('urlError');
@@ -770,6 +814,7 @@
                                 var defaultShort = response.default_short_url;
                                 var title = response.title;
                                 var url = response.destination_url;
+                                $("#default_short_url_id").val(response.id);
                                 $("#default_short_url").val(defaultShort);
                                 $("#title").val(title);
                                 $('#destination_url').val(url);

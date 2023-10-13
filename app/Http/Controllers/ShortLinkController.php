@@ -139,6 +139,36 @@ class ShortLinkController extends Controller
 
         return response()->json(['message' => 'URL key updated successfully']);
     }
+    public function updateIdShortUrl(Request $request, $shortCode)
+    {
+        $updateUrl = ShortUrl::where('id', $shortCode);
+
+        if (!$updateUrl->exists()) {
+            return response()->json(['error' => 'Short link not found'], 404);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'newUrlKey' => 'required|unique:short_urls,url_key'
+        ],[
+            'newUrlKey.required' => 'Kolom harus diisi',
+            'newUrlKey.unique' => 'Nama sudah digunakan'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 404);
+        }
+
+        $newUrlKey = str_replace(' ', '-', $request->newUrlKey);
+        $newUrlKey = strtolower($newUrlKey);
+
+        $updateUrl->update([
+            'url_key' => $newUrlKey,
+            'default_short_url' => env('APP_URL') . "/" . $newUrlKey,
+            'custom_name' => 'yes',
+        ]);
+
+        return response()->json(['message' => 'URL key updated successfully']);
+    }
 
     public function micrositeLink($micrositeLink)
     {

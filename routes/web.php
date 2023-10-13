@@ -136,6 +136,8 @@ Route::prefix('user')->group(function(){
     Route::post('/url-microsite', [MicrositeController::class, 'urlMicrosite'])->name('url.microsite');
     //update key
     Route::post('/update-short-link/{shortCode}', [ShortLinkController::class, 'updateShortLink'])->name('update.shortlink');
+    //in dashboard
+    Route::post('/update-short-link-id/{shortCode}', [ShortLinkController::class, 'updateIdShortUrl'])->name('update.shortlink.id');
     //update tenggat
     Route::post('/update-deactivated/{keyTime}',[LinkController::class, 'updateDeactivated']);
     //Detele data
