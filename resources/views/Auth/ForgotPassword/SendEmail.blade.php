@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable"
-    data-theme="default" data-topbar="light" data-bs-theme="light">
+<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-topbar="light" data-bs-theme="light">
 
 
 
@@ -18,108 +17,341 @@
 
 
     <!-- Fonts css load -->
-    <link rel="preconnect"
-        href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/') }}">
-    <link rel="preconnect"
-        href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.gstatic.com/') }}"
-        crossorigin>
-    <link id="fontsLink"
-        href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet') }}">
+    <link rel="preconnect" href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/') }}">
+    <link rel="preconnect" href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.gstatic.com/') }}" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link id="fontsLink" href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Layout config Js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/layout.js') }}"></script>
     <!-- Bootstrap Css -->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/bootstrap.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <!-- Icons Css -->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
     <!-- App Css-->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/app.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
     <!-- custom Css-->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
 
     <style>
         .right-section {
-            background-color: #104898;
+
             color: white;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .rigth {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border-radius: 30px 0 0 30px;
+            box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
+            min-height: 100%;
         }
 
         .custom-btn {
             background-color: #0B7EFF;
         }
+
+        .google-btn,
+        .btn-fb {
+            margin: auto;
+            width: 50%;
+        }
+
+        /* Facebook Button */
+        .btn-fb {
+            display: inline-block;
+            border-radius: 3px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+            -webkit-transition: background-color 0.218s, border-color 0.218s,
+                box-shadow 0.218s;
+            transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+        }
+
+        .fb-content,
+        .btn-fb,
+        .btn-fb .fb-content {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 210px;
+            height: 40px;
+        }
+
+        .fb-content .logo,
+        .btn-fb .logo,
+        .btn-fb .fb-content .logo {
+            padding: 3px;
+            height: inherit;
+        }
+
+        .fb-content svg,
+        .btn-fb svg,
+        .btn-fb .fb-content svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .fb-content p,
+        .btn-fb,
+        .btn-fb .fb-content p {
+            width: 100%;
+            width: 220px;
+            line-height: 1;
+            letter-spacing: 0.21px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 14px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .btn-fb {
+            padding-top: 1.5px;
+            background: #1877f2;
+            background-color: #1877f2;
+        }
+
+        .btn-fb:hover {
+            box-shadow: 0 0 3px 3px rgba(59, 89, 152, 0.3);
+        }
+
+        .btn-fb .fb-content p {
+            color: rgba(255, 255, 255, 0.87);
+        }
+
+        /* Google Button */
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,
+ 400,
+        500,
+        700&subset=cyrillic);
+
+        .google-btn {
+            width: 100%;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: black solid 1px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+            -webkit-transition: background-color 0.218s, border-color 0.218s,
+                box-shadow 0.218s;
+            transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+        }
+
+        .google-btn .google-icon-wrapper {
+            position: absolute;
+            margin-top: 1px;
+            margin-left: 1px;
+            width: 38px;
+            height: 38px;
+            border-radius: 2px;
+            background-color: #fff;
+        }
+
+        .google-btn .google-icon {
+            position: absolute;
+            margin-top: 11px;
+            margin-left: 4rem;
+            width: 18px;
+            height: 18px;
+        }
+
+        .google-btn .google-icone {
+            position: absolute;
+            margin-top: 11px;
+            margin-left: 3.5rem;
+            width: 18px;
+            height: 18px;
+        }
+
+        .google-btn .btn-text {
+            padding-left: 10%;
+            color: auto;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .google-btn:hover {
+            box-shadow: 0 0 6px #000;
+            cursor: pointer;
+        }
+
+        .google-btn:active {
+            background: #1669f2;
+        }
+
+        .log {
+            margin-bottom: 5px;
+        }
     </style>
+    <style>
+        @media (max-width: 768px) {
+            .img {
+                display: none;
+            }
+
+            .col-lg-6 {
+                width: 100%;
+            }
+
+            .rigth {
+                border-top-left-radius: 0;
+                /* Hilangkan border-radius pada sudut kiri atas */
+                border-bottom-left-radius: 0;
+            }
+
+            .google-btn .google-icon {
+                position: absolute;
+                margin-top: 9px;
+                margin-left: 2.2rem;
+                width: 18px;
+                height: 18px;
+            }
+
+            .google-btn .google-icone {
+                position: absolute;
+                margin-top: 9px;
+                margin-left: 1.4rem;
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+
+            /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+            .img {
+                display: inline;
+            }
+
+        }
+
+        .bg {
+            position: absolute;
+            bottom: 0;
+            background-color: #2F5EA2;
+            width: 710px;
+        }
+
+        /* Responsive styles for smaller screens (e.g., tablets and below) */
+        @media (max-width: 768px) {
+            .bg {
+                width: 100%;
+                /* Make it full width on smaller screens */
+                height: auto;
+                /* Automatically adjust the height based on content */
+            }
+        }
+
+        /* CSS untuk perangkat tablet (misalnya, lebar layar antara 600px dan 1024px) */
+        @media (min-width: 601px) and (max-width: 1024px) {
+
+            /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+            .img {
+                display: none;
+            }
+
+            .col-lg-6 {
+                width: 100%;
+            }
+
+            .rigth {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    </style>
+
+    <script>
+        // window.addEventListener('resize', function() {
+        //     var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body
+        //         .clientWidth;
+        //     if (screenWidth <= 768) { // Adjusted to 768px to match the tablet width
+        //         var imgElement = document.querySelector('.img');
+        //         if (imgElement) {
+        //             imgElement.remove(); // Remove the element with class "img" on tablet screens
+        //         }
+        //     }
+        // });
+    </script>
+
 
 </head>
 
 <body>
-    <section
-        class="auth-page-wrapper py-5 position-relative d-flex align-items-center justify-content-center min-vh-100">
+    <section class="auth-page-wrapper position-relative d-flex align-items-center justify-content-center min-vh-100">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="card mb-0">
-                        <div class="row g-0 align-items-center">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card mb-0 border-0 shadow-none mb-0">
-                                        <div class="card-body p-sm-5 m-lg-4">
-                                            <div class="text-center mt-2">
-                                                <h5 class="fs-3xl">Lupa Kata Sandi ?</h5>
-                                                <p class="text-muted mb-4">Atur ulang kata sandi </p>
-                                                <div class="pb-4">
-                                                    <img src="{{asset('template/themesbrand.com/steex/layouts/assets/images/auth/email.png')}}" alt="" class="avatar-md">
-                                                </div>
+                <div class="col-lg-12">
+                    <div class="card mb-0 p-0 d-flex justify-content-between">
+                        <div class="row" style="background-color: #D2E0FB; ">
+                            <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6 img position-relative" style="padding: 0;">
+                                <div class="card" style="box-shadow: none; padding: 0;margin:0;">
+                                    <div class="card-body" style="background-color:  #D2E0FB;padding:0">
+                                        <!-- <center> -->
+                                        <div class="mt-5" style="padding-left: 10%; ">
+                                            <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
+                                            <h5>Pemendek Link dengan sekali ketuk</h5>
+                                            <h5>Bikin tautanmu makin singkat !</h5>
+                                            <h6 style="color: #104898;">
+                                                Daftar dan nikmati pengalaman yang menarik pada website kami
+                                            </h6>
+                                            <center>
+                                                <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style="object-fit: ;margin-right: 20px; margin-top:inherit; margin-bottom:80px">
+                                            </center>
+                                        </div>
+                                        <!-- </center> -->
+                                    </div>
+                                </div>
+                                <div class="bg" style="height: 5rem;"></div>
+                            </div>
+                            <div class="col-6 right-section col-lg-6">
+                                <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
+                                    <div class="card-body p-sm-5 m-lg-3 mb-5 mt-5">
+                                        <div class="" style="margin-top: 114px;">
+
+                                            <div class="mt-5">
+                                                <h5 class="fs-3xl">Lupa kata sandi ?</h5>
+                                                <p class="text-muted">Masukkan Email anda dan instruksi akan dikirim ke Email</p>
                                             </div>
-                                            @if (isset($success) || (isset($error)))
-                                            <div class="alert border-0 {{ isset($success) ? 'alert-success' : 'alert-danger' }} text-center mb-2 mx-2" role="alert">
-                                                @if (isset($success))
-                                                    Instruksi telah dikirimkan ke email Anda!
-                                                @elseif (isset($error))
-                                                    Terjadi kesalahan saat mengirimkan instruksi. Silakan coba lagi.
-                                                @endif
-                                            </div>
-                                            @endif
-                                            <div class="alert border-0 alert-warning text-center mb-2 mx-2" role="alert">
-                                                Masukkan email Anda dan instruksi akan dikirimkan kepada Anda!
-                                            </div>
-                                            <div class="p-2">
+                                            <div class="">
                                                 <form action="{{ route('sendEmail')}}" method="POST">
                                                     @csrf
-
+    
                                                     <div class="mb-4">
                                                         <label class="form-label">Email</label>
-                                                        <input type="email" name="email" class="form-control password-input" id="email" placeholder="Masukkan Email" >
+                                                        <input type="email" name="email" class="form-control password-input" id="email" placeholder="Masukkan Email">
                                                         <div>
                                                             @if ($errors->has('email'))
-                                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                            <span class="text-danger">{{ $errors->first('email') }}</span>
                                                             @endif
                                                         </div>
                                                     </div>
                                                     <div class="text-center mt-4">
-                                                        <button class="btn btn-primary w-100" type="submit">Kirim Email</button>
+                                                        <button class="btn w-100" style="background-color: #2F5EA2; color: #fff" type="submit">Kirim Email</button>
                                                     </div>
                                                 </form><!-- end form -->
                                             </div>
-
-                                            <div class="mt-4 text-center">
-                                                <p class="mb-0">Tunggu, saya ingat kata sandi saya ... <a href="{{ url ('id/login')}}" class="fw-semibold text-primary text-decoration-underline"> Masuk </a> </p>
+    
+                                            <div class="mt-4">
+                                                <p class="mb-0 fw-semibold">Tunggu, saya ingat kata sandi saya ... <a href="{{ url ('id/login')}}" class="fw-semibold" style="color: #2F5EA2;"> Masuk </a> </p>
                                             </div>
-                                        </div><!-- end card body -->
-                                    </div><!-- end card -->
-                                </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
                             </div>
-                            <!--end col-->
                         </div>
-                        <!--end row-->
                     </div>
+                    <!--end col-->
                 </div>
-                <!--end col-->
+                <!--end row-->
             </div>
-            <!--end row-->
         </div>
         <!--end container-->
     </section>
@@ -140,6 +372,36 @@
 
     <!-- swiper.init js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/swiper.init.js') }}"></script>
+    <script>
+        // Fungsi untuk menampilkan atau menyembunyikan pesan kesalahan
+        function toggleRequiredAlert(show) {
+            var requiredAlert = document.getElementById('requiredAlert');
+            requiredAlert.style.display = show ? 'block' : 'none';
+        }
+
+        // Fungsi untuk memvalidasi formulir sebelum pengiriman
+        function validateForm(event) {
+            var rememberCheckbox = document.getElementById('remember');
+
+            if (!rememberCheckbox.checked) {
+                toggleRequiredAlert(true);
+                event.preventDefault(); // Mencegah pengiriman formulir
+            } else {
+                toggleRequiredAlert(false);
+            }
+        }
+
+        // Tambahkan event listener untuk tautan kebijakan privasi
+        var privacyLink = document.getElementById('privacyLink');
+        privacyLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah tautan dari mengarahkan ke halaman lain
+            // Tampilkan atau sembunyikan modal kebijakan privasi di sini jika diperlukan
+        });
+
+        // Tambahkan event listener untuk validasi sebelum pengiriman formulir
+        var loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', validateForm);
+    </script>
 
 </body>
 

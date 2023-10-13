@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable"
-    data-theme="default" data-topbar="light" data-bs-theme="light">
+<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-topbar="light" data-bs-theme="light">
 
 
 
@@ -14,41 +13,42 @@
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
-        style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}" style="width: 200px; height: 200px;">
 
 
     <!-- Fonts css load -->
-    <link rel="preconnect"
-        href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/') }}">
-    <link rel="preconnect"
-        href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.gstatic.com/') }}"
-        crossorigin>
-    <link id="fontsLink"
-        href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/') }}">
+    <link rel="preconnect" href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.gstatic.com/') }}" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link id="fontsLink" href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Layout config Js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/layout.js') }}"></script>
     <!-- Bootstrap Css -->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/bootstrap.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <!-- Icons Css -->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
     <!-- App Css-->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/app.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
     <!-- custom Css-->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
 
     <style>
         .right-section {
-            background-color: #104898;
+
             color: white;
-            padding: 30px;
+            padding: 0;
             margin: 0;
+
+        }
+
+        .rigth {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border-radius: 30px 0 0 30px;
+            box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
         }
 
         .custom-btn {
@@ -126,15 +126,16 @@
 
         /* Google Button */
         @import url(https://fonts.googleapis.com/css?family=Roboto:300,
-     400,
+ 400,
         500,
         700&subset=cyrillic);
 
         .google-btn {
-            width: 90%;
+            width: 100%;
             height: 40px;
-            background-color: #4285f4;
-            border-radius: 2px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: black solid 1px;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
             -webkit-transition: background-color 0.218s, border-color 0.218s,
                 box-shadow 0.218s;
@@ -154,94 +155,183 @@
         .google-btn .google-icon {
             position: absolute;
             margin-top: 11px;
-            margin-left: 11px;
+            margin-left: 4rem;
+            width: 18px;
+            height: 18px;
+        }
+
+        .google-btn .google-icone {
+            position: absolute;
+            margin-top: 11px;
+            margin-left: 3.5rem;
             width: 18px;
             height: 18px;
         }
 
         .google-btn .btn-text {
             padding-left: 10%;
-            color: #fff;
+            color: auto;
             font-size: 14px;
             font-weight: 500;
             font-family: "Poppins", sans-serif;
         }
 
         .google-btn:hover {
-            box-shadow: 0 0 6px #4285f4;
+            box-shadow: 0 0 6px #000;
             cursor: pointer;
         }
 
         .google-btn:active {
             background: #1669f2;
         }
-        .log{
+
+        .log {
             margin-bottom: 5px;
         }
-
     </style>
     <style>
         @media (max-width: 768px) {
             .img {
                 display: none;
-                /* Hide the element with class "img" for screens up to 768px wide (tablet) */
             }
 
             .col-lg-6 {
                 width: 100%;
-                /* Make the column full-width on tablets */
+            }
+
+            .rigth {
+                border-top-left-radius: 0;
+                /* Hilangkan border-radius pada sudut kiri atas */
+                border-bottom-left-radius: 0;
+            }
+
+            .google-btn .google-icon {
+                position: absolute;
+                margin-top: 9px;
+                margin-left: 2.2rem;
+                width: 18px;
+                height: 18px;
+            }
+
+            .google-btn .google-icone {
+                position: absolute;
+                margin-top: 9px;
+                margin-left: 1.4rem;
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+
+            /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+            .img {
+                display: inline;
+            }
+
+        }
+
+        .bg {
+            position: absolute;
+            bottom: 0;
+            background-color: #2F5EA2;
+            width: 710px;
+        }
+
+        /* Responsive styles for smaller screens (e.g., tablets and below) */
+        @media (max-width: 768px) {
+            .bg {
+                width: 100%;
+                /* Make it full width on smaller screens */
+                height: auto;
+                /* Automatically adjust the height based on content */
+            }
+        }
+
+        /* CSS untuk perangkat tablet (misalnya, lebar layar antara 600px dan 1024px) */
+        @media (min-width: 601px) and (max-width: 1024px) {
+
+            /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+            .img {
+                display: none;
+            }
+
+            .col-lg-6 {
+                width: 100%;
+            }
+
+            .rigth {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
             }
         }
     </style>
 
     <script>
-        window.addEventListener('resize', function() {
-            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body
-                .clientWidth;
-            if (screenWidth <= 768) { // Adjusted to 768px to match the tablet width
-                var imgElement = document.querySelector('.img');
-                if (imgElement) {
-                    imgElement.remove(); // Remove the element with class "img" on tablet screens
-                }
-            }
-        });
+        // window.addEventListener('resize', function() {
+        //     var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body
+        //         .clientWidth;
+        //     if (screenWidth <= 768) { // Adjusted to 768px to match the tablet width
+        //         var imgElement = document.querySelector('.img');
+        //         if (imgElement) {
+        //             imgElement.remove(); // Remove the element with class "img" on tablet screens
+        //         }
+        //     }
+        // });
     </script>
 
 
 </head>
 
 <body>
-    <section
-        class="auth-page-wrapper py-5 position-relative d-flex align-items-center justify-content-center min-vh-100">
+    <section class="auth-page-wrapper position-relative d-flex align-items-center justify-content-center min-vh-100">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-11">
+                <div class="col-lg-12">
                     <div class="card mb-0 p-0 d-flex justify-content-between">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6">
-                                <div class="card mb-0 border-0 shadow-none mb-0">
-                                    <div class="card-body p-sm-4 m-lg-3">
-                                        <div class="text-center mt-5">
-                                            <h5 class="fs-3xl" style="color: #104898">MASUK</h5>
-                                            <p class="text-muted">Masuk untuk melanjutkan ke MiLink</p>
+                        <div class="row" style="background-color: #D2E0FB; ">
+                            <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6 img position-relative" style="padding: 0;">
+                                <div class="card" style="box-shadow: none; padding: 0;margin:0;">
+                                    <div class="card-body" style="background-color:  #D2E0FB;padding:0">
+                                        <!-- <center> -->
+                                        <div class="mt-5" style="padding-left: 10%; ">
+                                            <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
+                                            <h5>Pemendek Link dengan sekali ketuk</h5>
+                                            <h5>Bikin tautanmu makin singkat !</h5>
+                                            <h6 style="color: #104898;">
+                                                Daftar dan nikmati pengalaman yang menarik pada website kami
+                                            </h6>
+                                            <center>
+                                                <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style="object-fit: ;margin-right: 20px; margin-top:0px">
+                                            </center>
                                         </div>
-                                        <div class="p-2 mt-5">
+                                        <!-- </center> -->
+                                    </div>
+                                </div>
+                                <div class="bg" style="height: 5rem;">
+                                <a href="{{ url('id/home') }}"><p style="padding: 33px; color: #fff;">&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;Kembali ke Landing Page</p></a>
+                                </div>
+                            </div>
+                            <div class="col-6 right-section col-lg-6">
+                                <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
+                                    <div class="card-body p-sm-5 m-lg-3">
+                                        <div class=" mt-5">
+                                            <h5 class="fs-3xl">Selamat Datang Kemabali !</h5>
+                                            <p class="text-muted">Masuk untuk melanjutkan ke MILINK</p>
+                                        </div>
+                                        <div class=" mt-3">
                                             <form action="{{ route('login.user') }}" method="POST">
                                                 @csrf
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Email</label>
                                                     <div class="position-relative ">
-                                                        <input type="text"
-                                                            class="form-control password-input @error('email')
+                                                        <input type="text" class="form-control password-input @error('email')
                                                         is-invalid
-                                                        @enderror"
-                                                            name="email" id="username" placeholder="Masukkan Email"
-                                                            value="{{ old('email') }}">
+                                                        @enderror" name="email" id="username" placeholder="Masukkan Email" value="{{ old('email') }}">
                                                     </div>
                                                     <div>
                                                         @if ($errors->has('email'))
-                                                            <span
-                                                                class="text-danger">{{ $errors->first('email') }}</span>
+                                                        <span class="text-danger">{{ $errors->first('email') }}</span>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -249,17 +339,11 @@
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Kata Sandi</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input"
-                                                            name="password" placeholder="Masukkan Kata Sandi"
-                                                            id="password-input" value="{{ old('password') }}">
-                                                        <button
-                                                            class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
-                                                            type="button" id="password-addon"><i
-                                                                class="ri-eye-fill align-middle"></i></button>
+                                                        <input type="password" class="form-control pe-5 password-input" name="password" placeholder="Masukkan Kata Sandi" id="password-input" value="{{ old('password') }}">
+                                                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                         <div>
                                                             @if ($errors->has('password'))
-                                                                <span
-                                                                    class="text-danger">{{ $errors->first('password') }}</span>
+                                                            <span class="text-danger">{{ $errors->first('password') }}</span>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -268,75 +352,59 @@
                                                             sandi?</a>
                                                     </div>
                                                     <div class="mb-3 form-check col-4">
-                                                        <input type="checkbox" class="form-check-input" id="remember"
-                                                            name="remember_me">
-                                                        <label class="form-check-label" for="remember">Ingat
+                                                        <input type="checkbox" class="form-check-input" id="remember" name="remember_me">
+                                                        <label class="form-check-label" for="remember">Ingatkan
                                                             saya</label>
                                                     </div>
                                                 </div>
                                                 <div class="mt-4">
-                                                    <button class="btn btn-primary w-100 custom-btn"
-                                                        type="submit">Masuk</button>
+                                                    <button class="btn w-100 custom-btn" style="background-color: #2F5EA2; color: #fff" type="submit">Masuk</button>
                                                 </div>
                                                 <div class="mt-1 pt-2 text-center">
                                                     <div class="signin-other-title position-relative">
                                                         <h5 class="fs-sm mb-4 title">Login dengan</h5>
                                                     </div>
-                                                    <div class="pt-2 hstack gap-2 justify-content-center">
-                                                        <a href="{{ route('redirect.google') }}"  style="width: 100%;">
-                                                            <div class="google-btn" style="width: 100%;">
-                                                                <div class="google-icon-wrapper">
-                                                                    <img class="google-icon d-flex justify-content-center"
-                                                                        src="https://i.ibb.co/ydLySMx/google.png" />
-                                                                </div>
-                                                                <h6 class="btn-text" style="padding: 11px;">Login dengan Google</h6>
+                                                    <div class="d-flex gap-1">
+                                                        <div class="col-6">
+                                                            <div class="pt-2 hstack gap-2 justify-content-center">
+                                                                <a href="{{ route('redirect.google') }}" style="width: 100%;">
+                                                                    <div class="google-btn">
+                                                                        <div class="google">
+                                                                            <img class="google-icon d-flex justify-content-center" src="https://i.ibb.co/ydLySMx/google.png" />
+                                                                            <h6 class="btn-text" style="padding: 11px;">Google</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
                                                             </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="pt-2 hstack gap-2 justify-content-center">
-                                                        <a href="{{ route('redirect.facebook') }}"  style="width: 100%;">
-                                                            <div class="google-btn" style="width: 100%;">
-                                                                <div class="google-icon-wrapper">
-                                                                    <img class="google-icon d-flex justify-content-center"
-                                                                        src="https://i.ibb.co/pnpDRC6/facebook.png" />
-                                                                </div>
-                                                                <p class="btn-text" style="padding: 11px;">Login dengan Facebook</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="pt-2 hstack gap-2 justify-content-center">
+                                                                <a href="{{ route('redirect.facebook') }}" style="width: 100%;">
+                                                                    <div class="google-btn">
+                                                                        <div class="google">
+                                                                            <img class="google-icone d-flex justify-content-center" src="https://i.ibb.co/pnpDRC6/facebook.png" />
+                                                                            <h6 class="btn-text" style="padding: 11px;">Facebook</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
                                                             </div>
-                                                        </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <div class="text-center mt-2">
-                                                <p class="mb-0">Tidak mempunyai akun ? <a
-                                                        href="{{ url('id/register') }}"
-                                                        class="fw-semibold text-secondary text-decoration-underline">
-                                                        Daftar</a> </p>
+                                            <div class="mt-3">
+                                                <p class="fw-semibold text-secondary ">Belum Punya Akun ? Klik <a href="{{ url('id/register') }}" class="fw-semibold" style="color: #2F5EA2;">Daftar</a> </p>
                                             </div>
                                         </div>
                                     </div><!-- end card body -->
-                                    <center>
-                                    <a href="{{ url('id/home') }}">
-                                    <button type="button" class="btn btn-link"><i class="fa-solid fa-chevron-left me-1"></i>Halaman Depan</button>
-                                    </a>
-                                    </center>
                                 </div><!-- end card -->
                             </div>
-                            <div class="col-6 right-section img col-lg-6">
-                                <center>
-                                    <div class="w-100" style="margin-top: 20% ">
-                                        <img src="{{ asset('template/image/Login2.png') }} " width="400"
-                                            height="400">
-                                    </div>
-                                </center>
-                            </div>
                         </div>
-                        <!--end col-->
-                        <!--end row-->
                     </div>
+                    <!--end col-->
                 </div>
-                <!--end col-->
+                <!--end row-->
             </div>
-            <!--end row-->
         </div>
         <!--end container-->
     </section>
