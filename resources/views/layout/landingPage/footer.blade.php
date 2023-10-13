@@ -63,7 +63,7 @@
                             <h3>Hubungi Kami</h3>
                             <ul style="text-align: justify-center;">
                                 <li>
-                                    <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20GOLINK"
+                                    <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20MiLink"
                                         target="_blank">
                                         <i class="fab fa-whatsapp"></i>
                                         Whatsapp
@@ -170,7 +170,7 @@
                             <h3>Hubungi Kami</h3>
                             <ul style="text-align:justify-center;">
                                 <li>
-                                    <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20GOLINK"
+                                    <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20MiLink"
                                         target="_blank">
                                         <i class="fab fa-whatsapp"></i>
                                         Whatsapp
