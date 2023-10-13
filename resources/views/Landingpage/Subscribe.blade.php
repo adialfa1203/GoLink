@@ -267,32 +267,63 @@
                 <!-- row start -->
                 <div class="row d-flex justify-content-md-center" style="margin-top: 2%;">
                     <!-- story -->
-                    <div class="col-md-4" style="margin-bottom: 2%;">
+                    <div class="col-md-3" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
                             <img src="https://i.postimg.cc/xj3JMTgb/kucing.png" alt="Kode QR" width="300"
                                 height="150" style="margin-top: 10%;">
                             <div class="story_text">
                                 <h2 class="mb-3 fs-17"><b>Rp 0</b></h2>
                                 <h5 class="mb-3 fs-17"><b>Gratis</b></h5>
-                                <p class="text-muted">Paket Dasar untuk memulai perjalanan Anda bersama kami</p>
+                                <p class="text-muted">Paket Gratis untuk memulai perjalanan Anda bersama kami.</p>
                                 <p class="text-muted">Benar-benar gratis</p>
-                                <p class="text-muted">Menyingkat Tautan 100/bln, bisa Kustomisasi nama tautan dan
+                                <p class="text-muted">Menyingkat Tautan 20/bln, bisa Kustomisasi nama tautan dan
                                     Mengubah nama tautan kustomisasi 5/bln</p>
 
                             </div>
                         </div>
                     </div>
                     <!-- story -->
-                    <div class="col-md-4" style="margin-bottom: 2%;">
+                    <div class="col-md-3" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
                             <img src="https://i.postimg.cc/Kc0cmKJQ/kucing2.png" alt="Kode QR" width="300"
                                 height="150" style="margin-top: 10%;">
                             <div class="story_text">
-                                <h2 class="mb-3 fs-17"><b>Rp. 100.000/bln</b></h2>
-                                <h5 class="mb-3 fs-17"><b>Premium</b></h5>
-                                <p class="text-muted">Paket Dasar untuk memulai perjalanan Anda bersama kami</p>
-                                <p class="text-muted">Menyingkat Tautan tanpa batas, bisa Kustomisasi nama tautan,
-                                    Mengubah nama tautan kustomisasi tanpa batas dan mengubah Tautan Asli tanpa batas
+                                <h2 class="mb-3 fs-17"><b>Rp. 16.000/bln</b></h2>
+                                <h5 class="mb-3 fs-17"><b>Tingkatan Dasar</b></h5>
+                                <p class="text-muted">Paket Dasar untuk meningkatkan pengalaman pengguna. </p>
+                                <p class="text-muted">Menyingkat tautan batas sebanyak 50 kali per bulan dan membuat microsite sebanyak 10 kali per bulan.
+
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!-- story -->
+                     <div class="col-md-3" style="margin-bottom: 2%;">
+                        <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
+                            <img src="https://i.postimg.cc/Kc0cmKJQ/kucing2.png" alt="Kode QR" width="300"
+                                height="150" style="margin-top: 10%;">
+                            <div class="story_text">
+                                <h2 class="mb-3 fs-17"><b>Rp. 29.000/bln</b></h2>
+                                <h5 class="mb-3 fs-17"><b>Tingkatan Menengah</b></h5>
+                                <p class="text-muted">Paket Menengah untuk menawarkan atau memberikan fitur-fitur yang lebih canggih.</p>
+                                <p class="text-muted">Menyingkat Tautan batas sebanyak 100 kali per bulan dan membuat microsite sebanyak 20 kali per bulan.
+
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!-- story -->
+                     <div class="col-md-3" style="margin-bottom: 2%;">
+                        <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
+                            <img src="https://i.postimg.cc/Kc0cmKJQ/kucing2.png" alt="Kode QR" width="300"
+                                height="150" style="margin-top: 10%;">
+                            <div class="story_text">
+                                <h2 class="mb-3 fs-17"><b>Rp. 75.000/bln</b></h2>
+                                <h5 class="mb-3 fs-17"><b>Tingkatan Premium</b></h5>
+                                <p class="text-muted">fitur premium yang menawarkan fitur-fitur eksklusif.</p>
+                                <p class="text-muted">Menyingkat tautan tanpa batas, membuat microsite tanpa batas, menggunakan semua tema tanpa ada yang terkunci, memantau tautan dengan terperinci, dan memproteksi tautan dengan mengatur kata sandi. 
                                 </p>
 
                             </div>
@@ -301,6 +332,7 @@
                 </div>
             </div>
             <!-- row end -->
+            
     </div>
     <!-- container end -->
     </section>
@@ -327,8 +359,8 @@
                                         <th><span>Batasan Pengunjung Tautan MiLink</span></th>
                                         <th>Gratis</th>
                                         <th>Tingkatan Dasar</th>
-                                        <th>Premium</th>
-                                        <th>Premium</th>
+                                        <th>Tingkatan Menengah</th>
+                                        <th>Tingkatan Premium</th>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 12px; background-color: white">
@@ -336,15 +368,18 @@
                                         <td class="lalign"><b>Menyingkat Tautan</b></td>
                                         <td>20/bln</td>
                                         <td>50/bln</td>
+                                        <td>100/bln</td>
                                         <td>Tanpa batas</td>
                                     </tr>
                                     <tr>
                                         <td class="lalign">— Ubah Tautan Asli</td>
                                         <td><i class="fas fa-times"></i></td>
                                         <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="3">
+                                        <td colspan="6">
                                             <hr>
                                         </td>
                                     </tr>
@@ -352,24 +387,34 @@
                                         <td class="lalign"><b>Membuat Microsite</b></td>
                                         <td>5/bln</td>
                                         <td>10/bln</td>
+                                        <td>20/bln</td>
+                                        <td>Tanpa Batas</td>
                                     </tr>
                                     <tr>
                                         <td class="lalign">— Komponen Microsite</td>
                                         <td>5/bln</td>
                                         <td>10/bln</td>
+                                        <td><i class="fas fa-times"></i></td>
+                                        <td>Tanpa Batas</td>
                                     </tr>
                                     <tr>
                                         <td class="lalign">— Mengubah nama tautan microsite</td>
                                         <td><i class="fas fa-times"></i></td>
                                         <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+
                                     </tr>
                                     <tr>
                                         <td class="lalign">— Komponen terkunci</td>
                                         <td><i class="fas fa-times"></i></td>
                                         <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+
                                     </tr>
                                     <tr>
-                                        <td colspan="3">
+                                        <td colspan="6">
                                             <hr>
                                         </td>
                                     </tr>
@@ -377,9 +422,11 @@
                                         <td class="lalign">Kode QR</td>
                                         <td><i class="fas fa-check"></i></td>
                                         <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="3">
+                                        <td colspan="6">
                                             <hr>
                                         </td>
                                     </tr>
@@ -387,11 +434,17 @@
                                         <td class="lalign"><b>Analitik</b></td>
                                         <td><i class="fas fa-check"></i></td>
                                         <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+
                                     </tr>
                                     <tr>
                                         <td class="lalign">— Pengunjung Keseluruhan</td>
                                         <td><i class="fas fa-check"></i></td>
                                         <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+                                        <td><i class="fas fa-check"></i></td>
+
                                     </tr>
                                 </tbody>
                             </table>

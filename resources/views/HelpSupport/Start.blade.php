@@ -196,7 +196,7 @@
                             <p>Ubah tautan panjang Anda menjadi tautan pendek.</p>
                             <b>Sesuaikan agar mudah diingat</b>
                             <p>Ubah link dari https://MiLink/11SUi menjadi link seperti ini
-                                https://MiLink/nwsltr. Atau bisa dengan nama Andxa agar mudah diingat.</p>
+                                https://MiLink/nwsltr. Atau bisa dengan nama Anda agar mudah diingat.</p>
                             <b>Buat Tautan Situs Mikro/Bio</b>
                             <p>Microsite adalah cara untuk membagikan seluruh konten online Anda hanya
                                 menggunakan satu tautan.</p>
