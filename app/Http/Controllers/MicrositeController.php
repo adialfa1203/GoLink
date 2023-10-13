@@ -75,7 +75,7 @@ class MicrositeController extends Controller
         if ($statusSubscribe === 'yes') {
             $data = Components::all();
         } else {
-            $data = Components::orderBy('created_at', 'asc')->get();
+            $data = Components::orderBy('created_at', 'asc')->get(3);
         }
 
         $button = Button::all();
