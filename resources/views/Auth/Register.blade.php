@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable"
-    data-theme="default" data-topbar="light" data-bs-theme="light">
+<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-topbar="light" data-bs-theme="light">
 
 
 
@@ -40,15 +39,31 @@
         type="text/css">
 
 </head>
-
-<body>
     <style>
         .right-section {
-            background-color: #104898;
+            background-color: #ffffff;
             color: white;
             padding: 30px;
             margin: 0;
+            border-top-left-radius: 30px;
+                border-bottom-left-radius: 30px;
+            box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
         }
+        .square-box {
+            background-color: #2F5EA2; /* Warna latar belakang kotak */
+            height: 10%;
+            margin: 0;
+             /* Mengatur tinggi kotak agar memenuhi kolom */
+        }
+        .bg {
+            position: absolute;
+            bottom: 0;
+        }
+        /* .saly img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 11%:
+        } */
 
         .custom-btn {
             background-color: #0B7EFF;
@@ -66,34 +81,82 @@
                 /* Make the column full-width on tablets */
             }
         }
+        @media (min-width: 601px) and (max-width: 1024px) {
+            /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+            .img {
+                display: none;
+            }
+
+            .col-lg-6 {
+                width: 100%;
+            }
+
+            .right-section {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .img {
+                display: none;
+            }
+
+            .col-lg-6 {
+                width: 100%;
+            }
+            .right-section {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+
+        }
     </style>
 
-    <script>
-        window.addEventListener('resize', function() {
-            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body
-                .clientWidth;
-            if (screenWidth <= 768) { // Adjusted to 768px to match the tablet width
-                var imgElement = document.querySelector('.img');
-                if (imgElement) {
-                    imgElement.remove(); // Remove the element with class "img" on tablet screens
-                }
-            }
-        });
-    </script>
 
-    <section
-        class="auth-page-wrapper py-5 position-relative d-flex align-items-center justify-content-center min-vh-100">
+
+</head>
+
+<body>
+    <section class="auth-page-wrapper position-relative d-flex align-items-center justify-content-center min-vh-100">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-11">
+                <div class="col-lg-12">
                     <div class="card mb-0 p-0 d-flex justify-content-between">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6">
+                        <div class="row" style="background-color: #D2E0FB; ">
+                            <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6 img position-relative" style="padding: 0;">
+                                <div class="card" style="box-shadow: none; padding: 0;margin:0;">
+                                    <div class="card-body" style="background-color:  #D2E0FB;padding:0">
+                                        <!-- <center> -->
+                                        <div class="" style="margin-top: 15%;padding-left: 10%; ">
+                                            <div>
+                                                <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
+                                            </div><br>
+                                            <h5>Pemendek Link dengan sekali ketuk</h5>
+                                            <h5>Bikin tautanmu makin singkat !</h5>
+                                            <h6 style="color: #104898;">
+                                                Daftar dan nikmati pengalaman yang menarik pada website kami
+                                            </h6>
+                                            <br>
+                                        </div>
+                                        <!-- </center> -->
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="saly" style="margin-top: 20%">
+                                        <center>
+                                          <img src="{{ asset('template/image/Saly-17.png') }}" width="500" height="400" style="object-fit: ;">
+                                        </center>
+                                    </div>
+                                    <div class="bg" style="background-color: #2F5EA2; height: 5rem; width: 720px;"></div>
+                                </div>
+                            </div>
+                            <div class="col-6 right-section col-lg-6">
                                 <div class="card mb-0 border-0 shadow-none mb-0">
                                     <div class="card-body p-sm-4 m-lg-3">
-                                        <div class="text-center mt-5">
-                                            <h5 class="fs-3xl" style="color: #104898">DAFTAR</h5>
-                                            <p class="text-muted">Silahkan lengkapi seluruh data dibawah ini!</p>
+                                        <div class=" mt-5">
+                                            <h5 class="fs-3xl" style="color: #000000">Selamat Datang!</h5>
+                                            <p class="text-muted">Silahkan lengkapi data di bawah ini untuk mendaftar</p>
                                         </div>
                                         <div class="p-2 mt-5">
                                             <form action="{{ route('register.user') }}" method="POST">
@@ -256,7 +319,7 @@
                                                         id="submitButton" disabled>Daftar</button>
                                                 </div>
                                             </form>
-                                            <div class="text-center mt-5">
+                                            <div class=" mt-5">
                                                 <p class="mb-0">Sudah memiliki akun ? <a
                                                         href="{{ route('login') }}"
                                                         class="fw-semibold text-secondary text-decoration-underline">
@@ -266,22 +329,12 @@
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
                             </div>
-                            <div class="col-6 right-section img col-lg-6">
-                                <center>
-                                    <div class="w-100" style="margin-top: 20% ">
-                                        <img src="{{ asset('template/image/Login.png') }} " width="400"
-                                            height="400">
-                                    </div>
-                                </center>
-                            </div>
                         </div>
-                        <!--end col-->
-                        <!--end row-->
                     </div>
+                    <!--end col-->
                 </div>
-                <!--end col-->
+                <!--end row-->
             </div>
-            <!--end row-->
         </div>
         <!--end container-->
     </section>
@@ -382,6 +435,10 @@
             }
         }
     </script>
+
 </body>
+
+
+<!-- Mirrored from themesbrand.com/steex/layouts/auth-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Aug 2023 01:40:58 GMT -->
 
 </html>
