@@ -791,23 +791,6 @@
                 passwordAddon.html('<i class="ri-eye-fill align-middle"></i>');
             }
         });
-        // $("#copyButton").click(function() {
-        //     var textToCopy = $('#default_short_url').val();
-        //     var tempTextarea = document.createElement("textarea");
-        //     tempTextarea.value = textToCopy;
-        //     document.body.appendChild(tempTextarea);
-        //     tempTextarea.select();
-        //     console.log('Text to copy:', textToCopy);
-        //     try {
-        //         document.execCommand("copy");
-        //         console.log('Teks telah disalin ke clipboard');
-        //     } catch (err) {
-        //         console.error('Gagal menyalin teks: ', err);
-        //         alert('Gagal menyalin teks: ' + err);
-        //     } finally {
-        //         document.body.removeChild(tempTextarea);
-        //     }
-        // });
 
         $("#resetButton").click(function() {
             $(".password-input").val("");
@@ -873,43 +856,6 @@
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/profile-setting.init.js') }}"></script>
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    {{-- <script>
-        function copyToClipboard(text) {
-            if (!navigator.clipboard) {
-                var dummy = document.createElement("textarea");
-                document.body.appendChild(dummy);
-                dummy.value = text;
-                dummy.select();
-                document.execCommand("copy");
-                document.body.removeChild(dummy);
-            } else {
-                navigator.clipboard.writeText(text)
-                    .then(function() {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Link berhasil disalin!',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    })
-                    .catch(function() {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Tidak dapat menyalin link.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    });
-            }
-        }
-
-        document.querySelectorAll('.platform').forEach(function(element) {
-            element.addEventListener('click', function() {
-                var dataUrl = this.getAttribute('data-url');
-                copyToClipboard(dataUrl);
-            });
-        });
-    </script> --}}
     <script>
         var countData = {{ $countURL }};
         var progressBar = document.getElementById("progress-bar");
