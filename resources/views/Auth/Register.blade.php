@@ -9,7 +9,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Daftar | Go Link</title>
+    <title>Daftar | MiLink</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
@@ -220,7 +220,7 @@
                                                                     aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p>Hummasoft Technology membangun aplikasi GoLink
+                                                                <p>Hummasoft Technology membangun aplikasi MiLink
                                                                     sebagai aplikasi Komersial. LAYANAN ini adalah
                                                                     disediakan oleh Hummasoft Technology dan
                                                                     dimaksudkan untuk digunakan sebagaimana adanya.

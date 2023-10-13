@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Link</title>
+    <title>MiLink</title>
 
     <!-- icofont-css-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/icofont.min.css') }}">
@@ -137,7 +137,7 @@
                             <h2 style="color: white;">Situs Mikro yang Dibuat Sesuai dengan kebutuhan Anda</h2>
                             <!-- p -->
                             <p style="color: white;">Tampilkan Identitas Anda dengan Lebih Personal</p>
-                            <p>Dengan Go Link Microsite, Anda dapat dengan mudah membuat dan mengkustomisasi situs web mikro sesuai keinginan Anda.</p>
+                            <p>Dengan MiLink Microsite, Anda dapat dengan mudah membuat dan mengkustomisasi situs web mikro sesuai keinginan Anda.</p>
                         </div>
                         <!-- app buttons -->
 

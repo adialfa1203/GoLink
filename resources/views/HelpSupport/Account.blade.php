@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Link | Akun</title>
+    <title>MiLink | Akun</title>
 
     <!-- icofont-css-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/icofont.min.css') }}">
@@ -221,7 +221,7 @@
                             <p><strong>Pengunjung</strong> adalah seseorang atau entitas yang mengunjungi
                                 tautan atau microsite Anda. Anda dapat melihat jumlah total pengunjung dalam
                                 periode tertentu atau yang telah ditentukan melalui statistik di dashboard
-                                Go Link</p>
+                                MiLink</p>
                         </div>
                     </div>
                 </div>

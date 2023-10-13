@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Link | Pengumuman</title>
+    <title>MiLink | Pengumuman</title>
 
     <!-- icofont-css-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/icofont.min.css') }}">
@@ -185,17 +185,17 @@
                     <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
                         aria-labelledby="accordionborderedExample1" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <h6>Selamat datang di Go Link - Pemberi Layanan Penyingkat Tautan dan Pembangun
+                            <h6>Selamat datang di MiLink - Pemberi Layanan Penyingkat Tautan dan Pembangun
                                 Microsite</h6>
 
-                            <p>Halo Pengguna Go Link,</p>
+                            <p>Halo Pengguna MiLink,</p>
                             <p>Kami ingin memberi tahu Anda bahwa kami telah melakukan beberapa perbaikan
                                 dalam cara kami beroperasi dan telah memperbarui Kebijakan Privasi serta
                                 Kebijakan Privasi kami untuk mencerminkan perubahan ini. Perbaikan-perbaikan
                                 ini termasuk:</p>
-                            <p><strong>Perubahan dalam cara tautan Go Link berfungsi</strong> - Kami telah
-                                mengubah arah pengembangan Go Link. Tidak hanya sebagai penyingkat tautan,
-                                Go Link sekarang juga merupakan pembangun microsite yang dapat digunakan
+                            <p><strong>Perubahan dalam cara tautan MiLink berfungsi</strong> - Kami telah
+                                mengubah arah pengembangan MiLink. Tidak hanya sebagai penyingkat tautan,
+                                MiLink sekarang juga merupakan pembangun microsite yang dapat digunakan
                                 untuk membuat tautan di bio media sosial Anda lebih menarik dan
                                 informatif.</p>
 
@@ -208,7 +208,7 @@
                                 tidak akan dapat terus menggunakan layanan kami hingga Anda menerimanya.</p>
 
                             <p>Terima kasih banyak,</p>
-                            <p>Go Link - Penyingkat Tautan dan Pembangun Microsite</p>
+                            <p>MiLink - Penyingkat Tautan dan Pembangun Microsite</p>
                         </div>
                     </div>
                 </div>
