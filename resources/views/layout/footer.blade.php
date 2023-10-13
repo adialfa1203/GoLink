@@ -4,11 +4,11 @@
             <div class="col-sm-6">
                 <script>
                     document.write(new Date().getFullYear())
-                </script> © Go.Link.
+                </script> © MiLink
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
-                    Design & Develop by Go.Link-Design
+                    Design & Develop by MiLink-Design
                 </div>
             </div>
         </div>

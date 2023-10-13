@@ -207,13 +207,13 @@
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#accor_borderedExamplecollapse2" aria-expanded="false"
                             aria-controls="accor_borderedExamplecollapse2">
-                            Bagaimana cara berlangganan di Go.Link?
+                            Bagaimana cara berlangganan di MiLink?
                         </button>
                     </h2>
                     <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"
                         aria-labelledby="accordionborderedExample2" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <p>1. Kunjungi https://home.Go.Link/subscription </p>
+                            <p>1. Kunjungi https://home.MiLink/subscription </p>
                             <p>2. Silahkan Login dahulu dengan klik Masuk/Daftar sebelah kanan
                                 atas</p>
                             <p>3. Pilih paket yang kamu butuhkan</p>

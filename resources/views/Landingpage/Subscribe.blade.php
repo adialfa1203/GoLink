@@ -324,7 +324,7 @@
                                 </div>
                                 <thead class="text-center">
                                     <tr style="font-size: 12px;">
-                                        <th><span>Batasan Pengunjung Tautan Go.Link</span></th>
+                                        <th><span>Batasan Pengunjung Tautan MiLink</span></th>
                                         <th>Gratis</th>
                                         <th>Premium</th>
                                     </tr>

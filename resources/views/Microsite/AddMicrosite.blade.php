@@ -221,7 +221,7 @@
                                                                     Microsite</label>
                                                                 <div class="input-group">
                                                                     <button type="button"
-                                                                        class="btn btn-danger bg-gradient">Go.Link/</button>
+                                                                        class="btn btn-danger bg-gradient">MiLink/</button>
                                                                     <input type="text" class="form-control"
                                                                         id="linkMicrosite" placeholder="Tautan Microsite"
                                                                         name="link_microsite">

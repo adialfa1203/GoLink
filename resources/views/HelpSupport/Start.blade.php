@@ -179,24 +179,24 @@
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#accor_borderedExamplecollapse1" aria-expanded="true"
                             aria-controls="accor_borderedExamplecollapse1" style="backround">
-                            Apa itu Go.Link
+                            Apa itu MiLink
                         </button>
                     </h2>
                     <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
                         aria-labelledby="accordionborderedExample1" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <b>Go.Link</b> adalah platform untuk orang-orang menunjukkan keahlian
+                            <b>MiLink</b> adalah platform untuk orang-orang menunjukkan keahlian
                             mereka dalam membuat situs mikro dan memperpendek tautan dengan kode
-                            <b>Go.Link/</b>. Produk yang dipasarkan ke semua orang melalui fitur-fitur yang disediakan
+                            <b>MiLink/</b>. Produk yang dipasarkan ke semua orang melalui fitur-fitur yang disediakan
                             oleh
-                            <b>Go.Link</b>.Kami sangat senang Anda ada di sini. Anda dapat langsung masuk
+                            <b>MiLink</b>.Kami sangat senang Anda ada di sini. Anda dapat langsung masuk
                             membuat microsite dan dengan mudah mempersingkat,
                             memodifikasi, dan membagikan tautan Anda. Mari kita mulai dengan dasar-dasarnya.
                             <b>Buat Tautan Pendek</b>
                             <p>Ubah tautan panjang Anda menjadi tautan pendek.</p>
                             <b>Sesuaikan agar mudah diingat</b>
-                            <p>Ubah link dari https://go.link/11SUi menjadi link seperti ini
-                                https://go.link/nwsltr. Atau bisa dengan nama Andxa agar mudah diingat.</p>
+                            <p>Ubah link dari https://MiLink/11SUi menjadi link seperti ini
+                                https://MiLink/nwsltr. Atau bisa dengan nama Andxa agar mudah diingat.</p>
                             <b>Buat Tautan Situs Mikro/Bio</b>
                             <p>Microsite adalah cara untuk membagikan seluruh konten online Anda hanya
                                 menggunakan satu tautan.</p>
@@ -218,7 +218,7 @@
                         <div class="accordion-body">
                             Sesuaikan Penyingkat URL Anda dengan fitur yang memberi Anda pemendekan tautan
                             berkualitas lebih baik.
-                            <p>1. Masuk ke akun <b>Go.Link</b> Anda yang ada.</p>
+                            <p>1. Masuk ke akun <b>MiLink</b> Anda yang ada.</p>
                             <p>2. Klik Buat Tautan Baru di menu bilah sisi kanan.</p>
                             <p>3. Terdapat empat fitur yang tersedia yang dapat anda gunakan.</p>
                             <p>4. Pertama, anda dapat menyunting tautan pendek anda..</p>
@@ -240,12 +240,12 @@
                     <div id="accor_borderedExamplecollapse3" class="accordion-collapse collapse"
                         aria-labelledby="accordionborderedExample3" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <p>Tahukah Anda bahwa sekarang Anda dapat membuat microsite <b>Go.Link</b> untuk
+                            <p>Tahukah Anda bahwa sekarang Anda dapat membuat microsite <b>MiLink</b> untuk
                                 ditampilkan di bio media sosial Anda?</p>
 
                             <p>Membuat microsite sangat mudah:</p>
 
-                            <p>1. Masuk ke akun <b>Go.Link</b> Anda yang ada.</p>
+                            <p>1. Masuk ke akun <b>MiLink</b> Anda yang ada.</p>
                             <p>2. Dari menu Beranda, Klik Buat Microsite Baru kemudian Klik. Kemudian Anda akan
                                 diarahkan ke Buat Microsite Baru</p>
                             <p>3. Pilih satu tema microsite dan klik Selajutnya.</p>
@@ -266,12 +266,12 @@
         </h2>
         <div id="accor_borderedExamplecollapse4" class="accordion-collapse collapse" aria-labelledby="accordionborderedExample4" data-bs-parent="#accordionBordered">
             <div class="accordion-body">
-                <p>Tahukah Anda bahwa sekarang Anda dapat membuat microsite <b>Go.Link</b> untuk
+                <p>Tahukah Anda bahwa sekarang Anda dapat membuat microsite <b>MiLink</b> untuk
                     ditampilkan di bio media sosial Anda?</p>
 
                 <p>Membuat microsite sangat mudah:</p>
                 
-                    <p>1. Masuk ke akun <b>Go.Link</b> Anda yang ada.</p>
+                    <p>1. Masuk ke akun <b>MiLink</b> Anda yang ada.</p>
                     <p>2. Dari menu Beranda, Klik Buat Microsite Baru kemudian Klik. Kemudian Anda akan diarahkan ke Buat Microsite Baru</p>
                     <p>3. Pilih satu tema microsite dan klik Selajutnya.</p>
                     <p>4. Masukkan Nama dan URL microsite Anda dan klik Selanjutnya.</p>

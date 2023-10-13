@@ -68,7 +68,7 @@
                                         <div class="card-body p-sm-5 m-lg-4">
                                             <div class="text-center mt-5">
                                                 <h5 class="fs-3xl" style="color: #104898">LOGIN</h5>
-                                                <p class="text-muted">Sign in to continue to Go.Link</p>
+                                                <p class="text-muted">Sign in to continue to MiLink</p>
                                             </div>
                                             <div class="p-2 mt-5">
                                                 <form action="{{ route('login.user') }}" method="POST">

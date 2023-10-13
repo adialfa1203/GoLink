@@ -180,17 +180,17 @@
                         <div class="col-xl-12">
                             <h5><strong>Kebijakan Privasi</strong></h5>
 
-                            <p>Hummasoft Technology membangun aplikasi Go.Link sebagai aplikasi Komersial. LAYANAN ini adalah disediakan oleh Hummasoft Technology dan dimaksudkan untuk digunakan sebagaimana adanya.</p>
+                            <p>Hummasoft Technology membangun aplikasi MiLink sebagai aplikasi Komersial. LAYANAN ini adalah disediakan oleh Hummasoft Technology dan dimaksudkan untuk digunakan sebagaimana adanya.</p>
 
                             <p>Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami terkait pengumpulan, penggunaan, dan pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan kami.</p>
 
                             <p>Jika Anda memilih untuk menggunakan Layanan kami, maka Anda menyetujui pengumpulan dan penggunaan informasi di kaitannya dengan kebijakan ini. Informasi Pribadi yang kami kumpulkan digunakan untuk menyediakan dan meningkatkan Layanan. Kami tidak akan menggunakan atau membagikan informasi Anda kepada siapa pun kecuali seperti dijelaskan dalam Kebijakan Privasi ini.</p>
 
-                            <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a style="color: #104898" href="{{ url('landingpage/Privacy')}}">Syarat dan Ketentuan</a>, yang dapat diakses di Go.Link kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
+                            <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a style="color: #104898" href="{{ url('landingpage/Privacy')}}">Syarat dan Ketentuan</a>, yang dapat diakses di MiLink kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
 
                             <h3><strong>Ketentuan Pengumpulan Informasi</strong></h3>
 
-                            <p>Untuk pengalaman yang lebih baik, saat menggunakan Layanan kami, kami mungkin meminta Anda untuk memberikan informasi pengenal pribadi tertentu, termasuk namun tidak terbatas pada Go.Link. Informasi yang kami minta akan kami simpan dan gunakan sebagaimana dijelaskan dalam kebijakan privasi ini.</p>
+                            <p>Untuk pengalaman yang lebih baik, saat menggunakan Layanan kami, kami mungkin meminta Anda untuk memberikan informasi pengenal pribadi tertentu, termasuk namun tidak terbatas pada MiLink. Informasi yang kami minta akan kami simpan dan gunakan sebagaimana dijelaskan dalam kebijakan privasi ini.</p>
 
                             <p>Aplikasi ini menggunakan layanan pihak ketiga yang mungkin mengumpulkan informasi yang digunakan untuk mengidentifikasi Anda.</p>
 

@@ -58,13 +58,13 @@
                              <li>
                                  <a href="#features">
                                      <i class="fab fa-instagram"></i>
-                                     @Go.link
+                                    @MiLink
                                  </a>
                              </li>
                              <li>
                                  <a href="#features">
                                      <i class="fab fa-twitter"></i>
-                                     @Go.link
+                                    @MiLink
                                  </a>
                              </li>
                          </ul>
@@ -94,7 +94,7 @@
          <div class="container">
              <div class="row">
                  <div class="col-md-12 text-right">
-                     <p>© Go.Link Dikelola oleh PT. Hummatech</p>
+                     <p>© MiLink Dikelola oleh PT. Hummatech</p>
                  </div>
              </div>
          </div>

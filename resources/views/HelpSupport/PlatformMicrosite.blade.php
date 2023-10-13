@@ -204,7 +204,7 @@
                                 <div id="genques-collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="genques-headingTwo" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body">
-                                        <p>1. Login ke dalam akun Go.Link anda dan masuk ke Dashboard
+                                        <p>1. Login ke dalam akun MiLink anda dan masuk ke Dashboard
                                         </p>
                                         <p>2. Pilih Microsite yang ingin anda edit dengan pilih Edit
                                         </p>
@@ -244,7 +244,7 @@
                                 <div id="genques-collapsefour" class="accordion-collapse collapse"
                                     aria-labelledby="genques-headingFour" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body">
-                                        <p>1. Di Dashboard Go.Link Anda Klik Microsite</p>
+                                        <p>1. Di Dashboard MiLink Anda Klik Microsite</p>
                                         <p>2. Kemudian pilih URL Microsite yang ingin Anda bagikan
                                         </p>
                                         <p>3. Klik Bagikan</p>

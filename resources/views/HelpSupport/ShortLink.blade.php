@@ -202,7 +202,7 @@
                     <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"
                         aria-labelledby="accordionborderedExample2" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <p> Kuota bulanan untuk membuat shortlink/tautan pendek di Go.Link adalah :</p>
+                            <p> Kuota bulanan untuk membuat shortlink/tautan pendek di MiLink adalah :</p>
                             <p><strong>Gratis - 100/bulan</strong></p>
                             <p><strong>Ringan - 100/bulan</strong></p>
                             <p><strong>Premium - 300/bulan</strong></p>

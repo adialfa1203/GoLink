@@ -223,7 +223,7 @@
                                     <div class="card-body p-sm-4 m-lg-3">
                                         <div class="text-center mt-5">
                                             <h5 class="fs-3xl" style="color: #104898">MASUK</h5>
-                                            <p class="text-muted">Masuk untuk melanjutkan ke Go.Link</p>
+                                            <p class="text-muted">Masuk untuk melanjutkan ke MiLink</p>
                                         </div>
                                         <div class="p-2 mt-5">
                                             <form action="{{ route('login.user') }}" method="POST">

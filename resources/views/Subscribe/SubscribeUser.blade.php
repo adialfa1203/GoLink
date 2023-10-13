@@ -37,8 +37,8 @@
                                             <img class="card-img-top img-fluid" src="{{ asset('plugin/cat-free.jpg') }}" style="width: 15%;" alt="Card image cap">
 
                                             <div style="margin-left: 2%;">
-                                                <h6 class="card-title long-text">Go.Link - Layanan Gratis (Selamanya)</h6>
-                                                <p class="card-text text-muted long-text">Anda menggunakan layanan gratis dari Go.Link</p>
+                                                <h6 class="card-title long-text">MiLink - Layanan Gratis (Selamanya)</h6>
+                                                <p class="card-text text-muted long-text">Anda menggunakan layanan gratis dari MiLink</p>
                                             </div>
                                             <div style="margin-left:30%;"  >
                                                 <a href="/subscribe-product-user" type="button" class="btn btn-outline-danger">Berlangganan Sekarang</a>

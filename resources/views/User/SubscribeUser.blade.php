@@ -64,9 +64,9 @@
                                             style="width: 100%;" alt="Card image cap">
                                     </div>
                                     <div class="col-lg-7 col-md-6 col-12">
-                                        <h6 class="card-title long-text mt-3">Go.Link - Layanan Gratis (Selamanya)</h6>
+                                        <h6 class="card-title long-text mt-3">MiLink - Layanan Gratis (Selamanya)</h6>
                                         <p class="card-text text-muted long-text">Anda menggunakan layanan gratis dari
-                                            Go.Link</p>
+                                            MiLink</p>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-12 text-center">
                                         <a href="{{ url('user/subscribe-product-user') }}" type="button"
