@@ -160,7 +160,6 @@ class ShortLinkController extends Controller
 
         $newUrlKey = str_replace(' ', '-', $request->newUrlKey);
         $newUrlKey = strtolower($newUrlKey);
-
         $updateUrl->update([
             'url_key' => $newUrlKey,
             'default_short_url' => env('APP_URL') . "/" . $newUrlKey,

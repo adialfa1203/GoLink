@@ -98,7 +98,6 @@
                 <div class="row">
                     <div class="col-xl-4 col-sm-6">
 
-
                         <div class="dropdown float-end">
                             <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
@@ -222,9 +221,7 @@
                                                     <div class="collapse" id="tautanberjangka">
                                                         <div class="card card-body">
                                                             <div class="container">
-
                                                                 <div class="col-lg-12">
-
                                                                     <div class="col-lg-12">
                                                                         <div
                                                                             class="position-relative auth-pass-inputgroup mb-3">
@@ -246,9 +243,7 @@
                                                                                 Reset</span>
                                                                         </button>
                                                                     </div>
-
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -271,8 +266,6 @@
                                             </button>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -295,11 +288,9 @@
                                     <div class="modal-body">
                                         <div class="row g-3">
                                             <div class="col-lg-12">
-
                                                 <label type="button" class="btn btn-primary" style="width: 100%;">
                                                     Berhasil menyingkatkan tautan!
                                                 </label>
-
                                             </div>
                                             <div class="col-lg-12">
                                                 <label class="form-label">Judul</label>
@@ -309,8 +300,8 @@
                                             <div class="col-lg-12">
                                                 <div class="input-group align-items-center rounded"
                                                     style="background: #E9EEF5">
-                                                    <input id="default_short_url" name="new_url_key" class="form-control" type="text"
-                                                        id="salin">
+                                                    <input id="default_short_url" name="new_url_key" class="form-control"
+                                                        type="text" id="salin">
                                                     <div id="successCopy" class="alert alert-success mt-3"
                                                         style="display: none; position: fixed; bottom: 570px; right: 560px; max-width: 500px;">
                                                         Tautan berhasil disalin ke clipboard
@@ -322,7 +313,8 @@
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </button>
                                                         <button type="button" id="button-email" data-bs-toggle="modal"
-                                                            data-bs-target="#bagikan" class="btn btn-danger btn-sm m-1"><i
+                                                            data-bs-target="#bagikan"
+                                                            class="btn btn-danger bg-gradient btn-sm m-1"><i
                                                                 class="fa-solid fa-square-share-nodes"></i>
                                                             Bagikan</button>
                                                     </div>
@@ -332,20 +324,82 @@
                                             <div class="collapse" id="edit">
                                                 <div class="card">
                                                     <div class="container">
-                                                        <button type="button" class="btn btn-success me-2"
-                                                            id="submitKustom"
-                                                            style="font-size: 13px; padding: 5px 10px; display: flex; align-items: center; justify-content: flex-end; float: right;">
-                                                            <i class="bi bi-check mr-2"></i> Simpan
+                                                        <button class="bg-primary border bg-gradient border-0 me-2"
+                                                            type="button" id="submitKustom"
+                                                            style="color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; justify-content: flex-end; float: right;">
+                                                            <span class="bi bi-check mr-2">
+                                                                Simpan</span>
                                                         </button>
-                                                        <button type="button" class="btn btn-light me-2"
-                                                            id="keluarButton"
-                                                            style="font-size: 13px; padding: 5px 10px; display: flex; align-items: center; justify-content: flex-end; float: right;"
+                                                        <button class="btn btn-danger bg-gradient border border-0 me-2"
+                                                            type="button" id="keluarButton"
+                                                            style="color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; justify-content: flex-end; float: right;"
                                                             onclick="closeEdit()">
-                                                            <i class="bi bi-x mr-2"></i> Batal
+                                                            <span class="bi bi-arrow-clockwise">
+                                                                Batal</span>
                                                         </button>
                                                     </div>
                                                 </div>
                                             </div>
+                                            {{-- <div class="container-fluid mt-3">
+                                                <div class="card">
+                                                    <button type="button" class="bg-primary border border-0"
+                                                        style="color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; width: 100%; text-align: left;">
+                                                        <i class="fa-solid fa-pen-to-square"
+                                                            style="font-size: 12px; margin-right: 5px;"></i>Kustom Tautan
+                                                        (opsional)
+                                                    </button>
+                                                    <div class="collapse" id="tautanberjangka">
+                                                        <div class="card card-body">
+                                                            <div class="container">
+                                                                <div class="col-lg-12">
+                                                                    <div class="col-lg-12">
+                                                                        <div
+                                                                            class="position-relative auth-pass-inputgroup mb-3">
+                                                                            <label for="old_password"
+                                                                                class="form-label">Nama Tautan</label>
+                                                                            <div class="input-group">
+                                                                                <button type="button"
+                                                                                    class="btn btn-danger bg-gradient">MiLink/</button>
+                                                                                <input type="text"
+                                                                                    class="form-control pe-5 time-input"
+                                                                                    id="default_short_url"
+                                                                                    name="new_url_key"
+                                                                                    placeholder="Nama Tautan">
+                                                                            </div>
+                                                                            <button
+                                                                                class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                                                type="button" id="password-addon">
+                                                                            </button>
+                                                                        </div>
+                                                                        <button
+                                                                            class="bg-primary border bg-gradient border-0 me-2"
+                                                                            type="button" id="submitKustom"
+                                                                            style="color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; justify-content: flex-end; float: right;">
+                                                                            <span class="bi bi-check mr-2">
+                                                                                Simpan</span>
+                                                                        </button>
+                                                                        <button
+                                                                            class="btn btn-danger bg-gradient border border-0 me-2"
+                                                                            type="button" id="time-reset"
+                                                                            style="color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; justify-content: flex-end; float: right;">
+                                                                            <span class="bi bi-arrow-clockwise">
+                                                                                Reset</span>
+                                                                        </button>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn btn-primary bg-primary" style="margin-top: 1px;"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#tautanberjangka" aria-expanded="false"
+                                                        aria-controls="collapseExample" id="toggleButton">
+                                                        Tampilkan lebih banyak <i class="fa-solid fa-angle-down"></i>
+                                                    </button>
+                                                </div>
+                                            </div> --}}
 
                                             <div class="col-lg-12">
                                                 <div class="countdown-input-subscribe">
@@ -405,10 +459,8 @@
 
                         <!-- end Modal bagikan-->
 
-
                     </div><!--end col-->
                     <div class="col-xl-4 col-sm-6">
-
 
                         <div class="dropdown float-end">
                             <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown"
@@ -435,12 +487,9 @@
                             </div>
                         </a>
 
-
                     </div><!--end col-->
 
-
                     <div class="col-xl-4 col-sm-6">
-
 
                         <div class="dropdown float-end">
                             <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown"
@@ -698,14 +747,16 @@
     <script>
         $(document).ready(function() {
             var selectId = $('#new_url_key').val();
-            // console.log(selectId);
+            console.log(selectId);
             // Mendapatkan token CSRF dari meta tag
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
             // Tambahkan kode berikut di bawahnya
             $('#submitKustom').click(function() {
-                var newUrlKey = $('#default_short_url').val();
+                var url = $('#default_short_url').val();
                 // alert('masuk')
+                var parts = url.split('/'); // Membagi URL menjadi potongan-potongan dengan karakter '/'
+                var newUrlKey = parts[parts.length - 1]; // Mengambil bagian terakhir dari potongan
                 $.ajax({
                     headers: {
                         'X-CSRF-Token': csrfToken,
@@ -814,6 +865,7 @@
                                 var defaultShort = response.default_short_url;
                                 var title = response.title;
                                 var url = response.destination_url;
+                                console.log(response.url_key);
                                 $("#default_short_url_id").val(response.id);
                                 $("#default_short_url").val(defaultShort);
                                 $("#title").val(title);
