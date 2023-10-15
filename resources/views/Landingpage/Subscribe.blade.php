@@ -67,11 +67,6 @@
             border-spacing: 0;
         }
 
-        img {
-            border: 0;
-            max-width: 100%;
-        }
-
 
 
         /** page structure **/
