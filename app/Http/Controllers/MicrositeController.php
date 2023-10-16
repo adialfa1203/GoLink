@@ -104,6 +104,7 @@ class MicrositeController extends Controller
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
+                ->with('error', trans('Nama sudah di pakai'))
                 ->withInput();
         }
         $link = $request->link_microsite;
