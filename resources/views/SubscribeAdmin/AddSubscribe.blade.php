@@ -98,10 +98,9 @@
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Deskripsi Langganan</label>
                                         <div class="position-relative">
-                                            <textarea class="form-control" id="editor" name="description" cols="30" rows="10"></textarea>
+                                            <textarea class="form-control" id="editor" name="description" cols="30" rows="10">{{ old('description') }}</textarea>
                                         </div>
                                     </div>
-                                    <div id="editor" name="description">{{ old('description') }}</div>
                                     @if ($errors->has('description'))
                                         <span class="text-danger">{{ $errors->first('description') }}</span>
                                     @endif
