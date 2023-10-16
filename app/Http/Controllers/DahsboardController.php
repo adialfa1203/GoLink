@@ -31,21 +31,32 @@ class DahsboardController extends Controller
             ->whereRelation('shortURL', 'user_id', '=', $userId)
             ->whereRelation('shortURL', 'microsite_uuid', '!=', null)
             ->count();
-        } if ($user) { $userId = $user->id; $totalUrl = ShortURL::where('user_id', $userId) ->whereNull('microsite_uuid') ->count(); $countHistory = History::where('user_id', $userId) ->count();
-        $countURL = $totalUrl + $countHistory;
+        } if ($user) { 
+            $userId = $user->id; 
+            $totalUrl = ShortURL::where('user_id', $userId)
+            ->whereNull('microsite_uuid')
+            ->whereDate('created_at', '>=', now()->startOfMonth())
+            ->count(); 
+            
+            $countHistory = History::where('user_id', $userId)
+            ->whereDate('created_at', '>=', now()->startOfMonth())
+            ->count();
+            $countURL = $totalUrl + $countHistory;
+
         } if ($user) {
             $userId = $user->id;
             $countMicrosite = ShortURL::where('user_id', $userId)
             ->whereNotNull('microsite_uuid')
             ->orderBy('created_at', 'asc')
             ->limit(3)
+            ->whereDate('created_at', '>=', now()->startOfMonth())
             ->count();
-        }if($user) {
+        } if($user) {
             $userId = $user->id;
         $countNameChanged = ShortUrl::where('user_id', $userId)
-                                    ->where('custom_name', 'yes')
-                                    ->whereNull('microsite_uuid')
-                                    ->count();
+            ->where('custom_name', 'yes')
+            ->whereNull('microsite_uuid')
+            ->count();
         }
         $qr = ShortUrl::get()->sum('qr_code');
 
