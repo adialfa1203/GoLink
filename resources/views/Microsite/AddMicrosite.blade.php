@@ -396,15 +396,6 @@
     </script>
 
     <script>
-
-        @if($errors->any())
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'link microsite sudah pernah DIgunakan.',
-                });
-        @endif
-
         function showSweetAlert() {
             var maxMicrosites = 3;
             var existingMicrosites = {{ $micrositeCount ?? 0 }};
@@ -425,7 +416,6 @@
                 });
             }
         }
-
 
         function validateInputs() {
             var name_microsite_val = $('#name_microsite').val();
@@ -455,7 +445,6 @@
 
             return true;
         }
-
 
         document.addEventListener("DOMContentLoaded", function() {
             var submitButton = document.getElementById("submitButton");
