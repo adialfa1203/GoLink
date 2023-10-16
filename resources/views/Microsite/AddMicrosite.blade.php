@@ -434,14 +434,14 @@
                 }
             }
 
-            if (errorMessage !== '') {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: errorMessage,
-                });
-                return false;
-            }
+            // if (errorMessage !== '') {
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'Oops...',
+            //         text: errorMessage,
+            //     });
+            //     return false;
+            // }
 
             return true;
         }
