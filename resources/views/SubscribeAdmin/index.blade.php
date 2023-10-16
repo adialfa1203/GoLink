@@ -48,6 +48,18 @@
                 @foreach ($subscribe as $subs)
                     <div class="col-sm-6 col-lg-3">
                         <div class="card">
+                            <div class="d-flex justify-content-end dropdown float-end m-2">
+                                <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <span class="text-muted fs-lg"><i class="mdi mdi-dots-vertical align-middle"></i></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a class="dropdown-item"
+                                        href="{{ route('edit.subscribe', ['id' => $subs->id]) }}">Edit</a>
+                                    <button type="button" class="dropdown-item"
+                                        onclick="confirmDelete('{{ $subs->id }}')">Hapus</button>
+                                </div>
+                            </div>
                             <img class="card-img-top img-fluid mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}"
                                 style="display: block; margin: 0 auto; width: 80%;" alt="Card image cap">
                             <br>
@@ -75,6 +87,28 @@
         </div>
 
     @section('script')
-        <script></script>
+        <script>
+            function confirmDelete(id) {
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Tindakan ini tidak dapat dibatalkan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#28a745',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '/admin/delete-subscribe/' + id;
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        Swal.fire(
+                            'Dibatalkan',
+                            'Data tetap aman :)',
+                            'error'
+                        );
+                    }
+                });
+            }
+        </script>
     @endsection
 @endsection

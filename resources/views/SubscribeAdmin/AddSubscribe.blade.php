@@ -73,7 +73,7 @@
                                         <label for="username" class="form-label">Harga</label>
                                         <div class="position-relative">
                                             <input type="number" class="form-control password-input" id="username"
-                                                name="price" placeholder="Rp : 1.000.000,00" required
+                                                name="price" placeholder="Minimal 0 rupiah" required
                                                 value="{{ old('number') }}">
                                         </div>
                                     </div>
