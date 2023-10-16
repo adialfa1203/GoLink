@@ -29,7 +29,7 @@
                                 style="display: block; margin: 0 auto; width: 80%;" alt="Card image cap">
                             <br>
                             <div class="card-body text-center">
-                                <h2 class="mb-2">Rp.{{ number_format($subs->number, 0, ',', '.') }}</h2>
+                                <h2 class="mb-2">Rp.{{ number_format($subs->price, 0, ',', '.') }}</h2>
                                 <h4 class="card-title mb-2">
                                     @if (strtolower(trim($subs->tipe)) === 'gratis')
                                         <span class="badge bg-success">{{ $subs->tipe }}</span>
