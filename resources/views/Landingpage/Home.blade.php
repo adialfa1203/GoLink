@@ -89,7 +89,7 @@
         }
 
         button {
-            background-color: #D9D9D9;
+            background-color: #0E2954;
             color: #000;
             border: none;
             padding: 10px 15px;
@@ -98,7 +98,7 @@
         }
 
         button:hover {
-            background-color: #D9D9D9;
+            background-color: #0E2954;
         }
 
         header {
@@ -127,7 +127,7 @@
 <style>
     .navbar-nav a.nav-link.active {
         background-color: #ffffff;
-        color: #104898;
+        color: #0E2954;
         border-start-end-radius: 10px;
         border-top-left-radius: 10px;
         }
@@ -165,14 +165,13 @@
                             <!-- p -->
                             <p>Ingin membuat tautan lebih singkat dan lebih mudah diingat?</p>
                             <p>MiLink adalah solusi terbaik untuk Anda!</p>
-                            <span style="color: #ffffff;">Sekarang, Anda dapat dengan mudah mengubah tautan panjang menjadi tautan yang simpel dan mudah diingat. Dengan MiLink, mempersingkat URL sesuai dengan keinginan Anda lebih cepat dan lebih sederhana dari sebelumnya.</span>
                         </div>
                     </div>
                     <!-- banner slides start -->
                     <div class="col-lg-6 col-md-12 aos-init aos-animate d-flex justify-content-start" data-aos="fade-in"
                         data-aos-duration="1500">
                         <div class="banner_image">
-                            <img class="moving_animation" src="{{ asset('landing-page 2.png') }}"
+                            <img class="moving_animation" src="{{ asset('landing-page.png') }}"
                                 alt="image">
                         </div>
                     </div>
@@ -208,7 +207,7 @@
             <!-- container start -->
             <div class="container">
                 <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                    <h2>Fitur Fitur <span>MiLink</span> Yang Dapat <br> Membantu Anda</h2>
+                    <h2><span>Fitur Fitur</span> <span>Mi</span>Link.id <span><br>Yang Dapat Membantu Anda</span></h2>
                 </div>
                 <!-- row start -->
                 <div class="row d-flex justify-content-md-center" style="margin-top: 2%;">
@@ -232,11 +231,11 @@
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <svg xmlns="http://www.w3.org/2000/svg"width="80" height="80"
-                                viewBox="0 0 576 512"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
+                                viewBox="0 0 640 512"
                                 style="margin-top: 10%;"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                 <path fill="#104898"
-                                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                             </svg>
                             <div class="story_text">
                                 <h3>Pembuatan Microsite</h3>
@@ -251,11 +250,11 @@
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                viewBox="0 0 512 512"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
+                                viewBox="0 0 640 512"
                                 style="margin-top: 10%;"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                 <path fill="#104898"
-                                    d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z" />
+                                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                             </svg>
                             <div class="story_text">
                                 <h3>Analitik</h3>
@@ -275,7 +274,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="text-center">
-                            <h3>Statistik MiLink</h3>
+                            <h3>Statistik MiLink.id</h3>
                         </div>
                     </div>
                 </div>

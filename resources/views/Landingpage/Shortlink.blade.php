@@ -145,7 +145,7 @@
             <!-- container start -->
             <div class="container">
                 <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                    <h2>Fitur-Fitur <span>MiLink</span> yang Membantu Anda</h2>
+                    <h2><span>Fitur-Fitur</span> <span>Mi</span>Link.id <span><br> yang Membantu Anda</span></h2>
                 </div>
                 <div class="row d-flex justify-content-md-center" style="margin-top: 2%;">
                     <!-- story -->
