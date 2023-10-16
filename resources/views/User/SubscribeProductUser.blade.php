@@ -1,58 +1,216 @@
 @extends('layout.user.app')
 
 @section('title', 'Berlangganan')
+@section('style')
+    <style>
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .custom {
+            align-self: flex-end !important;
+            border-radius: 20px;
+            border: 2px solid #FFB000;
+            background-color: transparent;
+            color: #FFB000;
+            padding: 6px 12px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .custom:hover {
+            background-color: #FFB000;
+            color: white;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
 
-            <!-- start page title -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Berlangganan </h4>
-
-                        {{-- <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
-                                        <li class="breadcrumb-item active">Products Grid</li>
-                                    </ol>
-                                </div> --}}
-
+            <div class="col-sm-12 col-xl-12x`">
+                <div class="card">
+                    <div class="card-body"
+                        style="background-image: linear-gradient(to bottom right, #104898, #104898); border-radius: 15px;">
+                        <h4 class="card-title mb-2 mt-3 text-white">Hi {!! Auth::user()->name !!}!</h4>
+                        <h6 class="card-subtitle font-14 text-white mb-3 mt-1">Silakan pilih paket berlangganan dan
+                            nikmati fitur yang
+                            kamu dapatkan </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-5">
+                    <div class="text-center mb-5">
+                        <h4 class="fw-semibold fs-4xl">Berlangganan Yang Tersedia</h4>
                     </div>
                 </div>
             </div>
             <div class="row">
                 @foreach ($subscribe as $subs)
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card">
-                            <img class="card-img-top img-fluid mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}"
-                                style="display: block; margin: 0 auto; width: 80%;" alt="Card image cap">
-                            <br>
-                            <div class="card-body text-center">
-                                <h2 class="mb-2">Rp.{{ number_format($subs->price, 0, ',', '.') }}</h2>
-                                <h4 class="card-title mb-2">
-                                    @if (strtolower(trim($subs->tipe)) === 'gratis')
-                                        <span class="badge bg-success">{{ $subs->tipe }}</span>
-                                    @elseif (strtolower(trim($subs->tipe)) === 'dasar')
-                                        <span class="badge bg-primary">{{ $subs->tipe }}</span>
-                                    @elseif (strtolower(trim($subs->tipe)) === 'menengah')
-                                        <span class="badge bg-warning">{{ $subs->tipe }}</span>
-                                    @elseif (strtolower(trim($subs->tipe)) === 'premium')
-                                        <span class="badge bg-danger">{{ $subs->tipe }}</span>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card card-animate" style="border-radius: 20px 20px 0 0;">
+                            <div class="card-body">
+                                <h4 class="card-title mb-2 text-center">{{ $subs->tipe }}</h4>
+                            </div>
+                            <div class="card-body text-white"
+                                style="background-image: linear-gradient(to bottom right, #0E2954, #104898); border-radius: 0 0 20px 20px;">
+                                <h5 class="card-title text-center mb-2">
+                                    Rp.{{ number_format($subs->price, 0, ',', '.') }}
+                                    @if (strtolower(trim($subs->period)) === 'forever')
+                                        /Selamanya
+                                    @elseif (strtolower(trim($subs->period)) === '1_week')
+                                        /Minggu
+                                    @elseif (strtolower(trim($subs->period)) === '1_month')
+                                        /Bulan
                                     @else
-                                        <span class="badge bg-secondary">{{ $subs->tipe }}</span>
+                                        /Tahun
                                     @endif
-                                </h4>
-                                <p class="card-text">{{ strip_tags($subs->description) }}</p>
+                                </h5>
+                                @if (strtolower(trim($subs->tipe)) === 'gratis')
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1 ms-2 text-white text-center">
+                                            Paket dasar untuk meningkatkan pengalaman pengguna
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-5">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menyingkat tautan batas sebanyak 35/bulan
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Membuat Microsite sebanyak 3/bulan
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                                            class="btn custom col-12" style="margin-top: 180px;">Berlangganan
+                                            Sekarang</a>
+
+                                    </div>
+                                @elseif (strtolower(trim($subs->tipe)) === 'dasar')
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1 ms-2 text-white text-center">
+                                            Paket dasar untuk meningkatkan pengalaman pengguna
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-5">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menyingkat tautan batas sebanyak 50×/bulan
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Membuat Microsite sebanyak 10×/bulan
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                                            class="btn custom col-12" style="margin-top: 180px;">Berlangganan
+                                            Sekarang</a>
+                                    </div>
+                                @elseif (strtolower(trim($subs->tipe)) === 'menengah')
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1 ms-2 text-white text-center">
+                                            Paket menengah untuk menawarkan atau memberikan fitur-fitur yang lebih
+                                            canggih
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-5">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menyingkat tautan batas sebanyak 100×/bulan
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Membuat Microsite sebanyak 20×/bulan
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                                            class="btn custom col-12" style="margin-top:155px;">Berlangganan
+                                            Sekarang</a>
+                                    </div>
+                                @elseif (strtolower(trim($subs->tipe)) === 'premium')
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1 ms-2 text-white text-center">
+                                            Paket premium yang menawarkan fitur-fitur ekslusif
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-5">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menyingkat tautan tanpa batas
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Membuat Microsite tanpa batas
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menggunakan semua tema tanpa terkunci
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Memantau tautan dengan terperinci
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Memproteksi tautan dengan kata sandi
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                                            class="btn custom col-12" style="margin-top: 65px;">Berlangganan
+                                            Sekarang</a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-        <!-- container-fluid -->
     </div>
-    <!-- End Page-content -->
 @endsection
 
 @section('script')
