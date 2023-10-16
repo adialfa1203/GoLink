@@ -16,6 +16,28 @@ class SubscribeUserController extends Controller
     public function subscribeProductUser()
     {
         $subscribe = Subscribe::orderBy('created_at', 'asc')->get();
-        return view('User.SubscribeProductUser', compact('subscribe'));
+
+        $tripay = new TripayController();
+
+        $channels = $tripay->getPaymentChannels();
+
+        return view('User.SubscribeProductUser', compact('subscribe', 'channels'));
+    }
+
+    public function checkout($id){
+        $subscribe = Subscribe::findOrFail($id);
+        return view('Subscribe.CheckoutProduct', compact('subscribe'));
+    }
+
+    public function store(Request $request){
+        dd($request->all());
+
+        // $subscribe =
+
+        // $method =
+
+        $tripay = new TripayController();
+
+        $tripay->requestTransaction();
     }
 }

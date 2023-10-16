@@ -69,12 +69,12 @@
                                         /Tahun
                                     @endif
                                 </h5>
-                                @if (strtolower(trim($subs->tipe)) === 'gratis')
-                                    <div class="d-flex">
-                                        <div class="flex-grow-1 ms-2 text-white text-center">
-                                            Paket dasar untuk meningkatkan pengalaman pengguna
-                                        </div>
+                                <div class="d-flex">
+                                    <div class="flex-grow-1 ms-2 text-white text-center">
+                                        {{ strip_tags($subs->description) }}
                                     </div>
+                                </div>
+                                @if (strtolower(trim($subs->tipe)) === 'gratis')
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
                                             <i class="ri-checkbox-circle-fill text-success"></i>
@@ -92,17 +92,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
-                                            class="btn custom col-12" style="margin-top: 180px;">Berlangganan
-                                            Sekarang</a>
-
+                                        <a href="{{ route('checkout', ['id' => $subs->id]) }}" type="button"
+                                            class="btn custom col-12" style="margin-top: 180px;">Berlangganan Sekarang</a>
                                     </div>
                                 @elseif (strtolower(trim($subs->tipe)) === 'dasar')
-                                    <div class="d-flex">
-                                        <div class="flex-grow-1 ms-2 text-white text-center">
-                                            Paket dasar untuk meningkatkan pengalaman pengguna
-                                        </div>
-                                    </div>
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
                                             <i class="ri-checkbox-circle-fill text-success"></i>
@@ -120,17 +113,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                                        <a href="{{ route('checkout', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top: 180px;">Berlangganan
                                             Sekarang</a>
                                     </div>
                                 @elseif (strtolower(trim($subs->tipe)) === 'menengah')
-                                    <div class="d-flex">
-                                        <div class="flex-grow-1 ms-2 text-white text-center">
-                                            Paket menengah untuk menawarkan atau memberikan fitur-fitur yang lebih
-                                            canggih
-                                        </div>
-                                    </div>
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
                                             <i class="ri-checkbox-circle-fill text-success"></i>
@@ -148,16 +135,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                                        <a href="{{ route('checkout', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top:155px;">Berlangganan
                                             Sekarang</a>
                                     </div>
                                 @elseif (strtolower(trim($subs->tipe)) === 'premium')
-                                    <div class="d-flex">
-                                        <div class="flex-grow-1 ms-2 text-white text-center">
-                                            Paket premium yang menawarkan fitur-fitur ekslusif
-                                        </div>
-                                    </div>
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
                                             <i class="ri-checkbox-circle-fill text-success"></i>
@@ -199,7 +181,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                                        <a href="{{ route('checkout', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top: 65px;">Berlangganan
                                             Sekarang</a>
                                     </div>

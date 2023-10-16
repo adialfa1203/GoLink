@@ -127,6 +127,8 @@ Route::prefix('user')->group(function(){
     //subscribe
     Route::get('/subscribe-user', [SubscribeUserController::class, 'subscribeUser'])->name('subscribe.user');
     Route::get('/subscribe-product-user', [SubscribeUserController::class, 'subscribeProductUser'])->name('subscribe.product.user');
+
+    Route::get('/checkout/{id}', [SubscribeUserController::class, 'checkout'])->name('checkout');
     // microsite
     Route::get('/microsite-user', [MicrositeController::class, 'microsite'])->name('microsite');
     Route::post('/create-microsite', [MicrositeController::class, 'createMicrosite'])->name('create.microsite');
