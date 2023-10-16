@@ -90,7 +90,9 @@ class MicrositeController extends Controller
         if ($user->subscribe === 'no' && $user->microsites()->count() >= 3) {
             return redirect()->back();
         }
-
+        $columnName = 'link_microsite'; // Ganti dengan nama kolom yang sesuai
+        $sudahdipakai = Microsite::select($columnName)->get();
+        // dd($request, $sudahdipakai);
         $validator = Validator::make($request->all(), [
             'microsite_selection' => 'required',
             'name' => 'required|string|regex:/^[^+\/]+$/u|max:35',
@@ -99,12 +101,12 @@ class MicrositeController extends Controller
             'name.max' => 'Nama Microsite tidak boleh lebih dari 35 karakter',
             'name.max' => 'Nama microsite tidak valid atau mengandung kata terlarang!',
             'link_microsite.required' => 'Link microsite harus diisi!',
-            'link_microsite.regex' => 'Link microsite tidak valid atau mengandung kata terlarang!'
+            'link_microsite.regex' => 'Link microsite tidak valid atau mengandung kata terlarang!',
+            // 'link_microsite.unique' => 'Unik',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
-                ->with('error', trans('Nama sudah di pakai'))
                 ->withInput();
         }
         $link = $request->link_microsite;
