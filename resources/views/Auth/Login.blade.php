@@ -36,6 +36,13 @@
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
 
     <style>
+        body,
+        .gm,
+        .card {
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
         .right-section {
 
             color: white;
@@ -284,130 +291,125 @@
 </head>
 
 <body>
-    <section class="auth-page-wrapper position-relative d-flex align-items-center justify-content-center min-vh-100">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="card mb-0 p-0 d-flex justify-content-between">
-                        <div class="row" style="background-color: #D2E0FB; ">
-                            <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6 img position-relative" style="padding: 0;">
-                                <div class="card" style="box-shadow: none; padding: 0;margin:0;">
-                                    <div class="card-body" style="background-color:  #D2E0FB;padding:0">
-                                        <!-- <center> -->
-                                        <div class="mt-5" style="padding-left: 10%; ">
-                                            <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
-                                            <h5>Pemendek Link dengan sekali ketuk</h5>
-                                            <h5>Bikin tautanmu makin singkat !</h5>
-                                            <h6 style="color: #104898;">
-                                                Daftar dan nikmati pengalaman yang menarik pada website kami
-                                            </h6>
-                                            <center>
-                                                <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style="object-fit: ;margin-right: 20px; margin-top:0px">
-                                            </center>
-                                        </div>
-                                        <!-- </center> -->
-                                    </div>
+    <div class="row justify-content-center gm">
+        <div class="">
+            <div class="card mb-0 p-0 d-flex justify-content-between">
+                <div class="row" style="background-color: #D2E0FB; ">
+                    <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6 img position-relative" style="padding: 0;">
+                        <div class="card" style="box-shadow: none; padding: 0;margin:0;">
+                            <div class="card-body" style="background-color:  #D2E0FB;padding:0;">
+                                <!-- <center> -->
+                                <div class="mt-5" style=" position: absolute; top: 80px; right: 25%; ">
+                                    <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
+                                    <h4>Pemendek Link dengan sekali ketuk</h4>
+                                    <h4>Bikin tautanmu makin singkat !</h4>
+                                    <h5 style="color: #104898;">
+                                        Daftar dan nikmati pengalaman yang menarik pada website kami
+                                    </h5>
+                                    <!-- <center> -->
+                                    <!-- </center> -->
                                 </div>
-                                <div class="bg" style="height: 5rem;">
-                                <a href="{{ url('id/home') }}"><p style="padding: 33px; color: #fff;">&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;Kembali ke Landing Page</p></a>
-                                </div>
-                            </div>
-                            <div class="col-6 right-section col-lg-6">
-                                <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
-                                    <div class="card-body p-sm-5 m-lg-3">
-                                        <div class=" mt-5">
-                                            <h5 class="fs-3xl">Selamat Datang Kembali !</h5>
-                                            <p class="text-muted">Masuk untuk melanjutkan ke MILINK</p>
-                                        </div>
-                                        <div class=" mt-3">
-                                            <form action="{{ route('login.user') }}" method="POST">
-                                                @csrf
-                                                <div class="mb-3">
-                                                    <label for="username" class="form-label">Email</label>
-                                                    <div class="position-relative ">
-                                                        <input type="text" class="form-control password-input @error('email')
-                                                        is-invalid
-                                                        @enderror" name="email" id="username" placeholder="Masukkan Email" value="{{ old('email') }}">
-                                                    </div>
-                                                    <div>
-                                                        @if ($errors->has('email'))
-                                                        <span class="text-danger">{{ $errors->first('email') }}</span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="password-input">Kata Sandi</label>
-                                                    <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input" name="password" placeholder="Masukkan Kata Sandi" id="password-input" value="{{ old('password') }}">
-                                                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
-                                                        <div>
-                                                            @if ($errors->has('password'))
-                                                            <span class="text-danger">{{ $errors->first('password') }}</span>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="float-end">
-                                                        <a href="{{ url('id/send-email') }}" class="text-muted">Lupa kata
-                                                            sandi?</a>
-                                                    </div>
-                                                    <div class="mb-3 form-check col-4">
-                                                        <input type="checkbox" class="form-check-input" id="remember" name="remember_me">
-                                                        <label class="form-check-label" for="remember">Ingatkan
-                                                            saya</label>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-4">
-                                                    <button class="btn w-100 custom-btn" style="background-color: #2F5EA2; color: #fff" type="submit">Masuk</button>
-                                                </div>
-                                                <div class="mt-1 pt-2 text-center">
-                                                    <div class="signin-other-title position-relative">
-                                                        <h5 class="fs-sm mb-4 title">Login dengan</h5>
-                                                    </div>
-                                                    <div class="d-flex gap-1">
-                                                        <div class="col-6">
-                                                            <div class="pt-2 hstack gap-2 justify-content-center">
-                                                                <a href="{{ route('redirect.google') }}" style="width: 100%;">
-                                                                    <div class="google-btn">
-                                                                        <div class="google">
-                                                                            <img class="google-icon d-flex justify-content-center" src="https://i.ibb.co/ydLySMx/google.png" />
-                                                                            <h6 class="btn-text" style="padding: 11px;">Google</h6>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="pt-2 hstack gap-2 justify-content-center">
-                                                                <a href="{{ route('redirect.facebook') }}" style="width: 100%;">
-                                                                    <div class="google-btn">
-                                                                        <div class="google">
-                                                                            <img class="google-icone d-flex justify-content-center" src="https://i.ibb.co/pnpDRC6/facebook.png" />
-                                                                            <h6 class="btn-text" style="padding: 11px;">Facebook</h6>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div class="mt-3">
-                                                <p class="fw-semibold text-secondary ">Belum Punya Akun ? Klik <a href="{{ url('id/register') }}" class="fw-semibold" style="color: #2F5EA2;">Daftar</a> </p>
-                                            </div>
-                                        </div>
-                                    </div><!-- end card body -->
-                                </div><!-- end card -->
+                                <!-- </center> -->
                             </div>
                         </div>
+                        <!-- <div class="bg" style="height: 5rem;"> -->
+                        <!-- <a href="{{ url('id/home') }}"><p style="padding: 33px; color: #fff;">&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;Kembali ke Landing Page</p></a> -->
+                        <!-- </div> -->
+                        <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style=" position: absolute; bottom: 0;right: 125px">
                     </div>
-                    <!--end col-->
+                    <div class="col-6 right-section col-lg-6">
+                        <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
+                            <div class="card-body p-sm-5 m-lg-3">
+                                <div class=" mt-5">
+                                    <h5 class="fs-3xl">Selamat Datang Kembali !</h5>
+                                    <p class="text-muted">Masuk untuk melanjutkan ke MILINK</p>
+                                </div>
+                                <div class=" mt-3">
+                                    <form action="{{ route('login.user') }}" method="POST">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Email</label>
+                                            <div class="position-relative ">
+                                                <input type="text" class="form-control password-input @error('email')
+                                                        is-invalid
+                                                        @enderror" name="email" id="username" placeholder="Masukkan Email" value="{{ old('email') }}">
+                                            </div>
+                                            <div>
+                                                @if ($errors->has('email'))
+                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label" for="password-input">Kata Sandi</label>
+                                            <div class="position-relative auth-pass-inputgroup mb-3">
+                                                <input type="password" class="form-control pe-5 password-input" name="password" placeholder="Masukkan Kata Sandi" id="password-input" value="{{ old('password') }}">
+                                                <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                <div>
+                                                    @if ($errors->has('password'))
+                                                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="float-end">
+                                                <a href="{{ url('id/send-email') }}" class="text-muted">Lupa kata
+                                                    sandi?</a>
+                                            </div>
+                                            <div class="mb-3 form-check col-4">
+                                                <input type="checkbox" class="form-check-input" id="remember" name="remember_me">
+                                                <label class="form-check-label" for="remember">Ingatkan
+                                                    saya</label>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <button class="btn w-100 custom-btn" style="background-color: #2F5EA2; color: #fff" type="submit">Masuk</button>
+                                        </div>
+                                        <div class="mt-1 pt-2 text-center">
+                                            <div class="signin-other-title position-relative">
+                                                <h5 class="fs-sm mb-4 title">Login dengan</h5>
+                                            </div>
+                                            <div class="d-flex gap-1">
+                                                <div class="col-6">
+                                                    <div class="pt-2 hstack gap-2 justify-content-center">
+                                                        <a href="{{ route('redirect.google') }}" style="width: 100%;">
+                                                            <div class="google-btn">
+                                                                <div class="google">
+                                                                    <img class="google-icon d-flex justify-content-center" src="https://i.ibb.co/ydLySMx/google.png" />
+                                                                    <h6 class="btn-text" style="padding: 11px;">Google</h6>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="pt-2 hstack gap-2 justify-content-center">
+                                                        <a href="{{ route('redirect.facebook') }}" style="width: 100%;">
+                                                            <div class="google-btn">
+                                                                <div class="google">
+                                                                    <img class="google-icone d-flex justify-content-center" src="https://i.ibb.co/pnpDRC6/facebook.png" />
+                                                                    <h6 class="btn-text" style="padding: 11px;">Facebook</h6>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="mt-3">
+                                        <p class="fw-semibold text-secondary ">Belum Punya Akun ? Klik <a href="{{ url('id/register') }}" class="fw-semibold" style="color: #2F5EA2;">Daftar</a> </p>
+                                    </div>
+                                </div>
+                            </div><!-- end card body -->
+                        </div><!-- end card -->
+                    </div>
                 </div>
-                <!--end row-->
             </div>
+            <!--end col-->
         </div>
-        <!--end container-->
-    </section>
+        <!--end row-->
+    </div>
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}">

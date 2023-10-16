@@ -40,6 +40,12 @@
 
 </head>
     <style>
+                body,
+        .gm,
+        .card {
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
         .right-section {
             background-color: #ffffff;
             color: white;
@@ -118,9 +124,7 @@
 </head>
 
 <body>
-    <section class="auth-page-wrapper position-relative d-flex align-items-center justify-content-center min-vh-100">
-        <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center gm">
                 <div class="col-lg-12">
                     <div class="card mb-0 p-0 d-flex justify-content-between">
                         <div class="row" style="background-color: #D2E0FB; ">
@@ -128,28 +132,23 @@
                                 <div class="card" style="box-shadow: none; padding: 0;margin:0;">
                                     <div class="card-body" style="background-color:  #D2E0FB;padding:0">
                                         <!-- <center> -->
-                                        <div class="" style="margin-top: 15%;padding-left: 10%; ">
-                                            <div>
-                                                <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
-                                            </div><br>
-                                            <h5>Pemendek Link dengan sekali ketuk</h5>
-                                            <h5>Bikin tautanmu makin singkat !</h5>
-                                            <h6 style="color: #104898;">
-                                                Daftar dan nikmati pengalaman yang menarik pada website kami
-                                            </h6>
-                                            <br>
-                                        </div>
-                                        <!-- </center> -->
-                                    </div>
+                                        <div class="mt-5" style=" position: absolute; top: 80px; right: 18%; ">
+                                    <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
+                                    <h4>Pemendek Link dengan sekali ketuk</h4>
+                                    <h4>Bikin tautanmu makin singkat !</h4>
+                                    <h5 style="color: #104898;">
+                                        Daftar dan nikmati pengalaman yang menarik pada website kami
+                                    </h5>
+                                    <!-- <center> -->
+                                    <!-- </center> -->
                                 </div>
-                                <div >
-                                    <div class="saly" style="margin-top: 20%">
-                                        <center>
-                                          <img src="{{ asset('template/image/Saly-17.png') }}" width="500" height="400" style="object-fit: ;">
-                                        </center>
-                                    </div>
-                                    <div class="bg" style="background-color: #2F5EA2; height: 5rem; width: 720px;"></div>
-                                </div>
+                                <!-- </center> -->
+                            </div>
+                        </div>
+                        <!-- <div class="bg" style="height: 5rem;"> -->
+                        <!-- <a href="{{ url('id/home') }}"><p style="padding: 33px; color: #fff;">&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;Kembali ke Landing Page</p></a> -->
+                        <!-- </div> -->
+                        <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style=" position: absolute; bottom: 0;right: 125px">
                             </div>
                             <div class="col-6 right-section col-lg-6">
                                 <div class="card mb-0 border-0 shadow-none mb-0">
@@ -335,9 +334,6 @@
                 </div>
                 <!--end row-->
             </div>
-        </div>
-        <!--end container-->
-    </section>
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}">
