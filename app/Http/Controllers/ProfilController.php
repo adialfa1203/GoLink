@@ -18,10 +18,14 @@ class ProfilController extends Controller
         if ($user) {
             $subscribe = $user->subscribe;
 
-            if ($subscribe == 'no') {
-                $accountStatus = 'Akun non Premium';
-            } elseif ($subscribe == 'yes') {
-                $accountStatus = 'Akun Premium';
+            if ($subscribe == 'free') {
+                $accountStatus = 'Member Gratis';
+            } elseif ($subscribe == 'silver') {
+                $accountStatus = 'Member Silver';
+            } elseif ($subscribe == 'gold') {
+                $accountStatus = 'Member Gold';
+            } elseif ($subscribe == 'platinum') {
+                $accountStatus = 'Member Platinum';
             } else {
                 $accountStatus = 'Status tidak valid';
             }

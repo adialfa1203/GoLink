@@ -19,6 +19,27 @@ class DahsboardController extends Controller
         $currentMonth = Carbon::now()->month;
 
         if ($user) {
+            $subscribe = $user->subscribe;
+
+            if ($subscribe == 'free') {
+                $urlStatus = '15';
+                $micrositeStatus = '3';
+            } elseif ($subscribe == 'silver') {
+                $urlStatus = '25';
+                $micrositeStatus = '5';
+            } elseif ($subscribe == 'gold') {
+                $urlStatus = '35';
+                $micrositeStatus = '10';
+            } elseif ($subscribe == 'platinum') {
+                $urlStatus = 'Unlimited';
+                $micrositeStatus = 'Unlimited';
+            } else {
+                $urlStatus = 'Status tidak valid';
+                $micrositeStatus = 'Status tidak valid';
+            }
+        }
+
+        if ($user) {
             $userId = $user->id;
             $totalVisits = ShortURLVisit::query()
             ->whereRelation('shortURL', 'user_id', '=', $userId)
@@ -36,7 +57,7 @@ class DahsboardController extends Controller
             $totalUrl = ShortURL::where('user_id', $userId)
             ->whereNull('microsite_uuid')
             ->whereDate('created_at', '>=', now()->startOfMonth())
-            ->count(); 
+            ->count();
             
             $countHistory = History::where('user_id', $userId)
             ->whereDate('created_at', '>=', now()->startOfMonth())
@@ -57,10 +78,10 @@ class DahsboardController extends Controller
             ->where('custom_name', 'yes')
             ->whereNull('microsite_uuid')
             ->count();
-        }
+        }        
         $qr = ShortUrl::get()->sum('qr_code');
 
-        return view('User.DashboardUser', compact( 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite'));
+        return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite'));
     }
 
     public function HelpSupport()

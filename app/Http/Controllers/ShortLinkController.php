@@ -55,7 +55,30 @@ class ShortLinkController extends Controller
             return response()->json(['message' => implode('<br>', $errorMessages), 'status' => 'gagal']);
         }
 
-        if ($user->subscribe == 'yes') {
+        if ($user->subscribe == 'silver') {
+            $shortLinks = $user->shortUrls()
+            ->whereMonth('created_at', '>=', now())
+            ->count();
+            $history = $user->history()
+                ->whereMonth('created_at', '>=', now())
+                ->count();
+            
+            if ($shortLinks + $history >= 25) {
+                return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi.', 'status' => 422]);
+            }
+        } elseif ($user->subscribe == 'gold') {
+            $shortLinks = $user->shortUrls()
+            ->whereMonth('created_at', '>=', now())
+            ->count();
+            $history = $user->history()
+                ->whereMonth('created_at', '>=', now())
+                ->count();
+            
+            if ($shortLinks + $history >= 35) {
+                return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi.', 'status' => 422]);
+            }
+        } elseif ($user->subscribe == 'platinum') {
+            
         } else {
         
             $shortLinks = $user->shortUrls()
@@ -66,7 +89,7 @@ class ShortLinkController extends Controller
                 ->whereMonth('created_at', '>=', now())
                 ->count();
             
-            if ($shortLinks + $history >= 3) {
+            if ($shortLinks + $history >= 15) {
                 return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi.', 'status' => 422]);
             }
         }        
