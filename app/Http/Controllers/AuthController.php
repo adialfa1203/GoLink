@@ -244,4 +244,7 @@ class AuthController extends Controller
         // Lanjutkan ke halaman "confirmation" jika pengguna ditemukan
         return view('Auth.RegisterWith.with');
     }
+    public function noInternet(){
+        return view('Auth.NoConnection');
+    }
 }

@@ -86,6 +86,7 @@ Route::prefix('id')->group(function(){
     // Route::get('/short-link', [DahsboardController::class, 'ShortLink'])->name('landing.shortlink');
     Route::get('/help-support', [DahsboardController::class, 'HelpSupport'])->name('landing.helpsupport');
     Route::post('/create/{id}', [CommentController::class, 'create'])->name('create');
+    Route::get('/no-internet',[AuthController::class, 'noInternet'])->name('no.internet.conection');
 });
 Route::middleware(['auth'])->group(function () {
 Route::prefix('logout')->group(function(){
@@ -128,7 +129,10 @@ Route::prefix('user')->group(function(){
     Route::get('/subscribe-user', [SubscribeUserController::class, 'subscribeUser'])->name('subscribe.user');
     Route::get('/subscribe-product-user', [SubscribeUserController::class, 'subscribeProductUser'])->name('subscribe.product.user');
 
-    Route::get('/checkout/{id}', [SubscribeUserController::class, 'checkout'])->name('checkout');
+    Route::get('/subscribe-now/{id}', [SubscribeUserController::class, 'subscribeNow'])->name('subscribe.now');
+    Route::post('/payment-method', [SubscribeUserController::class, 'payment'])->name('payment');
+    Route::get('/transaction/{reference}', [SubscribeController::class, 'showTransaction'])->name('transaction.show');
+
     // microsite
     Route::get('/microsite-user', [MicrositeController::class, 'microsite'])->name('microsite');
     Route::post('/create-microsite', [MicrositeController::class, 'createMicrosite'])->name('create.microsite');
