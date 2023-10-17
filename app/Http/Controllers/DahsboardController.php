@@ -36,7 +36,7 @@ class DahsboardController extends Controller
             $totalUrl = ShortURL::where('user_id', $userId)
             ->whereNull('microsite_uuid')
             ->whereDate('created_at', '>=', now()->startOfMonth())
-            ->count(); 
+            ->count();
             
             $countHistory = History::where('user_id', $userId)
             ->whereDate('created_at', '>=', now()->startOfMonth())
@@ -58,9 +58,24 @@ class DahsboardController extends Controller
             ->whereNull('microsite_uuid')
             ->count();
         }
+        if ($user) {
+            $subscribe = $user->subscribe;
+
+            if ($subscribe == 'free') {
+                $accountStatus = '15';
+            } elseif ($subscribe == 'silver') {
+                $accountStatus = '25';
+            } elseif ($subscribe == 'gold') {
+                $accountStatus = '35';
+            } elseif ($subscribe == 'platinum') {
+                $accountStatus = 'Unlimited';
+            } else {
+                $accountStatus = 'Status tidak valid';
+            }
+        }
         $qr = ShortUrl::get()->sum('qr_code');
 
-        return view('User.DashboardUser', compact( 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite'));
+        return view('User.DashboardUser', compact('accountStatus','countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite'));
     }
 
     public function HelpSupport()

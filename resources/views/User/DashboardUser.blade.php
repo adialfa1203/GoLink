@@ -577,9 +577,9 @@
                                 data-bs-title="{{ $countURL }} Tautan dibuat">
                                 <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
                                     role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                    style="width: {{ ($countURL / 35) * 100 }}%"></div>
+                                    style="width: {{ ($countURL / 15) * 100 }}%"></div>
                             </div>
-                            <p class="text-muted mb-0"><b>{{ $countURL }} dari 35</p>
+                            <p class="text-muted mb-0"><b>{{ $countURL }} dari 15</p>
                             <br>
                             <h6 class="card-title">Microsite dibuat/Bulan
                                 <span class="tooltip-icon"
@@ -626,10 +626,10 @@
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated"
                                                         role="progressbar" aria-valuenow="{{ $countURL }}"
                                                         aria-valuemin="0" aria-valuemax="100"
-                                                        style="width: {{ ($countURL / 35) * 100 }}%;">
+                                                        style="width: {{ ($countURL / 15) * 100 }}%;">
                                                     </div>
                                                 </div>
-                                                <p class="text-muted mb-0"><b>{{ $countURL }} dari 35</p>
+                                                <p class="text-muted mb-0"><b>{{ $countURL }} dari 15</p>
                                                 <br>
                                                 <h3 class="card-title">Microsite dibuat/Bulan
                                                     <span class="tooltip-icon"
@@ -836,11 +836,11 @@
                 } else {
                     $('#singkatkan').modal('hide');
                     var countURL = {{ $countURL }};
-                    if (countURL >= 3) {
+                    if (countURL >= 15) {
                         Swal.fire({
                             icon: "error",
                             title: "Kesalahan!",
-                            text: "Anda telah mencapai batas maksimum 35 link diperpendek.",
+                            text: "Anda telah mencapai batas maksimum 15 link diperpendek.",
                         });
                     } else {
                         var formData = $(this).serialize();
@@ -977,7 +977,7 @@
     <script>
         var countData = {{ $countURL }};
         var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / 35) * 100;
+        var progressBarWidth = (countData / 15) * 100;
         progressBar.style.width = progressBarWidth + "%";
         progressBar.setAttribute("aria-valuenow", countData);
     </script>
@@ -1002,7 +1002,7 @@
         var countURLValue = {{ $countURL }};
 
         // Calculate the percentage
-        var percentage = (countURLValue / 35) * 100;
+        var percentage = (countURLValue / 15) * 100;
 
         var progressBar = document.querySelector('.progress-bar');
         progressBar.style.width = percentage + '%';
