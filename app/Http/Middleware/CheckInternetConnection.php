@@ -15,10 +15,10 @@ class CheckInternetConnection
      */
     public function handle($request, Closure $next)
     {
-        $connected = @fsockopen("www.google.com", 80);
-        if (!$connected) {
-            return redirect()->route('no.internet.connection');
-        }
-        return $next($request);
+        // $connected = @fsockopen("www.google.com", 80);
+        // if (!$connected) {
+        //     return redirect()->route('no.internet.connection');
+        // }
+        // return $next($request);
     }
 }
