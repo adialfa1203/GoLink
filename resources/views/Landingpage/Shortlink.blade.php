@@ -94,9 +94,7 @@
                             <!-- p -->
                             <span style="color: white;">Penyingkat tautan terbaik dan Terpendek
                                 untuk kamu gunakan.</span>
-                            <p>Apakah kamu ingin mempersingkat URL sesuai dengan
-                                yang Anda inginkan? Sesuaikan Penyingkat URL Anda dengan fitur yang memberi Anda
-                                pemendekan tautan berkualitas lebih baik.
+                            <p>Sesuaikan Penyingkat URL Anda dengan fitur yang memberi Anda pemendekan tautan berkualitas lebih baik.
                             </p>
                             <div class="col-12 mt-3" style="margin-right: 100%;">
                             </div>
@@ -151,23 +149,13 @@
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                viewBox="0 0 448 512"
-                                style="margin-top: 10%;">
-                                <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#104898"
-                                    d="M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80zM64
-                                    96v64h64V96H64zM0 336c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48
-                                    48v96c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V336zm64 16v64h64V352H64zM304
-                                    32h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H304c-26.5 0-48-21.5-48-48V80c0-26.5
-                                    21.5-48 48-48zm80 64H320v64h64V96zM256 304c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16s7.2 16 16
-                                    16h32c8.8 0 16-7.2 16-16s7.2-16 16-16s16 7.2 16 16v96c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-
-                                    16s-7.2-16-16-16s-16 7.2-16 16v64c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V304zM368 480a16 16
-                                    0 1 1 0-32 16 16 0 1 1 0 32zm64 0a16 16 0 1 1 0-32 16 16 0 1 1 0 32z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90" style="margin-top: 10%;">
+                                <circle cx="45" cy="45" r="45" fill="#D9D9D9"/>
+                                <path d="M62.379 41.974H60.0515V35.864C60.0515 28.7528 53.4372 22.9653 45.3101 22.9653C37.1829 22.9653 30.5687 28.7528 30.5687 35.864V41.974H28.2411C25.6711 41.974 23.5859 43.7984 23.5859 46.0472V62.3403C23.5859 64.5891 25.6711 66.4136 28.2411 66.4136H62.379C64.9491 66.4136 67.0342 64.5891 67.0342 62.3403V46.0472C67.0342 43.7984 64.9491 41.974 62.379 41.974ZM52.2928 41.974H38.3273V35.864C38.3273 32.4951 41.4599 29.7541 45.3101 29.7541C49.1603 29.7541 52.2928 32.4951 52.2928 35.864V41.974Z" fill="#104898"/>
+                              </svg>
                             <div class="story_text">
-                                <h6 class="mb-3 fs-17">Kode QR yang Dapat Disesuaikan</h6>
-                                <p class="text-muted">Buat Kode QR yang sesuai dengan keinginan Anda dengan mudah.</p>
+                                <h6 style="color: #104898;" class="mb-3 fs-17">Tautan Terlindungi</h6>
+                                <p class="text-muted">Dengan tautan terlindungi, keamanan tautan Anda adalah prioritas utama.</p>
                             </div>
                         </div>
                     </div>
@@ -176,14 +164,13 @@
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                viewBox="0 0 512 512"
-                                style="margin-top: 10%;"><!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#104898"
-                                    d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90" style="margin-top: 10%;">
+                                <circle cx="45" cy="45" r="45" fill="#D9D9D9"/>
+                                <path d="M45.3101 22.9653C33.3092 22.9653 23.5859 32.6886 23.5859 44.6895C23.5859 56.6903 33.3092 66.4136 45.3101 66.4136C57.3109 66.4136 67.0342 56.6903 67.0342 44.6895C67.0342 32.6886 57.3109 22.9653 45.3101 22.9653ZM50.3119 53.6332L42.5858 48.0182C42.3142 47.8167 42.1566 47.5013 42.1566 47.1685V32.4258C42.1566 31.8477 42.6296 31.3747 43.2077 31.3747H47.4124C47.9906 31.3747 48.4636 31.8477 48.4636 32.4258V44.488L54.026 48.535C54.499 48.8766 54.5954 49.5336 54.2538 50.0066L51.7835 53.4054C51.4419 53.8697 50.7849 53.9748 50.3119 53.6332Z" fill="#104898"/>
+                              </svg>
                             <div class="story_text">
-                                <h6 class="mb-3 fs-17">Tautan Kadaluarsa</h6>
+                                <h6 style="color: #104898;" class="mb-3 fs-17">Tautan Kadaluarsa</h6>
                                 <p class="text-muted">Anda dapat membatasi akses ke tautan ini hanya untuk beberapa waktu.
                                     Memberikan keamanan dengan tautan yang hanya aktif untuk jangka waktu tertentu.</p>
                             </div>
@@ -192,31 +179,26 @@
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                viewBox="0 0 448 512"
-                                style="margin-top: 10%;"><!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#104898"
-                                    d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90" style="margin-top: 10%;">
+                                <circle cx="45" cy="45" r="45" fill="#D9D9D9"/>
+                                <path d="M23.5859 41.586H42.2066V22.9653H23.5859V41.586ZM29.7928 29.1722H35.9997V35.3791H29.7928V29.1722ZM48.4135 22.9653V41.586H67.0342V22.9653H48.4135ZM60.8273 35.3791H54.6204V29.1722H60.8273V35.3791ZM23.5859 66.4136H42.2066V47.7929H23.5859V66.4136ZM29.7928 53.9998H35.9997V60.2067H29.7928V53.9998ZM63.9308 47.7929H67.0342V60.2067H57.7239V57.1033H54.6204V66.4136H48.4135V47.7929H57.7239V50.8964H63.9308V47.7929ZM63.9308 63.3102H67.0342V66.4136H63.9308V63.3102ZM57.7239 63.3102H60.8273V66.4136H57.7239V63.3102Z" fill="#104898"/>
+                              </svg>
                             <div class="story_text">
-                                <h6 class="mb-3 fs-17">Tautan Terlindungi</h6>
-                                <p class="text-muted">Dengan tautan terlindungi, keamanan tautan Anda adalah prioritas utama.</p>
+                                <h6 style="color: #104898;" class="mb-3 fs-17">Kode QR yang dapat disesuaikan</h6>
+                                <p class="text-muted">Buat Kode QR yang sesuai dengan keinginan Anda dengan mudah.</p>
                             </div>
                         </div>
                     </div>
                     <!-- Story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                viewBox="0 0 512 512"
-                                style="margin-top: 10%;"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#104898"
-                                    d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90"  style="margin-top: 10%;">
+                                <circle cx="45" cy="45" r="45" fill="#D9D9D9"/>
+                                <path d="M51.3023 38.6976C56.3724 43.773 56.3028 51.9101 51.3328 56.9077C51.3235 56.9178 51.3124 56.9289 51.3023 56.9391L45.5997 62.6416C40.57 67.6713 32.3871 67.6706 27.3582 62.6416C22.3285 57.6128 22.3285 49.429 27.3582 44.4002L30.507 41.2514C31.342 40.4164 32.78 40.9713 32.8232 42.1514C32.8781 43.6553 33.1478 45.1662 33.6454 46.6253C33.814 47.1193 33.6936 47.6658 33.3244 48.035L32.2139 49.1455C29.8356 51.5238 29.761 55.3963 32.1158 57.7978C34.494 60.223 38.4028 60.2375 40.7991 57.8411L46.5017 52.1394C48.894 49.7471 48.884 45.8804 46.5017 43.4981C46.1877 43.1847 45.8713 42.9411 45.6242 42.771C45.4494 42.6509 45.305 42.4917 45.2027 42.3059C45.1003 42.1202 45.0428 41.9131 45.0347 41.7012C45.0011 40.8045 45.3188 39.8805 46.0274 39.1719L47.814 37.3852C48.2825 36.9167 49.0175 36.8591 49.5608 37.2383C50.1829 37.6727 50.7657 38.161 51.3023 38.6976ZM63.262 26.7373C58.2331 21.7083 50.0501 21.7077 45.0205 26.7373L39.3179 32.4399C39.3077 32.4501 39.2967 32.4611 39.2874 32.4713C34.3175 37.4688 34.2478 45.606 39.3179 50.6813C39.8545 51.2179 40.4372 51.7062 41.0593 52.1406C41.6026 52.5197 42.3377 52.4621 42.8061 51.9937L44.5927 50.207C45.3013 49.4984 45.619 48.5744 45.5854 47.6776C45.5773 47.4657 45.5198 47.2586 45.4174 47.0729C45.315 46.8872 45.1707 46.7279 44.9959 46.6079C44.7488 46.4377 44.4324 46.1942 44.1184 45.8807C41.7361 43.4985 41.7261 39.6317 44.1184 37.2395L49.8209 31.5377C52.2173 29.1414 56.126 29.1558 58.5042 31.581C60.8591 33.9825 60.7846 37.855 58.4062 40.2333L57.2957 41.3439C56.9265 41.713 56.8061 42.2595 56.9746 42.7536C57.4722 44.2126 57.7419 45.7236 57.7969 47.2275C57.8401 48.4075 59.2781 48.9625 60.1131 48.1275L63.2619 44.9787C68.2916 39.95 68.2916 31.7661 63.262 26.7373Z" fill="#104898"/>
+                              </svg>
                             <div class="story_text">
-                                <h6 class="mb-3 fs-17">Tautan yang dibagikan</h6>
-                                <p class="text-muted">Anda dapat berbagi tautan yang telah Anda singkat kepada teman, keluarga, atau pengikut Anda.
-                                    Proses berbagi tautan yang dibagikan sangat sederhana dan cepat.
+                                <h6 style="color: #104898;" class="mb-3 fs-17">Pemotong URL dengan lebih mudah</h6>
+                                <p class="text-muted">Pemotongan URL yang cepat dan sesuai dengan keinginan Anda menggunakan MiLink.id
                                 </p>
                             </div>
                         </div>
@@ -224,15 +206,13 @@
                     <!-- Story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                viewBox="0 0 640 512"
-                                style="margin-top: 10%;"><!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#104898"
-                                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l-1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90"style="margin-top: 10%;">
+                                <circle cx="45" cy="45" r="45" fill="#D9D9D9"/>
+                                <path d="M43.4507 22.9656C31.4525 22.9656 21.7266 32.6915 21.7266 44.6897C21.7266 56.6879 31.4525 66.4139 43.4507 66.4139C55.4489 66.4139 65.1748 56.6879 65.1748 44.6897C65.1748 32.6915 55.4489 22.9656 43.4507 22.9656ZM50.6591 54.2904C50.3175 54.6303 49.9592 54.9868 49.6684 55.2785C49.4064 55.5413 49.2216 55.8654 49.1279 56.2166C48.9956 56.7124 48.8887 57.2135 48.71 57.6944L47.1867 61.7984C45.9814 62.0611 44.734 62.2092 43.4507 62.2092V59.8108C43.5987 58.7053 42.7815 56.6345 41.4684 55.3214C40.9428 54.7958 40.6476 54.0828 40.6476 53.3391V50.5351C40.6476 49.5155 40.0984 48.5782 39.2057 48.085C37.947 47.3886 36.1565 46.4154 34.9301 45.7978C33.9245 45.2915 32.9942 44.6468 32.1577 43.8926L32.0876 43.8295C31.4893 43.2895 30.9582 42.6795 30.5056 42.0127C29.6839 40.8065 28.3454 38.8224 27.4756 37.533C29.2687 33.5473 32.5002 30.3465 36.5156 28.6077L38.6188 29.6598C39.5509 30.1258 40.6476 29.4487 40.6476 28.4062V27.4164C41.3475 27.3034 42.0597 27.2316 42.7841 27.2044L45.2631 29.6834C45.8106 30.2309 45.8106 31.1183 45.2631 31.6657L44.8523 32.0757L43.9465 32.9815C43.6732 33.2548 43.6732 33.6989 43.9465 33.9722L44.3573 34.383C44.6306 34.6563 44.6306 35.1004 44.3573 35.3737L43.6566 36.0745C43.525 36.2058 43.3467 36.2796 43.1608 36.2795H42.3733C42.1911 36.2795 42.0159 36.3504 41.8845 36.4783L41.0155 37.3237C40.909 37.4274 40.8382 37.5623 40.8133 37.7088C40.7884 37.8554 40.8108 38.0061 40.8771 38.1392L42.2427 40.8713C42.4757 41.3374 42.1367 41.8857 41.6164 41.8857H41.1224C40.9533 41.8857 40.7904 41.8244 40.6634 41.714L39.8505 41.008C39.6665 40.8484 39.4442 40.7395 39.2053 40.6918C38.9665 40.6442 38.7194 40.6596 38.4883 40.7364L35.7579 41.6466C35.5494 41.7161 35.3681 41.8494 35.2397 42.0277C35.1113 42.206 35.0422 42.4202 35.0422 42.6399C35.0422 43.0368 35.2665 43.3985 35.6213 43.5764L36.5918 44.0616C37.4161 44.4742 38.3254 44.6888 39.2469 44.6888C40.1684 44.6888 41.2257 47.0794 42.05 47.492H47.8971C48.6408 47.492 49.353 47.7872 49.8795 48.3127L51.0787 49.5119C51.5797 50.0131 51.861 50.6928 51.8609 51.4014C51.8607 51.9384 51.7545 52.47 51.5482 52.9658C51.342 53.4616 51.0398 53.9117 50.6591 54.2904ZM58.2547 46.2884C57.7475 46.1614 57.3051 45.8504 57.0151 45.415L55.4401 43.0525C55.2097 42.7074 55.0867 42.3016 55.0867 41.8866C55.0867 41.4716 55.2097 41.0658 55.4401 40.7207L57.1562 38.1471C57.3594 37.8431 57.638 37.5961 57.9656 37.4332L59.1026 36.8646C60.2869 39.2228 60.9702 41.8752 60.9702 44.6897C60.9702 45.4492 60.9053 46.1929 60.8107 46.927L58.2547 46.2884Z" fill="#104898"/>
+                              </svg>
                             <div class="story_text">
-                                <h6 class="mb-3 fs-17">Potong URL dengan Lebih Mudah</h6>
-                                <p class="text-muted">Pemotongan URL yang cepat dan sesuai dengan keinginan Anda menggunakan MiLink.</p>
+                                <h6 style="color: #104898;" class="mb-3 fs-17">Tautan Dibagikan</h6>
+                                <p class="text-muted">Anda dapat berbagi tautan yang telah Anda singkat kepada teman, keluarga, atau pengikut Anda. </p>
                             </div>
                         </div>
                     </div>

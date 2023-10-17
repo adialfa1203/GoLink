@@ -131,6 +131,10 @@
         border-start-end-radius: 10px;
         border-top-left-radius: 10px;
         }
+        .section_title h2 {
+    margin-top: -20px; /* Sesuaikan dengan jumlah margin yang Anda butuhkan */
+  }
+
 </style>
     <!-- Page-wrapper-Start -->
     <div class="page_wrapper">
@@ -161,10 +165,10 @@
                         <!-- banner text -->
                         <div class="banner_text">
                             <!-- h1 -->
-                            <h2 style="color: #ffffff;">Selamat datang di MiLink!</h2>
+                            <h2 style="color: #ffffff;">Selamat datang di MiLink.id</h2>
                             <!-- p -->
                             <p>Ingin membuat tautan lebih singkat dan lebih mudah diingat?</p>
-                            <p>MiLink adalah solusi terbaik untuk Anda!</p>
+                            <p>MiLink.id adalah solusi terbaik untuk Anda!</p>
                         </div>
                     </div>
                     <!-- banner slides start -->
@@ -214,35 +218,32 @@
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                viewBox="0 0 640 512"
-                                style="margin-top: 10%;"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#104898"
-                                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90" style="margin-top: 10%;">
+                                <circle cx="45" cy="45" r="45" fill="#D9D9D9"/>
+                                <path d="M51.3023 38.6976C56.3724 43.773 56.3028 51.9101 51.3328 56.9077C51.3235 56.9178 51.3124 56.9289 51.3023 56.9391L45.5997 62.6416C40.57 67.6713 32.3871 67.6706 27.3582 62.6416C22.3285 57.6128 22.3285 49.429 27.3582 44.4002L30.507 41.2514C31.342 40.4164 32.78 40.9713 32.8232 42.1514C32.8781 43.6553 33.1478 45.1662 33.6454 46.6253C33.814 47.1193 33.6936 47.6658 33.3244 48.035L32.2139 49.1455C29.8356 51.5238 29.761 55.3963 32.1158 57.7978C34.494 60.223 38.4028 60.2375 40.7991 57.8411L46.5017 52.1394C48.894 49.7471 48.884 45.8804 46.5017 43.4981C46.1877 43.1847 45.8713 42.9411 45.6242 42.771C45.4494 42.6509 45.305 42.4917 45.2027 42.3059C45.1003 42.1202 45.0428 41.9131 45.0347 41.7012C45.0011 40.8045 45.3188 39.8805 46.0274 39.1719L47.814 37.3852C48.2825 36.9167 49.0175 36.8591 49.5608 37.2383C50.1829 37.6727 50.7657 38.161 51.3023 38.6976ZM63.262 26.7373C58.2331 21.7083 50.0501 21.7077 45.0205 26.7373L39.3179 32.4399C39.3077 32.4501 39.2967 32.4611 39.2874 32.4713C34.3175 37.4688 34.2478 45.606 39.3179 50.6813C39.8545 51.2179 40.4372 51.7062 41.0593 52.1406C41.6026 52.5197 42.3377 52.4621 42.8061 51.9937L44.5927 50.207C45.3013 49.4984 45.619 48.5744 45.5854 47.6776C45.5773 47.4657 45.5198 47.2586 45.4174 47.0729C45.315 46.8872 45.1707 46.7279 44.9959 46.6079C44.7488 46.4377 44.4324 46.1942 44.1184 45.8807C41.7361 43.4985 41.7261 39.6317 44.1184 37.2395L49.8209 31.5377C52.2173 29.1414 56.126 29.1558 58.5042 31.581C60.8591 33.9825 60.7846 37.855 58.4062 40.2333L57.2957 41.3439C56.9265 41.713 56.8061 42.2595 56.9746 42.7536C57.4722 44.2126 57.7419 45.7236 57.7969 47.2275C57.8401 48.4075 59.2781 48.9625 60.1131 48.1275L63.2619 44.9787C68.2916 39.95 68.2916 31.7661 63.262 26.7373Z" fill="#104898"/>
+                              </svg>
+                           
                             <div class="story_text">
-                                <h3>Pemotongan URL</h3>
-                                <p>Dengan MiLink, Anda dapat dengan mudah memotong URL yang panjang
-                                menjadi tautan yang singkat dan mudah diingat sesuai dengan keinginan
-                                Anda. Tidak perlu lagi repot dengan tautan yang terlalu panjang.</p>
+                                <h3 style="color: #104898;">Pemotongan URL</h3>
+                                <p>Dengan MiLink.id, Anda dapat dengan mudah memotong URL yang panjang menjadi tautan yang singkat dan mudah diingat sesuai dengan keinginan Anda. </p>
                             </div>
                         </div>
                     </div>
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                viewBox="0 0 640 512"
-                                style="margin-top: 10%;"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#104898"
-                                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                            </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90" style="margin-top: 10%;">
+                                <circle cx="45" cy="45" r="45" fill="#D9D9D9"/>
+                                <rect x="21" y="31" width="47.6981" height="32" rx="5" fill="#104898"/>
+                                <circle cx="34.2816" cy="43.0756" r="5.43396" fill="white"/>
+                                <path d="M28.8508 55.151C28.8508 54.4374 28.9914 53.7308 29.2645 53.0715C29.5375 52.4122 29.9378 51.8132 30.4424 51.3086C30.947 50.804 31.546 50.4038 32.2053 50.1307C32.8646 49.8576 33.5712 49.717 34.2848 49.717C34.9984 49.717 35.705 49.8576 36.3643 50.1307C37.0236 50.4038 37.6226 50.804 38.1272 51.3086C38.6318 51.8132 39.032 52.4122 39.3051 53.0715C39.5782 53.7308 39.7188 54.4374 39.7187 55.151L34.2848 55.151H28.8508Z" fill="white"/>
+                                <path d="M46.3594 39.7549H60.2462" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M46.3594 46.6982H60.2462" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M46.3594 53.9434H60.2462" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                              </svg>
                             <div class="story_text">
-                                <h3>Pembuatan Microsite</h3>
-                                <p>Buat tautan Bio Anda sendiri dengan MiLink. Seringkali digunakan
-                                di profil media sosial, resume online, CV, dan situs web jejaring
-                                profesional. Tautan Bio Anda sekarang dapat terlihat lebih menarik
-                                dan informatif.</p>
+                                <h3 style="color: #104898;">Pembuatan Microsite</h3>
+                                <p>Buat tautan Bio Anda sendiri dengan MiLink.id. Tautan Bio Anda sekarang dapat terlihat lebih menarik dan informatif.</p>
                             </div>
                         </div>
                     </div>
@@ -250,17 +251,14 @@
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                viewBox="0 0 640 512"
-                                style="margin-top: 10%;"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#104898"
-                                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                            </svg>
+                              <svg width="90" height="90" viewBox="0 0 90 90"  style="margin-top: 10%;" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="45" cy="45" r="45" fill="#D9D9D9"/>
+                                <path d="M63.75 55.1667H30V32.2083C30 31.5407 29.4406 31 28.75 31H26.25C25.5594 31 25 31.5407 25 32.2083V57.5833C25 58.9178 26.1195 60 27.5 60H63.75C64.4406 60 65 59.4593 65 58.7917V56.375C65 55.7074 64.4406 55.1667 63.75 55.1667ZM61.25 33.4167H52.0266C50.3563 33.4167 49.5195 35.3689 50.7008 36.5108L53.232 38.9576L47.5 44.4994L41.768 38.9584C40.7914 38.0144 39.2086 38.0144 38.2328 38.9584L32.8664 44.1459C32.3781 44.6179 32.3781 45.3829 32.8664 45.855L34.6336 47.5632C35.1219 48.0352 35.9133 48.0352 36.4016 47.5632L40 44.084L45.732 49.6249C46.7086 50.569 48.2914 50.569 49.2672 49.6249L56.7672 42.3749L59.2984 44.8218C60.4797 45.9637 62.4992 45.1549 62.4992 43.5402V34.625C62.5 33.9574 61.9406 33.4167 61.25 33.4167Z" fill="#104898"/>
+                                </svg>
+                                
                             <div class="story_text">
-                                <h3>Analitik</h3>
-                                <p>Lacak kinerja tautan MiLink Anda dengan mudah. Identifikasi tren dan pola dalam penggunaan
-                                tautan Anda, dan buat keputusan yang tepat untuk mengoptimalkan kinerja tautan Anda. Dengan
-                                analitik MiLink, Anda dapat mengukur dampak kampanye Anda dengan lebih baik.</p>
+                                <h3 style="color: #104898;">Analitik</h3>
+                                <p>Lacak kinerja tautan MiLink.id Anda dengan mudah. Identifikasi tren dan pola dalam penggunaan tautan Anda. Dengan analitik Anda dapat mengukur dampak kampanye Anda dengan lebih baik.</p>
                             </div>
                         </div>
                     </div>
@@ -274,7 +272,9 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="text-center">
-                            <h3>Statistik MiLink.id</h3>
+                            <div class="section_title" data-aos="" data-aos-duration="1500" data-aos-delay="100">
+                            <h2 style="color: #104898;">Statistik MiLink.id</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -285,11 +285,11 @@
                     <div class="col-md-3" style="margin-bottom: 2%;">
                         <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500" >
                             <div class="story_text">
-                                <h4>
-                                    <span class="counter_value" data-target="{{($url)}}">{{($url)}}</span><span>+</span>
+                                <h4 style="color: #104898;">
+                                    <span class="counter_value"  data-target="{{($url)}}"></span>{{($url)}}</span><span>+</span>
                                 </h4>
                                 <p class="text-muted">
-                                    {{($url)}} tautan panjang telah berhasil dipersingkat dengan MiLink.
+                                    {{($url)}} tautan panjang telah berhasil dipersingkat dengan MiLink.id
                                 </p>
                             </div>
                         </div>
@@ -297,10 +297,10 @@
                     <div class="col-md-3" style="margin-bottom: 2%;">
                         <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500">
                             <div class="story_text">
-                                <h4>
+                                <h4 style="color: #104898;">
                                     <span class="counter_value" data-target="{{( $micrositeuuid )}}">{{( $micrositeuuid )}}</span><span>+</span>
                                 </h4>
-                                <p class="text-muted"> Sudah lebih dari {{ $micrositeuuid }} microsite yang berhasil dibuat dengan MiLink.</p>
+                                <p class="text-muted"> Sudah lebih dari {{ $micrositeuuid }} microsite yang berhasil dibuat dengan MiLink.id</p>
                             </div>
                         </div>
                     </div>
@@ -308,10 +308,10 @@
                     <div class="col-md-3" style="margin-bottom: 2%;">
                         <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500">
                             <div class="story_text">
-                                <h4>
-                                    <h3 class="counter_value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</h3>
+                                <h4 style="color: #104898;">
+                                    <h3 style="color: #104898;" class="counter_value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</h3>
                                 </h4>
-                                <p class="text-muted">Ratusan tautan dan pengunjung mengakses situs mikro dengan MiLink</p>
+                                <p class="text-muted">Ratusan tautan dan pengunjung mengakses situs mikro dengan MiLink.id</p>
                             </div>
                         </div>
                     </div>
@@ -319,8 +319,8 @@
                     <div class="col-md-3" style="margin-bottom: 2%;">
                         <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
                             <div class="story_text">
-                                <h4>
-                                    <h3 class="counter_value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</h3>
+                                <h4 style="color: #104898;">
+                                    <h3 style="color: #104898;" class="counter_value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</h3>
                                 </h4>
                                 <p class="text-muted">Tautan dipantau untuk
                                     membuat aman & terjamin</p>
