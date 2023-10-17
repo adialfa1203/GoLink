@@ -86,7 +86,7 @@ Route::prefix('id')->group(function(){
     // Route::get('/short-link', [DahsboardController::class, 'ShortLink'])->name('landing.shortlink');
     Route::get('/help-support', [DahsboardController::class, 'HelpSupport'])->name('landing.helpsupport');
     Route::post('/create/{id}', [CommentController::class, 'create'])->name('create');
-    Route::get('/no-internet',[AuthController::class, 'noInternet'])->name('no.internet.conection');
+    Route::get('/no-internet',[AuthController::class, 'noInternet'])->name('no.internet.connection');
 });
 Route::middleware(['auth'])->group(function () {
 Route::prefix('logout')->group(function(){
