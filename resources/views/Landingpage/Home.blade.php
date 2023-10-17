@@ -427,7 +427,7 @@
         function checkInternetConnection() {
             var connected = window.navigator.onLine;
             if (!connected) {
-                window.location.href = "/no-internet-connection";
+                window.location.href = "/no-internet";
             }
         }
         checkInternetConnection();
