@@ -34,7 +34,7 @@
             {{-- <div class="col-sm-6 col-xl-3">
                 <div class="card">
                     <img class="card-img-top img-fluid mt-3" src="{{ asset('plugin/cat-berlangganan.jpg') }}"
-                        style="display: block; margin: 0 auto; width: 80%;" alt="Card image cap">
+                        style="display: block; margin: 0 auto; width: 80%; height: 50%;" alt="Card image cap">
                     <br>
                     <div class="card-body text-center">
                         <h2 class=" mb-2">Rp:0</h2>
@@ -60,8 +60,8 @@
                                         onclick="confirmDelete('{{ $subs->id }}')">Hapus</button>
                                 </div>
                             </div>
-                            <img class="card-img-top img-fluid mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}"
-                                style="display: block; margin: 0 auto; width: 80%;" alt="Card image cap">
+                            <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260" height="160"
+                                style="display: block; margin: 0 auto; object-fit: cover;" alt="Card image cap">
                             <br>
                             <div class="card-body text-center">
                                 <h2 class="mb-2">Rp.{{ number_format($subs->price, 0, ',', '.') }}</h2>

@@ -132,7 +132,7 @@
                                 <div class="card" style="box-shadow: none; padding: 0;margin:0;">
                                     <div class="card-body" style="background-color:  #D2E0FB;padding:0">
                                         <!-- <center> -->
-                                        <div class="mt-5" style=" position: absolute; top: 80px; right: 18%; ">
+                                        <div class="mt-5 tek" style=" position: absolute; top: 80px;margin-left: 10%; ">
                                     <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
                                     <h4>Pemendek Link dengan sekali ketuk</h4>
                                     <h4>Bikin tautanmu makin singkat !</h4>
@@ -148,7 +148,7 @@
                         <!-- <div class="bg" style="height: 5rem;"> -->
                         <!-- <a href="{{ url('id/home') }}"><p style="padding: 33px; color: #fff;">&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;Kembali ke Landing Page</p></a> -->
                         <!-- </div> -->
-                        <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style=" position: absolute; bottom: 0;right: 125px">
+                        <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style=" position: absolute; bottom: 0;margin-left: 13%">
                             </div>
                             <div class="col-6 right-section col-lg-6">
                                 <div class="card mb-0 border-0 shadow-none mb-0">
