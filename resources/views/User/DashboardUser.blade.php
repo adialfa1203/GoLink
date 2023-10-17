@@ -88,13 +88,42 @@
         border-radius: 15px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
     }
+
     @media (min-width: 1025px) {
+
         /* Atur gaya CSS khusus untuk perangkat laptop di sini */
-        .low{
+        .low {
             /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+        }
+    }
+
+    @media (min-width: 1025px) {
+
+        /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+        .up {
+            /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+
+        /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+        .im {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+        .im {
+            display: none;
         }
     }
 </style>
@@ -111,16 +140,16 @@
                 <div class="card-body" style="padding: 0;">
                     <div class="d-flex">
                         <div class="flex-grow-1">
-                            <div class="d-flex">
-                                <div class="col-9" style="color: #fff;padding:20px;margin-top:1%">
+                            <div class="up">
+                                <div class="" style="color: #fff;padding:20px;margin-top:1%">
                                     <div class="conte" style="margin-left: 5%;">
                                         <h4 style="color: #fff;">Selamat Datang Mizu!</h4>
                                         <p style="margin: 0;">Ayo buat tautan pendekmu sekarang!</p>
                                         <p>Jangan lupakan fitur Micosite dan buat Microsite pribadimu!</p>
                                     </div>
                                 </div>
-                                <div class="col-3" style="padding: 20px;">
-                                    <img src="{{ asset('template/image/dasboard.png') }} " width="170" style="object-fit: contain;">
+                                <div class="im " style="padding: 20px;">
+                                    <img src="{{ asset('template/image/dasboard.png') }} " width="170" style="object-fit: contain;float: right;margin-right: 5%;">
                                 </div>
                             </div>
                         </div>
@@ -636,7 +665,7 @@
                                             <h3 class="mb-0 mt-auto"><span class="counter-value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</span></h3>
                                         </div>
                                     </div>
-                                    <img src="{{ asset('template/image/user.png') }} " width="50" height="50" style="margin-right: -2%; margin-top: 2%;" >
+                                    <img src="{{ asset('template/image/user.png') }} " width="50" height="50" style="margin-right: -2%; margin-top: 2%;">
                                     <div class="flex-shrink-0">
                                         <div id="property_sale" data-colors='["--tb-primary"]' dir="ltr"></div>
                                     </div>
@@ -655,7 +684,7 @@
                                             </h3>
                                         </div>
                                     </div>
-                                    <img src="{{ asset('template/image/user.png') }} " width="50" height="50" style="margin-right: -2%; margin-top: 2%;" >
+                                    <img src="{{ asset('template/image/user.png') }} " width="50" height="50" style="margin-right: -2%; margin-top: 2%;">
                                     <div class="flex-shrink-0">
                                         <div id="property_sale" data-colors='["--tb-primary"]' dir="ltr"></div>
                                     </div>
