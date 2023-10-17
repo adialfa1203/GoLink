@@ -577,9 +577,9 @@
                                 data-bs-title="{{ $countURL }} Tautan dibuat">
                                 <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
                                     role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                    style="width: {{ ($countURL / 15) * 100 }}%"></div>
+                                    style="width: {{ ($countURL / $urlStatus) * 100 }}%"></div>
                             </div>
-                            <p class="text-muted mb-0"><b>{{ $countURL }} dari 15</p>
+                            <p class="text-muted mb-0"><b>{{ $countURL }} dari {{$urlStatus}}</p>
                             <br>
                             <h6 class="card-title">Microsite dibuat/Bulan
                                 <span class="tooltip-icon"
@@ -591,9 +591,9 @@
                                 data-bs-title="{{ $countMicrosite }} Nama diubah">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite"
                                     role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
-                                    aria-valuemax="3" style="width: {{ ($countMicrosite / 3) * 100 }}%"></div>
+                                    aria-valuemax="3" style="width: {{ ($countMicrosite / $micrositeStatus) * 100 }}%"></div>
                             </div>
-                            <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMicrosite }} dari 3</b></p>
+                            <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMicrosite }} dari {{$micrositeStatus}}</b></p>
                         </div>
                         <div class="d-flex justify-content-end pe-3" data-bs-toggle="modal"
                             data-bs-target="#lihatlebihbanyak">
@@ -626,10 +626,10 @@
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated"
                                                         role="progressbar" aria-valuenow="{{ $countURL }}"
                                                         aria-valuemin="0" aria-valuemax="100"
-                                                        style="width: {{ ($countURL / 15) * 100 }}%;">
+                                                        style="width: {{ ($countURL / $urlStatus) * 100 }}%;">
                                                     </div>
                                                 </div>
-                                                <p class="text-muted mb-0"><b>{{ $countURL }} dari 15</p>
+                                                <p class="text-muted mb-0"><b>{{ $countURL }} dari {{$urlStatus}}</p>
                                                 <br>
                                                 <h3 class="card-title">Microsite dibuat/Bulan
                                                     <span class="tooltip-icon"
@@ -642,9 +642,9 @@
                                                         id="progress-bar" role="progressbar"
                                                         aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
                                                         aria-valuemax="10"
-                                                        style="width: {{ ($countMicrosite / 3) * 100 }}%;"></div>
+                                                        style="width: {{ ($countMicrosite / $micrositeStatus) * 100 }}%;"></div>
                                                 </div>
-                                                <p class="text-muted mb-0"><b>{{ $countMicrosite }} dari 3</b></p>
+                                                <p class="text-muted mb-0"><b>{{ $countMicrosite }} dari {{ $micrositeStatus }}</b></p>
                                                 <br>
                                                 @php
                                                     $userType = Auth::user()->subscribe;
