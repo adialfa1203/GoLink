@@ -577,7 +577,7 @@
                                 data-bs-title="{{ $countURL }} Tautan dibuat">
                                 <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
                                     role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                    style="width: {{ ($countURL / (int)$urlStatus) * 100 }}%"></div>
+                                    style="width: {{ ($countURL / $urlStatus) * 100 }}%"></div>
                             </div>
                             <p class="text-muted mb-0"><b>{{ $countURL }} dari {{$urlStatus}}</p>
                             <br>
@@ -591,7 +591,7 @@
                                 data-bs-title="{{ $countMicrosite }} Nama diubah">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite"
                                     role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
-                                    aria-valuemax="3" style="width: {{ ($countMicrosite / (int)$micrositeStatus) * 100 }}%"></div>
+                                    aria-valuemax="3" style="width: {{ ($countMicrosite / $micrositeStatus) * 100 }}%"></div>
                             </div>
                             <p class="text-muted mb-0" id="microsite-total"><b>{{ $countMicrosite }} dari {{$micrositeStatus}}</b></p>
                         </div>
@@ -626,7 +626,7 @@
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated"
                                                         role="progressbar" aria-valuenow="{{ $countURL }}"
                                                         aria-valuemin="0" aria-valuemax="100"
-                                                        style="width: {{ ($countURL / (int)$urlStatus) * 100 }}%;">
+                                                        style="width: {{ ($countURL / $urlStatus) * 100 }}%;">
                                                     </div>
                                                 </div>
                                                 <p class="text-muted mb-0"><b>{{ $countURL }} dari {{$urlStatus}}</p>
@@ -642,7 +642,7 @@
                                                         id="progress-bar" role="progressbar"
                                                         aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
                                                         aria-valuemax="10"
-                                                        style="width: {{ ($countMicrosite / (int)$micrositeStatus) * 100 }}%;"></div>
+                                                        style="width: {{ ($countMicrosite / $micrositeStatus) * 100 }}%;"></div>
                                                 </div>
                                                 <p class="text-muted mb-0"><b>{{ $countMicrosite }} dari {{ $micrositeStatus }}</b></p>
                                                 <br>
