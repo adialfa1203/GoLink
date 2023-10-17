@@ -34,46 +34,6 @@
 <body>
     <style>
         <style>
-            body {
-            margin: 0;
-            /* Reset margin body */
-        }
-
-        .link-form {
-            width: 100%;
-            margin: 20px;
-            /* Ubah margin dari auto ke nilai tetap */
-            padding: 20px;
-        }
-
-        .input-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .input-icon {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .input-icon i {
-            position: absolute;
-            right: 10px;
-            color: #00;
-            margin-right: 17%;
-            /* Margin kanan untuk jarak antara ikon dan input */
-            margin-top: 1%;
-            /* Margin bawah untuk jarak antara ikon dan teks */
-        }
-
-        input[type="text"] {
-            width: 400px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 10px 0 0 10px;
-        }
 
         button {
             background-color: #D9D9D9;
@@ -137,7 +97,6 @@
                             <h2 style="color: white;">Situs Mikro yang Dibuat Sesuai dengan kebutuhan Anda</h2>
                             <!-- p -->
                             <p style="color: white;">Tampilkan Identitas Anda dengan Lebih Personal</p>
-                            <p>Dengan MiLink Microsite, Anda dapat dengan mudah membuat dan mengkustomisasi situs web mikro sesuai keinginan Anda.</p>
                         </div>
                         <!-- app buttons -->
 
@@ -179,7 +138,7 @@
             <!-- wave animation end -->
 
         </section>
-        <section class="bg-white overflow-hidden" id="home">
+        {{-- <section class="bg-white overflow-hidden" id="home">
             <div class="container" data-aos="fade-in" data-aos-duration="1500">
                 <div class="position-relative" style="z-index: 1;">
                     <div class="row align-items-center">
@@ -204,30 +163,30 @@
                 </div>
             </div>
             <!--end container-->
-        </section>
+        </section> --}}
 
-        <section class="bg-white overflow-hidden mb-4" id="home" >
+        <section class="bg-white overflow-hidden mb-4" id="home">
             <div class="container" data-aos="fade-in" data-aos-duration="1500">
                 <div class="position-relative" style="z-index: 1;">
                     <div class="row align-items-center">
-                        <div class="col-xl-5 col-lg-6">
-                            <div class="mt-lg-0 mt-5 d-flex justify-content-center">
-                                <img src="{{ asset('situs mikro.png') }}" alt="home04" class="home-img d-flex justify-content-start" width="350" height="200">
+                        <div class="col-lg-12">
+                            <br>
+                            <h5 style="color: #104898; font-weight: bold;">Jelajahi dengan Microsite</h5>
+
+                            <div class="col-lg-12">
+                                <div class="mt-lg-0 mt-5 d-flex">
+                                    <img src="{{ asset('landing-page 2.png') }}" alt="home04" class="home-img" width="350" height="200">
+                                    <h6 class="mt-5" style="color: #104898;">Microsite adalah kanvas kreatif Anda, bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini, Anda dapat menuangkan ide dan konten lebih bebas. Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan</h6>
+                                </div>
                             </div>
+                            
                         </div>
-                        <div class="col-lg-6 offset-xl-1">
-                            <div class="" >
-                                <h1 style="color: #1B5A6F; font-size:25px;">Buat Acaramu Lebih Menarik!</h1>
-                                <h6 style="color: #1B5A6F;">Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan, seperti hitungan mundur, peta, dan masih banyak lagi untuk membuat halaman acaramu menjadi lebih menarik, informatif, dan meyakinkan.</h6>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
         </section>
-
-
-
+        
         <!-- Trusted Section start -->
 
         <!-- Trusted Section ends -->
