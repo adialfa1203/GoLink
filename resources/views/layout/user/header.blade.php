@@ -1,4 +1,5 @@
 <header id="page-topbar">
+        <div class="atas">
     <div class="layout-width">
         <div class="navbar-header">
             <div class="d-flex">
@@ -306,7 +307,8 @@
             </div>
         </div>
     </div>
-</header>
+        </div>
+    </header>
 
 @section('script')
 <script>
