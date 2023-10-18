@@ -204,7 +204,7 @@ button:focus,
 
 /* section heading h2 */
 .section_title h2 {
-    font-size: 40px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--dark);
 }
@@ -2050,8 +2050,9 @@ footer .bottom_footer {
 }
 
 footer .bottom_footer p {
-    margin-bottom: 0;
+    margin-bottom: 5%;
     font-size: 15px;
+    
 }
 
 footer .bottom_footer .developer_text {

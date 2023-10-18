@@ -136,6 +136,19 @@
   }
 
 </style>
+<style>
+    .story_box {
+        border-radius: 20px; /* You can adjust the value as per your preference */
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adjust the values for your desired shadow */
+    }
+</style>
+<style>
+    .custom-title h2 {
+        font-size: 20px; /* Ganti 24px dengan ukuran font yang Anda inginkan */
+    }
+    </style>
+    
+    
     <!-- Page-wrapper-Start -->
     <div class="page_wrapper">
 
@@ -168,7 +181,7 @@
                             <h2 style="color: #ffffff;">Selamat datang di MiLink.id</h2>
                             <!-- p -->
                             <p>Ingin membuat tautan lebih singkat dan lebih mudah diingat?</p>
-                            <p>MiLink.id adalah solusi terbaik untuk Anda!</p>
+                            <p>MiLink.id adalah solusi terbaik untuk Anda !</p>
                         </div>
                     </div>
                     <!-- banner slides start -->
@@ -210,11 +223,12 @@
         <section class="row_am latest_story" id="blog">
             <!-- container start -->
             <div class="container">
-                <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                    <h2><span>Fitur Fitur</span> <span>Mi</span>Link.id <span><br>Yang Dapat Membantu Anda</span></h2>
+                <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100" style="margin-top: 5%;">
+                    <h2 class="custom-title"><span>Fitur fitur</span> <span>Mi</span>Link.id <span><br>Yang Dapat Membantu Anda</span></h2>
                 </div>
+                
                 <!-- row start -->
-                <div class="row d-flex justify-content-md-center" style="margin-top: 2%;">
+                <div class="row d-flex justify-content-md-center" style="margin-top: 7%;">
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
@@ -272,7 +286,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="text-center">
-                            <div class="section_title" data-aos="" data-aos-duration="1500" data-aos-delay="100">
+                            <div class="section_title" data-aos="" data-aos-duration="1500" data-aos-delay="100" >
                             <h2 style="color: #104898;">Statistik MiLink.id</h2>
                             </div>
                         </div>
@@ -282,7 +296,7 @@
 
                 <div class="row justify-content-center mt-5">
                     <!--end col-->
-                    <div class="col-md-3" style="margin-bottom: 2%;">
+                    <div class="col-md-3" style="margin-bottom: 2%; margin-top: 2%;">
                         <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500" >
                             <div class="story_text">
                                 <h4 style="color: #104898;">
@@ -294,7 +308,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3" style="margin-bottom: 2%;">
+                    <div class="col-md-3" style="margin-bottom: 2%; margin-top: 2%;"">
                         <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500">
                             <div class="story_text">
                                 <h4 style="color: #104898;">
@@ -305,7 +319,7 @@
                         </div>
                     </div>
                     <!--end col-->
-                    <div class="col-md-3" style="margin-bottom: 2%;">
+                    <div class="col-md-3" style="margin-bottom: 2%; margin-top: 2%;"">
                         <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500">
                             <div class="story_text">
                                 <h4 style="color: #104898;">
@@ -316,7 +330,7 @@
                         </div>
                     </div>
                     <!--end col-->
-                    <div class="col-md-3" style="margin-bottom: 2%;">
+                    <div class="col-md-3" style="margin-bottom: 2%; margin-top: 2%;"">
                         <div class="story_box" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
                             <div class="story_text">
                                 <h4 style="color: #104898;">
@@ -336,14 +350,14 @@
 
 
         <!-- Trusted Section start -->
-        <section class="row_am trusted_section">
+        <section class="row_am trusted_section" >
             <!-- container start -->
             <div class="container">
                 <div class="section_title" data-aos="" data-aos-duration="1500" data-aos-delay="100">
-                    <h2 style="color: #104898;">Dukungan Pembayaran</h2>
+                    <h2 style="color: #104898;" >Dukungan Pembayaran</h2>
                 </div>
                 <!-- logos slider start -->
-                <div class="company_logos">
+                <div class="company_logos" style="margin-top: 5%;">
                     <div id="company_slider" class="owl-carousel owl-theme">
                         <div class="item">
                             <div class="logo">

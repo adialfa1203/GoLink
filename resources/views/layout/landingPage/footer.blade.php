@@ -139,6 +139,15 @@
                                 </ul>
                             </div>
                         </div>
+                        <div class="bottom_footer" style="margin-bottom: 4%;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p >© MiLink Dikelola oleh PT. Hummatech</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Footer Links -->
@@ -152,6 +161,7 @@
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="links" style="margin-left: 6%;">
                             <h3>Peta Situs</h3>
@@ -211,21 +221,12 @@
                             </form>
                         </div>
                     @endauth --}}
-
                 </div>
             </div>
         </div>
 
         <!-- Bottom Footer -->
-        <div class="bottom_footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="text-center">© MiLink Dikelola oleh PT. Hummatech</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- Go Top Button -->
         <div class="go_top">

@@ -62,6 +62,12 @@
         border-top-left-radius: 10px;
         }
 </style>
+<style>
+    .story_box {
+        border-radius: 20px; /* You can adjust the value as per your preference */
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adjust the values for your desired shadow */
+    }
+</style>
     <!-- Page-wrapper-Start -->
     <div class="page_wrapper">
 
@@ -142,10 +148,10 @@
         <section class="row_am latest_story" id="blog">
             <!-- container start -->
             <div class="container">
-                <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                    <h2><span>Fitur-Fitur</span> <span>Mi</span>Link.id <span><br> yang Membantu Anda</span></h2>
+                <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100" style="margin-top: 5%;">
+                    <h2 class="custom-title"><span>Fitur fitur</span> <span>Mi</span>Link.id <span><br>Yang Dapat Membantu Anda</span></h2>
                 </div>
-                <div class="row d-flex justify-content-md-center" style="margin-top: 2%;">
+                <div class="row d-flex justify-content-md-center" style="margin-top: 7%;">
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
