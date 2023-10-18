@@ -97,8 +97,8 @@ Route::prefix('logout')->group(function(){
 //Middleware User
 Route::group(['middleware' => ['auth', 'checkBanStatus', 'role:user']], function () {
 Route::prefix('user')->group(function(){
-    //search
-    Route::get('/search', [SearchController::class, 'search'])->name('search');
+    // //search
+    // Route::get('/search', [SearchController::class, 'search'])->name('search');
 
     //Dashboard
     Route::get('/dashboard-user', [DahsboardController::class, 'dashboardUser'])->name('dashboard.user');

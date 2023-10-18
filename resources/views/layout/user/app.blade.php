@@ -47,6 +47,37 @@
         type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @yield('style')
+    @section('style')
+    <style>
+    .body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+
+    .floating-button {
+        width: 50px;
+        height:50px;
+        background-color: #0e2954;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+    .floating-button .bi {
+    font-size: 24px; /* Ubah ukuran ikon sesuai kebutuhan Anda */
+    }
+    </style>
 </head>
 
 <body>
@@ -140,7 +171,11 @@
             </div>
         </div>
     </div>
-
+    <div class="customizer-setting d-none d-md-block">
+    <a class="floating-button" href="{{url('chatify/web-chat')}}">
+        <i class="bi bi-chat-dots"></i>
+    </a>
+    </div>
     <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
         <div class="d-flex align-items-center bg-primary bg-gradient p-3 offcanvas-header">
             <div class="me-2">

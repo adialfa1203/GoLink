@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \Chatify\ChatifyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -185,7 +186,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
     'Permission' => Spatie\Permission\Facades\Permission::class,
-    // 'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+    'Chatify' => Chatify\Facades\ChatifyMessenger::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

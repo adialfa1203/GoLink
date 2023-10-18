@@ -139,6 +139,12 @@
             </div>
         </div>
     </div>
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn btn-info p-2 text-uppercase rounded-end-0 shadow-lg" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class="bi bi-gear mb-1"></i> Customizer
+        </div>
+    </div>
+    @include('chat.app')
 
     <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
         <div class="d-flex align-items-center bg-primary bg-gradient p-3 offcanvas-header">
