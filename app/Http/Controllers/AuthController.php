@@ -2,254 +2,140 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Mail\SampleMail;
-use App\Models\Subscribe;
+use App\Models\Comment;
+use App\Models\Footer;
+use App\Models\History;
+use App\Models\ShortUrl;
 use App\Models\User;
-use Illuminate\Http\Request;
+use AshAllenDesign\ShortURL\Models\ShortURLVisit;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
-use Laravel\Socialite\Facades\Socialite;
-use Spatie\Permission\Models\Role;
 
-class AuthController extends Controller
+class DahsboardController extends Controller
 {
-    public function login(Request $request)
+    public function dashboardUser()
     {
-        return view('Auth.Login');
-    }
+        $user = Auth::user();
+        $currentMonth = Carbon::now()->month;
 
-    public function loginUser(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
-        $remember = $request->has('remember_me') ? true : false;
+        if ($user) {
+            $subscribe = $user->subscribe;
 
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|regex:/^[^-+]+$/u|exists:users,email',
-            'password' => 'required|string|min:5',
-        ], [
-            'email.required' => 'Email tidak boleh kosong',
-            'email.email' => 'Email harus memiliki format yang valid.',
-            'email.exists' => 'Email belum terdaftar.',
-            'email.regex' => 'Email tidak boleh mengandung simbol',
-            'password.required' => 'Password tidak boleh kosong',
-            'password.min' => 'Kata sandi harus memiliki panjang minimal 5 karakter',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        if (Auth::attempt($credentials, $remember)) {
-            $user = Auth::user();
-            if ($user->hasRole('admin')) {
-                return redirect()->route('dashboard.admin');
-            } elseif ($user->hasRole('user')) {
-                if ($user->is_banned) {
-                    Auth::logout();
-                    return redirect('/login')->with('error', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
-                } else {
-                    return redirect()->route('dashboard.user')->withCookie(cookie('remember_web', true, 3));
-                }
+            if ($subscribe == 'free') {
+                $urlStatus = '15';
+                $micrositeStatus = '3';
+            } elseif ($subscribe == 'silver') {
+                $urlStatus = '25';
+                $micrositeStatus = '5';
+            } elseif ($subscribe == 'gold') {
+                $urlStatus = '35';
+                $micrositeStatus = '10';
+            } elseif ($subscribe == 'platinum') {
+                $urlStatus = 'Unlimited';
+                $micrositeStatus = 'Unlimited';
+            } else {
+                $urlStatus = 'Status tidak valid';
+                $micrositeStatus = 'Status tidak valid';
             }
         }
 
-        return redirect()->route('login')->with('error', 'Email atau Password Yang Anda Masukkan Salah');
-    }
-
-    public function register()
-    {
-        return view('Auth.Register');
-    }
-
-    public function registerUser(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:50|regex:/^[^-+]+$/u',
-            'email' => 'required|email|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email',
-            'number' => 'required|max:15|regex:/^[^-+]+$/u|min:11',
-            'remember' => 'required|string',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required_with:password|same:password',
-        ], [
-            'name.required' => 'Nama Lengkap tidak boleh kosong',
-            'email.required' => 'Email tidak boleh kosong.',
-            'email.email' => 'Format alamat email tidak valid.',
-            'email.regex' => 'Format alamat email tidak valid.',
-            'email.unique' => 'Alamat email sudah digunakan.',
-            'number.required' => 'Nomor tidak boleh kosong',
-            'number' => 'Nomor tidak boleh kurang dari 11 dan tidak boleh lebih dari 15!',
-            'number.regex' => 'Nomor wajib angka',
-            'password_confirmation.same' => 'Password dan Konfirmasi Password tidak cocok.',
-            'email.unique' => 'Email sudah terdaftar, silahkan gunakan email lain.',
-            'remember.required' => 'Anda harus menyetujui Kebijakan Privasi.',
-            'password.required' => 'Kata sandi tidak boleh kosong',
-            'password.min' => 'Kata sandi minimal terdiri dari 8 karakter.',
-            'password_confirmation' => 'required_with:password|same:password',
-            'password_confirmation.required_with' => 'Konfirmasi kata sandi diperlukan ketika kata sandi diisi.',
-            'password_confirmation.same' => 'Konfirmasi kata sandi harus sama dengan kata sandi.',
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $freeSubscribe = Subscribe::where('tipe', 'free')->first();
-
-        if ($freeSubscribe) {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'number' => $request->number,
-                'password' => Hash::make($request->password),
-                'subscribe_id' => $freeSubscribe->id,
-                'profile_picture' => $request->profile_picture,
-            ]);
-        }
-
-        if (!Role::where('name', 'user')->exists()) {
-            Role::create(['name' => 'user', 'guard_name' => 'web']);
-        }
-
-        $roleUser = Role::where('name', 'user')->first();
-
-        if ($roleUser) {
-            $user->assignRole($roleUser);
-        }
-        return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login untuk mulai menggunakan akun Anda.');
-    }
-
-    public function sendEmail()
-    {
-        return view('Auth.ForgotPassword.SendEmail');
-    }
-
-    public function sendSampleEmail(Request $request)
-    {
-        $this->validate($request, [
-            'email' => 'required|email',
-        ], [
-            'email.required' => 'Email tidak boleh kosong',
-        ]);
-
-        // Lakukan logika pengiriman email jika validasi berhasil.
-
-        $user = User::where('email', $request->email)->first();
-
         if ($user) {
-            // Generate random verification code
-            $verificationCode = mt_rand(100000, 999999);
+            $userId = $user->id;
+            $totalVisits = ShortURLVisit::query()
+                ->whereRelation('shortURL', 'user_id', '=', $userId)
+                ->whereRelation('shortURL', 'microsite_uuid', null)
+                ->whereRelation('shortURL', 'archive', '!=', 'yes')
+                ->count();
+        }if ($user) {
+            $userId = $user->id;
+            $totalVisitsMicrosite = ShortURLVisit::query()
+                ->whereRelation('shortURL', 'user_id', '=', $userId)
+                ->whereRelation('shortURL', 'microsite_uuid', '!=', null)
+                ->count();
+        }if ($user) {
+            $userId = $user->id;
+            $totalUrl = ShortURL::where('user_id', $userId)
+                ->whereNull('microsite_uuid')
+                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->count();
 
-            // Save the verification code in the user's database record
-            $user->verification_code = $verificationCode;
-            $user->save();
+            $countHistory = History::where('user_id', $userId)
+                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->count();
+            $countURL = $totalUrl + $countHistory;
 
-            // Send the verification code email
-            $details = (object) [
-                'name' => $user->name,
-                'verificationCode' => $verificationCode,
-            ];
-
-            Mail::to($user->email)->send(new SampleMail($details));
-            return redirect()->route('verification')->with('success', 'Kode berhasil dikirim');
-        } else {
-            return back()->withErrors(['email' => 'Email tidak terdaftar']);
+        }if ($user) {
+            $userId = $user->id;
+            $countMicrosite = ShortURL::where('user_id', $userId)
+                ->whereNotNull('microsite_uuid')
+                ->orderBy('created_at', 'asc')
+                ->limit(3)
+                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->count();
+        }if ($user) {
+            $userId = $user->id;
+            $countNameChanged = ShortUrl::where('user_id', $userId)
+                ->where('custom_name', 'yes')
+                ->whereNull('microsite_uuid')
+                ->count();
         }
+        $qr = ShortUrl::get()->sum('qr_code');
+
+        return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite'));
     }
 
-    public function verification()
+    public function HelpSupport()
     {
-        return view('Auth.ForgotPassword.VerificationCode');
+        $komentar = Comment::orderBy('created_at', 'desc')
+            ->with('user')
+            ->get();
+        $data = Footer::first();
+        // $user = User::all();
+        $users = Auth::user();
+        $userId = User::all();
+        // dd($komentar);
+        return view('HelpSupport.HelpSupport', compact('komentar', 'users', 'userId', 'data'));
     }
-    public function verificationCode(Request $request)
+    public function Start()
     {
-        $this->validate($request, [
-            'verification_code' => 'required|digits:6',
-        ], [
-            'verification_code.required' => 'Kode verifikasi harus diisi',
-            'verification_code.digits' => 'Kode verifikasi harus terdiri dari 6 angka',
-        ]);
-
-        $user = User::where('verification_code', $request->verification_code)
-            ->first();
-        // dd($user);
-
-        if ($user) {
-            return redirect()->route('changePassword', ['email' => $user->email]);
-        } else {
-            return back()->withErrors(['verification_code' => 'Kode verifikasi salah']);
-        }
+        $data = Footer::first();
+        return view('HelpSupport.Start', compact('data'));
     }
-
-    public function changePassword($email)
+    public function Announcement()
     {
-        $user = User::where('email', $email)->first();
-
-        if (!$user) {
-            return redirect()->route('verification')->withErrors(['email' => 'Email tidak valid']);
-        }
-
-        return view('Auth.ForgotPassword.ChangePassword', compact('user'));
+        $data = Footer::first();
+        return view('HelpSupport.Announcement', compact('data'));
     }
-
-    public function updatePassword(Request $request)
+    public function Account()
     {
-        $request->validate([
-            'password' => 'required|min:8|confirmed',
-            'password_confirmation' => 'required_with:password|same:password',
-        ], [
-            'password.required' => 'Kata sandi harus diisi',
-            'password.min' => 'Kata sandi minimal terdiri dari 8 karakter',
-            'password.confirmed' => 'Konfirmasi kata sandi tidak cocok',
-            'password_confirmation.required_with' => 'Konfirmasi kata sandi harus diisi',
-            'password_confirmation.same' => 'Kata sandi dan Konfirmasi Kata sandi tidak cocok',
-        ]);
-
-        $user = User::where('email', $request->email)->first();
-
-        if (!$user) {
-            return back()->withErrors(['email' => 'Verifikasi kode atau email tidak valid']);
-        }
-
-        $user->password = Hash::make($request->password);
-        $user->verification_code = null; // Clear verification code
-        $user->save();
-        return redirect()->route('login')->with('success', 'Kata sandi berhasil diubah. Silahkan login.');
+        $data = Footer::first();
+        return view('HelpSupport.Account', compact('data'));
     }
-    public function logout(Request $request)
+    public function BillingSubscriptions()
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect()->route('landing.page');
+        $data = Footer::first();
+        return view('HelpSupport.BillingSubscriptions', compact('data'));
     }
-
-    public function registerWith()
+    public function PlatformMicrosite()
     {
-        // Ambil data pengguna yang berhasil login melalui GitHub
-        $githubUser = Socialite::driver('github')->user();
-
-        // Ambil alamat email dari data pengguna GitHub
-        $email = $githubUser->email;
-
-        // Cari pengguna dengan alamat email yang sesuai
-        $user = User::where('email', $email)->first();
-
-        if (!$user) {
-            // Pengguna tidak ditemukan, kembalikan pesan kesalahan
-            return redirect()->route('login')->withErrors('Terjadi Kesalahan');
-        }
-
-        // Lanjutkan ke halaman "confirmation" jika pengguna ditemukan
-        return view('Auth.RegisterWith.with');
+        $data = Footer::first();
+        return view('HelpSupport.PlatformMicrosite', compact('data'));
     }
-    // public function noInternet(){
-    //     return view('Auth.NoConnection');
-    // }
+    public function ShortLink()
+    {
+        $data = Footer::first();
+        return view('HelpSupport.ShortLink', compact('data'));
+    }
+    public function home()
+    {
+        $data = Footer::first();
+        $komentar = Comment::orderBy('created_at', 'desc')->get();
+        $url = ShortUrl::whereNotNull('default_short_url')->count();
+        $micrositeuuid = ShortUrl::whereNotNull('microsite_uuid')->count();
+        // $user = User::all();
+        $users = Auth::user();
+        $userId = User::all();
+        dd($url);
+        return view('Landingpage.Home', compact('komentar', 'users', 'userId', 'data', 'url', 'micrositeuuid'));
+    }
 }
