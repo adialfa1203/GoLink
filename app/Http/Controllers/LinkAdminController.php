@@ -13,8 +13,8 @@ class LinkAdminController extends Controller
         $data = User::where('is_banned', 0)->role('user')->get();
         //Menghitung total user
         $totalUser = User::where('email', '!=', 'admin@gmail.com')
-                    ->where('is_banned', '!=', '1')
-                    ->count();
+            ->where('is_banned', '!=', '1')
+            ->count();
         //Menghitung total url
         $totalUrl = ShortUrl::where('archive', '!=', 'yes')->count();
         //Menghitung total pengunjung
@@ -30,9 +30,9 @@ class LinkAdminController extends Controller
         //     $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();
         //
         $users = User::where('email', '!=', 'admin@gmail.com')
-                ->where('is_banned', '!=', '1')
-                ->paginate(10);
-        $d=$users;
+            ->where('is_banned', '!=', '1')
+            ->paginate(10);
+        $d = $users;
         foreach ($users as $user) {
             $userData[$user->id] = [
                 'total_links' => ShortUrl::where('user_id', $user->id)->whereNull('microsite_uuid')->count(),
@@ -49,6 +49,6 @@ class LinkAdminController extends Controller
             ];
         }
         // dd($totalMicrosite);
-        return view('Admin.Link', compact('d','totalUser', 'totalUrl', 'totalVisits', 'users', 'totalMicrosite', 'userData'));
+        return view('Admin.Link', compact('d', 'totalUser', 'totalUrl', 'totalVisits', 'users', 'totalMicrosite', 'userData'));
     }
 }

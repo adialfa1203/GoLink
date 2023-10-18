@@ -13,10 +13,10 @@ class ArchiveLinkController extends Controller
         $user = auth()->user(); // Mengambil objek User saat ini
         $user_id = $user->id;
         $data = History::where('user_id', $user_id)
-        ->orderBy('created_at','desc')
-        ->paginate(5);
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
 
-        return view('User.ArchiveLink', compact('user','data'));
+        return view('User.ArchiveLink', compact('user', 'data'));
     }
 
     public function restore($id)
@@ -24,7 +24,7 @@ class ArchiveLinkController extends Controller
         ShortUrl::withTrashed()->find($id)->restore();
         ShortUrl::withTrashed()->find($id)->update([
             'archive' => 'no',
-            'deactivated_at' => now()->addDay()
+            'deactivated_at' => now()->addDay(),
         ]);
 
         return redirect()->back()->with('success', 'Link telah dipulihkan');

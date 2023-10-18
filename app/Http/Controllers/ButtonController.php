@@ -1,23 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Button;
 use App\Models\Social;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class ButtonController extends Controller
 {
-    public function viewButton(){
+    public function viewButton()
+    {
         $button = Button::paginate(8);
         return view('Button.ViewButton', compact('button'));
     }
 
-    public function createButton(){
+    public function createButton()
+    {
         return view('Button.CreateButton');
     }
-
 
     public function saveButton(Request $request)
     {
@@ -43,8 +44,8 @@ class ButtonController extends Controller
         return redirect()->route('view.button')->with('success', 'Media Sosial berhasil ditambah.');
     }
 
-
-    public function editButton($id){
+    public function editButton($id)
+    {
         $button = Button::find($id);
         return view('Button.UpdateButton', compact('button'));
     }
@@ -77,8 +78,7 @@ class ButtonController extends Controller
             return redirect()->route('view.button')->with('error', 'Tidak dapat mengedit Media Sosial ini karena masih ada data terkait.');
         }
 
-        $button->save(); 
-
+        $button->save();
 
         return redirect()->route('view.button')->with('success', 'Media Sosial berhasil diedit.');
     }

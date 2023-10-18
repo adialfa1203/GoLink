@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use App\Models\Social;
-use App\Models\ShortUrl;
 use App\Models\Microsite;
-use Yoeunes\Toastr\Toastr;
+use App\Models\ShortUrl;
+use App\Models\Social;
+use AshAllenDesign\ShortURL\Classes\Builder;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
-use AshAllenDesign\ShortURL\Classes\Builder;
+use Yoeunes\Toastr\Toastr;
 
 class ShortLinkController extends Controller
 {
@@ -57,8 +57,8 @@ class ShortLinkController extends Controller
 
         if ($user->subscribe == 'silver') {
             $shortLinks = $user->shortUrls()
-            ->whereMonth('created_at', '>=', now())
-            ->count();
+                ->whereMonth('created_at', '>=', now())
+                ->count();
             $history = $user->history()
                 ->whereMonth('created_at', '>=', now())
                 ->count();
@@ -68,8 +68,8 @@ class ShortLinkController extends Controller
             }
         } elseif ($user->subscribe == 'gold') {
             $shortLinks = $user->shortUrls()
-            ->whereMonth('created_at', '>=', now())
-            ->count();
+                ->whereMonth('created_at', '>=', now())
+                ->count();
             $history = $user->history()
                 ->whereMonth('created_at', '>=', now())
                 ->count();
@@ -117,7 +117,7 @@ class ShortLinkController extends Controller
             'click_count' => $request->click_count,
             'qr_code' => $request->qr_code,
             'title' => $request->title,
-            'deactivated_at' => $request->deactivated_at
+            'deactivated_at' => $request->deactivated_at,
         ]);
 
         return response()->json($find);
@@ -148,10 +148,10 @@ class ShortLinkController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'newUrlKey' => 'required|unique:short_urls,url_key'
-        ],[
+            'newUrlKey' => 'required|unique:short_urls,url_key',
+        ], [
             'newUrlKey.required' => 'Kolom harus diisi',
-            'newUrlKey.unique' => 'Nama sudah digunakan'
+            'newUrlKey.unique' => 'Nama sudah digunakan',
         ]);
 
         if ($validator->fails()) {
@@ -178,10 +178,10 @@ class ShortLinkController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'newUrlKey' => 'required|unique:short_urls,url_key'
-        ],[
+            'newUrlKey' => 'required|unique:short_urls,url_key',
+        ], [
             'newUrlKey.required' => 'Kolom harus diisi',
-            'newUrlKey.unique' => 'Nama sudah digunakan'
+            'newUrlKey.unique' => 'Nama sudah digunakan',
         ]);
 
         if ($validator->fails()) {
@@ -202,7 +202,10 @@ class ShortLinkController extends Controller
     public function micrositeLink($micrositeLink)
     {
         $accessMicrosite = Microsite::with('component')->where('link_microsite', $micrositeLink)->first();
-        if($accessMicrosite->user->is_banned) abort(404);
+        if ($accessMicrosite->user->is_banned) {
+            abort(404);
+        }
+
         $social = Social::where('microsite_uuid', $accessMicrosite->id)->with('button')->get();
         $short_url = ShortUrl::where('microsite_uuid', $micrositeLink)->first();
 

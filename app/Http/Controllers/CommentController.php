@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Comment;
 use App\Models\User;
-
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function viewKomentar(){
+    public function viewKomentar()
+    {
         $user = Auth::user()->id;
         $komentar = Comment::orderBy('created_at', 'desc')->paginate(10);
         $d = $komentar;
@@ -36,11 +35,12 @@ class CommentController extends Controller
         return redirect()->back()->with('success', 'Komentar ditambahkan');
     }
 
-    public function blokir(){
+    public function blokir()
+    {
         $totalUser = User::where('email', '!=', 'admin@gmail.com')->where('is_banned', '!=', '1')->count();
         $totaldiblokir = User::where('is_banned', 1)->count();
         $data = User::where('is_banned', 1)->paginate(10);
-        $d=$data;
-        return view('Banned.view-banned', compact('data', 'totaldiblokir', 'totalUser','d'));
+        $d = $data;
+        return view('Banned.view-banned', compact('data', 'totaldiblokir', 'totalUser', 'd'));
     }
 }

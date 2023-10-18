@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Http\Controllers\Controller;
 use App\Mail\SampleMail;
 use App\Models\Subscribe;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Spatie\Permission\Traits\HasRoles;
-use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Socialite\Facades\Socialite;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         return view('Auth.Login');
     }
 
@@ -61,7 +61,6 @@ class AuthController extends Controller
         return redirect()->route('login')->with('error', 'Email atau Password Yang Anda Masukkan Salah');
     }
 
-
     public function register()
     {
         return view('Auth.Register');
@@ -75,7 +74,7 @@ class AuthController extends Controller
             'number' => 'required|max:15|regex:/^[^-+]+$/u|min:11',
             'remember' => 'required|string',
             'password' => 'required|min:8',
-            'password_confirmation' => 'required_with:password|same:password'
+            'password_confirmation' => 'required_with:password|same:password',
         ], [
             'name.required' => 'Nama Lengkap tidak boleh kosong',
             'email.required' => 'Email tidak boleh kosong.',
@@ -92,20 +91,26 @@ class AuthController extends Controller
             'password.min' => 'Kata sandi minimal terdiri dari 8 karakter.',
             'password_confirmation' => 'required_with:password|same:password',
             'password_confirmation.required_with' => 'Konfirmasi kata sandi diperlukan ketika kata sandi diisi.',
-            'password_confirmation.same' => 'Konfirmasi kata sandi harus sama dengan kata sandi.'
+            'password_confirmation.same' => 'Konfirmasi kata sandi harus sama dengan kata sandi.',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
-            }
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'number' => $request->number,
-            'password' => Hash::make($request->password),
-            'profile_picture' => $request->profile_picture,
-        ]);
+        }
+
+        $freeSubscribe = Subscribe::where('tipe', 'free')->first();
+
+        if ($freeSubscribe) {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'number' => $request->number,
+                'password' => Hash::make($request->password),
+                'subscribe_id' => $freeSubscribe->id,
+                'profile_picture' => $request->profile_picture,
+            ]);
+        }
 
         if (!Role::where('name', 'user')->exists()) {
             Role::create(['name' => 'user', 'guard_name' => 'web']);
@@ -115,13 +120,6 @@ class AuthController extends Controller
 
         if ($roleUser) {
             $user->assignRole($roleUser);
-        } else {
-            $freeSubscribe = Subscribe::where('tipe', 'free')->first();
-
-            if ($freeSubscribe) {
-                $user->subscribe_id = $freeSubscribe->id;
-                $user->save();
-            }
         }
         return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login untuk mulai menggunakan akun Anda.');
     }
@@ -141,7 +139,6 @@ class AuthController extends Controller
 
         // Lakukan logika pengiriman email jika validasi berhasil.
 
-
         $user = User::where('email', $request->email)->first();
 
         if ($user) {
@@ -153,7 +150,7 @@ class AuthController extends Controller
             $user->save();
 
             // Send the verification code email
-            $details = (object)[
+            $details = (object) [
                 'name' => $user->name,
                 'verificationCode' => $verificationCode,
             ];
@@ -173,7 +170,7 @@ class AuthController extends Controller
     {
         $this->validate($request, [
             'verification_code' => 'required|digits:6',
-        ],[
+        ], [
             'verification_code.required' => 'Kode verifikasi harus diisi',
             'verification_code.digits' => 'Kode verifikasi harus terdiri dari 6 angka',
         ]);
@@ -204,7 +201,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'password' => 'required|min:8|confirmed',
-            'password_confirmation' => 'required_with:password|same:password'
+            'password_confirmation' => 'required_with:password|same:password',
         ], [
             'password.required' => 'Kata sandi harus diisi',
             'password.min' => 'Kata sandi minimal terdiri dari 8 karakter',

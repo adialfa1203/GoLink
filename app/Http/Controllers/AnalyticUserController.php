@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use Carbon\Carbon;
-use App\Models\User;
+
 use App\Models\ShortUrl;
+use App\Models\User;
+use AshAllenDesign\ShortURL\Models\ShortURLVisit;
+use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\Auth;
-use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 
 class AnalyticUserController extends Controller
 {
@@ -42,15 +43,15 @@ class AnalyticUserController extends Controller
                     ->whereNull('microsite_uuid')
                     ->where('archive', '!=', 'yes');
             })
-            ->whereBetween('visited_at', [$startDateOfMonth, $endDateOfMonth])
-            ->count();
+                ->whereBetween('visited_at', [$startDateOfMonth, $endDateOfMonth])
+                ->count();
 
             $totalVisitsMicrosite = ShortURLVisit::whereHas('shortUrl', function ($query) use ($user) {
                 $query->where('user_id', $user)
                     ->whereNotNull('microsite_uuid');
             })
-            ->whereBetween('visited_at', [$startDateOfMonth, $endDateOfMonth])
-            ->count();
+                ->whereBetween('visited_at', [$startDateOfMonth, $endDateOfMonth])
+                ->count();
 
             $totalUrlData[] = ['date' => $startDateOfMonth, 'totalUrl' => $countURL];
             $totalVisitsData[] = ['date' => $startDateOfMonth, 'totalVisits' => $totalVisits];
@@ -64,7 +65,7 @@ class AnalyticUserController extends Controller
             'totalUrlData' => $totalUrlData,
             'totalVisitsData' => $totalVisitsData,
             'totalVisitsMicrositeData' => $totalVisitsMicrositeData,
-            'countMicrositeData' => $countMicrositeData
+            'countMicrositeData' => $countMicrositeData,
         ]);
     }
 
@@ -104,52 +105,52 @@ class AnalyticUserController extends Controller
                 $query->whereHas('shortURL', function ($query) use ($user) {
                     $query->where('user_id', $user);
                 });
-            }
+            },
         ])
-        ->whereNull('microsite_uuid')
-        ->where('user_id', $user)
-        ->orderBy('totalVisits', 'desc')
-        ->take(3)
-        ->get();
+            ->whereNull('microsite_uuid')
+            ->where('user_id', $user)
+            ->orderBy('totalVisits', 'desc')
+            ->take(3)
+            ->get();
 
         $microsites = ShortUrl::withCount([
             'visits AS totalVisits' => function ($query) use ($user) {
                 $query->whereHas('shortUrl', function ($query) use ($user) {
                     $query->where('user_id', $user);
                 });
-            }
+            },
         ])
-        ->whereNotNull('microsite_uuid')
-        ->where('user_id', $user)
-        ->orderBy('totalVisits', 'desc')
-        ->take(3)
-        ->get();
+            ->whereNotNull('microsite_uuid')
+            ->where('user_id', $user)
+            ->orderBy('totalVisits', 'desc')
+            ->take(3)
+            ->get();
 
         $countURL = ShortURL::where('user_id', $user)
-                            ->whereNull('microsite_uuid')
-                            ->count();
+            ->whereNull('microsite_uuid')
+            ->count();
         $countMicrosite = ShortUrl::where('user_id', $user)
-                            ->whereNotNull('microsite_uuid')
-                            ->count();
+            ->whereNotNull('microsite_uuid')
+            ->count();
 
         $dataLink = SHortURL::all();
 
         $totalVisits = ShortURLVisit::query()
-        ->whereHas('shortURL', function ($query) use ($user) {
-            $query->where('user_id', $user)
-                ->where('archive', '!=', 'yes')
-                ->where(function ($query) {
-                    $query->whereNull('microsite_uuid')
-                        ->orWhere('microsite_uuid', '=', '');
-                });
-        })
-        ->count();
+            ->whereHas('shortURL', function ($query) use ($user) {
+                $query->where('user_id', $user)
+                    ->where('archive', '!=', 'yes')
+                    ->where(function ($query) {
+                        $query->whereNull('microsite_uuid')
+                            ->orWhere('microsite_uuid', '=', '');
+                    });
+            })
+            ->count();
 
         $totalVisitsMicrosite = ShortURLVisit::query()
-        ->whereRelation('shortURL', 'user_id', '=', $user)
-        ->whereRelation('shortURL', 'microsite_uuid', '!=', null)
-        ->whereRelation('shortURL', 'archive', '!=', 'yes')
-        ->count();
+            ->whereRelation('shortURL', 'user_id', '=', $user)
+            ->whereRelation('shortURL', 'microsite_uuid', '!=', null)
+            ->whereRelation('shortURL', 'archive', '!=', 'yes')
+            ->count();
 
         $users = User::where('email', '!=', 'admin@gmail.com')->get();
         $count = [];
@@ -168,7 +169,7 @@ class AnalyticUserController extends Controller
         // $visits = count($shortURL->visits) ;
 
         // dd($totalVisits,$countURL);
-        return view('User.AnalyticUser', compact('urlStatus','micrositeStatus','totalVisits','countURL','count','users','links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite'));
+        return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'users', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite'));
     }
 
 }

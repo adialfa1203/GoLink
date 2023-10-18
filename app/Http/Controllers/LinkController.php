@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Helpers\DateHelper;
 use App\Models\History;
 use App\Models\ShortUrl;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Http\Request as HttpRequest;
 
 class LinkController extends Controller
@@ -22,31 +22,30 @@ class LinkController extends Controller
 
         $urlshort = ShortUrl::withCount('visits')
         // ->selectRaw('MONTH(created_at) as created_at')
-        ->where('user_id', $user_id)
-        ->whereNull('microsite_uuid')
-        ->orderBy('created_at', 'desc')
-        ->paginate(5);
+            ->where('user_id', $user_id)
+            ->whereNull('microsite_uuid')
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
         $history = History::where('user_id', $user_id)->paginate(5);
         $result = [
             'labels' => DateHelper::getAllMonths(5),
-            'series' => []
+            'series' => [],
         ];
         $startDate = DateHelper::getSomeMonthsAgoFromNow(5)->format('Y-m-d H:i:s');
         $endDate = DateHelper::getCurrentTimestamp('Y-m-d H:i:s');
 
-        $template = [0,0,0,0,0];
+        $template = [0, 0, 0, 0, 0];
 
         foreach ($urlshort as $i => $data) {
             $parse = Carbon::parse($data->created_at);
             $date = $parse->shortMonthName . ' ' . $parse->year;
             $index = array_search($date, array_values($result['labels']));
             $visits = $template;
-            $visits[4] = (int)$data->visits_count;
+            $visits[4] = (int) $data->visits_count;
             $result['series'][$i] = $visits;
         }
 
-
-        return view('User.link', compact('user','urlshort', 'shortCode','result', 'history'));
+        return view('User.link', compact('user', 'urlshort', 'shortCode', 'result', 'history'));
     }
 
     public function deleteDeactive()
@@ -87,7 +86,7 @@ class LinkController extends Controller
 
     public function LinkUsersChart(Request $request)
     {
-        $urlKey= $request->id;
+        $urlKey = $request->id;
 
         $shortURL = ShortURL::where('url_key', $urlKey)->first();
 
@@ -99,7 +98,7 @@ class LinkController extends Controller
         $startDate = Carbon::now()->subDays(7);
 
         $totalVisits = ShortURLVisit::query()
-            ->where('short_url_id', $shortURL->id) 
+            ->where('short_url_id', $shortURL->id)
             ->selectRaw('DATE(created_at) as date, COUNT(*) as totalVisits')
             ->where('created_at', '>=', $startDate)
             ->groupBy('date')

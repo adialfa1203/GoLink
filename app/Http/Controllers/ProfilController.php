@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ProfilController extends Controller
@@ -38,14 +37,14 @@ class ProfilController extends Controller
     {
         $user = User::FindOrFail(Auth::user()->id);
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'name' => 'required|max:50',
             'email' => 'required|regex:/^[^-+]+$/u|email|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
             'number' => 'required|min:11|max:13|regex:/^[^-+]+$/u',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
-        ],[
+        ], [
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
             'number.required' => 'Kolom Nomer harus diisi',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
@@ -101,14 +100,14 @@ class ProfilController extends Controller
     {
         $admin = User::FindOrFail(Auth::user()->id);
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'name' => 'required|regex:/^[^-+]+$/u',
             'email' => 'email|regex:/^[^-+]+$/u|ends_with:.com|unique:users,email,' . $admin->id,
             'number' => 'required|min:11|max:13|regex:/^[^-+]+$/u',
             'old_password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
-        ],[
+        ], [
             'number.min' => 'Nomor tidak boleh kurang dari 11!',
             'number.max' => 'Nomor tidak boleh lebih dari 13!',
             'email.unique' => 'Email sudah pernah digunakan',

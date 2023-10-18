@@ -2,69 +2,67 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use App\Models\Button;
-use App\Models\Social;
-use App\Models\ShortUrl;
-use App\Models\Microsite;
-use App\Models\Components;
 use App\Helpers\DateHelper;
+use App\Models\Button;
+use App\Models\Components;
+use App\Models\Microsite;
+use App\Models\ShortUrl;
+use App\Models\Social;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 class MicrositeController extends Controller
 {
-    public function microsite(Request $request )
+    public function microsite(Request $request)
     {
         $user_id = auth()->user()->id;
         $microsite_uuid = 'fb2ee8d9-d618-4578-8f34-84cac949cf0b';
         // dd($user_id);
-        $qr = ShortUrl::where('microsite_uuid',$microsite_uuid)->get();
+        $qr = ShortUrl::where('microsite_uuid', $microsite_uuid)->get();
 
         if ($request->has('filter') && $request->filter == 'terakhir_diperbarui') {
             $data = Microsite::where('user_id', $user_id)
                 ->orderBy('updated_at', 'desc')
                 ->paginate(5);
             $d = $data;
-        }
-        else {
+        } else {
             $data = Microsite::whereHas('shortUrl')
-            ->where('user_id', $user_id)
-            ->with('shortUrl')
-            ->orderBy('updated_at', 'desc')
-            ->paginate(10);
+                ->where('user_id', $user_id)
+                ->with('shortUrl')
+                ->orderBy('updated_at', 'desc')
+                ->paginate(10);
             $d = $data;
         }
 
         $urlshort = ShortUrl::withCount('visits')
-        ->where('user_id', $user_id)
-        ->orderBy('created_at', 'desc')
+            ->where('user_id', $user_id)
+            ->orderBy('created_at', 'desc')
             ->get();
-            $result = [
-                'labels' => DateHelper::getAllMonths(5),
-                'series' => []
-            ];
+        $result = [
+            'labels' => DateHelper::getAllMonths(5),
+            'series' => [],
+        ];
 
+        $startDate = DateHelper::getSomeMonthsAgoFromNow(5)->format('Y-m-d H:i:s');
+        $endDate = DateHelper::getCurrentTimestamp('Y-m-d H:i:s');
 
-            $startDate = DateHelper::getSomeMonthsAgoFromNow(5)->format('Y-m-d H:i:s');
-            $endDate = DateHelper::getCurrentTimestamp('Y-m-d H:i:s');
+        $template = [0, 0, 0, 0, 0];
 
-            $template = [0,0,0,0,0];
-
-            foreach ($urlshort as $i => $data) {
-                $parse = Carbon::parse($data->created_at);
-                $date = $parse->shortMonthName . ' ' . $parse->year;
-                $index = array_search($date, array_values($result['labels']));
-                $visits = $template;
-                $visits[4] = (int)$data->visits_count;
-                $result['series'][$i] = $visits;
-            }
+        foreach ($urlshort as $i => $data) {
+            $parse = Carbon::parse($data->created_at);
+            $date = $parse->shortMonthName . ' ' . $parse->year;
+            $index = array_search($date, array_values($result['labels']));
+            $visits = $template;
+            $visits[4] = (int) $data->visits_count;
+            $result['series'][$i] = $visits;
+        }
 
         $short_urls = ShortUrl::whereIn('microsite_uuid', $data->pluck('id'))->get();
 
         // dd($urlshort, $d);
-        return view('Microsite.MicrositeUser', compact('data', 'urlshort', 'short_urls','result', 'd','qr','user_id'));
+        return view('Microsite.MicrositeUser', compact('data', 'urlshort', 'short_urls', 'result', 'd', 'qr', 'user_id'));
     }
 
     public function addMicrosite(Request $request)
@@ -83,7 +81,6 @@ class MicrositeController extends Controller
         return view('Microsite.AddMicrosite', compact('data', 'button', 'micrositeCount'));
     }
 
-
     public function createMicrosite(Request $request, Microsite $microsite)
     {
         $user = auth()->user();
@@ -95,11 +92,11 @@ class MicrositeController extends Controller
             'microsite_selection' => 'required',
             'name' => 'required|string|regex:/^[^+\/]+$/u|max:35',
             'link_microsite' => 'required|regex:/^[^+\/]+$/u|unique:microsites,link_microsite,id',
-        ],[
+        ], [
             'name.max' => 'Nama Microsite tidak boleh lebih dari 35 karakter',
             'name.max' => 'Nama microsite tidak valid atau mengandung kata terlarang!',
             'link_microsite.required' => 'Link microsite harus diisi!',
-            'link_microsite.regex' => 'Link microsite tidak valid atau mengandung kata terlarang!'
+            'link_microsite.regex' => 'Link microsite tidak valid atau mengandung kata terlarang!',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -130,9 +127,8 @@ class MicrositeController extends Controller
         $link_microsite = str_replace(' ', '-', $request->link_microsite);
         ShortUrl::findOrFail($short_id)->update([
             'url_key' => $link_microsite,
-            'default_short_url' =>  env('APP_URL') . "/". $link_microsite,
+            'default_short_url' => env('APP_URL') . "/" . $link_microsite,
         ]);
-
 
         foreach ($selectedButtons as $select) {
             $socialData = [
@@ -239,11 +235,11 @@ class MicrositeController extends Controller
             'component_name' => 'required|string|max:20',
             'cover_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             // 'profile_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-        ],[
+        ], [
             'component_name.required' => 'Nama wajib diisi',
             'component_name.max' => 'Tidak boleh lebih besar dari 20 karakter',
             'cover_img' => 'Kolom gambar sampul harus berupa gambar.
-'
+',
         ]);
 
         if ($validator->fails()) {
@@ -279,7 +275,7 @@ class MicrositeController extends Controller
         $validator = Validator::make($request->all(), [
             'component_name' => 'required|max:20',
             'cover_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'profile_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+            'profile_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ], [
             'component_name.required' => 'Nama komponen harus diisi',
             'component_name.max' => 'Jumlah karakter tidak boleh lebih dari 20',
@@ -352,7 +348,6 @@ class MicrositeController extends Controller
         return redirect()->back()->with('success', 'Komponen berhasil dihapus.');
     }
 
-
     public function viewComponent()
     {
         $component = Components::paginate(6);
@@ -366,6 +361,5 @@ class MicrositeController extends Controller
 
         return response()->json(['results' => $results]);
     }
-
 
 }
