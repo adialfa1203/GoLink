@@ -175,18 +175,20 @@
 
                             <div class="col-lg-12">
                                 <div class="mt-lg-0 mt-5 d-flex">
-                                    <img src="{{ asset('landing-page 2.png') }}" alt="home04" class="home-img" width="350" height="200">
-                                    <h6 class="mt-5" style="color: #104898;">Microsite adalah kanvas kreatif Anda, bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini, Anda dapat menuangkan ide dan konten lebih bebas. Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan</h6>
+                                    <img src="{{ asset('landing-page 2.png') }}" alt="home04" class="" width="450" height="300">
+                                    <div class="boy">
+                                    <h5 class="mt-5" style="color: #104898;">Microsite adalah kanvas kreatif Anda, bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini, Anda dapat menuangkan ide dan konten lebih bebas.</h5>
+                                    <h5  style="color: #104898;"> Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan</h5></div>
                                 </div>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Trusted Section start -->
 
         <!-- Trusted Section ends -->
