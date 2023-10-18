@@ -21,16 +21,16 @@ class DahsboardController extends Controller
         if ($user) {
             $subscribe = $user->subscribe;
 
-            if ($subscribe->tipe == 'free') {
+            if ($subscribe == 'free') {
                 $urlStatus = '15';
                 $micrositeStatus = '3';
-            } elseif ($subscribe->tipe == 'silver') {
+            } elseif ($subscribe == 'silver') {
                 $urlStatus = '25';
                 $micrositeStatus = '5';
-            } elseif ($subscribe->tipe == 'gold') {
+            } elseif ($subscribe == 'gold') {
                 $urlStatus = '35';
                 $micrositeStatus = '10';
-            } elseif ($subscribe->tipe == 'platinum') {
+            } elseif ($subscribe == 'platinum') {
                 $urlStatus = 'Unlimited';
                 $micrositeStatus = 'Unlimited';
             } else {
