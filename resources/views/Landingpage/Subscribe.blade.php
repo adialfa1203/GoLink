@@ -26,8 +26,7 @@
     <!-- waveanimation-Style-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/wave-animation-style.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
-        style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}" style="width: 200px; height: 200px;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
@@ -173,29 +172,32 @@
         .warna {
             color: #104898 !important;
         }
+
         .card {
-        background: linear-gradient(0deg, #0E2954, #104898);
-        color: #ffffff;
-        padding: 20px;
-        border-radius: 0 0 10px 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
+            background: linear-gradient(0deg, #0E2954, #104898);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-    .card1 {
-        background: linear-gradient(to bottom, #ffffff, #ffffff);
-        font-weight: bold;
-        color: #000; /* Mengatur warna teks menjadi hitam */
-        padding: 10px;
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-    .p1 {
-    text-align: left;
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
+        .card1 {
+            background: linear-gradient(to bottom, #ffffff, #ffffff);
+            font-weight: bold;
+            color: #000;
+            /* Mengatur warna teks menjadi hitam */
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .p1 {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
     </style>
 
     <style>
@@ -223,12 +225,9 @@
                 <!-- row start -->
                 <div class="row">
                     <!-- shape animation  -->
-                    <span class="banner_shape1"> <img src="https://i.postimg.cc/3RVg0kJv/banner-shape1.png"
-                            alt="image"> </span>
-                    <span class="banner_shape2"> <img src="https://i.postimg.cc/rp6XjJnn/banner-shape2.png"
-                            alt="image"> </span>
-                    <span class="banner_shape3"> <img src="https://i.postimg.cc/wxrWDBbF/banner-shape3.png"
-                            alt="image"> </span>
+                    <span class="banner_shape1"> <img src="https://i.postimg.cc/3RVg0kJv/banner-shape1.png" alt="image"> </span>
+                    <span class="banner_shape2"> <img src="https://i.postimg.cc/rp6XjJnn/banner-shape2.png" alt="image"> </span>
+                    <span class="banner_shape3"> <img src="https://i.postimg.cc/wxrWDBbF/banner-shape3.png" alt="image"> </span>
                     <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1500">
                         <!-- banner text -->
                         <div class="banner_text">
@@ -243,8 +242,7 @@
                         <!-- users -->
                     </div>
                     <!-- banner slides start -->
-                    <div class="col-lg-6 col-md-12 aos-init aos-animate d-flex justify-content-start" data-aos="fade-in"
-                        data-aos-duration="1500">
+                    <div class="col-lg-6 col-md-12 aos-init aos-animate d-flex justify-content-start" data-aos="fade-in" data-aos-duration="1500">
                         <div class="banner_image">
                             <img class="moving_animation" src="{{ asset('landing-page 3.png') }}" alt="image">
                         </div>
@@ -258,11 +256,9 @@
 
             <!-- wave animation start -->
             <div>
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                     <defs>
-                        <path id="gentle-wave"
-                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                     </defs>
                     <g class="parallax">
                         <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
@@ -365,13 +361,9 @@
                 <div class="row text-center">
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="rounded" data-aos="fade-up" data-aos-duration="1500" style="border-radius: 100%;">
-                            <div class="text-center"
-                                style="background-color: #D2E0FB;  border-radius: 100%; display: inline-block; padding: 8%;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                    viewBox="0 0 640 512"
-                                    style="margin-top: 10%;"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <path fill="#104898"
-                                        d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
+                            <div class="text-center" style="background-color: #D2E0FB;  border-radius: 100%; display: inline-block; padding: 8%;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 640 512" style="margin-top: 10%;"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path fill="#104898" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                                 </svg>
                             </div>
                         </div>
@@ -382,14 +374,12 @@
                         </div>
                     </div>
                     <div class="col-md-4" style="margin-bottom: 2%;">
-                        <div class="rounded" data-aos="fade-up" data-aos-duration="1500"
-                            style="border-radius: 100%;">
-                            <div class="text-center"
-                                style="background-color: #D2E0FB;  border-radius: 100%; display: inline-block; padding: 8%;">
+                        <div class="rounded" data-aos="fade-up" data-aos-duration="1500" style="border-radius: 100%;">
+                            <div class="text-center" style="background-color: #D2E0FB;  border-radius: 100%; display: inline-block; padding: 8%;">
                                 <svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M80.4695 49.5064L76.7612 53.2147L69.1591 45.6127L72.8674 41.9043C73.6462 41.1256 74.9441 41.1256 75.7229 41.9043L80.4695 46.651C81.2483 47.4297 81.2483 48.7277 80.4695 49.5064ZM44.4987 70.236L66.9712 47.7635L74.5733 55.3656L52.1379 77.8752H44.4987V70.236ZM44.4987 51.9168C28.1079 51.9168 14.832 58.5547 14.832 66.7502V74.1668H37.082V67.1581L51.9154 52.3247C49.4679 52.0281 46.9833 51.9168 44.4987 51.9168ZM44.4987 14.8335C40.5647 14.8335 36.7917 16.3963 34.0099 19.1781C31.2282 21.9599 29.6654 25.7328 29.6654 29.6668C29.6654 33.6009 31.2282 37.3738 34.0099 40.1556C36.7917 42.9374 40.5647 44.5002 44.4987 44.5002C48.4327 44.5002 52.2057 42.9374 54.9874 40.1556C57.7692 37.3738 59.332 33.6009 59.332 29.6668C59.332 25.7328 57.7692 21.9599 54.9874 19.1781C52.2057 16.3963 48.4327 14.8335 44.4987 14.8335Z" fill="#104898"/>
-                                    </svg>
-                                    
+                                    <path d="M80.4695 49.5064L76.7612 53.2147L69.1591 45.6127L72.8674 41.9043C73.6462 41.1256 74.9441 41.1256 75.7229 41.9043L80.4695 46.651C81.2483 47.4297 81.2483 48.7277 80.4695 49.5064ZM44.4987 70.236L66.9712 47.7635L74.5733 55.3656L52.1379 77.8752H44.4987V70.236ZM44.4987 51.9168C28.1079 51.9168 14.832 58.5547 14.832 66.7502V74.1668H37.082V67.1581L51.9154 52.3247C49.4679 52.0281 46.9833 51.9168 44.4987 51.9168ZM44.4987 14.8335C40.5647 14.8335 36.7917 16.3963 34.0099 19.1781C31.2282 21.9599 29.6654 25.7328 29.6654 29.6668C29.6654 33.6009 31.2282 37.3738 34.0099 40.1556C36.7917 42.9374 40.5647 44.5002 44.4987 44.5002C48.4327 44.5002 52.2057 42.9374 54.9874 40.1556C57.7692 37.3738 59.332 33.6009 59.332 29.6668C59.332 25.7328 57.7692 21.9599 54.9874 19.1781C52.2057 16.3963 48.4327 14.8335 44.4987 14.8335Z" fill="#104898" />
+                                </svg>
+
                             </div>
                         </div>
                         <div class="story_text text-center">
@@ -399,12 +389,10 @@
                         </div>
                     </div>
                     <div class="col-md-4" style="margin-bottom: 2%;">
-                        <div class="rounded" data-aos="fade-up" data-aos-duration="1500"
-                            style="border-radius: 100%;">
-                            <div class="text-center"
-                                style="background-color: #D2E0FB;  border-radius: 100%; display: inline-block; padding: 8%;">
-                               <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M40.4795 10.8123C43.8966 7.39524 49.4368 7.39524 52.8539 10.8123L59.1876 17.1461C62.6047 20.5632 62.6047 26.1034 59.1876 29.5204L28.3124 60.3957C27.7654 60.9426 27.0235 61.2499 26.25 61.2499H11.6667C10.0558 61.2499 8.75 59.9441 8.75 58.3333V43.7499C8.75 42.9764 9.05729 42.2345 9.60427 41.6875L40.4795 10.8123ZM48.7291 14.9371C47.59 13.7981 45.7433 13.7981 44.6043 14.9371L42.0415 17.4999L52.5 27.9585L55.0628 25.3957C56.2019 24.2566 56.2018 22.4099 55.0628 21.2709L48.7291 14.9371ZM25.0419 55.4166L15.5 53.5V44.5L25.0419 55.4166Z" fill="#104898"/>
+                        <div class="rounded" data-aos="fade-up" data-aos-duration="1500" style="border-radius: 100%;">
+                            <div class="text-center" style="background-color: #D2E0FB;  border-radius: 100%; display: inline-block; padding: 8%;">
+                                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M40.4795 10.8123C43.8966 7.39524 49.4368 7.39524 52.8539 10.8123L59.1876 17.1461C62.6047 20.5632 62.6047 26.1034 59.1876 29.5204L28.3124 60.3957C27.7654 60.9426 27.0235 61.2499 26.25 61.2499H11.6667C10.0558 61.2499 8.75 59.9441 8.75 58.3333V43.7499C8.75 42.9764 9.05729 42.2345 9.60427 41.6875L40.4795 10.8123ZM48.7291 14.9371C47.59 13.7981 45.7433 13.7981 44.6043 14.9371L42.0415 17.4999L52.5 27.9585L55.0628 25.3957C56.2019 24.2566 56.2018 22.4099 55.0628 21.2709L48.7291 14.9371ZM25.0419 55.4166L15.5 53.5V44.5L25.0419 55.4166Z" fill="#104898" />
                                 </svg>
 
                             </div>
@@ -423,58 +411,119 @@
     </section>
     <section class="row_am latest_story" id="blog">
             <!-- container start -->
-        <div class="container">
-            <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+            <div class="container">
+                <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
                     <h2 style="color: #104898;">Berlangganan Yang Tersedia</h2>
-                <br>
-                <!-- row start -->
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <div class="card1">
-                            <h5 style="font-weight: bold;">Dasar</h5>
-                        </div>
-                        <div class="card mb-3" style="background-color: #104898">
-                            <h5 style="color: #ffffff; font-weight: bold;">Rp.16.000/Bulan</h5>
-                            <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan pengalaman pengguna</h6>
-                            <div class="container text-center">
-                                <p class="p1"><i class="fa-solid fa-circle-check"></i> Menyingkat tautan batas sebanyak 50x/bulan</p>
-                                <p class="p1"><i class="fa-solid fa-circle-check"></i> Membuat Microsite sebanyak 10x/bulan</p>
+                    <br>
+                    <!-- row start -->
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <div class="card1">
+                                <h5 style="font-weight: bold;">Dasar</h5>
                             </div>
-                        </div>
-                        
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card1">
-                            <h5 style="font-weight: bold;">Menengah</h5>
-                        </div>
-                        <div class="card mb-3" style="background-color: #104898">
-                            <h5 style="color: #ffffff; font-weight:bold;">Rp.29.000/Bulan</h5>
-                            <h6 style="color: #ffffff; font-size:13px;">Paket menengah untuk menawarkan atau memberikan fitur-fitur yang lebih canggih</h6>
-                            <div class="container text-center">
-                                <p class="p1" style="color: #ffffff"><i class="fa-solid fa-circle-check"></i> Menyingkat tautan batas sebanyak 100x/bulan</p>
-                                <p class="p1" style="color: #ffffff"><i class="fa-solid fa-circle-check"></i> Membuat Microsite sebanyak 20x/bulan</p>
+                            <div class="card" style="background-color: #104898;height: 402px;">
+                                <h5 style="color: #ffffff; font-weight: bold;">Rp.16.000/Bulan</h5>
+                                <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
+                                <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
+                                <div class="container text-center">
+                                    <div class="d-flex">
+                                        <div class="col-1">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div class="col-11">
+                                        <p class="p1"> Menyingkat tautan batas sebanyak 50x/bulan</p>
+                                    </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="col-1">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div class="col-11">
+                                        <p class="p1"> Membuat Microsite sebanyak 10x/bulan</p>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card1">
-                            <h5 style="font-weight: bold;">Premium</h5>
-                        </div>
-                        <div class="card" style="background-color: #104898">
-                            <h5 style="color: #ffffff; font-weight:bold;">Rp 75.000/Bulan</h5>
-                            <h6 style="color: #ffffff; font-size:13px;">Paket premium yang menawarkan fitur-fitur ekslusif</h6>
-                            <div class="container text-center">
-                                <p class="p1" style="color: #ffffff"><i class="fa-solid fa-circle-check"></i> Membuat Microsite tanpa batas</p>
-                                <p class="p1" style="color: #ffffff"><i class="fa-solid fa-circle-check"></i> Menggunakan semua tema tanpa terkunci</p>
-                                <p class="p1" style="color: #ffffff"><i class="fa-solid fa-circle-check"></i> Memantau tautan dengan terperinci</p>
-                                <p class="p1" style="color: #ffffff"><i class="fa-solid fa-circle-check"></i> Memproteksi tautan dengan kata sandi</p>
-                            </div>
-                        </div>
-                    </div>
 
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card1">
+                                <h5 style="font-weight: bold;">Menengah</h5>
+                            </div>
+                            <div class="card" style="background-color: #104898;height: 402px;">
+                                <h5 style="color: #ffffff; font-weight:bold;">Rp.29.000/Bulan</h5>
+                                <h6 style="color: #ffffff; font-size:13px;">Paket menengah untuk menawarkan</h6>
+                                <h6 style="color: #ffffff; font-size: 13px;">atau memberikan fitur-fitur yang</h6>
+                                <h6 style="color: #ffffff; font-size: 13px;">lebih canggih</h6>
+                                <div class="container text-center">
+                                    <div class="d-flex">
+                                        <div class="col-1">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div class="col-11">
+                                            <p class="p1" style="color: #ffffff"> Menyingkat tautan batas sebanyak 100x/bulan</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="col-1">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div class="col-11">
+                                            <p class="p1" style="color: #ffffff"> Membuat Microsite sebanyak 20x/bulan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card1">
+                                <h5 style="font-weight: bold;">Premium</h5>
+                            </div>
+                            <div class="card" style="background-color: #104898;height: 402px;">
+                                <h5 style="color: #ffffff; font-weight:bold;">Rp 75.000/Bulan</h5>
+                                <h6 style="color: #ffffff; font-size:13px;">Paket premium yang menawarkan</h6>
+                                <h6 style="color: #ffffff; font-size: 13px;">fitur-fitur ekslusif</h6>
+                                <div class="container text-center">
+                                    <div class="d-flex">
+                                        <div class="col-1">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div class="col-11">
+                                            <p class="p1" style="color: #ffffff">Membuat Microsite tanpa batas</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="col-1">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div class="col-11">
+                                            <p class="p1" style="color: #ffffff"> Menggunakan semua tema tanpa terkunci</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="col-1">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div class="col-11">
+                                            <p class="p1" style="color: #ffffff"> Memantau tautan dengan terperinci</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="col-1">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div class="col-11">
+                                            <p class="p1" style="color: #ffffff"> Memproteksi tautan dengan kata sandi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                 </div>
-        </div>
+            </div>
 
     </section>
 
@@ -595,18 +644,15 @@
         <!-- Footer-Section end -->
 
         <!-- VIDEO MODAL -->
-        <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel">
+        <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <button id="close-video" type="button" class="button btn btn-default text-right"
-                        data-dismiss="modal">
+                    <button id="close-video" type="button" class="button btn btn-default text-right" data-dismiss="modal">
                         <i class="icofont-close-line-circled"></i>
                     </button>
                     <div class="modal-body">
                         <div id="video-container" class="video-container">
-                            <iframe id="youtubevideo" src="#" width="640" height="360" frameborder="0"
-                                allowfullscreen></iframe>
+                            <iframe id="youtubevideo" src="#" width="640" height="360" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="modal-footer">

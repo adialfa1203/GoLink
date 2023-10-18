@@ -77,26 +77,23 @@ class AnalyticUserController extends Controller
         if ($users) {
             $subscribe = $users->subscribe;
 
-            // Periksa apakah nilai subscribe valid sebelum melakukan pembagian
-            if ($subscribe == 'free') {
+            if ($subscribe->tipe == 'free') {
                 $urlStatus = '15';
                 $micrositeStatus = '3';
-            } elseif ($subscribe == 'silver') {
+            } elseif ($subscribe->tipe == 'silver') {
                 $urlStatus = '25';
                 $micrositeStatus = '5';
-            } elseif ($subscribe == 'gold') {
+            } elseif ($subscribe->tipe == 'gold') {
                 $urlStatus = '35';
                 $micrositeStatus = '10';
-            } elseif ($subscribe == 'platinum') {
+            } elseif ($subscribe->tipe == 'platinum') {
                 $urlStatus = 'Unlimited';
                 $micrositeStatus = 'Unlimited';
             } else {
-                // Nilai subscribe tidak valid, tangani kesalahan di sini
-                // Misalnya, Anda dapat menetapkan nilai default atau menampilkan pesan kesalahan
                 $urlStatus = 'Status tidak valid';
                 $micrositeStatus = 'Status tidak valid';
             }
-        } else {
+        }else {
             // Tangani jika $user tidak valid
             // Misalnya, arahkan pengguna kembali ke halaman login
         }

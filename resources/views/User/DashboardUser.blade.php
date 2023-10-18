@@ -962,7 +962,7 @@
         var countURLValue = {{ $countURL }};
 
         // Calculate the percentage
-        var percentage = (countURLValue / 15) * 100;
+        var percentage = (countURLValue / {{ $urlStatus }}) * 100;
 
         var progressBar = document.querySelector('.progress-bar');
         progressBar.style.width = percentage + '%';
