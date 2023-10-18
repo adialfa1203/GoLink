@@ -17,15 +17,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $freeSubscribe = Subscribe::create([
-            'id' => Str::uuid()->toString(),
-            'tipe' => 'free',
-            'period' => 'forever',
-            'price' => 0,
-            'picture' => 'default.jpg',
-            'description' => 'Free Subscription Plan',
-        ]);
-
         $roleAdmin = Role::create([
             'name' => 'admin',
             'guard_name' => 'web'
@@ -35,7 +26,6 @@ class UserSeeder extends Seeder
             'name' => "Admin",
             'number' => "089637885692",
             'email' => 'admin@gmail.com',
-            'subscribe_id' => $freeSubscribe->id,
             'password' => Hash::make('12345'),
             'profile_picture' => null
         ]);
@@ -50,7 +40,6 @@ class UserSeeder extends Seeder
             'name' => "mizu",
             'number' => "089637885692",
             'email' => 'mizu@gmail.com',
-            'subscribe_id' => $freeSubscribe->id,
             'password' => Hash::make('gataumales'),
             'profile_picture' => null
         ]);
