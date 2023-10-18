@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Mail\SampleMail;
+use App\Models\Subscribe;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
@@ -11,8 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -114,9 +115,16 @@ class AuthController extends Controller
 
         if ($roleUser) {
             $user->assignRole($roleUser);
+        } else {
+            $freeSubscribe = Subscribe::where('tipe', 'free')->first();
+
+            if ($freeSubscribe) {
+                $user->subscribe_id = $freeSubscribe->id;
+                $user->save();
+            }
         }
         return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login untuk mulai menggunakan akun Anda.');
-        }
+    }
 
     public function sendEmail()
     {

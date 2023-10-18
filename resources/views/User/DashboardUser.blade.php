@@ -969,7 +969,7 @@
         progressBar.setAttribute('aria-valuenow', countURLValue);
 
         var progressText = document.querySelector('.text-muted.mb-0 b');
-        progressText.textContent = countURLValue + ' dari 35';
+        progressText.textContent = countURLValue + ' dari {{ $urlStatus }}';
     </script>
     <script>
         var countURLValue = {{ $countMicrosite }};
@@ -979,7 +979,7 @@
         progressBar.setAttribute('aria-valuenow', countURLValue);
 
         var progressText = document.querySelector('#microsite-total');
-        progressText.textContent = countURLValue + ' dari 3';
+        progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"

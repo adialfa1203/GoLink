@@ -19,18 +19,18 @@ class DahsboardController extends Controller
         $currentMonth = Carbon::now()->month;
 
         if ($user) {
-            $subscribe = $user->subscribe;
+            $subscribe = $user->subscribe; 
 
-            if ($subscribe == 'free') {
+            if ($subscribe->tipe == 'free') {
                 $urlStatus = '15';
                 $micrositeStatus = '3';
-            } elseif ($subscribe == 'silver') {
+            } elseif ($subscribe->tipe == 'silver') {
                 $urlStatus = '25';
                 $micrositeStatus = '5';
-            } elseif ($subscribe == 'gold') {
+            } elseif ($subscribe->tipe == 'gold') {
                 $urlStatus = '35';
                 $micrositeStatus = '10';
-            } elseif ($subscribe == 'platinum') {
+            } elseif ($subscribe->tipe == 'platinum') {
                 $urlStatus = 'Unlimited';
                 $micrositeStatus = 'Unlimited';
             } else {
@@ -38,6 +38,7 @@ class DahsboardController extends Controller
                 $micrositeStatus = 'Status tidak valid';
             }
         }
+
 
         if ($user) {
             $userId = $user->id;
@@ -52,13 +53,13 @@ class DahsboardController extends Controller
             ->whereRelation('shortURL', 'user_id', '=', $userId)
             ->whereRelation('shortURL', 'microsite_uuid', '!=', null)
             ->count();
-        } if ($user) { 
-            $userId = $user->id; 
+        } if ($user) {
+            $userId = $user->id;
             $totalUrl = ShortURL::where('user_id', $userId)
             ->whereNull('microsite_uuid')
             ->whereDate('created_at', '>=', now()->startOfMonth())
             ->count();
-            
+
             $countHistory = History::where('user_id', $userId)
             ->whereDate('created_at', '>=', now()->startOfMonth())
             ->count();
@@ -78,7 +79,7 @@ class DahsboardController extends Controller
             ->where('custom_name', 'yes')
             ->whereNull('microsite_uuid')
             ->count();
-        }        
+        }
         $qr = ShortUrl::get()->sum('qr_code');
 
         return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite'));
