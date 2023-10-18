@@ -38,7 +38,7 @@
      
         .custom-btn {
             width: 100%;
-            max-width: 300px;
+            max-width: 250px;
             /* Sesuaikan dengan lebar maksimum yang Anda inginkan */
             margin: 5px;
             /* Sesuaikan jarak antara tombol jika diperlukan */
@@ -134,6 +134,19 @@
     }
 }
     </style>
+    <style>
+        .card-with-shadow {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Atur bayangan sesuai kebutuhan Anda */
+    }
+    .gambar-icon {
+    display: block;
+    margin: 0 auto 10px; /* Auto-margin pada sisi horizontal untuk mengatur ke tengah */
+    width: 50%; /* Sesuaikan ukuran gambar sesuai kebutuhan Anda */
+    height: auto; /* Biarkan tinggi mengikuti proporsi gambar */
+}
+
+
+    </style>
 
     <!-- Page-wrapper-Start -->
     <div class="page_wrapper">
@@ -183,12 +196,39 @@
           </form>
         </div> --}}
             <div class="container">
+                <section class="overflow-hidden mb-4" id="home">
+                    <div class="container" data-aos="fade-in" data-aos-duration="1500">
+                        <div class="position-relative" style="z-index: 1;">
+                            <div class="row text-center">
+                                <div class="col-lg-12">
+                                    <h5 style="color: #104898; font-weight: bold;">Bantuan Dan Dukungan</h5>
+                                    <h6 style="color: #104898; font-size:12px;">Kami di sini membantu Anda mengatasi masalah</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <div class="row justify-content-between mb-3">
                     <div class="col-12 text-center">
-                        <a href="{{ url('id/start') }}" class="btn btn-outline-info custom-btn">Memulai</a>
+                        <a href="{{ url('id/start') }}" class="btn btn-outline-info custom-btn">
+                            <img src="{{asset('memulai.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
+                            Memulai
+                        </a>
+                        
                         <a href="{{ url('id/announcement') }}"
-                            class="btn btn-outline-info custom-btn">Pengumuman</a>
-                        <a href="{{ url('id/account') }}" class="btn btn-outline-info custom-btn">Akun</a>
+                            class="btn btn-outline-info custom-btn">
+                            <img src="{{asset('pengumuman.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
+                            Pengumuman
+                        </a>
+                        <a href="{{ url('id/account') }}" class="btn btn-outline-info custom-btn">
+                            <img src="{{asset('akun.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
+                            Akun
+                        </a>
+                        <a href="{{ url('id/platform-microsite') }}"
+                        class="btn btn-outline-info custom-btn"><img src="{{asset('layananmicrosite.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
+                        Layanan Microsite
+                    </a>
+                        
                     </div>
                 </div>
             </div>
@@ -196,16 +236,19 @@
                 <div class="row justify-content-between mb-5">
                     <div class="col-12 text-center">
                         <a href="{{ url('id/billing-subscriptions') }}"
-                            class="btn btn-outline-info custom-btn">Penagihan dan
-                            Langganan</a>
-                        <a href="{{ url('id/platform-microsite') }}"
-                            class="btn btn-outline-info custom-btn">Layanan Microsite</a>
-                        <a href="{{ route('short.link') }}" class="btn btn-outline-info custom-btn">Penyingkat
+                        class="btn btn-outline-info custom-btn">
+                        <img src="{{asset('layananstarter.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
+                        Penagihan dan Langganan
+                    </a>
+                        
+                        <a href="{{ route('short.link') }}" class="btn btn-outline-info custom-btn">
+                        <img src="{{asset('penyingkatan.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
+                        Penyingkat
                             Tautan</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-12">
+            <div class="col-xxl-12 card-with-shadow">
                 <div class="card mb-3">
                     <div class="card-header-white d-flex align-items-center">
                         <h5 class="card-title mb-0 flex-grow-1 text-center mt-4">Aktivitas Terbaru</h5>
@@ -222,9 +265,8 @@
                             </div>
                         @else
                             @foreach ($komentar as $key => $row)
-                                <div class="card-body">
-                                    <div
-                                        class="d-flex align-items-center text-muted mb-4 comment-container{{ $key < 1 ? '' : ' hidden' }}">
+                                <div class="card-body ">
+                                    <div class="d-flex align-items-center text-muted mb-4 comment-container{{ $key < 1 ? '' : ' hidden' }}">
                                         <div class="flex-shrink-0 me-3">
                                             @if ($row->user->profile_picture)
                                                 <img class="header-profile-user"
