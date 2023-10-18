@@ -168,7 +168,7 @@ class AnalyticUserController extends Controller
         // $visits = count($shortURL->visits) ;
 
         // dd($totalVisits,$countURL);
-        return view('User.AnalyticUser', compact('totalVisits','countURL','count','users','links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite'));
+        return view('User.AnalyticUser', compact('urlStatus','micrositeStatus','totalVisits','countURL','count','users','links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite'));
     }
 
 }

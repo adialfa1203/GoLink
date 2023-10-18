@@ -140,7 +140,7 @@
                             <div class="up">
                                 <div class="" style="color: #fff;padding:20px;margin-top:1%">
                                     <div class="conte" style="margin-left: 5%;">
-                                        <h4 style="color: #fff;">Selamat Datang Mizu!</h4>
+                                        <h4 style="color: #fff;">Selamat Datang {{ Auth::user()->name }}!</h4>
                                         <p style="margin: 0;">Ayo buat tautan pendekmu sekarang!</p>
                                         <p>Jangan lupakan fitur Micosite dan buat Microsite pribadimu!</p>
                                     </div>
@@ -252,7 +252,7 @@
                                         {{-- modal panjang tautan berjangka --}}
                                         <div class="container-fluid mt-3">
                                             <div class="card">
-                                                <button type="button" class="bg-primary border border-0" style="color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; width: 100%; text-align: left;">
+                                                <button type="button" class=" border border-0" style="background: #0E2954;color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; width: 100%; text-align: left;height: 40px">
                                                     <i class="bi bi-clock" style="font-size: 12px; margin-right: 5px;"></i>Tautan
                                                     Berjangka (opsional)
                                                 </button>
@@ -267,7 +267,7 @@
                                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon">
                                                                         </button>
                                                                     </div>
-                                                                    <button class="bg-primary border border-0" type="button" id="time-reset" style="color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; justify-content: flex-end; float: right;">
+                                                                    <button class=" border border-0" type="button" id="time-reset" style="background: #0E2954;color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; justify-content: flex-end; float: right;">
                                                                         <span class="bi bi-arrow-clockwise">
                                                                             Reset</span>
                                                                     </button>
@@ -276,7 +276,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button class="btn btn-primary bg-primary" style="margin-top: 1px;" type="button" data-bs-toggle="collapse" data-bs-target="#tautanberjangka" aria-expanded="false" aria-controls="collapseExample" id="toggleButton">
+                                                <button class="btn" style="background: #0E2954;color: #fff; margin-top: 1px;" type="button" data-bs-toggle="collapse" data-bs-target="#tautanberjangka" aria-expanded="false" aria-controls="collapseExample" id="toggleButton">
                                                     Tampilkan lebih banyak <i class="fa-solid fa-angle-down"></i>
                                                 </button>
                                             </div>
@@ -286,7 +286,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-danger" style="width: 100%;" data-bs-toggle="modal" data-bs-target="">
+                                        <button type="submit" class="btn" style="width: 100%; background: #FF2323; color: #fff ;" data-bs-toggle="modal" data-bs-target="">
                                             <i class="bi bi-link-45deg"></i> Singkatkan!
                                         </button>
                                     </div>
@@ -311,7 +311,7 @@
                                 <div class="modal-body">
                                     <div class="row g-3">
                                         <div class="col-lg-12">
-                                            <label type="button" class="btn btn-primary" style="width: 100%;">
+                                            <label type="button" class="btn" style="width: 100%;">
                                                 Berhasil menyingkatkan tautan!
                                             </label>
                                         </div>
