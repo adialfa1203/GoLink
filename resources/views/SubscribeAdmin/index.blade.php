@@ -62,16 +62,16 @@
             <div class="card-body text-center">
                 <h2 class="mb-2">Rp.{{ number_format($subs->price, 0, ',', '.') }}</h2>
                 <h4 class="card-title mb-2">
-                    @if (strtolower(trim($subs->tipe)) === 'gratis')
-                    <span class="badge bg-success">{{ $subs->tipe }}</span>
-                    @elseif (strtolower(trim($subs->tipe)) === 'dasar')
-                    <span class="badge bg-primary">{{ $subs->tipe }}</span>
-                    @elseif (strtolower(trim($subs->tipe)) === 'menengah')
-                    <span class="badge bg-warning">{{ $subs->tipe }}</span>
-                    @elseif (strtolower(trim($subs->tipe)) === 'premium')
-                    <span class="badge bg-danger">{{ $subs->tipe }}</span>
+                    @if (strtolower(trim($subs->tipe)) === 'free')
+                    <span class="badge bg-success">Gratis</span>
+                    @elseif (strtolower(trim($subs->tipe)) === 'silver')
+                    <span class="badge bg-primary">Dasar</span>
+                    @elseif (strtolower(trim($subs->tipe)) === 'gold')
+                    <span class="badge bg-warning">Menengah</span>
+                    @elseif (strtolower(trim($subs->tipe)) === 'platinum')
+                    <span class="badge bg-danger">Premium</span>
                     @else
-                    <span class="badge bg-secondary">{{ $subs->tipe }}</span>
+                    <span class="badge bg-secondary">Data Kosong</span>
                     @endif
                 </h4>
                 <p class="card-text" style="     text-overflow: ellipsis!important;

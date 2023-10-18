@@ -25,16 +25,16 @@
                                         <label for="tipe" class="form-label">Tipe Langganan</label>
                                         <select name="tipe" class="form-select" id="tipe" required>
                                             <option value="" disabled selected>Pilih Tipe Langganan...</option>
-                                            <option value="Gratis" {{ old('tipe') === 'Gratis' ? 'selected' : '' }}>
+                                            <option value="free" {{ old('tipe') === 'free' ? 'selected' : '' }}>
                                                 Gratis
                                             </option>
-                                            <option value="Dasar" {{ old('tipe') === 'Dasar' ? 'selected' : '' }}>
+                                            <option value="silver" {{ old('tipe') === 'silver' ? 'selected' : '' }}>
                                                 Tingkatan Dasar
                                             </option>
-                                            <option value="Menengah" {{ old('tipe') === 'Menengah' ? 'selected' : '' }}>
+                                            <option value="gold" {{ old('tipe') === 'gold' ? 'selected' : '' }}>
                                                 Tingkatan Menengah
                                             </option>
-                                            <option value="Premium" {{ old('tipe') === 'Premium' ? 'selected' : '' }}>
+                                            <option value="platinum" {{ old('tipe') === 'platinum' ? 'selected' : '' }}>
                                                 Tingkatan Premium
                                             </option>
                                         </select>

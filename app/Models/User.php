@@ -86,5 +86,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(History::class);
     }
+    public function subscribe()
+    {
+        return $this->belongsTo(Subscribe::class, 'subscribe_id');
+    }
 
 }

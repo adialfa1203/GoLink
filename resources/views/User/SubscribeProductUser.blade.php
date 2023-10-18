@@ -53,7 +53,17 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="card card-animate" style="border-radius: 20px 20px 0 0;">
                             <div class="card-body">
-                                <h4 class="card-title mb-2 text-center">{{ $subs->tipe }}</h4>
+                                @if (strtolower(trim($subs->tipe)) === 'free')
+                                    <h4 class="card-title mb-2 text-center">Gratis</h4>
+                                @elseif (strtolower(trim($subs->tipe)) === 'silver')
+                                    <h4 class="card-title mb-2 text-center">Dasar</h4>
+                                @elseif (strtolower(trim($subs->tipe)) === 'gold')
+                                    <h4 class="card-title mb-2 text-center">Menengah</h4>
+                                @elseif (strtolower(trim($subs->tipe)) === 'platinum')
+                                    <h4 class="card-title mb-2 text-center">Premium</h4>
+                                @else
+                                    <h4 class="card-title mb-2 text-center">Data Tidak Valid</h4>
+                                @endif
                             </div>
                             <div class="card-body text-white"
                                 style="background-image: linear-gradient(to bottom right, #0E2954, #104898); border-radius: 0 0 20px 20px;">
@@ -74,7 +84,7 @@
                                         {{ strip_tags($subs->description) }}
                                     </div>
                                 </div>
-                                @if (strtolower(trim($subs->tipe)) === 'gratis')
+                                @if (strtolower(trim($subs->tipe)) === 'free')
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
                                             <i class="ri-checkbox-circle-fill text-success"></i>
@@ -92,10 +102,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="{{ route('checkout', ['id' => $subs->id]) }}" type="button"
+                                        <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top: 180px;">Berlangganan Sekarang</a>
                                     </div>
-                                @elseif (strtolower(trim($subs->tipe)) === 'dasar')
+                                @elseif (strtolower(trim($subs->tipe)) === 'silver')
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
                                             <i class="ri-checkbox-circle-fill text-success"></i>
@@ -113,11 +123,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="{{ route('checkout', ['id' => $subs->id]) }}" type="button"
+                                        <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top: 180px;">Berlangganan
                                             Sekarang</a>
                                     </div>
-                                @elseif (strtolower(trim($subs->tipe)) === 'menengah')
+                                @elseif (strtolower(trim($subs->tipe)) === 'gold')
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
                                             <i class="ri-checkbox-circle-fill text-success"></i>
@@ -135,11 +145,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="{{ route('checkout', ['id' => $subs->id]) }}" type="button"
+                                        <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top:155px;">Berlangganan
                                             Sekarang</a>
                                     </div>
-                                @elseif (strtolower(trim($subs->tipe)) === 'premium')
+                                @elseif (strtolower(trim($subs->tipe)) === 'platinum')
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
                                             <i class="ri-checkbox-circle-fill text-success"></i>
@@ -181,7 +191,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="{{ route('checkout', ['id' => $subs->id]) }}" type="button"
+                                        <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top: 65px;">Berlangganan
                                             Sekarang</a>
                                     </div>
