@@ -2,84 +2,82 @@
 
 @section('title', 'Beranda')
 @section('style')
-<style>
-    .page-content {
-        overflow-x: hidden;
-        background-color: #fff;
-    }
+    <style>
+        .page-content {
+            overflow-x: hidden;
+        }
 
-    .custom-icon-size {
-        font-size: 24px;
-        /* Ubah ukuran sesuai kebutuhan */
-    }
+        .custom-icon-size {
+            font-size: 24px;
+            /* Ubah ukuran sesuai kebutuhan */
+        }
 
-    .custom-icon-size {
-        font-size: 30px;
-        /* Ubah ukuran font sesuai kebutuhan Anda */
-        color: #fafafa;
-        /* Warna merah muda */
-    }
+        .custom-icon-size {
+            font-size: 30px;
+            /* Ubah ukuran font sesuai kebutuhan Anda */
+            color: #fafafa;
+            /* Warna merah muda */
+        }
 
-    .custom-card {
-        background-color: #910000;
-        /* Warna merah muda */
-        border-color: #FF69B4;
-        /* Warna border merah muda */
-    }
+        .custom-card {
+            background-color: #910000;
+            /* Warna merah muda */
+            border-color: #FF69B4;
+            /* Warna border merah muda */
+        }
 
-    .form-label {
-        display: block;
-    }
+        .form-label {
+            display: block;
+        }
 
-    .unavailable-text {
-        font-size: 10px;
-        opacity: 0.5;
-        /* Nilai opacity untuk membuat teks transparan */
-    }
+        .unavailable-text {
+            font-size: 10px;
+            opacity: 0.5;
+            /* Nilai opacity untuk membuat teks transparan */
+        }
 
-    .quota-reset {
-        font-size: 12px;
-        opacity: 0.5;
-        /* Nilai opacity untuk membuat teks sedikit memudar */
-    }
+        .quota-reset {
+            font-size: 12px;
+            opacity: 0.5;
+            /* Nilai opacity untuk membuat teks sedikit memudar */
+        }
 
-    .card-title {
-        font-size: 13px;
-        /* Anda bisa mengatur ukuran font sesuai keinginan */
-    }
+        .card-title {
+            font-size: 13px;
+            /* Anda bisa mengatur ukuran font sesuai keinginan */
+        }
 
-    .text-white {
-        color: white !important;
-    }
+        .text-white {
+            color: white !important;
+        }
 
-    .tooltip-icon {
-        position: relative;
-        cursor: pointer;
-    }
+        .tooltip-icon {
+            position: relative;
+            cursor: pointer;
+        }
 
-    .tooltip-icon::before {
-        content: attr(data-tooltip);
-        position: absolute;
-        top: -25px;
-        left: 0;
-        width: 200px;
-        /* Sesuaikan dengan lebar tooltip yang Anda inginkan */
-        background-color: #333;
-        color: #fff;
-        padding: 5px;
-        border-radius: 5px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-        z-index: 1;
-        font-weight: normal;
-    }
+        .tooltip-icon::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 200px;
+            /* Sesuaikan dengan lebar tooltip yang Anda inginkan */
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+            font-weight: normal;
+        }
 
-    .tooltip-icon:hover::before {
-        opacity: 1;
-    }
-
-    .hed {
+        .tooltip-icon:hover::before {
+            opacity: 1;
+        }
+        .hed {
         border-radius: 15px;
         background: linear-gradient(to right, #104898, #0E2954);
     }
@@ -126,17 +124,16 @@
             display: none;
         }
     }
-</style>
+    </style>
 @endsection
 @section('content')
-<form action="{{ route('shortLink') }}" method="POST" id="shortlinkSubmit">
-    @csrf
-    <div class="page-content">
-        <div class="container-fluid">
+    <form action="{{ route('shortLink') }}" method="POST" id="shortlinkSubmit">
+        @csrf
+        <div class="page-content">
+            <div class="container-fluid">
 
-            <!-- start page title -->
-            <!-- end page title -->
-            <div class="card hed">
+                <!-- start page title -->
+                <div class="card hed">
                 <div class="card-body" style="padding: 0;">
                     <div class="d-flex">
                         <div class="flex-grow-1">
@@ -153,13 +150,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-shrink-0">
-                            <div id="property_sale" data-colors='["--tb-primary"]' dir="ltr"></div>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+                <!-- end page title -->
+                <div class="row">
                 <div class="col-xl-4 col-sm-6">
                     <div class="card mid card-animate" data-bs-toggle="modal" data-bs-target="#addAmount">
                         <div class="card-body mid d-flex justify-content-between align-items-center" style="background-color: #F0F0F0;height: 84px; ">
@@ -694,369 +689,348 @@
                     </div>
                 </div>
             </div>
+
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 @endsection
 
 @section('script')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#close-bagikan").click(function() {
-            $('#singkatkan').modal('show');
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#close-bagikan").click(function() {
+                $('#singkatkan').modal('show');
+            });
         });
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        var selectId = $('#new_url_key').val();
-        console.log(selectId);
-        // Mendapatkan token CSRF dari meta tag
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    </script>
+    <script>
+        $(document).ready(function() {
+            var selectId = $('#new_url_key').val();
+            console.log(selectId);
+            // Mendapatkan token CSRF dari meta tag
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-        // Tambahkan kode berikut di bawahnya
-        $('#submitKustom').click(function() {
-            var url = $('#default_short_url').val();
-            // alert('masuk')
-            var parts = url.split('/'); // Membagi URL menjadi potongan-potongan dengan karakter '/'
-            var newUrlKey = parts[parts.length - 1]; // Mengambil bagian terakhir dari potongan
-            $.ajax({
-                headers: {
-                    'X-CSRF-Token': csrfToken,
-                },
-                url: "/user/update-short-link-id/" + $("#default_short_url_id").val(),
-                method: 'POST',
-                data: {
-                    newUrlKey: newUrlKey
-                },
-                dataType: 'JSON',
-                error: function(e) {
-                    console.log(e.responseJSON)
-                    Swal.fire(e.responseJSON.newUrlKey[0])
-                },
-                success: function(e) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Nama tautan berhasil diubah",
-                    });
-                    // location.reload()
-                }
-            })
-        });
-    });
-
-    $('.edit-link').click(function() {
-        var link = $(this).data('link');
-
-        $('#new_url_key').val(link);
-        $('#new_url_key').attr("data-original", link);
-
-    });
-</script>
-<script>
-    const urlInput = document.getElementById('AmountInput');
-    const urlError = document.getElementById('urlError');
-
-    urlInput.addEventListener('input', validateURL);
-
-    function validateURL() {
-        const url = urlInput.value;
-        const urlRegex = /^(http|https):\/\/[\w\-.]+\.[a-z]{2,}(\/\S*)?$/i;
-        const isValidURL = urlRegex.test(url);
-
-        urlError.textContent = '';
-
-        if (!isValidURL) {
-            urlError.textContent =
-                'Tautan tidak valid. Pastikan formatnya seperti http://domain-mu.id.';
-        }
-    }
-</script>
-
-<script>
-    let edit = false;
-
-    function statusEdit() {
-        edit = !edit;
-        console.log(edit);
-    }
-
-    $(document).ready(function() {
-        $("#shortlinkSubmit").submit(function(event) {
-            event.preventDefault();
-            var destinationUrl = $("#AmountInput").val();
-            if (!destinationUrl) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Kesalahan!",
-                    text: "Anda harus mengisi data terlebih dahulu.",
-                });
-                $("#addAmount").modal("hide");
-                $("#addAmount").modal("hide");
-                setTimeout(function() {
-                    $('#close-singkatkan').click();
-                }, 1000);
-            } else {
-                $('#singkatkan').modal('hide');
-                var countURL = {
-                    {
-                        $countURL
+            // Tambahkan kode berikut di bawahnya
+            $('#submitKustom').click(function() {
+                var url = $('#default_short_url').val();
+                // alert('masuk')
+                var parts = url.split('/'); // Membagi URL menjadi potongan-potongan dengan karakter '/'
+                var newUrlKey = parts[parts.length - 1]; // Mengambil bagian terakhir dari potongan
+                $.ajax({
+                    headers: {
+                        'X-CSRF-Token': csrfToken,
+                    },
+                    url: "/user/update-short-link-id/" + $("#default_short_url_id").val(),
+                    method: 'POST',
+                    data: {
+                        newUrlKey: newUrlKey
+                    },
+                    dataType: 'JSON',
+                    error: function(e) {
+                        console.log(e.responseJSON)
+                        Swal.fire(e.responseJSON.newUrlKey[0])
+                    },
+                    success: function(e) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Nama tautan berhasil diubah",
+                        });
+                        // location.reload()
                     }
-                };
-                if (countURL >= 15) {
+                })
+            });
+        });
+
+        $('.edit-link').click(function() {
+            var link = $(this).data('link');
+
+            $('#new_url_key').val(link);
+            $('#new_url_key').attr("data-original", link);
+
+        });
+    </script>
+    <script>
+        const urlInput = document.getElementById('AmountInput');
+        const urlError = document.getElementById('urlError');
+
+        urlInput.addEventListener('input', validateURL);
+
+        function validateURL() {
+            const url = urlInput.value;
+            const urlRegex = /^(http|https):\/\/[\w\-.]+\.[a-z]{2,}(\/\S*)?$/i;
+            const isValidURL = urlRegex.test(url);
+
+            urlError.textContent = '';
+
+            if (!isValidURL) {
+                urlError.textContent =
+                    'Tautan tidak valid. Pastikan formatnya seperti http://domain-mu.id.';
+            }
+        }
+    </script>
+
+    <script>
+        let edit = false;
+
+        function statusEdit() {
+            edit = !edit;
+            console.log(edit);
+        }
+
+        $(document).ready(function() {
+            $("#shortlinkSubmit").submit(function(event) {
+                event.preventDefault();
+                var destinationUrl = $("#AmountInput").val();
+                if (!destinationUrl) {
                     Swal.fire({
                         icon: "error",
                         title: "Kesalahan!",
-                        text: "Anda telah mencapai batas maksimum 15 link diperpendek.",
+                        text: "Anda harus mengisi data terlebih dahulu.",
                     });
+                    $("#addAmount").modal("hide");
+                    $("#addAmount").modal("hide");
+                    setTimeout(function() {
+                        $('#close-singkatkan').click();
+                    }, 1000);
                 } else {
-                    var formData = $(this).serialize();
-                    $.ajax({
-                        type: "POST",
-                        url: "short-link",
-                        data: formData,
-                        success: function(response) {
-                            if (response.status == 'gagal') {
+                    $('#singkatkan').modal('hide');
+                    var countURL = {{ $countURL }};
+                    if (countURL >= 15) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Kesalahan!",
+                            text: "Anda telah mencapai batas maksimum 15 link diperpendek.",
+                        });
+                    } else {
+                        var formData = $(this).serialize();
+                        $.ajax({
+                            type: "POST",
+                            url: "short-link",
+                            data: formData,
+                            success: function(response) {
+                                if (response.status == 'gagal') {
+                                    Swal.fire({
+                                        title: 'Kesalahan...',
+                                        icon: 'error',
+                                        html: response.message +
+                                            ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
+                                            'untuk info lebih lanjut tentang langganan premium.',
+                                    });
+                                    setTimeout(function() {
+                                        $('#close-singkatkan').click();
+                                    }, 1000);
+                                }
+                                console.log(response.default_short_url);
+                                var defaultShort = response.default_short_url;
+                                var title = response.title;
+                                var url = response.destination_url;
+                                console.log(response.url_key);
+                                $("#default_short_url_id").val(response.id);
+                                $("#default_short_url").val(defaultShort);
+                                $("#title").val(title);
+                                $('#destination_url').val(url);
+
+                                $("#copyButton").show();
+                                $('#singkatkan').modal('show');
+                            },
+                            error: function(error) {
+                                $("#addAmount").modal("hide");
+                                $('#singkatkan').modal('hide');
                                 Swal.fire({
-                                    title: 'Kesalahan...',
-                                    icon: 'error',
-                                    html: response.message +
-                                        ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
-                                        'untuk info lebih lanjut tentang langganan premium.',
+                                    icon: "error",
+                                    title: "Kesalahan!",
+                                    text: "URL tidak valid",
                                 });
-                                setTimeout(function() {
-                                    $('#close-singkatkan').click();
-                                }, 1000);
+                                console.error("Error:", error.responseJSON.message);
                             }
-                            console.log(response.default_short_url);
-                            var defaultShort = response.default_short_url;
-                            var title = response.title;
-                            var url = response.destination_url;
-                            console.log(response.url_key);
-                            $("#default_short_url_id").val(response.id);
-                            $("#default_short_url").val(defaultShort);
-                            $("#title").val(title);
-                            $('#destination_url').val(url);
-
-                            $("#copyButton").show();
-                            $('#singkatkan').modal('show');
-                        },
-                        error: function(error) {
-                            $("#addAmount").modal("hide");
-                            $('#singkatkan').modal('hide');
-                            Swal.fire({
-                                icon: "error",
-                                title: "Kesalahan!",
-                                text: "URL tidak valid",
-                            });
-                            console.error("Error:", error.responseJSON.message);
-                        }
-                    });
+                        });
+                    }
                 }
-            }
 
-            $("#AmountInput").val("");
-            $("#cardNumber").val("");
-            $(".password-input").val("");
-            $(".time-input").val("");
-            $(".close-edit").val("");
-            $("#addAmount").modal("hide");
+                $("#AmountInput").val("");
+                $("#cardNumber").val("");
+                $(".password-input").val("");
+                $(".time-input").val("");
+                $(".close-edit").val("");
+                $("#addAmount").modal("hide");
+            });
         });
-    });
 
-    $("#password-addon").click(function() {
-        var passwordInput = $(".password-input");
-        var passwordAddon = $("#password-addon");
+        $("#password-addon").click(function() {
+            var passwordInput = $(".password-input");
+            var passwordAddon = $("#password-addon");
 
-        if (passwordInput.attr("type") === "password") {
-            passwordInput.attr("type", "text");
-            passwordAddon.html('<i class="ri-eye-off-fill align-middle"></i>');
-        } else {
-            passwordInput.attr("type", "password");
-            passwordAddon.html('<i class="ri-eye-fill align-middle"></i>');
-        }
-    });
-
-    $("#resetButton").click(function() {
-        $(".password-input").val("");
-    });
-    $("#time-reset").click(function() {
-        $(".time-input").val("");
-    });
-    $(".platform").click(function() {
-        var platform = $(this).data("platform");
-        var shortUrl = $("#default_short_url").val();
-
-        switch (platform) {
-            case "facebook":
-                window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(
-                    shortUrl));
-                break;
-            case "twitter":
-                window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(shortUrl));
-                break;
-            case "whatsapp":
-                window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shortUrl));
-                break;
-            case "copy":
-                var tempInput = $('<input>');
-                $('#body').append(tempInput);
-                console.log(shortUrl)
-                tempInput.val(shortUrl).select();
-                document.execCommand('copy');
-                tempInput.remove();
-                Swal.fire({
-                    title: 'Berhasil!',
-                    icon: 'success',
-                    text: 'Tautan Berhasil Disalin ke clipboard'
-                })
-                console.log(shortUrl)
-                break;
-            case "qr":
-                window.open(
-                    `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${ encodeURIComponent(shortUrl)}`
-                );
-                break;
-            default:
-                break;
-        }
-    });
-    $("#simpanButton").click(function() {
-        $("#successAlert").fadeIn();
-        setTimeout(function() {
-            $("#successAlert").fadeOut();
-        }, 3000);
-    });
-</script>
-<script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/echarts/echarts.min.js') }}"></script>
-<script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/js/jsvectormap.min.js') }}">
-</script>
-<script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/maps/world-merc.js') }}">
-</script>
-<script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/list.js/list.min.js') }}"></script>
-<script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/dashboard-analytics.init.js') }}">
-</script>
-
-<script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
-<script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/profile-setting.init.js') }}"></script>
-<script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    var countData = {
-        {
-            $countURL
-        }
-    };
-    var progressBar = document.getElementById("progress-bar");
-    var progressBarWidth = (countData / 15) * 100;
-    progressBar.style.width = progressBarWidth + "%";
-    progressBar.setAttribute("aria-valuenow", countData);
-</script>
-<script>
-    var countData = {
-        {
-            $countNameChanged
-        }
-    };
-    var progressBar = document.getElementById("progress-bar");
-    var progressBarWidth = (countData / 5) * 100;
-    progressBar.style.width = progressBarWidth + "%";
-    progressBar.setAttribute("aria-valuenow", countData);
-
-    var progressText = document.querySelector('.text-muted.mb-0 b');
-    progressText.textContent = countData + " dari 5";
-</script>
-<script>
-    var countData = {
-        {
-            $countMicrosite
-        }
-    };
-    var progressBar = document.getElementById("progress-bar");
-    var progressBarWidth = (countData / 3) * 100;
-    progressBar.style.width = progressBarWidth + "%";
-    progressBar.setAttribute("aria-valuenow", countData);
-</script>
-<script>
-    var countURLValue = {
-        {
-            $countURL
-        }
-    };
-
-    // Calculate the percentage
-    var percentage = (countURLValue / 15) * 100;
-
-    var progressBar = document.querySelector('.progress-bar');
-    progressBar.style.width = percentage + '%';
-    progressBar.setAttribute('aria-valuenow', countURLValue);
-
-    var progressText = document.querySelector('.text-muted.mb-0 b');
-    progressText.textContent = countURLValue + ' dari 15';
-</script>
-<script>
-    var countURLValue = {
-        {
-            $countMicrosite
-        }
-    };
-
-    var progressBar = document.querySelector('#total-microsite');
-    progressBar.style.width = ((countURLValue / 3) * 100) + '%';
-    progressBar.setAttribute('aria-valuenow', countURLValue);
-
-    var progressText = document.querySelector('#microsite-total');
-    progressText.textContent = countURLValue + ' dari 3';
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    $(document).ready(function() {
-        $("#toggleButton").click(function() {
-            $("#tautanberjangka").collapse('toggle');
-            var buttonText = $(this).text();
-            if (buttonText.trim() === "Tampilkan lebih banyak") {
-                $(this).html('Tampilkan lebih sedikit <i class="fa-solid fa-angle-up"></i>');
+            if (passwordInput.attr("type") === "password") {
+                passwordInput.attr("type", "text");
+                passwordAddon.html('<i class="ri-eye-off-fill align-middle"></i>');
             } else {
-                $(this).html('Tampilkan lebih banyak <i class="fa-solid fa-angle-down"></i>');
+                passwordInput.attr("type", "password");
+                passwordAddon.html('<i class="ri-eye-fill align-middle"></i>');
             }
         });
-    });
-</script>
-<script>
-    var inputTanggal = document.getElementById('old_password');
-    var today = new Date();
-    var year = today.getFullYear();
-    var month = String(today.getMonth() + 1).padStart(2, '0');
-    var day = String(today.getDate()).padStart(2, '0');
-    var waktuHariIni = year + '-' + month + '-' + day + 'T00:00';
 
-    inputTanggal.setAttribute('min', waktuHariIni);
-</script>
-<script>
-    var currentDate = new Date();
-    var nextMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
-    var options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    };
-    var formattedDate = nextMonthDate.toLocaleDateString('id-ID', options);
-    document.getElementById('nextMonthDate').textContent = formattedDate;
-</script>
-<script>
-    function closeEdit() {
-        var editCollapse = document.getElementById('edit');
-        $(editCollapse).collapse('hide');
-    }
+        $("#resetButton").click(function() {
+            $(".password-input").val("");
+        });
+        $("#time-reset").click(function() {
+            $(".time-input").val("");
+        });
+        $(".platform").click(function() {
+            var platform = $(this).data("platform");
+            var shortUrl = $("#default_short_url").val();
 
-    $(document).ready(function() {
-        $('#addAmount').on('hidden.bs.modal', function(e) {
+            switch (platform) {
+                case "facebook":
+                    window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(
+                        shortUrl));
+                    break;
+                case "twitter":
+                    window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(shortUrl));
+                    break;
+                case "whatsapp":
+                    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shortUrl));
+                    break;
+                case "copy":
+                    var tempInput = $('<input>');
+                    $('#body').append(tempInput);
+                    console.log(shortUrl)
+                    tempInput.val(shortUrl).select();
+                    document.execCommand('copy');
+                    tempInput.remove();
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        icon: 'success',
+                        text: 'Tautan Berhasil Disalin ke clipboard'
+                    })
+                    console.log(shortUrl)
+                    break;
+                case "qr":
+                    window.open(
+                        `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${ encodeURIComponent(shortUrl)}`
+                    );
+                    break;
+                default:
+                    break;
+            }
+        });
+        $("#simpanButton").click(function() {
+            $("#successAlert").fadeIn();
+            setTimeout(function() {
+                $("#successAlert").fadeOut();
+            }, 3000);
+        });
+    </script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/echarts/echarts.min.js') }}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/js/jsvectormap.min.js') }}">
+    </script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/maps/world-merc.js') }}">
+    </script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/list.js/list.min.js') }}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/dashboard-analytics.init.js') }}">
+    </script>
+
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/profile-setting.init.js') }}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var countData = {{ $countURL }};
+        var progressBar = document.getElementById("progress-bar");
+        var progressBarWidth = (countData / 15) * 100;
+        progressBar.style.width = progressBarWidth + "%";
+        progressBar.setAttribute("aria-valuenow", countData);
+    </script>
+    <script>
+        var countData = {{ $countNameChanged }};
+        var progressBar = document.getElementById("progress-bar");
+        var progressBarWidth = (countData / 5) * 100;
+        progressBar.style.width = progressBarWidth + "%";
+        progressBar.setAttribute("aria-valuenow", countData);
+
+        var progressText = document.querySelector('.text-muted.mb-0 b');
+        progressText.textContent = countData + " dari 5";
+    </script>
+    <script>
+        var countData = {{ $countMicrosite }};
+        var progressBar = document.getElementById("progress-bar");
+        var progressBarWidth = (countData / 3) * 100;
+        progressBar.style.width = progressBarWidth + "%";
+        progressBar.setAttribute("aria-valuenow", countData);
+    </script>
+    <script>
+        var countURLValue = {{ $countURL }};
+
+        // Calculate the percentage
+        var percentage = (countURLValue / 15) * 100;
+
+        var progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = percentage + '%';
+        progressBar.setAttribute('aria-valuenow', countURLValue);
+
+        var progressText = document.querySelector('.text-muted.mb-0 b');
+        progressText.textContent = countURLValue + ' dari 35';
+    </script>
+    <script>
+        var countURLValue = {{ $countMicrosite }};
+
+        var progressBar = document.querySelector('#total-microsite');
+        progressBar.style.width = ((countURLValue / 3) * 100) + '%';
+        progressBar.setAttribute('aria-valuenow', countURLValue);
+
+        var progressText = document.querySelector('#microsite-total');
+        progressText.textContent = countURLValue + ' dari 3';
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function() {
+            $("#toggleButton").click(function() {
+                $("#tautanberjangka").collapse('toggle');
+                var buttonText = $(this).text();
+                if (buttonText.trim() === "Tampilkan lebih banyak") {
+                    $(this).html('Tampilkan lebih sedikit <i class="fa-solid fa-angle-up"></i>');
+                } else {
+                    $(this).html('Tampilkan lebih banyak <i class="fa-solid fa-angle-down"></i>');
+                }
+            });
+        });
+    </script>
+    <script>
+        var inputTanggal = document.getElementById('old_password');
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var day = String(today.getDate()).padStart(2, '0');
+        var waktuHariIni = year + '-' + month + '-' + day + 'T00:00';
+
+        inputTanggal.setAttribute('min', waktuHariIni);
+    </script>
+    <script>
+        var currentDate = new Date();
+        var nextMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+        var options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        var formattedDate = nextMonthDate.toLocaleDateString('id-ID', options);
+        document.getElementById('nextMonthDate').textContent = formattedDate;
+    </script>
+    <script>
+        function closeEdit() {
             var editCollapse = document.getElementById('edit');
             $(editCollapse).collapse('hide');
+        }
+
+        $(document).ready(function() {
+            $('#addAmount').on('hidden.bs.modal', function(e) {
+                var editCollapse = document.getElementById('edit');
+                $(editCollapse).collapse('hide');
+            });
         });
-    });
-</script>
+    </script>
 @endsection

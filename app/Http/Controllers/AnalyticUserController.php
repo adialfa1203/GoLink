@@ -71,7 +71,34 @@ class AnalyticUserController extends Controller
     public function analyticUser()
     {
         $user = Auth::user()->id;
+        $users = Auth::user();
 
+        if ($users) {
+            $subscribe = $users->subscribe;
+
+            // Periksa apakah nilai subscribe valid sebelum melakukan pembagian
+            if ($subscribe == 'free') {
+                $urlStatus = '15';
+                $micrositeStatus = '3';
+            } elseif ($subscribe == 'silver') {
+                $urlStatus = '25';
+                $micrositeStatus = '5';
+            } elseif ($subscribe == 'gold') {
+                $urlStatus = '35';
+                $micrositeStatus = '10';
+            } elseif ($subscribe == 'platinum') {
+                $urlStatus = 'Unlimited';
+                $micrositeStatus = 'Unlimited';
+            } else {
+                // Nilai subscribe tidak valid, tangani kesalahan di sini
+                // Misalnya, Anda dapat menetapkan nilai default atau menampilkan pesan kesalahan
+                $urlStatus = 'Status tidak valid';
+                $micrositeStatus = 'Status tidak valid';
+            }
+        } else {
+            // Tangani jika $user tidak valid
+            // Misalnya, arahkan pengguna kembali ke halaman login
+        }
         $links = ShortUrl::withCount([
             'visits AS totalVisits' => function ($query) use ($user) {
                 $query->whereHas('shortURL', function ($query) use ($user) {

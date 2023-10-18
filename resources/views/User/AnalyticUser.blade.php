@@ -192,18 +192,20 @@
                             </div>
                         </div>
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style=" "></div>
-                        </div>
-                        <br>
+                                <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL ) * 100 }}%"></div>
+                            </div>
+                            <p class="mb-0" style="color: #0E2954;"><b>{{ $countURL }} dari </p>
+                            <br>
                         <h6 class="card-title" style="color: #0E2954;">Microsite dibuat/Bulan
                             <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                 <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                             </span>
                         </h6>
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3" style=""></div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3" style="width: {{ ($countMicrosite ) * 100 }}%"></div>
+                            </div>
+                            <p class="mb-0" style="color: #0E2954;" id="microsite-total"><b>{{ $countMicrosite }} dari </b></p>
                         </div>
-                    </div>
                 </div>
             </div>
         </div><!--end row-->

@@ -62,7 +62,7 @@ class ShortLinkController extends Controller
             $history = $user->history()
                 ->whereMonth('created_at', '>=', now())
                 ->count();
-            
+
             if ($shortLinks + $history >= 25) {
                 return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi.', 'status' => 422]);
             }
@@ -73,26 +73,26 @@ class ShortLinkController extends Controller
             $history = $user->history()
                 ->whereMonth('created_at', '>=', now())
                 ->count();
-            
+
             if ($shortLinks + $history >= 35) {
                 return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi.', 'status' => 422]);
             }
         } elseif ($user->subscribe == 'platinum') {
-            
+
         } else {
-        
+
             $shortLinks = $user->shortUrls()
                 ->whereMonth('created_at', '>=', now())
                 ->count();
-            
+
             $history = $user->history()
                 ->whereMonth('created_at', '>=', now())
                 ->count();
-            
+
             if ($shortLinks + $history >= 15) {
                 return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi.', 'status' => 422]);
             }
-        }        
+        }
         $builder = new \AshAllenDesign\ShortURL\Classes\Builder();
         $shortURLObject = $builder
             ->destinationUrl($request->destination_url)
