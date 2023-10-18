@@ -311,7 +311,7 @@
                                 <div class="modal-body">
                                     <div class="row g-3">
                                         <div class="col-lg-12">
-                                            <label type="button" class="btn" style="width: 100%;">
+                                            <label type="button" class="btn" style="background: #0E2954;color: #fff; width: 100%;">
                                                 Berhasil menyingkatkan tautan!
                                             </label>
                                         </div>
@@ -339,7 +339,7 @@
                                         <div class="collapse" id="edit">
                                             <div class="card">
                                                 <div class="container">
-                                                    <button class="bg-primary border bg-gradient border-0 me-2" type="button" id="submitKustom" style="color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; justify-content: flex-end; float: right;">
+                                                    <button class=" border bg-gradient border-0 me-2" type="button" id="submitKustom" style="background: #0E2954;color: white; font-size: 13px; padding: 5px 10px; border-radius: 5px; display: flex; align-items: center; justify-content: flex-end; float: right;">
                                                         <span class="bi bi-check mr-2">
                                                             Simpan</span>
                                                     </button>
