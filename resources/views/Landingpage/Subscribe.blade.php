@@ -353,7 +353,7 @@
             </div>
         
         </section> --}}
-        <section class="row_am latest_story" id="blog">
+    <section class="row_am latest_story" id="blog">
             <!-- container start -->
             <div class="container">
                 <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
@@ -420,8 +420,8 @@
                 </div>
             </div>
 
-        </section>
-        <section class="row_am latest_story" id="blog">
+    </section>
+    <section class="row_am latest_story" id="blog">
             <!-- container start -->
         <div class="container">
             <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
@@ -433,7 +433,7 @@
                         <div class="card1">
                             <h5 style="font-weight: bold;">Dasar</h5>
                         </div>
-                        <div class="card" style="background-color: #104898">
+                        <div class="card mb-3" style="background-color: #104898">
                             <h5 style="color: #ffffff; font-weight: bold;">Rp.16.000/Bulan</h5>
                             <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan pengalaman pengguna</h6>
                             <div class="container text-center">
@@ -447,7 +447,7 @@
                         <div class="card1">
                             <h5 style="font-weight: bold;">Menengah</h5>
                         </div>
-                        <div class="card" style="background-color: #104898">
+                        <div class="card mb-3" style="background-color: #104898">
                             <h5 style="color: #ffffff; font-weight:bold;">Rp.29.000/Bulan</h5>
                             <h6 style="color: #ffffff; font-size:13px;">Paket menengah untuk menawarkan atau memberikan fitur-fitur yang lebih canggih</h6>
                             <div class="container text-center">
@@ -476,7 +476,7 @@
                  </div>
         </div>
 
-        </section>
+    </section>
 
         {{-- <section class="row_am latest_story" id="blog">
             <div class="container">

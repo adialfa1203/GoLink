@@ -138,88 +138,38 @@
             <!-- wave animation end -->
 
         </section>
-        {{-- <section class="bg-white overflow-hidden" id="home">
-            <div class="container" data-aos="fade-in" data-aos-duration="1500">
-                <div class="position-relative" style="z-index: 1;">
-                    <div class="row align-items-center">
-                        <div class="col-xl-8 col-lg-6">
-                            <div class="" >
-                                <div>
-                                    <h1 style="color: #1B5A6F; font-size:25px;">Jelajahi dengan Microsite</h1>
-                                    <h6 class="" style="color: #1B5A6F;">Microsite adalah kanvas kreatif Anda,
-                                        bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini,
-                                        Anda dapat menuangkan ide dan konten lebih bebas.</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end col-->
-                        <div class="col-lg-1 offset-xl-1">
-                            <div class="mt-lg-0 mt-5 d-flex justify-content-center">
-                                <img src="{{ asset('landing-page 2.png') }}" alt="home04" class="home-img" width="300" height="200">
-                            </div>
-                        </div>
-                    </div>
-                    <!--end row-->
-                </div>
-            </div>
-            <!--end container-->
-        </section> --}}
 
-        <section class="bg-white overflow-hidden mb-4" id="home">
+        <section class="overflow-hidden mb-4" id="home">
             <div class="container" data-aos="fade-in" data-aos-duration="1500">
                 <div class="position-relative" style="z-index: 1;">
                     <div class="row align-items-center">
                         <div class="col-lg-12">
-                            <br>
-                            <h5 style="color: #104898; font-weight: bold;">Jelajahi dengan Microsite</h5>
-
+                            <h5 class="mt-5" style="color: #104898; font-weight: bold;">Jelajahi dengan Microsite</h5>
+        
                             <div class="col-lg-12">
-                                <div class="mt-lg-0 mt-5 d-flex">
-                                    <img src="{{ asset('landing-page 2.png') }}" alt="home04" class="" width="450" height="300">
-                                    <div class="boy">
-                                    <h5 class="mt-5" style="color: #104898;">Microsite adalah kanvas kreatif Anda, bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini, Anda dapat menuangkan ide dan konten lebih bebas.</h5>
-                                    <h5  style="color: #104898;"> Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan</h5></div>
+                                <div class="mt-lg-0 mt-5 d-flex flex-column flex-lg-row">
+                                    <div class="col-lg-6">
+                                        <img src="{{ asset('landing-page 2.png') }}" alt="home04" class="img-fluid" width="450" height="300">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="boy">
+                                            <h5 class="mt-5" style="color: #104898;">Microsite adalah kanvas kreatif Anda, bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini, Anda dapat menuangkan ide dan konten lebih bebas.</h5>
+                                            <h5 style="color: #104898;">Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan</h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Trusted Section start -->
-
-        <!-- Trusted Section ends -->
-
-
-        <!-- Footer-Section start -->
+        
         @include('layout.landingPage.footer')
 
         <!-- Footer-Section end -->
 
         <!-- VIDEO MODAL -->
-        <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <button id="close-video" type="button" class="button btn btn-default text-right"
-                        data-dismiss="modal">
-                        <i class="icofont-close-line-circled"></i>
-                    </button>
-                    <div class="modal-body">
-                        <div id="video-container" class="video-container">
-                            <iframe id="youtubevideo" src="#" width="640" height="360" frameborder="0"
-                                allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="purple_backdrop"></div>
 
     </div>
