@@ -20,7 +20,7 @@ class SubscribeController extends Controller
     public function createSubscribe(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'tipe' => 'required|in:Gratis,Dasar,Menengah,Premium',
+            'tipe' => 'required|in:free,silver,gold,platinum',
             'period' => 'required|in:forever,1_week,1_month,1_year',
             'price' => 'required|numeric|min:0',
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -127,5 +127,4 @@ class SubscribeController extends Controller
 
         return redirect()->back()->with('success', 'Langganan berhasil dihapus.');
     }
-
 }
