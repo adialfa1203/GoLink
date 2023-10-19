@@ -26,9 +26,11 @@
     <!-- waveanimation-Style-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/wave-animation-style.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}" style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
+        style="width: 200px; height: 200px;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet"
+        type="text/css">
 </head>
 
 <body>
@@ -58,75 +60,6 @@
 
         .hidden {
             display: none;
-        }
-
-        /* Style untuk accordion wrapper */
-        .custom-accordionwithicon {
-            max-width: 100%;
-            /* Sesuaikan lebar sesuai kebutuhan Anda */
-            margin: 0 auto;
-            background-color: #F6F4FE;
-            /* Warna latar belakang */
-            /* border: 1px solid #fff; */
-            border-radius: 5px;
-            /* Sudut border */
-        }
-
-        /* Style untuk accordion item */
-        .accordion-item {
-            background-color: #fff;
-            /* Warna latar belakang item */
-            border-bottom: 1px solid #fff;
-            /* Garis pembatas antar item */
-        }
-
-        /* Style untuk judul accordion */
-        .accordion-button {
-            background-color: #fff;
-            /* Warna latar belakang tombol */
-            color: ##104898;
-            /* Warna teks tombol */
-            font-weight: bold;
-            font-size: 16px;
-            padding: 15px;
-            /* Padding tombol */
-            width: 100%;
-            text-align: left;
-            /* Teks rata kiri */
-            border: none;
-            border-radius: 0;
-            outline: none;
-            transition: background-color 0.3s ease;
-            /* Efek hover */
-            display: flex;
-            /* Membuat konten tombol menggunakan flexbox */
-            justify-content: space-between;
-            /* Mengatur jarak antara teks tombol dan ikon (jika ada) */
-            align-items: center;
-            padding-right: 10px;
-        }
-
-        /* Style untuk judul accordion saat dihover */
-        .accordion-button:hover {
-            background-color: #fff;
-        }
-
-        /* Style untuk konten accordion */
-        .accordion-body {
-            padding: 15px 20px;
-            /* Padding konten */
-            line-height: 1.6;
-            /* Line height konten */
-            color: #555;
-            /* Warna teks konten */
-        }
-
-        /* Style untuk accordion yang sedang terbuka */
-        .accordion-button[aria-expanded="true"] {
-            background-color: #104898;
-            /* Warna latar belakang tombol saat terbuka */
-            color: #fff;
-            /* Warna teks tombol saat terbuka */
         }
     </style>
 
@@ -168,44 +101,77 @@
 
         </section>
         <div class="container-fluid">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        {{-- <div class="p-3 mb-2 text-white text-center" style="background-color:#104898; height: 200px; margin-bottom: 10%; font-size:50px;">Memulai</div> --}}
-                        {{-- <a href="/HelpSupport" class="col-1 btn btn-info btn-sm">
-                                <i class="fas fa-arrow-left"></i> Kembali
-                            </a> --}}
-                        <p></p>
+            <div class="col-xl-12">
+                <h5><strong style="color: #0E2954;">Kebijakan Privasi</strong></h5>
 
-                        <div class="col-xl-12">
-                            <h5><strong>Kebijakan Privasi</strong></h5>
+                <p>Hummasoft Technology membangun aplikasi MiLink sebagai aplikasi Komersial. LAYANAN ini adalah
+                    disediakan oleh Hummasoft Technology dan dimaksudkan untuk digunakan sebagaimana adanya.</p>
 
-                            <p>Hummasoft Technology membangun aplikasi MiLink sebagai aplikasi Komersial. LAYANAN ini adalah disediakan oleh Hummasoft Technology dan dimaksudkan untuk digunakan sebagaimana adanya.</p>
+                <p>Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami terkait pengumpulan,
+                    penggunaan, dan pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan
+                    kami.</p>
 
-                            <p>Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami terkait pengumpulan, penggunaan, dan pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan kami.</p>
+                <p>Jika Anda memilih untuk menggunakan Layanan kami, maka Anda menyetujui pengumpulan dan penggunaan
+                    informasi di kaitannya dengan kebijakan ini. Informasi Pribadi yang kami kumpulkan digunakan untuk
+                    menyediakan dan meningkatkan Layanan. Kami tidak akan menggunakan atau membagikan informasi Anda
+                    kepada siapa pun kecuali seperti dijelaskan dalam Kebijakan Privasi ini.</p>
 
-                            <p>Jika Anda memilih untuk menggunakan Layanan kami, maka Anda menyetujui pengumpulan dan penggunaan informasi di kaitannya dengan kebijakan ini. Informasi Pribadi yang kami kumpulkan digunakan untuk menyediakan dan meningkatkan Layanan. Kami tidak akan menggunakan atau membagikan informasi Anda kepada siapa pun kecuali seperti dijelaskan dalam Kebijakan Privasi ini.</p>
+                <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a
+                        style="color: #104898" href="{{ url('landingpage/Privacy') }}">Syarat dan Ketentuan</a>, yang
+                    dapat diakses di MiLink kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
 
-                            <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a style="color: #104898" href="{{ url('landingpage/Privacy')}}">Syarat dan Ketentuan</a>, yang dapat diakses di MiLink kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
+                <h3 style="font-size: 20px;"><strong>Ketentuan Pengumpulan Informasi</strong></h3>
 
-                            <h3><strong>Ketentuan Pengumpulan Informasi</strong></h3>
+                <p>Untuk pengalaman yang lebih baik, saat menggunakan Layanan kami, kami mungkin meminta Anda untuk
+                    memberikan informasi pengenal pribadi tertentu, termasuk namun tidak terbatas pada MiLink. Informasi
+                    yang kami minta akan kami simpan dan gunakan sebagaimana dijelaskan dalam kebijakan privasi ini.</p>
 
-                            <p>Untuk pengalaman yang lebih baik, saat menggunakan Layanan kami, kami mungkin meminta Anda untuk memberikan informasi pengenal pribadi tertentu, termasuk namun tidak terbatas pada MiLink. Informasi yang kami minta akan kami simpan dan gunakan sebagaimana dijelaskan dalam kebijakan privasi ini.</p>
+                <p>Aplikasi ini menggunakan layanan pihak ketiga yang mungkin mengumpulkan informasi yang digunakan
+                    untuk mengidentifikasi Anda.</p>
 
-                            <p>Aplikasi ini menggunakan layanan pihak ketiga yang mungkin mengumpulkan informasi yang digunakan untuk mengidentifikasi Anda.</p>
+                <h5 style="font-size: 20px;"><strong>Data Log</strong></h5>
 
-                            <h5><strong>Data Log</strong></h5>
+                <p>Ketika Anda menggunakan Layanan kami, kami secara otomatis mengumpulkan informasi seperti alamat IP perangkat Anda, 
+                    nama perangkat, versi sistem operasi, konfigurasi aplikasi, waktu dan tanggal penggunaan, serta statistik lainnya.
+                     Tujuannya adalah untuk memantau dan meningkatkan kinerja Layanan serta mengidentifikasi masalah teknis.</p>
 
-                            <p>Kami ingin memberi tahu Anda bahwa setiap kali Anda menggunakan Layanan kami, jika terjadi kesalahan pada aplikasi, kami mengumpulkan data dan informasi (melalui produk pihak ketiga) di ponsel Anda yang disebut Data Log. Data Log ini mungkin mencakup informasi seperti Protokol Internet (“IP”) perangkat Anda alamat, nama perangkat, versi sistem operasi, konfigurasi aplikasi saat digunakan Layanan kami, waktu dan tanggal penggunaan Layanan oleh Anda, dan statistik lainnya.</p>
+                <h5 style="font-size: 20px;"><strong>Cookie</strong></h5>
 
-                            <h5><strong>Cookie</strong></h5>
+                <p>Cookie adalah file kecil yang disimpan di perangkat Anda ketika Anda mengunjungi Layanan kami. Mereka digunakan 
+                    untuk menyimpan preferensi pengguna, mengumpulkan data tentang interaksi pengguna, dan meningkatkan keamanan.
+                     Anda dapat mengelola pengaturan cookie melalui peramban Anda.</p>
+                <h5 style="font-size: 20px;"><strong>Penggunaan Informasi</strong></h5>
 
-                            <p>Cookie adalah file dengan sejumlah kecil data yang biasanya digunakan sebagai unik anonim pengidentifikasi. Ini adalah</p>
-                            <p>dikirim ke browser Anda dari situs web yang Anda kunjungi</p>
-                        </div>
+<p>Kami menggunakan informasi yang kami kumpulkan untuk berbagai tujuan, termasuk:</p>
 
-                    </div><!--end row-->
-                </div>
+<ul>
+    <li>Memberikan dan memelihara Layanan</li>
+    <li>Memperingatkan Anda tentang perubahan pada Layanan kami</li>
+    <li>Memungkinkan Anda berpartisipasi dalam fitur-fitur interaktif Layanan kami ketika Anda memilih untuk
+        melakukannya</li>
+    <li>Mengawasi penggunaan Layanan</li>
+    <li>Mengumpulkan analisis atau informasi berharga lainnya agar kami dapat meningkatkan Layanan</li>
+</ul>
+<h5 style="font-size: 20px;"><strong>Keamanan</strong></h5>
+
+<p>Kami menghargai kepercayaan Anda dalam menyediakan Informasi Pribadi Anda, oleh karena itu kami berusaha
+    untuk menggunakan cara yang dapat diterima secara komersial untuk melindungi informasi tersebut. Namun
+    ingatlah bahwa tidak ada metode transmisi melalui internet, atau metode penyimpanan elektronik, yang
+    100% aman dan andal, dan kami tidak dapat menjamin keamanan absolut.</p>
+
+<h5 style="font-size: 20px;"><strong>Perubahan Kebijakan Privasi</strong></h5>
+
+<p>Kami dapat memperbarui Kebijakan Privasi kami dari waktu ke waktu. Oleh karena itu, kami menyarankan Anda
+    untuk meninjau halaman ini secara berkala untuk setiap perubahan. Kami akan memberi tahu Anda tentang
+    perubahan dengan memposting Kebijakan Privasi baru di halaman ini.</p>
+
+<h5 style="font-size: 20px;"><strong>Hubungi Kami</strong></h5>
+
+<p>Jika Anda memiliki pertanyaan atau saran tentang Kebijakan Privasi kami, jangan ragu untuk menghubungi kami
+    melalui media sosial kami.</p>
+
+<p>Halaman Kebijakan Privasi ini efektif sejak tanggal 19 Oktober 2023.</p>
+
             </div>
         </div><!--end col-->
 
@@ -225,7 +191,8 @@
                 </button>
                 <div class="modal-body">
                     <div id="video-container" class="video-container">
-                        <iframe id="youtubevideo" src="#" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="youtubevideo" src="#" width="640" height="360" frameborder="0"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="modal-footer">

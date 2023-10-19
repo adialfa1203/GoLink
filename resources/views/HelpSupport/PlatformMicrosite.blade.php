@@ -77,8 +77,8 @@
             display: none;
         }
 
-        /* Style untuk accordion wrapper */
         .custom-accordionwithicon {
+            border-radius: 15px;
             max-width: 100%;
             /* Sesuaikan lebar sesuai kebutuhan Anda */
             margin: 0 auto;
@@ -91,9 +91,10 @@
 
         /* Style untuk accordion item */
         .accordion-item {
+            border-radius: 15px;
             background-color: #fff;
             /* Warna latar belakang item */
-            border-bottom: 1px solid #fff;
+            /* border-bottom: 1px solid #fff; */
             /* Garis pembatas antar item */
         }
 
@@ -111,7 +112,8 @@
             text-align: left;
             /* Teks rata kiri */
             border: none;
-            border-radius: 0;
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
             outline: none;
             transition: background-color 0.3s ease;
             /* Efek hover */
@@ -135,16 +137,23 @@
             line-height: 1.6;
             /* Line height konten */
             color: #555;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+
             /* Warna teks konten */
         }
 
         /* Style untuk accordion yang sedang terbuka */
         .accordion-button[aria-expanded="true"] {
-            background-color: #104898;
+            border-radius: 15px 15px 0 0;
+            background-color: #0E2954;
             /* Warna latar belakang tombol saat terbuka */
             color: #fff;
             /* Warna teks tombol saat terbuka */
         }
+        .accordion-button i.fas.fa-chevron-right {
+    margin-right: 3%; /* Ubah angka sesuai dengan seberapa jauh Anda ingin menggeser ikon ke kiri */
+}
     </style>
 
     <!-- Page-wrapper-Start -->
@@ -184,80 +193,78 @@
             <!-- wave animation end -->
 
         </section>
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    {{-- <a href="/HelpSupport" class="col-1 btn btn-info btn-sm">
-                        <i class="fas fa-arrow-left"></i> Kembali
-                    </a> --}}
-                    <p></p>
-                    <div class="col-12">
-                        <div class="accordion accordion-border-box" id="genques-accordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="genques-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#genques-collapseTwo" aria-expanded="false"
-                                        aria-controls="genques-collapseTwo">
-                                        Bagaimana cara menghapus microsite?
-                                    </button>
-                                </h2>
-                                <div id="genques-collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="genques-headingTwo" data-bs-parent="#genques-accordion">
-                                    <div class="accordion-body">
-                                        <p>1. Login ke dalam akun MiLink anda dan masuk ke Dashboard
-                                        </p>
-                                        <p>2. Pilih Microsite yang ingin anda edit dengan pilih Edit
-                                        </p>
-                                        <p>3. Pilih pengaturan</p>
-                                        <p>4. Scroll kebawah dan pilih Hapus Microsite</p>
-                                        <p>5. Ketik nama microsite/alamat microsite nya dan klik Hapus
-                                            Microsite</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="genques-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#genques-collapseThree" aria-expanded="false"
-                                        aria-controls="genques-collapseThree">
-                                        Apakah ada batasan dalam membuat Microsite
-                                    </button>
-                                </h2>
-                                <div id="genques-collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="genques-headingThree" data-bs-parent="#genques-accordion">
-                                    <div class="accordion-body">
-                                        <p>Untuk saat ini, batas pembuatan microsite untuk</p>
-                                        <p>Pengguna Gratis - 5 Microsite</p>
-                                        <p>Pengguna Lite - 10 Microsite</p>
-                                        <p>Pengguna Berlangganan - 30 Microsite</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="genques-headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#genques-collapsefour" aria-expanded="false"
-                                        aria-controls="genques-collapsefour">
-                                        Cara Membagikan Link Microsite
-                                    </button>
-                                </h2>
-                                <div id="genques-collapsefour" class="accordion-collapse collapse"
-                                    aria-labelledby="genques-headingFour" data-bs-parent="#genques-accordion">
-                                    <div class="accordion-body">
-                                        <p>1. Di Dashboard MiLink Anda Klik Microsite</p>
-                                        <p>2. Kemudian pilih URL Microsite yang ingin Anda bagikan
-                                        </p>
-                                        <p>3. Klik Bagikan</p>
-                                        <p>4. Pilih Media social yang ingin kamu bagikan</p>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="container mb-12">
+            <!-- Accordions Bordered -->
+            <h1 style="color: #0E2954; font-size: 25px; font-weight: bold; margin-left: 1%;">Layanan Microsite</h1>
+
+            <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-secondary mt-3"
+                id="accordionBordered">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="accordionborderedExample1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#accor_borderedExamplecollapse1" aria-expanded="true"
+                            aria-controls="accor_borderedExamplecollapse1" style="backround">
+                            Bagaimana cara menghapus microsite?
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </h2>
+                    <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
+                        aria-labelledby="accordionborderedExample1" data-bs-parent="#accordionBordered">
+                        <div class="accordion-body">
+                            <p>1. Login ke dalam akun MiLink anda dan masuk ke Dashboard
+                            </p>
+                            <p>2. Pilih Microsite yang ingin anda edit dengan pilih Edit
+                            </p>
+                            <p>3. Pilih pengaturan</p>
+                            <p>4. Scroll kebawah dan pilih Hapus Microsite</p>
+                            <p>5. Ketik nama microsite/alamat microsite nya dan klik Hapus
+                                Microsite</p>
                         </div>
-                        <!--end accordion-->
                     </div>
-                </div><!--end row-->
+                </div>
+                <div class="accordion-item mt-2">
+                    <h2 class="accordion-header" id="accordionborderedExample2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#accor_borderedExamplecollapse2" aria-expanded="false"
+                            aria-controls="accor_borderedExamplecollapse2">
+                            Apakah ada batasan dalam membuat Microsite
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </h2>
+                    <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"
+                        aria-labelledby="accordionborderedExample2" data-bs-parent="#accordionBordered">
+                        <div class="accordion-body">
+                            <p>Untuk saat ini, batas pembuatan microsite untuk</p>
+                            <p>Pengguna Gratis - 5 Microsite</p>
+                            <p>Pengguna Lite - 10 Microsite</p>
+                            <p>Pengguna Berlangganan - 30 Microsite</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mt-2 mb-5">
+                    <h2 class="accordion-header" id="accordionborderedExample3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#accor_borderedExamplecollapse3" aria-expanded="false"
+                            aria-controls="accor_borderedExamplecollapse3">
+                            Cara Membagikan Link Microsite
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </h2>
+                    <div id="accor_borderedExamplecollapse3" class="accordion-collapse collapse"
+                        aria-labelledby="accordionborderedExample3" data-bs-parent="#accordionBordered">
+                        <div class="accordion-body">
+                            <p>1. Di Dashboard MiLink Anda Klik Microsite</p>
+                            <p>2. Kemudian pilih URL Microsite yang ingin Anda bagikan
+                            </p>
+                            <p>3. Klik Bagikan</p>
+                            <p>4. Pilih Media social yang ingin kamu bagikan</p>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-        </div>
+
+        </div><!--end col-->
     </div>
 
     @include('layout.landingPage.footer')

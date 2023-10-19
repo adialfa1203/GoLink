@@ -62,8 +62,8 @@
             display: none;
         }
 
-        /* Style untuk accordion wrapper */
         .custom-accordionwithicon {
+            border-radius: 15px;
             max-width: 100%;
             /* Sesuaikan lebar sesuai kebutuhan Anda */
             margin: 0 auto;
@@ -76,9 +76,10 @@
 
         /* Style untuk accordion item */
         .accordion-item {
+            border-radius: 15px;
             background-color: #fff;
             /* Warna latar belakang item */
-            border-bottom: 1px solid #fff;
+            /* border-bottom: 1px solid #fff; */
             /* Garis pembatas antar item */
         }
 
@@ -96,7 +97,8 @@
             text-align: left;
             /* Teks rata kiri */
             border: none;
-            border-radius: 0;
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
             outline: none;
             transition: background-color 0.3s ease;
             /* Efek hover */
@@ -120,16 +122,23 @@
             line-height: 1.6;
             /* Line height konten */
             color: #555;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+
             /* Warna teks konten */
         }
 
         /* Style untuk accordion yang sedang terbuka */
         .accordion-button[aria-expanded="true"] {
-            background-color: #104898;
+            border-radius: 15px 15px 0 0;
+            background-color: #0E2954;
             /* Warna latar belakang tombol saat terbuka */
             color: #fff;
             /* Warna teks tombol saat terbuka */
         }
+        .accordion-button i.fas.fa-chevron-right {
+    margin-right: 3%; /* Ubah angka sesuai dengan seberapa jauh Anda ingin menggeser ikon ke kiri */
+}
     </style>
 
     <!-- Page-wrapper-Start -->
@@ -171,8 +180,9 @@
         </section>
         <div class="container mb-12">
             <!-- Accordions Bordered -->
+            <h1 style="color: #0E2954; font-size: 25px; font-weight: bold; margin-left: 1%;">Akun</h1>
 
-            <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-secondary"
+            <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-secondary mt-3"
                 id="accordionBordered">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="accordionborderedExample1">
@@ -180,6 +190,8 @@
                             data-bs-target="#accor_borderedExamplecollapse1" aria-expanded="true"
                             aria-controls="accor_borderedExamplecollapse1" style="backround">
                             Apa yang dimaksud dengan pengunjung unik?
+                            <i class="fas fa-chevron-right"></i>
+
                         </button>
                     </h2>
                     <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
@@ -213,6 +225,8 @@
                             data-bs-target="#accor_borderedExamplecollapse2" aria-expanded="false"
                             aria-controls="accor_borderedExamplecollapse2">
                             Apa yang dimaksud dengan pengunjung?
+                            <i class="fas fa-chevron-right"></i>
+
                         </button>
                     </h2>
                     <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"

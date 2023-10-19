@@ -62,8 +62,8 @@
             display: none;
         }
 
-        /* Style untuk accordion wrapper */
         .custom-accordionwithicon {
+            border-radius: 15px;
             max-width: 100%;
             /* Sesuaikan lebar sesuai kebutuhan Anda */
             margin: 0 auto;
@@ -76,9 +76,10 @@
 
         /* Style untuk accordion item */
         .accordion-item {
+            border-radius: 15px;
             background-color: #fff;
             /* Warna latar belakang item */
-            border-bottom: 1px solid #fff;
+            /* border-bottom: 1px solid #fff; */
             /* Garis pembatas antar item */
         }
 
@@ -96,7 +97,8 @@
             text-align: left;
             /* Teks rata kiri */
             border: none;
-            border-radius: 0;
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
             outline: none;
             transition: background-color 0.3s ease;
             /* Efek hover */
@@ -120,16 +122,23 @@
             line-height: 1.6;
             /* Line height konten */
             color: #555;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+
             /* Warna teks konten */
         }
 
         /* Style untuk accordion yang sedang terbuka */
         .accordion-button[aria-expanded="true"] {
-            background-color: #104898;
+            border-radius: 15px 15px 0 0;
+            background-color: #0E2954;
             /* Warna latar belakang tombol saat terbuka */
             color: #fff;
             /* Warna teks tombol saat terbuka */
         }
+        .accordion-button i.fas.fa-chevron-right {
+    margin-right: 3%; /* Ubah angka sesuai dengan seberapa jauh Anda ingin menggeser ikon ke kiri */
+}
     </style>
 
     <!-- Page-wrapper-Start -->
@@ -171,8 +180,9 @@
         </section>
         <div class="container mb-12">
             <!-- Accordions Bordered -->
+            <h1 style="color: #0E2954; font-size: 25px; font-weight: bold; margin-left: 1%;">Pengumuman</h1>
 
-            <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-secondary"
+            <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-secondary mt-3"
                 id="accordionBordered">
                 <div class="accordion-item mb-5">
                     <h2 class="accordion-header" id="accordionborderedExample1">
@@ -180,6 +190,8 @@
                             data-bs-target="#accor_borderedExamplecollapse1" aria-expanded="true"
                             aria-controls="accor_borderedExamplecollapse1" style="backround">
                             Kami telah memperbarui Kebijakan Privasi kami
+                            <i class="fas fa-chevron-right"></i>
+
                         </button>
                     </h2>
                     <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
@@ -212,30 +224,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="accordion-item mt-2">
-        <h2 class="accordion-header" id="accordionborderedExample4">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse4" aria-expanded="false" aria-controls="accor_borderedExamplecollapse4">
-                Bagaimana Cara membuat Microsite?
-            </button>
-        </h2>
-        <div id="accor_borderedExamplecollapse4" class="accordion-collapse collapse" aria-labelledby="accordionborderedExample4" data-bs-parent="#accordionBordered">
-            <div class="accordion-body">
-                <p>Tahukah Anda bahwa sekarang Anda dapat membuat microsite <b>Go.Link</b> untuk
-                    ditampilkan di bio media sosial Anda?</p>
-
-                <p>Membuat microsite sangat mudah:</p>
                 
-                    <p>1. Masuk ke akun <b>Go.Link</b> Anda yang ada.</p>
-                    <p>2. Dari menu Beranda, Klik Buat Microsite Baru kemudian Klik. Kemudian Anda akan diarahkan ke Buat Microsite Baru</p>
-                    <p>3. Pilih satu tema microsite dan klik Selajutnya.</p>
-                    <p>4. Masukkan Nama dan URL microsite Anda dan klik Selanjutnya.</p>
-                    <p>5. Kemudian, mulailah menambahkan media sosial apa saja yang anda punya. 
-                    </p>
-                    <p>6. Terakhir, Anda akan diarahkan ke halaman Edit Microsite untuk melengkapi Microsite Anda.
-                    </p>
-            </div>
-        </div>
-    </div> --}}
             </div>
 
         </div><!--end col-->
