@@ -479,7 +479,7 @@
 
                     </div><!--end col-->
                 </div><!--end row-->
-                <div class="low mt-5">
+                <div class="low mt-3">
                     @if ($user->subscribe !== 'platinum')
                         <div class="">
                             <div class="card mid" style="background-color: #F0F0F0;">
