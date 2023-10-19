@@ -21,7 +21,7 @@
         }
 
         .isi {
-            border: 2px solid #7B7B7B;
+            /* border: 2px solid #7B7B7B; */
             border-radius: 10px;
             padding-top: 5px;
             padding-right: 0px;
@@ -45,17 +45,125 @@
             text-decoration: underline;
             /* Menambahkan garis bawah saat cursor di atasnya */
         }
+        .nav-link {
+        display: block;
+        padding: 0.5rem 1rem;
+        }
+
+        .nav-link:focus,
+        .nav-link:hover {
+            text-decoration: none;
+        }
+
+        .nav-link.disabled {
+            color: #6c757d;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .nav-tabs .nav-link {
+            margin-bottom: -1px;
+            border: 1px solid transparent;
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+        }
+
+        .nav-tabs .nav-link:focus,
+        .nav-tabs .nav-link:hover {
+            border-color: #e9ecef #e9ecef #dee2e6;
+        }
+
+        .nav-tabs .nav-link.disabled {
+            color: transparent;
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        .nav-tabs .nav-item.show .nav-link,
+        .nav-tabs .nav-link.active {
+            color: transparent;
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+
+        .nav-tabs .dropdown-menu {
+            margin-top: -1px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: 0.25rem;
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #0E2954;
+            border-bottom: 3px solid #0E2954;
+            border-radius: 0;
+            background-color: transparent;
+        }
+        .icon-white {
+            color: white; /* Atur warna teks ikon menjadi putih */
+        }
+        .icon-abu {
+            color: #0E2954;
+        }
+
+        #pagination-element .pagination-block .page-item .page-link {
+        color: #0E2954; /* Warna teks paginate 2-3 */
+        color: #ffffff; /* Warna teks paginate halaman saat ini */
+        }
+
+        #pagination-element .pagination-block .page-item.active .page-link {
+        background-color: #0E2954; /* Warna latar belakang paginate halaman saat ini */
+        border-color: #0E2954; /* Warna border */
+        color: #ffffff; /* Warna teks paginate halaman saat ini */
+        }
+
+        #pagination-element .pagination-block .page-item:first-child .page-link,
+        #pagination-element .pagination-block .page-item:last-child .page-link {
+        color: inherit; /* Menggunakan warna teks default */
+        }
+
+        .page-content{
+            background: #ffffff;
+        }
+
+
     </style>
 @endsection
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
             <div class="d-flex flex-column flex-sm-row">
-                <div class="col-12 col-sm-4">
+                {{-- <div class="col-12 col-sm-4">
                     <h5 class="mb-2">Tautan yang Dihasilkan Terbaru</h5>
                     <p id="clickCount" hidden>0 klik</p>
-                </div>
-                <div class="col-12 col-sm-8 mb-3">
+                </div> --}}
+                <div class="col-12 col-sm-2 isi align-items-xl-center d-xl-flex">
+                    <p class="text-muted flex-grow-1 mb-xl-0"></p>
+                    <div class="flex-shrink-0">
+                        <ul class="nav nav-pills card-header-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active fw-bold" data-bs-toggle="tab" href="#animation-home" role="tab">
+                                    Tautan Aktif
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" data-bs-toggle="tab" href="#animation-settings" role="tab">
+                                    Riwayat
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-12 col-sm-10 mb-3">
                     <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-end">
                         <div class="search-box mb-2 mb-sm-0">
                             <input type="text" class="form-control search" placeholder="Cari...">
@@ -63,12 +171,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><br>
 
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-body">
-                        <ul class="nav nav-pills animation-nav nav-justified gap-2 mb-3" role="tablist">
+                        {{-- <ul class="nav nav-pills animation-nav nav-justified gap-2 mb-3" role="tablist">
                             <li class="nav-item ">
                                 <a class="nav-link active" data-bs-toggle="tab" href="#animation-home" role="tab">
                                     Tautan Aktif
@@ -79,7 +187,7 @@
                                     Riwayat
                                 </a>
                             </li>
-                        </ul>
+                        </ul> --}}
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="animation-home" role="tabpanel">
                                 <div class="row">
@@ -104,19 +212,20 @@
                                                 @csrf
                                                 <div class="col-lg-12">
                                                     <div class="card"
-                                                        style="border: 1px solid var(--tb-border-color-translucent); padding: 0px;"
+                                                        style="border: 1px solid var(--tb-border-color-translucent); padding: 0px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);"
                                                         id="card{{ $row->id }}">
                                                         <div class="card-body">
                                                             <h6 class="col-lg-3 col-md-4 col-sm-12">{{ $row->title }}</h6>
                                                             <div
                                                                 class="col-lg-12 col-md-12 col-sm-9 d-flex flex-row justify-content-end">
                                                                 <button type="button" id="button-email"
-                                                                    class="btn btn-primary me-3 btn-sm"
+                                                                    class="btn me-3 btn-sm"
+                                                                    style="background-color: #0E2954;"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#bagikan{{ $i }}"
                                                                     aria-haspopup="true" aria-expanded="false"><i
-                                                                        class="fa-solid fa-share-nodes"></i>
-                                                                    &nbsp;Bagikan</button>
+                                                                        class="fa-solid fa-share-nodes icon-white"></i>
+                                                                </button>
 
                                                                 <!-- Modal bagikan -->
                                                                 <div class="modal fade" id="bagikan{{ $i }}"
@@ -178,18 +287,19 @@
                                                                     onclick="tombolmodal('{{ $row->id }}')"
                                                                     type="button"
                                                                     class="btn btn-light me-3 btn-sm clickButton"
+                                                                    style="background-color: #CED2D9"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#tombol-modal-{{ $row->id }}"
                                                                     data-id="{{ $row->id }}">
                                                                     <span data-bs-toggle="tooltip" data-bs-placement="left"
                                                                         title="Kode QR"><i
-                                                                            class="fa-solid fa-qrcode"></i></span>
+                                                                            class="fa-solid fa-qrcode icon-abu"></i></span>
                                                                 </button>
 
-                                                                <button type="button" class="btn btn-light me-3 btn-sm edit-link"
+                                                                <button type="button" class="btn btn-light me-3 btn-sm edit-link" style="background-color: #CED2D9;"
                                                                 data-bs-toggle="modal" data-bs-target="#zoomInModal"
                                                                     data-link="{{ $row->url_key }}">
-                                                                    <span><i class="fa-solid fa-pen-to-square"></i>&nbsp;Kustom</span>
+                                                                    <span><i class="fa-solid fa-pen-to-square icon-abu"></i></span>
                                                                 </button>
                                                             </div>
                                                             <br>
@@ -495,7 +605,7 @@
                                                 @csrf
                                                 <div class="col-lg-12">
                                                     <div class="card"
-                                                        style="border: 1px solid var(--tb-border-color-translucent); padding: 0px;"
+                                                        style="border: 1px solid var(--tb-border-color-translucent); padding: 0px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);"
                                                         id="card{{ $url->id }}">
                                                         <div class="card-body">
                                                             <h6 class="col-lg-3 col-md-4 col-sm-12">{{ $url->title }}
@@ -504,11 +614,12 @@
                                                                 class="col-lg-12 col-md-12 col-sm-9 d-flex flex-url justify-content-end">
                                                                 <button disabled type="button" id="button-email"
                                                                     class="btn btn-primary me-3 btn-sm"
+                                                                    style="background-color: #0E2954;"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#bagikan{{ $i }}"
                                                                     aria-haspopup="true" aria-expanded="false"><i
                                                                         class="fa-solid fa-share-nodes"></i>
-                                                                    &nbsp;Bagikan</button>
+                                                                </button>
 
                                                                 <!-- Modal bagikan -->
                                                                 <div class="modal fade" id="bagikan{{ $i }}"
@@ -565,20 +676,22 @@
                                                                     onclick="tombolmodal('{{ $url->id }}')"
                                                                     type="button"
                                                                     class="btn btn-light me-3 btn-sm clickButton"
+                                                                    style="background-color: #CED2D9"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#tombol-modal-{{ $url->id }}"
                                                                     data-id="{{ $url->id }}">
                                                                     <span data-bs-toggle="tooltip"
                                                                         data-bs-placement="left" title="Kode QR"><i
-                                                                            class="fa-solid fa-qrcode"></i></span>
+                                                                            class="fa-solid fa-qrcode icon-abu"></i></span>
                                                                 </button>
 
                                                                 <button disabled type="button"
                                                                     class="btn btn-light me-3 btn-sm edit-link"
+                                                                    style="background-color: #CED2D9"
                                                                     data-bs-toggle="modal" data-bs-target="#zoomInModal"
                                                                     data-link="{{ $url->url_key }}">
                                                                     <span><i
-                                                                            class="fa-solid fa-pen-to-square"></i>&nbsp;Kustom</span>
+                                                                            class="fa-solid fa-pen-to-square icon-abu"></i></span>
                                                                 </button>
                                                             </div>
                                                             <br>
@@ -864,22 +977,20 @@
                                             </form>
                                         @endforeach
                                     @endif
-                                    <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
-                                        id="pagination-element">
+                                    <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start" id="pagination-element">
                                         <div class="col-sm">
-                                            <div class="text-muted">
-                                                Menampilkan <span class="fw-semibold">{{ $history->firstItem() }}</span>
-                                                hingga <span class="fw-semibold">{{ $history->lastItem() }}</span>
-                                                dari total <span class="fw-semibold">{{ $history->total() }}</span> Hasil
-                                            </div>
+                                          <div class="text-muted">
+                                            Menampilkan <span class="fw-semibold">{{ $history->firstItem() }}</span> hingga
+                                            <span class="fw-semibold">{{ $history->lastItem() }}</span> dari total
+                                            <span class="fw-semibold">{{ $history->total() }}</span> Hasil
+                                          </div>
                                         </div>
                                         <div class="col-sm-auto mt-3 mt-sm-0">
-                                            <div
-                                                class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
-                                                <div class="page-item">
-                                                    {{ $history->links('pagination::bootstrap-5') }}
-                                                </div>
+                                          <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
+                                            <div class="page-item">
+                                              {{ $history->links('pagination::bootstrap-5') }}
                                             </div>
+                                          </div>
                                         </div>
                                     </div>
                                     <!-- end col -->
