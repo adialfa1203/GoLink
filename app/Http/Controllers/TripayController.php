@@ -36,20 +36,20 @@ class TripayController extends Controller
 
         $apiKey       = env('TRIPAY_API_KEY');
         $privateKey   = env('TRIPAY_PRIVATE_KEY');
-        $merchantCode = env('TRIPAY_MERCHANT_KODE');
+        $merchantCode = env('TRIPAY_MERCHANT_CODE');
         $merchantRef  = 'nomor referensi merchant anda';
+        $amount       = $subscribe->price;
 
         $user = auth()->user();
 
         $data = [
             'method'         => $method,
             'merchant_ref'   => $merchantRef,
-            'amount'         => $subscribe->price,
+            'amount'         => $amount,
             'customer_name'  => $user->name,
             'customer_email' => $user->email,
             'customer_phone' => $user->number,
             'order_items'    => [
-
                 [
                     'name'        => $subscribe->tipe,
                     'price'       => $subscribe->price,
@@ -57,14 +57,14 @@ class TripayController extends Controller
                 ]
             ],
             'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
-            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef, $privateKey)
+            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$amount, $privateKey)
         ];
 
         $curl = curl_init();
 
         curl_setopt_array($curl, [
             CURLOPT_FRESH_CONNECT  => true,
-            CURLOPT_URL            => 'https://tripay.co.id/api/transaction/create',
+            CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/transaction/create',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HEADER         => false,
             CURLOPT_HTTPHEADER     => ['Authorization: Bearer '.$apiKey],
@@ -74,12 +74,17 @@ class TripayController extends Controller
             CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
         ]);
 
-        $response = curl_exec($curl);
-        $error = curl_error($curl);
+    $response = curl_exec($curl);
+    $error = curl_error($curl);
 
-        curl_close($curl);
+    if ($error) {
+        return $error;
+    }
 
-        return $response ? $response : $error;
+    curl_close($curl);
 
+    // dd($response);
+
+    return $response;
     }
 }
