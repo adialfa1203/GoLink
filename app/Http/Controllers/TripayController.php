@@ -6,20 +6,21 @@ use Illuminate\Http\Request;
 
 class TripayController extends Controller
 {
-    public function getPaymentChannels(){
+    public function getPaymentChannels()
+    {
 
         $apiKey = env('TRIPAY_API_KEY');
 
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_FRESH_CONNECT  => true,
-        CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/merchant/payment-channel',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HEADER         => false,
-        CURLOPT_HTTPHEADER     => ['Authorization: Bearer '.$apiKey],
-        CURLOPT_FAILONERROR    => false,
-        CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
+            CURLOPT_FRESH_CONNECT  => true,
+            CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/merchant/payment-channel',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER         => false,
+            CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . $apiKey],
+            CURLOPT_FAILONERROR    => false,
+            CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
         ));
 
         $response = curl_exec($curl);
@@ -32,7 +33,8 @@ class TripayController extends Controller
         return $response ? $response : $error;
     }
 
-    public function requestTransaction($method, $subscribe){
+    public function requestTransaction($method, $subscribe)
+    {
 
         $apiKey       = env('TRIPAY_API_KEY');
         $privateKey   = env('TRIPAY_PRIVATE_KEY');
@@ -57,7 +59,7 @@ class TripayController extends Controller
                 ]
             ],
             'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
-            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$amount, $privateKey)
+            'signature'    => hash_hmac('sha256', $merchantCode . $merchantRef . $amount, $privateKey)
         ];
 
         $curl = curl_init();
@@ -67,24 +69,54 @@ class TripayController extends Controller
             CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/transaction/create',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HEADER         => false,
-            CURLOPT_HTTPHEADER     => ['Authorization: Bearer '.$apiKey],
+            CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . $apiKey],
             CURLOPT_FAILONERROR    => false,
             CURLOPT_POST           => true,
             CURLOPT_POSTFIELDS     => http_build_query($data),
             CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
         ]);
 
-    $response = curl_exec($curl);
-    $error = curl_error($curl);
+        $response = curl_exec($curl);
+        $error = curl_error($curl);
 
-    if ($error) {
-        return $error;
+        if ($error) {
+            return $error;
+        }
+
+        curl_close($curl);
+
+        // dd($response);
+
+        return $response ? $response : $error;
     }
 
-    curl_close($curl);
+    public function CostCalculator($subscribe)
+    {
+        $apiKey = env('TRIPAY_API_KEY');
+        $amount       = $subscribe->price;
 
-    // dd($response);
+        $payload = [
+            'code' => 'DANA',
+            'amount' => $amount,
+        ];
 
-    return $response;
+        $curl = curl_init();
+
+        curl_setopt_array($curl, [
+            CURLOPT_FRESH_CONNECT  => true,
+            CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/transaction/create' . http_build_query($payload),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER         => false,
+            CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . $apiKey],
+            CURLOPT_FAILONERROR    => false,
+            CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
+        ]);
+
+        $response = curl_exec($curl);
+        $error = curl_error($curl);
+
+        curl_close($curl);
+
+        return $response ? $response : $error;
     }
 }

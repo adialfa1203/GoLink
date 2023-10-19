@@ -48,12 +48,45 @@
                         <div class="col-12">
                             <div class="card card-animate" style="border-radius: 20px;">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4" style="color:#0E2954;">Detail pembelian langganan
-                                        {{ $subscribe->tipe }} Anda: </h4>
+                                    <h4 class="card-title mb-4" style="color:#0E2954;">Detail Layanan
+                                        @if (strtolower(trim($subscribe->tipe)) === 'free')
+                                            Gratis
+                                        @elseif (strtolower(trim($subscribe->tipe)) === 'silver')
+                                            Dasar
+                                        @elseif (strtolower(trim($subscribe->tipe)) === 'gold')
+                                            Menengah
+                                        @elseif (strtolower(trim($subscribe->tipe)) === 'platinum')
+                                            Premium
+                                        @else
+                                            Data Tidak Valid
+                                        @endif Anda:
+                                    </h4>
                                     <ul class="list-group">
                                         <li class="list-group-item d-flex justify-content-between align-items-center">Lite
-                                            (Perbulan) :
-                                            <span>{{ $subscribe->tipe }}</span>
+                                            (
+                                                @if (strtolower(trim($subscribe->period)) === 'forever')
+                                                    Selamanya
+                                                @elseif (strtolower(trim($subscribe->period)) === '1_week')
+                                                    Mingguan
+                                                @elseif (strtolower(trim($subscribe->period)) === '1_month')
+                                                    Bulanan
+                                                @elseif (strtolower(trim($subscribe->period)) === '1_year')
+                                                    Tahunan
+                                                @else
+                                                    Data Tidak Valid
+                                                @endif
+                                                ) :
+                                            <span>@if (strtolower(trim($subscribe->tipe)) === 'free')
+                                                Gratis
+                                            @elseif (strtolower(trim($subscribe->tipe)) === 'silver')
+                                                Dasar
+                                            @elseif (strtolower(trim($subscribe->tipe)) === 'gold')
+                                                Menengah
+                                            @elseif (strtolower(trim($subscribe->tipe)) === 'platinum')
+                                                Premium
+                                            @else
+                                                Data Tidak Valid
+                                            @endif</span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">Pajak
                                             (11%) :
