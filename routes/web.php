@@ -129,7 +129,7 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'role:user']], function
         //analytic
         Route::get('/analytic-user', [AnalyticUserController::class, 'analyticUser'])->name('analytic.user');
         Route::get('/analytic-chart', [AnalyticUserController::class, 'AnalyticUsersChart'])->name('analytic.users.chart');
-        Route::get('/get-quota-data', [DahsboardController::class, 'quotaData'])->name('quotaData');
+        Route::get('/get-quota-data', [AnalyticUserController::class, 'quotaData'])->name('quota.data');
 
         //subscribe
         Route::get('/subscribe-user', [SubscribeUserController::class, 'subscribeUser'])->name('subscribe.user');

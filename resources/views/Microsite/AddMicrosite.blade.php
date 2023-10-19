@@ -396,31 +396,43 @@
     </script>
 
     <script>
-        @if($errors->any())
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'link microsite sudah pernah DIgunakan.',
-                });
+        @if ($errors->any())
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'link microsite sudah pernah DIgunakan.',
+            });
         @endif
         function showSweetAlert() {
-            var maxMicrosites = 3;
+            var userSubscribe = "{{ $user->subscribe }}";
             var existingMicrosites = {{ $micrositeCount ?? 0 }};
             var inputsAreValid = validateInputs();
+            var maxMicrosites;
 
-            if (existingMicrosites < maxMicrosites && inputsAreValid) {
-                $('#form-create').submit();
+            // Menentukan jumlah maksimum microsite berdasarkan jenis langganan
+            if (userSubscribe === 'free') {
+                maxMicrosites = 3;
+            } else if (userSubscribe === 'silver') {
+                maxMicrosites = 5;
+            } else if (userSubscribe === 'gold') {
+                maxMicrosites = 10;
+            } else if (userSubscribe === 'platinum') {
+                // Jumlah maksimum microsite tidak dibatasi untuk pelanggan platinum
+                maxMicrosites = Infinity;
             }
+
             if (existingMicrosites >= maxMicrosites) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Anda telah mencapai batas maksimum 3 microsite',
+                    text: 'Anda telah mencapai batas maksimum ' + maxMicrosites + ' microsite',
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = "{{ route('microsite') }}";
                     }
                 });
+            } else if (inputsAreValid) {
+                $('#form-create').submit();
             }
         }
 

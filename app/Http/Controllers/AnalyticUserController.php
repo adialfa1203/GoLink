@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ShortUrl;
-use App\Models\User;
-use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\History;
+use App\Models\ShortUrl;
 use Carbon\CarbonPeriod;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 
 class AnalyticUserController extends Controller
 {
@@ -71,32 +73,30 @@ class AnalyticUserController extends Controller
 
     public function analyticUser()
     {
-        $user = Auth::user()->id;
-        $users = Auth::user();
+        $user = Auth::user();
+        // $users = Auth::user();
 
-        if ($users) {
-            $subscribe = $users->subscribe;
+        if ($user) {
+            $subscribe = $user->subscribe;
 
-            if ($subscribe->tipe == 'free') {
+            if ($subscribe == 'free') {
                 $urlStatus = '15';
                 $micrositeStatus = '3';
-            } elseif ($subscribe->tipe == 'silver') {
+            } elseif ($subscribe == 'silver') {
                 $urlStatus = '25';
                 $micrositeStatus = '5';
-            } elseif ($subscribe->tipe == 'gold') {
+            } elseif ($subscribe == 'gold') {
                 $urlStatus = '35';
                 $micrositeStatus = '10';
-            } elseif ($subscribe->tipe == 'platinum') {
+            } elseif ($subscribe == 'platinum') {
                 $urlStatus = 'Unlimited';
                 $micrositeStatus = 'Unlimited';
             } else {
                 $urlStatus = 'Status tidak valid';
                 $micrositeStatus = 'Status tidak valid';
             }
-        }else {
-            // Tangani jika $user tidak valid
-            // Misalnya, arahkan pengguna kembali ke halaman login
         }
+
         $links = ShortUrl::withCount([
             'visits AS totalVisits' => function ($query) use ($user) {
                 $query->whereHas('shortURL', function ($query) use ($user) {
@@ -123,12 +123,27 @@ class AnalyticUserController extends Controller
             ->take(3)
             ->get();
 
-        $countURL = ShortURL::where('user_id', $user)
-            ->whereNull('microsite_uuid')
-            ->count();
-        $countMicrosite = ShortUrl::where('user_id', $user)
-            ->whereNotNull('microsite_uuid')
-            ->count();
+        if ($user) {
+            $userId = $user->id;
+            $totalUrl = ShortURL::where('user_id', $userId)
+                ->whereNull('microsite_uuid')
+                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->count();
+
+            $countHistory = History::where('user_id', $userId)
+                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->count();
+            $countURL = $totalUrl + $countHistory;
+        }
+        if ($user) {
+            $userId = $user->id;
+            $countMicrosite = ShortURL::where('user_id', $userId)
+                ->whereNotNull('microsite_uuid')
+                ->orderBy('created_at', 'asc')
+                ->limit(3)
+                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->count();
+        }
 
         $dataLink = SHortURL::all();
 
@@ -149,9 +164,9 @@ class AnalyticUserController extends Controller
             ->whereRelation('shortURL', 'archive', '!=', 'yes')
             ->count();
 
-        $users = User::where('email', '!=', 'admin@gmail.com')->get();
+        $user = User::where('email', '!=', 'admin@gmail.com')->get();
         $count = [];
-        foreach ($users as $user) {
+        foreach ($user as $user) {
             $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();
         }
         // Mengurutkan data berdasarkan jumlah pengunjung
@@ -166,7 +181,27 @@ class AnalyticUserController extends Controller
         // $visits = count($shortURL->visits) ;
 
         // dd($totalVisits,$countURL);
-        return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'users', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite'));
+        return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'user', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite'));
     }
 
+    public function quotaData()
+    {
+        $user = Auth::user()->id;
+
+        $countURL = ShortUrl::where('user_id', $user)
+            ->whereNull('microsite_uuid')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->get();
+        $countMicrosite = ShortUrl::where('user_id', $user)
+            ->whereNotNull('microsite_uuid')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->get();
+
+        return response()->json([
+            'countURL' => $countURL,
+            'countMicrosite' => $countMicrosite,
+        ]);
+    }
 }

@@ -70,7 +70,7 @@ class MicrositeController extends Controller
         $user = auth()->user();
         $statusSubscribe = $user->subscribe;
 
-        if ($statusSubscribe === 'yes') {
+        if ($statusSubscribe === 'platinum') {
             $data = Components::all();
         } else {
             $data = Components::orderBy('created_at', 'asc')->take(3)->get();
@@ -78,14 +78,22 @@ class MicrositeController extends Controller
 
         $button = Button::all();
         $micrositeCount = $user->microsites()->count();
-        return view('Microsite.AddMicrosite', compact('data', 'button', 'micrositeCount'));
+        return view('Microsite.AddMicrosite', compact('user', 'data', 'button', 'micrositeCount'));
     }
 
     public function createMicrosite(Request $request, Microsite $microsite)
     {
         $user = auth()->user();
-        if ($user->subscribe === 'no' && $user->microsites()->count() >= 3) {
+        if ($user->subscribe === 'free' && $user->microsites()->count() >= 3) {
             return redirect()->back();
+        }
+        if ($user->subscribe === 'silver' && $user->microsites()->count() >= 5) {
+            return redirect()->back();
+        }
+        if ($user->subscribe === 'gold' && $user->microsites()->count() >= 10) {
+            return redirect()->back();
+        }
+        if ($user->subscribe === 'platinum') {
         }
 
         $validator = Validator::make($request->all(), [
