@@ -10,9 +10,31 @@ use App\Models\User;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DahsboardController extends Controller
 {
+    public function getChartData()
+    {
+        $user = Auth::user()->id;
+
+        $countURL = ShortUrl::where('user_id', $user)
+            ->whereNull('microsite_uuid')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->get();
+        $countMicrosite = ShortUrl::where('user_id', $user)
+            ->whereNotNull('microsite_uuid')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->get();
+
+        return response()->json([
+            'countURL' => $countURL,
+            'countMicrosite' => $countMicrosite,
+        ]);
+    }
+
     public function dashboardUser()
     {
         $user = Auth::user();
@@ -81,7 +103,7 @@ class DahsboardController extends Controller
         }
         $qr = ShortUrl::get()->sum('qr_code');
 
-        return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite'));
+        return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite', 'user'));
     }
 
     public function HelpSupport()
