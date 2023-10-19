@@ -171,7 +171,7 @@
             </div>
         </div>
     </div>
-    <div class="customizer-setting d-none d-md-block">
+    <div class="customizer-setting d-md-block">
     <a class="floating-button" href="{{url('chatify/web-chat')}}">
         <i class="bi bi-chat-dots"></i>
     </a>
