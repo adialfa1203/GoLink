@@ -392,7 +392,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <div class="card lower" id="agenciesList">`
+                        <div class="card lower" id="agenciesList">
                             <div class="card-body">
                                 <h5 class="tex">Perangkat Teratas</h5>
                                 <hr>
@@ -418,6 +418,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div><!--end row-->
         </div>

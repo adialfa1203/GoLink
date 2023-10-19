@@ -25,11 +25,15 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="abt_side">
                             <div class="logo">
-                                <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image" style="margin-top: -10%;">
+                                <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image"
+                                 style="margin-top: -10%;">
                                 <ul style="margin-bottom: -5%; margin-right:10px;">
-                                    <li style="color: white; font-size:14px;">{!! $data->description !!}</li>
+                                    <li style="color: white; font-size:14px;word-wrap: break-word;">{!! $data->description !!}</li>
                                 </ul>
                             </div>
+                        </div>
+                        <div class="bottom_footer col-12" style="margin-bottom: 4%; padding-top: 0;"> 
+                            <p style="display: inline-block; white-space: nowrap; text-align">© MiLink Dikelola oleh PT. Hummatech</p>                                
                         </div>
                     </div>
 
@@ -108,17 +112,7 @@
             </div>
         </div>
 
-        <!-- Bottom Footer -->
-        <div class="bottom_footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-right">
-                        <p>© MiLink Dikelola oleh PT. Hummatech</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+       
         <!-- Go Top Button -->
         <div class="go_top">
             <span><img src="https://i.postimg.cc/MZtYYpPg/go-top.png" alt="image"></span>
@@ -135,19 +129,14 @@
                             <div class="logo">
                                 <img src="{{ asset('linkbaru.png') }}" alt="image" style="margin-top: -10%;">
                                 <ul style="margin-top: 10%; margin-right:10px;">
-                                    <li style="color: white; font-size:14px;">{!! $data->description !!}</li>
+                                    <li style="color: white; font-size:14px;word-wrap: break-word;padding-bottom:0;">{!! $data->description !!}</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="bottom_footer" style="margin-bottom: 4%;">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p >© MiLink Dikelola oleh PT. Hummatech</p>
-                                    </div>
+                        <div class="bottom_footer col-12" style="margin-bottom: 4%; padding-top: 0;"> 
+                                    <p style="display: inline-block; white-space: nowrap; text-align">© MiLink Dikelola oleh PT. Hummatech</p>                                
                                 </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <!-- Footer Links -->
