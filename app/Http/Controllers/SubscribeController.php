@@ -61,14 +61,16 @@ class SubscribeController extends Controller
 
         return redirect()->route('subscribe')->with('success', 'Berhasil membuat tipe Langganan baru.');
     }
-    public function editSubscribe(Request $request, $id){
+    public function editSubscribe(Request $request, $id)
+    {
         $subscribe = Subscribe::Findorfail($id);
         return view('SubscribeAdmin.EditSubscription', compact('subscribe'));
     }
+
     public function updateSubscribe(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'tipe' => 'required|in:Gratis,Dasar,Menengah,Premium',
+            'tipe' => 'required|in:free,silver,gold,platinum',
             'period' => 'required|in:forever,1_week,1_month,1_year',
             'price' => 'required|numeric|min:0',
             'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -87,6 +89,7 @@ class SubscribeController extends Controller
             'description.required' => 'Deskripsi tidak boleh kosong.',
             'description.min' => 'Deskripsi harus memiliki setidaknya 10 karakter.',
         ]);
+        // dd($request->tipe);
 
         if ($validator->fails()) {
             return redirect()->back()

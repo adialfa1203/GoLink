@@ -26,19 +26,19 @@
                                         <label for="tipe" class="form-label">Tipe Langganan</label>
                                         <select name="tipe" class="form-select" id="tipe" required>
                                             <option value="" disabled selected>Pilih Tipe Langganan...</option>
-                                            <option value="Gratis"
+                                            <option value="free"
                                                 {{ old('tipe', $subscribe->tipe) === 'free' ? 'selected' : '' }}>
                                                 Gratis
                                             </option>
-                                            <option value="Dasar"
+                                            <option value="silver"
                                                 {{ old('tipe', $subscribe->tipe) === 'silver' ? 'selected' : '' }}>
                                                 Tingkatan Dasar
                                             </option>
-                                            <option value="Menengah"
+                                            <option value="gold"
                                                 {{ old('tipe', $subscribe->tipe) === 'gold' ? 'selected' : '' }}>
                                                 Tingkatan Menengah
                                             </option>
-                                            <option value="Premium"
+                                            <option value="platinum"
                                                 {{ old('tipe', $subscribe->tipe) === 'platinum' ? 'selected' : '' }}>
                                                 Tingkatan Premium
                                             </option>
