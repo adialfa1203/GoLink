@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignUuid('subscribe_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('reference');
             $table->date('expired');
-            $table->integer('amout');
-            $table->integer('fee_amout');
+            $table->integer('amount');
+            $table->integer('fee_amount');
             $table->enum('payment_method', ['BNIVA', 'BRIVA	', 'MANDIRIVA', 'BCAVA', 'OVO', 'DANA']);
             $table->enum('status', ['UNPAID', 'PAID', 'EXPIRED', 'FAILED', 'REFUND']);
             $table->timestamps();

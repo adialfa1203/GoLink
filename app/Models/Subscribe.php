@@ -20,4 +20,8 @@ class Subscribe extends Model
             $model->id = \Ramsey\Uuid\Uuid::uuid4()->toString();
         });
     }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'subscribe_id');
+    }
 }

@@ -26,9 +26,11 @@ class SubscribeUserController extends Controller
 
     public function subscribeUser()
     {
-        $data = Subscribe::paginate(5);
+        $userId = auth()->user()->id;
+        $data = Transaction::where('user_id', $userId)->paginate(10);
         return view('User.SubscribeUser', compact('data'));
     }
+
 
     public function subscribeProductUser()
     {
@@ -71,8 +73,8 @@ class SubscribeUserController extends Controller
             'subscribe_id' => $subscribe->id,
             'reference' => $data->reference,
             'expired' => Carbon::parse($data->expired_time)->format('Y-m-d'),
-            'amout' => $data->amount,
-            'fee_amout' => $data->total_fee,
+            'amount' => $data->amount,
+            'fee_amount' => $data->total_fee,
             'payment_method' => $data->payment_method,
         ]);
 

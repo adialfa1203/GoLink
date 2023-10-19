@@ -94,10 +94,11 @@
                                     <table class="table table-centered align-middle table-nowrap mb-0">
                                         <thead class="table-active">
                                             <tr>
-                                                <th class="" data-sort="products">Tanggal Bayar</th>
                                                 <th class="" data-sort="category">Layanan</th>
                                                 <th class="" data-sort="stock">Metode</th>
                                                 <th class="" data-sort="price">Harga</th>
+                                                <th class="" data-sort="products">Tanggal Bayar</th>
+                                                <th class="" data-sort="price">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -116,12 +117,42 @@
                                                     </td>
                                                 </tr>
                                             @else
-                                                @foreach ($data as $subs)
+                                                @foreach ($data as $transaction)
                                                     <tr>
-                                                        <td>2023-09-19</td>
-                                                        <td>Layanan A</td>
-                                                        <td>Metode 1</td>
-                                                        <td>$100</td>
+                                                        <td>
+                                                            @if (strtolower(trim($transaction->subscribe->tipe)) === 'free')
+                                                            Gratis
+                                                            @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'silver')
+                                                            Dasar
+                                                            @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'gold')
+                                                            Menengah
+                                                            @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'platinum')
+                                                            Premium
+                                                            @else
+                                                            Unknown
+                                                            @endif
+                                                        </td>
+                                                        <td>{{ $transaction->payment_method }}</td>
+                                                        <td>Rp.{{ number_format($transaction->amount, 2, ',', '.') }}</td>
+                                                        <td>{{ $transaction->updated_at }}</td>
+                                                        <td>
+                                                            @if ($transaction->status === 'PAID')
+                                                                <span
+                                                                    class="badge bg-success">{{ $transaction->status }}</span>
+                                                            @elseif ($transaction->status === 'REFUND')
+                                                                <span
+                                                                    class="badge bg-primary">{{ $transaction->status }}</span>
+                                                            @elseif ($transaction->status === 'EXPIRED')
+                                                                <span
+                                                                    class="badge bg-warning">{{ $transaction->status }}</span>
+                                                            @elseif ($transaction->status === 'UNPAID')
+                                                                <span
+                                                                    class="badge bg-danger">{{ $transaction->status }}</span>
+                                                            @else
+                                                                <span
+                                                                    class="badge bg-secondary">{{ $transaction->status }}</span>
+                                                            @endif
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             @endif
@@ -129,7 +160,6 @@
                                     </table>
                                 </div>
                             </div>
-
                             <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
                                 <a class="page-item pagination-prev {{ $data->previousPageUrl() ? '' : 'disabled' }}"
                                     href="{{ $data->previousPageUrl() ? $data->previousPageUrl() : '#' }}">
