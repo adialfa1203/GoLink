@@ -10,13 +10,18 @@
         border-radius: 20px;
         background: #104898;
     }
-
+.foto{
+    margin-left: -50px;
+}
     .vatar {
         padding: 40px;
     }
-.texs{
-    padding: 20px;
-}
+
+    .texs {
+        padding: 5px;
+        margin-left: 20px;
+    }
+
     @media (max-width: 768px) {
 
         /* Atur gaya CSS khusus untuk perangkat laptop di sini */
@@ -25,8 +30,13 @@
             width: 279px;
             height: 279px;
         }
-        .vatar{
-            margin-left: 50px;
+
+        .texs {
+            text-align: center;
+            margin-left: 4px;
+        }
+        .foto{
+            margin-left: -116px;
         }
     }
 
@@ -133,13 +143,25 @@
                         <div class="card-body pt-0 mt-n5">
                             <!-- <div class="text-center"> -->
                             <div class="card mx-auto biru">
-                                <div class="d-flex profile-user position-relative d-inline-block vatar">
-                                    @if ($user->profile_picture)
-                                    <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}" alt="{{ $user->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                                    @else
-                                    <img src="{{ asset('default/default.jpg') }}" alt="{{ $user->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                                    @endif
-                                    <!-- <div class="avatar-xs p-0 rounded-circle profile-photo-edit position-absolute end-0 bottom-0">
+                                <div class="profile-user position-relative d-inline-block vatar">
+                                    <div class="d-flex row">
+                                        <div class="col-12 col-lg-2 col-xl-2 col-sm-6 col-md-6">
+                                            <center>
+                                                @if ($user->profile_picture)
+                                                <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}" alt="{{ $user->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                                @else
+                                                <img src="{{ asset('default/default.jpg') }}" alt="{{ $user->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                                @endif
+                                                <input id="profile-img-file-input" name="profile_picture" type="file" class="profile-img-file-input d-none">
+                                                <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
+                                                    <span class="avatar-title rounded-circle bg-light text-body foto">
+                                                        <i class="bi bi-camera"></i>
+                                                    </span>
+                                                </label>
+                                            </center>
+                                        </div>
+
+                                        <!-- <div class="avatar-xs p-0 rounded-circle profile-photo-edit position-absolute end-0 bottom-0">
                                         <input id="profile-img-file-input" name="profile_picture" type="file" class="profile-img-file-input d-none">
                                         <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
                                             <span class="avatar-title rounded-circle bg-light text-body">
@@ -147,11 +169,14 @@
                                             </span>
                                         </label>
                                     </div> -->
-                                  
-                                    <div class="texs">
-                                        <h5>{{ $user->name }}<i class=" align-baseline text-info ms-1"></i></h5>
-                                        <p class="text-muted">{{ $accountStatus }}</p>
+
+                                        <div class="texs col-12 col-lg-6 col-xl-6 col-sm-6 col-md-6">
+                                            <h5 style="color: #fff;margin: 4px;">{{ $user->name }}<i class=" align-baseline text-info ms-1"></i></h5>
+                                            <button class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</button>
+                                            <h5 style="color: #fff;margin: 4px;">{{ $user->email }}<i class=" align-baseline text-info ms-1"></i></h5>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                             <!-- <div class="profile-user position-relative d-inline-block mx-auto">
