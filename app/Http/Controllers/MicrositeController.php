@@ -172,8 +172,8 @@ class MicrositeController extends Controller
             'name' => 'nullable|string|max:35',
             'name_microsite' => 'nullable|string|max:35',
             'description' => 'nullable|string|max:300',
-            'company_name' => 'required|string|max:35', // Menghapus 'nullable'
-            'company_address' => 'required|string|max:100', // Menghapus 'nullable'
+            'company_name' => 'required|string|max:35',
+            'company_address' => 'required|string|max:100',
             'button_link.*' => 'required|string|url',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ], [
@@ -182,10 +182,10 @@ class MicrositeController extends Controller
             'image.image' => 'Kolom harus berupa gambar!',
             'button_link.*.required' => 'Kolom ini wajib diisi!',
             'button_link.*.url' => 'URL tidak valid.',
-            'company_name.required' => 'Nama perusahaan wajib diisi!', // Menambah pesan validasi baru
-            'company_name.max' => 'Nama perusahaan tidak boleh lebih besar dari 35 karakter.', // Memindahkan pesan validasi max ke sini
-            'company_address.required' => 'Alamat perusahaan wajib diisi!', // Menambah pesan validasi baru
-            'company_address.max' => 'Alamat perusahaan tidak boleh lebih besar dari 100 karakter.', // Memindahkan pesan validasi max ke sini
+            'company_name.required' => 'Nama perusahaan wajib diisi!',
+            'company_name.max' => 'Nama perusahaan tidak boleh lebih besar dari 35 karakter.',
+            'company_address.required' => 'Alamat perusahaan wajib diisi!',
+            'company_address.max' => 'Alamat perusahaan tidak boleh lebih besar dari 100 karakter.',
         ]);
 
         if ($validator->fails()) {
@@ -217,21 +217,38 @@ class MicrositeController extends Controller
             $coverImage->move(public_path('images'), $coverImageName);
             $microsite->image = $coverImageName;
         }
-        // dd($microsite->image);
         $microsite->save();
 
-        foreach ($buttonLinks as $index => $buttonLink) {
-            if ($buttonLink !== null) {
-                $social = $socials->where('buttons_uuid', $index)->first();
+        $defaultShortUrl = ShortUrl::where('microsite_uuid', $id)->first();
+        $updateUrl = ShortUrl::where('url_key', $defaultShortUrl->url_key)->first();
+        $url = $request->input('default_short_url');
+        $url_parts = explode('/', $url);
+        $last_segment = end($url_parts);
 
-                if ($social) {
-                    $social->button_link = $buttonLink;
-                    $social->save();
+        if (!$updateUrl) {
+            return redirect()->back()->with('error', 'URL pendek default tidak ditemukan');
+        } else {
+            $newUrlKey = str_replace(' ', '-', $last_segment);
+            $newUrlKey = strtolower($newUrlKey);
+
+            $updateUrl->url_key = $newUrlKey;
+            $updateUrl->default_short_url = env('APP_URL') . "/" . $newUrlKey;
+            $updateUrl->custom_name = 'yes';
+            $updateUrl->save();
+
+            foreach ($buttonLinks as $index => $buttonLink) {
+                if ($buttonLink !== null) {
+                    $social = $socials->where('buttons_uuid', $index)->first();
+
+                    if ($social) {
+                        $social->button_link = $buttonLink;
+                        $social->save();
+                    }
                 }
             }
-        }
 
-        return redirect()->route('microsite')->with('success', 'Microsite berhasil dibuat');
+            return redirect()->route('microsite')->with('success', 'Microsite berhasil diperbarui');
+        }
     }
 
     public function createComponent()
@@ -371,5 +388,4 @@ class MicrositeController extends Controller
 
         return response()->json(['results' => $results]);
     }
-
 }

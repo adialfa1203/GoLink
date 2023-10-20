@@ -152,7 +152,7 @@
                     <div class="hstack gap-2 justify-content-end">
                         <a href="{{ route('add.microsite') }}" type="button"
                             class="btn btn-label square-button" style="background-color: #088C0D">
-                            <i class="ri-add-line label-icon align-middle fs-lg icon-color"></i>
+                            <i class="ri-add-line label-icon align-middle fs-lg icon-color" style="color: #ffffff;"></i>
                             <span class="btn-text square-button" style="color: #ffffff;">Buat Microsite</span>
                         </a>
                     </div>
