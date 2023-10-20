@@ -73,7 +73,7 @@
 
 
 @section('content')
-    <div class="page-content">
+    <div class="page-content" style="background-color: white;">
         <div class="container-fluid">
 
             <!-- start page title -->
@@ -86,8 +86,8 @@
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header">
+                    <div class="card" style="background-color: #F0F0F0">
+                        <div class="card-header" style="background-color: #F0F0F0">
                             <h4 class="card-title mb-0">Buat Microsite Baru</h4>
                         </div><!-- end card header -->
                         <div class="card-body form-steps">
@@ -95,42 +95,37 @@
                                 class="vertical-navs-step needs-validation" novalidate method="POST">
                                 @csrf
                                 <div class="row gy-5">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3" style="border-right: 1px solid #000;">
                                         <div class="nav flex-column custom-nav nav-pills" role="tablist"
                                             aria-orientation="vertical">
                                             <button class="nav-link active" id="v-pills-bill-info-tab" data-bs-toggle="pill"
                                                 data-bs-target="#v-pills-bill-info" type="button" role="tab"
-                                                aria-controls="v-pills-bill-info" aria-selected="true">
+                                                aria-controls="v-pills-bill-info" aria-selected="true"
+                                                style="border: 1px solid rgba(0, 0, 0, 0.50);">
                                                 <span class="step-title me-2">
-                                                    <i class="ri-close-circle-fill step-icon me-2"></i> Tentukann jenis
+                                                    <i class="ri-close-circle-fill step-icon me-2"></i> Tentukan jenis
                                                     microsite anda!
                                                 </span>
                                             </button>
                                             <button class="nav-link" id="v-pills-bill-address-tab" data-bs-toggle="pill"
                                                 data-bs-target="#v-pills-bill-address" type="button" role="tab"
-                                                aria-controls="v-pills-bill-address" aria-selected="false">
+                                                aria-controls="v-pills-bill-address" aria-selected="false"
+                                                style="border: 1px solid black;">
                                                 <span class="step-title me-2">
                                                     <i class="ri-close-circle-fill step-icon me-2"></i> Pilih nama anda!
                                                 </span>
                                             </button>
                                             <button class="nav-link" id="v-pills-payment-tab" data-bs-toggle="pill"
                                                 data-bs-target="#v-pills-payment" type="button" role="tab"
-                                                aria-controls="v-pills-payment" aria-selected="false">
+                                                aria-controls="v-pills-payment" aria-selected="false"
+                                                style="border: 1px solid black;">
                                                 <span class="step-title me-2">
                                                     <i class="ri-close-circle-fill step-icon me-2"></i> Pilih media sosial
                                                     anda!
                                                 </span>
                                             </button>
-                                            {{-- <button class="nav-link" id="v-pills-finish-tab" data-bs-toggle="pill"
-                                                data-bs-target="#v-pills-finish" type="button" role="tab"
-                                                aria-controls="v-pills-finish" aria-selected="false">
-                                                <span class="step-title me-2">
-                                                    <i class="ri-close-circle-fill step-icon me-2"></i> Kirim
-                                                </span>
-                                            </button> --}}
                                         </div>
-                                        <!-- end nav -->
-                                    </div> <!-- end col-->
+                                    </div>
 
                                     <div class="col-lg-9">
                                         <div class="px-lg-4">
@@ -142,18 +137,13 @@
                                                         <p class="text-muted">Pilih jenis microsite yang cocok dengan
                                                             kebutuhan Anda!</p>
                                                     </div>
-                                                    <div class="row">
+                                                    <div class="row g-2">
                                                         @foreach ($data as $microsite)
-                                                            <div class="col-xl-4 col-sm-6 mb-4">
+                                                            <div class="col-xl-4 col-sm-12 mb-4">
                                                                 <div class="card clickable-card"
-                                                                    data-microsite-id="{{ $microsite->id }}">
+                                                                    data-microsite-id="{{ $microsite->id }}"
+                                                                    style="box-shadow: 2px 5px 4px 0px rgba(0, 0, 0, 0.25);">
                                                                     <div class="text-center">
-                                                                        <div class="dropdown float-end">
-                                                                            <a class="text-reset dropdown-btn"
-                                                                                href="#" data-bs-toggle="dropdown"
-                                                                                aria-haspopup="true" aria-expanded="false">
-                                                                            </a>
-                                                                        </div>
                                                                         <strong
                                                                             class="fs-md text-muted mb-0">{{ $microsite->name }}</strong>
                                                                     </div>
@@ -178,8 +168,7 @@
                                                                                     id="tema{{ $microsite->id }}"
                                                                                     name="microsite_selection"
                                                                                     value="{{ $microsite->id }}"
-                                                                                    class="form-check-input">&nbsp;
-                                                                                {{ $microsite->component_name }}
+                                                                                    class="form-check-input">&nbsp;{{ $microsite->component_name }}
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -189,11 +178,14 @@
                                                     </div>
                                                     <div class="d-flex align-items-start gap-3 mt-4">
                                                         <button type="button"
-                                                            class="btn btn-success btn-label right ms-auto nexttab nexttab"
-                                                            data-nexttab="v-pills-bill-address-tab"><i
-                                                                class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Selanjutnya</button>
+                                                            class="btn btn-label right ms-auto nexttab nexttab" style="background: #2DCB73; color: #FFF;"
+                                                            data-nexttab="v-pills-bill-address-tab">
+                                                            <i
+                                                                class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Selanjutnya
+                                                        </button>
                                                     </div>
                                                 </div>
+
                                                 <!-- end tab pane -->
                                                 <div class="tab-pane fade" id="v-pills-bill-address" role="tabpanel"
                                                     aria-labelledby="v-pills-bill-address-tab">
@@ -249,9 +241,9 @@
                                                         </div>
                                                         <div class="col-6 col-md-6" style="margin-left: -8px;">
                                                             <button type="button"
-                                                                class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                                                                class="btn btn-label right ms-auto nexttab nexttab"
                                                                 data-nexttab="v-pills-payment-tab"
-                                                                style="float: right;"><i
+                                                                style="float: right; background: #2DCB73; color: #FFF;"><i
                                                                     class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Selanjutnya</button>
                                                         </div>
                                                     </div>
@@ -268,7 +260,7 @@
                                                     <div class="row">
                                                         @foreach ($button as $data)
                                                             <div class="col-xl-4 col-sm-6 mb-4">
-                                                                <div class="card" id="{{ $data->id }}"
+                                                                <div class="card" id="{{ $data->id }}" style="box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);"
                                                                     data-card-id="{{ $data->id }}">
                                                                     <div class="card-footer text-center">
                                                                         <div
@@ -303,7 +295,7 @@
                                                                 class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
                                                             Sebelumnya</button>
                                                         <button type="submit" id="submitButton"
-                                                            class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                                                            class="btn btn-label right ms-auto nexttab nexttab" style="background: #2DCB73; color: #FFF;"
                                                             {{-- data-nexttab="v-pills-finish-tab" --}} onclick="return validateForm();"><i
                                                                 class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Kirim</button>
 
@@ -328,7 +320,7 @@
                                         </div>
 
                                     </div>
-                                    <!-- end row -->
+                                </div>
                             </form>
                         </div>
                     </div>
