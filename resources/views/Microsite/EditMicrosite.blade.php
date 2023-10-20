@@ -233,9 +233,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex align-items-start gap-3 mt-4">
-                            <button type="submit" class="btn btn-success right ms-auto">Kirim</button>
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="submit" class="btn btn-success">Kirim</button>
+                            </div>
                         </div>
                     </div><!-- end card-body -->
                 </div>
