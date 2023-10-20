@@ -28,9 +28,11 @@
             </div>
             <!-- end page title -->
             <div>
-                <a href="{{ url('admin/add-subscribe') }}"> <button type="button" class="btn btn-success">Tambah</button></a>
-
-            </div><br>
+                <a href="{{ url('admin/add-subscribe') }}">
+                    <button type="button" class="btn btn-custom" style="background-color: #088C0D; color: white;"><i class="bi bi-plus"></i>Tambah Berlangganan</button>
+                </a>
+            </div>
+            <br>
             {{-- <div class="col-sm-6 col-xl-3">
                 <div class="card">
                     <img class="card-img-top img-fluid mt-3" src="{{ asset('plugin/cat-berlangganan.jpg') }}"

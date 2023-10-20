@@ -116,7 +116,7 @@
                         style="border-left: #0E2954 solid 4px; border-radius: 10px;">
                         <div class="card-body">
                             <span class="badge bg-success-subtle text-success float-end"></span>
-                            <p class="text-muted fw-medium text-uppercase mb-0">Jumlah tautan</p>
+                            <p style="color: #0E2954; text-muted fw-medium text-uppercase mb-0">Jumlah tautan</p>
                             <h4 class="mt-4"><span class="counter-value"
                                     data-target="{{ $countURL }}">{{ $countURL }}</span></h4>
                         </div>
@@ -127,7 +127,7 @@
                         style="border-left: #104898 solid 4px; border-radius: 10px;">
                         <div class="card-body">
                             <span class="badge bg-success-subtle text-success float-end"></span>
-                            <p class="text-muted fw-medium text-uppercase mb-0">Pengunjung Tautan</p>
+                            <p style="color: #0E2954; text-muted fw-medium text-uppercase mb-0">Pengunjung Tautan</p>
                             <h4 class="mt-4"><span class="counter-value"
                                     data-target="{{ $totalVisits }}">{{ $totalVisits }}</span></h4>
                         </div>
@@ -138,7 +138,7 @@
                         style="border-left: #337CCF solid 4px; border-radius: 10px;">
                         <div class="card-body">
                             <span class="badge bg-success-subtle text-success float-end"></span>
-                            <p class="text-muted fw-medium text-uppercase mb-0">Jumlah Microsite</p>
+                            <p style="color: #0E2954; text-muted fw-medium text-uppercase mb-0">Jumlah Microsite</p>
                             <h4 class="mt-4"><span class="counter-value"
                                     data-target="{{ $countMicrosite }}">{{ $countMicrosite }}</span></h4>
                         </div>
@@ -149,7 +149,7 @@
                         style="border-left: #80B3FF solid 4px; border-radius: 10px;">
                         <div class="card-body">
                             <span class="badge bg-success-subtle text-success float-end"></span>
-                            <p class="text-muted fw-medium text-uppercase mb-0">Pengunjung Microsite</p>
+                            <p style="color: #0E2954; text-muted fw-medium text-uppercase mb-0">Pengunjung Microsite</p>
                             <h4 class="mt-4"><span class="counter-value"
                                     data-target="{{ $totalVisitsMicrosite }}">{{ $totalVisitsMicrosite }}</span></h4>
                         </div>

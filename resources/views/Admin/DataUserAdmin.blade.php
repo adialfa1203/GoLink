@@ -97,11 +97,11 @@
         <div class="row tan">
             <div class="">
                 <div class="card border-bottom border-2 card-animate">
-                    <div class="card-body" style="background: #0E2954;">
+                    <div class="card-body" style="background: #0E2954; border-radius: 10px;">
                         <h5 class="fs-md text-muted mb-0 text-white">Pengguna</h5>
                         <div class="row mt-3">
                             <div class="col-2">
-                                <i class="bi bi-person-fill-check custom-icon-size" style="font-size: 30px;"></i>
+                                <i class="bi bi-person-fill custom-icon-size" style="font-size: 30px;"></i>
                             </div>
                             <div class="col-10">
                                 <h3 class="mb-4 custom-icon-size" style="float: right;"><span class="counter-value" data-target="{{ $totalUser }}">{{ $totalUser }}</span> </h3>
@@ -112,12 +112,12 @@
             </div><!--end col-->
             <div class="">
                 <div class="card border-bottom border-2 card-animate">
-                    <div class="card-body" style="background-color: #104898">
-                        <h5 class="fs-md text-muted mb-0 text-white">Berlanggan</h5>
+                    <div class="card-body" style="background-color: #104898; border-radius: 10px;">
+                        <h5 class="fs-md text-muted mb-0 text-white">Berlangganan</h5>
 
                         <div class="row mt-3">
                             <div class="col-2">
-                                <i class="bi bi-person-fill-slash custom-icon-size" style="font-size: 30px;"></i>
+                                <i class="bi bi-person-fill-check custom-icon-size" style="font-size: 30px;"></i>
                             </div>
                             <div class="col-10">
                                 <h3 class="mb-4 custom-icon-size" style="float: right;"><span class="counter-value" data-target="{{ $berlanggan }}">{{ $berlanggan }}</span> </h3>
@@ -128,7 +128,7 @@
             </div>
             <div class="">
                 <div class="card border-bottom border-2 card-animate">
-                    <div class="card-body" style="background-color: #FF2323">
+                    <div class="card-body" style="background-color: #FF2323; border-radius: 10px;">
                         <h5 class="fs-md text-muted mb-0 text-white">Pengguna Di Blokir</h5>
 
                         <div class="row mt-3">

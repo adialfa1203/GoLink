@@ -157,10 +157,11 @@
                     </div>
                 </div>
 
-                <div class="dropdown topbar-head-dropdown ms-1 header-item"><button type="button"
-                        class="btn btn-danger"><i class="bi bi-fire"></i>
-                        <span>Berlangganan</span></button>
-                </div>
+                <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/user/subscribe-product-user" type="button"
+                    class="btn btn-custom" style="background-color: #0E2954"><i class="bi bi-fire" style="color: white;"></i>
+                    <span style="color: white;">Berlangganan</span></a>
+            </div>
+
 
                 <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"

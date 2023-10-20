@@ -11,8 +11,8 @@
     <div class="row">
         <div class="col-xl-4 col-sm-6">
             <div class="card border-bottom border-2 card-animate border-secondary">
-                <div class="card-body">
-                    <h5 class="fs-md text-muted mb-0">Pengguna</h5>
+                <div class="card-body" style="background: #0E2954;border-radius: 10px;">
+                    <h5 class="fs-md text-muted mb-0">Penguna</h5>
 
                     <div class="row mt-3">
                         <div class="col-2">
