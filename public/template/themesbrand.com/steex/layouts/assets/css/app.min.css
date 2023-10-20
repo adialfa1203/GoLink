@@ -9536,8 +9536,8 @@ button:is(.gridjs-sort-asc,
 
 .listjs-pagination li.active .page {
     color: #fff;
-    background-color: var(--tb-primary);
-    border-color: var(--tb-primary)
+    background-color: #0E2954;
+    border-color: #0E2954;
 }
 
 .pagination-wrap {

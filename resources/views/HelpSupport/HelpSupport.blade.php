@@ -135,9 +135,11 @@
 }
     </style>
     <style>
-        .card-with-shadow {
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Atur bayangan sesuai kebutuhan Anda */
-    }
+       .card-with-shadow {
+    border-radius: 0 0 15px 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
     .gambar-icon {
     display: block;
     margin: 0 auto 10px; /* Auto-margin pada sisi horizontal untuk mengatur ke tengah */

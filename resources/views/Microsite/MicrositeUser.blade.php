@@ -118,6 +118,11 @@
         }
 
     </style>
+    <style>
+        .page-content{
+            background: #ffffff !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -152,7 +157,7 @@
                     <div class="hstack gap-2 justify-content-end">
                         <a href="{{ route('add.microsite') }}" type="button"
                             class="btn btn-label square-button" style="background-color: #088C0D">
-                            <i class="ri-add-line label-icon align-middle fs-lg icon-color" style="color: #ffffff;"></i>
+                            <i class="ri-add-line label-icon align-middle fs-lg icon-color" style="color: white;"></i>
                             <span class="btn-text square-button" style="color: #ffffff;">Buat Microsite</span>
                         </a>
                     </div>
@@ -334,7 +339,7 @@
                         @endif
                     @endforeach
                 @endif
-                <div class="pagination-wrap hstack justify-content-center gap-2">
+                <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
                     <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}"
                         href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
                         Sebelumnya
