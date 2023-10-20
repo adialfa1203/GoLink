@@ -10,13 +10,74 @@
             /* Misalnya, mengurangi font size atau mengubah jumlah kolom grid */
         }
 
-        /* Aturan media queries lainnya sesuai kebutuhan */
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-link:focus,
+        .nav-link:hover {
+            text-decoration: none;
+        }
+
+        .nav-link.disabled {
+            color: #6c757d;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .nav-tabs .nav-link {
+            margin-bottom: -1px;
+            border: 1px solid transparent;
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+        }
+
+        .nav-tabs .nav-link:focus,
+        .nav-tabs .nav-link:hover {
+            border-color: #e9ecef #e9ecef #dee2e6;
+        }
+
+        .nav-tabs .nav-link.disabled {
+            color: transparent;
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        .nav-tabs .nav-item.show .nav-link,
+        .nav-tabs .nav-link.active {
+            color: transparent;
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+
+        .nav-tabs .dropdown-menu {
+            margin-top: -1px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: 0.25rem;
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #0E2954;
+            border-bottom: 3px solid #0E2954;
+            border-radius: 0;
+            background-color: transparent;
+        }
     </style>
 @endsection
 
 @section('content')
 
-    <div class="page-content">
+    <div class="page-content" style="background-color: white;">
         <div class="container-fluid">
 
             <!-- start page title -->
@@ -28,26 +89,30 @@
                 </div>
             </div>
             <!-- end page title -->
-
+            <div class="col-12 col-sm-2 isi align-items-xl-center d-xl-flex">
+                <p class="text-black flex-grow-1 mb-xl-0"></p>
+                <div class="flex-shrink-0">
+                    <ul class="nav nav-pills card-header-pills mb-3" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active fw-bold" data-bs-toggle="tab" href="#animation-home" role="tab">
+                                Komponen
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" data-bs-toggle="tab" href="#animation-profile" role="tab">
+                                Pengaturan
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- end col -->
             <form action="{{ route('update.microsite', ['id' => $id]) }}" method="post" class="row"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="col-lg-9">
-                    <div class="card">
+                    <div class="card" style="background: #F0F0F0;">
                         <div class="card-body">
-                            <ul class="nav nav-pills animation-nav nav-justified gap-2 mb-3" role="tablist">
-                                <li class="nav-item ">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#animation-home" role="tab">
-                                        Komponen
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#animation-profile" role="tab">
-                                        Pengaturan
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="tab-content text-muted">
+                            <div class="tab-content text-black">
                                 <div class="tab-pane active" id="animation-home" role="tabpanel">
                                     <div>
                                         <div class="mb-3">
@@ -187,13 +252,17 @@
                                                 <div class="row g-3">
                                                     <div class="col-12">
                                                         @if ($user->subscribe !== 'platinum' && $user->subscribe !== 'gold' && $user->subscribe !== 'silver')
-                                                            <label for="address" class="text-danger form-label">Nama
-                                                                Microsite hanya bisa diedit oleh pengguna yang
-                                                                Premium!</label>
+                                                            <label for="address" class="text-black form-label">Nama
+                                                                Microsite</label>
                                                             <input type="text" class="form-control" id="address"
                                                                 name="name" placeholder="aqua-link"
                                                                 value="{{ $microsite->name }}" disabled>
+                                                            <label for="address" class="text-danger form-label">Nama
+                                                                Microsite hanya bisa diedit oleh pengguna yang
+                                                                Berlangganan!</label>
                                                         @else
+                                                        <label for="address" class="text-black form-label">Nama
+                                                            Microsite</label>
                                                             <input type="text" class="form-control" id="address"
                                                                 name="name" placeholder="aqua-link"
                                                                 value="{{ $microsite->name }}">
@@ -207,15 +276,19 @@
                                                     </div>
                                                     <div class="col-12">
                                                         @if ($user->subscribe !== 'platinum' && $user->subscribe !== 'gold' && $user->subscribe !== 'silver')
-                                                            <label for="address" class="text-danger form-label">Tautan
-                                                                Microsite hanya bisa diedit oleh pengguna yang
-                                                                Premium!</label>
+                                                            <label for="address" class="text-black form-label">Tautan
+                                                                Microsite</label>
                                                             <div class="input-group">
                                                                 <input type="text" class="form-control" id="address"
                                                                     placeholder="aqua-link" name="default_short_url"
                                                                     value="{{ $short_url->default_short_url }}" disabled>
                                                             </div>
+                                                            <label for="address" class="text-danger form-label">Tautan
+                                                                Microsite hanya bisa diedit oleh pengguna yang
+                                                                Berlangganan!</label>
                                                         @else
+                                                        <label for="address" class="text-black form-label">Tautan
+                                                            Microsite</label>
                                                             <input type="text" class="form-control" id="address"
                                                                 placeholder="aqua-link" name="default_short_url"
                                                                 value="{{ $short_url->default_short_url }}">
@@ -234,13 +307,15 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-end mt-4">
-                                <button type="submit" class="btn btn-success">Kirim</button>
+                                <button type="submit" class="btn"
+                                    style="background: #2DCB73; color: #FFF;">Kirim</button>
                             </div>
                         </div>
                     </div><!-- end card-body -->
                 </div>
                 <div class="col-lg-3">
-                    <div class="card real-estate-grid-widgets card-animate">
+                    <div class="card real-estate-grid-widgets card-animate"
+                        style="box-shadow: 2px 5px 4px 0px rgba(0, 0, 0, 0.25);">
                         <div class="card overflow-hidden">
                             <div>
                                 <img src="{{ asset('component/' . $microsite->component->cover_img) }}" alt=""
@@ -269,9 +344,8 @@
                                         @endif
                                     </div>
                                     <div class="mt-3">
-                                        <h5>Nama Profil<i class="align-baseline text-info ms-1"></i>
-                                        </h5>
-                                        <p class="text-muted">Deskripsi Profil</p>
+                                        <h5>Nama Profil<i class="align-baseline text-info ms-1"></i></h5>
+                                        <p class="text-black">Deskripsi Profil</p>
                                     </div>
                                 </div>
                             </div>
@@ -281,8 +355,8 @@
                                         <div class="mb-2 mx-2">
                                             <button style="background-color: {{ $socialItem->button->color_hex }};"
                                                 type="button" class="btn btn-icon"><i
-                                                    class="{{ $socialItem->button->icon }} " style="color:white;"></i>
-                                            </button>
+                                                    class="{{ $socialItem->button->icon }} "
+                                                    style="color:white;"></i></button>
                                         </div>
                                     @endforeach
                                 </div>
@@ -290,22 +364,21 @@
                                     <button type="button" class="col-12 mb-2 btn btn-label rounded-pill"
                                         style="color: white; background-color: {{ $socialItem->button->color_hex }}"
                                         data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                                        aria-controls="collapseOne"><i style="color: white"
+                                        aria-controls="collapseOne">
+                                        <i style="color: white"
                                             class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"></i>
-                                        {{ $socialItem->button->name_button }} </button>
+                                        {{ $socialItem->button->name_button }}
+                                    </button>
                                 @endforeach
                                 <div class="card card-body text-center">
                                     <h4 type="button" class="card-title" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFour" aria-expanded="false"
-                                        aria-controls="collapseFour">Nama
-                                        Perusahaan Anda</h4>
-                                    <p type="button" class="card-text text-muted" data-bs-toggle="collapse"
+                                        aria-controls="collapseFour">Nama Perusahaan Anda</h4>
+                                    <p type="button" class="card-text text-black" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFive" aria-expanded="false"
-                                        aria-controls="collapseFive">Alamat
-                                        Perusahaan Anda </p>
+                                        aria-controls="collapseFive">Alamat Perusahaan Anda</p>
                                 </div>
                             </div>
-
                         </div><!--end card-->
                     </div><!--end col-->
                 </div>
