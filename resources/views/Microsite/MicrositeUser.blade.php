@@ -116,6 +116,7 @@
                 margin-top: 10px; /* Spasi atas untuk tampilan hp */
             }
         }
+
     </style>
 @endsection
 
@@ -126,9 +127,9 @@
             <!-- start page title -->
             <div class="d-flex flex-column flex-sm-row">
                 <div class="col-12 col-sm-4">
-                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                {{-- <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0">Microsite</h4>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-12 col-sm-8 mb-3">
                     <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-end">
@@ -141,29 +142,22 @@
             </div>
             <!-- end page title -->
 
-            <div class="card mt-1">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-2 col-2 mb-2">
-                            <a href="{{ route('add.microsite') }}" type="button"
-                                class="btn btn-success btn-label square-button">
-                                <i class="ri-add-line label-icon align-middle fs-lg"></i>
-                                <span class="btn-text square-button">Buat Baru</span>
-                            </a>
-                        </div>
-
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-10 col-10 mb-2">
-                            <div class="hstack gap-2 justify-content-end">
-                                <button type="button" class="btn rounded-pill btn-danger button" id="semuaButton">Semua</button>
-                                <button type="button" class="btn rounded-pill btn-secondary"
-                                    onclick="filterTerakhirDiperbarui()">Terakhir Diperbarui</button>
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-2 col-2 mb-2">
+                    <button type="button" class="btn btn-subtle-primary active-hover" style="background-color: #104898; color:#fff;" id="semuaButton">Semua</button>
+                    <button type="button" class="btn btn-subtle-primary" style="background-color: #2F5EA2; color:#fff;" id="showAdditionalData"
+                    onclick="filterTerakhirDiperbarui()">Terakhir Diperbrui</button>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-10 col-10 mb-2">
+                    <div class="hstack gap-2 justify-content-end">
+                        <a href="{{ route('add.microsite') }}" type="button"
+                            class="btn btn-label square-button" style="background-color: #088C0D">
+                            <i class="ri-add-line label-icon align-middle fs-lg icon-color"></i>
+                            <span class="btn-text square-button" style="color: #ffffff;">Buat Microsite</span>
+                        </a>
                     </div>
-
                 </div>
-
-            </div><!--end card-->
+            </div><br>
             @php
                 $i = 0;
             @endphp
@@ -183,7 +177,7 @@
                                 $i++;
                             @endphp
                             <div class="">
-                                <div class="card card-body" id="searchResults">
+                                <div class="card card-body" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);" id="searchResults">
                                     <div class="wrapper row  align-items-center">
                                         <div class="avatar-md col-xl-1 col-lg-1 col-md-1 col-sm-1 col-12">
                                             <div class="avatar-title">
@@ -193,7 +187,7 @@
                                             <div class="initials">{{ $row->name[0] }}</div>
                                         </div>
                                         <div class="col-xl-7 col-lg-7 col-md-9 col-sm-3 col-9">
-                                            <h5 class="card-title ">{{ $row->name }}</h5>
+                                            <h4 class="card-title " style="color: #0E2954;">{{ $row->name }}</h4>
                                             {{-- <a>
                                                 <h3 class="garisbawah card-title mb-2">
                                                     {{ $row->shortUrl[0]->default_short_url }}
@@ -201,7 +195,7 @@
                                             </a> --}}
                                             <a href="{{ $row->shortUrl[0]->default_short_url }}" target="_blank"
                                                 class="garisbawah card-title mb-2">
-                                                <h4>{{ $row->shortUrl[0]->default_short_url }}</h4>
+                                                <h5 style="color: #0E2954;">{{ $row->shortUrl[0]->default_short_url }}</h5>
                                             </a>
                                             <div id="customAlert" class="custom-alert">
                                                 <span class="alert-text"></span>
@@ -209,20 +203,19 @@
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-8 col-sm-6 col-12" style="float: right ;">
                                             <div class="" style="float: right;">
-                                                <button type="button" class="btn btn-primary btn-sm"
-                                                    data-bs-toggle="collapse" href="#collapseExample{{ $row->id }}"
-                                                    role="button" aria-expanded="true"
+                                                <button type="button" class="btn btn-sm" style="background-color: #0E2954; color:#fff;" data-bs-toggle="collapse"
+                                                    href="#collapseExample{{ $row->id }}" role="button" aria-expanded="true"
                                                     aria-controls="collapseExample{{ $row->id }}">
-                                                    <i class="bi bi-bar-chart-fill"></i> statistik
+                                                    <i class="bi bi-bar-chart-fill icon-color"></i> statistik
                                                 </button>
                                                 {{-- @dd($row) --}}
                                                 <a href="{{ route('edit.microsite', ['id' => $row->id]) }}"
-                                                    class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i>
+                                                    class="btn btn-sm" style="background-color: #0E2954; color:#fff;"><i class="bi bi-pencil-square icon-color"></i>
                                                     Edit</a>
-                                                <button type="button" id="button-email" class="btn btn-primary me-3 btn-sm"
+                                                <button type="button" id="button-email" class="btn me-3 btn-sm" style="background-color: #0E2954; color:#fff;"
                                                     data-bs-toggle="modal" data-bs-target="#bagikan{{ $i }}"
                                                     aria-haspopup="true" aria-expanded="false"><i
-                                                        class="fa-solid fa-share-nodes"></i>
+                                                        class="fa-solid fa-share-nodes icon-color"></i>
                                                     &nbsp;Bagikan</button>
                                                 <!-- Modal bagikan -->
                                                 <div class="modal fade" id="bagikan{{ $i }}" tabindex="-1"

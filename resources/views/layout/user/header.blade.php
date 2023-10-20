@@ -68,8 +68,8 @@
                 </div>
 
                 <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/user/subscribe-product-user" type="button"
-                        class="btn btn-danger"><i class="bi bi-fire"></i>
-                        <span>Berlangganan</span></a>
+                        class="btn" style="background-color: #0E2954;><i class="bi bi-fire"></i>
+                        <span style="color: #ffff;">Berlangganan</span></a>
                 </div>
 
                 {{-- <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">

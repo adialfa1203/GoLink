@@ -613,12 +613,12 @@
                                                             <div
                                                                 class="col-lg-12 col-md-12 col-sm-9 d-flex flex-url justify-content-end">
                                                                 <button disabled type="button" id="button-email"
-                                                                    class="btn btn-primary me-3 btn-sm"
+                                                                    class="btn me-3 btn-sm"
                                                                     style="background-color: #0E2954;"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#bagikan{{ $i }}"
                                                                     aria-haspopup="true" aria-expanded="false"><i
-                                                                        class="fa-solid fa-share-nodes"></i>
+                                                                        class="fa-solid fa-share-nodes" style="color: #fff"></i>
                                                                 </button>
 
                                                                 <!-- Modal bagikan -->

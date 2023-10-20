@@ -341,7 +341,7 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="hstack gap-2 justify-content-end">
-                                <button type="submit" class="btn btn-success mb-3 me-3">Simpan</button>
+                                <button type="submit" class="btn mb-3 me-3" style="background-color: #088C0D; color:#fff;">Simpan</button>
                             </div>
                         </div>
                     </div>
