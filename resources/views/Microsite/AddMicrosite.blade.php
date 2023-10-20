@@ -213,7 +213,7 @@
                                                                     Microsite</label>
                                                                 <div class="input-group">
                                                                     <button type="button"
-                                                                        class="btn btn-danger bg-gradient">MiLink/</button>
+                                                                        class="text-white btn bg-gradient" style="background: #0E2954;">MiLink/</button>
                                                                     <input type="text" class="form-control"
                                                                         id="linkMicrosite" placeholder="Tautan Microsite"
                                                                         name="link_microsite">
