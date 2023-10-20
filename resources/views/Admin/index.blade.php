@@ -36,7 +36,7 @@
                     <!-- Card 1 -->
                     <div class="col-xl-3 col-sm-6">
                         <div class="card border-bottom border-2 card-animate">
-                            <div class="card-body bg-success">
+                            <div class="card-body" style="background: #0E2954;border-radius: 10px;">
                                 <h5 class="fs-md text-muted mb-0 text-white">Pengguna</h5>
                                 <div class="row mt-3">
                                     <div class="col-2">
@@ -55,7 +55,7 @@
                     <!-- Card 2 -->
                     <div class="col-xl-3 col-sm-6">
                         <div class="card border-bottom border-2 card-animate">
-                            <div class="card-body bg-primary">
+                            <div class="card-body" style="background: #104898;border-radius: 10px;">
                                 <h5 class="fs-md text-muted mb-0 text-white">Tautan</h5>
                                 <div class="row mt-3">
                                     <div class="col-2">
@@ -74,7 +74,7 @@
                     <!-- Card 3 -->
                     <div class="col-xl-3 col-sm-6">
                         <div class="card border-bottom border-2 card-animate">
-                            <div class="card-body bg-warning">
+                            <div class="card-body" style="background: #2E6BC2;border-radius: 10px;">
                                 <h5 class="fs-md text-muted mb-0 text-white">Pengunjung</h5>
                                 <div class="row mt-3">
                                     <div class="col-2">
@@ -93,7 +93,7 @@
                     <!-- Card 4 -->
                     <div class="col-xl-3 col-sm-6">
                         <div class="card border-bottom border-2 card-animate">
-                            <div class="card-body" style="background-color : #FF6C6C">
+                            <div class="card-body" style="background: #80B3FF;border-radius: 10px;">
                                 <h5 class="fs-md text-muted mb-0 text-white">Berlangganan</h5>
                                 <div class="row mt-3">
                                     <div class="col-2">

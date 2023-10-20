@@ -7,6 +7,7 @@ use App\Mail\UnblockEmail;
 use App\Models\History;
 use App\Models\Microsite;
 use App\Models\ShortUrl;
+use App\Models\Subscribe;
 use App\Models\Takedown;
 use App\Models\User;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
@@ -33,6 +34,8 @@ class DataUserController extends Controller
                             ->count();
 
         $totaldiblokir = User::where('is_banned', 1)->count();
+        $berlanggan = User::where('subscribe', '!=', 'free')->count();
+        // dd($berlanggan);
 
         $users = User::where('email', '!=', 'admin@gmail.com')->get();
         $count = [];
@@ -42,7 +45,7 @@ class DataUserController extends Controller
 
 
         arsort($count);
-        return view('Admin.DataUserAdmin', compact('d', 'data','totalUser', 'totalUrl', 'totalVisits', 'users', 'count','totalMicrosite', 'totaldiblokir', 'bannedUser'));
+        return view('Admin.DataUserAdmin', compact('d','berlanggan', 'data','totalUser', 'totalUrl', 'totalVisits', 'users', 'count','totalMicrosite', 'totaldiblokir', 'bannedUser'));
     }
 
 

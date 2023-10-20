@@ -134,7 +134,9 @@
             background: #ffffff;
         }
 
-
+.aa{
+    padding: 0;
+}
     </style>
 @endsection
 @section('content')
@@ -175,7 +177,7 @@
 
             <div class="col-xxl-12">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="padding: 0;">
                         {{-- <ul class="nav nav-pills animation-nav nav-justified gap-2 mb-3" role="tablist">
                             <li class="nav-item ">
                                 <a class="nav-link active" data-bs-toggle="tab" href="#animation-home" role="tab">
@@ -211,10 +213,10 @@
                                             <form>
                                                 @csrf
                                                 <div class="col-lg-12">
-                                                    <div class="card"
-                                                        style="border: 1px solid var(--tb-border-color-translucent); padding: 0px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);"
+                                                    <div class="card aa"
+                                                        style="border: 1px solid var(--tb-border-color-translucent); box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);"
                                                         id="card{{ $row->id }}">
-                                                        <div class="card-body">
+                                                        <div class="card-body" style="">
                                                             <h6 class="col-lg-3 col-md-4 col-sm-12">{{ $row->title }}</h6>
                                                             <div
                                                                 class="col-lg-12 col-md-12 col-sm-9 d-flex flex-row justify-content-end">
@@ -332,7 +334,7 @@
                                                                     ?>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-7 d-flex flex-row justify-content-end mt-2 mt-sm-0">
+                                                                    class="col-12 col-sm-7 d-flex flex-row justify-content-end mt-2 mb-3 mt-sm-0">
                                                                     <button type="button"
                                                                         class="btn btn-light  me-3 btn-sm"
                                                                         data-bs-toggle="modal"

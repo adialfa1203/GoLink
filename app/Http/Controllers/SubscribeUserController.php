@@ -52,7 +52,7 @@ class SubscribeUserController extends Controller
 
         $tax = $subscribe->price * 0.11;
         $totalPrice = $subscribe->price + $tax;
-
+// dd($subscribe);
         return view('Subscribe.CheckoutProduct', compact('subscribe', 'channels', 'tripay', 'tax', 'totalPrice'));
     }
 

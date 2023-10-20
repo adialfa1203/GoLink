@@ -93,7 +93,22 @@ class ProfilController extends Controller
     public function profileAdmin()
     {
         $admin = Auth::user();
-        return view('Admin.ProfilAdmin', compact('admin'));
+        if ($admin) {
+            $subscribe = $admin->subscribe;
+
+            if ($subscribe == 'free') {
+                $accountStatus = 'Member Gratis';
+            } elseif ($subscribe == 'silver') {
+                $accountStatus = 'Member Silver';
+            } elseif ($subscribe == 'gold') {
+                $accountStatus = 'Member Gold';
+            } elseif ($subscribe == 'platinum') {
+                $accountStatus = 'Member Platinum';
+            } else {
+                $accountStatus = 'Status tidak valid';
+            }
+        }
+        return view('Admin.ProfilAdmin', compact('admin','accountStatus'));
     }
 
     public function updateAdmin(Request $request)
