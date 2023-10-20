@@ -1098,7 +1098,7 @@
     <script>
         var countData = {{ $countMicrosite }};
         var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / 3) * 100;
+        var progressBarWidth = (countData / {{ $micrositeStatus }}) * 100;
         progressBar.style.width = progressBarWidth + "%";
         progressBar.setAttribute("aria-valuenow", countData);
     </script>
@@ -1119,7 +1119,7 @@
         var countURLValue = {{ $countMicrosite }};
 
         var progressBar = document.querySelector('#total-microsite');
-        progressBar.style.width = ((countURLValue / 3) * 100) + '%';
+        progressBar.style.width = ((countURLValue / {{ $micrositeStatus }}) * 100) + '%';
         progressBar.setAttribute('aria-valuenow', countURLValue);
 
         var progressText = document.querySelector('#microsite-total');
