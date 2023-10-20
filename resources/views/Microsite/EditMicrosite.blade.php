@@ -81,7 +81,8 @@
                                                                     data-bs-target="#{{ $data->button->name_button }}"
                                                                     aria-expanded="false"
                                                                     aria-controls="{{ $data->button->name_button }}">
-                                                                    Silahkan  isi URL {{ $data->button->name_button }} anda disini!
+                                                                    Silahkan isi URL {{ $data->button->name_button }} anda
+                                                                    disini!
                                                                 </button>
                                                             </h2>
                                                             <div id="{{ $data->button->name_button }}"
@@ -185,12 +186,18 @@
                                             <div>
                                                 <div class="row g-3">
                                                     <div class="col-12">
-                                                        <label for="address" class="text-danger form-label">Nama
-                                                            Microsite hanya bisa diedit oleh pengguna yang
-                                                            berlangganan!</label>
-                                                        <input type="text" class="form-control" id="address"
-                                                            name="name" placeholder="aqua-link"
-                                                            value="{{ $microsite->name }}" disabled>
+                                                        @if ($user->subscribe !== 'platinum' && $user->subscribe !== 'gold' && $user->subscribe !== 'silver')
+                                                            <label for="address" class="text-danger form-label">Nama
+                                                                Microsite hanya bisa diedit oleh pengguna yang
+                                                                Premium!</label>
+                                                            <input type="text" class="form-control" id="address"
+                                                                name="name" placeholder="aqua-link"
+                                                                value="{{ $microsite->name }}" disabled>
+                                                        @else
+                                                            <input type="text" class="form-control" id="address"
+                                                                name="name" placeholder="aqua-link"
+                                                                value="{{ $microsite->name }}">
+                                                        @endif
                                                         <div>
                                                             @if ($errors->has('name'))
                                                                 <span
@@ -199,19 +206,25 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
-                                                        <label for="address" class="text-danger form-label">Tautan
-                                                            Microsite hanya bisa diedit oleh pengguna yang
-                                                            berlangganan!</label>
-                                                        <div class="input-group">
+                                                        @if ($user->subscribe !== 'platinum' && $user->subscribe !== 'gold' && $user->subscribe !== 'silver')
+                                                            <label for="address" class="text-danger form-label">Tautan
+                                                                Microsite hanya bisa diedit oleh pengguna yang
+                                                                Premium!</label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" id="address"
+                                                                    placeholder="aqua-link" name="default_short_url"
+                                                                    value="{{ $short_url->default_short_url }}" disabled>
+                                                            </div>
+                                                        @else
                                                             <input type="text" class="form-control" id="address"
                                                                 placeholder="aqua-link" name="default_short_url"
-                                                                value="{{ $short_url->default_short_url }}" disabled>
-                                                            <div>
-                                                                @if ($errors->has('default_short_url'))
-                                                                    <span
-                                                                        class="text-danger">{{ $errors->first('default_short_url') }}</span>
-                                                                @endif
-                                                            </div>
+                                                                value="{{ $short_url->default_short_url }}">
+                                                        @endif
+                                                        <div>
+                                                            @if ($errors->has('default_short_url'))
+                                                                <span
+                                                                    class="text-danger">{{ $errors->first('default_short_url') }}</span>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -220,11 +233,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-start gap-3 mt-4">
-                                <button type="submit" class="btn btn-success right ms-auto">Kirim</button>
-                            </div>
-                        </div><!-- end card-body -->
-                    </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3 mt-4">
+                            <button type="submit" class="btn btn-success right ms-auto">Kirim</button>
+                        </div>
+                    </div><!-- end card-body -->
                 </div>
                 <div class="col-lg-3">
                     <div class="card real-estate-grid-widgets card-animate">
@@ -252,8 +265,7 @@
                                     </div>
                                     <div class="col-12 d-flex justify-content-center">
                                         @if ($errors->has('image'))
-                                            <span
-                                                class="text-danger">{{ $errors->first('image') }}</span>
+                                            <span class="text-danger">{{ $errors->first('image') }}</span>
                                         @endif
                                     </div>
                                     <div class="mt-3">
@@ -285,10 +297,12 @@
                                 <div class="card card-body text-center">
                                     <h4 type="button" class="card-title" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFour" aria-expanded="false"
-                                        aria-controls="collapseFour">Nama Perusahaan Anda</h4>
+                                        aria-controls="collapseFour">Nama
+                                        Perusahaan Anda</h4>
                                     <p type="button" class="card-text text-muted" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFive" aria-expanded="false"
-                                        aria-controls="collapseFive">Alamat Perusahaan Anda </p>
+                                        aria-controls="collapseFive">Alamat
+                                        Perusahaan Anda </p>
                                 </div>
                             </div>
 
@@ -296,33 +310,33 @@
                     </div><!--end col-->
                 </div>
             </form>
-            <!-- container-fluid -->
-        </div>
-    @endsection
+        </div><!-- container-fluid -->
+    </div>
+@endsection
 
-    @section('script')
-        <script>
-            ClassicEditor
-                .create(document.querySelector('#editor'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-        <!-- dropzone js -->
-        <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/dropzone/dropzone-min.js') }}"></script>
+@section('script')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <!-- dropzone js -->
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/dropzone/dropzone-min.js') }}"></script>
 
-        <!--real estate list init js -->
-        <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/real-estate-add-property.init.js') }}">
-        </script>
+    <!--real estate list init js -->
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/real-estate-add-property.init.js') }}">
+    </script>
 
-        <!-- ckeditor -->
-        <script
-            src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/%40ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}">
-        </script>
-        <!-- profile-setting init js -->
-        <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/profile-setting.init.js') }}"></script>
-        <!-- init js -->
-        <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/form-editor.init.js') }}"></script>
+    <!-- ckeditor -->
+    <script
+        src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/%40ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}">
+    </script>
+    <!-- profile-setting init js -->
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/profile-setting.init.js') }}"></script>
+    <!-- init js -->
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/form-editor.init.js') }}"></script>
 
-        <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
-    @endsection
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
+@endsection

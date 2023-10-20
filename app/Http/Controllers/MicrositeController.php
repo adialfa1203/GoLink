@@ -10,6 +10,7 @@ use App\Models\ShortUrl;
 use App\Models\Social;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
@@ -153,11 +154,12 @@ class MicrositeController extends Controller
 
     public function editMicrosite($id)
     {
+        $user = Auth::user();
         $microsite = Microsite::findorFail($id);
         $social = Social::where('microsite_uuid', $id)->get();
         $short_url = ShortUrl::where('microsite_uuid', $id)->first();
         // $buttonLink = ButtonLink::findorFail($id);
-        return view('Microsite.EditMicrosite', compact('microsite', 'id', 'social', 'short_url'));
+        return view('Microsite.EditMicrosite', compact('microsite', 'user', 'id', 'social', 'short_url'));
     }
 
     public function micrositeUpdate(Request $request, $id)
