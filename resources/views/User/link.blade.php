@@ -194,7 +194,7 @@
                                     @endphp
                                     @if ($urlshort->isEmpty())
                                         <div class="card d-flex flex-column align-items-center">
-                                            <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.jpg') }}"
+                                            <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.png') }}"
                                                 alt="Gambar">
                                             <div class="d-flex justify-content-center align-items-center mt-2 mb-4">
                                                 <i class="ph-magnifying-glass fs-2 text-primary"></i>
@@ -588,7 +588,7 @@
                                     @if ($history->isEmpty())
                                         <div class="card d-flex flex-column align-items-center">
                                             <img style="width: 300px; height: 300px;"
-                                                src="{{ asset('images/Empty.jpg') }}" alt="Gambar">
+                                                src="{{ asset('images/Empty.png') }}" alt="Gambar">
                                             <div class="d-flex justify-content-center align-items-center mt-2 mb-4">
                                                 <i class="ph-magnifying-glass fs-2 text-primary"></i>
                                                 <h5 class="mt-2">Maaf! Belum Ada Data Yang Ditemukan</h5>

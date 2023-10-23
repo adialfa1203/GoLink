@@ -128,8 +128,7 @@
     .navbar-nav a.nav-link.active {
         background-color: #ffffff;
         color: #0E2954;
-        border-start-end-radius: 10px;
-        border-top-left-radius: 10px;
+        border-radius: 10px;
         }
         .section_title h2 {
     margin-top: -20px; /* Sesuaikan dengan jumlah margin yang Anda butuhkan */

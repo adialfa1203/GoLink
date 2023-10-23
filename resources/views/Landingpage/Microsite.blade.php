@@ -62,8 +62,7 @@
         .navbar-nav a.nav-link.active {
             background-color: #ffffff;
             color: #104898;
-            border-start-end-radius: 10px;
-            border-top-left-radius: 10px;
+            border-radius: 10px;
             }
     </style>
     <!-- Page-wrapper-Start -->

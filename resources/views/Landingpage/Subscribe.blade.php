@@ -204,8 +204,7 @@
         .navbar-nav a.nav-link.active {
             background-color: #ffffff;
             color: #104898;
-            border-start-end-radius: 10px;
-            border-top-left-radius: 10px;
+            border-radius: 10px;
         }
     </style>
     <!-- Page-wrapper-Start -->
@@ -354,7 +353,7 @@
             <div class="container">
                 <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
                     <h2 style="color: #104898;">Layanan Gratis yang Anda Dapatkan</h2>
-                    <h6 style="color: #104898;">Mulai perjalanan Anda bersama kami !</h6>
+                    <h6 style="color: #104898; font-weight: 600;">Mulai perjalanan Anda bersama kami !</h6>
                 </div>
                 <br>
                 <!-- row start -->
@@ -369,8 +368,8 @@
                         </div>
                         <div class="story_text text-center">
                             <br>
-                            <p class="text-muted warna">Menyingkat</p>
-                            <p class="text-muted warna">20 Tautan/Bulan</p>
+                            <p class="text-muted warna" style="font-weight: 600;">Menyingkat</p>
+                            <p class="text-muted warna" style="font-weight: 600;">20 Tautan/Bulan</p>
                         </div>
                     </div>
                     <div class="col-md-4" style="margin-bottom: 2%;">
@@ -384,8 +383,8 @@
                         </div>
                         <div class="story_text text-center">
                             <br>
-                            <p class="text-muted warna">Kustominasi</p>
-                            <p class="text-muted warna">Nama Tautan</p>
+                            <p class="text-muted warna" style="font-weight: 600;">Kustominasi</p>
+                            <p class="text-muted warna" style="font-weight: 600;">Nama Tautan</p>
                         </div>
                     </div>
                     <div class="col-md-4" style="margin-bottom: 2%;">
@@ -399,9 +398,9 @@
                         </div>
                         <div class="story_text text-center">
                             <br>
-                            <p class="text-muted warna">Mengubah</p>
-                            <p class="text-muted warna"> 5 Nama Tautan </p>
-                            <p class="text-muted warna"> Kustomisasi / Bulan </p>
+                            <p class="text-muted warna" style="font-weight: 600;">Mengubah</p>
+                            <p class="text-muted warna" style="font-weight: 600;"> 5 Nama Tautan </p>
+                            <p class="text-muted warna" style="font-weight: 600;"> Kustomisasi / Bulan </p>
                         </div>
                     </div>
 
@@ -419,13 +418,17 @@
                     <div class="row text-center">
                         <div class="col-md-4">
                             <div class="card1">
-                                <h5 style="font-weight: bold;">Dasar</h5>
+                                <h5 style="font-weight: bold; color:#0E2954;">Silver</h5>
                             </div>
-                            <div class="card" style="background-color: #104898;height: 402px;">
-                                <h5 style="color: #ffffff; font-weight: bold;">Rp.16.000/Bulan</h5>
-                                <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
-                                <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
-                                <div class="container text-center">
+                            <div class="card mb-3" style="background-color: #104898;height: 620px;">
+                                <div class="text-center">
+                                    <img src="{{asset('silver.png')}}" alt="Silver" style="margin-top: -38px; margin-right: 10px; width: 55%; height: auto;">
+                                    <h5 style="color: #ffffff; font-weight: bold;">Rp.16.000/Bulan</h5>
+                                    <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
+                                    <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
+                                </div>
+                                
+                                <div class="container text-center" style="margin-top: 40px;">
                                     <div class="d-flex">
                                         <div class="col-1">
                                             <i class="fa-solid fa-circle-check"></i>
@@ -448,14 +451,17 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card1">
-                                <h5 style="font-weight: bold;">Menengah</h5>
+                                <h5 style="font-weight: bold;  color:#0E2954;">Gold</h5>
                             </div>
-                            <div class="card" style="background-color: #104898;height: 402px;">
-                                <h5 style="color: #ffffff; font-weight:bold;">Rp.29.000/Bulan</h5>
-                                <h6 style="color: #ffffff; font-size:13px;">Paket menengah untuk menawarkan</h6>
-                                <h6 style="color: #ffffff; font-size: 13px;">atau memberikan fitur-fitur yang</h6>
-                                <h6 style="color: #ffffff; font-size: 13px;">lebih canggih</h6>
-                                <div class="container text-center">
+                            <div class="card mb-3" style="background-color: #104898;height: 620px;">
+                                <div class="text-center">
+                                    <img src="{{asset('gold.png')}}" alt="Gold" style="margin-top: -70px; margin-right: 20px; width: 70%; height: auto;">
+                                    <h5 style="color: #ffffff; font-weight:bold; margin-top: -9%;">Rp.29.000/Bulan</h5>
+                                    <h6 style="color: #ffffff; font-size:13px;">Paket menengah untuk menawarkan</h6>
+                                    <h6 style="color: #ffffff; font-size: 13px;">atau memberikan fitur-fitur yang</h6>
+                                    <h6 style="color: #ffffff; font-size: 13px;">lebih canggih</h6>
+                                </div>
+                                <div class="container text-center"  style="margin-top: 20px;">
                                     <div class="d-flex">
                                         <div class="col-1">
                                             <i class="fa-solid fa-circle-check"></i>
@@ -477,13 +483,16 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card1">
-                                <h5 style="font-weight: bold;">Premium</h5>
+                                <h5 style="font-weight: bold; color:#0E2954;">Platinum</h5>
                             </div>
-                            <div class="card" style="background-color: #104898;height: 402px;">
-                                <h5 style="color: #ffffff; font-weight:bold;">Rp 75.000/Bulan</h5>
-                                <h6 style="color: #ffffff; font-size:13px;">Paket premium yang menawarkan</h6>
-                                <h6 style="color: #ffffff; font-size: 13px;">fitur-fitur ekslusif</h6>
-                                <div class="container text-center">
+                            <div class="card" style="background-color: #104898;height: 620px;">
+                                <div class="text-center">
+                                    <img src="{{asset('platinum.png')}}" alt="Platinum" style="margin-top: -56px; margin-left: 11px; width: 60%; height: auto;">
+                                    <h5 style="color: #ffffff; font-weight:bold;  margin-top: -2%;">Rp 75.000/Bulan</h5>
+                                    <h6 style="color: #ffffff; font-size:13px;">Paket premium yang menawarkan</h6>
+                                    <h6 style="color: #ffffff; font-size: 13px;">fitur-fitur ekslusif</h6>
+                                </div>
+                                <div class="container text-center"  style="margin-top: 40px;">
                                     <div class="d-flex">
                                         <div class="col-1">
                                             <i class="fa-solid fa-circle-check"></i>
