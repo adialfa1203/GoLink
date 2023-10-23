@@ -86,7 +86,7 @@
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="card" style="background-color: #F0F0F0">
+                    <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                         <div class="card-header" style="background-color: #F0F0F0">
                             <h4 class="card-title mb-0">Buat Microsite Baru</h4>
                         </div><!-- end card header -->
@@ -95,7 +95,7 @@
                                 class="vertical-navs-step needs-validation" novalidate method="POST">
                                 @csrf
                                 <div class="row gy-5">
-                                    <div class="col-lg-3" style="border-right: 1px solid #000;">
+                                    <div class="col-lg-3" style="border-right: 1px solid #878A99;">
                                         <div class="nav flex-column custom-nav nav-pills" role="tablist"
                                             aria-orientation="vertical">
                                             <button class="nav-link active" id="v-pills-bill-info-tab" data-bs-toggle="pill"
@@ -178,7 +178,7 @@
                                                     </div>
                                                     <div class="d-flex align-items-start gap-3 mt-4">
                                                         <button type="button"
-                                                            class="btn btn-label right ms-auto nexttab nexttab" style="background: #2DCB73; color: #FFF;"
+                                                            class="btn btn-label right ms-auto nexttab nexttab" style="background: #088C0D; color: #FFF;"
                                                             data-nexttab="v-pills-bill-address-tab">
                                                             <i
                                                                 class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Selanjutnya
@@ -243,7 +243,7 @@
                                                             <button type="button"
                                                                 class="btn btn-label right ms-auto nexttab nexttab"
                                                                 data-nexttab="v-pills-payment-tab"
-                                                                style="float: right; background: #2DCB73; color: #FFF;"><i
+                                                                style="float: right; background: #088C0D; color: #FFF;"><i
                                                                     class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Selanjutnya</button>
                                                         </div>
                                                     </div>
@@ -295,7 +295,7 @@
                                                                 class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
                                                             Sebelumnya</button>
                                                         <button type="submit" id="submitButton"
-                                                            class="btn btn-label right ms-auto nexttab nexttab" style="background: #2DCB73; color: #FFF;"
+                                                            class="btn btn-label right ms-auto nexttab nexttab" style="background: #088C0D; color: #FFF;"
                                                             {{-- data-nexttab="v-pills-finish-tab" --}} onclick="return validateForm();"><i
                                                                 class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Kirim</button>
 

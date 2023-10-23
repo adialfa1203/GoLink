@@ -308,7 +308,7 @@
                             </div>
                             <div class="d-flex justify-content-end mt-4">
                                 <button type="submit" class="btn"
-                                    style="background: #2DCB73; color: #FFF;">Kirim</button>
+                                    style="background: #088C0D; color: #FFF;">Kirim</button>
                             </div>
                         </div>
                     </div><!-- end card-body -->
