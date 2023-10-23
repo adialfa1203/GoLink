@@ -1,5 +1,25 @@
 @extends('layout.admin.app')
 @section('title', 'Komponen Baru')
+@section('style')
+<style>
+    .button {
+        background-color: transparent;
+        border: 2px solid #FF2323;
+        color: #FF2323;
+        padding: 6px 10px; /* Mengatur jarak teks dari tepi tombol yang lebih kecil */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px; /* Mengatur ukuran teks yang lebih kecil */
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #FF2323;
+        color: #fff;
+    }
+    </style>
+@endsection
 
 @section('content')
     <form action="{{ Route('save.component') }}" method="POST" enctype="multipart/form-data"
@@ -8,16 +28,16 @@
         <div class="container-fluid">
 
             <!-- start page title -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0">Tambah Komponen</h4>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- end page title -->
             <div class="row">
-                <div class="card">
+                <div class="card" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
 
                     <div class="card-body">
                         <div class="row">
@@ -89,8 +109,8 @@
                                 </div>
                             </div>
                             <div class="d-flex align-items-start justify-content-between gap-3 mt-4">
-                                <a href="{{ route('view.component') }}" class="btn btn-light">Kembali</a>
-                                <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                                <a href="{{ route('view.component') }}" class="btn btn-light button"><i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Kembali</a>
+                                <button type="submit" class="btn" style="background-color: #088C0D; color: #fff;">Simpan Perubahan</button>
                             </div>
                         </div>
                     </div>

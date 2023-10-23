@@ -11,16 +11,16 @@
         @csrf
         <div class="container-fluid">
             <!-- start page title -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0">Footer</h4>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!-- end page title -->
-        <div class="card">
+        <div class="card" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
         <div class="card-body">
             <div class="row">
                 {{-- <div class="col-lg-2">
@@ -100,7 +100,7 @@
             </div>
             <div class="col-lg-12">
                 <div class="hstack gap-2 justify-content-end">
-                    <button type="submit" class="btn btn-success">Simpan</button>
+                    <button type="submit" class="btn right ms-auto" style="background-color: #088C0D; color: #fff;">Simpan</button>
                 </div>
             </div>
         </div>

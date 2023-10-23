@@ -11,13 +11,32 @@
     <link rel="stylesheet"
         href="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/%40simonwep/pickr/themes/nano.min.css') }}">
     <!-- 'nano' theme -->
+    <style>
+        .button {
+            background-color: transparent;
+            border: 2px solid #FF2323;
+            color: #FF2323;
+            padding: 6px 10px; /* Mengatur jarak teks dari tepi tombol yang lebih kecil */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px; /* Mengatur ukuran teks yang lebih kecil */
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #FF2323;
+            color: #fff;
+        }
+        </style>
+
 @endsection
 
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
             <div class="row">
-                <div class="card">
+                <div class="card" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                     <div class="card-body">
                         <form action="{{ route('save.button') }}" method="POST" class="needs-validation" novalidate>
                             @csrf
@@ -70,8 +89,8 @@
                                 </div>
                             </div>
                             <div class="d-flex align-items-start justify-content-between gap-3 mt-4">
-                                <a href="{{ route('view.button') }}" class="btn btn-light">Kembali</a>
-                                <button type="submit" class="btn btn-success right ms-auto">Kirim</button>
+                                <a href="{{ route('view.button') }}" class="btn btn-light button"><i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Kembali</a>
+                                <button type="submit" class="btn right ms-auto" style="background-color: #088C0D; color: #fff;">Kirim</button>
                             </div>
                         </form>
                     </div>

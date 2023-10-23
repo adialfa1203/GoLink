@@ -21,8 +21,8 @@
     <div class="container-fluid">
         <div class="">
             <div class="d-flex align-items-start gap-3 mt-4">
-                <a class="btn btn-success btn-label" href="{{ route('create.component') }}" role="button">
-                    <i class="ri-add-line label-icon align-middle fs-lg ms-2"></i>Tambah Kategori
+                <a class="btn btn-label" style="background-color: #088C0D; color:#fff;" href="{{ route('create.component') }}" role="button">
+                    <i class="ri-add-line label-icon align-middle fs-lg ms-2" style="color: #fff;"></i>Tambah Kategori
                 </a>
             </div>
             <div class="row mt-4">
