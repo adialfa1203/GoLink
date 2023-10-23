@@ -15,6 +15,10 @@
             gap: 1rem;
         }
     }
+    .page-content {
+                overflow-x: hidden;
+                background-color: #fff;
+            }
 </style>
 @section('content')
 <div class="page-content">
@@ -41,8 +45,8 @@
                 @else
                 <div class="kotak">
                     @foreach ($component as $item)
-                            <div class="card">
-                                <div class="card-footer text-center">
+                            <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
+                                <div class="card-footer text-center" style="background-color: #F0F0F0;">
                                     <div class="dropdown float-end">
                                         <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="text-muted fs-lg"><i class="mdi mdi-dots-vertical align-middle"></i></span>

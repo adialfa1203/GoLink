@@ -86,6 +86,10 @@
         border-radius: 0;
         background-color: transparent;
     }
+    .page-content {
+                overflow-x: hidden;
+                background-color: #fff;
+            }
 </style>
 @endsection
 
@@ -173,23 +177,23 @@
                 <div class="tab-content text-muted">
                     <div class="tab-pane active" id="developers" role="tabpanel">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card" id="orderList">
+                            <div class="col-lg-12"><br>
+                                <div class="card" id="orderList" style="background-color:  #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                                <thead class="text-muted table-light">
-                                                    <tr class="searchable">
-                                                        <th scope="col" data-sort="order_id">No</th>
-                                                        <th scope="col" data-sort="order_id">Nama
+                                                <thead class="text-muted table-light" style="color: #0E2954;">
+                                                    <tr class="searchable" style="color: #0E2954;">
+                                                        <th scope="col" data-sort="order_id" style="background-color: #E6E5E5;">No</th>
+                                                        <th scope="col" data-sort="order_id" style="background-color: #E6E5E5;">Nama
                                                             Pengguna</th>
-                                                        <th scope="col" data-sort="order_date">E-mail
+                                                        <th scope="col" data-sort="order_date" style="background-color: #E6E5E5;">E-mail
                                                         </th>
-                                                        <th scope="col" data-sort="delivery_date">No
+                                                        <th scope="col" data-sort="delivery_date" style="background-color: #E6E5E5;">No
                                                             Telepon</th>
-                                                        <th scope="col" data-sort="status">Berlangganan
+                                                        <th scope="col" data-sort="status" style="background-color: #E6E5E5;">Berlangganan
                                                         </th>
-                                                        <th scope="col">Aksi</th>
+                                                        <th scope="col" style="background-color: #E6E5E5;">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
@@ -285,23 +289,23 @@
                     </div>
                     <div class="tab-pane" id="designers" role="tabpanel">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card" id="orderList">
+                            <div class="col-lg-12"><br>
+                                <div class="card" id="orderList" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                 <thead class="text-muted table-light">
                                                     <tr class="searchable">
-                                                        <th scope="col" data-sort="order_id">No</th>
-                                                        <th scope="col" data-sort="order_id">Nama
+                                                        <th scope="col" data-sort="order_id" style="background-color: #E6E5E5;">No</th>
+                                                        <th scope="col" data-sort="order_id" style="background-color: #E6E5E5;">Nama
                                                             Pengguna</th>
-                                                        <th scope="col" data-sort="order_date">E-mail
+                                                        <th scope="col" data-sort="order_date" style="background-color: #E6E5E5;">E-mail
                                                         </th>
-                                                        <th scope="col" data-sort="delivery_date">No
+                                                        <th scope="col" data-sort="delivery_date" style="background-color: #E6E5E5;">No
                                                             Telepon</th>
-                                                        <th scope="col" data-sort="status">Berlangganan
+                                                        <th scope="col" data-sort="status" style="background-color: #E6E5E5;">Berlangganan
                                                         </th>
-                                                        <th scope="col">Aksi</th>
+                                                        <th scope="col" style="background-color: #E6E5E5;">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">

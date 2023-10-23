@@ -120,6 +120,10 @@
         border-radius: 0;
         background-color: transparent;
     }
+        .page-content {
+                   overflow-x: hidden;
+                   background-color: #fff;
+               }
 </style>
 @endsection
 @section('content')

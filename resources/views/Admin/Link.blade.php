@@ -13,6 +13,10 @@
     .text-white {
         color: white !important;
     }
+    .page-content {
+                overflow-x: hidden;
+                background-color: #fff;
+            }
 </style>
 @endsection
 @section('content')
@@ -81,7 +85,7 @@
     </div><!--end row-->
     <div class="row">
         <div class="col-lg-12">
-            <div class="card" id="orderList">
+            <div class="card" id="orderList" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                 <div class="card-header">
                     <div class="row align-items-center gy-3">
                         <div class="col-lg-3 col-md-6">
@@ -97,12 +101,12 @@
                         <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                             <thead class="text-muted table-light">
                                 <tr class="searchable">
-                                    <th scope="col" data-sort="order_id">No</th>
-                                    <th scope="col" data-sort="order_date">Nama</th>
-                                    <th scope="col" data-sort="delivery_date">Tautan</th>
-                                    <th scope="col" data-sort="status">Tautan Populer</th>
-                                    <th scope="col" data-sort="status">Microsite</th>
-                                    <th scope="col" data-sort="status">Microsite Populer</th>
+                                    <th scope="col" data-sort="order_id" style="background-color: #E6E5E5;">No</th>
+                                    <th scope="col" data-sort="order_date" style="background-color: #E6E5E5;">Nama</th>
+                                    <th scope="col" data-sort="delivery_date" style="background-color: #E6E5E5;">Tautan</th>
+                                    <th scope="col" data-sort="status" style="background-color: #E6E5E5;">Tautan Populer</th>
+                                    <th scope="col" data-sort="status" style="background-color: #E6E5E5;">Microsite</th>
+                                    <th scope="col" data-sort="status" style="background-color: #E6E5E5;">Microsite Populer</th>
                                     {{-- <th scope="col">Aksi</th> --}}
                                 </tr>
                             </thead>

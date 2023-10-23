@@ -3,7 +3,10 @@
 @section('title', 'Berlangganan')
 @section('style')
     <style>
-
+        .page-content {
+                overflow-x: hidden;
+                background-color: #fff;
+            }
     </style>
 @endsection
 @section('content')

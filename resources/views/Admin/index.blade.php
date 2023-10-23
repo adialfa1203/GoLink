@@ -27,6 +27,11 @@
             .text-white {
                 color: white !important;
             }
+
+            .page-content {
+                overflow-x: hidden;
+                background-color: #fff;
+            }
         </style>
     @endsection
     @section('content')

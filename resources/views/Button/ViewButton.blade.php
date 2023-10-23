@@ -1,6 +1,13 @@
 @extends('layout.admin.app')
 @section('title', 'Sosial')
-
+@section('style')
+<style>
+     .page-content {
+                overflow-x: hidden;
+                background-color: #fff;
+            }
+</style>
+@endsection
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
@@ -29,7 +36,7 @@
                 @else
                     @foreach ($button as $data)
                         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                            <div class="card">
+                            <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                             <div class="card-body">
                                 <div class=" text-center d-flex">
                                     <div class="col-10">

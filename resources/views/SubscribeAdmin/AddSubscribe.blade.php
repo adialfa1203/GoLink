@@ -19,6 +19,10 @@
         background-color: #FF2323;
         color: #fff;
     }
+    .page-content {
+                overflow-x: hidden;
+                background-color: #fff;
+            }
     </style>
 @endsection
 @section('content')
@@ -32,7 +36,7 @@
                 </div> --}}
                 <form action="{{ route('create.subscribe') }}" method="post" enctype="multipart/form-data" class="col-lg-12">
                     @csrf
-                    <div class="card" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
+                    <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-6 md-12 sm-12">
