@@ -125,13 +125,38 @@ class AnalyticUserController extends Controller
 
         if ($user) {
             $userId = $user->id;
+            $subscriptionPeriod = $user->subscribe;
+
+            switch ($subscriptionPeriod) {
+                case 'silver':
+                    $resetDate = Carbon::now()->addWeek()->startOfWeek();
+                    break;
+                case 'gold':
+                    $subscriptionStartDate = Carbon::createFromFormat('Y-m-d H:i:s', $user->subscription_start_date);
+                    $resetDate = $subscriptionStartDate->addMonth()->format('d-m-Y');
+                    $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
+                    break;
+                case 'platinum':
+                    $subscriptionStartDate = Carbon::createFromFormat('Y-m-d', $user->subscription_start_date);
+                    $resetDate = $subscriptionStartDate->addYear();
+                    $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
+                    break;
+                case 'free':
+                    $resetDate = Carbon::now()->addMonthNoOverflow()->startOfMonth();
+                    $formatedDateSubscription = $resetDate->format('d-M-Y');
+                    break;
+                default:
+                    $resetDate = 'tidak valid';
+                    break;
+            }
+
             $totalUrl = ShortURL::where('user_id', $userId)
                 ->whereNull('microsite_uuid')
-                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->whereDate('created_at', '<=', $resetDate)
                 ->count();
 
             $countHistory = History::where('user_id', $userId)
-                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->whereDate('created_at', '<=', $resetDate)
                 ->count();
             $countURL = $totalUrl + $countHistory;
         }
@@ -141,7 +166,7 @@ class AnalyticUserController extends Controller
                 ->whereNotNull('microsite_uuid')
                 ->orderBy('created_at', 'asc')
                 ->limit(3)
-                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->whereDate('created_at', '<=', $resetDate)
                 ->count();
         }
 
