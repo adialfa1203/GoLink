@@ -143,10 +143,6 @@
     <div class="page-content">
         <div class="container-fluid">
             <div class="d-flex flex-column flex-sm-row">
-                {{-- <div class="col-12 col-sm-4">
-                    <h5 class="mb-2">Tautan yang Dihasilkan Terbaru</h5>
-                    <p id="clickCount" hidden>0 klik</p>
-                </div> --}}
                 <div class="col-12 col-sm-2 isi align-items-xl-center d-xl-flex">
                     <p class="text-muted flex-grow-1 mb-xl-0"></p>
                     <div class="flex-shrink-0">
@@ -166,7 +162,7 @@
                 </div><!-- end col -->
 
                 <div class="col-12 col-sm-10 mb-3">
-                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-end">
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-end" style="margin-top: 20px">
                         <div class="search-box mb-2 mb-sm-0">
                             <input type="text" class="form-control search" placeholder="Cari...">
                             <i class="ri-search-line search-icon"></i>
