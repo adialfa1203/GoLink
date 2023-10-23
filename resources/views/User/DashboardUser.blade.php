@@ -957,6 +957,8 @@
         }
 
         $(document).ready(function() {
+            var userId = "{{ auth()->user()->subscribe }}";
+                console.log(userId);
             $("#shortlinkSubmit").submit(function(event) {
                 event.preventDefault();
                 var destinationUrl = $("#AmountInput").val();
@@ -974,11 +976,23 @@
                 } else {
                     $('#singkatkan').modal('hide');
                     var countURL = {{ $countURL }};
-                    if (countURL >= 15) {
+                    @php
+
+                        if(auth()->user()->subscribe == 'free'){
+                            $countUrl = 15;
+                        }else if(auth()->user()->subscribe == 'silver'){
+                            $countUrl = 35;
+                        }else if(auth()->user()->subscribe == 'gold'){
+                            $countUrl = 50;
+                        }else if(auth()->user()->subscribe == 'platinum'){
+                            $countUrl = 100;
+                        }
+                    @endphp
+                    if (countURL >= {{$countUrl}}) {
                         Swal.fire({
                             icon: "error",
                             title: "Kesalahan!",
-                            text: "Anda telah mencapai batas maksimum 15 link diperpendek.",
+                            text: "Anda telah mencapai batas maksimum link diperpendek.",
                         });
                     } else {
                         var formData = $(this).serialize();
