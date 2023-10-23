@@ -201,7 +201,7 @@
                                                     <tr>
                                                         <td colspan="6">
                                                             <div class="d-flex flex-column align-items-center">
-                                                                <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.jpg') }}" alt="Gambar">
+                                                                <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.png') }}" alt="Gambar">
                                                                 <div class="d-flex justify-content-center align-items-center mt-2">
                                                                     <i class="ph-magnifying-glass fs-2 text-primary"></i>
                                                                     <h5 class="mt-2">Maaf! Belum Ada Data
@@ -313,7 +313,7 @@
                                                     <tr>
                                                         <td colspan="6">
                                                             <div class="d-flex flex-column align-items-center">
-                                                                <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.jpg') }}" alt="Gambar">
+                                                                <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.png') }}" alt="Gambar">
                                                                 <div class="d-flex justify-content-center align-items-center mt-2">
                                                                     <i class="ph-magnifying-glass fs-2 text-primary"></i>
                                                                     <h5 class="mt-2">Maaf! Belum Ada Data

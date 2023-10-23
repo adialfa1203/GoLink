@@ -125,6 +125,10 @@
                 display: none;
             }
         }
+        .page-content {
+                   overflow-x: hidden;
+                   background-color: #fff;
+               }
     </style>
 @endsection
 @section('content')

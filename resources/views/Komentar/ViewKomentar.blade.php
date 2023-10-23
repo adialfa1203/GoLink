@@ -62,7 +62,7 @@ td.products:hover {
                                                     <div class="page-content">
                                                         <div class="container-fluid">
                                                             <div class="d-flex flex-column align-items-center">
-                                                                <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.jpg') }}" alt="Gambar">
+                                                                <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.png') }}" alt="Gambar">
                                                                 <div class="d-flex justify-content-center align-items-center mt-2">
                                                                     <i class="ph-magnifying-glass mb-2 fs-2 text-primary"></i>
                                                                     <h5 class="mt-2 mb-3">Maaf! Tidak Ada Data Ditemukan</h5>
