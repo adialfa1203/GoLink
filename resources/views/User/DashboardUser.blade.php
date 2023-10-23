@@ -495,9 +495,19 @@
                                     <div class="d-flex pb-1">
                                         <div class="flex-grow-1">
                                             <h6 class="card-title" style="color: #0E2954;">
-                                                Tautan dibuat/Bulan
+                                                Tautan dibuat /
+                                                @if ($user->subscribe == 'free')
+                                                    Bulan
+                                                @elseif ($user->subscribe == 'silver')
+                                                    Minggu
+                                                @elseif ($user->subscribe == 'gold')
+                                                    Bulan
+                                                @else
+                                                    Tahun
+                                                @endif
+
                                                 <span class="tooltip-icon"
-                                                    data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                    data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $formatedDateSubscription }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                     <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                 </span>
                                             </h6>
@@ -514,9 +524,19 @@
                                             {{ $urlStatus }}
                                     </p>
                                     <br>
-                                    <h6 class="card-title" style="color: #0E2954;">Microsite dibuat/Bulan
+                                    <h6 class="card-title" style="color: #0E2954;">Microsite dibuat /
+                                        @if ($user->subscribe == 'free')
+                                            Bulan
+                                        @elseif ($user->subscribe == 'silver')
+                                            Minggu
+                                        @elseif ($user->subscribe == 'gold')
+                                            Bulan
+                                        @else
+                                            Tahun
+                                        @endif
+
                                         <span class="tooltip-icon"
-                                            data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                            data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $formatedDateSubscription }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                             <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                         </span>
                                     </h6>
@@ -556,7 +576,7 @@
                                                         <h6 class="card-title">
                                                             Tautan dibuat
                                                             <span class="tooltip-icon"
-                                                                data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                                data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $formatedDateSubscription }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                 <i
                                                                     class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                             </span>
@@ -571,9 +591,19 @@
                                                         <p class="text-muted mb-0"><b>{{ $countURL }} dari
                                                                 {{ $urlStatus }}</p>
                                                         <br>
-                                                        <h3 class="card-title">Microsite dibuat/Bulan
+                                                        <h3 class="card-title">Microsite dibuat /
+                                                            @if ($user->subscribe == 'free')
+                                                                Bulan
+                                                            @elseif ($user->subscribe == 'silver')
+                                                                Minggu
+                                                            @elseif ($user->subscribe == 'gold')
+                                                                Bulan
+                                                            @else
+                                                                Tahun
+                                                            @endif
+
                                                             <span class="tooltip-icon"
-                                                                data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                                data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $formatedDateSubscription }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                 <i
                                                                     class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                             </span>
@@ -837,7 +867,7 @@
                         show: false
                     }
                 },
-                colors: ['#104898','#337CCF']
+                colors: ['#104898', '#337CCF']
             };
 
             var chart = new ApexCharts(document.querySelector("#chart"), options);

@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Footer;
 use App\Models\History;
 use App\Models\ShortUrl;
+use App\Models\Subscribe;
 use App\Models\User;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 use Carbon\Carbon;
@@ -38,73 +39,103 @@ class DahsboardController extends Controller
     public function dashboardUser()
     {
         $user = Auth::user();
+        $subscribe = Subscribe::all();
         $currentMonth = Carbon::now()->month;
 
         if ($user) {
             $subscribe = $user->subscribe;
 
-            if ($subscribe == 'free') {
-                $urlStatus = '15';
-                $micrositeStatus = '3';
-            } elseif ($subscribe == 'silver') {
-                $urlStatus = '25';
-                $micrositeStatus = '5';
-            } elseif ($subscribe == 'gold') {
-                $urlStatus = '35';
-                $micrositeStatus = '10';
-            } elseif ($subscribe == 'platinum') {
-                $urlStatus = 'Unlimited';
-                $micrositeStatus = 'Unlimited';
-            } else {
-                $urlStatus = 'Status tidak valid';
-                $micrositeStatus = 'Status tidak valid';
+            switch ($subscribe) {
+                case 'free':
+                    $urlStatus = '15';
+                    $micrositeStatus = '3';
+                    break;
+                case 'silver':
+                    $urlStatus = '25';
+                    $micrositeStatus = '5';
+                    break;
+                case 'gold':
+                    $urlStatus = '35';
+                    $micrositeStatus = '10';
+                    break;
+                case 'platinum':
+                    $urlStatus = 'Unlimited';
+                    $micrositeStatus = 'Unlimited';
+                    break;
+                default:
+                    $urlStatus = 'Status tidak valid';
+                    $micrositeStatus = 'Status tidak valid';
+                    break;
             }
-        }
 
-        if ($user) {
             $userId = $user->id;
-            $totalVisits = ShortURLVisit::query()
-                ->whereRelation('shortURL', 'user_id', '=', $userId)
-                ->whereRelation('shortURL', 'microsite_uuid', null)
-                ->whereRelation('shortURL', 'archive', '!=', 'yes')
-                ->count();
-        }if ($user) {
-            $userId = $user->id;
-            $totalVisitsMicrosite = ShortURLVisit::query()
-                ->whereRelation('shortURL', 'user_id', '=', $userId)
-                ->whereRelation('shortURL', 'microsite_uuid', '!=', null)
-                ->count();
-        }if ($user) {
-            $userId = $user->id;
+            $currentMonth = now()->startOfMonth();
+
+            $totalVisits = ShortURLVisit::whereHas('shortURL', function ($query) use ($userId, $currentMonth) {
+                $query->where('user_id', $userId)
+                    ->where('microsite_uuid', null)
+                    ->where('archive', '!=', 'yes')
+                    ->whereDate('created_at', '>=', $currentMonth);
+            })->count();
+
+            $totalVisitsMicrosite = ShortURLVisit::whereHas('shortURL', function ($query) use ($userId, $currentMonth) {
+                $query->where('user_id', $userId)
+                    ->where('microsite_uuid', '!=', null)
+                    ->whereDate('created_at', '>=', $currentMonth);
+            })->count();
+
+            $subscriptionPeriod = $user->subscribe;
+
+            switch ($subscriptionPeriod) {
+                case 'silver':
+                    $resetDate = Carbon::now()->addWeek()->startOfWeek();
+                    break;
+                case 'gold':
+                    $subscriptionStartDate = Carbon::createFromFormat('Y-m-d H:i:s', $user->subscription_start_date);
+                    $resetDate = $subscriptionStartDate->addMonth()->format('d-m-Y');
+                    $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
+                    break;
+                case 'platinum':
+                    $subscriptionStartDate = Carbon::createFromFormat('Y-m-d', $user->subscription_start_date);
+                    $resetDate = $subscriptionStartDate->addYear();
+                    $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
+                    break;
+                case 'free':
+                    $resetDate = Carbon::now()->addMonthNoOverflow()->startOfMonth();
+                    $formatedDateSubscription = $resetDate->format('d-M-Y');
+                    break;
+                default:
+                    $resetDate = 'tidak valid';
+                    break;
+            }
             $totalUrl = ShortURL::where('user_id', $userId)
                 ->whereNull('microsite_uuid')
-                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->whereDate('created_at', '<=', $resetDate)
                 ->count();
 
             $countHistory = History::where('user_id', $userId)
-                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->whereDate('created_at', '<=', $resetDate)
                 ->count();
+
             $countURL = $totalUrl + $countHistory;
 
-        }if ($user) {
-            $userId = $user->id;
             $countMicrosite = ShortURL::where('user_id', $userId)
                 ->whereNotNull('microsite_uuid')
-                ->orderBy('created_at', 'asc')
-                ->limit(3)
-                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->whereDate('created_at', '<=', $resetDate)
                 ->count();
-        }if ($user) {
-            $userId = $user->id;
-            $countNameChanged = ShortUrl::where('user_id', $userId)
+
+            $countNameChanged = ShortURL::where('user_id', $userId)
                 ->where('custom_name', 'yes')
                 ->whereNull('microsite_uuid')
                 ->count();
-        }
-        $qr = ShortUrl::get()->sum('qr_code');
 
-        return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite', 'user'));
+            $qr = ShortURL::where('user_id', $user->id)->sum('qr_code');
+            return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite', 'user', 'resetDate','formatedDateSubscription'));
+        }
+
+        return redirect()->back()->with('error', 'User tidak valid.');
     }
+
 
     public function HelpSupport()
     {
