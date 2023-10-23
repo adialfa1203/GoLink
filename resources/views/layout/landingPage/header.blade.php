@@ -40,8 +40,8 @@
                             <a class="nav-link {{ request()->routeIs('subscribe.page') ? 'active' : '' }}"
                                 href="{{ url('id/subscribe') }}">Berlangganan</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link dark_btn" href="{{ url('user/dashboard-user') }}">
+                        <li class="nav-item" >
+                            <a class="nav-link dark_btn " style="font-weight: 600;" href="{{ url('user/dashboard-user') }}">
                                 Beranda&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                             </a>
                         </li>
@@ -95,8 +95,8 @@
                                 href="{{ url('id/subscribe') }}">Berlangganan</a>
                         </li>
                         <li class="nav-item">
-                            <div class="nav-link dark_btn">
-                                <a class="text-dark" href="{{ url('/id/login') }}">Masuk /</a><a class="text-dark"
+                            <div class="nav-link dark_btn" style="font-weight: 600;">
+                                <a class="text-dark" href="{{ url('/id/login') }}">Masuk |</a><a class="text-dark"
                                     href="{{ url('/id/register') }}"> Daftar</a>
                             </div>
                         </li>
