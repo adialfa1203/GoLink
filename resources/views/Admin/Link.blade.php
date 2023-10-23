@@ -13,10 +13,27 @@
     .text-white {
         color: white !important;
     }
+
     .page-content {
-                overflow-x: hidden;
-                background-color: #fff;
-            }
+        overflow-x: hidden;
+        background-color: #fff;
+    }
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+
+        /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+        .ser {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+        .ser {
+            display: none;
+        }
+    }
 </style>
 @endsection
 @section('content')
@@ -84,16 +101,20 @@
         </div><!--end col-->
     </div><!--end row-->
     <div class="row">
+        <div class="d-flex  mb-3">
+            <div class="col-9 col-lg-9 col-xl-9 col-sm-0 col-md-0 ser"></div>
+            <div class="col-12 col-lg-3 col-xl-3 col-sm-12 col-md-12">
+                <div class="search-box">
+                    <input type="text" class="form-control search" id="searchInput" placeholder="Cari...">
+                    <i class="ri-search-line search-icon"></i>
+                </div>
+            </div>
+        </div>
+
         <div class="col-lg-12">
             <div class="card" id="orderList" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                 <div class="card-header">
                     <div class="row align-items-center gy-3">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="search-box">
-                                <input type="text" class="form-control search" id="searchInput" placeholder="Cari...">
-                                <i class="ri-search-line search-icon"></i>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="card-body">

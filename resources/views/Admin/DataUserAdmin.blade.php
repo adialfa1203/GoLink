@@ -148,20 +148,9 @@
             </div>
         </div><!--end row-->
     </div>
-    <div class="card-header mb-3">
+    <div class="card-body mb-3">
         <div class="row align-items-center gy-3">
-            <div class="col-lg-3 col-md-6">
-                <div class="search-box">
-                    <input type="text" class="form-control search" id="searchInput" placeholder="Cari...">
-                    <i class="ri-search-line search-icon"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xxl-12">
-        <div class="card">
-            <div class="card-body">
-                <!-- Nav tabs -->
+            <div class="col-lg-9 col-md-8 col-sm-6"> <!-- Nav tabs -->
                 <ul class="nav nav-pills card-header-pills" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active fw-bold" data-bs-toggle="tab" href="#developers" role="tab">
@@ -174,6 +163,18 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="search-box">
+                    <input type="text" class="form-control search" id="searchInput" placeholder="Cari...">
+                    <i class="ri-search-line search-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-12">
+        <div class="card">
+            <div class="card-body">
                 <div class="tab-content text-muted">
                     <div class="tab-pane active" id="developers" role="tabpanel">
                         <div class="row">
