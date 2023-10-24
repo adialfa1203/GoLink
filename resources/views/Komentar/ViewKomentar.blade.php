@@ -35,6 +35,10 @@
             display: none;
         }
     }
+    .page-content {
+                overflow-x: hidden;
+                background-color: #fff;
+            }
 </style>
 @endsection
 @section('content')
@@ -42,11 +46,11 @@
     <div class="container-fluid">
         <!-- start page title -->
         <div class="row">
-            <div class="col-12">
+            {{-- <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0">Komentar</h4>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!-- end page title -->
         <div class="row">
@@ -60,27 +64,24 @@
                 </div>
 </div>
             <div class="col-lg-12">
-                <div class="card" id="orderList">
-                    <div class="card-header">
-                        <div class="row align-items-center gy-3">
-                        </div>
-                    </div>
+                <div class="card" id="orderList" style="background-color:  #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                 <thead class="text-muted table-light">
                                     <tr class="searchable">
-                                        <th scope="col" data-sort="order_id">No</th>
-                                        <th scope="col" data-sort="order_id">Email</th>
-                                        <th scope="col" data-sort="order_id">Nama Pengguna</th>
-                                        <th scope="col" data-sort="order_date">Isi Komentar</th>
+                                        <th scope="col" data-sort="order_id" style="background-color: #E6E5E5;">No</th>
+                                        <th scope="col" data-sort="order_id" style="background-color: #E6E5E5;">Email</th>
+                                        <th scope="col" data-sort="order_id" style="background-color: #E6E5E5;">Nama Pengguna</th>
+                                        <th scope="col" data-sort="order_date" style="background-color: #E6E5E5;">Isi Komentar</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list form-check-all">
                                     @if ($komentar->isEmpty())
                                     <tr>
                                         <td colspan="4">
-                                            <div class="page-content">
+                                            <div class="page-content" style="background-color:  #F0F0F0;">
                                                 <div class="container-fluid">
                                                     <div class="d-flex flex-column align-items-center">
                                                         <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.png') }}" alt="Gambar">
