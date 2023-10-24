@@ -88,26 +88,26 @@ class DahsboardController extends Controller
 
             switch ($subscriptionPeriod) {
                 case 'silver':
-                    $resetDate = Carbon::now()->addWeek()->startOfWeek();
+                    $subscriptionStartDate = Carbon::createFromFormat('Y-m-d H:i:s', $user->subscription_start_date);
+                    $resetDate = $subscriptionStartDate->copy()->addWeek();
                     break;
                 case 'gold':
                     $subscriptionStartDate = Carbon::createFromFormat('Y-m-d H:i:s', $user->subscription_start_date);
-                    $resetDate = $subscriptionStartDate->addMonth()->format('d-m-Y');
-                    $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
+                    $resetDate = $subscriptionStartDate->copy()->addMonth();
                     break;
                 case 'platinum':
                     $subscriptionStartDate = Carbon::createFromFormat('Y-m-d H:i:s', $user->subscription_start_date);
-                    $resetDate = $subscriptionStartDate->addYear()->format('d-m-Y');;
-                    $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
+                    $resetDate = $subscriptionStartDate->copy()->addYear();
                     break;
                 case 'free':
                     $resetDate = Carbon::now()->addMonthNoOverflow()->startOfMonth();
-                    $formatedDateSubscription = $resetDate->format('d-M-Y');
                     break;
                 default:
-                    $resetDate = 'tidak valid';
+                    $resetDate = null;
                     break;
             }
+
+
             $totalUrl = ShortURL::where('user_id', $userId)
                 ->whereNull('microsite_uuid')
                 ->whereDate('created_at', '<=', $resetDate)
@@ -130,7 +130,7 @@ class DahsboardController extends Controller
                 ->count();
 
             $qr = ShortURL::where('user_id', $user->id)->sum('qr_code');
-            return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite', 'user', 'resetDate', 'formatedDateSubscription'));
+            return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite', 'user', 'resetDate'));
         }
 
         return redirect()->back()->with('error', 'User tidak valid.');

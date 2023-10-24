@@ -125,10 +125,11 @@
                 display: none;
             }
         }
+
         .page-content {
-                   overflow-x: hidden;
-                   background-color: #fff;
-               }
+            overflow-x: hidden;
+            background-color: #fff;
+        }
     </style>
 @endsection
 @section('content')
@@ -243,7 +244,7 @@
                                                                             <input name="deactivated_at"
                                                                                 type="datetime-local" id="old_password"
                                                                                 class="form-control pe-5 time-input"
-                                                                                min="{{ now()->format('Y-m-d\TH:i:s') }}">
+                                                                                min="{{ now()->format('Y\TH:i:s') }}">
                                                                             <button
                                                                                 class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                                                                                 type="button" id="password-addon">
@@ -507,7 +508,7 @@
                                                 @endif
 
                                                 <span class="tooltip-icon"
-                                                    data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $formatedDateSubscription }} atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                    data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                     <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                 </span>
                                             </h6>
@@ -536,8 +537,10 @@
                                         @endif
 
                                         <span class="tooltip-icon"
-                                            data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $formatedDateSubscription }} atau melakukan upgrade ke layanan yang lebih tinggi">
-                                            <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
+                                            data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi.">
+                                            <i
+                                                class="bi
+                                            bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                         </span>
                                     </h6>
                                     <div class="progress" data-bs-toggle="tooltip"
@@ -576,7 +579,7 @@
                                                         <h6 class="card-title">
                                                             Tautan dibuat
                                                             <span class="tooltip-icon"
-                                                                data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $formatedDateSubscription }} atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                                data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                 <i
                                                                     class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                             </span>
@@ -603,7 +606,7 @@
                                                             @endif
 
                                                             <span class="tooltip-icon"
-                                                                data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $formatedDateSubscription }} atau melakukan upgrade ke layanan yang lebih tinggi">
+                                                                data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                 <i
                                                                     class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                             </span>
@@ -958,7 +961,7 @@
 
         $(document).ready(function() {
             var userId = "{{ auth()->user()->subscribe }}";
-                console.log(userId);
+            console.log(userId);
             $("#shortlinkSubmit").submit(function(event) {
                 event.preventDefault();
                 var destinationUrl = $("#AmountInput").val();
@@ -976,19 +979,17 @@
                 } else {
                     $('#singkatkan').modal('hide');
                     var countURL = {{ $countURL }};
-                    @php
-
-                        if(auth()->user()->subscribe == 'free'){
-                            $countUrl = 15;
-                        }else if(auth()->user()->subscribe == 'silver'){
-                            $countUrl = 35;
-                        }else if(auth()->user()->subscribe == 'gold'){
-                            $countUrl = 50;
-                        }else if(auth()->user()->subscribe == 'platinum'){
-                            $countUrl = 100;
-                        }
-                    @endphp
-                    if (countURL >= {{$countUrl}}) {
+                    var countUrl;
+                    @if (auth()->user()->subscribe == 'free')
+                        countUrl = 15;
+                    @elseif (auth()->user()->subscribe == 'silver')
+                        countUrl = 35;
+                    @elseif (auth()->user()->subscribe == 'gold')
+                        countUrl = 50;
+                    @elseif (auth()->user()->subscribe == 'platinum')
+                        countUrl = 100;
+                    @endif
+                    if (countURL >= countUrl) {
                         Swal.fire({
                             icon: "error",
                             title: "Kesalahan!",
