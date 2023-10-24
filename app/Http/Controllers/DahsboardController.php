@@ -96,8 +96,8 @@ class DahsboardController extends Controller
                     $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
                     break;
                 case 'platinum':
-                    $subscriptionStartDate = Carbon::createFromFormat('Y-m-d', $user->subscription_start_date);
-                    $resetDate = $subscriptionStartDate->addYear();
+                    $subscriptionStartDate = Carbon::createFromFormat('Y-m-d H:i:s', $user->subscription_start_date);
+                    $resetDate = $subscriptionStartDate->addYear()->format('d-m-Y');;
                     $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
                     break;
                 case 'free':
@@ -130,7 +130,7 @@ class DahsboardController extends Controller
                 ->count();
 
             $qr = ShortURL::where('user_id', $user->id)->sum('qr_code');
-            return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite', 'user', 'resetDate','formatedDateSubscription'));
+            return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite', 'user', 'resetDate', 'formatedDateSubscription'));
         }
 
         return redirect()->back()->with('error', 'User tidak valid.');

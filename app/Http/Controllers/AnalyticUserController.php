@@ -137,8 +137,8 @@ class AnalyticUserController extends Controller
                     $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
                     break;
                 case 'platinum':
-                    $subscriptionStartDate = Carbon::createFromFormat('Y-m-d', $user->subscription_start_date);
-                    $resetDate = $subscriptionStartDate->addYear();
+                    $subscriptionStartDate = Carbon::createFromFormat('Y-m-d H:i:s', $user->subscription_start_date);
+                    $resetDate = $subscriptionStartDate->addYear()->format('d-m-Y');;
                     $formatedDateSubscription = $subscriptionStartDate->format('d-M-Y');
                     break;
                 case 'free':
