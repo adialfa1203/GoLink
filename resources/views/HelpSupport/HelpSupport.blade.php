@@ -147,6 +147,12 @@
     height: auto; /* Biarkan tinggi mengikuti proporsi gambar */
 }
 
+.comment-container {
+    max-height: 500px;
+    overflow-y: scroll;
+    position: relative;
+}
+
 
     </style>
 
@@ -250,65 +256,91 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-12 card-with-shadow">
-                <div class="card mb-3">
+            <div class="col-xxl-12 " >
+                <div class="card mb-3" style="background-color:  #ffff; box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.25);border-radius: 15px;">
                     <div class="card-header-white d-flex align-items-center">
-                        <h5 class="card-title mb-0 flex-grow-1 text-center mt-4">Aktivitas Terbaru</h5>
+                        {{-- <h5 class="card-title mb-0 flex-grow-1 text-center mt-4">Aktivitas Terbaru</h5> --}}
                     </div>
-                    <div class="card-body px-0" style="height: 500px; overflow-y: scroll;">
-                        @if ($komentar->isEmpty())
-                            <div class="d-flex flex-column align-items-center">
-                                <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.png') }}"
-                                    alt="Gambar">
-                                <div class="d-flex justify-content-center align-items-center mt-2">
-                                    <i class="ph-magnifying-glass fs-2 text-primary"></i>
-                                    <h5 class="mt-2">Maaf! Belum Ada Data Yang Ditemukan</h5>
+                    
+                    <div class="card-body px-0">
+                        <div class="comment-container">
+                            <!-- Daftar komentar di sini -->
+                            @if ($komentar->isEmpty())
+                                <div class="d-flex flex-column align-items-center">
+                                    <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.png') }}"
+                                        alt="Gambar">
+                                    <div class="d-flex justify-content-center align-items-center mt-2">
+                                        <i class="ph-magnifying-glass fs-2 text-primary"></i>
+                                        <h5 class="mt-2">Maaf! Belum Ada Data Yang Ditemukan</h5>
+                                    </div>
                                 </div>
-                            </div>
-                        @else
-                            @foreach ($komentar as $key => $row)
-                                <div class="card-body ">
-                                    <div class="d-flex align-items-center text-muted mb-4 comment-container{{ $key < 1 ? '' : ' hidden' }}">
-                                        <div class="flex-shrink-0 me-3">
-                                            @if ($row->user->profile_picture)
-                                                <img class="header-profile-user"
-                                                    src="{{ asset('profile_pictures/' . $row->user->profile_picture) }}"
-                                                    alt="Header Avatar" width="50px" height="50px"
-                                                    style="margin-right: 10px; object-fit: cover;">
-                                            @else
-                                                <img class="header-profile-user"
-                                                    src="{{ asset('default/default.jpg') }}" alt="Default Avatar"
-                                                    width="50px" height="50px"
-                                                    style="margin-right: 10px; object-fit: cover;">
-                                            @endif
-                                        </div>
-                                        <div class="flex-grow-1 d-flex flex-column">
-                                            <div class="d-flex justify-content-between align-items-start">
-                                                @foreach ($userId as $user)
-                                                    @if ($user->id == $row->user_id)
-                                                        <h6 class="fs-md" style="margin-left:12px; font-size:14px;">
-                                                            {{ $user->name }}
-                                                        </h6>
-                                                    @endif
-                                                @endforeach
-                                                @if ($row->created_at)
-                                                    <h6 style="font-size:14px;">
-                                                        {{ \Carbon\Carbon::parse($row->created_at)->format('d M Y') }}
-                                                    </h6>
+                            @else
+                                @foreach ($komentar as $key => $row)
+                                    <div class="card-body " >
+                                        <div class="d-flex align-items-center text-muted mb-4{{ $key < 1 ? '' : ' hidden' }}">
+                                            <div class="flex-shrink-0 me-3">
+                                                @if ($row->user->profile_picture)
+                                                    <img class="header-profile-user"
+                                                        src="{{ asset('profile_pictures/' . $row->user->profile_picture) }}"
+                                                        alt="Header Avatar" width="50px" height="50px"
+                                                        style="margin-right: 10px; object-fit: cover;">
                                                 @else
-                                                    <h6 style="font-size:14px;">Tanggal tidak tersedia</h6>
+                                                    <img class="header-profile-user"
+                                                        src="{{ asset('default/default.jpg') }}" alt="Default Avatar"
+                                                        width="50px" height="50px"
+                                                        style="margin-right: 10px; object-fit: cover;">
                                                 @endif
                                             </div>
-                                            <div class="d-flex justify-content-between align-items-start">
-                                                <h6 class="elipsis mb-1 mt-2" style="margin-left: 12px; font-size: 14px;">
-                                                    {{ $row->isikomentar }}</h6>
+                                            <div class="flex-grow-1 d-flex flex-column">
+                                                <div class="d-flex justify-content-between align-items-start">
+                                                    @foreach ($userId as $user)
+                                                        @if ($user->id == $row->user_id)
+                                                            <h6 class="fs-md" style="margin-left:12px; font-size:14px;">
+                                                                {{ $user->name }}
+                                                            </h6>
+                                                        @endif
+                                                    @endforeach
+                                                    @if ($row->created_at)
+                                                        <h6 style="font-size:14px;">
+                                                            {{-- {{ \Carbon\Carbon::parse($row->created_at)->format('d M Y') }} --}}
+                                                        </h6>
+                                                    @else
+                                                        <h6 style="font-size:14px;">Tanggal tidak tersedia</h6>
+                                                    @endif
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-start">
+                                                    <h6 class="elipsis mb-1 mt-2" style="margin-left: 12px; font-size: 14px;">
+                                                        {{ $row->isikomentar }}</h6>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                @endforeach
+                            @endif
+                        </div>
+                        @auth
+                        <!-- Comment Form -->
+                        <div class="col-lg-12 mb-1" style="position: sticky; bottom: 10px;">
+                            <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm" method="POST" enctype="multipart/form-data" class="mt-3">
+                                @csrf
+                                <div class="input-group" style="border: 1px solid #000; border-radius: 10px;">
+                                    <textarea class="form-control bg-light border-0" placeholder="Tambahkan Komentar" name="isikomentar" style="font-size: 12px; height: 35px; border: none;"></textarea>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-secondary" style="background-color: #f8f9fa; border: none; border-radius: 10px; height: 35px;">
+                                            <i class="fas fa-paper-plane" style="color: #404243;"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            @endforeach
-                        @endif
-
+                                
+                                @error('isikomentar')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </form>
+                        </div>
+                        @endauth
+                        
+                        
+                    
                     </div><!-- end card-body -->
                 </div>
             </div><!--end card-->

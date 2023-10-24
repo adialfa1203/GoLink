@@ -16,7 +16,7 @@
         color: #000;
     }
 </style>
-@auth
+{{-- @auth
     <footer>
         <div class="top_footer" id="kontak">
             <div class="container">
@@ -71,21 +71,21 @@
                                         target="_blank">
                                         <i class="fab fa-whatsapp"></i>
                                         Whatsapp
-                                        {{-- {{ $data->whatsapp }} --}}
+                                       
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.instagram.com/{{ $data->instagram }}" target="_blank">
                                         <i class="fab fa-instagram"></i>
                                         Instagram
-                                        {{-- {{ $data->instagram }} --}}
+                                        
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://twitter.com/{{ $data->twitter }}" target="_blank">
                                         <i class="fab fa-twitter"></i>
                                         Twitter
-                                        {{-- {{ $data->twitter }} --}}
+
                                     </a>
                                 </li>
                             </ul>
@@ -118,8 +118,7 @@
             <span><img src="https://i.postimg.cc/MZtYYpPg/go-top.png" alt="image"></span>
         </div>
     </footer>
-    <!-- Footer-Section end -->
-@else
+    <!-- Footer-Section end --> --}}
     <footer>
         <div class="top_footer" id="kontak">
             <div class="container">
@@ -222,5 +221,4 @@
             <span><i class="fas fa-arrow-up"></i></span>
         </div>
     </footer>
-    <!-- Footer-Section end -->
-@endauth
+
