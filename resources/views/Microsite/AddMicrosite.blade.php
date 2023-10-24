@@ -100,8 +100,7 @@
                                             aria-orientation="vertical">
                                             <button class="nav-link active" id="v-pills-bill-info-tab" data-bs-toggle="pill"
                                                 data-bs-target="#v-pills-bill-info" type="button" role="tab"
-                                                aria-controls="v-pills-bill-info" aria-selected="true"
-                                                style="border: 1px solid rgba(0, 0, 0, 0.50);">
+                                                aria-controls="v-pills-bill-info" aria-selected="true">
                                                 <span class="step-title me-2">
                                                     <i class="ri-close-circle-fill step-icon me-2"></i> Tentukan jenis
                                                     microsite anda!
@@ -109,16 +108,14 @@
                                             </button>
                                             <button class="nav-link" id="v-pills-bill-address-tab" data-bs-toggle="pill"
                                                 data-bs-target="#v-pills-bill-address" type="button" role="tab"
-                                                aria-controls="v-pills-bill-address" aria-selected="false"
-                                                style="border: 1px solid black;">
+                                                aria-controls="v-pills-bill-address" aria-selected="false">
                                                 <span class="step-title me-2">
                                                     <i class="ri-close-circle-fill step-icon me-2"></i> Pilih nama anda!
                                                 </span>
                                             </button>
                                             <button class="nav-link" id="v-pills-payment-tab" data-bs-toggle="pill"
                                                 data-bs-target="#v-pills-payment" type="button" role="tab"
-                                                aria-controls="v-pills-payment" aria-selected="false"
-                                                style="border: 1px solid black;">
+                                                aria-controls="v-pills-payment" aria-selected="false">
                                                 <span class="step-title me-2">
                                                     <i class="ri-close-circle-fill step-icon me-2"></i> Pilih media sosial
                                                     anda!
@@ -178,7 +175,8 @@
                                                     </div>
                                                     <div class="d-flex align-items-start gap-3 mt-4">
                                                         <button type="button"
-                                                            class="btn btn-label right ms-auto nexttab nexttab" style="background: #088C0D; color: #FFF;"
+                                                            class="btn btn-label right ms-auto nexttab nexttab"
+                                                            style="background: #088C0D; color: #FFF;"
                                                             data-nexttab="v-pills-bill-address-tab">
                                                             <i
                                                                 class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Selanjutnya
@@ -213,7 +211,8 @@
                                                                     Microsite</label>
                                                                 <div class="input-group">
                                                                     <button type="button"
-                                                                        class="text-white btn bg-gradient" style="background: #0E2954;">MiLink/</button>
+                                                                        class="text-white btn bg-gradient"
+                                                                        style="background: #0E2954;">MiLink/</button>
                                                                     <input type="text" class="form-control"
                                                                         id="linkMicrosite" placeholder="Tautan Microsite"
                                                                         name="link_microsite">
@@ -260,7 +259,8 @@
                                                     <div class="row">
                                                         @foreach ($button as $data)
                                                             <div class="col-xl-4 col-sm-6 mb-4">
-                                                                <div class="card" id="{{ $data->id }}" style="box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);"
+                                                                <div class="card" id="{{ $data->id }}"
+                                                                    style="box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);"
                                                                     data-card-id="{{ $data->id }}">
                                                                     <div class="card-footer text-center">
                                                                         <div
@@ -295,8 +295,9 @@
                                                                 class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
                                                             Sebelumnya</button>
                                                         <button type="submit" id="submitButton"
-                                                            class="btn btn-label right ms-auto nexttab nexttab" style="background: #088C0D; color: #FFF;"
-                                                            {{-- data-nexttab="v-pills-finish-tab" --}} onclick="return validateForm();"><i
+                                                            class="btn btn-label right ms-auto nexttab nexttab"
+                                                            style="background: #088C0D; color: #FFF;" {{-- data-nexttab="v-pills-finish-tab" --}}
+                                                            onclick="return validateForm();"><i
                                                                 class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Kirim</button>
 
                                                     </div>
