@@ -23,7 +23,7 @@
 <div class="app-modal" data-name="delete">
       <div class="app-modal-container-del">
           <div class="app-modal-card" data-name="delete" data-modal='0'>
-              <div class="app-modal-header">apa kamu yakin ingin menghapus ini?</div>
+              <div class="app-modal-header">apa kamu yakin ingin menghapus chat ini?</div>
               <div class="app-modal-body">Anda tidak dapat membatalkan tindakan ini</div>
               <div class="app-modal-footer">
                   <a href="javascript:void(0)" class="app-btn cancel">Cancel</a>
