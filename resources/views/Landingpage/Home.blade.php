@@ -401,7 +401,7 @@
                             <div class="item">
                                 <div class="logo">
                                     <img src="{{ $channel->icon_url }}" alt="image"
-                                        style="max-width: 150px; max-height: 150px;">
+                                        style="max-width: 150px; max-height: 150px; object-fit:content">
                                 </div>
                             </div>
                         @endforeach
