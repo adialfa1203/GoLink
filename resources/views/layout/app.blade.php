@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable"
+<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="enable"
     data-theme="default" data-topbar="light" data-bs-theme="light">
 
 
@@ -12,7 +12,8 @@
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}" style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
+        style="width: 200px; height: 200px;">
 
     <!-- Fonts css load -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -20,7 +21,9 @@
     <link id="fontsLink"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- jsvectormap css -->
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/css/jsvectormap.min.css') }}"
@@ -44,6 +47,35 @@
     <!-- custom Css-->
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet"
         type="text/css">
+    <style>
+        #preloader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader {
+            animation: float 1.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
 
     @yield('style')
 </head>
@@ -134,13 +166,13 @@
     <!--preloader-->
     <div id="preloader">
         <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+            <img class="animate__animated animate__bounce animate__slow animate__infinite infinite"
+                style="width: 100px" src="{{ asset('preloader.png') }}" alt="" role="status">
         </div>
     </div>
     <div class="customizer-setting d-none d-md-block">
-        <div class="btn btn-info p-2 text-uppercase rounded-end-0 shadow-lg" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+        <div class="btn btn-info p-2 text-uppercase rounded-end-0 shadow-lg" data-bs-toggle="offcanvas"
+            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
             <i class="bi bi-gear mb-1"></i> Customizer
         </div>
     </div>
@@ -949,16 +981,16 @@
     </script>
 
     <!-- apexcharts -->
-    <script src="{{ asset ('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
     <!-- real estate earnings init JS -->
-    <script src="{{ asset ('assets/js/pages/real-estate-earnings.init.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/real-estate-earnings.init.js') }}"></script>
 
-    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/modal.init.js')}}"></script>
-<!-- Lord Icon -->
-        <script src="{{asset('template/cdn.lordicon.com/mssddfmo.js')}}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/modal.init.js') }}"></script>
+    <!-- Lord Icon -->
+    <script src="{{ asset('template/cdn.lordicon.com/mssddfmo.js') }}"></script>
 
-    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/prismjs/prism.js')}}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/prismjs/prism.js') }}"></script>
     <!-- App js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
     @yield('script')
