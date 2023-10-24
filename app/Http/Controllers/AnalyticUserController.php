@@ -74,7 +74,7 @@ class AnalyticUserController extends Controller
     public function analyticUser()
     {
         $user = Auth::user();
-        // $users = Auth::user();
+        $currentMonth = now()->startOfMonth();
 
         if ($user) {
             $subscribe = $user->subscribe;
@@ -172,22 +172,18 @@ class AnalyticUserController extends Controller
 
         $dataLink = SHortURL::all();
 
-        $totalVisits = ShortURLVisit::query()
-            ->whereHas('shortURL', function ($query) use ($user) {
-                $query->where('user_id', $user)
-                    ->where('archive', '!=', 'yes')
-                    ->where(function ($query) {
-                        $query->whereNull('microsite_uuid')
-                            ->orWhere('microsite_uuid', '=', '');
-                    });
-            })
-            ->count();
+        $totalVisits = ShortURLVisit::whereHas('shortURL', function ($query) use ($userId, $currentMonth) {
+            $query->where('user_id', $userId)
+                ->where('microsite_uuid', null)
+                ->where('archive', '!=', 'yes')
+                ->whereDate('created_at', '>=', $currentMonth);
+        })->count();
 
-        $totalVisitsMicrosite = ShortURLVisit::query()
-            ->whereRelation('shortURL', 'user_id', '=', $user)
-            ->whereRelation('shortURL', 'microsite_uuid', '!=', null)
-            ->whereRelation('shortURL', 'archive', '!=', 'yes')
-            ->count();
+        $totalVisitsMicrosite = ShortURLVisit::whereHas('shortURL', function ($query) use ($userId, $currentMonth) {
+            $query->where('user_id', $userId)
+                ->where('microsite_uuid', '!=', null)
+                ->whereDate('created_at', '>=', $currentMonth);
+        })->count();
 
         $user = User::where('email', '!=', 'admin@gmail.com')->get();
         $count = [];
