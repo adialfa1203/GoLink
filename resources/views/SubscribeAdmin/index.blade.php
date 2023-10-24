@@ -7,6 +7,34 @@
                 overflow-x: hidden;
                 background-color: #fff;
             }
+ .col-6.mb-9.d-flex.justify-content-end a {
+    position: relative;
+    top: -40px; /* Sesuaikan sesuai kebutuhan */
+}
+.elemen-sebelumnya {
+    margin-bottom: 20px; /* Sesuaikan sesuai kebutuhan */
+}
+
+.col-6.mb-9.d-flex.justify-content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col-6.mb-9.d-flex.justify-content-end {
+    text-align: center;
+}
+@media (min-width: 1025px) {
+
+/* Atur gaya CSS khusus untuk perangkat laptop di sini */
+.kotak {
+    /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+}
+
+
     </style>
 @endsection
 @section('content')
@@ -69,95 +97,169 @@
                         </div>
                     </div>
                 @else
+                <div class="kotak">
                     @foreach ($subscribe as $subs)
                         @php
                             $i++;
                         @endphp
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="card">
-                                <div class="d-flex justify-content-end dropdown float-end m-2">
-                                    <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <span class="text-muted fs-lg"><i
-                                                class="mdi mdi-dots-vertical align-middle"></i></span>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item"
-                                            href="{{ route('edit.subscribe', ['id' => $subs->id]) }}">Edit</a>
-                                        <button type="button" class="dropdown-item"
-                                            onclick="confirmDelete('{{ $subs->id }}')">Hapus</button>
-                                    </div>
-                                </div>
-                                <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260"
+                     
+                        {{-- bts --}}
+                         <div class="row text-center">
+                        <div class="col-md-12">
+                            <div class="card1" style="border-radius: 15px;
+                            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);">
+                                 <h5 class="card-title mb-2" style="font-weight: bold; color:#0E2954;">
+                                        @if (strtolower(trim($subs->tipe)) === 'free')
+                                            <span class="">Gratis</span>
+                                        @elseif (strtolower(trim($subs->tipe)) === 'silver')
+                                            <span class="">Silver</span>
+                                        @elseif (strtolower(trim($subs->tipe)) === 'gold')
+                                            <span class="">Gold</span>
+                                        @elseif (strtolower(trim($subs->tipe)) === 'platinum')
+                                            <span class="">Platinum</span>
+                                        @else
+                                            <span class="">Data Kosong</span>
+                                        @endif
+                                    </h5>
+                            </div>
+                            <div class="card mb-3" style="background-color: #104898;height: 620px;">
+                                <div class="text-center">
+                                    <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260"
                                     height="160" style="display: block; margin: 0 auto; object-fit: cover;"
                                     alt="Card image cap">
-                                <br>
-                                <div class="card-body text-center">
-                                    <h2 class="mb-2">Rp.{{ number_format($subs->price, 0, ',', '.') }}</h2>
-                                    <h4 class="card-title mb-2">
-                                        @if (strtolower(trim($subs->tipe)) === 'free')
-                                            <span class="badge bg-success">Gratis</span>
-                                        @elseif (strtolower(trim($subs->tipe)) === 'silver')
-                                            <span class="badge bg-primary">Dasar</span>
-                                        @elseif (strtolower(trim($subs->tipe)) === 'gold')
-                                            <span class="badge bg-warning">Menengah</span>
-                                        @elseif (strtolower(trim($subs->tipe)) === 'platinum')
-                                            <span class="badge bg-danger">Premium</span>
-                                        @else
-                                            <span class="badge bg-secondary">Data Kosong</span>
-                                        @endif
-                                    </h4>
-                                    <p class="card-text"
-                                        style="     text-overflow: ellipsis!important;
-        overflow: hidden!important;
-        -webkit-line-clamp: 2!important;
-        -webkit-box-orient: vertical!important;
-        display: -webkit-box!important;
-        word-break: break-word!important;">
-                                        {!! strip_tags($subs->description) !!}
-                                    </p>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#{{ $subs->id }}"
-                                        style="color: #FF7E01;">Baca Selengkapnya</a>
-
-                                    <div id="{{ $subs->id }}" class="modal fade zoomIn" tabindex="-1"
-                                        aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content" style="width: 90%;">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="myModalLabel"></h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"> </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <img class="mb-2" src="{{ asset('pictureSubs/' . $subs->picture) }}"
-                                                        width="100%"
-                                                        style="display: block; margin: 0 auto; object-fit: cover;"
-                                                        alt="Card image cap">
-                                                    <h2 class="mt-2">Rp.{{ number_format($subs->price, 0, ',', '.') }}
-                                                    </h2>
-                                                    <h4 class="card-title mb-2">
-                                                        @if (strtolower(trim($subs->tipe)) === 'gratis')
-                                                            <span class="badge bg-success">{{ $subs->tipe }}</span>
-                                                        @elseif (strtolower(trim($subs->tipe)) === 'dasar')
-                                                            <span class="badge bg-primary">{{ $subs->tipe }}</span>
-                                                        @elseif (strtolower(trim($subs->tipe)) === 'menengah')
-                                                            <span class="badge bg-warning">{{ $subs->tipe }}</span>
-                                                        @elseif (strtolower(trim($subs->tipe)) === 'premium')
-                                                            <span class="badge bg-danger">{{ $subs->tipe }}</span>
-                                                        @else
-                                                            <span class="badge bg-secondary">{{ $subs->tipe }}</span>
-                                                        @endif
-                                                    </h4>
-                                                    <p>{!! strip_tags($subs->description) !!}</p>
-                                                </div>
-
-                                            </div><!-- /.modal-content -->
-                                        </div><!-- /.modal-dialog -->
-                                    </div><!-- /.modal -->
+                                    <br>
+                                    <h2 class="mb-2" style="color: #ffffff;">Rp.{{ number_format($subs->price, 0, ',', '.') }}/Bulan</h2>
+                                    <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
+                                    <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
                                 </div>
+                                
+                                <div data-simplebar data-simplebar-auto-hide="false" style="height: 300px;" class="px-3">
+                                    <div class="flex-grow-1 ms-2 mt-2 text-white text-center">
+                                        {{ strip_tags($subs->description) }}
+                                    </div>
+                                    @if (strtolower(trim($subs->tipe)) === 'free')
+                                    <div class="d-flex mt-5">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menyingkat tautan batas sebanyak 35/bulan
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Membuat Microsite sebanyak 3/bulan
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button" class="btn custom col-12" style="margin-top: 180px;">Berlangganan Sekarang</a>
+                                    </div> -->
+                                    @elseif (strtolower(trim($subs->tipe)) === 'silver')
+                                    <div class="d-flex mt-5">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menyingkat tautan batas sebanyak 50×/bulan
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Membuat Microsite sebanyak 10×/bulan
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button" class="btn custom col-12" style="margin-top: 180px;">Berlangganan
+                                            Sekarang</a>
+                                    </div> -->
+                                    @elseif (strtolower(trim($subs->tipe)) === 'gold')
+                                    <div class="d-flex mt-5">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menyingkat tautan batas sebanyak 100×/bulan
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Membuat Microsite sebanyak 20×/bulan
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button" class="btn custom col-12" style="margin-top:155px;">Berlangganan
+                                            Sekarang</a>
+                                    </div> -->
+                                    @elseif (strtolower(trim($subs->tipe)) === 'platinum')
+                                    <div class="d-flex mt-5">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menyingkat tautan tanpa batas
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Membuat Microsite tanpa batas
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Menggunakan semua tema tanpa terkunci
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Memantau tautan dengan terperinci
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2 text-white">
+                                            Memproteksi tautan dengan kata sandi
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-12 col-sm-12">
+                                        <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button" class="btn custom col-12" style="margin-top: 65px;">Berlangganan
+                                            Sekarang</a>
+                                    </div> -->
+                                    @endif
+                                </div>
+                                <center>
+                                <div class="col-10 mb-2 ">
+                                    <a href="{{ url('user/subscribe-product-user') }}" type="button" class="btn btn-outline-warning mx-auto" style="margin-top: -30px;">Mulai Berlangganan</a>
+                                </div>
+                            </center>
+                                
                             </div>
+
                         </div>
+                         </div>
+                    {{-- batas --}}
+                   
                     @endforeach
+                </div>
                 @endif
             </div>
         </div>

@@ -44,17 +44,14 @@
                                         <label for="tipe" class="form-label">Tipe Langganan</label>
                                         <select name="tipe" class="form-select" id="tipe" required>
                                             <option value="" disabled selected>Pilih Tipe Langganan...</option>
-                                            <option value="free" {{ old('tipe') === 'free' ? 'selected' : '' }}>
-                                                Gratis
-                                            </option>
                                             <option value="silver" {{ old('tipe') === 'silver' ? 'selected' : '' }}>
-                                                Tingkatan Dasar
+                                                Silver
                                             </option>
                                             <option value="gold" {{ old('tipe') === 'gold' ? 'selected' : '' }}>
-                                                Tingkatan Menengah
+                                                Gold
                                             </option>
                                             <option value="platinum" {{ old('tipe') === 'platinum' ? 'selected' : '' }}>
-                                                Tingkatan Premium
+                                                Platinum
                                             </option>
                                         </select>
                                         @if ($errors->has('tipe'))
