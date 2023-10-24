@@ -122,7 +122,19 @@
             /* Menjaga aspek rasio gambar */
         }
 
-        //active
+        @media only screen and (max-width: 600px) {
+            .item {
+                width: 50px;
+                /* Ubah ukuran sesuai kebutuhan */
+            }
+
+            .logo img {
+                max-width: 50px;
+                /* Ubah ukuran sesuai kebutuhan */
+                max-height: 50px;
+                /* Ubah ukuran sesuai kebutuhan */
+            }
+        }
     </style>
     <style>
         .navbar-nav a.nav-link.active {
