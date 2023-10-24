@@ -82,11 +82,11 @@
 
             <!-- start page title -->
             <div class="row">
-                <div class="col-12">
+                {{-- <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0">Edit Microsite</h4>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- end page title -->
             <div class="col-12 col-sm-2 isi align-items-xl-center d-xl-flex">
@@ -110,7 +110,7 @@
                 enctype="multipart/form-data">
                 @csrf
                 <div class="col-lg-9">
-                    <div class="card" style="background: #F0F0F0;">
+                    <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                         <div class="card-body">
                             <div class="tab-content text-black">
                                 <div class="tab-pane active" id="animation-home" role="tabpanel">

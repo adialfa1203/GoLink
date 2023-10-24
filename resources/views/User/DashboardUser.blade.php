@@ -717,7 +717,7 @@
         @endif
         <div class="">
             <div class="">
-                <div class="card mid" style="background-color: #F0F0F0;">
+                <div class="card mid" style="background-color: #F0F0F0; height: 120px;">
                     <div class="card-body">
                         <div class="d-flex">
                             <div class="flex-grow-1">
@@ -739,7 +739,7 @@
                 </div>
             </div>
             <div class="">
-                <div class="card mid" style="background-color: #F0F0F0;">
+                <div class="card mid" style="background-color: #F0F0F0; height: 120px;">
                     <div class="card-body">
                         <div class="d-flex">
                             <div class="flex-grow-1">

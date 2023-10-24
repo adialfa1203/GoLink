@@ -28,6 +28,10 @@
             background-color: #FF2323;
             color: #fff;
         }
+        .page-content {
+                overflow-x: hidden;
+                background-color: #fff;
+            }
         </style>
 
 @endsection
@@ -36,7 +40,7 @@
     <div class="page-content">
         <div class="container-fluid">
             <div class="row">
-                <div class="card" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
+                <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                     <div class="card-body">
                         <form action="{{ route('save.button') }}" method="POST" class="needs-validation" novalidate>
                             @csrf

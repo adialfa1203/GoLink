@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="col-lg-7 col-md-6 col-12">
                                         <h1 class="card-title long-text mt-3" style="color: #ffff; font-size: 30px;">Hi {!! Auth::user()->name !!}!</h1>
-                                        <p class="card-text long-text" style="color: #ffff;">Jangan lewatkan kesempatan untuk mengambil yang terbaik! 
+                                        <p class="card-text long-text" style="color: #ffff;">Jangan lewatkan kesempatan untuk mengambil yang terbaik!
                                             Berlangganan bersama kami untuk manfaatkan semua fitur canggih kami</p>
                                     </div>
                                     {{-- <div class="col-lg-3 col-md-3 col-12 text-center">
@@ -96,22 +96,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
-                        <a href="{{ url('user/subscribe-product-user') }}">Lihat semua layanan kami di sini!</a>
+                    <div class="col-6" style="color: #0E2954">
+                        <h5 class="card-title mb-0">Riwayat Transaksi Terakhir</h5>
                     </div>
                     <div class="col-6 mb-4 d-flex justify-content-end">
                         <a href="{{ url('user/subscribe-product-user') }}" type="button" class="btn btn-outline-danger justify-content-end">Berlangganan Sekarang</a>
                     </div>
                 </div>
-                
+
                 <div class="row" >
                     <div class="col-lg-12" >
                         <div class="card"  style="background-color:  #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
-                            <div class="card-header d-flex align-items-center"style="background-color:  #F0F0F0;">
-                                <div class="flex-grow-1">
-                                    <h5 class="card-title mb-0">Riwayat Transaksi Terakhir</h5>
-                                </div>
-                            </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-centered align-middle table-nowrap mb-0">
@@ -124,12 +119,12 @@
                                                 <th class="" data-sort="price">Status</th>
                                             </tr>
                                         </thead>
-                                        
+
                                         <tbody>
                                             @if ($data->isEmpty())
                                                 <tr>
                                                     <td colspan="5">
-                                                        <div class="card d-flex flex-column align-items-center">
+                                                        <div class="card d-flex flex-column align-items-center" style="background-color: #F0F0F0;">
                                                             <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.png') }}" alt="Gambar">
                                                             <div class="d-flex justify-content-center align-items-center mt-2 mb-4">
                                                                 <i class="ph-magnifying-glass fs-2 text-primary"></i>
