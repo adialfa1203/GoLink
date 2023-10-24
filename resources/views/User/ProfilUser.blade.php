@@ -172,7 +172,7 @@
 
                                         <div class="texs col-12 col-lg-6 col-xl-6 col-sm-6 col-md-6">
                                             <h5 style="color: #fff;margin: 4px;">{{ $user->name }}<i class=" align-baseline text-info ms-1"></i></h5>
-                                            <button class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</button>
+                                            <h2 class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</h2>
                                             <h5 style="color: #fff;margin: 4px;">{{ $user->email }}<i class=" align-baseline text-info ms-1"></i></h5>
                                         </div>
                                     </div>
