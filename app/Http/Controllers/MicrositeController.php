@@ -177,8 +177,8 @@ class MicrositeController extends Controller
             'button_link.*' => 'required|string|url',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ], [
-            'name_microsite' => 'Kolom nama microsite tidak boleh lebih besar dari 35 karakter.',
-            'description' => 'Deskripsi tidak boleh lebih besar dari 300 karakter.',
+            'name_microsite.max' => 'Kolom nama microsite tidak boleh lebih besar dari 35 karakter.',
+            'description.max' => 'Deskripsi tidak boleh lebih besar dari 300 karakter.',
             'image.image' => 'Kolom harus berupa gambar!',
             'button_link.*.required' => 'Kolom ini wajib diisi!',
             'button_link.*.url' => 'URL tidak valid.',
@@ -195,21 +195,12 @@ class MicrositeController extends Controller
                 ->with('error', 'Kesalahan, ada kolom yang belum terisi dengan benar!');
         }
 
-        if ($request->has('name')) {
-            $microsite->name = $request->input('name');
-        }
-        if ($request->has('name_microsite')) {
-            $microsite->name_microsite = $request->input('name_microsite');
-        }
-        if ($request->has('description')) {
-            $microsite->description = $request->input('description');
-        }
-        if ($request->has('company_name')) {
-            $microsite->company_name = $request->input('company_name');
-        }
-        if ($request->has('company_address')) {
-            $microsite->company_address = $request->input('company_address');
-        }
+        // Update data berdasarkan input
+        $microsite->name = $request->input('name') ?? $microsite->name;
+        $microsite->name_microsite = $request->input('name_microsite') ?? $microsite->name_microsite;
+        $microsite->description = $request->input('description') ?? $microsite->description;
+        $microsite->company_name = $request->input('company_name');
+        $microsite->company_address = $request->input('company_address');
 
         if ($request->hasFile('image')) {
             $coverImage = $request->file('image');
@@ -231,24 +222,27 @@ class MicrositeController extends Controller
             $newUrlKey = str_replace(' ', '-', $last_segment);
             $newUrlKey = strtolower($newUrlKey);
 
-            $updateUrl->url_key = $newUrlKey;
-            $updateUrl->default_short_url = env('APP_URL') . "/" . $newUrlKey;
-            $updateUrl->custom_name = 'yes';
-            $updateUrl->save();
+            if ($request->has('default_short_url') && $newUrlKey !== $updateUrl->url_key) {
+                $updateUrl->url_key = $newUrlKey;
+                $updateUrl->default_short_url = env('APP_URL') . "/" . $newUrlKey;
+                $updateUrl->custom_name = 'yes';
+                $updateUrl->save();
+            }
+        }
 
-            foreach ($buttonLinks as $index => $buttonLink) {
-                if ($buttonLink !== null) {
-                    $social = $socials->where('buttons_uuid', $index)->first();
 
-                    if ($social) {
-                        $social->button_link = $buttonLink;
-                        $social->save();
-                    }
+        foreach ($buttonLinks as $index => $buttonLink) {
+            if ($buttonLink !== null) {
+                $social = $socials->where('buttons_uuid', $index)->first();
+
+                if ($social) {
+                    $social->button_link = $buttonLink;
+                    $social->save();
                 }
             }
-
-            return redirect()->route('microsite')->with('success', 'Microsite berhasil diperbarui');
         }
+
+        return redirect()->route('microsite')->with('success', 'Microsite berhasil diperbarui');
     }
 
     public function createComponent()
