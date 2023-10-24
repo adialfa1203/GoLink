@@ -124,15 +124,17 @@
 
         @media only screen and (max-width: 600px) {
             .item {
-                width: 50px;
-                /* Ubah ukuran sesuai kebutuhan */
+                display: inline-block;
+                width: 25%;
+                padding: 0 10px;
+                box-sizing: border-box;
             }
 
             .logo img {
-                max-width: 50px;
-                /* Ubah ukuran sesuai kebutuhan */
-                max-height: 50px;
-                /* Ubah ukuran sesuai kebutuhan */
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
             }
         }
     </style>
