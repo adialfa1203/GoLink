@@ -821,16 +821,6 @@ body {
 * App Modal
 ***********************************************
 */
-.app-modal-del {
-  display: none;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.53);
-  z-index: 50;
-}
 .app-modal {
   display: none;
   position: fixed;
@@ -875,6 +865,7 @@ body {
 }
 .app-modal-header {
   font-weight: 500;
+  font-size: 15px;
 }
 .app-modal-footer {
   margin-top: 10px;
