@@ -272,9 +272,7 @@
                     <div class="col-md-4">
                         <div class="card1">
                             <h5 style="font-weight: bold; color: #0E2954;">
-                                @if (strtolower(trim($subs->tipe)) === 'free')
-                                    Gratis
-                                @elseif (strtolower(trim($subs->tipe)) === 'silver')
+                                @if (strtolower(trim($subs->tipe)) === 'silver')
                                     Silver
                                 @elseif (strtolower(trim($subs->tipe)) === 'gold')
                                     Gold
