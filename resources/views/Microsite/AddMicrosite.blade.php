@@ -77,13 +77,13 @@
         <div class="container-fluid">
 
             <!-- start page title -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0">Microsite</h4>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
@@ -234,8 +234,8 @@
                                                     <div class="d-flex align-items-start gap-3 mt-4">
                                                         <div class="col-6 col-md-6">
                                                             <button type="button"
-                                                                class="btn btn-light btn-label previestab"
-                                                                data-previous="v-pills-bill-info-tab"><i
+                                                                class="btn btn-outline-danger btn-sm previestab"
+                                                                data-previous="v-pills-bill-info-tab" style="font-size: 13px;"><i
                                                                     class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Sebelumnya</button>
                                                         </div>
                                                         <div class="col-6 col-md-6" style="margin-left: -8px;">
@@ -290,10 +290,10 @@
                                                         @endforeach
                                                     </div>
                                                     <div class="d-flex align-items-start gap-3 mt-4">
-                                                        <button type="button" class="btn btn-light btn-label previestab"
-                                                            data-previous="v-pills-bill-address-tab"><i
-                                                                class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
-                                                            Sebelumnya</button>
+                                                        <button type="button"
+                                                                class="btn btn-outline-danger btn-sm previestab"
+                                                                data-previous="v-pills-bill-info-tab" style="font-size: 13px;"><i
+                                                                    class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Sebelumnya</button>
                                                         <button type="submit" id="submitButton"
                                                             class="btn btn-label right ms-auto nexttab nexttab"
                                                             style="background: #088C0D; color: #FFF;" {{-- data-nexttab="v-pills-finish-tab" --}}

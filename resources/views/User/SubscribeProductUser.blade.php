@@ -117,7 +117,7 @@
             <div class="row">
                 {{-- @foreach ($subscribe as $subs)
             <div class="col-sm-6 col-xl-3 mt-4">
-                <div class="card card-animate" style="border-radius: 20px;background: #F0F0F0; margin: 0;">
+                <div class="card card-animate" style="border-radius: 20px;background: #FFF; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25); margin: 0;">
                     <div class="card-body">
                         @if (strtolower(trim($subs->tipe)) === 'free')
                         <h4 class="card-title mb-2 text-center">Gratis</h4>
