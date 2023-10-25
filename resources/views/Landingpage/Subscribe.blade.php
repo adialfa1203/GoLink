@@ -167,6 +167,46 @@
         /* tbody tr td {
     color: #fff;
 } */
+@media only screen and (max-width: 600px) {
+            .jud {
+                font-size: 21px;
+                text-align: initial;
+            }
+
+            .isi {
+                font-size: 11px;
+                text-align: initial;
+            }
+
+            .isi1 {
+                font-size: 12px;
+                text-align: initial;
+                margin-top: -14px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+
+            /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+            .jud {
+                font-size: 21px;
+                text-align: initial;
+            }
+
+            .isi {
+                font-size: 11px;
+                text-align: initial;
+            }
+
+            .isi1 {
+                font-size: 12px;
+                text-align: initial;
+                margin-top: -14px;
+            }
+            .car{
+                min-height: 200px;
+            }
+        }
     </style>
     <style>
         .warna {
@@ -231,9 +271,9 @@
                         <!-- banner text -->
                         <div class="banner_text">
                             <!-- h1 -->
-                            <h2 style="color: white">Jadilah Bagian dari Perubahan!</h2>
+                            <h2 class="jud"style="color: white">Jadilah Bagian dari Perubahan!</h2>
                             <!-- p -->
-                            <span style="color: white;">Selangkah lebih dekat menuju kemudahan dan kebebasan. Gabung
+                            <span class="isi" style="color: white;">Selangkah lebih dekat menuju kemudahan dan kebebasan. Gabung
                                 dengan kami sekarang dan nikmati keuntungannya</span>
                         </div>
                         <!-- app buttons -->
@@ -335,7 +375,7 @@
                                 <h2 class="mb-3 fs-17"><b>Rp. 75.000/bln</b></h2>
                                 <h5 class="mb-3 fs-17"><b>Tingkatan Premium</b></h5>
                                 <p class="text-muted">fitur premium yang menawarkan fitur-fitur eksklusif.</p>
-                                <p class="text-muted">Menyingkat tautan tanpa batas, membuat microsite tanpa batas, menggunakan semua tema tanpa ada yang terkunci, memantau tautan dengan terperinci, dan memproteksi tautan dengan mengatur kata sandi. 
+                                <p class="text-muted">Menyingkat tautan tanpa batas, membuat microsite tanpa batas, menggunakan semua tema tanpa ada yang terkunci, memantau tautan dengan terperinci, dan memproteksi tautan dengan mengatur kata sandi.
                                 </p>
 
                             </div>
@@ -344,16 +384,16 @@
                 </div>
             </div>
             <!-- row end -->
-            
+
             </div>
-        
+
         </section> --}}
     <section class="row_am latest_story" id="blog">
             <!-- container start -->
             <div class="container">
                 <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                    <h2 style="color: #104898;">Layanan Gratis yang Anda Dapatkan</h2>
-                    <h6 style="color: #104898; font-weight: 600;">Mulai perjalanan Anda bersama kami !</h6>
+                    <h2 class="jud" style="color: #104898;">Layanan Gratis yang Anda Dapatkan</h2>
+                    <h6 class="isi" style="color: #104898; font-weight: 600;">Mulai perjalanan Anda bersama kami !</h6>
                 </div>
                 <br>
                 <!-- row start -->
@@ -416,7 +456,7 @@
                     <br>
                     <!-- row start -->
                     <div class="row text-center">
-                        <div class="col-md-4">
+                        <div class="col-md-4 ">
                             <div class="card1">
                                 <h5 style="font-weight: bold; color:#0E2954;">Silver</h5>
                             </div>
@@ -427,7 +467,7 @@
                                     <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
                                     <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
                                 </div>
-                                
+
                                 <div class="container text-center" style="margin-top: 40px;">
                                     <div class="d-flex">
                                         <div class="col-1">
@@ -449,7 +489,7 @@
                             </div>
 
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 ">
                             <div class="card1">
                                 <h5 style="font-weight: bold;  color:#0E2954;">Gold</h5>
                             </div>
@@ -481,7 +521,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 ">
                             <div class="card1">
                                 <h5 style="font-weight: bold; color:#0E2954;">Platinum</h5>
                             </div>

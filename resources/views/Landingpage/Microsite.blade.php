@@ -33,7 +33,6 @@
 
 <body>
     <style>
-        <style>
 
         button {
             background-color: #D9D9D9;
@@ -56,6 +55,43 @@
         header {
             padding: 20px 0;
             /* Atur padding sesuai kebutuhan Anda */
+        }
+        @media only screen and (max-width: 600px) {
+            .jud {
+                font-size: 22px;
+                text-align: initial;
+            }
+
+            .isi {
+                font-size: 12px;
+                text-align: initial;
+            }
+
+            .isi1 {
+                font-size: 12px;
+                text-align: initial;
+                margin-top: -14px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+
+            /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+            .jud {
+                font-size: 22px;
+                text-align: initial;
+            }
+
+            .isi {
+                font-size: 12px;
+                text-align: initial;
+            }
+
+            .isi1 {
+                font-size: 12px;
+                text-align: initial;
+                margin-top: -14px;
+            }
         }
     </style>
     <style>
@@ -91,11 +127,11 @@
                             alt="image"> </span>
                     <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1500">
                         <!-- banner text -->
-                        <div class="banner_text">
+                        <div class="banner_text" style="margin-top: -8px;">
                             <!-- h1 -->
-                            <h2 style="color: white;">Situs Mikro yang Dibuat Sesuai dengan kebutuhan Anda</h2>
+                            <h2 class="jud" style="color: white;">Situs Mikro yang Dibuat Sesuai dengan kebutuhan Anda</h2>
                             <!-- p -->
-                            <p style="color: white;">Tampilkan Identitas Anda dengan Lebih Personal</p>
+                            <p class="isi" style="color: white;">Tampilkan Identitas Anda dengan Lebih Personal</p>
                         </div>
                         <!-- app buttons -->
 
@@ -144,7 +180,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-12">
                             <h5 class="mt-5" style="color: #104898; font-weight: bold;">Jelajahi dengan Microsite</h5>
-        
+
                             <div class="col-lg-12">
                                 <div class="mt-lg-0 mt-5 d-flex flex-column flex-lg-row">
                                     <div class="col-lg-6">
@@ -163,7 +199,7 @@
                 </div>
             </div>
         </section>
-        
+
         @include('layout.landingPage.footer')
 
         <!-- Footer-Section end -->

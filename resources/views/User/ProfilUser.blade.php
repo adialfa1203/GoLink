@@ -184,7 +184,6 @@
                                                     {{ $user->name }}
                                                     <i class="align-baseline text-info ms-1"></i>
                                                 </h5>
-                                                <div class="d-flex">
                                                     <h2 class="align-items-center
                                                         @if ($user->subscribe == 'free')
                                                             badge bg-success text-white
@@ -198,7 +197,8 @@
                                                         style="background-color: #89898A; border-radius: 30px; height: 30px; padding: 10px;">
                                                         {{ $accountStatus }}
                                                     </h2>
-                                                </div>
+                                                    <!-- <h2 class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</h2> -->
+
                                                 <h5 style="color: #fff; margin: 4px;">
                                                     {{ $user->email }}
                                                     <i class="align-baseline text-info ms-1"></i>
