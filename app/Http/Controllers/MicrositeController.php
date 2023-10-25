@@ -172,8 +172,8 @@ class MicrositeController extends Controller
             'name' => 'nullable|string|max:35',
             'name_microsite' => 'nullable|string|max:35',
             'description' => 'nullable|string|max:500',
-            'company_name' => 'required|string|max:35',
-            'company_address' => 'required|string|max:100',
+            'company_name' => 'nullable|string|max:35',
+            'company_address' => 'nullable|string|max:100',
             'button_link.*' => 'required|string|url',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ], [
@@ -182,7 +182,6 @@ class MicrositeController extends Controller
             'image.image' => 'Kolom harus berupa gambar!',
             'button_link.*.required' => 'Kolom ini wajib diisi!',
             'button_link.*.url' => 'URL tidak valid.',
-            'company_name.required' => 'Nama perusahaan wajib diisi!',
             'company_name.max' => 'Nama perusahaan tidak boleh lebih besar dari 35 karakter.',
             'company_address.required' => 'Alamat perusahaan wajib diisi!',
             'company_address.max' => 'Alamat perusahaan tidak boleh lebih besar dari 100 karakter.',

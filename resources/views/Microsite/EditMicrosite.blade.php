@@ -147,7 +147,7 @@
                                                                     aria-expanded="false"
                                                                     aria-controls="{{ $data->button->name_button }}">
                                                                     Silahkan isi URL {{ $data->button->name_button }} anda
-                                                                    disini!
+                                                                    disini! (Wajib)
                                                                 </button>
                                                             </h2>
                                                             <div id="{{ $data->button->name_button }}"
@@ -183,7 +183,7 @@
                                                             <button class="accordion-button collapsed" type="button"
                                                                 data-bs-toggle="collapse" data-bs-target="#collapseFour"
                                                                 aria-expanded="false" aria-controls="collapseFour">
-                                                                Tulis Nama Perusahaan Anda Disini!
+                                                                Tulis Nama Perusahaan Anda Disini! (Opsional)
                                                             </button>
                                                         </h2>
                                                         <div id="collapseFour" class="accordion-collapse collapse"
@@ -193,7 +193,8 @@
                                                                 <div class="col-xxl-12">
                                                                     <div>
                                                                         <label for="placeholderInput"
-                                                                            class="form-label">Nama Perusahaan</label>
+                                                                            class="form-label">Nama Perusahaan
+                                                                            (Opsional)</label>
                                                                         <input type="text" class="form-control"
                                                                             name="company_name" id="placeholderInput"
                                                                             placeholder="Nama Perusahaan"
@@ -214,7 +215,7 @@
                                                             <button class="accordion-button collapsed" type="button"
                                                                 data-bs-toggle="collapse" data-bs-target="#collapseFive"
                                                                 aria-expanded="false" aria-controls="collapseFive">
-                                                                Tulis Alamat Perusahaan Anda Disini!
+                                                                Tulis Alamat Perusahaan Anda Disini! (Opsional)
                                                             </button>
                                                         </h2>
                                                         <div id="collapseFive" class="accordion-collapse collapse"
@@ -224,7 +225,8 @@
                                                                 <div class="col-xxl-12">
                                                                     <div>
                                                                         <label for="placeholderInput"
-                                                                            class="form-label">Alamat Perusahaan</label>
+                                                                            class="form-label">Alamat Perusahaan
+                                                                            (Opsional)</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ old('company_address', $microsite->company_address) }}"
                                                                             id="placeholderInput" name="company_address"
@@ -261,8 +263,8 @@
                                                                 Microsite hanya bisa diedit oleh pengguna yang
                                                                 Berlangganan!</label>
                                                         @else
-                                                        <label for="address" class="text-black form-label">Nama
-                                                            Microsite</label>
+                                                            <label for="address" class="text-black form-label">Nama
+                                                                Microsite</label>
                                                             <input type="text" class="form-control" id="address"
                                                                 name="name" placeholder="aqua-link"
                                                                 value="{{ $microsite->name }}">
@@ -287,8 +289,8 @@
                                                                 Microsite hanya bisa diedit oleh pengguna yang
                                                                 Berlangganan!</label>
                                                         @else
-                                                        <label for="address" class="text-black form-label">Tautan
-                                                            Microsite</label>
+                                                            <label for="address" class="text-black form-label">Tautan
+                                                                Microsite</label>
                                                             <input type="text" class="form-control" id="address"
                                                                 placeholder="aqua-link" name="default_short_url"
                                                                 value="{{ $short_url->default_short_url }}">
