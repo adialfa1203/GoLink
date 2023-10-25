@@ -285,17 +285,9 @@
                         </div>
                         <div class="card mb-3" style="background-color: #104898; height: 620px;">
                             <div class="text-center">
-                                @if (strtolower(trim($subs->tipe)) === 'silver')
-                                    <img src="{{ asset('silver.png') }}" alt="{{ $subs->tipe }}"
-                                        style="margin-top: -38px; margin-right: 10px; width: 55%; height: auto;">
-                                @elseif (strtolower(trim($subs->tipe)) === 'gold')
-                                    <img src="{{ asset('gold.png') }}" alt="{{ $subs->tipe }}"
-                                    style="margin-top: -70px; margin-right: 10px; width: 70%; height: auto;">
-                                @elseif (strtolower(trim($subs->tipe)) === 'platinum')
-                                    <img src="{{ asset('platinum.png') }}" alt="{{ $subs->tipe }}"
-                                    style="margin-top: -56px; margin-left: 11px; width: 60%; height: auto;">
-                                @else
-                                @endif
+                                <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260"
+                                height="160" style="display: block; margin: 0 auto; object-fit: cover;"
+                                alt="Card image cap">
                                 <h5 class="card-title text-center mt-3">
                                     Rp.{{ number_format($subs->price, 0, ',', '.') }}
                                     @if (strtolower(trim($subs->period)) === 'forever')
@@ -424,7 +416,7 @@
 
                                     <div class="col-md-12 col-sm-12">
                                         <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
-                                            class="btn custom col-12" style="margin-top:5%">Berlangganan
+                                            class="btn custom col-12" style="margin-top:2%">Berlangganan
                                             Sekarang</a>
                                     </div>
                                 @endif

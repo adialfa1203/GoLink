@@ -3,7 +3,7 @@
 
         background-color: #fff;
         width: 40px;
-        height: 40px;
+        height:40px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -15,110 +15,15 @@
         font-size: 24px;
         color: #000;
     }
+    .links h3 {
+    margin-bottom: 10px; /* Atur margin bawah pada judul "Dukungan" */
+}
+
+.links ul {
+    margin-top: 10px; /* Atur margin atas pada daftar item */
+}
+
 </style>
-{{-- @auth
-    <footer>
-        <div class="top_footer" id="kontak">
-            <div class="container">
-                <div class="row">
-                    <!-- Logo -->
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="abt_side">
-                            <div class="logo">
-                                <img src="https://i.postimg.cc/QxLvZmbf/linkbaru.png" alt="image"
-                                 style="margin-top: -10%;">
-                                <ul style="margin-bottom: -5%; margin-right:10px;">
-                                    <li style="color: white; font-size:14px;word-wrap: break-word;">{!! $data->description !!}</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="bottom_footer col-12" style="margin-bottom: 4%; padding-top: 0;"> 
-                            <p style="display: inline-block; white-space: nowrap; text-align">© MiLink Dikelola oleh PT. Hummatech</p>                                
-                        </div>
-                    </div>
-
-                    <!-- Footer Links -->
-
-                    <div class="col-lg-2 col-md-6 col-12">
-                        <div class="links">
-                            <h3>Dukungan</h3>
-                            <ul>
-                                <li><a href="{{ url ('id/help-support')}}">Bantuan dan Dukungan</a></li>
-                                <li><a href="{{ url ('id/privacy')}}">Kebijakan Privasi</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-12">
-                        <div class="links">
-                            <h3>Peta Situs</h3>
-                            <ul>
-                                <li><a href="{{ url ('id/home')}}">Beranda</a></li>
-                                <li><a href="{{ url ('id/short-link')}}">Perpendek Link</a></li>
-                                <li><a href="{{ url ('id/microsite')}}">Situs Mikro</a></li>
-                                <li><a href="{{ url ('id/subscribe')}}">Berlanggaan</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Contact Information -->
-                    <div class="col-lg-2 col-md-6 col-12">
-                        <div class="links">
-                            <h3>Hubungi Kami</h3>
-                            <ul style="text-align: justify-center;">
-                                <li>
-                                    <a href="https://api.whatsapp.com/send?phone={{ $data->whatsapp }}&text=Halo%2C%20saya%20pengguna%20MiLink"
-                                        target="_blank">
-                                        <i class="fab fa-whatsapp"></i>
-                                        Whatsapp
-                                       
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.instagram.com/{{ $data->instagram }}" target="_blank">
-                                        <i class="fab fa-instagram"></i>
-                                        Instagram
-                                        
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/{{ $data->twitter }}" target="_blank">
-                                        <i class="fab fa-twitter"></i>
-                                        Twitter
-
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    @auth
-                        <!-- Comment Form -->
-                        <div class="col-lg-3 col-md-6 col-12 mb-1">
-                            <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm" method="POST"
-                                enctype="multipart/form-data" class="mt-3">
-                                @csrf
-                                <textarea class="form-control bg-light border-light" id="exampleFormControlTextarea1" rows="3"
-                                    placeholder="Tambahkan Komentar" name="isikomentar" style="font-size:12px ;"></textarea>
-                                @error('isikomentar')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <div class="text-start mt-2">
-                                    <button type="submit" class="btn btn-success">Kirim</button>
-                                </div>
-                            </form>
-                        </div>
-                    @endauth
-                </div>
-            </div>
-        </div>
-
-       
-        <!-- Go Top Button -->
-        <div class="go_top">
-            <span><img src="https://i.postimg.cc/MZtYYpPg/go-top.png" alt="image"></span>
-        </div>
-    </footer>
-    <!-- Footer-Section end --> --}}
     <footer>
         <div class="top_footer" id="kontak">
             <div class="container">
@@ -192,23 +97,6 @@
                             </ul>
                         </div>
                     </div>
-                    {{-- @auth
-                        <!-- Comment Form -->
-                        <div class="col-lg-3 col-md-6 col-12 mb-1">
-                            <form action="/create/{{ Auth::user()->id }}" id="commentForm" method="POST"
-                                enctype="multipart/form-data" class="mt-3">
-                                @csrf
-                                <textarea class="form-control bg-light border-light" id="exampleFormControlTextarea1" rows="3"
-                                    placeholder="Tambahkan Komentar" name="isikomentar" style="font-size:12px ;"></textarea>
-                                @error('isikomentar')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <div class="text-start mt-2">
-                                    <button type="submit" class="btn btn-success">Kirim</button>
-                                </div>
-                            </form>
-                        </div>
-                    @endauth --}}
                 </div>
             </div>
         </div>
