@@ -171,14 +171,14 @@ class MicrositeController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'nullable|string|max:35',
             'name_microsite' => 'nullable|string|max:35',
-            'description' => 'nullable|string|max:300',
+            'description' => 'nullable|string|max:500',
             'company_name' => 'required|string|max:35',
             'company_address' => 'required|string|max:100',
             'button_link.*' => 'required|string|url',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ], [
             'name_microsite.max' => 'Kolom nama microsite tidak boleh lebih besar dari 35 karakter.',
-            'description.max' => 'Deskripsi tidak boleh lebih besar dari 300 karakter.',
+            'description.max' => 'Deskripsi tidak boleh lebih besar dari 500 karakter.',
             'image.image' => 'Kolom harus berupa gambar!',
             'button_link.*.required' => 'Kolom ini wajib diisi!',
             'button_link.*.url' => 'URL tidak valid.',
