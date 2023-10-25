@@ -39,7 +39,6 @@ class ButtonController extends Controller
         $button = Button::create([
             'name_button' => $request->name_button,
             'icon' => $request->icon,
-            'color_hex' => $request->color_hex,
         ]);
         return redirect()->route('view.button')->with('success', 'Media Sosial berhasil ditambah.');
     }
