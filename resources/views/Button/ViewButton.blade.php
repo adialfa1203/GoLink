@@ -202,7 +202,7 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-start justify-content-between gap-3 mt-4">
-                        <button type="button" class="btn btn-light button" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-light button" style="background-color: #FF2323; color: #fff;" data-bs-dismiss="modal">
                             <i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
                             Batal
                         </button>
