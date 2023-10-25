@@ -244,6 +244,13 @@
             background-color: #2F5EA2;
             width: 710px;
         }
+        .tex {
+                margin-right: 20%;
+            }
+
+        .fot {
+            display: none;
+        }
 
         /* Responsive styles for smaller screens (e.g., tablets and below) */
         @media (max-width: 768px) {
@@ -253,8 +260,13 @@
                 height: auto;
                 /* Automatically adjust the height based on content */
             }
-            .tex{
+
+            .tex {
                 margin-right: 20%;
+            }
+
+            .fot {
+                display: inline;
             }
         }
 
@@ -274,6 +286,13 @@
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
             }
+
+            .fot {
+                display: inline;
+            }
+        }
+        .gar:hover {
+            text-decoration: underline;
         }
     </style>
 
@@ -323,10 +342,13 @@
                     <div class="col-6 right-section col-lg-6">
                         <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
                             <div class="card-body p-sm-5 m-lg-3">
-                                <div class=" mt-5">
+                                <center>
+                                <img class="fot" src="{{ asset('template/image/Asset 1.png') }} " width="150" height="40" style="object-fit: contain;">
+                                <div class=" mt-3">
                                     <h5 class="fs-3xl">Selamat Datang Kembali !</h5>
                                     <p class="text-muted">Masuk untuk melanjutkan ke MILINK</p>
                                 </div>
+                                </center>
                                 <div class=" mt-3">
                                     <form action="{{ route('login.user') }}" method="POST">
                                         @csrf
@@ -400,9 +422,12 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <div class="mt-3">
-                                        <p class="fw-semibold text-secondary ">Belum Punya Akun ? Klik <a href="{{ url('id/register') }}" class="fw-semibold" style="color: #2F5EA2;">Daftar</a> </p>
-                                    </div>
+                                    <center>
+                                        <div class="mt-3">
+                                            <p class="fw-semibold text-secondary ">Belum Punya Akun ? Klik <a href="{{ url('id/register') }}" class="fw-semibold" style="color: #2F5EA2;">Daftar</a> </p>
+                                            <p class="fw-semibold text-muted gar"><a href="{{ url('id/home') }}" class="fw-semibold text-muted" style="color: #000;">Kembali</a> </p>
+                                        </div>
+                                    </center>
                                 </div>
                             </div><!-- end card body -->
                         </div><!-- end card -->

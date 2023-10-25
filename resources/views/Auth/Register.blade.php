@@ -74,6 +74,9 @@
         .custom-btn {
             background-color: #0B7EFF;
         }
+        .fot{
+            display: none;
+        }
     </style>
     <style>
         @media (max-width: 768px) {
@@ -85,6 +88,9 @@
             .col-lg-6 {
                 width: 100%;
                 /* Make the column full-width on tablets */
+            }
+            .fot{
+                display: inline;
             }
         }
         @media (min-width: 601px) and (max-width: 1024px) {
@@ -100,6 +106,9 @@
             .right-section {
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
+            }
+            .fot{
+                display: inline;
             }
         }
         @media (max-width: 768px) {
@@ -153,10 +162,13 @@
                             <div class="col-6 right-section col-lg-6">
                                 <div class="card mb-0 border-0 shadow-none mb-0">
                                     <div class="card-body p-sm-4 m-lg-3">
-                                        <div class=" mt-5">
+                                        <center>
+                                        <img class="fot" src="{{ asset('template/image/Asset 1.png') }} " width="150" height="40" style="object-fit: contain;">
+                                        <div class=" mt-3">
                                             <h5 class="fs-3xl" style="color: #000000">Selamat Datang!</h5>
                                             <p class="text-muted">Silahkan lengkapi data di bawah ini untuk mendaftar</p>
                                         </div>
+                                        </center>
                                         <div class="p-2 mt-5">
                                             <form action="{{ route('register.user') }}" method="POST">
                                                 @csrf
@@ -318,12 +330,14 @@
                                                         id="submitButton" disabled>Daftar</button>
                                                 </div>
                                             </form>
+                                            <center>
                                             <div class=" mt-5">
                                                 <p class="mb-0">Sudah memiliki akun ? <a
                                                         href="{{ route('login') }}"
                                                         class="fw-semibold text-secondary text-decoration-underline">
                                                         Masuk</a> </p>
                                             </div>
+                                            </center>
                                         </div>
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
