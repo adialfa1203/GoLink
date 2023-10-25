@@ -201,7 +201,7 @@
                                             Tautan dibuat/Bulan
                                             <span class="tooltip-icon"
                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
-                                                <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
+                                                {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
                                             </span>
                                         </h6>
                                     </div>
@@ -218,7 +218,7 @@
                                 <h6 class="card-title" style="color: #0E2954;">Microsite dibuat/Bulan
                                     <span class="tooltip-icon"
                                         data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
-                                        <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
+                                        {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
                                     </span>
                                 </h6>
                                 <div class="progress" data-bs-toggle="tooltip"
