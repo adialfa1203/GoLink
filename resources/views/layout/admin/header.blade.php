@@ -50,21 +50,7 @@
                         <i class='bi bi-arrows-fullscreen fs-lg'></i>
                     </button>
                 </div>
-
-                <div class="dropdown topbar-head-dropdown ms-1 header-item">
-                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle mode-layout"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="bi bi-sun align-middle fs-3xl"></i>
-                    </button>
-                    <div class="dropdown-menu p-2 dropdown-menu-end" id="light-dark-mode">
-                        <a href="#!" class="dropdown-item" data-mode="light"><i
-                                class="bi bi-sun align-middle me-2"></i> Terang</a>
-                        <a href="#!" class="dropdown-item" data-mode="dark"><i
-                                class="bi bi-moon align-middle me-2"></i> Gelap</a>
-                        <a href="#!" class="dropdown-item" data-mode="auto"><i
-                                class="bi bi-moon-stars align-middle me-2"></i> Auto (default sistem)</a>
-                    </div>
-                </div>
+                
                 {{-- <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn shadow-none" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
