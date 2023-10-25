@@ -57,6 +57,7 @@ class ShortLinkController extends Controller
 
         if ($user->subscribe == 'silver') {
             $shortLinks = $user->shortUrls()
+                ->whereNull('microsite_uuid')
                 ->whereMonth('created_at', '>=', now())
                 ->count();
             $history = $user->history()
@@ -68,6 +69,7 @@ class ShortLinkController extends Controller
             }
         } elseif ($user->subscribe == 'gold') {
             $shortLinks = $user->shortUrls()
+                ->whereNull('microsite_uuid')
                 ->whereMonth('created_at', '>=', now())
                 ->count();
             $history = $user->history()
@@ -82,6 +84,7 @@ class ShortLinkController extends Controller
         } else {
 
             $shortLinks = $user->shortUrls()
+                ->whereNull('microsite_uuid')
                 ->whereMonth('created_at', '>=', now())
                 ->count();
 
