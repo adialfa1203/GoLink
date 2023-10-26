@@ -149,7 +149,6 @@
                                 </div>
                                 <div class="d-flex align-items-start justify-content-between gap-3 mt-4">
                                     <button type="button" class="btn btn-light button" style="background-color: #FF2323; color: #fff;" data-bs-dismiss="modal">
-                                        <i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
                                         Batal
                                     </button>
                                     <button type="submit" class="btn" style="background-color: #088C0D; color: #fff;">
@@ -211,7 +210,7 @@
                     </div>
                 </div>
             </div>
-          
+
             @endforeach
             @endif
         </div>
@@ -260,7 +259,6 @@
                     </div>
                     <div class="d-flex align-items-start justify-content-between gap-3 mt-4">
                         <button type="button" class="btn btn-light button" style="background-color: #FF2323; color: #fff;" data-bs-dismiss="modal">
-                            <i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
                             Batal
                         </button>
                         <button type="submit" class="btn" style="background-color: #088C0D; color: #fff;">
