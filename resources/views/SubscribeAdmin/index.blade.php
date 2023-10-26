@@ -56,19 +56,62 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    }
 }
-}
+.bagcard {
+       border-radius: 20px;
+       background:linear-gradient(0deg, #0E2954, #104898);
+       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+   }
+   .warna {
+            color: #104898 !important;
+        }
+
+        .card {
+            background: linear-gradient(0deg, #0E2954, #104898);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* text-align: center; */
+        }
+
+        .card1 {
+            background: linear-gradient(to bottom, #ffffff, #ffffff);
+            font-weight: bold;
+            color: #000;
+            /* Mengatur warna teks menjadi hitam */
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .p1 {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .btn.custom {
+            display: block;
+            margin: 0 auto;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
 
     </style>
 @endsection
 @section('content')
     <div class="page-content">
-        <div class="container-fluid">
+        <div class="container-fluid ">
 
             <!-- start page title -->
-            <div class="row">
-                <div class="card">
+            <div class="col-lg-12">
+                {{-- <div class="card"> --}}
                     {{-- <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                             <h4 class="mb-sm-0">Berlangganan </h4>
@@ -82,7 +125,7 @@
 
                         </div>
                     </div> --}}
-                </div>
+                {{-- </div> --}}
             </div>
             <!-- end page title -->
             <div >
@@ -130,7 +173,7 @@
                      
                         {{-- bts --}}
                          <div class="row text-center">
-                        <div class="col-md-12">
+                            <div class="col-md-12">
                             <div class="card1">
                                 <div class="dropdown">
                                     {{-- <span class="three-dots" id="dropdownButton">
@@ -151,9 +194,7 @@
                                 </div>
                                                                
                                 <h5 style="font-weight: bold; color:#0E2954;">
-                                    @if (strtolower(trim($subs->tipe)) === 'free')
-                                        <span class="">Gratis</span>
-                                    @elseif (strtolower(trim($subs->tipe)) === 'silver')
+                                    @if (strtolower(trim($subs->tipe)) === 'silver')
                                         <span class="">Silver</span>
                                     @elseif (strtolower(trim($subs->tipe)) === 'gold')
                                         <span class="">Gold</span>
@@ -187,7 +228,7 @@
                                             <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
                                         </div>
                                         <div class="col-11 text-white">
-                                            <p class="p1">Menyingkat tautan batas <br>sebanyak 25×/bulan</p>
+                                            <p class="p1">Menyingkat tautan batas sebanyak 25×/bulan</p>
                                         </div>
                                     </div>
                                     <div class="d-flex mt-2">
@@ -195,7 +236,7 @@
                                             <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
                                         </div>
                                         <div class="col-11 text-white">
-                                           <p class="p1"> Membuat Microsite <br> sebanyak 5×/bulan</p>
+                                           <p class="p1"> Membuat Microsite sebanyak 5×/bulan</p>
                                         </div>
                                     </div>
                                     
@@ -209,7 +250,7 @@
                                             <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
                                         </div>
                                         <div class="col-11 text-white">
-                                            <p class="p1"> Membuat Microsite batas <br> sebanyak 35×/bulan</p>
+                                            <p class="p1"> Membuat Microsite batas sebanyak 35×/bulan</p>
                                          </div>
                                     </div>
                                     <div class="d-flex mt-2">
@@ -217,7 +258,7 @@
                                             <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
                                         </div>
                                         <div class="col-11 text-white">
-                                            <p class="p1"> Membuat Microsite <br> sebanyak 10×/bulan</p>
+                                            <p class="p1"> Membuat Microsite sebanyak 10×/bulan</p>
                                          </div>
                                     </div>
                                     <!-- <div class="col-md-12 col-sm-12 mt-5">

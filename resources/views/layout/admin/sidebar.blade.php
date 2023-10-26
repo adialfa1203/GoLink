@@ -65,6 +65,12 @@
         #navbar-nav li {
             /* ... */
         }
+        
+        .hidden-item {
+        display: none;
+    }
+
+
     }
 </style>
 @endsection
@@ -146,49 +152,49 @@
 
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('dashboard.admin') ? 'active' : '' }}" href="{{ url('admin/dashboard-admin') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                <li class="nav-item hidden-item">
+                        <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('dashboard.admin') ? 'active' : '' }}" href="{{ url('admin/dashboard-admin') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                         <i class="bi bi-house-fill"></i> <span data-key="t-dashboards">Beranda</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('subscribe') ? 'active' : '' }} {{ request()->routeIs('addSubscribe') ? 'active' : '' }}" href="{{ url('admin/subscribe-admin') }}" class="nav-link menu-link"><i class="bi bi-fire"></i>
+                <li class="nav-item hidden-item">
+                        <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('subscribe') ? 'active' : '' }} {{ request()->routeIs('addSubscribe') ? 'active' : '' }}" href="{{ url('admin/subscribe-admin') }}" class="nav-link menu-link"><i class="bi bi-fire"></i>
                         <span data-key="t-widgets">Berlangganan</span> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('data.user') ? 'active' : '' }}" href="{{ url('admin/data-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
+                <li class="nav-item hidden-item">
+                        <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('data.user') ? 'active' : '' }}" href="{{ url('admin/data-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
                         <span data-key="t-chat">Pengguna</span> </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('linkAdmin') ? 'active' : '' }}" href="{{ url('admin/link-admin') }}" class="nav-link menu-link"><i class="bi bi-link-45deg"></i>
+                <li class="nav-item hidden-item">
+                        <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('linkAdmin') ? 'active' : '' }}" href="{{ url('admin/link-admin') }}" class="nav-link menu-link"><i class="bi bi-link-45deg"></i>
                         <span data-key="t-email">Tautan</span> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('view.component') ? 'active' : '' }} {{ request()->routeIs('create.component') ? 'active' : '' }} {{ request()->routeIs('edit.component') ? 'active' : '' }}" href="{{ url('admin/view-component') }}" class="nav-link menu-link"><i class="bi bi-grid"></i>
+                <li class="nav-item hidden-item">
+                        <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('view.component') ? 'active' : '' }} {{ request()->routeIs('create.component') ? 'active' : '' }} {{ request()->routeIs('edit.component') ? 'active' : '' }}" href="{{ url('admin/view-component') }}" class="nav-link menu-link"><i class="bi bi-grid"></i>
                         <span data-key="t-email">Kategori</span> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('view.button') ? 'active' : '' }} {{ request()->routeIs('create.button') ? 'active' : '' }} {{ request()->routeIs('edit.button') ? 'active' : '' }}" href="{{ url('admin/view-button') }}" class="nav-link menu-link"><i class="bi bi-back"></i>
+                <li class="nav-item hidden-item">
+                        <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('view.button') ? 'active' : '' }} {{ request()->routeIs('create.button') ? 'active' : '' }} {{ request()->routeIs('edit.button') ? 'active' : '' }}" href="{{ url('admin/view-button') }}" class="nav-link menu-link"><i class="bi bi-back"></i>
                         <span data-key="t-email">Sosial</span> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('viewkomentar') ? 'active' : '' }}" href="{{ url('admin/view-komentar') }}" class="nav-link menu-link"><i class="bi bi-chat-right-text-fill"></i>
+                <li class="nav-item hidden-item">
+                        <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('viewkomentar') ? 'active' : '' }}" href="{{ url('admin/view-komentar') }}" class="nav-link menu-link"><i class="bi bi-chat-right-text-fill"></i>
                         <span data-key="t-email">Komentar</span> </a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->routeIs('blokir') ? 'active' : '' }}" href="{{ url('admin/blokir') }}" class="nav-link menu-link"><i class="fa fa-ban"></i>
                         <span data-key="t-email">Akun Di Blokir</span> </a>
                 </li> --}}
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('view.footer') ? 'active' : '' }}" href="{{ url('admin/view-footer') }}" class="nav-link menu-link"> <i class="bi bi-exclude"></i>
+                <li class="nav-item hidden-item">
+                        <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('view.footer') ? 'active' : '' }}" href="{{ url('admin/view-footer') }}" class="nav-link menu-link"> <i class="bi bi-exclude"></i>
                         <span data-key="t-chat">Footer</span> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('profileAdmin') ? 'active' : '' }}" href="{{ url('admin/profil-admin') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i> <span data-key="t-chat">Profil</span> </a>
+                <li class="nav-item hidden-item">
+                        <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('profileAdmin') ? 'active' : '' }}" href="{{ url('admin/profil-admin') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i> <span data-key="t-chat">Profil</span> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#" onclick="confirmLogout()"> <i class="mdi mdi-logout"></i>
+                <li class="nav-item hidden-item">
+                    <a style="margin-top:10px;" class="nav-link menu-link" href="#" onclick="confirmLogout()"> <i class="mdi mdi-logout"></i>
                         <span data-key="t-chat">Keluar</span> </a>
                 </li>
             </ul>
@@ -219,3 +225,28 @@
         });
     }
 </script>
+<script>
+    const sidebar = document.getElementById('sidebar');
+    const hiddenItems = document.querySelectorAll('.hidden-item');
+
+    function hideItems() {
+        hiddenItems.forEach(item => {
+            item.style.display = 'none';
+        });
+    }
+
+    function showItems() {
+        hiddenItems.forEach(item => {
+            item.style.display = 'block';
+        });
+    }
+
+    sidebar.addEventListener('mouseenter', showItems);
+    sidebar.addEventListener('mouseleave', hideItems);
+
+    window.addEventListener('load', hideItems); // Sembunyikan elemen saat halaman dimuat
+</script>
+
+
+
+

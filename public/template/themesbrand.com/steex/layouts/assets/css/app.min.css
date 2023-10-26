@@ -2142,16 +2142,16 @@
 }
 
 [data-layout=vertical][data-sidebar-size=sm] .navbar-menu .navbar-nav .nav-item:hover>a.menu-link {
-    position: relative;
+    /* position: relative;
     width: calc(200px + var(--tb-vertical-menu-width-sm));
     color: #0E2954;
     background: #fff;
     -webkit-transition: none;
-    transition: none
+    transition: none */
 }
 
 [data-layout=vertical][data-sidebar-size=sm] .navbar-menu .navbar-nav .nav-item:hover>a.menu-link span {
-    display: inline-block;
+    /* display: inline-block; */
     padding-left: 25px
 }
 
