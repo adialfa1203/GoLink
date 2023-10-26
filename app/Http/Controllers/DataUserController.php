@@ -15,27 +15,26 @@ use Illuminate\Support\Facades\Mail;
 
 class DataUserController extends Controller
 {
-    public function dataUser() {
-        $data = User::where('is_banned', 0)->role('user')->paginate(10);
-        $d=$data;
-
-        $bannedUser = User::where('is_banned', 1)->paginate(10);
+    public function dataUser()
+    {
+        $data = User::where('is_banned', 0)->role('user')->paginate(1, ['*'], 'page_user');
+        $d = $data;
+        $bannedUser = User::where('is_banned', 1)->paginate(1, ['*'], 'page_banned');
 
         $totalUser = User::where('email', '!=', 'admin@gmail.com')
-                    ->where('is_banned', '!=', '1')
-                    ->count();
+            ->where('is_banned', '!=', '1')
+            ->count();
 
         $totalUrl = ShortUrl::where('archive', '!=', 'yes')->count();
 
         $totalMicrosite = ShortUrl::whereNotNull('microsite_uuid')->count();
 
         $totalVisits = ShortURLVisit::query()
-                            ->whereRelation('shortURL', 'archive', '!=', 'yes')
-                            ->count();
+            ->whereRelation('shortURL', 'archive', '!=', 'yes')
+            ->count();
 
         $totaldiblokir = User::where('is_banned', 1)->count();
         $berlanggan = User::where('subscribe', '!=', 'free')->count();
-        // dd($berlanggan);
 
         $users = User::where('email', '!=', 'admin@gmail.com')->get();
         $count = [];
@@ -43,11 +42,27 @@ class DataUserController extends Controller
             $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();
         }
 
-
         arsort($count);
-        return view('Admin.DataUserAdmin', compact('d','berlanggan', 'data','totalUser', 'totalUrl', 'totalVisits', 'users', 'count','totalMicrosite', 'totaldiblokir', 'bannedUser'));
-    }
 
+        $developers = $data;
+        $designers = $bannedUser;
+
+        return view('Admin.DataUserAdmin', compact(
+            'data',
+            'd',
+            'bannedUser',
+            'berlanggan',
+            'totalUser',
+            'totalUrl',
+            'totalVisits',
+            'users',
+            'count',
+            'totalMicrosite',
+            'totaldiblokir',
+            'developers',
+            'designers'
+        ));
+    }
 
     public function banUser($userId)
     {
@@ -72,7 +87,8 @@ class DataUserController extends Controller
         }
     }
 
-    public function takedownUser() {
+    public function takedownUser()
+    {
         $checkUser = User::where('is_banned', '!=', '0')->get();
 
         $takedownUser = ShortUrl::where('user_id', $checkUser)->get();
@@ -110,7 +126,8 @@ class DataUserController extends Controller
         return response()->json(['message' => 'Tautan berhasil di takedown.']);
     }
 
-    public function unbanUser($userId) {
+    public function unbanUser($userId)
+    {
         $user = User::findOrFail($userId);
 
         if (!$user->unban()) {
@@ -127,5 +144,4 @@ class DataUserController extends Controller
             return redirect()->back()->with('error', 'Gagal melepaskan akun dari blokir');
         }
     }
-
 }

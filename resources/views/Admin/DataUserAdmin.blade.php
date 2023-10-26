@@ -293,9 +293,12 @@
                                                 id="pagination-element">
                                                 <div class="col-sm">
                                                     <div class="text-muted">
-                                                        Menampilkan <span class="fw-semibold">{{ $d->firstItem() }}</span>
-                                                        hingga <span class="fw-semibold">{{ $d->lastItem() }}</span>
-                                                        dari total <span class="fw-semibold">{{ $d->total() }}</span>
+                                                        Menampilkan
+                                                        <span class="fw-semibold">{{ $d->firstItem() }}</span>
+                                                        hingga
+                                                        <span class="fw-semibold">{{ $d->lastItem() }}</span>
+                                                        dari total
+                                                        <span class="fw-semibold">{{ $d->total() }}</span>
                                                         Hasil
                                                     </div>
                                                 </div>
@@ -303,7 +306,7 @@
                                                     <div
                                                         class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                         <div class="page-item">
-                                                            {{ $d->links('pagination::bootstrap-5') }}
+                                                            {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -422,15 +425,15 @@
                                                 </div>
                                             </div>
                                             <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
-                                                id="pagination-element">
+                                                id="pagination-element-banned">
                                                 <div class="col-sm">
                                                     <div class="text-muted">
-                                                        Menampilkan <span
-                                                            class="fw-semibold">{{ $bannedUser->firstItem() }}</span>
-                                                        hingga <span
-                                                            class="fw-semibold">{{ $bannedUser->lastItem() }}</span>
-                                                        dari total <span
-                                                            class="fw-semibold">{{ $bannedUser->total() }}</span>
+                                                        Menampilkan
+                                                        <span class="fw-semibold">{{ $bannedUser->firstItem() }}</span>
+                                                        hingga
+                                                        <span class="fw-semibold">{{ $bannedUser->lastItem() }}</span>
+                                                        dari total
+                                                        <span class="fw-semibold">{{ $bannedUser->total() }}</span>
                                                         Hasil
                                                     </div>
                                                 </div>
@@ -438,7 +441,7 @@
                                                     <div
                                                         class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                         <div class="page-item">
-                                                            {{ $bannedUser->links('pagination::bootstrap-5') }}
+                                                            {{ $bannedUser->appends(['page_user' => $d->currentPage()])->links('pagination::bootstrap-5', ['id' => 'bannedUserPagination']) }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -464,6 +467,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.0/list.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var bannedUserPagination = document.getElementById('bannedUserPagination');
+
+            bannedUserPagination.addEventListener('click', function(event) {
+                event.preventDefault();
+                var page = event.target.getAttribute('href').split('page=')[1];
+
+                // Mengganti URL dengan query parameter page yang sesuai
+                var url = window.location.href.split('?')[0] + '?page=' + page;
+
+                // Melakukan request Ajax untuk mendapatkan data pengguna yang diblokir di halaman yang baru
+                fetch(url)
+                    .then(response => response.text())
+                    .then(data => {
+                        var bannedUserTab = document.getElementById(
+                            'designers'); // ID tab pengguna diblokir
+                        var bannedUserPage = bannedUserTab.querySelector(
+                            '.tab-pane.active'
+                        ); // Menggunakan tab pane aktif di dalam tab pengguna diblokir
+                        bannedUserPage.innerHTML = data;
+                    })
+                    .catch(error => console.error(error));
+            });
+        });
+    </script>
+    <script>
         $(document).ready(function() {
             $(".search").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
@@ -473,19 +502,6 @@
             });
         });
     </script>
-    {{-- <script>
-        // Mendapatkan referensi elemen checkbox utama dan semua checkbox anak dengan class yang sama
-        var checkAllCheckbox = document.getElementById("checkAll");
-        var childCheckboxes = document.querySelectorAll('.child-checkbox');
-
-        // Menambahkan event listener ke checkbox utama
-        checkAllCheckbox.addEventListener("change", function() {
-            // Mengatur status semua checkbox anak sesuai dengan status checkbox utama
-            childCheckboxes.forEach(function(checkbox) {
-                checkbox.checked = checkAllCheckbox.checked;
-            });
-        });
-    </script> --}}
     <script>
         $(document).ready(function() {
             $("#checkAll").change(function() {
