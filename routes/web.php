@@ -212,6 +212,6 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('/blokir', [CommentController::class, 'blokir'])->name('blokir');
     });
 });
-Route::get('/ngetes', function () {
+Route::get('/nge/ngetes', function () {
     return view('welcome');
 });

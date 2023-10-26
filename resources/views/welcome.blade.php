@@ -1,67 +1,95 @@
-<div class="container" style="margin-top: 10px;">
-  <div class="row">
-    <div class="col">
-      <h2>Riwayat Sekolah</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pemberitahuan Pemblokiran Akun</title>
+    <style>
+        /* Tambahkan gaya CSS di sini */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            background-color: #FF2323;
+            color: #fff;
+            padding: 20px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .header-content {
+          margin-right: 80px;  /* Atur jarak antara gambar dan teks sesuai keinginan Anda */
+        }
+        .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .help{
+          text-align: center;
+            background-color: #0E2954;
+            color: #fff;
+            padding: 15px;
+            border-radius: 15px;
+        }
+        .ul {
+            font-size: 16px;
+            padding-left: 20px;
+        }
+        .footer {
+            text-align: center;
+            background-color: #fff;
+            color: grey;
+            padding: 10px 0;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="header">
+        <img src="https://i.postimg.cc/g0Gdh314/Logo-740-740-piksel-8.png" alt="Logo" class="logo" width="80">
+        <div class="header-content">
+            <h2>Akun Diblokir</h2>
+        </div>
+    </div>    
+        <div class="content">
+            <h2 class="title">Pemberitahuan Pemblokiran Akun</h2>
+            <p>Kami ingin memberitahu Anda bahwa akun Anda telah diblokir karena melanggar kebijakan penggunaan MiLink.id. Berikut adalah alasan pemblokiran :</p>
+            <ul>
+                <li>Penyalahgunaan tautan untuk tujuan ilegal.</li>
+                <li>Spam tautan berulang kali.</li>
+                <li>Melanggar hak cipta dengan tautan yang dibagikan.</li>
+            </ul>
+            <p>Jika Anda merasa pemblokiran ini adalah kesalahan atau ingin mengajukan banding, silakan hubungi tim dukungan kami segera untuk klarifikasi lebih lanjut.</p>
+            <p>Terima kasih atas pengertian Anda.</p>
+        </div>
+        <button class="help">
+          <p style="padding: 0px; margin: 0px">
+              <a style="color: #fff" href="https://go-link.trialdy.me/id/help-support">Bantuan dan Dukungan</a>
+          </p>
+        </button> 
+        <div class="footer">
+            <p>Ini adalah email pemberitahuan otomatis. Mohon tidak membalas email ini.</p>
+        </div>
     </div>
-  </div>
-  <div class="">
-    <div class="col-12">
-    <div class="card mb-9">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="foto/foto1.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">1. TK</h5>
-        <p class="card-text">Saat aku berumur 5 sampai 6 tahun aku menempuh sekolah TK di RA Sabilillah yang berada di dekat rumah</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<br>
-<div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">2. SD</h5>
-        <p class="card-text">Setelah aku lulus dari Tk aku masuk ke jenjang SD, namun aku tidak masuk negeri, aku masuk di Madrasah Ibtidaiyah yang lokasinya juga kebetulan dekat dengan rumah selama 6 tahun yang kisaran aku dari umur 7 sampai umur 12 tahun</p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <img src="foto/foto2.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-  </div>
-</div>
-<br>
-<div class="card mb-9">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="foto/foto6.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">3. SMP</h5>
-        <p class="card-text">Dan sesudah menempuh jenjang SD aku masuk ke jenjang SMP di SMP Negeri 1 Sukorejo selama 3 tahun yang letaknya berada di Sengkan, Sukorejo saat aku berumur 13 sampai 15 tahun</p>
-      </div>
-    </div>
-  </div>
-</div>
-    <br>
-    <div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">4. SMK</h5>
-        <p class="card-text">Hingga saat ini aku masih menempuh jenjang SMK yang berada di SMK Negeri 1 Purwosari terletak di Jl. Purwosari Pasuruan </p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <img src="foto/foto7.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-  </div>
-</div>
-  </div>
-</div>
-</div>
+</body>
+</html>

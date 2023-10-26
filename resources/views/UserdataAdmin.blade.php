@@ -1,154 +1,102 @@
-@extends('layout.app')
-@section('title', 'Data Pengguna')
-
-@section('content')
-            <div class="page-content">
-                <div class="container-fluid">
-
-                    <!-- start page title -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Data Pengguna</h4>
-
-                                <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
-                                        <li class="breadcrumb-item active">Orders</li>
-                                    </ol>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end page title -->
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card" id="orderList">
-                                <div class="card-header">
-                                    <div class="row align-items-center gy-3">
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Cari...">
-                                                <i class="ri-search-line search-icon"></i>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-auto ms-md-auto">
-                                            <div class="d-flex flex-wrap align-items-center gap-2">
-                                                <button class="btn btn-subtle-danger d-none" id="remove-actions" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
-                                                <div class="dropdown card-header-dropdown sortble-dropdown flex-shrink-0">
-                                                    <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="text-muted dropdown-title">Order Date</span> <i class="mdi mdi-chevron-down ms-1"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <button class="dropdown-item sort" data-sort="order_date">Order Date</button>
-                                                        <button class="dropdown-item sort" data-sort="order_id">Order ID</button>
-                                                        <button class="dropdown-item sort" data-sort="amount">Amount</button>
-                                                        <button class="dropdown-item sort" data-sort="status">Status</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                            <thead class="text-muted table-light">
-                                                <tr>
-                                                    <th>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="option" id="checkAll">
-                                                            <label class="form-check-label" for="checkAll"></label>
-                                                        </div>
-                                                    </th>
-                                                    <th scope="col" class="sort cursor-pointer" data-sort="order_id">Nama Pengguna</th>
-                                                    <th scope="col" class="sort cursor-pointer" data-sort="order_date">E-mail</th>
-                                                    <th scope="col" class="sort cursor-pointer" data-sort="delivery_date">No Telepon</th>
-                                                    <th scope="col" class="sort cursor-pointer" data-sort="status">Berlangganan</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="list form-check-all">
-                                            @foreach ($data as $row)
-                                                <tr>
-                                                    <th>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="chk_child">
-                                                            <label class="form-check-label"></label>
-                                                        </div>
-                                                    </th>
-                                                    <td class="order_id">{{$row->name}}</td>
-                                                    <td class="order_date">
-                                                        {{$row->email}}
-                                                    </td>
-                                                    <td class="products">{{$row->number}}</td>
-                                                    <td class="status"><span class="badge bg-primary-subtle text-primary">Berlangganan</span></td>
-                                                    <td>
-                                                        <ul class="d-flex gap-2 list-unstyled mb-0">
-                                                            <li>
-                                                                <a href="#deleteRecordModal" class="btn btn-subtle-danger btn-icon btn-sm me-3"><i class="bi bi-lock-fill"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                                {{-- <tr>
-                                                    <th>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="chk_child">
-                                                            <label class="form-check-label"></label>
-                                                        </div>
-                                                    </th>
-                                                    <td class="order_id">Maharani</td>
-                                                    <td class="order_date">
-                                                        run00@gmail.com
-                                                    </td>
-                                                    <td class="products">012345678912</td>
-                                                    <td class="status"><span class="badge bg-danger-subtle text-danger">Tidak Berlangganan</span></td>
-                                                    <td>
-                                                        <ul class="d-flex gap-2 list-unstyled mb-0">
-                                                            <li>
-                                                                <a href="#deleteRecordModal" class="btn btn-subtle-danger btn-icon btn-sm me-3"><i class="fas fa-ban"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                </tr> --}}
-
-                                            </tbody><!-- end tbody -->
-                                        </table><!-- end table -->
-                                        <div class="noresult" style="display: none">
-                                            <div class="text-center py-4">
-                                                <i class="ph-magnifying-glass fs-1 text-primary"></i>
-                                                <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                <p class="text-muted mb-0">We've searched more than 150+ orders We did not find any orders for you search.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-center justify-content-sm-end mt-2">
-                                        <div class="pagination-wrap hstack gap-2">
-                                            <a class="page-item pagination-prev disabled" href="javascript:void(0)">
-                                                <i class="mdi mdi-chevron-left align-middle"></i>
-                                            </a>
-                                            <ul class="pagination listjs-pagination mb-0"></ul>
-                                            <a class="page-item pagination-next" href="javascript:void(0)">
-                                                <i class="mdi mdi-chevron-right align-middle"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end card -->
-                        </div>
-                        <!-- end col -->
-                    </div>
-                    <!-- end row -->
-
-                </div>
-                <!-- container-fluid -->
-            </div>
-
-        @endsection
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pemberitahuan Pemblokiran Akun</title>
+    <style>
+        /* Tambahkan gaya CSS di sini */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+        }
+        .header {
+            margin-top: 10px;
+            text-align: center;
+            background-color: #FF2323;
+            color: #fff;
+            padding: 20px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-top: 2px solid #FF2323; 
+            border-bottom: 2px solid #FF2323; 
+            padding-top: 1px;
+            padding-bottom: 1px;
+            border-bottom-width: 1px;
+            height: 53px;
+        }
+        .help{
+            text-align: center;
+            background-color: #0E2954;
+            color: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            margin-left: 195px;
+            margin-right: 195px;
+        }
+        .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #FF2323;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .ul {
+            font-size: 16px;
+            padding-left: 20px;
+        }
+        .footer {
+            text-align: center;
+            background-color: #fff;
+            color: gray;
+            padding: 10px 0;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {{-- <img src="https://i.postimg.cc/G2LD1M6D/Logo-740-740-piksel-5.png" alt="Logo" class="logo" width="200"> --}}
+        <div class="header">
+            <h2 style="padding: 0px; margin: 0px"><svg style="margin-right: 20px; margin-bottom: -15px" xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+              <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+              <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+            </svg>Akun Diblokir</h2>
+        </div>
+        <div class="content">
+            <h2 class="title">Pemberitahuan Pemblokiran Akun</h2>
+            <p>Kami ingin memberitahu Anda bahwa akun Anda telah diblokir karena melanggar kebijakan penggunaan MiLink.id. Berikut adalah alasan pemblokiran :</p>
+            <ul>
+                <li>Penyalahgunaan tautan untuk tujuan ilegal.</li>
+                <li>Spam tautan berulang kali.</li>
+                <li>Melanggar hak cipta dengan tautan yang dibagikan.</li>
+            </ul>
+            <p>Jika Anda merasa pemblokiran ini adalah kesalahan atau ingin mengajukan banding, silakan hubungi tim dukungan kami segera untuk klarifikasi lebih lanjut.</p>
+            <p>Terima kasih atas pengertian Anda.</p>
+        </div>
+        <div class="help">
+          <p style="padding: 0px; margin: 0px">
+              <a style="color: #fff" href="https://go-link.trialdy.me/id/help-support">Bantuan dan Dukungan</a>
+          </p>
+      </div>      
+        <div class="footer">
+            <p>Ini adalah email pemberitahuan otomatis. Mohon tidak membalas email ini.</p>
+        </div>
+    </div>
+</body>
+</html>
