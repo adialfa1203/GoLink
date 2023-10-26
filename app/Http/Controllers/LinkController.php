@@ -21,12 +21,12 @@ class LinkController extends Controller
         $this->deleteDeactive();
 
         $urlshort = ShortUrl::withCount('visits')
-        // ->selectRaw('MONTH(created_at) as created_at')
             ->where('user_id', $user_id)
             ->whereNull('microsite_uuid')
             ->orderBy('created_at', 'desc')
-            ->paginate(5);
-        $history = History::where('user_id', $user_id)->paginate(5);
+            ->paginate(10, ['*'], 'page_urlshort');
+
+        $history = History::where('user_id', $user_id)->paginate(10, ['*'], 'page-history');
         $result = [
             'labels' => DateHelper::getAllMonths(5),
             'series' => [],

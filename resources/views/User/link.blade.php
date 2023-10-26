@@ -45,9 +45,10 @@
             text-decoration: underline;
             /* Menambahkan garis bawah saat cursor di atasnya */
         }
+
         .nav-link {
-        display: block;
-        padding: 0.5rem 1rem;
+            display: block;
+            padding: 0.5rem 1rem;
         }
 
         .nav-link:focus,
@@ -107,36 +108,45 @@
             border-radius: 0;
             background-color: transparent;
         }
+
         .icon-white {
-            color: white; /* Atur warna teks ikon menjadi putih */
+            color: white;
+            /* Atur warna teks ikon menjadi putih */
         }
+
         .icon-abu {
             color: #0E2954;
         }
 
         #pagination-element .pagination-block .page-item .page-link {
-        color: #0E2954; /* Warna teks paginate 2-3 */
-        color: #ffffff; /* Warna teks paginate halaman saat ini */
+            color: #0E2954;
+            /* Warna teks paginate 2-3 */
+            color: #ffffff;
+            /* Warna teks paginate halaman saat ini */
         }
 
         #pagination-element .pagination-block .page-item.active .page-link {
-        background-color: #0E2954; /* Warna latar belakang paginate halaman saat ini */
-        border-color: #0E2954; /* Warna border */
-        color: #ffffff; /* Warna teks paginate halaman saat ini */
+            background-color: #0E2954;
+            /* Warna latar belakang paginate halaman saat ini */
+            border-color: #0E2954;
+            /* Warna border */
+            color: #ffffff;
+            /* Warna teks paginate halaman saat ini */
         }
 
         #pagination-element .pagination-block .page-item:first-child .page-link,
         #pagination-element .pagination-block .page-item:last-child .page-link {
-        color: inherit; /* Menggunakan warna teks default */
+            color: inherit;
+            /* Menggunakan warna teks default */
         }
 
-        .page-content{
+        .page-content {
             background: #ffffff;
         }
 
-.aa{
-    padding: 0;
-}
+        .aa {
+            padding: 0;
+        }
     </style>
 @endsection
 @section('content')
@@ -148,12 +158,14 @@
                     <div class="flex-shrink-0">
                         <ul class="nav nav-pills card-header-pills" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active fw-bold" data-bs-toggle="tab" href="#animation-home" role="tab">
+                                <a class="nav-link active fw-bold" data-bs-toggle="tab" href="#animation-home" role="tab"
+                                    data-pagination="activePagination">
                                     Tautan Aktif
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fw-bold" data-bs-toggle="tab" href="#animation-settings" role="tab">
+                                <a class="nav-link fw-bold" data-bs-toggle="tab" href="#animation-settings" role="tab"
+                                    data-pagination="historyPagination">
                                     Riwayat
                                 </a>
                             </li>
@@ -162,7 +174,8 @@
                 </div><!-- end col -->
 
                 <div class="col-12 col-sm-10 mb-3">
-                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-end" style="margin-top: 20px">
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-end"
+                        style="margin-top: 20px">
                         <div class="search-box mb-2 mb-sm-0">
                             <input type="text" class="form-control search" placeholder="Cari...">
                             <i class="ri-search-line search-icon"></i>
@@ -174,18 +187,6 @@
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-body" style="padding: 0;">
-                        {{-- <ul class="nav nav-pills animation-nav nav-justified gap-2 mb-3" role="tablist">
-                            <li class="nav-item ">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#animation-home" role="tab">
-                                    Tautan Aktif
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" data-bs-toggle="tab" href="#animation-settings" role="tab">
-                                    Riwayat
-                                </a>
-                            </li>
-                        </ul> --}}
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="animation-home" role="tabpanel">
                                 <div class="row">
@@ -289,15 +290,18 @@
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#tombol-modal-{{ $row->id }}"
                                                                     data-id="{{ $row->id }}">
-                                                                    <span data-bs-toggle="tooltip" data-bs-placement="left"
-                                                                        title="Kode QR"><i
+                                                                    <span data-bs-toggle="tooltip"
+                                                                        data-bs-placement="left" title="Kode QR"><i
                                                                             class="fa-solid fa-qrcode icon-abu"></i></span>
                                                                 </button>
 
-                                                                <button type="button" class="btn btn-light me-3 btn-sm edit-link" style="background-color: #CED2D9;"
-                                                                data-bs-toggle="modal" data-bs-target="#zoomInModal"
+                                                                <button type="button"
+                                                                    class="btn btn-light me-3 btn-sm edit-link"
+                                                                    style="background-color: #CED2D9;"
+                                                                    data-bs-toggle="modal" data-bs-target="#zoomInModal"
                                                                     data-link="{{ $row->url_key }}">
-                                                                    <span><i class="fa-solid fa-pen-to-square icon-abu"></i></span>
+                                                                    <span><i
+                                                                            class="fa-solid fa-pen-to-square icon-abu"></i></span>
                                                                 </button>
                                                             </div>
                                                             <br>
@@ -417,8 +421,8 @@
                                                                             <p>{{ $row->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                        <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                        </center> -->
+                                                                                                                    <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                    </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -433,39 +437,53 @@
                                                             {{ $row->default_short_url }}
                                                         </p>
                                                         <form id="formKustom">
-                                                            <div id="zoomInModal" class="modal fade zoomIn" tabindex="-1"
-                                                                aria-labelledby="zoomInModalLabel" aria-hidden="true" style="display: none;">
+                                                            <div id="zoomInModal" class="modal fade zoomIn"
+                                                                tabindex="-1" aria-labelledby="zoomInModalLabel"
+                                                                aria-hidden="true" style="display: none;">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h5 class="modal-title" id="zoomInModalLabel"><i
-                                                                                    class="fa-solid fa-pen-to-square"></i>&nbsp;Kustom Tautan
+                                                                            <h5 class="modal-title" id="zoomInModalLabel">
+                                                                                <i
+                                                                                    class="fa-solid fa-pen-to-square"></i>&nbsp;Kustom
+                                                                                Tautan
                                                                             </h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
                                                                                 aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <div class="card-body d-flex" style="background-color: #D9D9D9;">
-                                                                                <p><i class="fa-solid fa-pen-to-square"></i></p>
+                                                                            <div class="card-body d-flex"
+                                                                                style="background-color: #D9D9D9;">
+                                                                                <p><i
+                                                                                        class="fa-solid fa-pen-to-square"></i>
+                                                                                </p>
                                                                                 &nbsp;
-                                                                                <p>Kustom tautan adalah fitur yang memungkinkan
-                                                                                    pengguna untuk membuat tautan pendek yang disesuaikan dengan
+                                                                                <p>Kustom tautan adalah fitur yang
+                                                                                    memungkinkan
+                                                                                    pengguna untuk membuat tautan pendek
+                                                                                    yang disesuaikan dengan
                                                                                     keinginan mereka.
-                                                                                    Pengguna dapat mengganti atau menentukan bagian akhir dari tautan
+                                                                                    Pengguna dapat mengganti atau menentukan
+                                                                                    bagian akhir dari tautan
                                                                                     pendek
-                                                                                    untuk mencerminkan kata kunci, nama merek, atau informasi yang
+                                                                                    untuk mencerminkan kata kunci, nama
+                                                                                    merek, atau informasi yang
                                                                                     relevan dengan tautan tersebut.</p>
                                                                             </div>
                                                                             <br>
                                                                             <div class="col-lg-12 mb-3">
-                                                                                <label for="new_url_key">Kustom Nama</label>
-                                                                                <input type="text" class="form-control" name="new_url_key"
-                                                                                    id="new_url_key" placeholder="Kustom nama">
+                                                                                <label for="new_url_key">Kustom
+                                                                                    Nama</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    name="new_url_key" id="new_url_key"
+                                                                                    placeholder="Kustom nama">
                                                                             </div>
                                                                             <div class="col-lg-12 mb-3">
                                                                                 <label for="new_url_key"></label>
-                                                                                <input type="hidden" class="form-control" name="custom_name"
-                                                                                    id="new_url_key" placeholder="Kustom nama">
+                                                                                <input type="hidden" class="form-control"
+                                                                                    name="custom_name" id="new_url_key"
+                                                                                    placeholder="Kustom nama">
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">
@@ -572,7 +590,7 @@
                                             <div
                                                 class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                 <div class="page-item">
-                                                    {{ $urlshort->links('pagination::bootstrap-5') }}
+                                                    {{ $urlshort->appends(['page_history' => $history->currentPage()])->links('pagination::bootstrap-5') }}
                                                 </div>
                                             </div>
                                         </div>
@@ -616,7 +634,8 @@
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#bagikan{{ $i }}"
                                                                     aria-haspopup="true" aria-expanded="false"><i
-                                                                        class="fa-solid fa-share-nodes" style="color: #fff"></i>
+                                                                        class="fa-solid fa-share-nodes"
+                                                                        style="color: #fff"></i>
                                                                 </button>
 
                                                                 <!-- Modal bagikan -->
@@ -817,8 +836,8 @@
                                                                             <p>{{ $url->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                                            <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                                        </center> -->
+                                                                                                                                                                        <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                                                                    </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -975,20 +994,23 @@
                                             </form>
                                         @endforeach
                                     @endif
-                                    <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start" id="pagination-element">
+                                    <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
+                                        id="pagination-element">
                                         <div class="col-sm">
-                                          <div class="text-muted">
-                                            Menampilkan <span class="fw-semibold">{{ $history->firstItem() }}</span> hingga
-                                            <span class="fw-semibold">{{ $history->lastItem() }}</span> dari total
-                                            <span class="fw-semibold">{{ $history->total() }}</span> Hasil
-                                          </div>
+                                            <div class="text-muted">
+                                                Menampilkan <span class="fw-semibold">{{ $history->firstItem() }}</span>
+                                                hingga <span class="fw-semibold">{{ $history->lastItem() }}</span> dari
+                                                total
+                                                <span class="fw-semibold">{{ $history->total() }}</span> Hasil
+                                            </div>
                                         </div>
                                         <div class="col-sm-auto mt-3 mt-sm-0">
-                                          <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
-                                            <div class="page-item">
-                                              {{ $history->links('pagination::bootstrap-5') }}
+                                            <div
+                                                class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
+                                                <div class="page-item">
+                                                    {{ $history->appends(['page_urlshort' => $urlshort->currentPage()])->links('pagination::bootstrap-5') }}
+                                                </div>
                                             </div>
-                                          </div>
                                         </div>
                                     </div>
                                     <!-- end col -->

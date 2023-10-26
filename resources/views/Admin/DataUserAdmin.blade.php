@@ -240,17 +240,17 @@
                                                                     <td class="status">
                                                                         <h4 class="card-title mb-2">
                                                                             @if (strtolower(trim($row->subscribe)) === 'free')
-                                                                                <span
-                                                                                    class="badge" style="background-color: #86DDAC; color: #027133;">Gratis</span>
+                                                                                <span class="badge"
+                                                                                    style="background-color: #86DDAC; color: #027133;">Gratis</span>
                                                                             @elseif (strtolower(trim($row->subscribe)) === 'silver')
-                                                                                <span
-                                                                                    class="badge" style="background-color: #A6A1A1; color: #504E4E;">Silver</span>
+                                                                                <span class="badge"
+                                                                                    style="background-color: #A6A1A1; color: #504E4E;">Silver</span>
                                                                             @elseif (strtolower(trim($row->subscribe)) === 'gold')
-                                                                                <span
-                                                                                    class="badge" style="background-color: #98B5E1; color: #244680;">Gold</span>
+                                                                                <span class="badge"
+                                                                                    style="background-color: #98B5E1; color: #244680;">Gold</span>
                                                                             @elseif (strtolower(trim($row->subscribe)) === 'platinum')
-                                                                                <span
-                                                                                    class="badge" style="background-color: #F3D897; color: #C68B00;">Platinum</span>
+                                                                                <span class="badge"
+                                                                                    style="background-color: #F3D897; color: #C68B00;">Platinum</span>
                                                                             @else
                                                                                 <span class="badge bg-secondary">Data
                                                                                     Kosong</span>
@@ -466,32 +466,6 @@
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/sweetalerts.init.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.0/list.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var bannedUserPagination = document.getElementById('bannedUserPagination');
-
-            bannedUserPagination.addEventListener('click', function(event) {
-                event.preventDefault();
-                var page = event.target.getAttribute('href').split('page=')[1];
-
-                // Mengganti URL dengan query parameter page yang sesuai
-                var url = window.location.href.split('?')[0] + '?page=' + page;
-
-                // Melakukan request Ajax untuk mendapatkan data pengguna yang diblokir di halaman yang baru
-                fetch(url)
-                    .then(response => response.text())
-                    .then(data => {
-                        var bannedUserTab = document.getElementById(
-                            'designers'); // ID tab pengguna diblokir
-                        var bannedUserPage = bannedUserTab.querySelector(
-                            '.tab-pane.active'
-                        ); // Menggunakan tab pane aktif di dalam tab pengguna diblokir
-                        bannedUserPage.innerHTML = data;
-                    })
-                    .catch(error => console.error(error));
-            });
-        });
-    </script>
     <script>
         $(document).ready(function() {
             $(".search").on("keyup", function() {
