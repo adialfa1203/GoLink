@@ -146,9 +146,13 @@
                                                                 </div>
                                                                 <div
                                                                     class="d-flex align-items-start justify-content-between gap-3 mt-4">
-                                                                    <button data-bs-dismiss="modal" type="button"
-                                                                        class="btn btn-light">Kembali</button>
-                                                                    <button class="btn btn-success">Simpan
+                                                                    <button type="button" class="btn btn-light button"
+                                                                        style="background-color: #FF2323; color:#fff;" data-bs-dismiss="modal">
+                                                                        <i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"
+                                                                            style="color: #fff;"></i>
+                                                                        Batal
+                                                                    </button>
+                                                                    <button class="btn" style="background-color: #088C0D; color: #fff;">Simpan
                                                                         Perubahan</button>
                                                                 </div>
                                                             </div>
