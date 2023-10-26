@@ -10,6 +10,7 @@
     .spo {
         background-color: #1DB954;
     }
+
     .spo:hover {
         background-color: #1DB954;
     }
@@ -17,6 +18,7 @@
     .tiktok {
         background-color: #010101;
     }
+
     .tiktok:hover {
         background-color: #010101;
     }
@@ -24,6 +26,7 @@
     .tele {
         background-color: #0088cc;
     }
+
     .tele:hover {
         background-color: #0088cc;
     }
@@ -31,6 +34,7 @@
     .link {
         background-color: #1666C5;
     }
+
     .link:hover {
         background-color: #1666C5;
     }
@@ -101,10 +105,62 @@
                                         <span class="text-muted fs-lg"><i class="mdi mdi-dots-vertical align-middle"></i></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="{{ route('edit.button', ['id' => $data->id]) }}">Edit</a>
+                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop1{{$data->id}}" role="button">Edit</a>
                                         <button type="button" class="dropdown-item delete-button" data-id="{{ $data->id }}">Hapus</button>
                                     </div>
                                 </div>
+                                <div class="modal fade" id="staticBackdrop1{{$data->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Sosial</h1>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="{{ route('update.button', ['id' => $data->id]) }}">
+                                @csrf
+                                <!-- Tambahkan input untuk mengidentifikasi data yang akan diubah -->
+                                <input type="hidden" name="sosial_id" value="{{ $data->id }}">
+                                <div class="col-xxl-12 mt-2 col-md-12">
+                                    <div class="mt-2">
+                                        <label for="name_button" class="form-label" style="float: left;">Nama Sosial</label>
+                                        <input type="text" name="name_button" class="form-control" id="name_button" placeholder="Masukkan Nama Sosial" required value="{{ $data->name_button }}">
+                                        <div class="invalid-feedback">
+                                            Harap isi kolom ini sebelum melanjutkan proses.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-12 col-md-12">
+                                    <div class="mt-2">
+                                        <label for="icon" class="form-label" style="float: left;">Options</label>
+                                        <select name="icon" class="form-select" id="icon" required>
+                                            <option value="" disabled selected>Choose...</option>
+                                            <option value="bi bi-whatsapp" {{ $data->icon == 'bi bi-whatsapp' ? 'selected' : '' }}>WhatsApp</option>
+                                            <option value="bi bi-facebook" {{ $data->icon == 'bi bi-facebook' ? 'selected' : '' }}>Facebook</option>
+                                            <option value="bi bi-twitter" {{ $data->icon == 'bi bi-twitter' ? 'selected' : '' }}>Twitter</option>
+                                            <option value="bi bi-telephone-fill" {{ $data->icon == 'bi bi-telephone-fill' ? 'selected' : '' }}>Telephone
+                                            </option>
+                                            <option value="bi bi-instagram" {{ $data->icon == 'bi bi-instagram' ? 'selected' : '' }}>Instagram</option>
+                                            <option value="bi bi-linkedin" {{ $data->icon == 'bi bi-linkedin' ? 'selected' : '' }}>LinkedIn</option>
+                                            <option value="bi bi-telegram" {{ $data->icon == 'bi bi-telegram' ? 'selected' : '' }}>Telegram</option>
+                                            <option value="bi bi-tiktok" {{ $data->icon == 'bi bi-tiktok' ? 'selected' : '' }}>TikTok</option>
+                                            <option value="bi bi-spotify" {{ $data->icon == 'bi bi-spotify' ? 'selected' : '' }}>Spotify</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start justify-content-between gap-3 mt-4">
+                                    <button type="button" class="btn btn-light button" style="background-color: #FF2323; color: #fff;" data-bs-dismiss="modal">
+                                        <i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>
+                                        Batal
+                                    </button>
+                                    <button type="submit" class="btn" style="background-color: #088C0D; color: #fff;">
+                                        Kirim
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
                             </div>
                         </div>
                         @if (strtolower(trim($data->icon)) === 'bi bi-facebook')
@@ -155,12 +211,14 @@
                     </div>
                 </div>
             </div>
+          
             @endforeach
             @endif
         </div>
     </div>
 </div>
 <!-- Modal -->
+
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -214,6 +272,8 @@
         </div>
     </div>
 </div>
+
+
 @endsection
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -62,7 +62,7 @@ class ProfilController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-
+// dd($validator);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->number = $request->number;

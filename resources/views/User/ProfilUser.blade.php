@@ -169,33 +169,36 @@
                                                     </label>
                                                 </center>
                                             </div>
-
+                                            
                                             <div class="texs col-12 col-lg-6 col-xl-6 col-sm-6 col-md-6">
                                                 <h5 style="color: #fff; margin: 4px;">
                                                     {{ $user->name }}
                                                     <i class="align-baseline text-info ms-1"></i>
                                                 </h5>
                                                 <h2 class="align-items-center
-                                                        @if ($user->subscribe == 'free') badge bg-success text-white
-                                                        @elseif ($user->subscribe == 'silver')
-                                                            badge bg-light text-black
-                                                        @elseif ($user->subscribe == 'gold')
-                                                            badge bg-warning text-white
-                                                        @else
-                                                            badge bg-info text-white @endif"
-                                                    style="background-color: #89898A; border-radius: 30px; height: 30px; padding: 10px;">
-                                                    {{ $accountStatus }}
-                                                </h2>
-                                                <!-- <h2 class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</h2> -->
-
-                                                <h5 style="color: #fff; margin: 4px;">
-                                                    {{ $user->email }}
-                                                    <i class="align-baseline text-info ms-1"></i>
+                                                @if ($user->subscribe == 'free') badge bg-success text-white
+                                                @elseif ($user->subscribe == 'silver')
+                                                badge bg-light text-black
+                                                @elseif ($user->subscribe == 'gold')
+                                                badge bg-warning text-white
+                                                @else
+                                                badge bg-info text-white @endif"
+                                                style="background-color: #89898A; border-radius: 30px; height: 30px; padding: 10px;">
+                                                {{ $accountStatus }}
+                                            </h2>
+                                            <!-- <h2 class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</h2> -->
+                                            
+                                            <h5 style="color: #fff; margin: 4px;">
+                                                {{ $user->email }}
+                                                <i class="align-baseline text-info ms-1"></i>
                                                 </h5>
                                             </div>
                                         </div>
-
+                                        
                                     </div>
+                                    @if ($errors->has('profile_picture'))
+                                <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+                            @endif
                                 </div>
                             </div>
                             <div class="col-xxl-12">

@@ -174,6 +174,9 @@
                                     </div>
 
                                 </div>
+                                @if ($errors->has('profile_picture'))
+                                <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+                            @endif
                             </div>
 
                         </div>

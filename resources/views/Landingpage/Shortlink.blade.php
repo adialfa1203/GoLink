@@ -53,7 +53,43 @@
             /* Menjaga aspek rasio gambar */
         }
 
+        @media only screen and (max-width: 600px) {
+            .jud {
+                font-size: 22px;
+                text-align: initial;
+            }
 
+            .isi {
+                font-size: 12px;
+                text-align: initial;
+            }
+
+            .isi1 {
+                font-size: 12px;
+                text-align: initial;
+                margin-top: -14px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+
+            /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+            .jud {
+                font-size: 22px;
+                text-align: initial;
+            }
+
+            .isi {
+                font-size: 12px;
+                text-align: initial;
+            }
+
+            .isi1 {
+                font-size: 12px;
+                text-align: initial;
+                margin-top: -14px;
+            }
+        }
     </style>
     <style>
         .navbar-nav a.nav-link.active {
@@ -94,12 +130,12 @@
                     <span class="banner_shape3"> <img src="https://i.postimg.cc/wxrWDBbF/banner-shape3.png" alt="image"> </span>
                     <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1500">
                         <!-- banner text -->
-                        <div class="banner_text">
+                        <div class="banner_text" style="margin-top: -8px;">
                             <!-- h1 -->
                             <h2 class="jud" style="color: white;">Buat dan kreasikan tautan Anda</h2>
                             <!-- p -->
-                            <span class="isi" style="color: white;">Penyingkat tautan terbaik dan Terpendek
-                                untuk kamu gunakan.</span>
+                            <p class="isi" style="color: white;">Penyingkat tautan terbaik dan Terpendek
+                                untuk kamu gunakan.</p>
                             <p class="isi1">Sesuaikan Penyingkat URL Anda dengan fitur yang memberi Anda pemendekan tautan berkualitas lebih baik.
                             </p>
                             <div class="col-12 mt-3" style="margin-right: 100%;">
