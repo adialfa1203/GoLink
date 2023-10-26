@@ -169,13 +169,13 @@
                                                     </label>
                                                 </center>
                                             </div>
-                                            
+
                                             <div class="texs col-12 col-lg-6 col-xl-6 col-sm-6 col-md-6">
                                                 <h5 style="color: #fff; margin: 4px;">
                                                     {{ $user->name }}
                                                     <i class="align-baseline text-info ms-1"></i>
                                                 </h5>
-                                                <h2 class="align-items-center
+                                                {{-- <h2 class="align-items-center
                                                 @if ($user->subscribe == 'free') badge bg-success text-white
                                                 @elseif ($user->subscribe == 'silver')
                                                 badge bg-light text-black
@@ -185,16 +185,34 @@
                                                 badge bg-info text-white @endif"
                                                 style="background-color: #89898A; border-radius: 30px; height: 30px; padding: 10px;">
                                                 {{ $accountStatus }}
-                                            </h2>
+                                                </h2>
+                                                --}}
+                                                <h2 class="card-title mb-2">
+                                                    @if (strtolower(trim($user->subscribe)) === 'free')
+                                                        <span
+                                                            class="badge" style="background-color: #86DDAC; color: #027133;">Member Gratis</span>
+                                                    @elseif (strtolower(trim($user->subscribe)) === 'silver')
+                                                        <span
+                                                            class="badge" style="background-color: #A6A1A1; color: #504E4E;">Member Silver</span>
+                                                    @elseif (strtolower(trim($user->subscribe)) === 'gold')
+                                                        <span
+                                                            class="badge" style="background-color: #F3D897; color: #C68B00;">Member Gold</span>
+                                                    @elseif (strtolower(trim($user->subscribe)) === 'platinum')
+                                                        <span
+                                                            class="badge" style="background-color: #98B5E1; color: #244680;">Member Platinum</span>
+                                                    @else
+                                                        <span class="badge bg-secondary">Data
+                                                            Kosong</span>
+                                                    @endif
+                                                </h2>
                                             <!-- <h2 class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</h2> -->
-                                            
                                             <h5 style="color: #fff; margin: 4px;">
                                                 {{ $user->email }}
                                                 <i class="align-baseline text-info ms-1"></i>
                                                 </h5>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     @if ($errors->has('profile_picture'))
                                 <span class="text-danger">{{ $errors->first('profile_picture') }}</span>

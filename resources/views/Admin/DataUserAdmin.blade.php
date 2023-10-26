@@ -246,11 +246,11 @@
                                                                                 <span class="badge"
                                                                                     style="background-color: #A6A1A1; color: #504E4E;">Silver</span>
                                                                             @elseif (strtolower(trim($row->subscribe)) === 'gold')
-                                                                                <span class="badge"
-                                                                                    style="background-color: #98B5E1; color: #244680;">Gold</span>
+                                                                                <span
+                                                                                    class="badge" style="background-color: #F3D897; color: #C68B00;">Gold</span>
                                                                             @elseif (strtolower(trim($row->subscribe)) === 'platinum')
-                                                                                <span class="badge"
-                                                                                    style="background-color: #F3D897; color: #C68B00;">Platinum</span>
+                                                                                <span
+                                                                                    class="badge" style="background-color: #98B5E1; color: #244680;">Platinum</span>
                                                                             @else
                                                                                 <span class="badge bg-secondary">Data
                                                                                     Kosong</span>
