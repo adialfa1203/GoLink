@@ -148,7 +148,7 @@
 }
 
 .comment-container {
-    max-height: 500px;
+    max-height: 300px;
     overflow-y: scroll;
     position: relative;
 }
