@@ -72,6 +72,62 @@
             border-radius: 0;
             background-color: transparent;
         }
+
+        .spo {
+            background-color: #1DB954;
+        }
+
+        .spo:hover {
+            background-color: #1DB954;
+        }
+
+        .tiktok {
+            background-color: #010101;
+        }
+
+        .tiktok:hover {
+            background-color: #010101;
+        }
+
+        .tele {
+            background-color: #0088cc;
+        }
+
+        .tele:hover {
+            background-color: #0088cc;
+        }
+
+        .link {
+            background-color: #1666C5;
+        }
+
+        .link:hover {
+            background-color: #1666C5;
+        }
+
+        .face {
+            background-color: #2b4170;
+            background: -moz-linear-gradient(top, #3b5998, #2b4170);
+            background: -ms-linear-gradient(top, #3b5998, #2b4170);
+            background: -webkit-linear-gradient(top, #3b5998, #2b4170);
+        }
+
+        .twi {
+            background: #55ACEE;
+        }
+
+        .twi:hover {
+            background: #55ACEE;
+        }
+
+        .insta {
+            background: #f09433;
+            background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+
+        }
     </style>
 @endsection
 
@@ -363,8 +419,25 @@
                                     @endforeach
                                 </div>
                                 @foreach ($social as $socialItem)
-                                    <button type="button" class="col-12 mb-2 btn btn-label rounded-pill"
-                                        style="color: white; background-color: {{ $socialItem->button->color_hex }}"
+                                    <button style="color: white; background-color: {{ $socialItem->button->color_hex }}"
+                                        type="button"
+                                        class="col-12 mb-2 btn btn-label rounded-pill
+                                @if (strtolower(trim($socialItem->button->icon)) === 'bi bi-facebook') face
+                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-twitter')
+                                    twi
+                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-instagram')
+                                    insta
+                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-linkedin')
+                                    link
+                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-telegram')
+                                    tele
+                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-tiktok')
+                                    tiktok
+                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-spotify')
+                                    spo
+                                @else
+                                    notfound @endif
+                                "
                                         data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                                         aria-controls="collapseOne">
                                         <i style="color: white"

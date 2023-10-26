@@ -13,6 +13,62 @@
             transform: scale(1.05);
             transition: background-color 0.3s, transform 0.3s;
         }
+
+        .spo {
+            background-color: #1DB954;
+        }
+
+        .spo:hover {
+            background-color: #1DB954;
+        }
+
+        .tiktok {
+            background-color: #010101;
+        }
+
+        .tiktok:hover {
+            background-color: #010101;
+        }
+
+        .tele {
+            background-color: #0088cc;
+        }
+
+        .tele:hover {
+            background-color: #0088cc;
+        }
+
+        .link {
+            background-color: #1666C5;
+        }
+
+        .link:hover {
+            background-color: #1666C5;
+        }
+
+        .face {
+            background-color: #2b4170;
+            background: -moz-linear-gradient(top, #3b5998, #2b4170);
+            background: -ms-linear-gradient(top, #3b5998, #2b4170);
+            background: -webkit-linear-gradient(top, #3b5998, #2b4170);
+        }
+
+        .twi {
+            background: #55ACEE;
+        }
+
+        .twi:hover {
+            background: #55ACEE;
+        }
+
+        .insta {
+            background: #f09433;
+            background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+
+        }
     </style>
 
 @endsection
@@ -235,7 +291,8 @@
                                                         <div class="col-6 col-md-6">
                                                             <button type="button"
                                                                 class="btn btn-outline-danger btn-sm previestab"
-                                                                data-previous="v-pills-bill-info-tab" style="font-size: 13px;"><i
+                                                                data-previous="v-pills-bill-info-tab"
+                                                                style="font-size: 13px;"><i
                                                                     class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Sebelumnya</button>
                                                         </div>
                                                         <div class="col-6 col-md-6" style="margin-left: -8px;">
@@ -272,17 +329,100 @@
                                                                                     class="checkbox"
                                                                                     style="display: none;">
                                                                             </label>
-                                                                            <button
-                                                                                style="background-color: {{ $data->color_hex }}; color: white;"
-                                                                                type="button" name="button"
-                                                                                value="{{ $data->name_button }}"
-                                                                                class="col-xl-12 col-12 btn btn-label rounded-pill"
-                                                                                data-button-value="{{ $data->id }}"
-                                                                                onclick="toggleCardHover('{{ $data->id }}')">
-                                                                                <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                                                    style="color: white;"></i>
-                                                                                {{ $data->name_button }}
-                                                                            </button>
+                                                                            @if (strtolower(trim($data->icon)) === 'bi bi-facebook')
+                                                                                <button style="color: white;"
+                                                                                    type="button"
+                                                                                    class="col-xl-12 col-12 btn btn-label rounded-pill face"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="{{ $data->id }}"
+                                                                                    aria-expanded="true"
+                                                                                    aria-controls="{{ $data->id }}"
+                                                                                    onclick="toggleCardHover('{{ $data->id }}')">
+                                                                                    <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                                                        style="color: white;"></i>
+                                                                                    {{ $data->name_button }}
+                                                                                </button>
+                                                                            @elseif (strtolower(trim($data->icon)) === 'bi bi-twitter')
+                                                                                <button style="color: white;"
+                                                                                    type="button"
+                                                                                    class="col-xl-12 col-12 btn btn-label rounded-pill twi"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="{{ $data->id }}"
+                                                                                    aria-expanded="true"
+                                                                                    aria-controls="{{ $data->id }}"
+                                                                                    onclick="toggleCardHover('{{ $data->id }}')">
+                                                                                    <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                                                        style="color: white;"></i>
+                                                                                    {{ $data->name_button }}
+                                                                                </button>
+                                                                            @elseif (strtolower(trim($data->icon)) === 'bi bi-instagram')
+                                                                                <button style="color: white;"
+                                                                                    type="button"
+                                                                                    class="col-xl-12 col-12 btn btn-label rounded-pill insta"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="{{ $data->id }}"
+                                                                                    aria-expanded="true"
+                                                                                    aria-controls="{{ $data->id }}"
+                                                                                    onclick="toggleCardHover('{{ $data->id }}')">
+                                                                                    <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                                                        style="color: white;"></i>
+                                                                                    {{ $data->name_button }}
+                                                                                </button>
+                                                                            @elseif (strtolower(trim($data->icon)) === 'bi bi-linkedin')
+                                                                                <button style="color: white;"
+                                                                                    type="button"
+                                                                                    class="col-xl-12 col-12 btn btn-label rounded-pill link"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="{{ $data->id }}"
+                                                                                    aria-expanded="true"
+                                                                                    aria-controls="{{ $data->id }}"
+                                                                                    onclick="toggleCardHover('{{ $data->id }}')">
+                                                                                    <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                                                        style="color: white;"></i>
+                                                                                    {{ $data->name_button }}
+                                                                                </button>
+                                                                            @elseif (strtolower(trim($data->icon)) === 'bi bi-telegram')
+                                                                                <button style="color: white;"
+                                                                                    type="button"
+                                                                                    class="col-xl-12 col-12 btn btn-label rounded-pill tele"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="{{ $data->id }}"
+                                                                                    aria-expanded="true"
+                                                                                    aria-controls="{{ $data->id }}"
+                                                                                    onclick="toggleCardHover('{{ $data->id }}')">
+                                                                                    <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                                                        style="color: white;"></i>
+                                                                                    {{ $data->name_button }}
+                                                                                </button>
+                                                                            @elseif (strtolower(trim($data->icon)) === 'bi bi-tiktok')
+                                                                                <button style="color: white;"
+                                                                                    type="button"
+                                                                                    class="col-xl-12 col-12 btn btn-label rounded-pill tiktok"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="{{ $data->id }}"
+                                                                                    aria-expanded="true"
+                                                                                    aria-controls="{{ $data->id }}"
+                                                                                    onclick="toggleCardHover('{{ $data->id }}')">
+                                                                                    <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                                                        style="color: white;"></i>
+                                                                                    {{ $data->name_button }}
+                                                                                </button>
+                                                                            @elseif (strtolower(trim($data->icon)) === 'bi bi-spotify')
+                                                                                <button style="color: white;"
+                                                                                    type="button"
+                                                                                    class="col-xl-12 col-12 btn btn-label rounded-pill spo"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="{{ $data->id }}"
+                                                                                    aria-expanded="true"
+                                                                                    aria-controls="{{ $data->id }}"
+                                                                                    onclick="toggleCardHover('{{ $data->id }}')">
+                                                                                    <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                                                        style="color: white;"></i>
+                                                                                    {{ $data->name_button }}
+                                                                                </button>
+                                                                            @else
+                                                                                Button tidak ada!
+                                                                            @endif
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -291,9 +431,10 @@
                                                     </div>
                                                     <div class="d-flex align-items-start gap-3 mt-4">
                                                         <button type="button"
-                                                                class="btn btn-outline-danger btn-sm previestab"
-                                                                data-previous="v-pills-bill-info-tab" style="font-size: 13px;"><i
-                                                                    class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Sebelumnya</button>
+                                                            class="btn btn-outline-danger btn-sm previestab"
+                                                            data-previous="v-pills-bill-info-tab"
+                                                            style="font-size: 13px;"><i
+                                                                class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Sebelumnya</button>
                                                         <button type="submit" id="submitButton"
                                                             class="btn btn-label right ms-auto nexttab nexttab"
                                                             style="background: #088C0D; color: #FFF;" {{-- data-nexttab="v-pills-finish-tab" --}}
