@@ -94,7 +94,7 @@
                 <img src="{{ asset('template/image/linkbaru.png') }}" alt="" width="50" height="30">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('template/image/linkbaru.png') }}" alt="" width="50" height="30">
+                <img src="{{ asset('template/image/linkbaru.png') }}" alt="" width="150" height="75">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-3xl header-item float-end btn-vertical-sm-hover" id="vertical-hover">
