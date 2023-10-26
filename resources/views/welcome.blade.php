@@ -26,14 +26,14 @@
             text-align: center;
             background-color: #FF2323;
             color: #fff;
-            padding: 20px;
+            padding: 2px;
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
             display: flex;
             align-items: center;
         }
         .header-content {
-          margin-right: 80px;  /* Atur jarak antara gambar dan teks sesuai keinginan Anda */
+          margin-right: 150px;  /* Atur jarak antara gambar dan teks sesuai keinginan Anda */
         }
         .title {
             font-size: 24px;
@@ -66,9 +66,9 @@
 <body>
     <div class="container">
     <div class="header">
-        <img src="https://i.postimg.cc/g0Gdh314/Logo-740-740-piksel-8.png" alt="Logo" class="logo" width="80">
+        <img src="https://i.postimg.cc/g0Gdh314/Logo-740-740-piksel-8.png" alt="Logo" class="logo" width="80" style="width: 8%; margin-right: 15px;">
         <div class="header-content">
-            <h2>Akun Diblokir</h2>
+            <h2>Akun Anda Diblokir</h2>
         </div>
     </div>    
         <div class="content">
@@ -82,13 +82,15 @@
             <p>Jika Anda merasa pemblokiran ini adalah kesalahan atau ingin mengajukan banding, silakan hubungi tim dukungan kami segera untuk klarifikasi lebih lanjut.</p>
             <p>Terima kasih atas pengertian Anda.</p>
         </div>
+        <center>
         <button class="help">
           <p style="padding: 0px; margin: 0px">
               <a style="color: #fff" href="https://go-link.trialdy.me/id/help-support">Bantuan dan Dukungan</a>
           </p>
-        </button> 
+        </button>
+        </center> 
         <div class="footer">
-            <p>Ini adalah email pemberitahuan otomatis. Mohon tidak membalas email ini.</p>
+            <p style="font-size: 12px;">Ini adalah email pemberitahuan otomatis. Mohon tidak membalas email ini.</p>
         </div>
     </div>
 </body>
