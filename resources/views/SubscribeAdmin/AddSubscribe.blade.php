@@ -124,7 +124,7 @@
                             </div>
                             <div class="d-flex align-items-start gap-3 mt-4">
                                 <a type="button" href="{{ route('subscribe') }}"
-                                class="btn btn-light button"><i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Kembali</a>
+                                class="btn button" style="height: 38px;"><i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Kembali</a>
                                 <button type="submit" class="btn right ms-auto" style="background-color: #088C0D; color: #fff;">Kirim</button>
                             </div>
                         </div>
