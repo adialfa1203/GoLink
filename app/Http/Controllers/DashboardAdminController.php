@@ -15,84 +15,86 @@ use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 class DashboardAdminController extends Controller
 {
     public function dashboardChart()
-{
-    $startDate = DateHelper::getSomeMonthsAgoFromNow(5)->format('Y-m-d H:i:s');
-    $endDate = DateHelper::getCurrentTimestamp('Y-m-d H:i:s');
+    {
+        $startDate = DateHelper::getSomeMonthsAgoFromNow(5)->format('Y-m-d H:i:s');
+        $endDate = DateHelper::getCurrentTimestamp('Y-m-d H:i:s');
 
-    $totalUser = User::where('created_at', '>=', $startDate)
-        ->where('email', '!=', 'admin@gmail.com')
-        ->selectRaw('DATE(created_at) as date, COUNT(*) as totalUser')
-        ->groupBy('date')
-        ->orderBy('date')
-        ->get();
+        $totalUser = User::where('created_at', '>=', $startDate)
+            ->where('email', '!=', 'admin@gmail.com')
+            ->selectRaw('DATE(created_at) as date, COUNT(*) as totalUser')
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get();
 
-    $totalUrl = ShortUrl::where('created_at', '>=', $startDate)
-        ->selectRaw('DATE(created_at) as date, COUNT(*) as totalUrl')
-        ->where('archive', '!=', 'yes')
-        ->groupBy('date')
-        ->orderBy('date')
-        ->get();
+        $totalUrl = ShortUrl::where('created_at', '>=', $startDate)
+            ->selectRaw('DATE(created_at) as date, COUNT(*) as totalUrl')
+            ->where('archive', '!=', 'yes')
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get();
 
-    $totalVisits = ShortURLVisit::where('created_at', '>=', $startDate)
-        ->selectRaw('DATE(created_at) as date, COUNT(*) as totalVisits')
-        ->whereRelation('shortURL', 'archive', '!=', 'yes')
-        ->groupBy('date')
-        ->orderBy('date')
-        ->get();
+        $totalVisits = ShortURLVisit::where('created_at', '>=', $startDate)
+            ->selectRaw('DATE(created_at) as date, COUNT(*) as totalVisits')
+            ->whereRelation('shortURL', 'archive', '!=', 'yes')
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get();
 
-    $result = [
-        'labels' => DateHelper::getAllMonths(5),
-        'series' => [
-            'totalUser' => [],
-            'totalUrl' => [],
-            'totalVisits' => []
-        ]
-    ];
+        $result = [
+            'labels' => DateHelper::getAllMonths(5),
+            'series' => [
+                'totalUser' => [],
+                'totalUrl' => [],
+                'totalVisits' => []
+            ]
+        ];
 
-    foreach ($result['labels'] as $label) {
-        $result['series']['totalUser'][] = 0;
-        $result['series']['totalUrl'][] = 0;
-        $result['series']['totalVisits'][] = 0;
+        foreach ($result['labels'] as $label) {
+            $result['series']['totalUser'][] = 0;
+            $result['series']['totalUrl'][] = 0;
+            $result['series']['totalVisits'][] = 0;
+        }
+
+        foreach ($totalUser as $dataUser) {
+            $parse = Carbon::parse($dataUser->date);
+            $date = $parse->shortMonthName . ' ' . $parse->year;
+            $index = array_search($date, $result['labels']);
+            $result['series']['totalUser'][$index] = (int)$dataUser->totalUser;
+        }
+
+        foreach ($totalUrl as $dataUrl) {
+            $parse = Carbon::parse($dataUrl->date);
+            $date = $parse->shortMonthName . ' ' . $parse->year;
+            $index = array_search($date, $result['labels']);
+            $result['series']['totalUrl'][$index] = (int)$dataUrl->totalUrl;
+        }
+
+        foreach ($totalVisits as $dataVisits) {
+            $parse = Carbon::parse($dataVisits->date);
+            $date = $parse->shortMonthName . ' ' . $parse->year;
+            $index = array_search($date, $result['labels']);
+            $result['series']['totalVisits'][$index] = (int)$dataVisits->totalVisits;
+        }
+
+        return response()->json(compact('startDate', 'result'));
     }
 
-    foreach ($totalUser as $dataUser) {
-        $parse = Carbon::parse($dataUser->date);
-        $date = $parse->shortMonthName . ' ' . $parse->year;
-        $index = array_search($date, $result['labels']);
-        $result['series']['totalUser'][$index] = (int)$dataUser->totalUser;
-    }
 
-    foreach ($totalUrl as $dataUrl) {
-        $parse = Carbon::parse($dataUrl->date);
-        $date = $parse->shortMonthName . ' ' . $parse->year;
-        $index = array_search($date, $result['labels']);
-        $result['series']['totalUrl'][$index] = (int)$dataUrl->totalUrl;
-    }
-
-    foreach ($totalVisits as $dataVisits) {
-        $parse = Carbon::parse($dataVisits->date);
-        $date = $parse->shortMonthName . ' ' . $parse->year;
-        $index = array_search($date, $result['labels']);
-        $result['series']['totalVisits'][$index] = (int)$dataVisits->totalVisits;
-    }
-
-    return response()->json(compact('startDate', 'result'));
-}
-
-
-    public function dashboardAdmin(){
+    public function dashboardAdmin()
+    {
         $totalUser = User::where('email', '!=', 'admin@gmail.com')
-                    ->where('is_banned', '!=', '1')
-                    ->count();
+            ->where('is_banned', '!=', '1')
+            ->count();
         $totalUrl = ShortUrl::where('archive', '!=', 'yes')->count();
         $totalVisits = ShortURLVisit::query()
-                        ->whereRelation('shortURL', 'archive', '!=', 'yes')
-                        ->count();
+            ->whereRelation('shortURL', 'archive', '!=', 'yes')
+            ->count();
         // dd($totalUser);
-    return view('Admin.index', compact('totalUser','totalUrl','totalVisits'));
+        return view('Admin.index', compact('totalUser', 'totalUrl', 'totalVisits'));
     }
 
-    public function viewFooter(){
+    public function viewFooter()
+    {
         $data = Footer::first();
         return view('Admin.Footer', compact('data'));
     }
@@ -101,18 +103,21 @@ class DashboardAdminController extends Controller
     {
         $footer = Footer::first();
         $validator = Validator::make($request->all(), [
-            'description' => 'string|max:225',
+            'description' => 'nullable|string|max:225',
             'whatsapp' => [
+                'nullable',
                 'string',
                 'regex:/^\+62[0-9]*$/',
                 'min:13',
                 'max:18',
             ],
             'instagram' => [
+                'nullable',
                 'string',
                 'not_regex:/https?:\/\/(www\.)?instagram\.com/',
             ],
             'twitter' => [
+                'nullable',
                 'string',
                 'not_regex:/https?:\/\/(www\.)?twitter\.com/',
             ],
@@ -120,13 +125,9 @@ class DashboardAdminController extends Controller
             'whatsapp.regex' => 'Format nomor WhatsApp tidak valid. Pastikan dimulai dengan +62 dan hanya mengandung angka.',
             'whatsapp.min' => 'Nomor WhatsApp tidak boleh kurang dari 13 karakter.',
             'whatsapp.max' => 'Nomor WhatsApp tidak boleh lebih dari 18 karakter.',
-            'whatsapp' => 'Kolom WhatsApp tidak boleh kosong!',
             'description.max' => 'Deskripsi tidak boleh lebih dari 225 karakter.',
-            'description' => 'Kolom Deskripsi tidak boleh kosong!',
             'instagram.not_regex' => 'Kolom Instagram wajib diisi dengan username dan tidak boleh berupa URL atau link.',
-            'instagram' => 'Kolom Instagram tidak boleh kosong!',
             'twitter.not_regex' => 'Kolom Twitter wajib diisi dengan username dan tidak boleh berupa URL atau link.',
-            'twitter' => 'Kolom Twitter tidak boleh kosong!',
         ]);
 
         if ($validator->fails()) {
@@ -157,5 +158,4 @@ class DashboardAdminController extends Controller
 
         return redirect()->back()->with('success', 'Data berhasil diperbarui.');
     }
-
 }
