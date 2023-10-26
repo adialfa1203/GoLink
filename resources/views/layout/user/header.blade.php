@@ -1,3 +1,18 @@
+<style>
+.dal{
+    margin-left: -8%;
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+    .dal{
+    margin-left: 3%;
+}
+        }
+        @media (max-width: 768px) {
+            .dal{
+    margin-left: 3%;
+} 
+        }
+    </style>
 <header id="page-topbar">
     <div class="atas">
         <div class="layout-width">
@@ -136,7 +151,7 @@
     </div>
     </div>
 </header>
-<div id="myModal" class="modal fade mt-5" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; margin-left: -8%;overflow: hidden;">
+<div id="myModal" class="modal fade mt-5 dal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;overflow: hidden;">
     <div class="modal-dialog modal-dialog-right modal-sm">
         <div class="modal-content">
             <div class="modal-header">
