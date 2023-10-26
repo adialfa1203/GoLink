@@ -22,7 +22,13 @@
 .links ul {
     margin-top: 10px; /* Atur margin atas pada daftar item */
 }
-
+footer .top_footer {
+    background-color: #0E2954 !important;
+    padding: 17px 0 0px 0 !important;
+    /* height: 220px; */
+    position: relative !important;
+    overflow: hidden !important;
+}
 </style>
     <footer>
         <div class="top_footer" id="kontak">

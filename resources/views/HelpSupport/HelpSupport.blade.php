@@ -277,7 +277,7 @@
                             @else
                                 @foreach ($komentar as $key => $row)
                                     <div class="card-body " >
-                                        <div class="d-flex align-items-center text-muted mb-4{{ $key < 1 ? '' : ' hidden' }}">
+                                        <div class="d-flex align-items-center text-muted {{ $key < 1 ? '' : ' hidden' }}" style="margin-bottom: -14px;">
                                             <div class="flex-shrink-0 me-3">
                                                 @if ($row->user->profile_picture)
                                                     <img class="header-profile-user"
