@@ -170,34 +170,23 @@
                                                 </center>
                                             </div>
 
-                                            <!-- <div class="avatar-xs p-0 rounded-circle profile-photo-edit position-absolute end-0 bottom-0">
-                                                    <input id="profile-img-file-input" name="profile_picture" type="file" class="profile-img-file-input d-none">
-                                                    <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                        <span class="avatar-title rounded-circle bg-light text-body">
-                                                            <i class="bi bi-camera"></i>
-                                                        </span>
-                                                    </label>
-                                                </div> -->
-
                                             <div class="texs col-12 col-lg-6 col-xl-6 col-sm-6 col-md-6">
                                                 <h5 style="color: #fff; margin: 4px;">
                                                     {{ $user->name }}
                                                     <i class="align-baseline text-info ms-1"></i>
                                                 </h5>
-                                                    <h2 class="align-items-center
-                                                        @if ($user->subscribe == 'free')
-                                                            badge bg-success text-white
+                                                <h2 class="align-items-center
+                                                        @if ($user->subscribe == 'free') badge bg-success text-white
                                                         @elseif ($user->subscribe == 'silver')
                                                             badge bg-light text-black
                                                         @elseif ($user->subscribe == 'gold')
                                                             badge bg-warning text-white
                                                         @else
-                                                            badge bg-info text-white
-                                                        @endif"
-                                                        style="background-color: #89898A; border-radius: 30px; height: 30px; padding: 10px;">
-                                                        {{ $accountStatus }}
-                                                    </h2>
-                                                    <!-- <h2 class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</h2> -->
+                                                            badge bg-info text-white @endif"
+                                                    style="background-color: #89898A; border-radius: 30px; height: 30px; padding: 10px;">
+                                                    {{ $accountStatus }}
+                                                </h2>
+                                                <!-- <h2 class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</h2> -->
 
                                                 <h5 style="color: #fff; margin: 4px;">
                                                     {{ $user->email }}
@@ -208,31 +197,6 @@
 
                                     </div>
                                 </div>
-                                <!-- <div class="profile-user position-relative d-inline-block mx-auto">
-                                                @if ($user->profile_picture)
-    <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}" alt="{{ $user->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-@else
-    <img src="{{ asset('default/default.jpg') }}" alt="{{ $user->name }}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-    @endif
-                                                <div class="avatar-xs p-0 rounded-circle profile-photo-edit position-absolute end-0 bottom-0">
-                                                    <input id="profile-img-file-input" name="profile_picture" type="file" class="profile-img-file-input d-none">
-                                                    <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                        <span class="avatar-title rounded-circle bg-light text-body">
-                                                            <i class="bi bi-camera"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                @if ($errors->has('profile_picture'))
-    <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
-    @endif
-                                            </div>
-                                            <div class="mt-3">
-                                                <h5>{{ $user->name }}<i class=" align-baseline text-info ms-1"></i></h5>
-                                                <p class="text-muted">{{ $accountStatus }}</p>
-                                            </div> -->
-                                <!-- </div> -->
                             </div>
                             <div class="col-xxl-12">
                                 <div class="card isi">

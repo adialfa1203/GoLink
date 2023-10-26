@@ -39,20 +39,19 @@ class ProfilController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50',
-            'email' => 'requiredmin:11|max:13|regex:/^[^-+]+$/u',
-            'old_password' => 'requir|regex:/^[^-+]+$/u|email|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
-            'number' => 'required|ed_with:new_password',
+            'email' => 'required|min:11|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
+            'old_password' => 'required|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
+            'number' => 'required|min:10|max:13',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ], [
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
             'number.required' => 'Kolom Nomer harus diisi',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
-            'number.max' => 'Nomor tidak boleh lebih dari 13!',
             'email.unique' => 'Email sudah pernah digunakan',
             'email.required' => 'Kolom Email harus diisi',
             'email.regex' => 'Format alamat email tidak valid.',
-            'old_password.required_with' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
+            'old_password.required' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
             'new_password.min' => 'Password baru harus memiliki panjang minimal 8 karakter.',
             'new_password.confirmed' => 'Konfirmasi password baru tidak cocok dengan password baru.',
             'profile_picture.image' => 'Kolom ini harus berisi gambar dengan format yang sesuai (jpeg, png, jpg).',
@@ -108,7 +107,7 @@ class ProfilController extends Controller
                 $accountStatus = 'Status tidak valid';
             }
         }
-        return view('Admin.ProfilAdmin', compact('admin','accountStatus'));
+        return view('Admin.ProfilAdmin', compact('admin', 'accountStatus'));
     }
 
     public function updateAdmin(Request $request)
@@ -116,19 +115,20 @@ class ProfilController extends Controller
         $admin = User::FindOrFail(Auth::user()->id);
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|regex:/^[^-+]+$/u',
-            'email' => 'email|regex:/^[^-+]+$/u|ends_with:.com|unique:users,email,' . $admin->id,
-            'number' => 'required|min:11|max:13|regex:/^[^-+]+$/u',
-            'old_password' => 'required_with:new_password',
+            'name' => 'required|max:50',
+            'email' => 'required|min:11|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $admin->id,
+            'old_password' => 'required|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $admin->id,
+            'number' => 'required|min:10|max:13',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ], [
-            'number.min' => 'Nomor tidak boleh kurang dari 11!',
-            'number.max' => 'Nomor tidak boleh lebih dari 13!',
+            'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
+            'number.required' => 'Kolom Nomer harus diisi',
+            'number.min' => 'Nomor tidak boleh kurang dari 10!',
             'email.unique' => 'Email sudah pernah digunakan',
             'email.required' => 'Kolom Email harus diisi',
-            'email.ends_with' => 'Email harus berakhir dengan .com',
-            'old_password.required_with' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
+            'email.regex' => 'Format alamat email tidak valid.',
+            'old_password.required' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
             'new_password.min' => 'Password baru harus memiliki panjang minimal 8 karakter.',
             'new_password.confirmed' => 'Konfirmasi password baru tidak cocok dengan password baru.',
             'profile_picture.image' => 'Kolom ini harus berisi gambar dengan format yang sesuai (jpeg, png, jpg).',
@@ -139,6 +139,7 @@ class ProfilController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+        
         $admin->name = $request->name;
         $admin->email = $request->email;
         $admin->number = $request->number;
