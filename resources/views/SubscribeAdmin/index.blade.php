@@ -60,15 +60,15 @@
 }
 .bagcard {
        border-radius: 20px;
-       background:linear-gradient(0deg, #0E2954, #104898);
+       background:linear-gradient(0deg, #0E2954,);
        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
    }
    .warna {
-            color: #104898 !important;
+            color: #104898 ;
         }
 
         .card {
-            background: linear-gradient(0deg, #0E2954, #104898);
+            background: linear-gradient(0deg, #0E2954, );
             color: #ffffff;
             padding: 20px;
             border-radius: 0 0 10px 10px;
@@ -85,6 +85,13 @@
             border-radius: 10px 10px 0 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
+        }
+        .card2 {
+            background: linear-gradient(0deg, #0E2954,  #104898);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .p1 {
@@ -165,6 +172,7 @@
                         </div>
                     </div>
                 @else
+            </div>
                 <div class="kotak">
                     @foreach ($subscribe as $subs)
                         @php
@@ -206,7 +214,7 @@
                                 </h5>
                             </div>
                             
-                            <div class="card mb-3" style="background-color: #104898;height: 620px;">
+                            <div class="card2 mb-3" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
                                     <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260"
                                     height="160" style="display: block; margin: 0 auto; object-fit: cover;"
@@ -327,7 +335,7 @@
                     @endforeach
                 </div>
                 @endif
-            </div>
+           
         </div>
 
     @section('script')
