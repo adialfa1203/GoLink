@@ -258,13 +258,12 @@ class MicrositeController extends Controller
         ], [
             'component_name.required' => 'Nama wajib diisi',
             'component_name.max' => 'Tidak boleh lebih besar dari 20 karakter',
-            'cover_img' => 'Kolom gambar sampul harus berupa gambar.
-',
+            'cover_img' => 'Kolom gambar sampul harus berupa gambar.',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
+            return redirect()->back()->with('error', 'Gagal, Ada data yang  tidak terisi dengan benar!')
+                ->withErrors($validator->errors())
                 ->withInput();
         }
         $coverImage = $request->file('cover_img');
@@ -286,7 +285,7 @@ class MicrositeController extends Controller
 
     public function editComponent($id)
     {
-        $component = Components::findOrFail($id);
+        $component = Components::find($id);
         return view('Microsite.UpdateComponent', compact('component'));
     }
 
@@ -299,9 +298,9 @@ class MicrositeController extends Controller
         ], [
             'component_name.required' => 'Nama komponen harus diisi',
             'component_name.max' => 'Jumlah karakter tidak boleh lebih dari 20',
-            'cover_img.image' => 'Data yang diizinkan hanya jpeg, png, jpg dan gif',
-            'cover_img.mimes' => 'Data yang diizinkan hanya jpeg, png, jpg dan gif',
-            'cover_img.max' => 'Ukuran background tidak boleh lebih dari 2048 pixel',
+            'cover_img.image' => 'Data yang diizinkan hanya jpeg, png, jpg, dan gif',
+            'cover_img.mimes' => 'Data yang diizinkan hanya jpeg, png, jpg, dan gif',
+            'cover_img.max' => 'Ukuran gambar tidak boleh lebih dari 2048 KB',
         ]);
 
         if ($validator->fails()) {
@@ -319,8 +318,11 @@ class MicrositeController extends Controller
         }
 
         if ($request->hasFile('cover_img')) {
-            if (file_exists(public_path('component/' . $component->cover_img))) {
-                unlink(public_path('component/' . $component->cover_img));
+            if ($component->cover_img) {
+                $oldCoverImagePath = public_path('component/' . $component->cover_img);
+                if (file_exists($oldCoverImagePath)) {
+                    unlink($oldCoverImagePath);
+                }
             }
 
             $coverImage = $request->file('cover_img');
@@ -330,8 +332,11 @@ class MicrositeController extends Controller
         }
 
         if ($request->hasFile('profile_img')) {
-            if (file_exists(public_path('component/' . $component->profile_img))) {
-                unlink(public_path('component/' . $component->profile_img));
+            if ($component->profile_img) {
+                $oldProfileImagePath = public_path('component/' . $component->profile_img);
+                if (file_exists($oldProfileImagePath)) {
+                    unlink($oldProfileImagePath);
+                }
             }
 
             $profileImage = $request->file('profile_img');
@@ -340,11 +345,13 @@ class MicrositeController extends Controller
             $component->profile_img = $profileImageName;
         }
 
+        // dd($request->cover_img);
         $component->component_name = $request->component_name;
         $component->save();
 
-        return redirect()->route('view.component')->with('success', 'Komponen berhasil di edit.');
+        return redirect()->route('view.component')->with('success', 'Komponen berhasil diedit.');
     }
+
 
     public function deleteComponent($id)
     {
