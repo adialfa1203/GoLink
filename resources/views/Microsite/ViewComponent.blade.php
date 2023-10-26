@@ -264,10 +264,8 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-start justify-content-between gap-3">
-                                    <button type="button" class="btn btn-light button"
+                                    <button type="button" class="btn button"
                                         style="background-color: #FF2323; color:#fff;" data-bs-dismiss="modal">
-                                        <i class="ri-arrow-left-line label-icon align-middle fs-lg me-2"
-                                            style="color: #fff;"></i>
                                         Batal
                                     </button>
                                     <button type="submit" class="btn"
