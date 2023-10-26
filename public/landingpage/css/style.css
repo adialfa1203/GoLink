@@ -1945,7 +1945,7 @@ footer {
 footer .top_footer {
     background-color: #0E2954;
     padding: 17px 0 0px 0;
-    height: 220px;
+    /* height: 220px; */
     position: relative;
     overflow: hidden;
 }
