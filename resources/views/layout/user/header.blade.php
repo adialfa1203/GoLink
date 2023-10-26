@@ -93,7 +93,7 @@
                                     <div class="d-flex">
 
                                         <div class="position-relative me-3 flex-shrink-0">
-                                            <img src="{{ asset('template/image/Default.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                            <img src="https://i.postimg.cc/nLqMtBQJ/default.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                             <span class="active-badge position-absolute start-100 translate-middle p-1 bg-warning rounded-circle">
                                                 <span class="visually-hidden">New alerts</span>
                                             </span>
@@ -162,7 +162,7 @@
                 <div class="d-flex mt-2">
 
                     <div class="position-relative me-3 flex-shrink-0">
-                        <img src="{{ asset('template/image/Default.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                        <img src="https://i.postimg.cc/nLqMtBQJ/default.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                         <span class="active-badge position-absolute start-100 translate-middle p-1 bg-warning rounded-circle">
                             <span class="visually-hidden">New alerts</span>
                         </span>
@@ -170,7 +170,7 @@
 
                     <div class="flex-grow-1">
                         <a href="#!" class="stretched-link">
-                            <h6 class="mt-0 mb-1 fs-md fw-semibold">Maureen Gibson</h6>
+                            <h6 class="mt-0 mb-1 fs-md fw-semibold">Adi alfa</h6>
                         </a>
                         <div class="fs-sm text-muted">
                             <p class="mb-1" style="text-overflow: ellipsis !important;
@@ -179,14 +179,14 @@
                                                 -webkit-box-orient: vertical !important;
                                                 display: -webkit-box !important;
                                                 word-break: break-word !important;
-                                                max-width: 300px;">Weuyhbdyjcsfxyprojectygsfydvgytshbsdbgsyysdgysdshgby.</p>
+                                                max-width: 300px;">Boleh saya tahu informasi lebih lanjut mengenai Milink?</p>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex mt-2">
 
                     <div class="position-relative me-3 flex-shrink-0">
-                        <img src="{{ asset('template/image/Default.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                        <img src="https://i.postimg.cc/nLqMtBQJ/default.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                         <span class="active-badge position-absolute start-100 translate-middle p-1 bg-warning rounded-circle">
                             <span class="visually-hidden">New alerts</span>
                         </span>
@@ -194,7 +194,7 @@
 
                     <div class="flex-grow-1">
                         <a href="#!" class="stretched-link">
-                            <h6 class="mt-0 mb-1 fs-md fw-semibold">Maureen Gibson</h6>
+                            <h6 class="mt-0 mb-1 fs-md fw-semibold">Putri</h6>
                         </a>
                         <div class="fs-sm text-muted">
                             <p class="mb-1" style="text-overflow: ellipsis !important;
@@ -203,7 +203,7 @@
                                                 -webkit-box-orient: vertical !important;
                                                 display: -webkit-box !important;
                                                 word-break: break-word !important;
-                                                max-width: 300px;">Weuyhbdyjcsfxyprojectygsfydvgytshbsdbgsyysdgysdshgby.</p>
+                                                max-width: 300px;">Coba ceritakan lebih banyak lagi tentang MiLink</p>
                         </div>
                     </div>
                 </div>
