@@ -60,12 +60,12 @@
             }
 
             .isi {
-                font-size: 12px;
+                font-size: 13px;
                 text-align: initial;
             }
 
             .isi1 {
-                font-size: 12px;
+                font-size: 13px;
                 text-align: initial;
                 margin-top: -14px;
             }
@@ -80,12 +80,12 @@
             }
 
             .isi {
-                font-size: 12px;
+                font-size: 13px;
                 text-align: initial;
             }
 
             .isi1 {
-                font-size: 12px;
+                font-size: 13px;
                 text-align: initial;
                 margin-top: -14px;
             }

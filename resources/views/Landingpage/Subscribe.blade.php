@@ -174,12 +174,12 @@
             }
 
             .isi {
-                font-size: 11px;
+                font-size: 13px;
                 text-align: initial;
             }
 
             .isi1 {
-                font-size: 12px;
+                font-size: 13px;
                 text-align: initial;
                 margin-top: -14px;
             }
@@ -194,12 +194,12 @@
             }
 
             .isi {
-                font-size: 11px;
+                font-size: 13px;
                 text-align: initial;
             }
 
             .isi1 {
-                font-size: 12px;
+                font-size: 13px;
                 text-align: initial;
                 margin-top: -14px;
             }
@@ -269,7 +269,7 @@
                     <span class="banner_shape3"> <img src="https://i.postimg.cc/wxrWDBbF/banner-shape3.png" alt="image"> </span>
                     <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1500">
                         <!-- banner text -->
-                        <div class="banner_text">
+                        <div class="banner_text" style="margin-top: -8px;">
                             <!-- h1 -->
                             <h2 class="jud"style="color: white">Jadilah Bagian dari Perubahan!</h2>
                             <!-- p -->
