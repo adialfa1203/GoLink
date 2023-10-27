@@ -153,7 +153,7 @@
     <div class="page-content">
         <div class="container-fluid">
             <div class="d-flex flex-column flex-sm-row">
-                <div class="col-12 col-sm-2 isi align-items-xl-center d-xl-flex">
+                <div class="col-12 col-sm-2 isi align-items-xl-center">
                     <p class="text-muted flex-grow-1 mb-xl-0"></p>
                     <div class="flex-shrink-0">
                         <ul class="nav nav-pills card-header-pills" role="tablist">

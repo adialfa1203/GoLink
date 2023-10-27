@@ -37,6 +37,7 @@
     <!-- custom Css-->
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet"
         type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
 </head>
     <style>
@@ -143,9 +144,9 @@
                                         <!-- <center> -->
                                         <div class="mt-5 tek" style=" position: absolute; top: 80px;margin-left: 10%; ">
                                     <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
-                                    <h4>Pemendek Link dengan sekali ketuk</h4>
-                                    <h4>Bikin tautanmu makin singkat !</h4>
-                                    <h5 style="color: #104898;">
+                                    <h4 style="font-family: Poppins;">Pemendek Link dengan sekali ketuk</h4>
+                                    <h4 style="font-family: Poppins;">Bikin tautanmu makin singkat !</h4>
+                                    <h5 style="color: #104898;font-family: Poppins;">
                                         Daftar dan nikmati pengalaman yang menarik pada website kami
                                     </h5>
                                     <!-- <center> -->
@@ -165,8 +166,8 @@
                                         <center>
                                         <img class="fot" src="{{ asset('template/image/Asset 1.png') }} " width="150" height="40" style="object-fit: contain;">
                                         <div class=" mt-3">
-                                            <h5 class="fs-3xl" style="color: #000000">Selamat Datang!</h5>
-                                            <p class="text-muted">Silahkan lengkapi data di bawah ini untuk mendaftar</p>
+                                            <h5 class="fs-3xl" style="color: #000000;font-family: Poppins;">Selamat Datang!</h5>
+                                            <p class="text-muted" style="font-family: Poppins;">Silahkan lengkapi data di bawah ini untuk mendaftar</p>
                                         </div>
                                         </center>
                                         <div class="p-2 mt-5">

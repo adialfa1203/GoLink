@@ -34,7 +34,7 @@
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
     <!-- custom Css-->
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
-
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <style>
         body,
         .gm,
@@ -48,7 +48,6 @@
             color: white;
             padding: 0;
             margin: 0;
-
         }
 
         .rigth {
@@ -323,9 +322,9 @@
                                 <!-- <center> -->
                                 <div class="mt-5 tek" style=" position: absolute; top: 80px;margin-left: 10%; ">
                                     <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
-                                    <h4>Pemendek Link dengan sekali ketuk</h4>
-                                    <h4>Bikin tautanmu makin singkat !</h4>
-                                    <h5 style="color: #104898;">
+                                    <h4 style="font-family: Poppins;">Pemendek Link dengan sekali ketuk</h4>
+                                    <h4 style="font-family: Poppins;">Bikin tautanmu makin singkat !</h4>
+                                    <h5 style="color: #104898;font-family: Poppins;">
                                         Daftar dan nikmati pengalaman yang menarik pada website kami
                                     </h5>
                                     <!-- <center> -->
@@ -339,17 +338,17 @@
                         <!-- </div> -->
                         <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style=" position: absolute; bottom: 0;margin-left: 13%">
                     </div>
-                    <div class="col-6 right-section col-lg-6">
+                    <div class="col-6 right-section col-lg-6 ">
                         <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
-                            <div class="card-body p-sm-5 m-lg-3">
+                            <div class="card-body p-sm-5 m-lg-3" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
                                 <center>
                                 <img class="fot" src="{{ asset('template/image/Asset 1.png') }} " width="150" height="40" style="object-fit: contain;">
                                 <div class=" mt-3">
-                                    <h5 class="fs-3xl">Selamat Datang Kembali !</h5>
-                                    <p class="text-muted">Masuk untuk melanjutkan ke MILINK</p>
+                                    <h5 class="fs-3xl" style="font-family: Poppins;">Selamat Datang Kembali !</h5>
+                                    <p class="" style="font-family: Poppins;">Masuk untuk melanjutkan ke MILINK</p>
                                 </div>
                                 </center>
-                                <div class=" mt-3">
+                                <div class=" mt-3 w-100">
                                     <form action="{{ route('login.user') }}" method="POST">
                                         @csrf
                                         <div class="mb-3">
