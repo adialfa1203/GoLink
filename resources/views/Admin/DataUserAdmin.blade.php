@@ -229,9 +229,14 @@
                                                                 </td>
                                                             </tr>
                                                         @else
+                                                            @php
+                                                                $startNumber = $d->firstItem() - 1;
+                                                            @endphp
+
                                                             @foreach ($data as $row)
                                                                 <tr id="user_{{ $row->id }}">
-                                                                    <th class="order_id">{{ $loop->iteration }}
+                                                                    <th class="order_id">
+                                                                        {{ $loop->iteration + $startNumber }}</th>
                                                                     </th>
                                                                     <td class="order_id">{{ $row->name }}</td>
                                                                     <td class="order_date">{{ $row->email }}
@@ -364,10 +369,13 @@
                                                                 </td>
                                                             </tr>
                                                         @else
+                                                            @php
+                                                                $startNumber = $bannedUser->firstItem() - 1;
+                                                            @endphp
                                                             @foreach ($bannedUser as $banned)
                                                                 <tr id="user_{{ $banned->id }}">
-                                                                    <th class="order_id">{{ $loop->iteration }}
-                                                                    </th>
+                                                                    <th class="order_id">
+                                                                        {{ $loop->iteration + $startNumber }}</th>
                                                                     <td class="order_id">{{ $banned->name }}</td>
                                                                     <td class="order_date">{{ $banned->email }}
                                                                     </td>
