@@ -246,11 +246,11 @@
                                                                                 <span class="badge"
                                                                                     style="background-color: #A6A1A1; color: #504E4E;">Silver</span>
                                                                             @elseif (strtolower(trim($row->subscribe)) === 'gold')
-                                                                                <span
-                                                                                    class="badge" style="background-color: #F3D897; color: #C68B00;">Gold</span>
+                                                                                <span class="badge"
+                                                                                    style="background-color: #F3D897; color: #C68B00;">Gold</span>
                                                                             @elseif (strtolower(trim($row->subscribe)) === 'platinum')
-                                                                                <span
-                                                                                    class="badge" style="background-color: #98B5E1; color: #244680;">Platinum</span>
+                                                                                <span class="badge"
+                                                                                    style="background-color: #98B5E1; color: #244680;">Platinum</span>
                                                                             @else
                                                                                 <span class="badge bg-secondary">Data
                                                                                     Kosong</span>
@@ -306,7 +306,7 @@
                                                     <div
                                                         class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                         <div class="page-item">
-                                                            {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
+                                                            {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->onEachSide(1)->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -441,7 +441,7 @@
                                                     <div
                                                         class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                         <div class="page-item">
-                                                            {{ $bannedUser->appends(['page_user' => $d->currentPage()])->links('pagination::bootstrap-5', ['id' => 'bannedUserPagination']) }}
+                                                            {{ $bannedUser->appends(['page_user' => $d->currentPage()])->onEachSide(1)->links('pagination::bootstrap-5', ['id' => 'bannedUserPagination']) }}
                                                         </div>
                                                     </div>
                                                 </div>
