@@ -83,18 +83,18 @@
     <div class="navbar-brand-box">
         <a href="" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ asset('template/image/linkbaru.png') }}" alt="" height="30">
+                <img src="{{ asset('template/image/milink.png') }}" alt="" height="30">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('template/image/linkbaru.png') }}" alt="" height="30">
+                <img src="{{ asset('template/image/milink.png') }}" alt="" height="30">
             </span>
         </a>
         <a href="" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ asset('template/image/linkbaru.png') }}" alt="" width="50" height="30">
+                <img src="{{ asset('template/image/M.png') }}" alt="" width="25" height="20">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('template/image/linkbaru.png') }}" alt="" width="150" height="75">
+                <img src="{{ asset('template/image/milink.png') }}" alt="" width="150" height="30">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-3xl header-item float-end btn-vertical-sm-hover" id="vertical-hover">

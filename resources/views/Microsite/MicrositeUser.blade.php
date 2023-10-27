@@ -151,7 +151,7 @@
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10 col-10 mb-2">
                     <button type="button" class="btn btn-subtle-primary active-hover" style="background-color: #104898; color:#fff;" id="semuaButton">Semua</button>
                     <button type="button" class="btn btn-subtle-primary" style="background-color: #2F5EA2; color:#fff;" id="showAdditionalData"
-                    onclick="filterTerakhirDiperbarui()">Terakhir Diperbrui</button>
+                    onclick="filterTerakhirDiperbarui()">Terakhir Diperbarui</button>
                </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2 col-2 mb-2">
                     <div class="hstack gap-2 justify-content-end">
