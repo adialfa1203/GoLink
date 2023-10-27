@@ -321,7 +321,9 @@
                             <div class="card-body" style="background-color:  #D2E0FB;padding:0;">
                                 <!-- <center> -->
                                 <div class="mt-5 tek" style=" position: absolute; top: 80px;margin-left: 10%; ">
-                                    <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
+                                    <div>
+                                        <img src="{{ asset('template/image/milink-gelap.png') }} " width="150" height="30">
+                                    </div><br>
                                     <h4 style="font-family: Poppins;">Pemendek Link dengan sekali ketuk</h4>
                                     <h4 style="font-family: Poppins;">Bikin tautanmu makin singkat !</h4>
                                     <h5 style="color: #104898;font-family: Poppins;">
