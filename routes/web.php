@@ -35,7 +35,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::fallback(function () {
-    return view('Auth.Login');
+    return to_route('login');
 });
 Route::middleware(['guest'])->group(function () {
     Route::redirect('/', 'id/home');
