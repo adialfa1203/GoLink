@@ -181,38 +181,32 @@
                      
                         {{-- bts --}}
                          <div class="row text-center">
-                            <div class="col-md-12">
-                            <div class="card1">
-                                <div class="dropdown">
-                                    {{-- <span class="three-dots" id="dropdownButton">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </span>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownButton">
-                                        <a class="dropdown-item" href="{{ route('edit.subscribe', ['id' => $subs->id]) }}">Edit</a>
-                                        <button type="button" class="dropdown-item" onclick="confirmDelete('{{ $subs->id }}')">Hapus</button>
-                                    </div> --}}
-                                    <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 80%">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                      </a>
+                            <div class="col-12">
+                                <div class="card1" style="position: relative;">
+                                    <h5 style="font-weight: bold; color:#0E2954;">
+                                        @if (strtolower(trim($subs->tipe)) === 'silver')
+                                            <span class="">Silver</span>
+                                        @elseif (strtolower(trim($subs->tipe)) === 'gold')
+                                            <span class="">Gold</span>
+                                        @elseif (strtolower(trim($subs->tipe)) === 'platinum')
+                                            <span class="">Platinum</span>
+                                        @else
+                                            <span class="">Data Kosong</span>
+                                        @endif
+                                    </h5>
                                     
-                                      <ul class="dropdown-menu">
-                                        <li> <a class="dropdown-item" href="{{ route('edit.subscribe', ['id' => $subs->id]) }}">Edit</a></li>
-                                        <li><button type="button" class="dropdown-item" onclick="confirmDelete('{{ $subs->id }}')">Hapus</button></li>
-                                      </ul>
+                                    <div class="dropdown" style="position: absolute; top: 0; right: 0;">
+                                        <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        
+                                        <ul class="dropdown-menu">
+                                            <li> <a class="dropdown-item" href="{{ route('edit.subscribe', ['id' => $subs->id]) }}">Edit</a></li>
+                                            <li><button type="button" class="dropdown-item" onclick="confirmDelete('{{ $subs->id }}')">Hapus</button></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                                               
-                                <h5 style="font-weight: bold; color:#0E2954;">
-                                    @if (strtolower(trim($subs->tipe)) === 'silver')
-                                        <span class="">Silver</span>
-                                    @elseif (strtolower(trim($subs->tipe)) === 'gold')
-                                        <span class="">Gold</span>
-                                    @elseif (strtolower(trim($subs->tipe)) === 'platinum')
-                                        <span class="">Platinum</span>
-                                    @else
-                                        <span class="">Data Kosong</span>
-                                    @endif
-                                </h5>
-                            </div>
+                                
                             
                             <div class="card2 mb-3" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
@@ -221,8 +215,10 @@
                                     alt="Card image cap">
                                     <br>
                                     <h2 class="mb-2" style="color: #ffffff;">Rp.{{ number_format($subs->price, 0, ',', '.') }}/Bulan</h2>
+                                    @if (strtolwer(trim($subs->description)))
                                     <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
                                     <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
+                                    @endif
                                 </div>
                                 
                                 <div data-simplebar data-simplebar-auto-hide="false" style="height: 300px;" class="px-3">
