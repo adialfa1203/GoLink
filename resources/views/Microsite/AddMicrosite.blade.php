@@ -324,6 +324,7 @@
                                                                             class="d-flex align-items-center justify-content-end">
                                                                             <label class="mb-0 me-2">
                                                                                 <input type="checkbox"
+                                                                                    id="selectedButtons"
                                                                                     name="selectedButtons[]"
                                                                                     value="{{ $data->id }}"
                                                                                     class="checkbox"
@@ -530,13 +531,51 @@
     </script>
 
     <script>
-        @if ($errors->any())
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'link microsite sudah pernah DIgunakan.',
-            });
-        @endif
+        function validateForm() {
+            var micrositeSelection = document.querySelector('input[name="microsite_selection"]:checked');
+            if (!micrositeSelection) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Silakan pilih jenis microsite yang cocok dengan kebutuhan Anda!',
+                    onClose: function() {
+                        document.getElementById('v-pills-bill-info-tab').click();
+                    }
+                })
+                return false;
+            }
+
+            var selectedButtons = document.querySelectorAll('input[name="selectedButtons[]"]:checked');
+            if (selectedButtons.length === 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Silakan pilih setidaknya satu sosial media!',
+                    onClose: function() {
+                        document.getElementById('v-pills-bill-info-tab').click();
+                    }
+                })
+                return false;
+            }
+            return true;
+        }
+
+        function submitForm() {
+            if (!validateForm()) {
+                return false;
+            }
+            document.getElementById('form-create').submit();
+        }
+    </script>
+
+    <script>
+        // @if ($errors->any())
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Oops...',
+        //         text: 'link microsite sudah pernah DIgunakan.',
+        //     });
+        // @endif
         function showSweetAlert() {
             var userSubscribe = "{{ $user->subscribe }}";
             var existingMicrosites = {{ $micrositeCount ?? 0 }};
@@ -646,57 +685,7 @@
     </script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        function validateForm() {
-            var micrositeSelection = document.querySelector('input[name="microsite_selection"]:checked');
-            if (!micrositeSelection) {
-                Swal.fire({
-                    text: 'Silakan pilih jenis microsite yang cocok dengan kebutuhan Anda!',
-                    onClose: function() {
-                        document.getElementById('v-pills-bill-info-tab').click();
-                    }
-                }).then(function() {
-                    setTimeout(function() {
-                        location.reload();
-                    }, 0);
-                });
-                return false;
-            }
 
-            // Validasi langkah kedua
-            var micrositeName = document.getElementById("address").value;
-            var micrositeLink = document.getElementById("link").value;
-            if (micrositeName.trim() === "" || micrositeLink.trim() === "") {
-                Swal.fire({
-                    text: 'Silakan isi nama dan tautan microsite sesuai keinginan Anda!',
-                    onClose: function() {
-                        document.getElementById('v-pills-bill-info-tab').click();
-                    }
-                }).then(function() {
-                    setTimeout(function() {
-                        location.reload();
-                    }, 2000);
-                });
-                return false;
-            }
-
-            var selectedButtons = document.querySelectorAll('input[name="selectedButtons[]"]:checked');
-            if (selectedButtons.length === 0) {
-                Swal.fire({
-                    text: 'Silakan pilih setidaknya satu sosial media!',
-                    onClose: function() {
-                        document.getElementById('v-pills-bill-info-tab').click();
-                    }
-                }).then(function() {
-                    setTimeout(function() {
-                        location.reload();
-                    }, 2000);
-                });
-                return false;
-            }
-            return true;
-        }
-    </script>
     <script>
         function replaceSpacesWithDash(inputField) {
             if (inputField.id === "micrositeUrl") {
