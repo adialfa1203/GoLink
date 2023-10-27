@@ -26,6 +26,7 @@ class SocialController extends Controller
         } else {
             $newUser = User::create([
                 'id' => Uuid::uuid4()->toString(),
+                'google_id' => $googleUser->id,
                 'name' => $googleUser->name,
                 'email' => $googleUser->getEmail(),
                 'number' => $googleUser->number ?? 'default_number',

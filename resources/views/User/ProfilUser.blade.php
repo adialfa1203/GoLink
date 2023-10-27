@@ -189,34 +189,38 @@
                                                 --}}
                                                 <h2 class="card-title mb-2">
                                                     @if (strtolower(trim($user->subscribe)) === 'free')
-                                                        <span
-                                                            class="badge" style="background-color: #86DDAC; color: #027133;">Member Gratis</span>
+                                                        <span class="badge"
+                                                            style="background-color: #86DDAC; color: #027133;">Member
+                                                            Gratis</span>
                                                     @elseif (strtolower(trim($user->subscribe)) === 'silver')
-                                                        <span
-                                                            class="badge" style="background-color: #A6A1A1; color: #504E4E;">Member Silver</span>
+                                                        <span class="badge"
+                                                            style="background-color: #A6A1A1; color: #504E4E;">Member
+                                                            Silver</span>
                                                     @elseif (strtolower(trim($user->subscribe)) === 'gold')
-                                                        <span
-                                                            class="badge" style="background-color: #F3D897; color: #C68B00;">Member Gold</span>
+                                                        <span class="badge"
+                                                            style="background-color: #F3D897; color: #C68B00;">Member
+                                                            Gold</span>
                                                     @elseif (strtolower(trim($user->subscribe)) === 'platinum')
-                                                        <span
-                                                            class="badge" style="background-color: #98B5E1; color: #244680;">Member Platinum</span>
+                                                        <span class="badge"
+                                                            style="background-color: #98B5E1; color: #244680;">Member
+                                                            Platinum</span>
                                                     @else
                                                         <span class="badge bg-secondary">Data
                                                             Kosong</span>
                                                     @endif
                                                 </h2>
-                                            <!-- <h2 class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</h2> -->
-                                            <h5 style="color: #fff; margin: 4px;">
-                                                {{ $user->email }}
-                                                <i class="align-baseline text-info ms-1"></i>
+                                                <!-- <h2 class="btn" style="background-color: #89898A;color: #fff;border-radius: 30px;height: 30px;padding: 6px;">{{ $accountStatus }}</h2> -->
+                                                <h5 style="color: #fff; margin: 4px;">
+                                                    {{ $user->email }}
+                                                    <i class="align-baseline text-info ms-1"></i>
                                                 </h5>
                                             </div>
                                         </div>
 
                                     </div>
                                     @if ($errors->has('profile_picture'))
-                                <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
-                            @endif
+                                        <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-xxl-12">
@@ -224,20 +228,31 @@
                                     <div class="card-header isi align-items-xl-center d-xl-flex">
                                         <p class="text-muted flex-grow-1 mb-xl-0"></p>
                                         <div class="flex-shrink-0">
-                                            <ul class="nav nav-pills card-header-pills" role="tablist">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active fw-bold" data-bs-toggle="tab"
-                                                        href="#developers" role="tab">
-                                                        Profil
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link fw-bold" data-bs-toggle="tab" href="#designers"
-                                                        role="tab">
-                                                        Kata Sandi
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                            @if ($user->google_id !== null)
+                                                <ul class="nav nav-pills card-header-pills" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active fw-bold" data-bs-toggle="tab"
+                                                            href="#developers" role="tab">
+                                                            Profil
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            @else
+                                                <ul class="nav nav-pills card-header-pills" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active fw-bold" data-bs-toggle="tab"
+                                                            href="#developers" role="tab">
+                                                            Profil
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link fw-bold" data-bs-toggle="tab" href="#designers"
+                                                            role="tab">
+                                                            Kata Sandi
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            @endif
                                         </div>
                                     </div><!-- end card header -->
                                     <div class="card-body">
