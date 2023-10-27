@@ -40,7 +40,7 @@
         .gm,
         .card {
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .right-section {
