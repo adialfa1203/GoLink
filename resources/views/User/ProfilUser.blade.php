@@ -151,12 +151,14 @@
                                             <div class="col-12 col-lg-2 col-xl-2 col-sm-6 col-md-6">
                                                 <center>
                                                     @if ($user->profile_picture)
+                                                        @if($user->google_id)
+                                                        <img src="{{ $user->profile_picture }}" alt="{{ $user->name }}"
+                                                        class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                                        @else
                                                         <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
                                                             alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                                                    @elseif ($user->google_id !== null && $user->profile_picture)
-                                                        <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}" alt="{{ $user->name }}"
-                                                            class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                                            @endif
                                                     @else
                                                         <img src="{{ asset('default/default.jpg') }}"
                                                             alt="{{ $user->name }}"
