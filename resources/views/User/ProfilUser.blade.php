@@ -150,6 +150,8 @@
                                         <div class="d-flex row">
                                             <div class="col-12 col-lg-2 col-xl-2 col-sm-6 col-md-6">
                                                 <center>
+                                                    @dd( $user->profile_picture)
+
                                                     @if ($user->profile_picture)
                                                         <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
                                                             alt="{{ $user->name }}"
