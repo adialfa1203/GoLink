@@ -85,11 +85,18 @@ class ProfilController extends Controller
 
         // Section 3: Update Profile Picture
         if ($request->hasFile('profile_picture')) {
+            $coverImage = $request->file('profile_picture');
+
+            // Validate file as image
+            if (!$coverImage->isValid() || !in_array($coverImage->getClientMimeType(), ['image/jpeg', 'image/png', 'image/jpg'])) {
+                return redirect()->back()->withErrors(['profile_picture' => 'Kolom ini harus berisi gambar dengan format yang sesuai (JPEG, PNG, JPG).']);
+            }
+
+            // Delete old profile picture
             if ($user->profile_picture && file_exists(public_path('profile_pictures/' . $user->profile_picture))) {
                 unlink(public_path('profile_pictures/' . $user->profile_picture));
             }
 
-            $coverImage = $request->file('profile_picture');
             $coverImageName = time() . '_cover.' . $coverImage->getClientOriginalExtension();
             $coverImage->move(public_path('profile_pictures'), $coverImageName);
             $user->profile_picture = $coverImageName;
@@ -177,6 +184,13 @@ class ProfilController extends Controller
 
         // Update Profile Picture
         if ($request->hasFile('profile_picture')) {
+
+            // Validate file as image
+            if (!$coverImage->isValid() || !in_array($coverImage->getClientMimeType(), ['image/jpeg', 'image/png', 'image/jpg'])) {
+                return redirect()->back()->withErrors(['profile_picture' => 'Kolom ini harus berisi gambar dengan format yang sesuai (JPEG, PNG, JPG).']);
+            }
+
+            // Delete old profile picture
             if ($admin->profile_picture && file_exists(public_path('profile_pictures/' . $admin->profile_picture))) {
                 unlink(public_path('profile_pictures/' . $admin->profile_picture));
             }

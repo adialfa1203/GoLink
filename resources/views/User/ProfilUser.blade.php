@@ -210,7 +210,7 @@
                                             </div>
                                         </div>
 
-                                    </div>
+                                    </div><br>
                                     @if ($errors->has('profile_picture'))
                                         <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
                                     @endif

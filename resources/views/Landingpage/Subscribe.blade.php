@@ -423,7 +423,7 @@
                         </div>
                         <div class="story_text text-center">
                             <br>
-                            <p class="text-muted warna" style="font-weight: 600;">Kustominasi</p>
+                            <p class="text-muted warna" style="font-weight: 600;">Kustomisasi</p>
                             <p class="text-muted warna" style="font-weight: 600;">Nama Tautan</p>
                         </div>
                     </div>
