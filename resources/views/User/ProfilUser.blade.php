@@ -154,9 +154,8 @@
                                                         <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
                                                             alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                                                    @elseif ($user->google_id !== null)
-                                                        <img src="{{ asset($user->profile_picture) }}"
-                                                            alt="{{ $user->name }}"
+                                                    @elseif ($user->google_id !== null && $user->profile_picture)
+                                                        <img src="{{ $user->profile_picture }}" alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                                     @else
                                                         <img src="{{ asset('default/default.jpg') }}"
