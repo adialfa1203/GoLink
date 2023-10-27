@@ -31,7 +31,7 @@ class SocialController extends Controller
                 'email' => $googleUser->getEmail(),
                 'number' => $googleUser->number ?? 'default_number',
                 'password' => bcrypt('12345678'),
-                'profile_picture' => $googleUser->getAvatar()
+                'profile_picture' => "https://go-link.trialdy.me/profile_pictures/" . $googleUser->getAvatar()
             ]);
 
             if (!Role::where('name', 'user')->exists()) {
