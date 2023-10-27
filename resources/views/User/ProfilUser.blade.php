@@ -158,7 +158,7 @@
                                                         <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
                                                             alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                                                            @endif
+                                                        @endif
                                                     @else
                                                         <img src="{{ asset('default/default.jpg') }}"
                                                             alt="{{ $user->name }}"

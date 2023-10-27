@@ -133,20 +133,26 @@
                     </span>
                     </button> --}}
                     <button class="nav-link bg-transparent text-white" type="button" role="button" aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">
-                    @if ($user->profile_picture)
-                    @if($user->google_id)
+                        @if(Auth::user()->profile_picture)
+                        <img class="header-profile-user" src="{{ asset('profile_pictures/' . Auth::user()->profile_picture) }}" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
+                        @else
+                        <img class="header-profile-user" src="{{ asset('default/default.jpg') }}" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
+                        @endif
+                        
+                        @if ($user->profile_picture)
+                        @if($user->google_id)
                         <img src="{{ $user->profile_picture }}" alt="{{ $user->name }}"
-                        class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                    @else
+                        class="header-profile-user"  alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
+                        @else
                         <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
                             alt="{{ $user->name }}"
-                            class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                    @endif
-                    @else
+                            class="header-profile-user" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
+                        @endif
+                        @else
                         <img src="{{ asset('default/default.jpg') }}"
                             alt="{{ $user->name }}"
-                            class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                    @endif
+                            class="header-profile-user" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
+                        @endif                                            
                         <div class="text-start ms-xl-2 ">
                             <span>
                                 <div class="ellipsis" style=" text-overflow: ellipsis !important;
