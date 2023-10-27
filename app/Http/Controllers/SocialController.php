@@ -18,6 +18,7 @@ class SocialController extends Controller
     public function googleCallback()
     {
         $googleUser = Socialite::driver('google')->user();
+        $avatar = $googleUser->getAvatar();
         $user = User::where('email', '=', $googleUser->email)->first();
 
         if ($user) {
@@ -31,7 +32,7 @@ class SocialController extends Controller
                 'email' => $googleUser->getEmail(),
                 'number' => $googleUser->number ?? 'default_number',
                 'password' => bcrypt('12345678'),
-                'profile_picture' => $googleUser->getAvatar()
+                'profile_picture' => $avatar
             ]);
 
             if (!Role::where('name', 'user')->exists()) {

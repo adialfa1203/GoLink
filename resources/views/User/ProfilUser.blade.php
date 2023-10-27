@@ -151,14 +151,11 @@
                                             <div class="col-12 col-lg-2 col-xl-2 col-sm-6 col-md-6">
                                                 <center>
                                                     @if ($user->profile_picture)
-                                                        @php
-                                                            $profilePictureUrl = $user->profile_picture;
-                                                            if (strpos($profilePictureUrl, 'https://go-link.trialdy.me/profile_pictures/') !== false) {
-                                                                $profilePictureUrl = str_replace('https://go-link.trialdy.me/profile_pictures/', '', $profilePictureUrl);
-                                                            }
-                                                        @endphp
-                                                        <img src="{{ asset('profile_pictures/' . $profilePictureUrl) }}"
+                                                        <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
                                                             alt="{{ $user->name }}"
+                                                            class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                                    @elseif ($user->google_id !== null && $user->profile_picture)
+                                                        <img src="{{ $avatar }}" alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                                     @else
                                                         <img src="{{ asset('default/default.jpg') }}"
