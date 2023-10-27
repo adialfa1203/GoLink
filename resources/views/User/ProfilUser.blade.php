@@ -154,6 +154,9 @@
                                                         <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
                                                             alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                                    @elseif ($user->google_id !== null)
+                                                        <img src="{{ $avatar }}" alt="{{ $user->name }}"
+                                                            class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                                     @else
                                                         <img src="{{ asset('default/default.jpg') }}"
                                                             alt="{{ $user->name }}"
@@ -175,18 +178,6 @@
                                                     {{ $user->name }}
                                                     <i class="align-baseline text-info ms-1"></i>
                                                 </h5>
-                                                {{-- <h2 class="align-items-center
-                                                @if ($user->subscribe == 'free') badge bg-success text-white
-                                                @elseif ($user->subscribe == 'silver')
-                                                badge bg-light text-black
-                                                @elseif ($user->subscribe == 'gold')
-                                                badge bg-warning text-white
-                                                @else
-                                                badge bg-info text-white @endif"
-                                                style="background-color: #89898A; border-radius: 30px; height: 30px; padding: 10px;">
-                                                {{ $accountStatus }}
-                                                </h2>
-                                                --}}
                                                 <h2 class="card-title mb-2">
                                                     @if (strtolower(trim($user->subscribe)) === 'free')
                                                         <span class="badge"
