@@ -209,8 +209,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                    <a href="https://chat.openai.com" style="margin-right: 22%;color: red; ">Hapus Semua</a>
-                    <a href="https://chat.openai.com">Lihat lebih banyak</a>
+                    <a href="#" style="margin-right: 22%;color: red; ">Hapus Semua</a>
+                    <a href="#">Lihat lebih banyak</a>
                 </div>
 
         </div><!-- /.modal-content -->
