@@ -156,7 +156,7 @@
                                                             alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                                     @elseif ($user->google_id !== null && $user->profile_picture)
-                                                        <img src="https://lh3.googleusercontent.com/a/ACg8ocKkopT-mwdHnvLkg82rUwiAVq4WokbJQrpWUYC8HB9wvg=s96-c" alt="{{ $user->name }}"
+                                                        <img src="/https://lh3.googleusercontent.com/a/ACg8ocKkopT-mwdHnvLkg82rUwiAVq4WokbJQrpWUYC8HB9wvg=s96-c" alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                                     @else
                                                         <img src="{{ asset('default/default.jpg') }}"
