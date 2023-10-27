@@ -85,7 +85,8 @@ Route::prefix('id')->group(function () {
     Route::get('/account', [DahsboardController::class, 'Account'])->name('landing.account');
     Route::get('/billing-subscriptions', [DahsboardController::class, 'BillingSubscriptions'])->name('landing.billingSubscriptions');
     Route::get('/platform-microsite', [DahsboardController::class, 'PlatformMicrosite'])->name('landing.platformMicrosite');
-    // Route::get('/short-link', [DahsboardController::class, 'ShortLink'])->name('landing.shortlink');
+    Route::get('/shortlink', [DahsboardController::class, 'shortlink'])->name('landing.shortlink');
+
     Route::get('/help-support', [DahsboardController::class, 'HelpSupport'])->name('landing.helpsupport');
     Route::post('/create/{id}', [CommentController::class, 'create'])->name('create');
     Route::post('/callback-tripay', [SubscribeUserController::class, 'handle']);

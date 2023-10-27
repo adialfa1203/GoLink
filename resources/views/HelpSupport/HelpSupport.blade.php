@@ -249,10 +249,11 @@
                         Penagihan dan Langganan
                     </a>
                         
-                        <a href="{{ route('short.link') }}" class="btn btn-outline-info custom-btn">
-                        <img src="{{asset('penyingkatan.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
-                        Penyingkat
-                            Tautan</a>
+                    <a href="{{ route('landing.shortlink') }}" class="btn btn-outline-info custom-btn">
+                        <img src="{{ asset('penyingkatan.png') }}" alt="Deskripsi Gambar" class="gambar-icon">
+                        Penyingkat Tautan
+                    </a>
+                    
                     </div>
                 </div>
             </div>
