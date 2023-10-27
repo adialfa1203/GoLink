@@ -132,13 +132,7 @@
                     </div>
                     </span>
                     </button> --}}
-                    <button class="nav-link bg-transparent text-white" type="button" role="button" aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">
-                        @if(Auth::user()->profile_picture)
-                        <img class="header-profile-user" src="{{ asset('profile_pictures/' . Auth::user()->profile_picture) }}" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
-                        @else
-                        <img class="header-profile-user" src="{{ asset('default/default.jpg') }}" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
-                        @endif
-                        
+                    <button class="nav-link bg-transparent text-white" type="button" role="button" aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">                        
                         @if ($user->profile_picture)
                         @if($user->google_id)
                         <img src="{{ $user->profile_picture }}" alt="{{ $user->name }}"
