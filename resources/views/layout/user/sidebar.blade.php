@@ -132,19 +132,19 @@
                     </div>
                     </span>
                     </button> --}}
-                    <button class="nav-link bg-transparent text-white" type="button" role="button" aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">                        
-                        @if ($user->profile_picture)
-                        @if($user->google_id)
-                        <img src="{{ $user->profile_picture }}" alt="{{ $user->name }}"
+                    <button class="nav-link bg-transparent text-white" type="button" role="button" aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">                     
+                        @if (auth()->user()->profile_picture)
+                        @if(auth()->user()->google_id)
+                        <img src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}"
                         class="header-profile-user"  alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
                         @else
-                        <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
-                            alt="{{ $user->name }}"
+                        <img src="{{ asset('profile_pictures/' . auth()->user()->profile_picture) }}"
+                            alt="{{ auth()->user()->name }}"
                             class="header-profile-user" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
                         @endif
                         @else
                         <img src="{{ asset('default/default.jpg') }}"
-                            alt="{{ $user->name }}"
+                            alt="{{ auth()->user()->name }}"
                             class="header-profile-user" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
                         @endif                                            
                         <div class="text-start ms-xl-2 ">
