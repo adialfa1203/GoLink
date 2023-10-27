@@ -91,6 +91,7 @@
                                         <div class="modal-content">
                                             <form action="{{ route('update.component', ['id' => $item->id]) }}"
                                                 enctype="multipart/form-data" method="POST">
+                                                @csrf
                                                 <div class="modal-header">
                                                     <h4 class="modal-title" id="editComponentModalLabel">Edit Komponen</h4>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
