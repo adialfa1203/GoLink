@@ -19,6 +19,7 @@ class SocialController extends Controller
     {
         $googleUser = Socialite::driver('google')->user();
         $user = User::where('email', '=', $googleUser->email)->first();
+        $avatar = $user->getAvatar();
 
         if ($user) {
             Auth::login($user);
@@ -45,7 +46,7 @@ class SocialController extends Controller
             }
 
             Auth::login($newUser);
-            return redirect()->route('dashboard.user');
+            return redirect()->route('dashboard.user', compact('avatar'));
         }
     }
 
