@@ -37,16 +37,16 @@ footer .top_footer {
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="abt_side">
                             <div class="logo">
-                                <img src="{{ asset('linkbaru.png') }}" alt="image" style="margin-top: -10%;">
-                                <ul style="margin-top: 10%; margin-right:10px;">
+                                <img src="{{ asset('template/image/milink.png') }}" alt="image" style="margin-top: 5%;">
+                                <ul style="margin-top: 5%; margin-right:10px;">
                                     <li style="color: white; font-size:14px;word-wrap: break-word;padding-bottom:0;">{!! $data->description !!}</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="bottom_footer col-12" style="margin-bottom: 4%; padding-top: 0;"> 
-                                    <p style="display: inline-block; white-space: nowrap; text-align">© MiLink Dikelola oleh PT. Hummatech</p>                                
+                        <div class="bottom_footer col-12" style="margin-bottom: 4%; padding-top: 0;">
+                                    <p style="display: inline-block; white-space: nowrap; text-align">© MiLink Dikelola oleh PT. Hummatech</p>
                                 </div>
-                        
+
                     </div>
 
                     <!-- Footer Links -->
@@ -60,7 +60,7 @@ footer .top_footer {
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="links" style="margin-left: 6%;">
                             <h3>Peta Situs</h3>
@@ -108,7 +108,7 @@ footer .top_footer {
         </div>
 
         <!-- Bottom Footer -->
-        
+
 
         <!-- Go Top Button -->
         <div class="go_top">

@@ -91,10 +91,10 @@
         </a>
         <a href="" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ asset('template/image/M.png') }}" alt="" width="25" height="20">
+                <img src="{{ asset('template/image/M.png') }}" alt="" width="20" height="20">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('template/image/milink.png') }}" alt="" width="150" height="30">
+                <img src="{{ asset('template/image/milink.png') }}" alt="" width="120" height="30">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-3xl header-item float-end btn-vertical-sm-hover" id="vertical-hover">

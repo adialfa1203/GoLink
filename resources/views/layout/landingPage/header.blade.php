@@ -3,9 +3,9 @@
         <!-- container start -->
         <div class="container">
             <!-- navigation bar -->
-            <nav class="navbar navbar-expand-lg" style="margin-top:-3%">
+            <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="#">
-                    <img src="{{ asset('linkbaru.png') }}" alt="image">
+                    <img src="{{ asset('template/image/milink.png') }}" width="10" height="50" alt="image">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,9 +57,9 @@
         <!-- container start -->
         <div class="container">
             <!-- navigation bar -->
-            <nav class="navbar navbar-expand-lg" style="margin-top:-3%">
+            <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="#">
-                    <img src="{{ asset('linkbaru.png') }}" alt="image">
+                    <img src="{{ asset('template/image/milink.png') }}" width="-10" height="50" alt="image">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
