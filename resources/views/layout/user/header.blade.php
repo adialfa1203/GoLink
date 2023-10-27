@@ -10,7 +10,7 @@
         @media (max-width: 768px) {
             .dal{
     margin-left: 3%;
-} 
+}
         }
     </style>
 <header id="page-topbar">
@@ -162,7 +162,7 @@
                 <div class="d-flex mt-2">
 
                     <div class="position-relative me-3 flex-shrink-0">
-                        <img src="https://i.postimg.cc/nLqMtBQJ/default.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                        <img src="{{ asset('template/image/Saly-17.png') }}" class="rounded-circle avatar-xs" alt="user-pic">
                         <span class="active-badge position-absolute start-100 translate-middle p-1 bg-warning rounded-circle">
                             <span class="visually-hidden">New alerts</span>
                         </span>
@@ -186,7 +186,7 @@
                 <div class="d-flex mt-2">
 
                     <div class="position-relative me-3 flex-shrink-0">
-                        <img src="https://i.postimg.cc/nLqMtBQJ/default.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                        <img src="{{ asset('template/image/Saly-17.png') }}" class="rounded-circle avatar-xs" alt="user-pic">
                         <span class="active-badge position-absolute start-100 translate-middle p-1 bg-warning rounded-circle">
                             <span class="visually-hidden">New alerts</span>
                         </span>
