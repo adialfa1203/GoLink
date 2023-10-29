@@ -7,12 +7,13 @@
         <div class="m-header">
             <nav>
                 <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" style="margin-bottom: 4px" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                    {{-- <svg xmlns="http://www.w3.org/2000/svg" width="20" style="margin-bottom: 4px" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
                       <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-                    </svg>
+                    </svg> --}}
+                    <img src="https://i.postimg.cc/9fTScYL5/Asset-5.png" width="100" height="25" alt="logo">
                     {{-- <i class="fas fa-inbox"></i> --}}
-                    <span class="messenger-headTitle">MiLink</span>
+                    {{-- <span class="messenger-headTitle">MiLink</span> --}}
                   </a>                  
                 {{-- header buttons --}}
                 <nav class="m-header-right">
@@ -21,7 +22,7 @@
                 </nav>
             </nav>
             {{-- Search input --}}
-            <input type="text" class="messenger-search" placeholder="Search" />
+            <input type="text" class="messenger-search" placeholder="Cari" />
             {{-- Tabs --}}
             {{-- <div class="messenger-listView-tabs">
                 <a href="#" class="active-tab" data-view="users">
