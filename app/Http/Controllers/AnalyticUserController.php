@@ -74,7 +74,34 @@ class AnalyticUserController extends Controller
     public function analyticUser()
     {
         $user = Auth::user();
+        $userId = Auth::user()->id;
         $currentMonth = now()->startOfMonth();
+
+        $links = ShortUrl::withCount([
+            'visits AS totalVisits' => function ($query) use ($userId) {
+                $query->whereHas('shortURL', function ($query) use ($userId) {
+                    $query->where('user_id', $userId);
+                });
+            },
+        ])
+            ->whereNull('microsite_uuid')
+            ->where('user_id', $userId)
+            ->orderBy('totalVisits', 'desc')
+            ->take(3)
+            ->get();
+            
+        $microsites = ShortUrl::withCount([
+            'visits AS totalVisits' => function ($query) use ($userId) {
+                $query->whereHas('shortUrl', function ($query) use ($userId) {
+                    $query->where('user_id', $userId);
+                });
+            },
+        ])
+            ->whereNotNull('microsite_uuid')
+            ->where('user_id', $userId)
+            ->orderBy('totalVisits', 'desc')
+            ->take(3)
+            ->get();
 
         if ($user) {
             $subscribe = $user->subscribe;
@@ -96,32 +123,6 @@ class AnalyticUserController extends Controller
                 $micrositeStatus = 'Status tidak valid';
             }
         }
-
-        $links = ShortUrl::withCount([
-            'visits AS totalVisits' => function ($query) use ($user) {
-                $query->whereHas('shortURL', function ($query) use ($user) {
-                    $query->where('user_id', $user);
-                });
-            },
-        ])
-            ->whereNull('microsite_uuid')
-            ->where('user_id', $user)
-            ->orderBy('totalVisits', 'desc')
-            ->take(3)
-            ->get();
-
-        $microsites = ShortUrl::withCount([
-            'visits AS totalVisits' => function ($query) use ($user) {
-                $query->whereHas('shortUrl', function ($query) use ($user) {
-                    $query->where('user_id', $user);
-                });
-            },
-        ])
-            ->whereNotNull('microsite_uuid')
-            ->where('user_id', $user)
-            ->orderBy('totalVisits', 'desc')
-            ->take(3)
-            ->get();
 
         if ($user) {
             $userId = $user->id;
@@ -204,6 +205,73 @@ class AnalyticUserController extends Controller
         // dd($totalVisits,$countURL);
         return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'user', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite'));
     }
+
+    //data test
+    // public function analyticUser()
+    // {
+    //     $user = Auth::user()->id;
+
+    //     $links = ShortUrl::withCount([
+    //         'visits AS totalVisits' => function ($query) use ($user) {
+    //             $query->whereHas('shortURL', function ($query) use ($user) {
+    //                 $query->where('user_id', $user);
+    //             });
+    //         }
+    //     ])
+    //     ->whereNull('microsite_uuid')
+    //     ->where('user_id', $user)
+    //     ->orderBy('totalVisits', 'desc')
+    //     ->take(3)
+    //     ->get();
+
+    //     $microsites = ShortUrl::withCount([
+    //         'visits AS totalVisits' => function ($query) use ($user) {
+    //             $query->whereHas('shortUrl', function ($query) use ($user) {
+    //                 $query->where('user_id', $user);
+    //             });
+    //         }
+    //     ])
+    //     ->whereNotNull('microsite_uuid')
+    //     ->where('user_id', $user)
+    //     ->orderBy('totalVisits', 'desc')
+    //     ->take(3)
+    //     ->get();
+
+    //     $countURL = ShortURL::where('user_id', $user)
+    //                         ->whereNull('microsite_uuid')
+    //                         ->count();
+    //     $countMicrosite = ShortUrl::where('user_id', $user)
+    //                         ->whereNotNull('microsite_uuid')
+    //                         ->count();
+
+    //     $dataLink = SHortURL::all();
+
+    //     $totalVisits = ShortURLVisit::query()
+    //     ->whereHas('shortURL', function ($query) use ($user) {
+    //         $query->where('user_id', $user)
+    //             ->where('archive', '!=', 'yes')
+    //             ->where(function ($query) {
+    //                 $query->whereNull('microsite_uuid')
+    //                     ->orWhere('microsite_uuid', '=', '');
+    //             });
+    //     })
+    //     ->count();
+
+    //     $totalVisitsMicrosite = ShortURLVisit::query()
+    //     ->whereRelation('shortURL', 'user_id', '=', $user)
+    //     ->whereRelation('shortURL', 'microsite_uuid', '!=', null)
+    //     ->whereRelation('shortURL', 'archive', '!=', 'yes')
+    //     ->count();
+
+    //     $users = User::where('email', '!=', 'admin@gmail.com')->get();
+    //     $count = [];
+    //     foreach ($users as $user) {
+    //         $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();
+    //     }
+    //     arsort($count);
+    //     $qr = ShortUrl::get()->sum('qr_code');
+    //     return view('User.AnalyticUser', compact('totalVisits','countURL','count','users','links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite'));
+    // }
 
     public function quotaData()
     {
