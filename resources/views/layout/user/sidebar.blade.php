@@ -147,6 +147,7 @@
                             alt="{{ auth()->user()->name }}"
                             class="header-profile-user" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
                         @endif
+
                         <div class="text-start ms-xl-2 ">
                             <span>
                                 <div class="ellipsis" style=" text-overflow: ellipsis !important;
