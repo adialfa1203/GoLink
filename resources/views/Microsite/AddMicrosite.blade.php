@@ -7,7 +7,16 @@
             overflow-x: hidden;
         }
 
-        /* CSS untuk hover card */
+        .visually-hidden {
+            position: absolute;
+            visibility: hidden;
+        }
+
+        .form-check-label {
+            display: inline-block;
+            font-size: 16px;
+        }
+
         .hover {
             background-color: #f8f8f8;
             transform: scale(1.05);
@@ -221,7 +230,7 @@
                                                                                     id="tema{{ $microsite->id }}"
                                                                                     name="microsite_selection"
                                                                                     value="{{ $microsite->id }}"
-                                                                                    class="form-check-input">&nbsp;{{ $microsite->component_name }}
+                                                                                    class="form-check-input visually-hidden">&nbsp;{{ $microsite->component_name }}
                                                                             </label>
                                                                         </div>
                                                                     </div>

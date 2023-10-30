@@ -91,8 +91,15 @@
                                     <div class="mb-2 mx-2">
                                         <a href="{{ $socialItem->button_link }}" target="_blank"
                                             style="text-decoration: none;">
-                                            <button style="background-color: {{ $socialItem->button->color_hex }};"
-                                                type="button" class="btn btn-icon">
+                                            <button type="button"
+                                                class="btn btn-icon @if (strtolower(trim($socialItem->button->icon)) === 'bi bi-facebook') face
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-twitter') twi
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-instagram') insta
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-linkedin') link
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-telegram') tele
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-tiktok') tiktok
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-spotify') spo
+                                                @else notfound @endif">
                                                 <i class="{{ $socialItem->button->icon }} " style="color:white;"></i>
                                             </button>
                                         </a>
