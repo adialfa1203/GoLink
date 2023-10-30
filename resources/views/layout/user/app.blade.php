@@ -13,7 +13,7 @@
     <meta content="Themesbrand" name="author">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
+    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}"
         style="width: 200px; height: 200px;">
 
     <!-- Fonts css load -->
