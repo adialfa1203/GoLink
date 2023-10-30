@@ -13,7 +13,7 @@
                     <img src="https://i.postimg.cc/9fTScYL5/Asset-5.png" width="100" height="25" alt="logo">
                     {{-- <i class="fas fa-inbox"></i> --}}
                     {{-- <span class="messenger-headTitle">MiLink</span> --}}
-                  </a>                  
+                  </a>
                 {{-- header buttons --}}
                 <nav class="m-header-right">
                     <a href="#"><i class="fas fa-cog settings-btn"></i></a>
@@ -89,7 +89,7 @@
                 <p class="message-hint center-el"><span>Silakan pilih obrolan untuk mulai mengirim pesan</span></p>
             </div>
             {{-- Typing indicator --}}
-            <div class="typing-indicator">
+            <!-- <div class="typing-indicator">
                 <div class="message-card typing">
                     <div class="message">
                         <span class="typing-dots">
@@ -99,7 +99,7 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
         {{-- Send Message Form --}}
