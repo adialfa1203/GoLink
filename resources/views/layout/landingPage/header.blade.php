@@ -5,7 +5,7 @@
             <!-- navigation bar -->
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="#">
-                    <img src="{{ asset('template/image/milink.png') }}" alt="image" style="margin-bottom: -15px; margin-top:-2px;">
+                    <img src="{{ asset('template/image/milink-putih.png') }}" alt="image" style="margin-bottom: -15px; margin-top:-2px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
             <!-- navigation bar -->
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="#">
-                    <img src="{{ asset('template/image/milink.png') }}"  style="margin-bottom: -3px; margin-top: 3px;" alt="image">
+                    <img src="{{ asset('template/image/milink-putih.png') }}"  style="margin-bottom: -3px; margin-top: 3px;" alt="image">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
