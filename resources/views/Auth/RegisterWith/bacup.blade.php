@@ -13,7 +13,7 @@
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}" style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}" style="width: 200px; height: 200px;">
 
 
     <!-- Fonts css load -->
@@ -287,7 +287,7 @@
 <body>
     <section class="auth-page-wrapper position-relative d-flex align-items-center justify-content-center min-vh-100">
         <div class="container">
-           
+
         </div>
         <!--end container-->
     </section>

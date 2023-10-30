@@ -26,7 +26,7 @@
     <!-- waveanimation-Style-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/wave-animation-style.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
+    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}"
         style="width: 200px; height: 200px;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet"
@@ -131,13 +131,13 @@
 
                 <h5 style="font-size: 20px;"><strong>Data Log</strong></h5>
 
-                <p>Ketika Anda menggunakan Layanan kami, kami secara otomatis mengumpulkan informasi seperti alamat IP perangkat Anda, 
+                <p>Ketika Anda menggunakan Layanan kami, kami secara otomatis mengumpulkan informasi seperti alamat IP perangkat Anda,
                     nama perangkat, versi sistem operasi, konfigurasi aplikasi, waktu dan tanggal penggunaan, serta statistik lainnya.
                      Tujuannya adalah untuk memantau dan meningkatkan kinerja Layanan serta mengidentifikasi masalah teknis.</p>
 
                 <h5 style="font-size: 20px;"><strong>Cookie</strong></h5>
 
-                <p>Cookie adalah file kecil yang disimpan di perangkat Anda ketika Anda mengunjungi Layanan kami. Mereka digunakan 
+                <p>Cookie adalah file kecil yang disimpan di perangkat Anda ketika Anda mengunjungi Layanan kami. Mereka digunakan
                     untuk menyimpan preferensi pengguna, mengumpulkan data tentang interaksi pengguna, dan meningkatkan keamanan.
                      Anda dapat mengelola pengaturan cookie melalui peramban Anda.</p>
                 <h5 style="font-size: 20px;"><strong>Penggunaan Informasi</strong></h5>

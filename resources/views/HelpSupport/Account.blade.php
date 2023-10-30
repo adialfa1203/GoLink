@@ -26,7 +26,7 @@
     <!-- waveanimation-Style-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/wave-animation-style.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
+    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}"
         style="width: 200px; height: 200px;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet"

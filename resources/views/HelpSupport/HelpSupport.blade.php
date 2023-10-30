@@ -26,7 +26,7 @@
     <!-- waveanimation-Style-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/wave-animation-style.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
+    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}"
         style="width: 200px; height: 200px;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet"
@@ -35,7 +35,7 @@
 
 <body>
     <style>
-     
+
         .custom-btn {
             width: 100%;
             max-width: 250px;
@@ -222,7 +222,7 @@
                             <img src="{{asset('memulai.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
                             Memulai
                         </a>
-                        
+
                         <a href="{{ url('id/announcement') }}"
                             class="btn btn-outline-info custom-btn">
                             <img src="{{asset('pengumuman.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
@@ -236,7 +236,7 @@
                         class="btn btn-outline-info custom-btn"><img src="{{asset('layananmicrosite.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
                         Layanan Microsite
                     </a>
-                        
+
                     </div>
                 </div>
             </div>
@@ -248,12 +248,12 @@
                         <img src="{{asset('layananstarter.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
                         Penagihan dan Langganan
                     </a>
-                        
+
                     <a href="{{ route('landing.shortlink') }}" class="btn btn-outline-info custom-btn">
                         <img src="{{ asset('penyingkatan.png') }}" alt="Deskripsi Gambar" class="gambar-icon">
                         Penyingkat Tautan
                     </a>
-                    
+
                     </div>
                 </div>
             </div>
@@ -262,7 +262,7 @@
                     <div class="card-header-white d-flex align-items-center">
                         {{-- <h5 class="card-title mb-0 flex-grow-1 text-center mt-4">Aktivitas Terbaru</h5> --}}
                     </div>
-                    
+
                     <div class="card-body px-0">
                         <div class="comment-container">
                             <!-- Daftar komentar di sini -->
@@ -332,16 +332,16 @@
                                         </button>
                                     </div>
                                 </div>
-                                
+
                                 @error('isikomentar')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </form>
                         </div>
                         @endauth
-                        
-                        
-                    
+
+
+
                     </div><!-- end card-body -->
                 </div>
             </div><!--end card-->
