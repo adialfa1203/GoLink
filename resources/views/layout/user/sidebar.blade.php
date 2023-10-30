@@ -132,21 +132,12 @@
                     </div>
                     </span>
                     </button> --}}
-                    <button class="nav-link bg-transparent text-white" type="button" role="button" aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">                     
-                        @if (auth()->user()->profile_picture)
-                        @if(auth()->user()->google_id)
-                        <img src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}"
-                        class="header-profile-user"  alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
+                    <button class="nav-link bg-transparent text-white" type="button" role="button" aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">
+                        @if(Auth::user()->profile_picture)
+                        <img class="header-profile-user" src="{{ asset('profile_pictures/' . Auth::user()->profile_picture) }}" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
                         @else
-                        <img src="{{ asset('profile_pictures/' . auth()->user()->profile_picture) }}"
-                            alt="{{ auth()->user()->name }}"
-                            class="header-profile-user" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
+                        <img class="header-profile-user" src="{{ asset('default/default.jpg') }}" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
                         @endif
-                        @else
-                        <img src="{{ asset('default/default.jpg') }}"
-                            alt="{{ auth()->user()->name }}"
-                            class="header-profile-user" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
-                        @endif                                            
                         <div class="text-start ms-xl-2 ">
                             <span>
                                 <div class="ellipsis" style=" text-overflow: ellipsis !important;
