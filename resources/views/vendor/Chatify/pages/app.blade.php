@@ -50,7 +50,7 @@
                 {{-- items --}}
                 <p class="messenger-title"><span>Cari</span></p>
                 <div class="search-records">
-                    <p class="message-hint center-el"><span>Ketik untuk mencari..</span></p>
+                    <p class="message-hint center-el"><span>Ketik untuk mennnnncari..</span></p>
                 </div>
              </div>
         </div>
