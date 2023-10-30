@@ -103,7 +103,7 @@
 
         </div>
         {{-- Send Message Form --}}
-        @include('Chatify::layouts.sendForm')
+        <!-- @include('Chatify::layouts.sendForm') -->
     </div>
     {{-- ---------------------- Info side ---------------------- --}}
     <div class="messenger-infoView app-scroll">
