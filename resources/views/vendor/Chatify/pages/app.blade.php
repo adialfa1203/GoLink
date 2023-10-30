@@ -6,7 +6,7 @@
         {{-- Header and search bar --}}
         <div class="m-header">
             <nav>
-                <a href="#">                    
+                <a href="#">
                     <img src="https://i.postimg.cc/9fTScYL5/Asset-5.png" width="100" height="25" alt="logo">
                     {{-- <i class="fas fa-inbox"></i> --}}
                     {{-- <span class="messenger-headTitle">MiLink</span> --}}
@@ -100,7 +100,7 @@
 
         </div>
         {{-- Send Message Form --}}
-        <!-- @include('Chatify::layouts.sendForm') -->
+        @include('Chatify::layouts.sendForm')
     </div>
     {{-- ---------------------- Info side ---------------------- --}}
     <div class="messenger-infoView app-scroll">
