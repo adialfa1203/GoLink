@@ -308,19 +308,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-auto mt-3 mt-sm-0">
-                                                    <div class="pagination-wrap hstack justify-content-center gap-2">
-                                                        <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}" href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
-                                                            Sebelumnya
-                                                        </a>
-                                                        <ul class="pagination listjs-pagination mb-0">
-        {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->onEachSide(1)->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
-        <!-- Logika pagination Anda saat ini di sini -->
-    </ul>
-    <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}" href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
-        Selanjutnya
-    </a>
-</div>
-
+                                                    <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
+                                                        <div class="page-item">
+                                                            {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->onEachSide(1)->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
