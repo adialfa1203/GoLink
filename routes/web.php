@@ -1,26 +1,28 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardAdminController;
-use App\Http\Controllers\LinkAdminController;
-use App\Http\Controllers\LinkController;
-use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\DataUserController;
-use App\Http\Controllers\ShortLinkController;
-use App\Http\Controllers\DahsboardController;
-use App\Http\Controllers\ArchiveLinkController;
-use App\Http\Controllers\AnalyticUserController;
-use App\Http\Controllers\SubscribeController;
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\SubscribeUserController;
-use App\Http\Controllers\MicrositeController;
-use App\Http\Controllers\ButtonController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\SocialController;
 use App\Models\Subscribe;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LinkController;
+use App\Http\Controllers\ButtonController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SocialController;
+use App\Http\Controllers\ChatifyController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DataUserController;
+use App\Http\Controllers\DahsboardController;
+use App\Http\Controllers\LinkAdminController;
+use App\Http\Controllers\MicrositeController;
+use App\Http\Controllers\ShortLinkController;
+use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\ArchiveLinkController;
+use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\AnalyticUserController;
+use App\Http\Controllers\SubscribeUserController;
 // use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\NotificationController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -107,11 +109,14 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'role:user']], function
         //Dashboard
         Route::get('/dashboard-user', [DahsboardController::class, 'dashboardUser'])->name('dashboard.user');
         Route::get('/get-chart-data', [DahsboardController::class, 'getChartData'])->name('getChartDataa');
+        Route::get('/chat-data-show', [NotificationController::class, 'notificationShow'])->name('chatDataShow');
 
         //ShortLink
         Route::post('short-link', [ShortLinkController::class, 'shortLink'])->name('shortLink');
         Route::post('qr', [ShortLinkController::class, 'qr'])->name('qr');
 
+
+        Route::get('/set-all-messages-seen', [ChatifyController::class, 'setAllMessagesSeen'])->name('set-all-messages-seen');
         //AccessLink
         Route::post('short/{link}', [ShortLinkController::class, 'accessShortLink'])->name('access.shortlink');
         // Route::post('/microsite/{micrositeLink}', [ShortLinkController::class, 'micrositeLink'])->name('microsite.link');
