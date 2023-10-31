@@ -174,6 +174,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         //Dashboard Admin
         Route::get('/dashboard-chart', [DashboardAdminController::class, 'dashboardChart'])->name('dashboard.chart');
         Route::get('/dashboard-admin', [DashboardAdminController::class, 'dashboardAdmin'])->name('dashboard.admin');
+        Route::get('/chat-data-show-admin', [NotificationController::class, 'notificationShowAdmin'])->name('chatDataShowAdmin');
         //Data User (Admin)
         Route::get('/data-user', [DataUserController::class, 'dataUser'])->name('data.user');
         Route::get('/selected-banned', [DataUserController::class, 'banned'])->name('data.banned');

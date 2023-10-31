@@ -1,18 +1,20 @@
 <style>
-.dal{
-    margin-left: -3%;
-}
-@media (min-width: 601px) and (max-width: 1024px) {
-    .dal{
-    margin-left: 3%;
-}
+    .dal {
+        margin-left: -3%;
+    }
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+        .dal {
+            margin-left: 3%;
         }
-        @media (max-width: 768px) {
-            .dal{
-    margin-left: 3%;
-}
+    }
+
+    @media (max-width: 768px) {
+        .dal {
+            margin-left: 3%;
         }
-    </style>
+    }
+</style>
 <header id="page-topbar">
     <div class="layout-width">
         <div class="navbar-header">
@@ -58,11 +60,14 @@
             <div class="d-flex align-items-center">
                 <div class="dropdown topbar-head-dropdown ms-1 header-item">
                 </div>
-                <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle" data-bs-toggle="modal" data-bs-target="#myModal">
-                        <i class='bi bi-bell fs-2xl'></i>
-                        <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span class="notification-badge">4</span><span class="visually-hidden">unread
-                                messages</span></span>
-                    </button>
+                <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"
+                    data-bs-toggle="modal" data-bs-target="#myModal">
+                    <i class='bi bi-bell fs-2xl'></i>
+                    <span
+                        class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span
+                            class="notification-badge" id="count-messages"></span><span class="visually-hidden">unread
+                            messages</span></span>
+                </button>
                 <div class="ms-1 header-item d-none d-sm-flex">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"
                         data-toggle="fullscreen">
@@ -118,7 +123,8 @@
         </div>
     </div>
 </header>
-<div id="myModal" class="modal fade mt-5 dal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;overflow: hidden;">
+<div id="myModal" class="modal fade mt-5 dal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true"
+    style="display: none;overflow: hidden;">
     <div class="modal-dialog modal-dialog-right modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -126,60 +132,17 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
             </div>
             <div class="modal-body">
-                <div class="d-flex mt-2">
-
-                    <div class="position-relative me-3 flex-shrink-0">
-                        <img src="{{ asset('template/image/Saly-17.png') }}" class="rounded-circle avatar-xs" alt="user-pic">
-                        <span class="active-badge position-absolute start-100 translate-middle p-1 bg-warning rounded-circle">
-                            <span class="visually-hidden">New alerts</span>
-                        </span>
-                    </div>
-
-                    <div class="flex-grow-1">
-                        <a href="#!" class="stretched-link">
-                            <h6 class="mt-0 mb-1 fs-md fw-semibold">Adi alfa</h6>
-                        </a>
-                        <div class="fs-sm text-muted">
-                            <p class="mb-1" style="text-overflow: ellipsis !important;
-                                                overflow: hidden !important;
-                                                -webkit-line-clamp: 1 !important;
-                                                -webkit-box-orient: vertical !important;
-                                                display: -webkit-box !important;
-                                                word-break: break-word !important;
-                                                max-width: 300px;">Boleh saya tahu informasi lebih lanjut mengenai Milink?</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex mt-2">
-
-                    <div class="position-relative me-3 flex-shrink-0">
-                        <img src="{{ asset('template/image/Saly-17.png') }}" class="rounded-circle avatar-xs" alt="user-pic">
-                        <span class="active-badge position-absolute start-100 translate-middle p-1 bg-warning rounded-circle">
-                            <span class="visually-hidden">New alerts</span>
-                        </span>
-                    </div>
-
-                    <div class="flex-grow-1">
-                        <a href="#!" class="stretched-link">
-                            <h6 class="mt-0 mb-1 fs-md fw-semibold">Putri</h6>
-                        </a>
-                        <div class="fs-sm text-muted">
-                            <p class="mb-1" style="text-overflow: ellipsis !important;
-                                                overflow: hidden !important;
-                                                -webkit-line-clamp: 1 !important;
-                                                -webkit-box-orient: vertical !important;
-                                                display: -webkit-box !important;
-                                                word-break: break-word !important;
-                                                max-width: 300px;">Coba ceritakan lebih banyak lagi tentang MiLink</p>
-                        </div>
-                    </div>
+                <div id="data-admin"></div>
+                <div id="empty-messages" style="display: none; text-align: center;">
+                    <img src="{{ asset('no-notification.png') }}" alt="Empty Messages Image"
+                        style="width: 200px; height: 200px;">
+                    <p>Tidak ada pesan yang ditemukan</p>
                 </div>
             </div>
             <div class="modal-footer">
-                    <a href="#" style="margin-right: 22%;color: red; ">Hapus Semua</a>
-                    <a href="#">Lihat lebih banyak</a>
-                </div>
-
+                <a href="{{ route('set-all-messages-seen') }}" style="margin-right: 22%; color: red;">Hapus Semua</a>
+                <a href="#">Lihat lebih banyak</a>
+            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
