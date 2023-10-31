@@ -578,13 +578,13 @@
     </script>
 
     <script>
-        // @if ($errors->any())
-        //     Swal.fire({
-        //         icon: 'error',
-        //         title: 'Oops...',
-        //         text: 'link microsite sudah pernah DIgunakan.',
-        //     });
-        // @endif
+        @if ($errors->any())
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'link microsite sudah pernah DIgunakan.',
+            });
+        @endif
         function showSweetAlert() {
             var userSubscribe = "{{ $user->subscribe }}";
             var existingMicrosites = {{ $micrositeCount ?? 0 }};
