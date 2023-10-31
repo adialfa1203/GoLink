@@ -67,7 +67,13 @@ class SocialController extends Controller
 
         if ($user) {
             Auth::login($user);
-            return redirect()->route('dashboard.user');
+            if ($user->is_banned) {
+                Auth::logout();
+                return redirect('id/login')->with('error', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
+            } else {
+                return redirect()->route('dashboard.user')->withCookie(cookie('remember_web', true, 3));
+            }
+            // return redirect()->route('dashboard.user');
         } else {
             $newUser = User::create([
                 'id' => Uuid::uuid4()->toString(),
