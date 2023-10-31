@@ -13,8 +13,7 @@
     <meta content="Themesbrand" name="author">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}"
-        style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}" style="width: 200px; height: 200px;">
 
     <!-- Fonts css load -->
     <link rel="preconnect" href="{{ asset('https://fonts.googleapis.com/') }}">
@@ -1062,6 +1061,67 @@
             var cek = document.getElementById('preloader');
             cek.style.display = "block";
             cek.style.removeProperty('visibility');
+        </script>
+        <script>
+            function getNotification() {
+                $.ajax({
+                    url: "/user/chat-data-show",
+                    type: 'GET',
+                    dataType: "JSON",
+                    beforeSend: function() {
+                        $('#notification').html('')
+                    },
+                    success: function(response) {
+                        $('#count-messages').text(response.ch_messages.length)
+                        $.each(response.ch_messages, function(index, data) {
+                            $('#data').append(notificationCard(data));
+                        });
+
+                        $('#notification-read').click(function() {
+                            const id = $(this).data('id');
+                            notificationRead(id)
+                            $('.preloader').show()
+                        })
+                    }
+                });
+            }
+            getNotification()
+
+
+            function notificationRead(id) {
+                $.ajax({
+                    url: "/set-all-messages-seen/" + id,
+                    type: "PATCH",
+                    dataType: "JSON",
+                    success: function(response) {
+                        $('.preloader').fadeOut()
+                        getNotification()
+                    }
+                })
+            }
+
+            function notificationCard(data) {
+                return `<div class="d-flex mt-2">
+                <div class="position-relative me-3 flex-shrink-0">
+                    <img src="${data.image}" class="rounded-circle avatar-xs" alt="user-pic">
+                </div>
+                <div class="flex-grow-1">
+                    <a href="#!" class="stretched-link">
+                        <h6 class="mt-0 mb-1 fs-md fw-semibold">
+                            ${data.fromUserName ? data.fromUserName : ''}
+                        </h6>
+                        <div class="fs-sm text-muted">
+                            <p class="mb-1"
+                                style="text-overflow: ellipsis; overflow: hidden;
+                                    -webkit-line-clamp: 1; -webkit-box-orient: vertical; display: -webkit-box;
+                                    word-break: break-word; max-width: 300px;">
+                                ${data.body ? data.body : ''}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>`;
+            }
         </script>
         @yield('script')
     </body>
