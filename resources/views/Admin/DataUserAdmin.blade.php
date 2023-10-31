@@ -319,7 +319,7 @@
         $currentPage = $bannedUser->currentPage();
         $paginator = new \Illuminate\Pagination\LengthAwarePaginator(
           $data, $d->count(), $perPage, $currentPage,
-          ['path' => route('route.name')] // Ganti dengan nama rute yang sesuai
+          ['path' => route('data.user')] // Ganti dengan nama rute yang sesuai
         );
         @endphp
 
