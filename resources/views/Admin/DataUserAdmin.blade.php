@@ -313,31 +313,15 @@
                                                         @php
 $totalPages = $d->lastPage();
 $currentPage = $bannedUser->currentPage();
-$showPages = 2; // Ganti sesuai kebutuhan
+$showPages = 4; // Ganti sesuai kebutuhan
 @endphp
 
 <div class="pagination">
-    @if ($totalPages <= $showPages)
-        {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
-    @else
-        @if ($currentPage > 2)
-            <a href="{{ $d->url(1) }}" class="page-link">1</a>
-            @if ($currentPage > 3)
-                <span class="page-link">...</span>
-            @endif
-        @endif
-
-        @for ($i = max($currentPage - 1, 1); $i <= min($currentPage + 1, $totalPages); $i++)
+    @for ($i = 1; $i <= $totalPages; $i++)
+        @if ($i <= $showPages || $i >= $totalPages - $showPages || ($i >= $currentPage - floor($showPages / 2) && $i <= $currentPage + floor($showPages / 2)))
             <a href="{{ $d->url($i) }}" class="page-link{{ $i == $currentPage ? ' active' : '' }}">{{ $i }}</a>
-        @endfor
-
-        @if ($currentPage < $totalPages - 1)
-            @if ($currentPage < $totalPages - 2)
-                <span class="page-link">...</span>
-            @endif
-            <a href="{{ $d->url($totalPages) }}" class="page-link">{{ $totalPages }}</a>
         @endif
-    @endif
+    @endfor
 </div>
 
 
