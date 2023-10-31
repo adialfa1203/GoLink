@@ -308,26 +308,30 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-auto mt-3 mt-sm-0">
-                                                    <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
-                                                        <div class="page-item">
-                                                        @php
-$totalPages = $d->lastPage();
-$currentPage = $bannedUser->currentPage();
-$showPages = 4; // Ganti sesuai kebutuhan
-@endphp
+                                                <div id="dPagination" class="pagination">
+    @if ($d->currentPage() > 1)
+        <a href="{{ $d->url(1) }}" class="page-link">1</a>
+        @if ($d->currentPage() > 2)
+            <span class="page-link">...</span>
+        @endif
+    @endif
 
-<div class="pagination">
-    @for ($i = 1; $i <= $totalPages; $i++)
-        @if ($i <= $showPages || $i >= $totalPages - $showPages || ($i >= $currentPage - floor($showPages / 2) && $i <= $currentPage + floor($showPages / 2)))
-            <a href="{{ $d->url($i) }}" class="page-link{{ $i == $currentPage ? ' active' : '' }}">{{ $i }}</a>
+    @for ($i = max(1, $d->currentPage() - 2); $i <= min($d->currentPage() + 2, $d->lastPage()); $i++)
+        @if ($i == $d->currentPage())
+            <span class="page-link current-page">{{ $i }}</span>
+        @else
+            <a href="{{ $d->url($i) }}" class="page-link">{{ $i }}</a>
         @endif
     @endfor
+
+    @if ($d->currentPage() < $d->lastPage())
+        @if ($d->currentPage() < $d->lastPage() - 1)
+            <span class="page-link">...</span>
+        @endif
+        <a href="{{ $d->url($d->lastPage()) }}" class="page-link">{{ $d->lastPage() }}</a>
+    @endif
 </div>
 
-
-                                                            <!-- {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->onEachSide(1)->links('pagination::bootstrap-5', ['id' => 'dPagination']) }} -->
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
