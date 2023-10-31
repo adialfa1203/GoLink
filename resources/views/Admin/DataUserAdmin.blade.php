@@ -316,7 +316,7 @@
         @endif
     @endif
 
-    @for ($i = max(2, $d->currentPage() - 2); $i <= min($d->currentPage() + 2, $d->lastPage() - 1); $i++)
+    @for ($i = max(2, $d->currentPage() - 2); $i <= min($d->currentPage() + 2, $d->lastPage()); $i++)
         @if ($i == $d->currentPage())
             <span class="page-link current-page">{{ $i }}</span>
         @else
