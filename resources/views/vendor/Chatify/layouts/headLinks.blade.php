@@ -1,4 +1,6 @@
 <title>{{ config('chatify.name') }}</title>
+<link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}"
+        style="width: 200px; height: 200px;">
 
 {{-- Meta tags --}}
 <meta name="viewport" content="width=device-width, initial-scale=1">

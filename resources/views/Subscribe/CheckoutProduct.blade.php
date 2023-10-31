@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" style="border-radius: 20px;background: #F0F0F0;">
+                <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                     <div class="card-body">
                         <h4 class="card-title" style="color:#0E2954;">Pilih metode pembayaran anda untuk melakukan</h4>
                         <h4 class="card-title mb-4" style="color:#0E2954;">Transaksi</h4>
