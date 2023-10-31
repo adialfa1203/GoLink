@@ -310,7 +310,9 @@
                                                 <div class="col-sm-auto mt-3 mt-sm-0">
                                                     <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                         <div class="page-item">
-                                                            {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->onEachSide(1)->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
+                                                        {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->onEachSide(2)->links('pagination::bootstrap-5', ['id' => 'dPagination', 'onEachSide' => 2]) }}
+
+                                                            <!-- {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->onEachSide(1)->links('pagination::bootstrap-5', ['id' => 'dPagination']) }} -->
                                                         </div>
                                                     </div>
                                                 </div>
