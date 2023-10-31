@@ -86,5 +86,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(History::class);
     }
+    public function sentMessages()
+    {
+        return $this->hasMany(ChMessage::class, 'from_id');
+    }
+    public function receivedMessages()
+    {
+        return $this->hasMany(ChMessage::class, 'to_id');
+    }
 
 }
