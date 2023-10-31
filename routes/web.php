@@ -69,6 +69,7 @@ Route::middleware(['guest'])->group(function () {
         Route::post('/send-emails', [AuthController::class, 'sendSampleEmail'])->name('sendEmail');
         Route::get('/verification', [AuthController::class, 'verification'])->name('verification');
         Route::post('/verificationCode', [AuthController::class, 'verificationCode'])->name('verificationCode');
+        Route::post('/set-all-messages-seen', [ChatifyController::class, 'setAllMessagesSeen'])->name('set-all-messages-seen');
 
         // Route::get('/', [DahsboardController::class, 'home']);
     });
@@ -114,7 +115,6 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'role:user']], function
         //ShortLink
         Route::post('short-link', [ShortLinkController::class, 'shortLink'])->name('shortLink');
         Route::post('qr', [ShortLinkController::class, 'qr'])->name('qr');
-
 
         Route::get('/set-all-messages-seen', [ChatifyController::class, 'setAllMessagesSeen'])->name('set-all-messages-seen');
         //AccessLink

@@ -186,7 +186,6 @@
                         </div>
                     </div>
                 </div><!--end col-->
-                @if ($user->subscribe !== 'platinum')
                     <div class="col-lg-3">
                         <div class="card mid"
                             style="background-color: #F0F0F0;min-height: 96%;box-shadow: 2px 5px 4px 0px rgba(0, 0, 0, 0.25);">
@@ -233,15 +232,6 @@
                             </div>
                         </div>
                     </div>
-                @else
-                    <div class="col-lg-3">
-                        <div class="card mid" style="background-color: #F0F0F0;">
-                            <div class="d-flex">
-                                <div class="card-body" id="quotaChart"></div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
             </div><!--end row-->
             <div>
                 <button type="button" class="btn btn-subtle-primary active-hover" id="showPopularData"

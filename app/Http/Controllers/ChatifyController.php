@@ -13,6 +13,6 @@ class ChatifyController extends Controller
         $userId = Auth::id();
         ChMessage::where('to_id', $userId)
             ->update(['seen' => true]);
-        return response()->json();
+        return redirect()->back()->with('success', 'Pesan sudah dibaca semua');
     }
 }
