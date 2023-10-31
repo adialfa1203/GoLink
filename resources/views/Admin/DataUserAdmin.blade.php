@@ -318,23 +318,25 @@ $showPages = 2; // Ganti sesuai kebutuhan
 
 <div class="pagination">
     @if ($totalPages <= $showPages)
-        <!-- Tampilkan semua tautan halaman -->
         {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
     @else
-        <!-- Tampilkan tautan halaman sebelumnya -->
-        @for ($i = 1; $i <= $showPages; $i++)
-            <a href="{{ $d->url($i) }}" class="page-link{{ $i == $currentPage ? ' active' : '' }}">{{ $i }}</a>
-        @endfor
-
-        <!-- Tampilkan elipsis jika diperlukan -->
-        @if ($currentPage + $showPages < $totalPages)
-            <span class="page-link">...</span>
+        @if ($currentPage > 2)
+            <a href="{{ $d->url(1) }}" class="page-link">1</a>
+            @if ($currentPage > 3)
+                <span class="page-link">...</span>
+            @endif
         @endif
 
-        <!-- Tampilkan tautan halaman setelahnya -->
-        @for ($i = $totalPages - $showPages + 1; $i <= $totalPages; $i++)
+        @for ($i = max($currentPage - 1, 1); $i <= min($currentPage + 1, $totalPages); $i++)
             <a href="{{ $d->url($i) }}" class="page-link{{ $i == $currentPage ? ' active' : '' }}">{{ $i }}</a>
         @endfor
+
+        @if ($currentPage < $totalPages - 1)
+            @if ($currentPage < $totalPages - 2)
+                <span class="page-link">...</span>
+            @endif
+            <a href="{{ $d->url($totalPages) }}" class="page-link">{{ $totalPages }}</a>
+        @endif
     @endif
 </div>
 
