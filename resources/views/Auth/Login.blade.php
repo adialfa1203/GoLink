@@ -344,7 +344,7 @@
                         <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
                             <div class="card-body p-sm-5 m-lg-3" style="display: flex; flex-direction: column; justify-content: center; align-items: center;padding:13%">
                                 <center>
-                                <img class="fot" src="{{ asset('template/image/asset2.png') }} " width="50" height="40" style="object-fit: contain;">
+                                <img class="fot" src="{{ asset('template/image/M-gelap.png') }} " width="30" height="30" style="object-fit: contain;">
                                 <div class=" mt-3">
                                     <h5 class="fs-3xl" style="font-family: Poppins;">Selamat Datang Kembali !</h5>
                                     <p class="" style="font-family: Poppins;">Masuk untuk melanjutkan ke MILINK</p>
@@ -425,7 +425,7 @@
                                     </form>
                                     <center>
                                         <div class="mt-3">
-                                            <p class="fw-semibold text-secondary ">Belum Punya Akun ? Klik <a href="{{ url('id/register') }}" class="fw-semibold" style="color: #2F5EA2;">Daftar</a> </p>
+                                            <p class="fw-semibold text-secondary ">Belum Punya Akun ? Klik <a href="{{ url('id/register') }}" class="fw-semibold text-decoration-underline" style="color: #2F5EA2;">Daftar</a> </p>
                                             <p class="fw-semibold text-muted gar"><a href="{{ url('id/home') }}" class="fw-semibold text-muted" style="color: #000;">Kembali</a> </p>
                                         </div>
                                     </center>

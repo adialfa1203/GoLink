@@ -346,10 +346,10 @@
                         <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
                             <div class="card-body p-sm-5 m-lg-3" style="display: flex; flex-direction: column; justify-content: center; align-items: center;padding:13%">
                                 <center>
-                                    <img class="fot" src="{{ asset('template/image/asset2.png') }} " width="50" height="40" style="object-fit: contain;">
+                                    <img class="fot" src="{{ asset('template/image/M-gelap.png') }}" width="30" height="30" style="object-fit: contain;">
                                     <div class="mt-5">
                                         <h5 class="fs-3xl">Lupa kata sandi ?</h5>
-                                        <p class="text-muted">Masukkan Email anda dan instruksi akan dikirim ke Email</p>\
+                                        <p class="text-muted">Masukkan Email anda dan instruksi akan dikirim ke Email</p>
                                     </div>
                                 </center>
                                 <div class=" mt-3 w-100">

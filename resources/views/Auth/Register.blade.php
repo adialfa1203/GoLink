@@ -171,7 +171,7 @@
                         <div class="card mb-0 border-0 shadow-none mb-0">
                             <div class="card-body p-sm-4 m-lg-3">
                                 <center>
-                                    <img class="fot" src="{{ asset('template/image/asset2.png') }} " width="50" height="40" style="object-fit: contain;">
+                                    <img class="fot" src="{{ asset('template/image/M-gelap.png') }}" width="30" height="30" style="object-fit: contain;">
                                     <div class=" mt-3">
                                         <h5 class="fs-3xl" style="color: #000000;font-family: Poppins;">Selamat Datang!</h5>
                                         <p class="text-muted" style="font-family: Poppins;">Silahkan lengkapi data di bawah ini untuk mendaftar</p>
@@ -308,7 +308,7 @@
                                     </form>
                                     <center>
                                         <div class=" mt-5">
-                                            <p class="mb-0">Sudah memiliki akun ? <a href="{{ route('login') }}" class="fw-semibold text-secondary text-decoration-underline">
+                                            <p class="mb-0">Sudah memiliki akun ? <a href="{{ route('login') }}" style="color: #2F5EA2" class="fw-semibold text-decoration-underline">
                                                     Masuk</a> </p>
                                         </div>
                                     </center>
