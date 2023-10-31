@@ -313,7 +313,7 @@
                                                         @php
 $totalPages = $d->lastPage();
 $currentPage = $bannedUser->currentPage();
-$showPages = 4; // Ganti sesuai kebutuhan
+$showPages = 2; // Ganti sesuai kebutuhan
 @endphp
 
 <div class="pagination">
