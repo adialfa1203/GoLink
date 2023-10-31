@@ -229,7 +229,7 @@
                                     <label for="validationCustom01" class="form-label">Nama Komponen</label>
                                     <input type="text" class="form-control" id="validationCustom01"
                                         placeholder="Masukkan nama komponen" name="component_name"
-                                        value="{{ old('component_name') }}" required>
+                                        value="{{ old('component_name') }}">
 
                                     @if ($errors->has('component_name'))
                                         <span class="text-danger">{{ $errors->first('component_name') }}</span>

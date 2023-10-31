@@ -30,6 +30,9 @@ class ButtonController extends Controller
                 Rule::in(['bi bi-whatsapp', 'bi bi-facebook', 'bi bi-twitter', 'bi bi-telephone-fill', 'bi bi-instagram', 'bi bi-linkedin', 'bi bi-telegram', 'bi bi-tiktok', 'bi bi-spotify']),
             ],
             'color_hex' => 'nullable|string|max:7',
+        ],[
+            'name_button.required' => 'Nama button sosial wajib diisi',
+
         ]);
         $existingButton = Button::where('icon', $request->icon)->first();
 
