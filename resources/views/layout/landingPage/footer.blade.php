@@ -29,6 +29,33 @@ footer .top_footer {
     position: relative !important;
     overflow: hidden !important;
 }
+@media (max-width: 768px) {
+        .fote{
+            display: inline-block;
+        }
+        .fota{
+            display: none;
+        }
+        }
+
+        @media (min-width: 1025px) {
+
+            /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+            .fote{
+            display: none;
+        }
+            .fota{
+            display: inline-block;
+        }
+        }
+        /* CSS untuk perangkat tablet (misalnya, lebar layar antara 600px dan 1024px) */
+        @media (min-width: 601px) and (max-width: 1024px) {
+
+            /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+            .fota{
+            display: none;
+        }
+        }
 </style>
     <footer>
         <div class="top_footer" id="kontak">
@@ -44,7 +71,7 @@ footer .top_footer {
                             </div>
                         </div>
                         <div class="bottom_footer col-12" style="margin-bottom: 4%; padding-top: 0;">
-                                    <p style="display: inline-block; white-space: nowrap; text-align">© MiLink Dikelola oleh PT. Hummatech</p>
+                                    <p class="fota" style="white-space: nowrap; text-align">© MiLink Dikelola oleh PT. Hummatech</p>
                                 </div>
 
                     </div>
@@ -101,6 +128,7 @@ footer .top_footer {
                                     </a>
                                 </li>
                             </ul>
+                            <p class="fote" style="white-space: nowrap; text-align">© MiLink Dikelola oleh PT. Hummatech</p>
                         </div>
                     </div>
                 </div>

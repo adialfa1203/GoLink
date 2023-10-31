@@ -8,7 +8,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Kirim Email | MiLink</title>
+    <title>Verifikasi Kode | MiLink</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
@@ -34,20 +34,20 @@
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
     <!-- custom Css-->
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
-
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <style>
-                body,
+        body,
         .gm,
         .card {
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
         }
+
         .right-section {
 
             color: white;
             padding: 0;
             margin: 0;
-
         }
 
         .rigth {
@@ -55,7 +55,6 @@
             border-bottom-left-radius: 30px;
             border-radius: 30px 0 0 30px;
             box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
-            min-height: 100%;
         }
 
         .custom-btn {
@@ -245,6 +244,14 @@
             width: 710px;
         }
 
+        .tex {
+            margin-right: 20%;
+        }
+
+        .fot {
+            display: none;
+        }
+
         /* Responsive styles for smaller screens (e.g., tablets and below) */
         @media (max-width: 768px) {
             .bg {
@@ -252,6 +259,14 @@
                 /* Make it full width on smaller screens */
                 height: auto;
                 /* Automatically adjust the height based on content */
+            }
+
+            .tex {
+                margin-right: 20%;
+            }
+
+            .fot {
+                display: inline;
             }
         }
 
@@ -271,6 +286,14 @@
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
             }
+
+            .fot {
+                display: inline;
+            }
+        }
+
+        .gar:hover {
+            text-decoration: underline;
         }
     </style>
 
@@ -291,19 +314,21 @@
 </head>
 
 <body>
-<div class="row justify-content-center gm">
-                <div class="col-lg-12">
-                    <div class="card mb-0 p-0 d-flex justify-content-between">
-                        <div class="row" style="background-color: #D2E0FB; ">
-                            <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6 img position-relative" style="padding: 0;">
-                                <div class="card" style="box-shadow: none; padding: 0;margin:0;">
-                                    <div class="card-body" style="background-color:  #D2E0FB;padding:0">
-                                        <!-- <center> -->
-                                        <div class="mt-5 tek" style=" position: absolute; top: 80px;margin-left: 10%; ">
-                                    <img src="{{ asset('template/image/logobaru.png') }} " width="150" height="40">
-                                    <h4>Pemendek Link dengan sekali ketuk</h4>
-                                    <h4>Bikin tautanmu makin singkat !</h4>
-                                    <h5 style="color: #104898;">
+    <div class="row justify-content-center gm">
+        <div class="">
+            <div class="card mb-0 p-0 d-flex justify-content-between">
+                <div class="row" style="background-color: #D2E0FB; ">
+                    <div class="col-lg-6 col-md-9 col-sm-10 col-lg-6 img position-relative" style="padding: 0;">
+                        <div class="card" style="box-shadow: none; padding: 0;margin:0;">
+                            <div class="card-body" style="background-color:  #D2E0FB;padding:0;">
+                                <!-- <center> -->
+                                <div class="mt-5 tek" style=" position: absolute; top: 80px;margin-left: 10%; ">
+                                    <div>
+                                        <img src="{{ asset('template/image/milink-gelap.png') }} " width="150" height="30">
+                                    </div><br>
+                                    <h4 style="font-family: Poppins;">Pemendek Link dengan sekali ketuk</h4>
+                                    <h4 style="font-family: Poppins;">Bikin tautanmu makin singkat !</h4>
+                                    <h5 style="color: #104898;font-family: Poppins;">
                                         Daftar dan nikmati pengalaman yang menarik pada website kami
                                     </h5>
                                     <!-- <center> -->
@@ -316,48 +341,49 @@
                         <!-- <a href="{{ url('id/home') }}"><p style="padding: 33px; color: #fff;">&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;Kembali ke Landing Page</p></a> -->
                         <!-- </div> -->
                         <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style=" position: absolute; bottom: 0;margin-left: 13%">
-                            </div>
-                            <div class="col-6 right-section col-lg-6">
-                                <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
-                                    <div class="card-body p-sm-5 m-lg-3 mb-5 mt-5">
-                                        <div class="" style="margin-top: 180px;">
+                    </div>
+                    <div class="col-6 right-section col-lg-6 ">
+                        <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
+                            <div class="card-body p-sm-5 m-lg-3" style="display: flex; flex-direction: column; justify-content: center; align-items: center;padding:13%">
+                                <center>
+                                    <img class="fot" src="{{ asset('template/image/asset2.png') }} " width="50" height="40" style="object-fit: contain;">
+                                    <div class="mt-5">
+                                        <h5 class="fs-3xl">Lupa kata sandi ?</h5>
+                                        <p class="text-muted">Masukkan Email anda dan instruksi akan dikirim ke Email</p>\
+                                    </div>
+                                </center>
+                                <div class=" mt-3 w-100">
+                                    <form action="{{ route('sendEmail')}}" method="POST">
+                                        @csrf
 
-                                            <div class="mt-5">
-                                                <h5 class="fs-3xl">Lupa kata sandi ?</h5>
-                                                <p class="text-muted">Masukkan Email anda dan instruksi akan dikirim ke Email</p>
-                                            </div>
-                                            <div class="">
-                                                <form action="{{ route('sendEmail')}}" method="POST">
-                                                    @csrf
-
-                                                    <div class="mb-4">
-                                                        <label class="form-label">Email</label>
-                                                        <input type="email" name="email" class="form-control password-input" id="email" placeholder="Masukkan Email">
-                                                        <div>
-                                                            @if ($errors->has('email'))
-                                                            <span class="text-danger">{{ $errors->first('email') }}</span>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-center mt-4">
-                                                        <button class="btn w-100" style="background-color: #2F5EA2; color: #fff" type="submit">Kirim Email</button>
-                                                    </div>
-                                                </form><!-- end form -->
-                                            </div>
-
-                                            <div class="mt-4">
-                                                <p class="mb-0 fw-semibold">Tunggu, saya ingat kata sandi saya ... <a href="{{ url ('id/login')}}" class="fw-semibold" style="color: #2F5EA2;"> Masuk </a> </p>
+                                        <div class="mb-4">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" name="email" class="form-control password-input" id="email" placeholder="Masukkan Email">
+                                            <div>
+                                                @if ($errors->has('email'))
+                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                @endif
                                             </div>
                                         </div>
-                                    </div><!-- end card body -->
-                                </div><!-- end card -->
-                            </div>
-                        </div>
+                                        <div class="text-center mt-4">
+                                            <button class="btn w-100" style="background-color: #2F5EA2; color: #fff" type="submit">Kirim Email</button>
+                                        </div>
+                                    </form><!-- end form -->
+                                    <center>
+                                        <div class="mt-3">
+                                            <p class="fw-semibold text-secondary ">Tunggu, saya ingat kata sandi saya ... <a href="{{ url('id/login') }}" class="fw-semibold" style="color: #2F5EA2;">Masuk</a> </p>
+                                        </div>
+                                    </center>
+                                </div>
+                            </div><!-- end card body -->
+                        </div><!-- end card -->
                     </div>
-                    <!--end col-->
                 </div>
-                <!--end row-->
             </div>
+            <!--end col-->
+        </div>
+        <!--end row-->
+    </div>
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}">
