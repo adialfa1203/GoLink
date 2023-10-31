@@ -6,8 +6,10 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Footer;
 use App\Models\ShortUrl;
+use App\Models\ChMessage;
 use App\Helpers\DateHelper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 
@@ -16,6 +18,8 @@ class DashboardAdminController extends Controller
 {
     public function dashboardChart()
     {
+        $user = Auth::user();
+        $ch_messages = ChMessage::where('user_id', $user->id)->get();
         $startDate = DateHelper::getSomeMonthsAgoFromNow(5)->format('Y-m-d H:i:s');
         $endDate = DateHelper::getCurrentTimestamp('Y-m-d H:i:s');
 
@@ -76,7 +80,7 @@ class DashboardAdminController extends Controller
             $result['series']['totalVisits'][$index] = (int)$dataVisits->totalVisits;
         }
 
-        return response()->json(compact('startDate', 'result'));
+        return response()->json(compact('startDate', 'result', 'ch_messages'));
     }
 
 
