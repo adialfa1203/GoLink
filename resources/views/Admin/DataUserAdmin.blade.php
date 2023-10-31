@@ -311,12 +311,12 @@
                                                 <div id="dPagination" class="pagination">
     @if ($d->currentPage() > 1)
         <a href="{{ $d->url(1) }}" class="page-link">1</a>
-        @if ($d->currentPage() > 2)
+        @if ($d->currentPage() > 3)
             <span class="page-link">...</span>
         @endif
     @endif
 
-    @for ($i = max(1, $d->currentPage() - 2); $i <= min($d->currentPage() + 2, $d->lastPage()); $i++)
+    @for ($i = max(2, $d->currentPage() - 2); $i <= min($d->currentPage() + 2, $d->lastPage() - 1); $i++)
         @if ($i == $d->currentPage())
             <span class="page-link current-page">{{ $i }}</span>
         @else
@@ -324,8 +324,8 @@
         @endif
     @endfor
 
-    @if ($d->currentPage() < $d->lastPage())
-        @if ($d->currentPage() < $d->lastPage() - 1)
+    @if ($d->currentPage() < $d->lastPage() - 2)
+        @if ($d->currentPage() < $d->lastPage() - 3)
             <span class="page-link">...</span>
         @endif
         <a href="{{ $d->url($d->lastPage()) }}" class="page-link">{{ $d->lastPage() }}</a>
