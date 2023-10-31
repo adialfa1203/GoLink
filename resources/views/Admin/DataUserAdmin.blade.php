@@ -310,20 +310,34 @@
                                                 <div class="col-sm-auto mt-3 mt-sm-0">
                                                     <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                         <div class="page-item">
-                                                            @php
-        // Konversi koleksi Eloquent menjadi array
-        $data = $d->toArray();
+                                                        @php
+$totalPages = $d->lastPage();
+$currentPage = $bannedUser->currentPage();
+$showPages = 4; // Ganti sesuai kebutuhan
+@endphp
 
-        // Buat objek LengthAwarePaginator dengan jumlah tautan halaman yang diinginkan
-        $perPage = 4; // Ganti sesuai kebutuhan
-        $currentPage = $bannedUser->currentPage();
-        $paginator = new \Illuminate\Pagination\LengthAwarePaginator(
-          $data, $d->count(), $perPage, $currentPage,
-          ['path' => route('data.user')] // Ganti dengan nama rute yang sesuai
-        );
-        @endphp
+<div class="pagination">
+    @if ($totalPages <= $showPages)
+        <!-- Tampilkan semua tautan halaman -->
+        {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
+    @else
+        <!-- Tampilkan tautan halaman sebelumnya -->
+        @for ($i = 1; $i <= $showPages; $i++)
+            <a href="{{ $d->url($i) }}" class="page-link{{ $i == $currentPage ? ' active' : '' }}">{{ $i }}</a>
+        @endfor
 
-{{ $paginator->appends(['page_banned' => $bannedUser->currentPage()])->links('pagination::bootstrap-5', ['id' => 'dPagination']) }}
+        <!-- Tampilkan elipsis jika diperlukan -->
+        @if ($currentPage + $showPages < $totalPages)
+            <span class="page-link">...</span>
+        @endif
+
+        <!-- Tampilkan tautan halaman setelahnya -->
+        @for ($i = $totalPages - $showPages + 1; $i <= $totalPages; $i++)
+            <a href="{{ $d->url($i) }}" class="page-link{{ $i == $currentPage ? ' active' : '' }}">{{ $i }}</a>
+        @endfor
+    @endif
+</div>
+
 
                                                             <!-- {{ $d->appends(['page_banned' => $bannedUser->currentPage()])->onEachSide(1)->links('pagination::bootstrap-5', ['id' => 'dPagination']) }} -->
                                                         </div>
