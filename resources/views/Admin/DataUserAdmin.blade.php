@@ -316,7 +316,7 @@
         @endif
     @endif
 
-    @for ($i = max(2, $d->currentPage() - 2); $i <= min($d->currentPage() + 2, $d->lastPage()); $i++)
+    @for ($i = max(2, $d->currentPage() - 1); $i <= min($d->currentPage() + 1, $d->lastPage()); $i++)
         @if ($i == $d->currentPage())
             <span class="page-link current-page">{{ $i }}</span>
         @else
@@ -324,8 +324,8 @@
         @endif
     @endfor
 
-    @if ($d->currentPage() < $d->lastPage() - 2)
-        @if ($d->currentPage() < $d->lastPage() - 3)
+    @if ($d->currentPage() < $d->lastPage() - 1)
+        @if ($d->currentPage() < $d->lastPage() - 2)
             <span class="page-link">...</span>
         @endif
         <a href="{{ $d->url($d->lastPage()) }}" class="page-link">{{ $d->lastPage() }}</a>
