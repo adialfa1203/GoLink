@@ -174,8 +174,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
             </div>
             <div class="modal-body">
-                <div id="data">
-
+                <div id="data"></div>
+                <div id="empty-messages" style="display: none; text-align: center;">
+                    <img src="{{ asset('no-notification.png') }}" alt="Empty Messages Image" style="width: 200px; height: 200px;">
+                    <p>Tidak ada pesan yang ditemukan</p>
                 </div>
             </div>
             <div class="modal-footer">

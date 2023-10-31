@@ -1069,24 +1069,32 @@
                     type: 'GET',
                     dataType: "JSON",
                     beforeSend: function() {
-                        $('#notification').html('')
+                        $('#notification').html('');
                     },
                     success: function(response) {
-                        $('#count-messages').text(response.ch_messages.length)
-                        $.each(response.ch_messages, function(index, data) {
-                            $('#data').append(notificationCard(data));
-                        });
+                        console.log(response.ch_messages);
+                        if (response.ch_messages.length === 0) {
+                            $('#count-messages').text('');
+                            $('.topbar-badge').hide();
+                            $('.modal-footer').hide();
+                            $('#empty-messages').show();
+                        } else {
+                            $('#count-messages').text(response.ch_messages.length);
+                            $.each(response.ch_messages, function(index, data) {
+                                $('#data').append(notificationCard(data));
+                                $('#empty-messages').hide();
+                            });
 
-                        $('#notification-read').click(function() {
-                            const id = $(this).data('id');
-                            notificationRead(id)
-                            $('.preloader').show()
-                        })
+                            $('#notification-read').click(function() {
+                                const id = $(this).data('id');
+                                notificationRead(id);
+                                $('.preloader').show();
+                            });
+                        }
                     }
                 });
             }
-            getNotification()
-
+            getNotification();
 
             function notificationRead(id) {
                 $.ajax({
@@ -1101,9 +1109,15 @@
             }
 
             function notificationCard(data) {
+                var imageUrl;
+                if (data.image) {
+                    imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
+                } else {
+                    imageUrl = '{{ asset('default/default.jpg') }}';
+                }
                 return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
-                    <img src="${data.image}" class="rounded-circle avatar-xs" alt="user-pic">
+                    <img src="${imageUrl}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
                 </div>
                 <div class="flex-grow-1">
                     <a href="#!" class="stretched-link">
