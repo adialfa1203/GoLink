@@ -1,28 +1,122 @@
 @extends('layout.admin.app')
 @section('title', 'Kategori')
-<meta name="csrf-token" content="{{ csrf_token() }}">
-
-<style>
-    .page-content {
-        overflow-x: hidden;
-    }
-
-    @media (min-width: 1025px) {
-
-        /* Atur gaya CSS khusus untuk perangkat laptop di sini */
-        .kotak {
-            /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+@section('style')
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/sweetalert2/sweetalert2.min.css') }}"
+        rel="stylesheet" type="text/css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <style>
+        .custom-icon-size {
+            font-size: 30px;
+            /* Ubah ukuran font sesuai kebutuhan Anda */
+            color: #fafafa;
+            /* Warna merah muda */
         }
-    }
 
-    .page-content {
-        overflow-x: hidden;
-        background-color: #fff;
-    }
-</style>
+        .text-white {
+            color: white !important;
+        }
+
+        @media (min-width: 1025px) {
+
+            /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+            .tan {
+                /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-link:focus,
+        .nav-link:hover {
+            text-decoration: none;
+        }
+
+        .nav-link.disabled {
+            color: #6c757d;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .nav-tabs .nav-link {
+            margin-bottom: -1px;
+            border: 1px solid transparent;
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+        }
+
+        .nav-tabs .nav-link:focus,
+        .nav-tabs .nav-link:hover {
+            border-color: #e9ecef #e9ecef #dee2e6;
+        }
+
+        .nav-tabs .nav-link.disabled {
+            color: transparent;
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        .nav-tabs .nav-item.show .nav-link,
+        .nav-tabs .nav-link.active {
+            color: transparent;
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+
+        .nav-tabs .dropdown-menu {
+            margin-top: -1px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: 0.25rem;
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #0E2954;
+            border-bottom: 3px solid #0E2954;
+            border-radius: 0;
+            background-color: transparent;
+        }
+
+        .page-content {
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+    </style>
+    <style>
+        .page-content {
+            overflow-x: hidden;
+        }
+
+        @media (min-width: 1025px) {
+
+            /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+            .kotak {
+                /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        .page-content {
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
@@ -148,10 +242,12 @@
                                                                 <div
                                                                     class="d-flex align-items-start justify-content-between gap-3 mt-4">
                                                                     <button type="button" class="btn btn-light button"
-                                                                        style="background-color: #FF2323; color:#fff;" data-bs-dismiss="modal">
+                                                                        style="background-color: #FF2323; color:#fff;"
+                                                                        data-bs-dismiss="modal">
                                                                         Batal
                                                                     </button>
-                                                                    <button class="btn" style="background-color: #088C0D; color: #fff;">Simpan
+                                                                    <button class="btn"
+                                                                        style="background-color: #088C0D; color: #fff;">Simpan
                                                                         Perubahan</button>
                                                                 </div>
                                                             </div>
@@ -243,8 +339,8 @@
                                 <div class="card overflow-hidden">
                                     <div>
                                         <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/small/img-7.jpg') }}"
-                                            alt="" id="data-img-create" class="card-img-top profile-wid-img object-fit-cover"
-                                            style="height: 200px;">
+                                            alt="" id="data-img-create"
+                                            class="card-img-top profile-wid-img object-fit-cover" style="height: 200px;">
                                         @if ($errors->has('cover_img'))
                                             <span class="text-danger">{{ $errors->first('cover_img') }}</span>
                                         @endif

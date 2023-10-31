@@ -86,6 +86,7 @@
                 /* Ubah ukuran ikon sesuai kebutuhan Anda */
             }
         </style>
+        @endsection
     </head>
 
     <body>
