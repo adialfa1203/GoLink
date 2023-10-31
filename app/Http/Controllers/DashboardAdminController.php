@@ -18,8 +18,6 @@ class DashboardAdminController extends Controller
 {
     public function dashboardChart()
     {
-        $user = Auth::user();
-        $ch_messages = ChMessage::where('user_id', $user->id)->get();
         $startDate = DateHelper::getSomeMonthsAgoFromNow(5)->format('Y-m-d H:i:s');
         $endDate = DateHelper::getCurrentTimestamp('Y-m-d H:i:s');
 
@@ -80,7 +78,7 @@ class DashboardAdminController extends Controller
             $result['series']['totalVisits'][$index] = (int)$dataVisits->totalVisits;
         }
 
-        return response()->json(compact('startDate', 'result', 'ch_messages'));
+        return response()->json(compact('startDate', 'result'));
     }
 
 
