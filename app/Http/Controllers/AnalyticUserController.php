@@ -103,6 +103,34 @@ class AnalyticUserController extends Controller
             ->take(3)
             ->get();
 
+        $TopBrowser = ShortUrlVisit::select('browser', DB::raw('count(*) as total'))
+        ->groupBy('browser')
+        ->whereRelation('shortUrl','user_id',$userId)
+        ->orderByDesc('total')
+        ->take(3)
+        ->get();
+        
+        $TopDevice = ShortUrlVisit::select('device_type', DB::raw('count(*) as total'))
+        ->groupBy('device_type')
+        ->whereRelation('shortUrl','user_id',$userId)
+        ->orderByDesc('total')
+        ->take(3)
+        ->get();
+
+        $TopReferer = ShortUrlVisit::select('referer_url', DB::raw('count(*) as total'))
+        ->groupBy('referer_url')
+        ->whereRelation('shortUrl','user_id',$userId)
+        ->orderByDesc('total')
+        ->take(3)
+        ->get();
+
+        $TopIpAdress = ShortUrlVisit::select('ip_address', DB::raw('count(*) as total'))
+        ->groupBy('ip_address')
+        ->whereRelation('shortUrl','user_id',$userId)
+        ->orderByDesc('total')
+        ->take(3)
+        ->get();
+
         if ($user) {
             $subscribe = $user->subscribe;
 
@@ -116,8 +144,8 @@ class AnalyticUserController extends Controller
                 $urlStatus = '35';
                 $micrositeStatus = '10';
             } elseif ($subscribe == 'platinum') {
-                $urlStatus = 'Unlimited';
-                $micrositeStatus = 'Unlimited';
+                $urlStatus = '100';
+                $micrositeStatus = '100';
             } else {
                 $urlStatus = 'Status tidak valid';
                 $micrositeStatus = 'Status tidak valid';
@@ -203,7 +231,7 @@ class AnalyticUserController extends Controller
         // $visits = count($shortURL->visits) ;
 
         // dd($totalVisits,$countURL);
-        return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'user', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite'));
+        return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'user', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite', 'TopBrowser', 'TopDevice', 'TopReferer', 'TopIpAdress'));
     }
 
     //data test

@@ -310,7 +310,7 @@
                     </div><!--end col-->
                 </div>
                 <div id="additionalDataContainer" class="d-none">
-                    @if ($user->subscribe != 'platinum')
+                    @if (auth()->user()->subscribe != 'platinum')
                         <div class="">
                             <div class="card lower" id="agenciesList">
                                 <div class="card-body">
@@ -431,16 +431,16 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">No</th>
-                                                    <th scope="col">Tautan</th>
+                                                    <th scope="col">Nama Browser</th>
                                                     <th scope="col">Pengunjung</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($microsites->sortByDesc('totalVisits') as $microsite)
+                                                @foreach ($TopBrowser->sortByDesc('totalTopBrowser') as $TopBrowser)
                                                     <tr>
                                                         <th scope="row">{{ $loop->iteration }}</th>
-                                                        <td>{{ $microsite->default_short_url }}</td>
-                                                        <td>{{ $microsite->totalVisits }} Pengunjung</td>
+                                                        <td>{{ $TopBrowser->browser }}</td>
+                                                        <td>{{ $TopBrowser->total }} Pengunjung</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -459,16 +459,16 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">No</th>
-                                                    <th scope="col">Tautan</th>
+                                                    <th scope="col">Nama Perangkat</th>
                                                     <th scope="col">Pengunjung</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($microsites->sortByDesc('totalVisits') as $microsite)
+                                                @foreach ($TopDevice->sortByDesc('totalTopBrowser') as $TopDevice)
                                                     <tr>
                                                         <th scope="row">{{ $loop->iteration }}</th>
-                                                        <td>{{ $microsite->default_short_url }}</td>
-                                                        <td>{{ $microsite->totalVisits }} Pengunjung</td>
+                                                        <td>{{ $TopDevice->device_type }}</td>
+                                                        <td>{{ $TopDevice->total }} Pengunjung</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -487,16 +487,16 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">No</th>
-                                                    <th scope="col">Tautan</th>
+                                                    <th scope="col">Referer</th>
                                                     <th scope="col">Pengunjung</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($microsites->sortByDesc('totalVisits') as $microsite)
+                                                @foreach ($TopReferer->sortByDesc('totalTopBrowser') as $TopReferer)
                                                     <tr>
                                                         <th scope="row">{{ $loop->iteration }}</th>
-                                                        <td>{{ $microsite->default_short_url }}</td>
-                                                        <td>{{ $microsite->totalVisits }} Pengunjung</td>
+                                                        <td>{{ $TopReferer->referer_url }}</td>
+                                                        <td>{{ $TopReferer->total }} Pengunjung</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -515,16 +515,16 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">No</th>
-                                                    <th scope="col">Tautan</th>
+                                                    <th scope="col">Alamat Ip</th>
                                                     <th scope="col">Pengunjung</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($microsites->sortByDesc('totalVisits') as $microsite)
+                                                @foreach ($TopIpAdress->sortByDesc('totalTopBrowser') as $TopIpAdress)
                                                     <tr>
                                                         <th scope="row">{{ $loop->iteration }}</th>
-                                                        <td>{{ $microsite->default_short_url }}</td>
-                                                        <td>{{ $microsite->totalVisits }} Pengunjung</td>
+                                                        <td>{{ $TopIpAdress->ip_address }}</td>
+                                                        <td>{{ $TopIpAdress->total }} Pengunjung</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

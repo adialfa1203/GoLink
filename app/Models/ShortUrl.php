@@ -26,6 +26,26 @@ class ShortUrl extends Model
         return $this->hasMany(ShortURLVisit::class, 'short_url_id');
     }
     
+    public function TopBrowser()
+    {
+        return $this->hasMany(ShortURLVisit::class, 'browser');
+    }
+
+    public function TopDevice()
+    {
+        return $this->hasMany(ShortURLVisit::class, 'device_type');
+    }
+
+    public function TopReferer()
+    {
+        return $this->hasMany(ShortURLVisit::class, 'referer_url');
+    }
+
+    public function TopIpAdress()
+    {
+        return $this->hasMany(ShortURLVisit::class, 'ip_address');
+    }
+
     public function countVisits()
     {
         return $this->hasMany(ShortURLVisit::class);
