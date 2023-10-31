@@ -215,7 +215,7 @@
                                     alt="Card image cap">
                                     <br>
                                     <h2 class="mb-2" style="color: #ffffff;">Rp.{{ number_format($subs->price, 0, ',', '.') }}/Bulan</h2>
-                                    @if (strtolwer(trim($subs->description)))
+                                    @if (strtolower(trim($subs->description)))
                                     <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
                                     <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
                                     @endif
