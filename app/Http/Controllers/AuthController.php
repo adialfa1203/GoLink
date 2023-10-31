@@ -50,12 +50,19 @@ class AuthController extends Controller
             } elseif ($user->hasRole('user')) {
                 if ($user->is_banned) {
                     Auth::logout();
-                    return redirect('/login')->with('error', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
+                    return redirect('id/login')->with('error', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
+                } elseif ($user->google_id == true) {
+                    if ($user->is_banned) {
+                        Auth::logout();
+                        return redirect('id/login')->with('error', 'Akun Anda telah dibanned. Silakan hubungi admin untuk informasi lebih lanjut.');
+                    }
+                    return redirect()->route('dashboard.google_user');
                 } else {
                     return redirect()->route('dashboard.user')->withCookie(cookie('remember_web', true, 3));
                 }
             }
         }
+
 
         return redirect()->route('login')->with('error', 'Email atau Password Yang Anda Masukkan Salah');
     }
