@@ -73,6 +73,9 @@
             z-index: 1;
             font-weight: normal;
         }
+        #show {
+            display: block !important; /* atau display: inline atau tampilan lainnya sesuai kebutuhan */
+        }
 
         .tooltip-icon:hover::before {
             opacity: 1;
@@ -274,10 +277,10 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <div class="modal-footer">
+                                        <div class="modal-footer" id="show">
                                             <button type="submit" class="btn"
                                                 style="width: 100%; background: #FF2323; color: #fff ;"
-                                                data-bs-toggle="modal" data-bs-target="">
+                                                data-bs-toggle="modal"  data-bs-target="">
                                                 <i class="bi bi-link-45deg"></i> Singkatkan!
                                             </button>
                                         </div>
@@ -498,15 +501,16 @@
                                             <h6 class="card-title" style="color: #0E2954;">
                                                 Tautan dibuat /
                                                 @if ($user->subscribe == 'free')
-                                                    Bulan
+                                                Bulan
                                                 @elseif ($user->subscribe == 'silver')
                                                     Minggu
                                                 @elseif ($user->subscribe == 'gold')
                                                     Bulan
-                                                @else
+                                                @elseif ($user->subscribe == 'platinum')
                                                     Tahun
+                                                @else
+                                                    
                                                 @endif
-
                                                 <span class="tooltip-icon"
                                                     data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                     <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
@@ -527,13 +531,15 @@
                                     <br>
                                     <h6 class="card-title" style="color: #0E2954;">Microsite dibuat /
                                         @if ($user->subscribe == 'free')
-                                            Bulan
+                                        Bulan
                                         @elseif ($user->subscribe == 'silver')
                                             Minggu
                                         @elseif ($user->subscribe == 'gold')
                                             Bulan
-                                        @else
+                                        @elseif ($user->subscribe == 'platinum')
                                             Tahun
+                                        @else
+                                            
                                         @endif
 
                                         <span class="tooltip-icon"
@@ -576,14 +582,24 @@
                                             <div class="modal-body">
                                                 <div class="row g-3">
                                                     <div class="card-body">
-                                                        <h6 class="card-title">
-                                                            Tautan dibuat
+                                                        <h3 class="card-title">Tautan dibuat /
+                                                            @if ($user->subscribe == 'free')
+                                                                Bulan
+                                                            @elseif ($user->subscribe == 'silver')
+                                                                Minggu
+                                                            @elseif ($user->subscribe == 'gold')
+                                                                Bulan
+                                                            @elseif ($user->subscribe == 'platinum')
+                                                                Tahun
+                                                            @else
+                                                                
+                                                            @endif
                                                             <span class="tooltip-icon"
                                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                 <i
                                                                     class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
                                                             </span>
-                                                        </h6>
+                                                        </h3>
                                                         <div class="progress">
                                                             <div class="progress-bar progress-bar-striped progress-bar-animated"
                                                                 role="progressbar" aria-valuenow="{{ $countURL }}"
@@ -601,8 +617,10 @@
                                                                 Minggu
                                                             @elseif ($user->subscribe == 'gold')
                                                                 Bulan
-                                                            @else
+                                                            @elseif ($user->subscribe == 'platinum')
                                                                 Tahun
+                                                            @else
+                                                                
                                                             @endif
 
                                                             <span class="tooltip-icon"
@@ -724,13 +742,15 @@
                                             <h6 class="card-title" style="color: #0E2954;">
                                                 Tautan dibuat /
                                                 @if ($user->subscribe == 'free')
-                                                    Bulan
+                                                Bulan
                                                 @elseif ($user->subscribe == 'silver')
                                                     Minggu
                                                 @elseif ($user->subscribe == 'gold')
                                                     Bulan
-                                                @else
+                                                @elseif ($user->subscribe == 'platinum')
                                                     Tahun
+                                                @else
+                                                    
                                                 @endif
 
                                                 <span class="tooltip-icon"
@@ -747,19 +767,28 @@
                                             role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                             style="width: {{ ($countURL / $urlStatus) * 100 }}%"></div>
                                     </div>
-                                    <p class="mb-0" style="color: #0E2954;"><b>{{ $countURL }} dari
-                                            {{ $urlStatus }}
+                                    <p class="text-muted mb-0">
+                                        <b>
+                                            {{ $countURL }} dari
+                                            @if (auth()->user()->subscribe == 'platinum')
+                                            Unlimited
+                                            @else
+                                                dari {{ $urlStatus }}
+                                            @endif
+                                        </b>
                                     </p>
                                     <br>
                                     <h6 class="card-title" style="color: #0E2954;">Microsite dibuat /
                                         @if ($user->subscribe == 'free')
-                                            Bulan
+                                        Bulan
                                         @elseif ($user->subscribe == 'silver')
                                             Minggu
                                         @elseif ($user->subscribe == 'gold')
                                             Bulan
-                                        @else
+                                        @elseif ($user->subscribe == 'platinum')
                                             Tahun
+                                        @else
+                                            
                                         @endif
 
                                         <span class="tooltip-icon"
@@ -776,9 +805,15 @@
                                             aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3"
                                             style="width: {{ ($countMicrosite / $micrositeStatus) * 100 }}%"></div>
                                     </div>
-                                    <p class="mb-0" style="color: #0E2954;" id="microsite-total">
-                                        <b>{{ $countMicrosite }}
-                                            dari {{ $micrositeStatus }}</b>
+                                    <p class="text-muted mb-0">
+                                        <b>
+                                            {{ $countMicrosite }} dari
+                                            @if (auth()->user()->subscribe == 'platinum')
+                                            Unlimited
+                                            @else
+                                                dari {{ $micrositeStatus }}
+                                            @endif
+                                        </b>
                                     </p>
                                 </div>
                                 <div class="d-flex justify-content-end pe-3" data-bs-toggle="modal"
@@ -803,7 +838,18 @@
                                                 <div class="row g-3">
                                                     <div class="card-body">
                                                         <h6 class="card-title">
-                                                            Tautan dibuat
+                                                            Tautan dibuat /
+                                                            @if ($user->subscribe == 'free')
+                                                                Bulan
+                                                            @elseif ($user->subscribe == 'silver')
+                                                                Minggu
+                                                            @elseif ($user->subscribe == 'gold')
+                                                                Bulan
+                                                            @elseif ($user->subscribe == 'platinum')
+                                                                Tahun
+                                                            @else
+                                                                
+                                                            @endif
                                                             <span class="tooltip-icon"
                                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                 <i
@@ -817,8 +863,16 @@
                                                                 style="width: {{ ($countURL / $urlStatus) * 100 }}%;">
                                                             </div>
                                                         </div>
-                                                        <p class="text-muted mb-0"><b>{{ $countURL }} dari
-                                                                {{ $urlStatus }}</p>
+                                                        <p class="text-muted mb-0">
+                                                            <b>
+                                                                {{ $countURL }} dari
+                                                                @if (auth()->user()->subscribe == 'platinum')
+                                                                Unlimited
+                                                                @else
+                                                                    dari {{ $urlStatus }}
+                                                                @endif
+                                                            </b>
+                                                        </p>
                                                         <br>
                                                         <h3 class="card-title">Microsite dibuat /
                                                             @if ($user->subscribe == 'free')
@@ -827,8 +881,10 @@
                                                                 Minggu
                                                             @elseif ($user->subscribe == 'gold')
                                                                 Bulan
-                                                            @else
+                                                            @elseif ($user->subscribe == 'platinum')
                                                                 Tahun
+                                                            @else
+                                                                
                                                             @endif
 
                                                             <span class="tooltip-icon"
@@ -845,8 +901,16 @@
                                                                 style="width: {{ ($countMicrosite / $micrositeStatus) * 100 }}%;">
                                                             </div>
                                                         </div>
-                                                        <p class="text-muted mb-0"><b>{{ $countMicrosite }} dari
-                                                                {{ $micrositeStatus }}</b></p>
+                                                        <p class="text-muted mb-0">
+                                                            <b>
+                                                                {{ $countMicrosite }} dari
+                                                                @if (auth()->user()->subscribe == 'platinum')
+                                                                Unlimited
+                                                                @else
+                                                                    dari {{ $micrositeStatus }}
+                                                                @endif
+                                                            </b>
+                                                        </p>
                                                         <br>
                                                         @php
                                                             $userType = Auth::user()->subscribe;
@@ -1149,9 +1213,9 @@
             $('#new_url_key').val(link);
             $('#new_url_key').attr("data-original", link);
 
-        }); <
-        /> <
-        script >
+        }); 
+    </script> 
+    <script>
             const urlInput = document.getElementById('AmountInput');
         const urlError = document.getElementById('urlError');
 
@@ -1197,7 +1261,6 @@
                         $('#close-singkatkan').click();
                     }, 1000);
                 } else {
-                    $('#singkatkan').modal('hide');
                     var countURL = {{ $countURL }};
                     var countUrl;
                     @if (auth()->user()->subscribe == 'free')
@@ -1348,12 +1411,27 @@
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        var countData = {{ $countURL }};
+        $('#show').show()
+    </script>
+    @if ($user->subscribe == 'platinum')
+    <script>
+        var countData = 1;
         var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / 15) * 100;
+        var progressBarWidth = (countData / 1) * 100;
         progressBar.style.width = progressBarWidth + "%";
         progressBar.setAttribute("aria-valuenow", countData);
     </script>
+    @else
+    <script>
+        var countData = {{ $countURL }};
+        var progressBar = document.getElementById("progress-bar");
+        var progressBarWidth = (countData / {{ $urlStatus }}) * 100;
+        progressBar.style.width = progressBarWidth + "%";
+        progressBar.setAttribute("aria-valuenow", countData);
+    </script>
+    @endif
+
+    @if ($user->subscribe !== 'platinum')
     <script>
         var countData = {{ $countNameChanged }};
         var progressBar = document.getElementById("progress-bar");
@@ -1384,6 +1462,20 @@
         var progressText = document.querySelector('.text-muted.mb-0 b');
         progressText.textContent = countURLValue + ' dari {{ $urlStatus }}';
     </script>
+    @endif
+    
+    @if ($user->subscribe == 'platinum')
+    <script>
+        var countURLValue = 1;
+
+        var progressBar = document.querySelector('#total-microsite');
+        progressBar.style.width = ((countURLValue / 1) * 100) + '%';
+        progressBar.setAttribute('aria-valuenow', countURLValue);
+
+        var progressText = document.querySelector('#microsite-total');
+        progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
+    </script>
+    @else
     <script>
         var countURLValue = {{ $countMicrosite }};
 
@@ -1394,6 +1486,7 @@
         var progressText = document.querySelector('#microsite-total');
         progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
     </script>
+    @endif
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="

@@ -59,8 +59,8 @@ class DahsboardController extends Controller
                     $micrositeStatus = '10';
                     break;
                 case 'platinum':
-                    $urlStatus = '9999999999';
-                    $micrositeStatus = '9999999999';
+                    $urlStatus = '9999999';
+                    $micrositeStatus = '9999999';
                     break;
                 default:
                     $urlStatus = 'Status tidak valid';
