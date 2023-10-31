@@ -43,7 +43,7 @@
             }
         }
 
-        .atas {
+        .top {
             border-radius: 20px;
             background: #F0F0F0;
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -123,6 +123,9 @@
             border-radius: 0;
             background-color: transparent;
         }
+        .page-content {
+            background: #ffffff;
+        }
     </style>
 @endsection
 @section('content')
@@ -137,7 +140,7 @@
                 <div class="row">
                     <!--end col-->
                     <div class="col-xxl-12 ">
-                        <div class="card overflow-hidden  atas">
+                        <div class="card overflow-hidden  top">
                             <div>
                                 <img alt="" style="height: 80px;">
                                 <div>
@@ -175,7 +178,7 @@
                                                         </label>
                                                     @endif
                                                 </center>
-                                            </div>                                            
+                                            </div>
                                             <div class="texs col-12 col-lg-6 col-xl-6 col-sm-6 col-md-6">
                                                 <h5 style="color: #fff; margin: 4px;">
                                                     {{ $user->name }}
