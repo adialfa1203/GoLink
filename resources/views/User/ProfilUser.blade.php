@@ -294,7 +294,7 @@
                                                             <label for="lastnameInput" class="form-label tex">Nomor
                                                                 Telepon</label>
                                                             <input type="number" name="number" class="form-control"
-                                                                value="{{ $user->number }}">
+                                                                value="{{ $user->number }}" required>
                                                         </div>
                                                         <div>
                                                             @if ($errors->has('number'))
