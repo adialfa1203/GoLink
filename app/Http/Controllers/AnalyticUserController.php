@@ -144,8 +144,8 @@ class AnalyticUserController extends Controller
                 $urlStatus = '35';
                 $micrositeStatus = '10';
             } elseif ($subscribe == 'platinum') {
-                $urlStatus = '100';
-                $micrositeStatus = '100';
+                $urlStatus = '9999999';
+                $micrositeStatus = '9999999';
             } else {
                 $urlStatus = 'Status tidak valid';
                 $micrositeStatus = 'Status tidak valid';

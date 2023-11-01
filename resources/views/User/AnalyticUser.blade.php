@@ -197,7 +197,7 @@
                                 <div class="d-flex pb-1">
                                     <div class="flex-grow-1">
                                         <h6 class="card-title" style="color: #0E2954;">
-                                            Tautan dibuat/Bulan
+                                            Tautan dibuat /Bulan
                                             <span class="tooltip-icon"
                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                                 {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
@@ -211,7 +211,15 @@
                                         role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                         style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
                                 </div>
-                                <p class="mb-0" style="color: #0E2954;"><b>{{ $countURL }} dari {{ $urlStatus }}
+                                <p class="mb-0">
+                                            <b>
+                                                {{ $countURL }} dari
+                                                @if (auth()->user()->subscribe == 'platinum')
+                                                    <span style="color: red;">Unlimited</span>
+                                                @else
+                                                    dari {{ $urlStatus }}
+                                                @endif
+                                            </b>
                                 </p>
                                 <br>
                                 <h6 class="card-title" style="color: #0E2954;">Microsite dibuat/Bulan
@@ -227,8 +235,16 @@
                                         aria-valuemin="0" aria-valuemax="3"
                                         style="width:{{ ($countMicrosite / (int) $micrositeStatus) * 100 }}%"></div>
                                 </div>
-                                <p class="mb-0" style="color: #0E2954;" id="microsite-total"><b>{{ $countMicrosite }}
-                                        dari {{ $micrositeStatus }}</b></p>
+                                <p class="mb-0">
+                                    <b>
+                                        {{ $countMicrosite }} dari
+                                        @if (auth()->user()->subscribe == 'platinum')
+                                            <span style="color: red;">Unlimited</span>
+                                        @else
+                                            dari {{ $micrositeStatus }}
+                                        @endif
+                                    </b>
+                                </p>
                             </div>
                         </div>
                     </div>

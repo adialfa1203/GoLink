@@ -846,7 +846,7 @@
                                             </span>
                                         </h6>
                                         <div class="progress">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                            <div class="url progress-bar-striped progress-bar-animated"
                                                 role="progressbar" aria-valuenow="{{ $countURL }}" aria-valuemin="0"
                                                 aria-valuemax="100"
                                                 style="width: {{ ($countURL / $urlStatus) * 100 }}%;">
@@ -1427,13 +1427,6 @@
             progressText.textContent = countData + " dari 5";
         </script>
         <script>
-            var countData = {{ $countMicrosite }};
-            var progressBar = document.getElementById("progress-bar");
-            var progressBarWidth = (countData / {{ $micrositeStatus }}) * 100;
-            progressBar.style.width = progressBarWidth + "%";
-            progressBar.setAttribute("aria-valuenow", countData);
-        </script>
-        <script>
             var countURLValue = {{ $countURL }};
 
             // Calculate the percentage
@@ -1446,6 +1439,13 @@
             var progressText = document.querySelector('.text-muted.mb-0 b');
             progressText.textContent = countURLValue + ' dari {{ $urlStatus }}';
         </script>
+        <script>
+            var countData = {{ $countMicrosite }};
+            var progressBar = document.getElementById("progress-bar");
+            var progressBarWidth = (countData / {{ $micrositeStatus }}) * 100;
+            progressBar.style.width = progressBarWidth + "%";
+            progressBar.setAttribute("aria-valuenow", countData);
+        </script>        
     @endif
 
     @if ($user->subscribe == 'platinum')
