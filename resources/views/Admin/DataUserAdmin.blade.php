@@ -314,7 +314,7 @@
     @if ($d->currentPage() > 1)
         <a href="{{ $d->url(1) }}" class="page-link">1</a>
         @if ($d->currentPage() > 3)
-            <span class="page-link">...</span>
+            <span class="page-link elipsis">...</span>
         @endif
     @endif
 
@@ -328,12 +328,11 @@
 
     @if ($d->currentPage() < $d->lastPage() - 2)
         @if ($d->currentPage() < $d->lastPage() - 3)
-            <span class="page-link">...</span>
+            <span class="page-link elipsis">...</span>
         @endif
         <a href="{{ $d->url($d->lastPage()) }}" class="page-link">{{ $d->lastPage() }}</a>
     @endif
 </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -496,6 +495,18 @@
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/sweetalerts.init.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.0/list.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const elipsisElements = document.querySelectorAll(".elipsis");
+
+        elipsisElements.forEach(function (elipsis) {
+            elipsis.addEventListener("click", function () {
+                // Handle elipsis click event (e.g., show additional page links)
+                alert("Elipsis Clicked");
+            });
+        });
+    });
+</script>
     <script>
         $(document).ready(function() {
             $(".search").on("keyup", function() {

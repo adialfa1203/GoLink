@@ -101,9 +101,9 @@
                 font-size: 10px;
             }
             .btn-subtle-primary{
-                width: 120px;
+                width: 122px;
                 height: 40px;
-                font-size: 8px;
+                font-size: 10px;
 
             }
         }
