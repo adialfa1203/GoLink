@@ -192,17 +192,9 @@
                                 </h6>
                             </div>
                         </div>
-
-                        @if ($user->subscribe !== 'platinum')
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ $user->subscribe === 'platinum' ? '100%' : ($countURL / (int) $urlStatus) * 100 . '%' }}"></div>
                         </div>
-                        @else
-                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
-                        </div>
-                        @endif
-
 
                         <p class="mb-0">
                             <b>
@@ -220,18 +212,9 @@
                                 {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
                             </span>
                         </h6>
-
-                        @if ($user->subscribe !== 'platinum')
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3" style="width:{{ ($countMicrosite / (int) $micrositeStatus) * 100 }}%"></div>
                         </div>
-                        @else
-                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3" style="width:100%"></div>
-                        </div>
-                        @endif
-
-
                         <p class="mb-0">
                             <b>
                                 {{ $countMicrosite }} dari
@@ -767,44 +750,23 @@
     }
 </script>
 @if ($user->subscribe == 'platinum')
-<script>
-    var countData = 1;
-    var progressBar = document.getElementById("progress-bar");
-    var progressBarWidth = (countData / 1) * 100;
-    progressBar.style.width = progressBarWidth + "%";
-    progressBar.setAttribute("aria-valuenow", countData);
-</script>
-@else
-<script>
-    var countData = {
-        {
-            $countURL
-        }
-    };
-    var progressBar = document.getElementById("progress-bar");
-    var progressBarWidth = (countData / {
-        {
-            $urlStatus
-        }
-    }) * 100;
-    progressBar.style.width = progressBarWidth + "%";
-    progressBar.setAttribute("aria-valuenow", countData);
-</script>
-@endif
+    <script>
+        var countData = 1;
+        var progressBar = document.getElementById("progress-bar");
+        var progressBarWidth = (countData / 1) * 100;
+        progressBar.style.width = progressBarWidth + "%";
+        progressBar.setAttribute("aria-valuenow", countData);
+    </script>
+    @else
+    <script>
+        var countData = {{ $countURL }};
+        var progressBar = document.getElementById("progress-bar");
+        var progressBarWidth = (countData / {{ $urlStatus }}) * 100;
+        progressBar.style.width = progressBarWidth + "%";
+        progressBar.setAttribute("aria-valuenow", countData);
+    </script>
+    @endif
 
-
-@if ($user->subscribe == 'platinum')
-<script>
-    var countURLValue = 1;
-
-    var progressBar = document.querySelector('#total-microsite');
-    progressBar.style.width = ((countURLValue / 1) * 100) + '%';
-    progressBar.setAttribute('aria-valuenow', countURLValue);
-
-    var progressText = document.querySelector('#microsite-total');
-    progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
-</script>
-@else
 <script>
     var countURLValue = {
         {
@@ -823,6 +785,5 @@
     var progressText = document.querySelector('#microsite-total');
     progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
 </script>
-@endif
 
 @endsection
