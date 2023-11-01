@@ -142,7 +142,7 @@
                                 </div>
                             </div>
                             <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
-                                <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}"
+                                <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
                                     href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
                                     Sebelumnya
                                 </a>
@@ -177,7 +177,7 @@
                                         </li>
                                     @endif
                                 </ul>
-                                <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}"
+                                <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
                                     href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
                                     Selanjutnya
                                 </a>
