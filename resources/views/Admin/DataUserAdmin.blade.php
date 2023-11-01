@@ -311,39 +311,39 @@
                                                     <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                         <div class="page-item">
                                                         <div class="pagination-wrap hstack justify-content-center gap-2">
-    <a class="page-item pagination-prev {{ $button->previousPageUrl() ? '' : 'disabled' }}" href="{{ $button->previousPageUrl() ? $button->previousPageUrl() : '#' }}">
+    <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}" href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
         Previous
     </a>
     <ul class="pagination listjs-pagination mb-0">
-        @if($button->currentPage() > 2)
+        @if($d->currentPage() > 2)
             <li>
-                <a class="page" href="{{ $button->url(1) }}">1</a>
+                <a class="page" href="{{ $d->url(1) }}">1</a>
             </li>
-            @if($button->currentPage() > 3)
+            @if($d->currentPage() > 3)
                 <li class="ellipsis">
                     <span>...</span>
                 </li>
             @endif
         @endif
 
-        @for($i = max(1, $button->currentPage() - 1); $i <= min($button->lastPage(), $button->currentPage() + 1); $i++)
-            <li class="{{ $i == $button->currentPage() ? 'active' : '' }}">
-                <a class="page" href="{{ $button->url($i) }}" data-i="{{ $i }}">{{ $i }}</a>
+        @for($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
+            <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
+                <a class="page" href="{{ $d->url($i) }}" data-i="{{ $i }}">{{ $i }}</a>
             </li>
         @endfor
 
-        @if($button->currentPage() < $button->lastPage() - 1)
-            @if($button->currentPage() < $button->lastPage() - 2)
+        @if($d->currentPage() < $d->lastPage() - 1)
+            @if($d->currentPage() < $d->lastPage() - 2)
                 <li class="ellipsis">
                     <span>...</span>
                 </li>
             @endif
             <li>
-                <a class="page" href="{{ $button->url($button->lastPage()) }}">{{ $button->lastPage() }}</a>
+                <a class="page" href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
             </li>
         @endif
     </ul>
-    <a class="page-item pagination-next {{ $button->nextPageUrl() ? '' : 'disabled' }}" href="{{ $button->nextPageUrl() ? $button->nextPageUrl() : '#' }}">
+    <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}" href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
         Next
     </a>
 </div>
