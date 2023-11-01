@@ -310,29 +310,44 @@
                                                 <div class="col-sm-auto mt-3 mt-sm-0">
                                                     <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                         <div class="page-item">
-                                                        <div id="dPagination" class="pagination">
-    @if ($d->currentPage() > 1)
-        <a href="{{ $d->url(1) }}" class="page-link">1</a>
-        @if ($d->currentPage() > 3)
-            <span class="page-link elipsis">...</span>
+                                                        <div class="pagination-wrap hstack justify-content-center gap-2">
+    <a class="page-item pagination-prev {{ $button->previousPageUrl() ? '' : 'disabled' }}" href="{{ $button->previousPageUrl() ? $button->previousPageUrl() : '#' }}">
+        Previous
+    </a>
+    <ul class="pagination listjs-pagination mb-0">
+        @if($button->currentPage() > 2)
+            <li>
+                <a class="page" href="{{ $button->url(1) }}">1</a>
+            </li>
+            @if($button->currentPage() > 3)
+                <li class="ellipsis">
+                    <span>...</span>
+                </li>
+            @endif
         @endif
-    @endif
 
-    @for ($i = max(2, $d->currentPage() - 2); $i <= min($d->currentPage() + 2, $d->lastPage()); $i++)
-        @if ($i == $d->currentPage())
-            <span class="page-link current-page">{{ $i }}</span>
-        @else
-            <a href="{{ $d->url($i) }}" class="page-link">{{ $i }}</a>
-        @endif
-    @endfor
+        @for($i = max(1, $button->currentPage() - 1); $i <= min($button->lastPage(), $button->currentPage() + 1); $i++)
+            <li class="{{ $i == $button->currentPage() ? 'active' : '' }}">
+                <a class="page" href="{{ $button->url($i) }}" data-i="{{ $i }}">{{ $i }}</a>
+            </li>
+        @endfor
 
-    @if ($d->currentPage() < $d->lastPage() - 2)
-        @if ($d->currentPage() < $d->lastPage() - 3)
-            <span class="page-link elipsis">...</span>
+        @if($button->currentPage() < $button->lastPage() - 1)
+            @if($button->currentPage() < $button->lastPage() - 2)
+                <li class="ellipsis">
+                    <span>...</span>
+                </li>
+            @endif
+            <li>
+                <a class="page" href="{{ $button->url($button->lastPage()) }}">{{ $button->lastPage() }}</a>
+            </li>
         @endif
-        <a href="{{ $d->url($d->lastPage()) }}" class="page-link">{{ $d->lastPage() }}</a>
-    @endif
+    </ul>
+    <a class="page-item pagination-next {{ $button->nextPageUrl() ? '' : 'disabled' }}" href="{{ $button->nextPageUrl() ? $button->nextPageUrl() : '#' }}">
+        Next
+    </a>
 </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -495,18 +510,6 @@
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/sweetalerts.init.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.0/list.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const elipsisElements = document.querySelectorAll(".elipsis");
-
-        elipsisElements.forEach(function (elipsis) {
-            elipsis.addEventListener("click", function () {
-                // Handle elipsis click event (e.g., show additional page links)
-                alert("Elipsis Clicked");
-            });
-        });
-    });
-</script>
     <script>
         $(document).ready(function() {
             $(".search").on("keyup", function() {
