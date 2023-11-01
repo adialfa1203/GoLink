@@ -29,24 +29,24 @@
             }
         }
     </style>
-<style>
-     .bagcard {
-        border-radius: 20px;
-        background:linear-gradient(0deg, #0E2954, #104898);
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
-</style>
-<style>
-    .th th:first-child {
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 0px;
-    }
+    <style>
+        .bagcard {
+            border-radius: 20px;
+            background: linear-gradient(0deg, #0E2954, #104898);
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+    <style>
+        .th th:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 0px;
+        }
 
-    .th th:last-child {
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 0px;
-    }
-</style>
+        .th th:last-child {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 0px;
+        }
+    </style>
 
 @endsection
 @section('content')
@@ -82,8 +82,10 @@
                                             style="width: 100%;" alt="Card image cap">
                                     </div>
                                     <div class="col-lg-7 col-md-6 col-12">
-                                        <h1 class="card-title long-text mt-3" style="color: #ffff; font-size: 30px;">Hi {!! Auth::user()->name !!}!</h1>
-                                        <p class="card-text long-text" style="color: #ffff;">Jangan lewatkan kesempatan untuk mengambil yang terbaik!
+                                        <h1 class="card-title long-text mt-3" style="color: #ffff; font-size: 30px;">Hi
+                                            {!! Auth::user()->name !!}!</h1>
+                                        <p class="card-text long-text" style="color: #ffff;">Jangan lewatkan kesempatan
+                                            untuk mengambil yang terbaik!
                                             Berlangganan bersama kami untuk manfaatkan semua fitur canggih kami</p>
                                     </div>
                                     {{-- <div class="col-lg-3 col-md-3 col-12 text-center">
@@ -100,13 +102,15 @@
                         <h5 class="card-title mb-0">Riwayat Transaksi Terakhir</h5>
                     </div>
                     <div class="col-6 mb-4 d-flex justify-content-end">
-                        <a href="{{ url('user/subscribe-product-user') }}" type="button" class="btn btn-outline-danger justify-content-end">Berlangganan Sekarang</a>
+                        <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                            class="btn btn-outline-danger justify-content-end">Berlangganan Sekarang</a>
                     </div>
                 </div>
 
-                <div class="row" >
-                    <div class="col-lg-12" >
-                        <div class="card"  style="background-color:  #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card"
+                            style="background-color:  #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-centered align-middle table-nowrap mb-0">
@@ -124,9 +128,12 @@
                                             @if ($data->isEmpty())
                                                 <tr>
                                                     <td colspan="5">
-                                                        <div class="card d-flex flex-column align-items-center" style="background-color: #F0F0F0;">
-                                                            <img style="width: 300px; height: 300px;" src="{{ asset('images/Empty.png') }}" alt="Gambar">
-                                                            <div class="d-flex justify-content-center align-items-center mt-2 mb-4">
+                                                        <div class="card d-flex flex-column align-items-center"
+                                                            style="background-color: #F0F0F0;">
+                                                            <img style="width: 300px; height: 300px;"
+                                                                src="{{ asset('images/Empty.png') }}" alt="Gambar">
+                                                            <div
+                                                                class="d-flex justify-content-center align-items-center mt-2 mb-4">
                                                                 <i class="ph-magnifying-glass fs-2 text-primary"></i>
                                                                 <h5 class="mt-2">Maaf! Belum Ada Data Yang Ditemukan</h5>
                                                             </div>
@@ -138,15 +145,15 @@
                                                     <tr>
                                                         <td>
                                                             @if (strtolower(trim($transaction->subscribe->tipe)) === 'free')
-                                                            Gratis
+                                                                Gratis
                                                             @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'silver')
-                                                            Dasar
+                                                                Dasar
                                                             @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'gold')
-                                                            Menengah
+                                                                Menengah
                                                             @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'platinum')
-                                                            Premium
+                                                                Premium
                                                             @else
-                                                            Unknown
+                                                                Unknown
                                                             @endif
                                                         </td>
                                                         <td>{{ $transaction->payment_method }}</td>
@@ -178,8 +185,8 @@
                                 </div>
                             </div>
                         </div><!--end card-->
-                        <div class="pagination-wrap hstack justify-content-center gap-2 mb-3" >
-                            <a class="page-item pagination-prev {{ $data->previousPageUrl() ? '' : 'disabled' }}"
+                        <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
+                            <a class="page-item pagination-prev {{ $data->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
                                 href="{{ $data->previousPageUrl() ? $data->previousPageUrl() : '#' }}">
                                 Sebelumnya
                             </a>
@@ -214,7 +221,7 @@
                                     </li>
                                 @endif
                             </ul>
-                            <a class="page-item pagination-next {{ $data->nextPageUrl() ? '' : 'disabled' }}"
+                            <a class="page-item pagination-next {{ $data->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
                                 href="{{ $data->nextPageUrl() ? $data->nextPageUrl() : '#' }}">
                                 Selanjutnya
                             </a>
