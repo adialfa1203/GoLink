@@ -308,8 +308,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-auto mt-3 mt-sm-0">
-                                                    <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
-                                                        <div class="page-item">
                                                         <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
                     <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
                         href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
@@ -353,8 +351,6 @@
 
 
                                                         </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
