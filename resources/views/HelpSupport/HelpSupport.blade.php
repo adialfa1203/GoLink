@@ -26,8 +26,7 @@
     <!-- waveanimation-Style-link -->
     <link rel="stylesheet" href="{{ asset('landingpage/css/wave-animation-style.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}"
-        style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}" style="width: 200px; height: 200px;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet"
         type="text/css">
@@ -35,7 +34,6 @@
 
 <body>
     <style>
-
         .custom-btn {
             width: 100%;
             max-width: 250px;
@@ -64,96 +62,113 @@
         }
 
         .elipsis {
-    max-width: 900px; /* Atur lebar maksimum sesuai dengan yang Anda inginkan */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer; /* Jika Anda ingin menambahkan efek hover */
-}
+            max-width: 900px;
+            /* Atur lebar maksimum sesuai dengan yang Anda inginkan */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            /* Jika Anda ingin menambahkan efek hover */
+        }
 
-.elipsis:hover {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    cursor: auto; /* Jika Anda ingin menambahkan efek hover */
-}
-/* CSS untuk perangkat hape (misalnya, lebar layar kurang dari 600px) */
-@media (max-width: 600px) {
-    .elipsis {
-        /* Atur gaya CSS khusus untuk perangkat hape di sini */
-        max-width: 250px; /* Atur lebar maksimum sesuai dengan yang Anda inginkan */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer; /* Jika Anda ingin menambahkan efek hover */
-    }
-    .elipsis:hover {
-        /* Atur gaya CSS khusus untuk hover di perangkat hape di sini */
-        white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    cursor: auto; /* Jika Anda ingin menambahkan efek hover */
-    }
-}
+        .elipsis:hover {
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
+            cursor: auto;
+            /* Jika Anda ingin menambahkan efek hover */
+        }
 
-/* CSS untuk perangkat tablet (misalnya, lebar layar antara 600px dan 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
-    .elipsis {
-        /* Atur gaya CSS khusus untuk perangkat tablet di sini */
-        max-width: 550px; /* Atur lebar maksimum sesuai dengan yang Anda inginkan */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer; /* Jika Anda ingin menambahkan efek hover */
-    }
-    .elipsis:hover {
-        /* Atur gaya CSS khusus untuk hover di perangkat tablet di sini */
-        white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    cursor: auto; /* Jika Anda ingin menambahkan efek hover */
-    }
-}
+        /* CSS untuk perangkat hape (misalnya, lebar layar kurang dari 600px) */
+        @media (max-width: 600px) {
+            .elipsis {
+                /* Atur gaya CSS khusus untuk perangkat hape di sini */
+                max-width: 250px;
+                /* Atur lebar maksimum sesuai dengan yang Anda inginkan */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                cursor: pointer;
+                /* Jika Anda ingin menambahkan efek hover */
+            }
 
-/* CSS untuk perangkat laptop (misalnya, lebar layar lebih dari 1024px) */
-@media (min-width: 1025px) {
-    .elipsis {
-        /* Atur gaya CSS khusus untuk perangkat laptop di sini */
-        max-width: 1000px; /* Atur lebar maksimum sesuai dengan yang Anda inginkan */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer; /* Jika Anda ingin menambahkan efek hover */
-    }
-    .elipsis:hover {
-        /* Atur gaya CSS khusus untuk hover di perangkat laptop di sini */
-        white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    cursor: auto; /* Jika Anda ingin menambahkan efek hover */
-    }
-}
+            .elipsis:hover {
+                /* Atur gaya CSS khusus untuk hover di perangkat hape di sini */
+                white-space: normal;
+                overflow: visible;
+                text-overflow: clip;
+                cursor: auto;
+                /* Jika Anda ingin menambahkan efek hover */
+            }
+        }
+
+        /* CSS untuk perangkat tablet (misalnya, lebar layar antara 600px dan 1024px) */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .elipsis {
+                /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+                max-width: 550px;
+                /* Atur lebar maksimum sesuai dengan yang Anda inginkan */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                cursor: pointer;
+                /* Jika Anda ingin menambahkan efek hover */
+            }
+
+            .elipsis:hover {
+                /* Atur gaya CSS khusus untuk hover di perangkat tablet di sini */
+                white-space: normal;
+                overflow: visible;
+                text-overflow: clip;
+                cursor: auto;
+                /* Jika Anda ingin menambahkan efek hover */
+            }
+        }
+
+        /* CSS untuk perangkat laptop (misalnya, lebar layar lebih dari 1024px) */
+        @media (min-width: 1025px) {
+            .elipsis {
+                /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+                max-width: 1000px;
+                /* Atur lebar maksimum sesuai dengan yang Anda inginkan */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                cursor: pointer;
+                /* Jika Anda ingin menambahkan efek hover */
+            }
+
+            .elipsis:hover {
+                /* Atur gaya CSS khusus untuk hover di perangkat laptop di sini */
+                white-space: normal;
+                overflow: visible;
+                text-overflow: clip;
+                cursor: auto;
+                /* Jika Anda ingin menambahkan efek hover */
+            }
+        }
     </style>
     <style>
-       .card-with-shadow {
-    border-radius: 0 0 15px 15px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-}
+        .card-with-shadow {
+            border-radius: 0 0 15px 15px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+        }
 
-    .gambar-icon {
-    display: block;
-    margin: 0 auto 10px; /* Auto-margin pada sisi horizontal untuk mengatur ke tengah */
-    width: 50%; /* Sesuaikan ukuran gambar sesuai kebutuhan Anda */
-    height: auto; /* Biarkan tinggi mengikuti proporsi gambar */
-}
+        .gambar-icon {
+            display: block;
+            margin: 0 auto 10px;
+            /* Auto-margin pada sisi horizontal untuk mengatur ke tengah */
+            width: 50%;
+            /* Sesuaikan ukuran gambar sesuai kebutuhan Anda */
+            height: auto;
+            /* Biarkan tinggi mengikuti proporsi gambar */
+        }
 
-.comment-container {
-    max-height: 300px;
-    overflow-y: scroll;
-    position: relative;
-}
-
-
+        .comment-container {
+            max-height: 300px;
+            overflow-y: scroll;
+            position: relative;
+        }
     </style>
 
     <!-- Page-wrapper-Start -->
@@ -210,7 +225,8 @@
                             <div class="row text-center">
                                 <div class="col-lg-12">
                                     <h5 style="color: #104898; font-weight: bold;">Bantuan Dan Dukungan</h5>
-                                    <h6 style="color: #104898; font-size:12px;">Kami di sini membantu Anda mengatasi masalah</h6>
+                                    <h6 style="color: #104898; font-size:12px;">Kami di sini membantu Anda mengatasi
+                                        masalah</h6>
                                 </div>
                             </div>
                         </div>
@@ -219,23 +235,22 @@
                 <div class="row justify-content-between mb-3">
                     <div class="col-12 text-center">
                         <a href="{{ url('id/start') }}" class="btn btn-outline-info custom-btn">
-                            <img src="{{asset('memulai.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
+                            <img src="{{ asset('memulai.png') }}" alt="Deskripsi Gambar" class="gambar-icon">
                             Memulai
                         </a>
 
-                        <a href="{{ url('id/announcement') }}"
-                            class="btn btn-outline-info custom-btn">
-                            <img src="{{asset('pengumuman.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
+                        <a href="{{ url('id/announcement') }}" class="btn btn-outline-info custom-btn">
+                            <img src="{{ asset('pengumuman.png') }}" alt="Deskripsi Gambar" class="gambar-icon">
                             Pengumuman
                         </a>
                         <a href="{{ url('id/account') }}" class="btn btn-outline-info custom-btn">
-                            <img src="{{asset('akun.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
+                            <img src="{{ asset('akun.png') }}" alt="Deskripsi Gambar" class="gambar-icon">
                             Akun
                         </a>
-                        <a href="{{ url('id/platform-microsite') }}"
-                        class="btn btn-outline-info custom-btn"><img src="{{asset('layananmicrosite.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
-                        Layanan Microsite
-                    </a>
+                        <a href="{{ url('id/platform-microsite') }}" class="btn btn-outline-info custom-btn"><img
+                                src="{{ asset('layananmicrosite.png') }}" alt="Deskripsi Gambar" class="gambar-icon">
+                            Layanan Microsite
+                        </a>
 
                     </div>
                 </div>
@@ -243,22 +258,22 @@
             <div class="container">
                 <div class="row justify-content-between mb-5">
                     <div class="col-12 text-center">
-                        <a href="{{ url('id/billing-subscriptions') }}"
-                        class="btn btn-outline-info custom-btn">
-                        <img src="{{asset('layananstarter.png')}}" alt="Deskripsi Gambar" class="gambar-icon">
-                        Penagihan dan Langganan
-                    </a>
+                        <a href="{{ url('id/billing-subscriptions') }}" class="btn btn-outline-info custom-btn">
+                            <img src="{{ asset('layananstarter.png') }}" alt="Deskripsi Gambar" class="gambar-icon">
+                            Penagihan dan Langganan
+                        </a>
 
-                    <a href="{{ route('landing.shortlink') }}" class="btn btn-outline-info custom-btn">
-                        <img src="{{ asset('penyingkatan.png') }}" alt="Deskripsi Gambar" class="gambar-icon">
-                        Penyingkat Tautan
-                    </a>
+                        <a href="{{ route('landing.shortlink') }}" class="btn btn-outline-info custom-btn">
+                            <img src="{{ asset('penyingkatan.png') }}" alt="Deskripsi Gambar" class="gambar-icon">
+                            Penyingkat Tautan
+                        </a>
 
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-12 " >
-                <div class="card mb-3" style="background-color:  #ffff; box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.25);border-radius: 15px;">
+            <div class="col-xxl-12 ">
+                <div class="card mb-3"
+                    style="background-color:  #ffff; box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.25);border-radius: 15px;">
                     <div class="card-header-white d-flex align-items-center">
                         {{-- <h5 class="card-title mb-0 flex-grow-1 text-center mt-4">Aktivitas Terbaru</h5> --}}
                     </div>
@@ -277,13 +292,19 @@
                                 </div>
                             @else
                                 @foreach ($komentar as $key => $row)
-                                    <div class="card-body " >
-                                        <div class="d-flex align-items-center text-muted {{ $key < 1 ? '' : ' hidden' }}" style="margin-bottom: -14px;">
+                                    <div class="card-body ">
+                                        <div class="d-flex align-items-center text-muted {{ $key < 1 ? '' : ' hidden' }}"
+                                            style="margin-bottom: -14px;">
                                             <div class="flex-shrink-0 me-3">
-                                                @if ($row->user->profile_picture)
+                                                @if ($row->user->profile_picture && file_exists(public_path('profile_pictures/' . $row->user->profile_picture)))
                                                     <img class="header-profile-user"
                                                         src="{{ asset('profile_pictures/' . $row->user->profile_picture) }}"
                                                         alt="Header Avatar" width="50px" height="50px"
+                                                        style="margin-right: 10px; object-fit: cover;">
+                                                @elseif ($row->user->google_id && $row->user->profile_picture)
+                                                    <img class="header-profile-user"
+                                                        src="{{ $row->user->profile_picture }}" alt="Header Avatar"
+                                                        width="50px" height="50px"
                                                         style="margin-right: 10px; object-fit: cover;">
                                                 @else
                                                     <img class="header-profile-user"
@@ -296,7 +317,8 @@
                                                 <div class="d-flex justify-content-between align-items-start">
                                                     @foreach ($userId as $user)
                                                         @if ($user->id == $row->user_id)
-                                                            <h6 class="fs-md" style="margin-left:12px; font-size:14px;">
+                                                            <h6 class="fs-md"
+                                                                style="margin-left:12px; font-size:14px;">
                                                                 {{ $user->name }}
                                                             </h6>
                                                         @endif
@@ -310,7 +332,8 @@
                                                     @endif
                                                 </div>
                                                 <div class="d-flex justify-content-between align-items-start">
-                                                    <h6 class="elipsis mb-1 mt-2" style="margin-left: 12px; font-size: 14px;">
+                                                    <h6 class="elipsis mb-1 mt-2"
+                                                        style="margin-left: 12px; font-size: 14px;">
                                                         {{ $row->isikomentar }}</h6>
                                                 </div>
                                             </div>
@@ -320,24 +343,27 @@
                             @endif
                         </div>
                         @auth
-                        <!-- Comment Form -->
-                        <div class="col-lg-12 mb-1" style="position: sticky; bottom: 10px;">
-                            <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm" method="POST" enctype="multipart/form-data" class="mt-3">
-                                @csrf
-                                <div class="input-group" style="border: 1px solid #000; border-radius: 10px;">
-                                    <textarea class="form-control bg-light border-0" placeholder="Tambahkan Komentar" name="isikomentar" style="font-size: 12px; height: 35px; border: none;"></textarea>
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-secondary" style="background-color: #f8f9fa; border: none; border-radius: 10px; height: 35px;">
-                                            <i class="fas fa-paper-plane" style="color: #404243;"></i>
-                                        </button>
+                            <!-- Comment Form -->
+                            <div class="col-lg-12 mb-1" style="position: sticky; bottom: 10px;">
+                                <form action="{{ route('create', ['id' => Auth::user()->id]) }}" id="commentForm"
+                                    method="POST" enctype="multipart/form-data" class="mt-3">
+                                    @csrf
+                                    <div class="input-group" style="border: 1px solid #000; border-radius: 10px;">
+                                        <textarea class="form-control bg-light border-0" placeholder="Tambahkan Komentar" name="isikomentar"
+                                            style="font-size: 12px; height: 35px; border: none;"></textarea>
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-secondary"
+                                                style="background-color: #f8f9fa; border: none; border-radius: 10px; height: 35px;">
+                                                <i class="fas fa-paper-plane" style="color: #404243;"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
 
-                                @error('isikomentar')
-                                <div class="text-danger mt-2">{{ $message }}</div>
-                                @enderror
-                            </form>
-                        </div>
+                                    @error('isikomentar')
+                                        <div class="text-danger mt-2">{{ $message }}</div>
+                                    @enderror
+                                </form>
+                            </div>
                         @endauth
 
 
@@ -352,10 +378,12 @@
     <!-- Footer-Section end -->
 
     <!-- VIDEO MODAL -->
-    <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <button id="close-video" type="button" class="button btn btn-default text-right" data-dismiss="modal">
+                <button id="close-video" type="button" class="button btn btn-default text-right"
+                    data-dismiss="modal">
                     <i class="icofont-close-line-circled"></i>
                 </button>
                 <div class="modal-body">
