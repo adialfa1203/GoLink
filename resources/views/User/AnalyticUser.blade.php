@@ -790,18 +790,37 @@
             });
         }
     </script>
+      @if ($user->subscribe == 'platinum')
     <script>
-        var countURLValue = {{ $countURL }};
+        var countData = 1;
+        var progressBar = document.getElementById("progress-bar");
+        var progressBarWidth = (countData / 1) * 100;
+        progressBar.style.width = progressBarWidth + "%";
+        progressBar.setAttribute("aria-valuenow", countData);
+    </script>
+    @else
+    <script>
+        var countData = {{ $countURL }};
+        var progressBar = document.getElementById("progress-bar");
+        var progressBarWidth = (countData / {{ $urlStatus }}) * 100;
+        progressBar.style.width = progressBarWidth + "%";
+        progressBar.setAttribute("aria-valuenow", countData);
+    </script>
+    @endif
 
-        var percentage = (countURLValue / {{ $urlStatus }}) * 100;
 
-        var progressBar = document.querySelector('.progress-bar');
-        progressBar.style.width = percentage + '%';
+    @if ($user->subscribe == 'platinum')
+    <script>
+        var countURLValue = 1;
+
+        var progressBar = document.querySelector('#total-microsite');
+        progressBar.style.width = ((countURLValue / 1) * 100) + '%';
         progressBar.setAttribute('aria-valuenow', countURLValue);
 
-        var progressText = document.querySelector('.text-muted.mb-0 b');
-        progressText.textContent = countURLValue + ' dari {{ $urlStatus }}';
+        var progressText = document.querySelector('#microsite-total');
+        progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
     </script>
+    @else
     <script>
         var countURLValue = {{ $countMicrosite }};
 
@@ -812,5 +831,6 @@
         var progressText = document.querySelector('#microsite-total');
         progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
     </script>
+    @endif
 
 @endsection
