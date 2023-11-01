@@ -154,15 +154,21 @@
                                         <div class="d-flex row">
                                             <div class="col-12 col-lg-2 col-xl-2 col-sm-6 col-md-6">
                                                 <center>
-                                                    @if ($user->profile_picture)
+                                                    @if ($request->hasFile('profile_picture'))
+                                                        @if (!$coverImage->isValid() || !in_array($coverImage->getClientMimeType(), ['image/jpeg', 'image/png', 'image/jpg']))
+                                                            <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
+                                                                alt="{{ $user->name }}"
+                                                                class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                                        @else
+                                                            <img src="{{ asset('profile_pictures/' . $coverImageName) }}"
+                                                                alt="{{ $user->name }}"
+                                                                class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                                        @endif
+                                                    @elseif ($user->profile_picture)
                                                         <img src="{{ $user->profile_picture }}" alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                                     @elseif ($user->google_id)
                                                         <img src="{{ $user->profile_picture }}" alt="{{ $user->name }}"
-                                                            class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                                                    @elseif ($user->google_id && $user->updated_profile_picture)
-                                                        <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
-                                                            alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                                     @else
                                                         <img src="{{ asset('default/default.jpg') }}"
