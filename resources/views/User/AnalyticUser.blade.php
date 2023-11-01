@@ -205,12 +205,15 @@
                                         </h6>
                                     </div>
                                 </div>
-                                <div class="progress" data-bs-toggle="tooltip"
-                                    data-bs-title="{{ $countURL }} Tautan dibuat">
-                                    <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
-                                </div>
+                                @if ($user->subscribe !== 'platinum')
+                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                        </div>
+                        @else
+                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
+                        </div>
+                        @endif
                                 <p class="mb-0">
                                             <b>
                                                 {{ $countURL }} dari
@@ -790,7 +793,7 @@
             });
         }
     </script>
-      @if ($user->subscribe == 'platinum')
+    @if ($user->subscribe == 'platinum')
     <script>
         var countData = 1;
         var progressBar = document.getElementById("progress-bar");
@@ -808,51 +811,6 @@
     </script>
     @endif
 
-    @if ($user->subscribe !== 'platinum')
-    <script>
-        var countData = {{ $countNameChanged }};
-        var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / 5) * 100;
-        progressBar.style.width = progressBarWidth + "%";
-        progressBar.setAttribute("aria-valuenow", countData);
-
-        var progressText = document.querySelector('.text-muted.mb-0 b');
-        progressText.textContent = countData + " dari 5";
-    </script>
-    <script>
-        var countData = {{ $countMicrosite }};
-        var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / {{ $micrositeStatus }}) * 100;
-        progressBar.style.width = progressBarWidth + "%";
-        progressBar.setAttribute("aria-valuenow", countData);
-    </script>
-    <script>
-        var countURLValue = {{ $countURL }};
-
-        // Calculate the percentage
-        var percentage = (countURLValue / {{ $urlStatus }}) * 100;
-
-        var progressBar = document.querySelector('.progress-bar');
-        progressBar.style.width = percentage + '%';
-        progressBar.setAttribute('aria-valuenow', countURLValue);
-
-        var progressText = document.querySelector('.text-muted.mb-0 b');
-        progressText.textContent = countURLValue + ' dari {{ $urlStatus }}';
-    </script>
-    @endif
-
-    @if ($user->subscribe == 'platinum')
-    <script>
-        var countURLValue = 1;
-
-        var progressBar = document.querySelector('#total-microsite');
-        progressBar.style.width = ((countURLValue / 1) * 100) + '%';
-        progressBar.setAttribute('aria-valuenow', countURLValue);
-
-        var progressText = document.querySelector('#microsite-total');
-        progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
-    </script>
-    @else
     <script>
         var countURLValue = {{ $countMicrosite }};
 
@@ -863,5 +821,5 @@
         var progressText = document.querySelector('#microsite-total');
         progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
     </script>
-    @endif
+
 @endsection
