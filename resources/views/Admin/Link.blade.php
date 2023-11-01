@@ -143,8 +143,8 @@
                                 </thead>
                                 <tbody class="list form-check-all">
                                     @foreach ($users->sortByDesc(function ($user) use ($userData) {
-                                            return $userData[$user->id]['total_links'];
-                                        }) as $index => $user)
+            return $userData[$user->id]['total_links'];
+        }) as $index => $user)
                                         @php
                                             $popularLinks = $userData[$user->id]['popular_links'] ?? null;
                                             $popularMicrosites = $userData[$user->id]['popular_microsites'] ?? null;
@@ -193,7 +193,7 @@
                     </div>
                 </div>
                 <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
-                    <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}"
+                    <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
                         href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
                         Sebelumnya
                     </a>
@@ -227,7 +227,7 @@
                             </li>
                         @endif
                     </ul>
-                    <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}"
+                    <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
                         href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
                         Selanjutnya
                     </a>
