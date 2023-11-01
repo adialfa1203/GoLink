@@ -158,33 +158,19 @@
                                                         <img src="{{ asset('profile_pictures/' . $user->profile_picture) }}"
                                                             alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                                                        @if (!$user->google_id)
-                                                            <input id="profile-img-file-input" name="profile_picture"
-                                                                type="file" class="profile-img-file-input">
-                                                            <label for="profile-img-file-input"
-                                                                class="profile-photo-edit avatar-xs">
-                                                                <span
-                                                                    class="avatar-title rounded-circle bg-light text-body foto">
-                                                                    <i class="bi bi-camera"></i>
-                                                                </span>
-                                                            </label>
-                                                        @endif
                                                     @else
                                                         <img src="{{ asset('default/default.jpg') }}"
                                                             alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                                                        @if (!$user->google_id)
-                                                            <input id="profile-img-file-input" name="profile_picture"
-                                                                type="file" class="profile-img-file-input">
-                                                            <label for="profile-img-file-input"
-                                                                class="profile-photo-edit avatar-xs">
-                                                                <span
-                                                                    class="avatar-title rounded-circle bg-light text-body foto">
-                                                                    <i class="bi bi-camera"></i>
-                                                                </span>
-                                                            </label>
-                                                        @endif
                                                     @endif
+                                                    <input id="profile-img-file-input" name="profile_picture" type="file"
+                                                        class="profile-img-file-input">
+                                                    <label for="profile-img-file-input"
+                                                        class="profile-photo-edit avatar-xs">
+                                                        <span class="avatar-title rounded-circle bg-light text-body foto">
+                                                            <i class="bi bi-camera"></i>
+                                                        </span>
+                                                    </label>
                                                 </center>
                                             </div>
                                             <div class="texs col-12 col-lg-6 col-xl-6 col-sm-6 col-md-6">

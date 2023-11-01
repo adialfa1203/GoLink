@@ -1,82 +1,82 @@
 @section('style')
-<style>
-    [data-theme=default][data-topbar=dark] .text-light {
-        color: #EEF0F7 !important;
-    }
-
-    .marquee {
-        width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    .marquee {
-        animation: scroll 20s linear infinite;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-
-    @keyframes marquee {
-        0% {
-            transform: translateX(100%);
+    <style>
+        [data-theme=default][data-topbar=dark] .text-light {
+            color: #EEF0F7 !important;
         }
 
-        100% {
-            transform: translateX(-100%);
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
         }
-    }
 
-    marquee {
-        width: 100%;
-        color: white;
-        overflow: hidden;
-        white-space: nowrap;
-        background-color: #EE3232;
-        font: 'Cairo', sans-serif;
-    }
+        .marquee {
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
 
-    marquee {
-        display: flex;
-        justify-content: space-between;
-    }
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
 
-    .sidebar-hidden {
-        display: none;
-    }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
 
-    /* Tombol aktif */
-    .nav-item .nav-link.active {
-        background-color: #007bff;
-        /* Warna latar belakang tombol aktif */
-        color: #fff;
-        /* Warna teks tombol aktif */
-    }
+        marquee {
+            width: 100%;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: #EE3232;
+            font: 'Cairo', sans-serif;
+        }
 
-    /* Hover pada tombol yang aktif */
-    .nav-item .nav-link.active:hover {
-        background-color: #007bff;
-        /* Warna latar belakang hover tombol aktif (sama dengan tombol aktif) */
-        color: #fff;
-        /* Warna teks hover tombol aktif (sama dengan tombol aktif) */
-    }
-</style>
-<script>
-    // Ambil semua elemen tombol dengan kelas "nav-link"
-    const navLinks = document.querySelectorAll('.nav-link');
+        marquee {
+            display: flex;
+            justify-content: space-between;
+        }
 
-    // Iterasi melalui setiap tombol dan tambahkan event listener
-    navLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-            // Hapus kelas "active" dari semua tombol
-            navLinks.forEach((otherLink) => {
-                otherLink.classList.remove('active');
+        .sidebar-hidden {
+            display: none;
+        }
+
+        /* Tombol aktif */
+        .nav-item .nav-link.active {
+            background-color: #007bff;
+            /* Warna latar belakang tombol aktif */
+            color: #fff;
+            /* Warna teks tombol aktif */
+        }
+
+        /* Hover pada tombol yang aktif */
+        .nav-item .nav-link.active:hover {
+            background-color: #007bff;
+            /* Warna latar belakang hover tombol aktif (sama dengan tombol aktif) */
+            color: #fff;
+            /* Warna teks hover tombol aktif (sama dengan tombol aktif) */
+        }
+    </style>
+    <script>
+        // Ambil semua elemen tombol dengan kelas "nav-link"
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Iterasi melalui setiap tombol dan tambahkan event listener
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                // Hapus kelas "active" dari semua tombol
+                navLinks.forEach((otherLink) => {
+                    otherLink.classList.remove('active');
+                });
+
+                // Tambahkan kelas "active" pada tombol yang sedang diklik
+                link.classList.add('active');
             });
-
-            // Tambahkan kelas "active" pada tombol yang sedang diklik
-            link.classList.add('active');
         });
-    });
-</script>
+    </script>
 @endsection
 <div class="app-menu navbar-menu">
     <!-- LOGO -->
@@ -97,7 +97,8 @@
                 <img src="{{ asset('template/image/milink-putih.png') }}" alt="" width="120" height="30">
             </span>
         </a>
-        <button type="button" class="btn btn-sm p-0 fs-3xl header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+        <button type="button" class="btn btn-sm p-0 fs-3xl header-item float-end btn-vertical-sm-hover"
+            id="vertical-hover">
             <i class="ri-record-circle-line"></i>
         </button>
     </div>
@@ -132,31 +133,28 @@
                     </div>
                     </span>
                     </button> --}}
-                    <button class="nav-link bg-transparent text-white" type="button" role="button" aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">
+                    <button class="nav-link bg-transparent text-white" type="button" role="button"
+                        aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">
                         @if (auth()->user()->profile_picture)
-                        @if(auth()->user()->google_id)
-                        <img src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}"
-                        class="header-profile-user"  alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
+                            <img src="{{ asset('profile_pictures/' . auth()->user()->profile_picture) }}"
+                                alt="{{ auth()->user()->name }}" class="header-profile-user"
+                                style="margin-right: 10px; object-fit: cover;">
                         @else
-                        <img src="{{ asset('profile_pictures/' . auth()->user()->profile_picture) }}"
-                            alt="{{ auth()->user()->name }}"
-                            class="header-profile-user" alt="Header Avatar" style="margin-right: 10px; object-fit: cover;">
+                            <img src="{{ asset('default/default.jpg') }}" alt="{{ auth()->user()->name }}"
+                                class="header-profile-user" style="margin-right: 10px; object-fit: cover;">
                         @endif
-                        @else
-                        <img src="{{ asset('default/default.jpg') }}"
-                            alt="{{ auth()->user()->name }}"
-                            class="header-profile-user" alt="Default Avatar" style="margin-right: 10px; object-fit: cover;">
-                        @endif
+
 
                         <div class="text-start ms-xl-2 ">
                             <span>
-                                <div class="ellipsis" style=" text-overflow: ellipsis !important;
-  overflow: hidden !important;
-  -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
-  display: -webkit-box !important;
-  word-break: break-word !important;
-  max-width: 100px; /* Sesuaikan dengan lebar yang sesuai */">
+                                <div class="ellipsis"
+                                    style=" text-overflow: ellipsis !important;
+                                    overflow: hidden !important;
+                                    -webkit-line-clamp: 2 !important;
+                                    -webkit-box-orient: vertical !important;
+                                    display: -webkit-box !important;
+                                    word-break: break-word !important;
+                                    max-width: 100px; /* Sesuaikan dengan lebar yang sesuai */">
                                     {!! Auth::user()->name !!}
                                 </div>
                             </span>
@@ -172,18 +170,26 @@
 
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('dashboard.user') ? 'active' : '' }}" href="{{ url('user/dashboard-user') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                    <a style="margin-top:10px;"
+                        class="nav-link menu-link {{ request()->routeIs('dashboard.user') ? 'active' : '' }}"
+                        href="{{ url('user/dashboard-user') }}" role="button" aria-expanded="false"
+                        aria-controls="sidebarDashboards">
                         <i class="bi bi-house-fill"></i> <span data-key="t-dashboards">Beranda</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('analytic.user') ? 'active' : '' }}" href="{{ url('user/analytic-user') }}" class="nav-link menu-link"> <i class="bi bi-bar-chart-line-fill"></i>
+                    <a style="margin-top:10px;"
+                        class="nav-link menu-link {{ request()->routeIs('analytic.user') ? 'active' : '' }}"
+                        href="{{ url('user/analytic-user') }}" class="nav-link menu-link"> <i
+                            class="bi bi-bar-chart-line-fill"></i>
                         <span data-key="t-email">Analitik</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('link.show') ? 'active' : '' }}" href="{{ url('user/link/short-code') }}">
+                    <a style="margin-top:10px;"
+                        class="nav-link menu-link {{ request()->routeIs('link.show') ? 'active' : '' }}"
+                        href="{{ url('user/link/short-code') }}">
                         <i class="bi bi-link-45deg"></i>
                         <span data-key="t-email">Tautan</span>
                     </a>
@@ -207,30 +213,38 @@
         </div>
         </li> --}}
 
-        <li class="nav-item">
-            <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('microsite') ? 'active' : '' }} {{ request()->routeIs('add.microsite') ? 'active' : '' }} {{ request()->routeIs('edit.microsite') ? 'active' : '' }}" href="{{ url('user/microsite-user') }}"><i class="bi bi-person-badge-fill"></i>
-                <span data-key="t-file-manager">Microsite</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('subscribe.user') ? 'active' : '' }} {{ request()->routeIs('subscribe.product.user') ? 'active' : '' }}" href="{{ url('user/subscribe-user') }}">
-                <i class="bi bi-fire"></i> <span data-key="t-widgets">Berlangganan</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ url('user/profil-user') }}" class="nav-link menu-link"> <i class="bi bi-person-fill"></i>
-                <span data-key="t-chat">Profil</span> </a>
-        </li>
-        <li class="nav-item">
-            <a style="margin-top:10px;" class="nav-link menu-link" href="#" onclick="confirmLogout()"> <i class="mdi mdi-logout"></i>
-                <span data-key="t-chat">Keluar</span> </a>
-        </li>
-        </ul>
+                <li class="nav-item">
+                    <a style="margin-top:10px;"
+                        class="nav-link menu-link {{ request()->routeIs('microsite') ? 'active' : '' }} {{ request()->routeIs('add.microsite') ? 'active' : '' }} {{ request()->routeIs('edit.microsite') ? 'active' : '' }}"
+                        href="{{ url('user/microsite-user') }}"><i class="bi bi-person-badge-fill"></i>
+                        <span data-key="t-file-manager">Microsite</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a style="margin-top:10px;"
+                        class="nav-link menu-link {{ request()->routeIs('subscribe.user') ? 'active' : '' }} {{ request()->routeIs('subscribe.product.user') ? 'active' : '' }}"
+                        href="{{ url('user/subscribe-user') }}">
+                        <i class="bi bi-fire"></i> <span data-key="t-widgets">Berlangganan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a style="margin-top:10px;"
+                        class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}"
+                        href="{{ url('user/profil-user') }}" class="nav-link menu-link"> <i
+                            class="bi bi-person-fill"></i>
+                        <span data-key="t-chat">Profil</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a style="margin-top:10px;" class="nav-link menu-link" href="#" onclick="confirmLogout()">
+                        <i class="mdi mdi-logout"></i>
+                        <span data-key="t-chat">Keluar</span> </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Sidebar -->
     </div>
-    <!-- Sidebar -->
-</div>
 
-<div class="sidebar-background"></div>
+    <div class="sidebar-background"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
