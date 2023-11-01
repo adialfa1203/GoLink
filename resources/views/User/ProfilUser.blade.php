@@ -160,7 +160,7 @@
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                                         @if (!$user->google_id)
                                                             <input id="profile-img-file-input" name="profile_picture"
-                                                                type="file" class="profile-img-file-input d-none">
+                                                                type="file" class="profile-img-file-input">
                                                             <label for="profile-img-file-input"
                                                                 class="profile-photo-edit avatar-xs">
                                                                 <span
@@ -175,7 +175,7 @@
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                                         @if (!$user->google_id)
                                                             <input id="profile-img-file-input" name="profile_picture"
-                                                                type="file" class="profile-img-file-input d-none">
+                                                                type="file" class="profile-img-file-input">
                                                             <label for="profile-img-file-input"
                                                                 class="profile-photo-edit avatar-xs">
                                                                 <span
