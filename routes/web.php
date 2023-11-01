@@ -116,7 +116,6 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'role:user']], function
         Route::post('short-link', [ShortLinkController::class, 'shortLink'])->name('shortLink');
         Route::post('qr', [ShortLinkController::class, 'qr'])->name('qr');
 
-        Route::get('/set-all-messages-seen', [ChatifyController::class, 'setAllMessagesSeen'])->name('set-all-messages-seen');
         //AccessLink
         Route::post('short/{link}', [ShortLinkController::class, 'accessShortLink'])->name('access.shortlink');
         // Route::post('/microsite/{micrositeLink}', [ShortLinkController::class, 'micrositeLink'])->name('microsite.link');
