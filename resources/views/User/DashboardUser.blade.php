@@ -849,7 +849,7 @@
                                             <div class="url progress-bar-striped progress-bar-animated"
                                                 role="progressbar" aria-valuenow="{{ $countURL }}" aria-valuemin="0"
                                                 aria-valuemax="100"
-                                                style="width: {{ ($countURL / $urlStatus) * 100 }}%;">
+                                                style="width: 100%;">
                                             </div>
                                         </div>
                                         <p class="text-muted mb-0">
@@ -885,7 +885,7 @@
                                                 id="progress-bar" role="progressbar"
                                                 aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
                                                 aria-valuemax="10"
-                                                style="width: {{ ($countMicrosite / $micrositeStatus) * 100 }}%;">
+                                                style="width: 100%;">
                                             </div>
                                         </div>
                                         <p class="text-muted mb-0">
