@@ -310,43 +310,47 @@
                                                 <div class="col-sm-auto mt-3 mt-sm-0">
                                                     <div class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                                                         <div class="page-item">
-                                                        <div class="pagination-wrap hstack justify-content-center gap-2">
-    <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}" href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
-        Previous
-    </a>
-    <ul class="pagination listjs-pagination mb-0">
-        @if($d->currentPage() > 2)
-            <li>
-                <a class="page" href="{{ $d->url(1) }}">1</a>
-            </li>
-            @if($d->currentPage() > 3)
-                <li class="ellipsis">
-                    <span>...</span>
-                </li>
-            @endif
-        @endif
+                                                        <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
+                    <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
+                        href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
+                        Sebelumnya
+                    </a>
+                    <ul class="pagination listjs-pagination mb-0">
+                        @if ($d->currentPage() > 2)
+                            <li>
+                                <a class="page" href="{{ $d->url(1) }}">1</a>
+                            </li>
+                            @if ($d->currentPage() > 3)
+                                <li class="ellipsis">
+                                    <span>...</span>
+                                </li>
+                            @endif
+                        @endif
 
-        @for($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
-            <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
-                <a class="page" href="{{ $d->url($i) }}" data-i="{{ $i }}">{{ $i }}</a>
-            </li>
-        @endfor
+                        @for ($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
+                            <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
+                                <a class="page" href="{{ $d->url($i) }}"
+                                    data-i="{{ $i }}">{{ $i }}</a>
+                            </li>
+                        @endfor
 
-        @if($d->currentPage() < $d->lastPage() - 1)
-            @if($d->currentPage() < $d->lastPage() - 2)
-                <li class="ellipsis">
-                    <span>...</span>
-                </li>
-            @endif
-            <li>
-                <a class="page" href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
-            </li>
-        @endif
-    </ul>
-    <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}" href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
-        Next
-    </a>
-</div>
+                        @if ($d->currentPage() < $d->lastPage() - 1)
+                            @if ($d->currentPage() < $d->lastPage() - 2)
+                                <li class="ellipsis">
+                                    <span>...</span>
+                                </li>
+                            @endif
+                            <li>
+                                <a class="page" href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
+                            </li>
+                        @endif
+                    </ul>
+                    <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
+                        href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
+                        Selanjutnya
+                    </a>
+                </div>
+
 
                                                         </div>
                                                     </div>
