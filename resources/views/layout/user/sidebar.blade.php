@@ -135,25 +135,17 @@
                     </button> --}}
                     <button class="nav-link bg-transparent text-white" type="button" role="button"
                         aria-expanded="false" data-bs-toggle="dropdown" aria-controls="sidebarDashboards">
-                        @if (auth()->user()->profile_picture)
-                            @if (auth()->user()->google_id)
-                                <img src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}"
-                                    class="header-profile-user" style="margin-right: 10px; object-fit: cover;">
-                            @else
-                                <img src="{{ asset('profile_pictures/' . auth()->user()->profile_picture) }}"
-                                    alt="{{ auth()->user()->name }}" class="header-profile-user"
-                                    style="margin-right: 10px; object-fit: cover;">
-                            @endif
+                        @if (auth()->user()->profile_picture && file_exists(public_path('profile_pictures/' . auth()->user()->profile_picture)))
+                            <img src="{{ asset('profile_pictures/' . auth()->user()->profile_picture) }}"
+                                alt="{{ auth()->user()->name }}" class="header-profile-user"
+                                style="margin-right: 10px; object-fit: cover;">
+                        @elseif (auth()->user()->google_id && auth()->user()->profile_picture)
+                            <img src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}"
+                                class="header-profile-user" style="margin-right: 10px; object-fit: cover;">
                         @else
-                            @if (auth()->user()->google_id)
-                                <img src="{{ asset('default/google_default.jpg') }}" alt="{{ auth()->user()->name }}"
-                                    class="header-profile-user" style="margin-right: 10px; object-fit: cover;">
-                            @else
-                                <img src="{{ asset('default/default.jpg') }}" alt="{{ auth()->user()->name }}"
-                                    class="header-profile-user" style="margin-right: 10px; object-fit: cover;">
-                            @endif
+                            <img src="{{ asset('default/default.jpg') }}" alt="{{ auth()->user()->name }}"
+                                class="header-profile-user" style="margin-right: 10px; object-fit: cover;">
                         @endif
-
                         <div class="text-start ms-xl-2 ">
                             <span>
                                 <div class="ellipsis"
