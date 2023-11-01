@@ -378,6 +378,7 @@
 
                                                             </div>
                                                         </div>
+                                                        @if ($user->subscribe !== 'platinum')
                                                         <div id="zoomInModal1" class="modal fade zoomIn" tabindex="-1"
                                                             aria-labelledby="zoomInModalLabel" aria-hidden="true"
                                                             style="display: none;">
@@ -410,6 +411,40 @@
                                                                 </div><!-- /.modal-dialog -->
                                                             </div>
                                                         </div>
+                                                        @else
+                                                        <div id="zoomInModal1" class="modal fade zoomIn" tabindex="-1"
+                                                            aria-labelledby="zoomInModalLabel" aria-hidden="true"
+                                                            style="display: none;">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title text-center" id="TimeModalLabel">&nbsp;Tautan Terproteksi</h5>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal" aria-label="Close"
+                                                                            data-id="{{ $row->id }}"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="card-body d-flex">
+                                                                            <p>Lindungi tautan anda dengan menambahkan kata sandi</p>
+                                                                        </div>
+                                                                        <div class="col-lg-12 mb-3 mt-3">
+                                                                            <label for="deactivated_at">Ubah
+                                                                                Tanggal</label>
+                                                                            <input type="text"
+                                                                                class="form-control"
+                                                                                name="deactivated_at">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light"
+                                                                            data-bs-dismiss="modal">Tutup</button>
+                                                                        <button type="button"
+                                                                            class="btn-submit btn btn-primary submitKustom">Simpan</button>
+                                                                    </div>
+                                                                </div><!-- /.modal-content -->
+                                                            </div><!-- /.modal-dialog -->
+                                                        </div>
+                                                        @endif
                                                         <!-- /.modal -->
                                                         <div id="tombol-modal-{{ $row->id }}"
                                                             class="modal fade zoomIn modal-sm" tabindex="-1"
@@ -549,7 +584,6 @@
                                                                                     id="deactivated_at-{{ $row->id }}"
                                                                                     data-key="{{ $row->url_key }}"
                                                                                     min="{{ now()->format('Y-m-d\TH:i') }}">
-
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">

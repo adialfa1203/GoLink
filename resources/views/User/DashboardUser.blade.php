@@ -664,7 +664,17 @@
                                                             </p>
                                                             <br>
                                                             <h6 for="cardNumber" class="card-title">Tautan original
-                                                                diubah/bulan
+                                                                diubah /
+                                                                @if ($user->subscribe == 'free')
+                                                                Bulan
+                                                                @elseif ($user->subscribe == 'silver')
+                                                                    Minggu
+                                                                @elseif ($user->subscribe == 'gold')
+                                                                    Bulan
+                                                                @elseif ($user->subscribe == 'platinum')
+                                                                    Tahun
+                                                                @else
+                                                                @endif                                                                
                                                                 <span class="tooltip-icon"
                                                                     data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                     <i
@@ -699,9 +709,18 @@
                                                         <div class="col-lg-12">
                                                             <div class="col-lg-12">
                                                                 <div>
-                                                                    <label for="cardNumber" class="form-label">Tautan
-                                                                        original
-                                                                        diubah/bulan</label>
+                                                                    <p for="cardNumber" class="form-label">Tautan original  /
+                                                                    @if ($user->subscribe == 'free')
+                                                                    Bulan
+                                                                    @elseif ($user->subscribe == 'silver')
+                                                                        Minggu
+                                                                    @elseif ($user->subscribe == 'gold')
+                                                                        Bulan
+                                                                    @elseif ($user->subscribe == 'platinum')
+                                                                        Tahun
+                                                                    @else
+                                                                    @endif                                                                        
+                                                                    </p>
                                                                     <label for="AmountInput" class="unavailable-text"
                                                                         style="color: red;"><i>Tidak
                                                                             tersedia pada layanan ini</i></label>
