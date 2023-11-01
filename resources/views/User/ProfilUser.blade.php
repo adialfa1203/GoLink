@@ -168,7 +168,7 @@
                                                         <img src="{{ asset('default/default.jpg') }}"
                                                             alt="{{ $user->name }}"
                                                             class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
-                                                        @if (!$user->google_id)
+                                                        {{-- @if (!$user->google_id) --}}
                                                             <input id="profile-img-file-input" name="profile_picture"
                                                                 type="file" class="profile-img-file-input d-none">
                                                             <label for="profile-img-file-input"
@@ -178,7 +178,7 @@
                                                                     <i class="bi bi-camera"></i>
                                                                 </span>
                                                             </label>
-                                                        @endif
+                                                        {{-- @endif --}}
                                                     @endif
                                                 </center>
                                             </div>
