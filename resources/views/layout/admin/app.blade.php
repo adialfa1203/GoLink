@@ -1050,7 +1050,8 @@
                 if (data.profile_picture && data.profile_picture_exists && fileExists(data.profile_picture)) {
                     imageUrl = '/profile_pictures/' + data.profile_picture;
                 } else {
-                    imageUrl = (data.google_id !== null) ? data.profile_picture : '/default/default.jpg';
+                    imageUrl = (data.google_id !== null && data.google_id !== undefined) ? data.profile_picture :
+                        '/default/default.jpg';
                 }
                 return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
