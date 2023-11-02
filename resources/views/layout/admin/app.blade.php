@@ -1047,15 +1047,15 @@
             }
 
             function notificationCard(data) {
-            var imageUrl;
-            if (data.profile_picture && data.profile_picture_exists) {
-                imageUrl = '/profile_pictures/' + data.profile_picture;
-            } else if (data.google_id && data.profile_picture) {
-                imageUrl = data.profile_picture;
-            } else {
-                imageUrl = '/default/default.jpg';
-            }
-            return `<div class="d-flex mt-2">
+                var imageUrl;
+                if (data.profile_picture && data.profile_picture_exists && fileExists(data.profile_picture)) {
+                    imageUrl = '/profile_pictures/' + data.profile_picture;
+                } else if (data.google_id && data.profile_picture) {
+                    imageUrl = data.profile_picture;
+                } else {
+                    imageUrl = '/default/default.jpg';
+                }
+                return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
                     <img src="${imageUrl}" alt="${data.name}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                 </div>
@@ -1075,7 +1075,7 @@
                     </a>
                 </div>
             </div>`;
-        }
+            }
         </script>
         @yield('script')
     </body>
