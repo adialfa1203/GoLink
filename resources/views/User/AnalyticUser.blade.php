@@ -205,28 +205,28 @@
                                         </h6>
                                     </div>
                                 </div>
-                                @if (strtolower(trim($subscribe->tipe)) === 'free')
+                                @if (strtolower(trim($user->tipe)) === 'free')
                                 <div class="progress" data-bs-toggle="tooltip"
                                     data-bs-title="{{ $countURL }} Tautan dibuat">
                                     <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
                                         role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                         style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
                                 </div>
-                                @elseif (strtolower(trim($subscribe->tipe)) === 'silver')
+                                @elseif (strtolower(trim($user->tipe)) === 'silver')
                                 <div class="progress" data-bs-toggle="tooltip"
                                     data-bs-title="{{ $countURL }} Tautan dibuat">
                                     <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
                                         role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                         style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
                                 </div>
-                                    @elseif (strtolower(trim($subscribe->tipe)) === 'gold')
+                                    @elseif (strtolower(trim($user->tipe)) === 'gold')
                                     <div class="progress" data-bs-toggle="tooltip"
                                     data-bs-title="{{ $countURL }} Tautan dibuat">
                                     <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
                                         role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                         style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
                                 </div>
-                                    @elseif (strtolower(trim($subscribe->tipe)) === 'platinum')
+                                    @elseif (strtolower(trim($user->tipe)) === 'platinum')
                                     <div class="progress" data-bs-toggle="tooltip"
                                     data-bs-title="{{ $countURL }} Tautan dibuat">
                                     <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
