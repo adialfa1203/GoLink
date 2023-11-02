@@ -182,77 +182,73 @@
             <div class="col-lg-3">
                 <div class="card mid" style="background-color: #F0F0F0;min-height: 96%;box-shadow: 2px 5px 4px 0px rgba(0, 0, 0, 0.25);">
                     <div class="card-body">
-                    <div class="row g-3">
-                                                    <div class="card-body">
-                                                        <h6 class="card-title">
-                                                            Tautan dibuat /
-                                                            @if ($user->subscribe == 'free')
-                                                                Bulan
-                                                            @elseif ($user->subscribe == 'silver')
-                                                                Minggu
-                                                            @elseif ($user->subscribe == 'gold')
-                                                                Bulan
-                                                            @elseif ($user->subscribe == 'platinum')
-                                                                Tahun
-                                                            @else
-
-                                                            @endif
-                                                        </h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                                                role="progressbar" aria-valuenow="{{ $countURL }}"
-                                                                aria-valuemin="0" aria-valuemax="100"
-                                                                style="width: 100%;">
-                                                            </div>
-                                                        </div>
-                                                        <p class="text-muted mb-0">
-                                                            <b>
-                                                                {{ $countURL }} dari
-                                                                @if (auth()->user()->subscribe == 'platinum')
-                                                                <span style="color: red;">Unlimited</span>
-                                                                @else
-                                                                    dari {{ $urlStatus }}
-                                                                @endif
-                                                            </b>
-                                                        </p>
-                                                        <br>
-                                                        <h3 class="card-title">Microsite dibuat /
-                                                            @if ($user->subscribe == 'free')
-                                                                Bulan
-                                                            @elseif ($user->subscribe == 'silver')
-                                                                Minggu
-                                                            @elseif ($user->subscribe == 'gold')
-                                                                Bulan
-                                                            @elseif ($user->subscribe == 'platinum')
-                                                                Tahun
-                                                            @else
-
-                                                            @endif
-                                                        </h3>
-                                                        <div class="progress">
-                                                            <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                                                id="progress-bar" role="progressbar"
-                                                                aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0"
-                                                                aria-valuemax="10"
-                                                                style="width: 100%;">
-                                                            </div>
-                                                        </div>
-                                                        <p class="text-muted mb-0">
-                                                            <b>
-                                                                {{ $countMicrosite }} dari
-                                                                @if (auth()->user()->subscribe == 'platinum')
-                                                                <span style="color: red;">Unlimited</span>
-                                                                @else
-                                                                    dari {{ $micrositeStatus }}
-                                                                @endif
-                                                            </b>
-                                                        </p>
-                                                        <br>
-                                                        @php
-                                                            $userType = Auth::user()->subscribe;
-                                                        @endphp
-                </div>
-            </div>
+                        <p style="color: #0E2954;font-family: Poppins;font-size: 20px;font-style: normal;font-weight: 600;line-height: normal;">
+                            Kuota</p>
+                        <hr>
+                        <div class="d-flex pb-1">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title" style="color: #0E2954;">
+                                    Tautan dibuat /Bulan
+                                    <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                        {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
+                                    </span>
+                                </h6>
+                            </div>
+                        </div>
+                        @if (strtolower(trim($user->subscribe)) === 'free')
+                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
+                        </div>
+                                    @elseif (strtolower(trim($user->subscribe)) === 'silver')
+                                    <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
+                        </div>
+                                    @elseif (strtolower(trim($user->subscribe)) === 'gold')
+                                    <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
+                        </div>
+                                    @elseif (strtolower(trim($user->subscribe)) === 'platinum')
+                                    <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated unli" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" ></div>
+                        </div>
+                                    @else
+                                    <h4 class="card-title mb-2 text-center">Data Tidak Valid</h4>
+                                    @endif
+                        <p class="mb-0">
+                            <b>
+                                {{ $countURL }} dari
+                                @if (auth()->user()->subscribe == 'platinum')
+                                <span style="color: red;">Unlimited</span>
+                                @else
+                                dari {{ $urlStatus }}
+                                @endif
+                            </b>
+                        </p>
+                        <br>
+                        <h6 class="card-title" style="color: #0E2954;">Microsite dibuat/Bulan
+                            <span class="tooltip-icon" data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
+                                {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
+                            </span>
+                        </h6>
+                        @if (auth()->user()->subscribe == 'platinum')
+                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated unli" id="total-microsite" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3"></div>
+                        </div>
+                        @else
+                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3" style="width:{{ ($countMicrosite / (int) $micrositeStatus) * 100 }}%"></div>
+                        </div>
+                        @endif
+                        <p class="mb-0">
+                            <b>
+                                {{ $countMicrosite }} dari
+                                @if (auth()->user()->subscribe == 'platinum')
+                                <span style="color: red;">Unlimited</span>
+                                @else
+                                dari {{ $micrositeStatus }}
+                                @endif
+                            </b>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -764,168 +760,6 @@
         popularDataContainer.classList.remove('d-none');
     });
 </script>
-<script>
-        let edit = false;
-
-        function statusEdit() {
-            edit = !edit;
-            console.log(edit);
-        }
-
-        $(document).ready(function() {
-            var userId = "{{ auth()->user()->subscribe }}";
-            console.log(userId);
-            $("#shortlinkSubmit").submit(function(event) {
-                event.preventDefault();
-                var destinationUrl = $("#AmountInput").val();
-                if (!destinationUrl) {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Kesalahan!",
-                        text: "Anda harus mengisi data terlebih dahulu.",
-                    });
-                    $("#addAmount").modal("hide");
-                    $("#addAmount").modal("hide");
-                    setTimeout(function() {
-                        $('#close-singkatkan').click();
-                    }, 1000);
-                } else {
-                    var countURL = {{ $countURL }};
-                    var countUrl;
-                    @if (auth()->user()->subscribe == 'free')
-                        countUrl = 15;
-                    @elseif (auth()->user()->subscribe == 'silver')
-                        countUrl = 35;
-                    @elseif (auth()->user()->subscribe == 'gold')
-                        countUrl = 50;
-                    @elseif (auth()->user()->subscribe == 'platinum')
-                        countUrl = 100;
-                    @endif
-                    if (countURL >= countUrl) {
-                        Swal.fire({
-                            icon: "error",
-                            title: "Kesalahan!",
-                            text: "Anda telah mencapai batas maksimum link diperpendek.",
-                        });
-                    } else {
-                        var formData = $(this).serialize();
-                        $.ajax({
-                            type: "POST",
-                            url: "short-link",
-                            data: formData,
-                            success: function(response) {
-                                if (response.status == 'gagal') {
-                                    Swal.fire({
-                                        title: 'Kesalahan...',
-                                        icon: 'error',
-                                        html: response.message +
-                                            ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
-                                            'untuk info lebih lanjut tentang langganan premium.',
-                                    });
-                                    setTimeout(function() {
-                                        $('#close-singkatkan').click();
-                                    }, 1000);
-                                }
-                                console.log(response.default_short_url);
-                                var defaultShort = response.default_short_url;
-                                var title = response.title;
-                                var url = response.destination_url;
-                                console.log(response.url_key);
-                                $("#default_short_url_id").val(response.id);
-                                $("#default_short_url").val(defaultShort);
-                                $("#title").val(title);
-                                $('#destination_url').val(url);
-
-                                $("#copyButton").show();
-                                $('#singkatkan').modal('show');
-                            },
-                            error: function(error) {
-                                $("#addAmount").modal("hide");
-                                $('#singkatkan').modal('hide');
-                                Swal.fire({
-                                    icon: "error",
-                                    title: "Kesalahan!",
-                                    text: "URL tidak valid",
-                                });
-                                console.error("Error:", error.responseJSON.message);
-                            }
-                        });
-                    }
-                }
-
-                $("#AmountInput").val("");
-                $("#cardNumber").val("");
-                $(".password-input").val("");
-                $(".time-input").val("");
-                $(".close-edit").val("");
-                $("#addAmount").modal("hide");
-            });
-        });
-
-        $("#password-addon").click(function() {
-            var passwordInput = $(".password-input");
-            var passwordAddon = $("#password-addon");
-
-            if (passwordInput.attr("type") === "password") {
-                passwordInput.attr("type", "text");
-                passwordAddon.html('<i class="ri-eye-off-fill align-middle"></i>');
-            } else {
-                passwordInput.attr("type", "password");
-                passwordAddon.html('<i class="ri-eye-fill align-middle"></i>');
-            }
-        });
-
-        $("#resetButton").click(function() {
-            $(".password-input").val("");
-        });
-        $("#time-reset").click(function() {
-            $(".time-input").val("");
-        });
-        $(".platform").click(function() {
-            var platform = $(this).data("platform");
-            var shortUrl = $("#default_short_url").val();
-
-            switch (platform) {
-                case "facebook":
-                    window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(
-                        shortUrl));
-                    break;
-                case "twitter":
-                    window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(shortUrl));
-                    break;
-                case "whatsapp":
-                    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shortUrl));
-                    break;
-                case "copy":
-                    var tempInput = $('<input>');
-                    $('#body').append(tempInput);
-                    console.log(shortUrl)
-                    tempInput.val(shortUrl).select();
-                    document.execCommand('copy');
-                    tempInput.remove();
-                    Swal.fire({
-                        title: 'Berhasil!',
-                        icon: 'success',
-                        text: 'Tautan Berhasil Disalin ke clipboard'
-                    })
-                    console.log(shortUrl)
-                    break;
-                case "qr":
-                    window.open(
-                        `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${ encodeURIComponent(shortUrl)}`
-                    );
-                    break;
-                default:
-                    break;
-            }
-        });
-        $("#simpanButton").click(function() {
-            $("#successAlert").fadeIn();
-            setTimeout(function() {
-                $("#successAlert").fadeOut();
-            }, 3000);
-        });
-    </script>
 <script>
     function toggleHover(buttonId) {
         const buttons = document.querySelectorAll('.btn.btn-subtle-primary');
