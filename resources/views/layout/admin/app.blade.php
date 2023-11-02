@@ -1047,13 +1047,16 @@
             }
 
             function notificationCard(data) {
-                var imageUrl;
-                if (data.google_id && data.image && data.image == 'null' && data.image == 'undefined') {
-                    imageUrl = 'profile_pictures/' + data.image;
-                } else if (data.google_id && data.image && data.image !== 'null' && data.image !== 'undefined') {
-                    imageUrl = data.image;
-                } else {
-                    imageUrl = 'default/default.jpg';
+                function notificationCard(data) {
+                    var imageUrl;
+                    if (data.google_id && data.image && data.image !== 'null' && data.image !== 'undefined') {
+                        imageUrl = data.image;
+                    } else if (data.image) {
+                        imageUrl = 'profile_pictures/' + data
+                            .image;
+                    } else {
+                        imageUrl = 'default/default.jpg';
+                    }
                 }
                 return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
