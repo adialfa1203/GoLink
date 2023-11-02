@@ -72,7 +72,7 @@ class NotificationController extends Controller
                 if ($message->google_id){
                     $message->image = $message->fromUser->profile_picture;
                 } else {
-                    $message->image = public_path('profile_pictures/'. $message->fromUser->profile_picture);
+                    $message->image = config('app.url').'/profile_pictures/'.$message->fromUser->profile_picture;
                 }
             }
 
@@ -81,7 +81,7 @@ class NotificationController extends Controller
                 if ($message->google_id){
                     $message->image = $message->toUser->profile_picture;
                 } else {
-                    $message->image = public_path('profile_picture/'. $message->toUser->profile_pictur);
+                    $message->image = config('app.url').'/profile_pictures/'.$message->toUser->profile_picture;
                 }
             }
         }
