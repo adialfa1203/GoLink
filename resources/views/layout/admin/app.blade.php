@@ -1048,9 +1048,9 @@
 
             function notificationCard(data) {
                 var imageUrl;
-                if (data.image && data.image != 'null') {
+                if (data.image && data.image !== 'null') {
                     imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
-                } else if (data.google_id && data.image) {
+                } else if (data.google_id) {
                     imageUrl = data.image;
                 } else {
                     imageUrl = '{{ asset('default/default.jpg') }}';
