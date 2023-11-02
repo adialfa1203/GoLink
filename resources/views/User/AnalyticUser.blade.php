@@ -211,12 +211,14 @@
                                                     <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                                     style="width: 100%"></div>
+                                </div>
                                                 @else
                                                     <div class="progress" data-bs-toggle="tooltip"
                                                     data-bs-title="{{ $countURL }} Tautan dibuat">
                                                     <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                                     style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
+                                                    </div>
                                                     @endif
                                 <p class="mb-0">
                                             <b>
