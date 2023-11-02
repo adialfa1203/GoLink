@@ -1049,7 +1049,7 @@
             function notificationCard(data) {
                 return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
-                    <img src="${imageUrl}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
+                    <img src="${data.image}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
                 </div>
                 <div class="flex-grow-1">
                     <a href="#!" class="stretched-link">

@@ -78,7 +78,11 @@ class NotificationController extends Controller
 
             if ($message->toUser) {
                 $message->toUserName = $message->toUser->name;
-                $message->image = $message->toUser->profile_picture;
+                if ($message->google_id){
+                    $message->image = $message->toUser->profile_picture;
+                } else {
+                    $message->image = public_path('profile_picture/'. $message->toUser->profile_pictur);
+                }
             }
         }
 
