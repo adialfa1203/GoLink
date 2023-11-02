@@ -1048,9 +1048,9 @@
 
             function notificationCard(data) {
                 var imageUrl;
-                if (data.google_id) {
+                if (data.google_id !== null) {
                     imageUrl = data.image;
-                } else if (data.image && data.image !== 'null' && data.image !== 'undefined') {
+                } else if (data.image && data.image == 'null' && data.image == 'undefined') {
                     imageUrl = 'profile_pictures/' + data.image;
                 } else {
                     imageUrl = 'default/default.jpg';
