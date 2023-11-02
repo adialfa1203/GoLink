@@ -1050,7 +1050,7 @@
                 var imageUrl;
                 if (data.google_id && data.image && data.image !== 'null' && data.image !== 'undefined') {
                     imageUrl = 'profile_pictures/' + data.image;
-                } else if (data.image) {
+                } else if (data.google_id && data.image && data.image == 'null' && data.image == 'undefined') {
                     imageUrl = data.image;
                 } else {
                     imageUrl = 'default/default.jpg';
