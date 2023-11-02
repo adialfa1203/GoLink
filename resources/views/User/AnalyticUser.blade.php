@@ -197,7 +197,7 @@
                                 <div class="d-flex pb-1">
                                     <div class="flex-grow-1">
                                         <h6 class="card-title" style="color: #0E2954;">
-                                            Tautan dibuat /Bulan ajaaaaa
+                                            Tautan dibuat /Bulan
                                             <span class="tooltip-icon"
                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                                 {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
@@ -218,7 +218,6 @@
                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                                     style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
                                                     @endif
-                                </div>
                                 <p class="mb-0">
                                             <b>
                                                 {{ $countURL }} dari
@@ -798,24 +797,18 @@
             });
         }
     </script>
-    @if ($user->subscribe == 'platinum')
     <script>
-        var countData = 1;
-        var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / 1) * 100;
-        progressBar.style.width = progressBarWidth + "%";
-        progressBar.setAttribute("aria-valuenow", countData);
-    </script>
-    @else
-    <script>
-        var countData = {{ $countURL }};
-        var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / {{ $urlStatus }}) * 100;
-        progressBar.style.width = progressBarWidth + "%";
-        progressBar.setAttribute("aria-valuenow", countData);
-    </script>
-    @endif
+        var countURLValue = {{ $countURL }};
 
+        var percentage = (countURLValue / {{ $urlStatus }}) * 100;
+
+        var progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = percentage + '%';
+        progressBar.setAttribute('aria-valuenow', countURLValue);
+
+        var progressText = document.querySelector('.text-muted.mb-0 b');
+        progressText.textContent = countURLValue + ' dari {{ $urlStatus }}';
+    </script>
     <script>
         var countURLValue = {{ $countMicrosite }};
 
