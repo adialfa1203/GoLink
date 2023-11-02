@@ -765,6 +765,168 @@
     });
 </script>
 <script>
+        let edit = false;
+
+        function statusEdit() {
+            edit = !edit;
+            console.log(edit);
+        }
+
+        $(document).ready(function() {
+            var userId = "{{ auth()->user()->subscribe }}";
+            console.log(userId);
+            $("#shortlinkSubmit").submit(function(event) {
+                event.preventDefault();
+                var destinationUrl = $("#AmountInput").val();
+                if (!destinationUrl) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Kesalahan!",
+                        text: "Anda harus mengisi data terlebih dahulu.",
+                    });
+                    $("#addAmount").modal("hide");
+                    $("#addAmount").modal("hide");
+                    setTimeout(function() {
+                        $('#close-singkatkan').click();
+                    }, 1000);
+                } else {
+                    var countURL = {{ $countURL }};
+                    var countUrl;
+                    @if (auth()->user()->subscribe == 'free')
+                        countUrl = 15;
+                    @elseif (auth()->user()->subscribe == 'silver')
+                        countUrl = 35;
+                    @elseif (auth()->user()->subscribe == 'gold')
+                        countUrl = 50;
+                    @elseif (auth()->user()->subscribe == 'platinum')
+                        countUrl = 100;
+                    @endif
+                    if (countURL >= countUrl) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Kesalahan!",
+                            text: "Anda telah mencapai batas maksimum link diperpendek.",
+                        });
+                    } else {
+                        var formData = $(this).serialize();
+                        $.ajax({
+                            type: "POST",
+                            url: "short-link",
+                            data: formData,
+                            success: function(response) {
+                                if (response.status == 'gagal') {
+                                    Swal.fire({
+                                        title: 'Kesalahan...',
+                                        icon: 'error',
+                                        html: response.message +
+                                            ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
+                                            'untuk info lebih lanjut tentang langganan premium.',
+                                    });
+                                    setTimeout(function() {
+                                        $('#close-singkatkan').click();
+                                    }, 1000);
+                                }
+                                console.log(response.default_short_url);
+                                var defaultShort = response.default_short_url;
+                                var title = response.title;
+                                var url = response.destination_url;
+                                console.log(response.url_key);
+                                $("#default_short_url_id").val(response.id);
+                                $("#default_short_url").val(defaultShort);
+                                $("#title").val(title);
+                                $('#destination_url').val(url);
+
+                                $("#copyButton").show();
+                                $('#singkatkan').modal('show');
+                            },
+                            error: function(error) {
+                                $("#addAmount").modal("hide");
+                                $('#singkatkan').modal('hide');
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Kesalahan!",
+                                    text: "URL tidak valid",
+                                });
+                                console.error("Error:", error.responseJSON.message);
+                            }
+                        });
+                    }
+                }
+
+                $("#AmountInput").val("");
+                $("#cardNumber").val("");
+                $(".password-input").val("");
+                $(".time-input").val("");
+                $(".close-edit").val("");
+                $("#addAmount").modal("hide");
+            });
+        });
+
+        $("#password-addon").click(function() {
+            var passwordInput = $(".password-input");
+            var passwordAddon = $("#password-addon");
+
+            if (passwordInput.attr("type") === "password") {
+                passwordInput.attr("type", "text");
+                passwordAddon.html('<i class="ri-eye-off-fill align-middle"></i>');
+            } else {
+                passwordInput.attr("type", "password");
+                passwordAddon.html('<i class="ri-eye-fill align-middle"></i>');
+            }
+        });
+
+        $("#resetButton").click(function() {
+            $(".password-input").val("");
+        });
+        $("#time-reset").click(function() {
+            $(".time-input").val("");
+        });
+        $(".platform").click(function() {
+            var platform = $(this).data("platform");
+            var shortUrl = $("#default_short_url").val();
+
+            switch (platform) {
+                case "facebook":
+                    window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(
+                        shortUrl));
+                    break;
+                case "twitter":
+                    window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(shortUrl));
+                    break;
+                case "whatsapp":
+                    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shortUrl));
+                    break;
+                case "copy":
+                    var tempInput = $('<input>');
+                    $('#body').append(tempInput);
+                    console.log(shortUrl)
+                    tempInput.val(shortUrl).select();
+                    document.execCommand('copy');
+                    tempInput.remove();
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        icon: 'success',
+                        text: 'Tautan Berhasil Disalin ke clipboard'
+                    })
+                    console.log(shortUrl)
+                    break;
+                case "qr":
+                    window.open(
+                        `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${ encodeURIComponent(shortUrl)}`
+                    );
+                    break;
+                default:
+                    break;
+            }
+        });
+        $("#simpanButton").click(function() {
+            $("#successAlert").fadeIn();
+            setTimeout(function() {
+                $("#successAlert").fadeOut();
+            }, 3000);
+        });
+    </script>
+<script>
     function toggleHover(buttonId) {
         const buttons = document.querySelectorAll('.btn.btn-subtle-primary');
 
