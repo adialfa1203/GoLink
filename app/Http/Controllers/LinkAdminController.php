@@ -38,6 +38,7 @@ class LinkAdminController extends Controller
                 'total_links' => ShortUrl::where('user_id', $user->id)->whereNull('microsite_uuid')->count(),
                 'total_microsites' => ShortUrl::where('user_id', $user->id)->whereNotNull('microsite_uuid')->count(),
                 'popular_links' => ShortUrl::where('user_id', $user->id)
+                    ->whereNull('microsite_uuid')
                     ->withCount('visits')
                     ->orderBy('visits_count', 'desc')
                     ->first(),
