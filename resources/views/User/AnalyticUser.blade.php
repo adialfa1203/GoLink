@@ -222,7 +222,7 @@
                         </h6>
                         @if (auth()->user()->subscribe == 'platinum')
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated unli" id="total-microsite" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3"></div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated unli" id="total-micrositeit" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3"></div>
                         </div>
                         @else
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
@@ -785,7 +785,7 @@
     <script>
         var countURLValue = 1;
 
-        var progressBar = document.querySelector('#total-microsite');
+        var progressBar = document.querySelector('#total-micrositeit');
         progressBar.style.width = ((countURLValue / 1) * 100) + '%';
         progressBar.setAttribute('aria-valuenow', countURLValue);
 
