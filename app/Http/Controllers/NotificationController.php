@@ -69,7 +69,7 @@ class NotificationController extends Controller
         foreach ($ch_messages as $message) {
             if ($message->fromUser) {
                 $message->fromUserName = $message->fromUser->name;
-                if ($message->google_id){
+                if ($message->fromUserName->google_id){
                     $message->image = $message->fromUser->profile_picture;
                 } else {
                     $message->image = config('app.url').'/profile_pictures/'.$message->fromUser->profile_picture;
@@ -78,7 +78,7 @@ class NotificationController extends Controller
 
             if ($message->toUser) {
                 $message->toUserName = $message->toUser->name;
-                if ($message->google_id){
+                if ($message->toUserName->google_id){
                     $message->image = $message->toUser->profile_picture;
                 } else {
                     $message->image = config('app.url').'/profile_pictures/'.$message->toUser->profile_picture;
