@@ -1048,12 +1048,10 @@
 
             function notificationCard(data) {
                 var imageUrl;
-                if (data.google_id !== 'null') {
-                    if (data.image && data.image !== 'null' && data.image !== 'undefined') {
-                        imageUrl = 'profile_pictures/' + data.image;
-                    } else {
-                        imageUrl = data.user.profile_picture;
-                    }
+                if (data.google_id && data.image && data.image !== 'null' && data.image !== 'undefined') {
+                    imageUrl = 'profile_pictures/' + data.image;
+                } else if (!data.google_id && data.user.profile_picture) {
+                    imageUrl = data.user.profile_picture;
                 } else {
                     imageUrl = 'default/default.jpg';
                 }
