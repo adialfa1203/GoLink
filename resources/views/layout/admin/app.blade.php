@@ -1050,7 +1050,7 @@
                 var imageUrl;
                 if (data.image && data.image != 'null') {
                     imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
-                } (data.google_id && data.image && data.image !== 'null' && data.image !== 'undefined') {
+                } else if (data.google_id && data.image) {
                     imageUrl = data.image;
                 } else {
                     imageUrl = '{{ asset('default/default.jpg') }}';
