@@ -1047,24 +1047,22 @@
             }
 
             function notificationCard(data) {
-                var imageUrl;
-                if (data.image && data.image !== 'null') {
-                    if (data.google_id) {
-                        imageUrl = data.image;
-                    } else {
-                        imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
-                    }
-                } else {
-                    imageUrl = '{{ asset('default/default.jpg') }}';
-                }
-                return `<div class="d-flex mt-2">
+            var imageUrl;
+            if (data.profile_picture && data.profile_picture_exists) {
+                imageUrl = '/profile_pictures/' + data.profile_picture;
+            } else if (data.google_id && data.profile_picture) {
+                imageUrl = data.profile_picture;
+            } else {
+                imageUrl = '/default/default.jpg';
+            }
+            return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
-                    <img src="${imageUrl}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
+                    <img src="${imageUrl}" alt="${data.name}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                 </div>
                 <div class="flex-grow-1">
                     <a href="#!" class="stretched-link">
                         <h6 class="mt-0 mb-1 fs-md fw-semibold">
-                            ${data.fromUserName ? data.fromUserName : ''}
+                            ${data.name ? data.name : ''}
                         </h6>
                         <div class="fs-sm text-muted">
                             <p class="mb-1"
@@ -1077,7 +1075,7 @@
                     </a>
                 </div>
             </div>`;
-            }
+        }
         </script>
         @yield('script')
     </body>
