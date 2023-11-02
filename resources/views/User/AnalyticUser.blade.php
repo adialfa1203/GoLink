@@ -196,12 +196,12 @@
                             </div>
                         </div>
                         @if (auth()->user()->subscribe == 'platinum')
-                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat ttt">
-                            <div id="progress-ba" class="progress-bar progress-bar-striped progress-bar-animated ss" role="progressba" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%" ></div>
+                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Nama diubah">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated unli" id="total-microsite" role="progressbar" aria-valuenow="{{ $countURL }}" aria-valuemin="0" aria-valuemax="3"></div>
                         </div>
                         @else
-                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Nama diubah">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite" role="progressbar" aria-valuenow="{{ $countURL }}" aria-valuemin="0" aria-valuemax="3" style="width:{{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
                         </div>
                         @endif
                         <p class="mb-0">
