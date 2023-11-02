@@ -197,7 +197,7 @@
                                 <div class="d-flex pb-1">
                                     <div class="flex-grow-1">
                                         <h6 class="card-title" style="color: #0E2954;">
-                                            Tautan dibuat /Bulan
+                                            Tautan dibuat /Bulan ajaaaaa
                                             <span class="tooltip-icon"
                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                                 {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
