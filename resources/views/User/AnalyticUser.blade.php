@@ -195,25 +195,10 @@
                                 </h6>
                             </div>
                         </div>
-                        @if (strtolower(trim($user->subscribe)) === 'free')
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
-                        </div>
-                                    @elseif (strtolower(trim($user->subscribe)) === 'silver')
-                                    <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
-                        </div>
-                                    @elseif (strtolower(trim($user->subscribe)) === 'gold')
-                                    <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
-                        </div>
-                                    @elseif (strtolower(trim($user->subscribe)) === 'platinum')
-                                    <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat ee">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated unli" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" ></div>
-                        </div>
-                                    @else
-                                    <h4 class="card-title mb-2 text-center">Data Tidak Valid</h4>
-                                    @endif
+    <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ $user->subscribe === 'platinum' ? '100%' : ($countURL / (int) $urlStatus) * 100 . '%' }}"></div>
+</div>
+
                         <p class="mb-0">
                             <b>
                                 {{ $countURL }} dari
