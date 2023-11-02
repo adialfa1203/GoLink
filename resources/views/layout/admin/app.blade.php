@@ -1050,12 +1050,12 @@
                 var imageUrl;
                 if (data.google_id) {
                     if (data.image && data.image !== 'null' && data.image !== 'undefined') {
-                        imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
+                        imageUrl = 'profile_pictures/' + data.image;
                     } else {
-                        imageUrl = '{{ $user->profile_picture }}';
+                        imageUrl = data.user.profile_picture;
                     }
                 } else {
-                    imageUrl = '{{ asset('default/default.jpg') }}';
+                    imageUrl = 'default/default.jpg';
                 }
                 return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
