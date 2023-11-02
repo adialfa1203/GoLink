@@ -27,7 +27,7 @@
             <b class="fs-3"> <span class="text-danger">Tidak Ditemukan!</span></b>
             <br>
             <p class="font-weight-bold fs-3" style="color: #0E2954">
-                Tautan yang anda akses telah dirubah atau kadaluarsa.
+                Tautan yang anda akses telah ubah atau kadaluarsa.
             </p>
             @auth
                 @if (auth()->user()->hasRole('admin'))

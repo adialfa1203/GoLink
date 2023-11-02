@@ -586,7 +586,7 @@
                                                                                     placeholder="Kustom nama">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="modal-footer">
+                                                                        <div class="d-flex justify-content-end mb-3" style="margin-right: 4%; gap: 0.5rem;">
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
                                                                             <button id="submitKustom" type="button"
@@ -638,7 +638,7 @@
                                                                                     min="{{ now()->format('Y-m-d\TH:i') }}">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="modal-footer">
+                                                                        <div class="d-flex justify-content-end mb-3" style="margin-right: 4%; gap: 0.5rem;">
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
                                                                             <button id="submitTime"
@@ -705,7 +705,7 @@
                                                                                     placeholder="Kustom nama">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="modal-footer">
+                                                                        <div class="d-flex justify-content-end mb-3" style="margin-right: 4%; gap: 0.5rem;">
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
                                                                             <button id="submitKustom" type="button"

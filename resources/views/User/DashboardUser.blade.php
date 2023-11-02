@@ -73,6 +73,7 @@
             z-index: 1;
             font-weight: normal;
         }
+        
         #show {
             display: block !important; /* atau display: inline atau tampilan lainnya sesuai kebutuhan */
         }
