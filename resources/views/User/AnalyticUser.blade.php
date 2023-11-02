@@ -195,7 +195,7 @@
                                 </h6>
                             </div>
                         </div>
-                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
+                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat seee">
     <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ $user->subscribe === 'platinum' ? '100%' : ($countURL / (int) $urlStatus) * 100 . '%' }}"></div>
 </div>
 
