@@ -197,7 +197,7 @@
                         </div>
                         @if (auth()->user()->subscribe == 'platinum')
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat ttt">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated unli" role="" ></div>
+                            <div id="progress-ba" class="progress-bar progress-bar-striped progress-bar-animated ss" role="progressba" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%" ></div>
                         </div>
                         @else
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
@@ -763,69 +763,42 @@
         });
     }
 </script>
-@if ($user->subscribe == 'platinum')
+@if ($user->subscribe === 'platinum')
     <script>
         var countData = 1;
         var progressBar = document.getElementById("progress-bar");
         var progressBarWidth = (countData / 1) * 100;
         progressBar.style.width = progressBarWidth + "%";
         progressBar.setAttribute("aria-valuenow", countData);
+
+        var totalMicrositeProgressBar = document.getElementById("total-microsite");
+        totalMicrositeProgressBar.style.width = progressBarWidth + "%";
+        totalMicrositeProgressBar.setAttribute("aria-valuenow", countData);
     </script>
-    @else
+@else
     <script>
         var countData = {{ $countURL }};
         var progressBar = document.getElementById("progress-bar");
         var progressBarWidth = (countData / {{ $urlStatus }}) * 100;
         progressBar.style.width = progressBarWidth + "%";
         progressBar.setAttribute("aria-valuenow", countData);
+
+        var totalMicrositeProgressBar = document.getElementById("total-microsite");
+        totalMicrositeProgressBar.style.width = progressBarWidth + "%";
+        totalMicrositeProgressBar.setAttribute("aria-valuenow", countData);
     </script>
-    @endif
+@endif
 
-    @if ($user->subscribe !== 'platinum')
-    <script>
-        var countData = {{ $countMicrosite }};
-        var progressBar = document.getElementById("progress-bar");
-        var progressBarWidth = (countData / {{ $micrositeStatus }}) * 100;
-        progressBar.style.width = progressBarWidth + "%";
-        progressBar.setAttribute("aria-valuenow", countData);
-    </script>
-    <script>
-        var countURLValue = {{ $countURL }};
+<script>
+    var countURLValue = {{ $countURL }};
+    var progressBar = document.querySelector('.progress-bar');
+    var progressBarWidth = (countURLValue / {{ $urlStatus }}) * 100;
+    progressBar.style.width = progressBarWidth + '%';
+    progressBar.setAttribute('aria-valuenow', countURLValue);
 
-        // Calculate the percentage
-        var percentage = (countURLValue / {{ $urlStatus }}) * 100;
+    var progressText = document.querySelector('.text-muted.mb-0 b');
+    progressText.textContent = countURLValue + ' dari {{ $urlStatus }}';
+</script>
 
-        var progressBar = document.querySelector('.progress-bar');
-        progressBar.style.width = percentage + '%';
-        progressBar.setAttribute('aria-valuenow', countURLValue);
-
-        var progressText = document.querySelector('.text-muted.mb-0 b');
-        progressText.textContent = countURLValue + ' dari {{ $urlStatus }}';
-    </script>
-    @endif
-
-    @if ($user->subscribe == 'platinum')
-    <script>
-        var countURLValue = 1;
-
-        var progressBar = document.querySelector('#total-microsite');
-        progressBar.style.width = ((countURLValue / 1) * 100) + '%';
-        progressBar.setAttribute('aria-valuenow', countURLValue);
-
-        var progressText = document.querySelector('#microsite-total');
-        progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
-    </script>
-    @else
-    <script>
-        var countURLValue = {{ $countMicrosite }};
-
-        var progressBar = document.querySelector('#total-microsite');
-        progressBar.style.width = ((countURLValue / {{ $micrositeStatus }}) * 100) + '%';
-        progressBar.setAttribute('aria-valuenow', countURLValue);
-
-        var progressText = document.querySelector('#microsite-total');
-        progressText.textContent = countURLValue + ' dari {{ $micrositeStatus }}';
-    </script>
-    @endif
 
 @endsection
