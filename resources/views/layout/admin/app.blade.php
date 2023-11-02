@@ -1052,7 +1052,7 @@
                     if (data.image && data.image !== 'null' && data.image !== 'undefined') {
                         imageUrl = data.user.profile_picture;
                     } else {
-                        imageUrl = 'profile_pictures/' + data.image;
+                        imageUrl = data.user.profile_picture;
                     }
                 } else {
                     imageUrl = 'default/default.jpg';
