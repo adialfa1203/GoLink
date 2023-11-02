@@ -197,7 +197,7 @@
                                 <div class="d-flex pb-1">
                                     <div class="flex-grow-1">
                                         <h6 class="card-title" style="color: #0E2954;">
-                                            Tautan dibuat /Bulanaja
+                                            Tautan dibuat /Bulan
                                             <span class="tooltip-icon"
                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                                 {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
@@ -205,36 +205,20 @@
                                         </h6>
                                     </div>
                                 </div>
-                                @if (strtolower(trim($user->tipe)) === 'free')
+                                @if (auth()->user()->subscribe == 'platinum')
                                 <div class="progress" data-bs-toggle="tooltip"
-                                    data-bs-title="{{ $countURL }} Tautan dibuat">
-                                    <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
+                                                    data-bs-title="{{ $countURL }} Tautan dibuat">
+                                                    <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
+                                                    role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                    style="width: 100%"></div>
+                                                @else
+                                                    <div class="progress" data-bs-toggle="tooltip"
+                                                    data-bs-title="{{ $countURL }} Tautan dibuat">
+                                                    <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
+                                                    role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                    style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
+                                                    @endif
                                 </div>
-                                @elseif (strtolower(trim($user->tipe)) === 'silver')
-                                <div class="progress" data-bs-toggle="tooltip"
-                                    data-bs-title="{{ $countURL }} Tautan dibuat">
-                                    <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
-                                </div>
-                                    @elseif (strtolower(trim($user->tipe)) === 'gold')
-                                    <div class="progress" data-bs-toggle="tooltip"
-                                    data-bs-title="{{ $countURL }} Tautan dibuat">
-                                    <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ ($countURL / (int) $urlStatus) * 100 }}%"></div>
-                                </div>
-                                    @else
-                                    <div class="progress" data-bs-toggle="tooltip"
-                                    data-bs-title="{{ $countURL }} Tautan dibuat">
-                                    <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 100%"></div>
-                                    </div>
-                                    @endif
-
                                 <p class="mb-0">
                                             <b>
                                                 {{ $countURL }} dari
