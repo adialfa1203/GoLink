@@ -157,6 +157,8 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'role:user']], function
         Route::post('/update-short-link-id/{shortCode}', [ShortLinkController::class, 'updateIdShortUrl'])->name('update.shortlink.id');
         //update tenggat
         Route::post('/update-deactivated/{keyTime}', [LinkController::class, 'updateDeactivated']);
+        //update tautan
+        Route::post('/update-destination/{keyUrl}', [LinkController::class, 'updateDestination']);
         //Detele data
         Route::get('/delete-expired-links', [LinkController::class, 'deleteDeactive']);
         //Takedown User

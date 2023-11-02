@@ -330,7 +330,7 @@
                                                                     class="btn btn-light me-3 btn-sm custom-destination-url"
                                                                     style="background-color: #CED2D9"
                                                                     data-bs-toggle="modal"
-                                                                    data-bs-target="#customDestinationModal"
+                                                                    data-bs-target="#customDestinationModal-{{$row->id}}"
                                                                     data-link="{{ $row->url_key }}">
                                                                     <span>
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -652,7 +652,7 @@
                                                             </div><!-- /.modal -->
                                                         </form>
                                                         <form id="customDestinationUrl">
-                                                            <div id="customDestinationModal" class="modal fade"
+                                                            <div id="customDestinationModal-{{$row->id}}" class="modal fade"
                                                                 tabindex="-1" aria-labelledby="customDestinationUrl"
                                                                 aria-hidden="true">
                                                                 <div class="modal-dialog modal-dialog-centered">
@@ -690,26 +690,21 @@
                                                                             </div>
                                                                             <br>
                                                                             <div class="col-lg-12 mb-2">
-                                                                                <label class="mb-2" for="new_url_key"
+                                                                                <label class="mb-2" for="destination_url"
                                                                                     style="
                                                                                 font-weight: bold;">Ubah
                                                                                     Nama</label>
                                                                                 <input type="text" class="form-control"
-                                                                                    name="new_url_key" id="new_url_key"
-                                                                                    placeholder="Ubah Nama">
-                                                                            </div>
-                                                                            <div class="col-lg-12 mb-3">
-                                                                                <label for="custom_name"></label>
-                                                                                <input type="hidden" class="form-control"
-                                                                                    name="custom_name" id="custom_name"
-                                                                                    placeholder="Kustom nama">
+                                                                                    name="destination_url" id="destination_url-{{$row->id}}"
+                                                                                    data-key="{{ $row->url_key }}" placeholder="Ubah Nama">
                                                                             </div>
                                                                         </div>
                                                                         <div class="d-flex justify-content-end mb-3" style="margin-right: 4%; gap: 0.5rem;">
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
-                                                                            <button id="submitKustom" type="button"
-                                                                                class="btn btn-primary submitKustom">Simpan</button>
+                                                                            <button id="submitDestination" data-key="{{ $row->url_key }}"
+                                                                                data-id="{{ $row->id }}" type="button"
+                                                                                class="submitDestination btn btn-primary">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
@@ -882,6 +877,7 @@
                                                                     </h3>
                                                                 </a>
                                                             @else
+                                                            
                                                                 <h3 class="garisbawah text-muted card-title mb-2">
                                                                     {{ $url->default_short_url }}
                                                                 </h3>
@@ -1471,6 +1467,42 @@
                     method: 'POST',
                     data: {
                         newTime: newTime
+                    },
+                    dataType: 'JSON',
+                    success: function(e) {
+                        location.reload()
+                    },
+                    error: function(response) {
+                        console.log(response);
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        //anjay
+        $(document).ready(function() {
+            var selectId = $('#destination_url').val();
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+            $(document).on('click', '.submitDestination', function() {
+                var id = $(this).data('id');
+                var key = $(this).data('key');
+                var newDestination = $('#destination_url-' + id).val();
+                console.log(newDestination);
+                if (newDestination == null || newDestination == "") {
+                    Swal.fire('Isi Data Terlebih Dahulu')
+                    return
+                }
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-Token': csrfToken,
+                    },
+                    url: "/user/update-destination/" + key,
+                    method: 'POST',
+                    data: {
+                        newDestination: newDestination
                     },
                     dataType: 'JSON',
                     success: function(e) {

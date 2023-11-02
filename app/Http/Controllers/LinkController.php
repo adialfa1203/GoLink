@@ -84,6 +84,20 @@ class LinkController extends Controller
         return response()->json(['message' => 'Deactivation status updated successfully']);
     }
 
+    public function updateDestination(HttpRequest $request, $keyUrl)
+    {
+        $updateUrl = ShortUrl::where('url_key', $keyUrl);
+
+        if (!$updateUrl->exists()) {
+            return response()->json(['error' => 'Short link not found'], 404);
+        }
+
+        $updateUrl->update([
+            'destination_url' => $request->newDestination,
+        ]);
+        return response()->json(['message' => 'Destination url status updated successfully']);
+    }
+
     public function LinkUsersChart(Request $request)
     {
         $urlKey = $request->id;
