@@ -12,7 +12,8 @@
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}" style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/themesbrand.com/steex/layouts/assets/images/Logo.png') }}"
+        style="width: 200px; height: 200px;">
 
 
     <!-- Fonts css load -->
@@ -1047,20 +1048,19 @@
 
             function notificationCard(data) {
                 var imageUrl;
-                if (data.profile_picture && data.profile_picture_exists && fileExists(data.profile_picture)) {
-                    imageUrl = '/profile_pictures/' + data.profile_picture;
+                if (data.image) {
+                    imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
                 } else {
-                    imageUrl = (data.google_id !== null && data.google_id !== undefined) ? data.profile_picture :
-                        '/default/default.jpg';
+                    imageUrl = '{{ asset('default/default.jpg') }}';
                 }
                 return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
-                    <img src="${imageUrl}" alt="${data.name}" class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                    <img src="${imageUrl}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
                 </div>
                 <div class="flex-grow-1">
                     <a href="#!" class="stretched-link">
                         <h6 class="mt-0 mb-1 fs-md fw-semibold">
-                            ${data.name ? data.name : ''}
+                            ${data.fromUserName ? data.fromUserName : ''}
                         </h6>
                         <div class="fs-sm text-muted">
                             <p class="mb-1"
