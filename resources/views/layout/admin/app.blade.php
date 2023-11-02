@@ -1047,12 +1047,6 @@
             }
 
             function notificationCard(data) {
-                var imageUrl;
-                if (data.image) {
-                    imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
-                } else {
-                    imageUrl = '{{ asset('default/default.jpg') }}';
-                }
                 return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
                     <img src="${imageUrl}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
