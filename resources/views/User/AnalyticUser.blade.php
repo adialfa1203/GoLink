@@ -220,9 +220,15 @@
                                 {{-- <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i> --}}
                             </span>
                         </h6>
+                        @if (auth()->user()->subscribe == 'platinum')
+                        <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated unli" id="total-microsite" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3"></div>
+                        </div>
+                        @else
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" id="total-microsite" role="progressbar" aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3" style="width:{{ ($countMicrosite / (int) $micrositeStatus) * 100 }}%"></div>
                         </div>
+                        @endif
                         <p class="mb-0">
                             <b>
                                 {{ $countMicrosite }} dari
