@@ -1047,15 +1047,12 @@
             }
 
             function notificationCard(data) {
-                function notificationCard(data) {
-                    var imageUrl;
-                    if (data.google_id && data.image && data.image !== 'null' && data.image !== 'undefined') {
-                        imageUrl = 'profile_pictures/' + data.image;
-                    } else if (!data.google_id && data.user && data.user.profile_picture) {
-                        imageUrl = data.user.profile_picture;
-                    } else {
-                        imageUrl = 'default/default.jpg';
-                    }
+                var imageUrl;
+                console.log(data.image)
+                if (data.image) {
+                    imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
+                } else {
+                    imageUrl = '{{ asset('default/default.jpg') }}';
                 }
                 return `<div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
