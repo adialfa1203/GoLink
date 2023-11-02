@@ -1048,8 +1048,12 @@
 
             function notificationCard(data) {
                 var imageUrl;
-                if (data.image) {
-                    imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
+                if (data.google_id) {
+                    if (data.image && data.image !== 'null' && data.image !== 'undefined') {
+                        imageUrl = '{{ asset('profile_pictures/') }}/' + data.image;
+                    } else {
+                        imageUrl = '{{ $user->profile_picture }}';
+                    }
                 } else {
                     imageUrl = '{{ asset('default/default.jpg') }}';
                 }
