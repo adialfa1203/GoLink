@@ -197,7 +197,7 @@
                         </div>
                         @if (auth()->user()->subscribe == 'platinum')
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat ttt">
-                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated unli" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated unli" role="progressbar" ></div>
                         </div>
                         @else
                         <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countURL }} Tautan dibuat">
