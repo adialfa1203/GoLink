@@ -33,7 +33,7 @@ class NotificationController extends Controller
                     } elseif ($message->fromUser->profile_picture) {
                         $message->fromUserImage = config('app.url') . '/profile_pictures/' . $message->fromUser->profile_picture;
                     } else {
-                        $message->fromUserImage = config('app.url') . '/profile_pictures/default/default.jpg';
+                        $message->fromUserImage = config('app.url') . '/default/default.jpg';
                     }
                 }
             
@@ -44,11 +44,11 @@ class NotificationController extends Controller
                     } elseif ($message->toUser->profile_picture) {
                         $message->toUserImage = config('app.url') . '/profile_pictures/' . $message->toUser->profile_picture;
                     } else {
-                        $message->toUserImage = config('app.url') . '/profile_pictures/default/default.jpg';
+                        $message->toUserImage = config('app.url') . '/default/default.jpg';
                     }
                 }
             }
-            
+
         // dd($ch_messages);
 
         $numberOfSenders = ChMessage::where('to_id', $user->id)
