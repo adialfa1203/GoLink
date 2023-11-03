@@ -73,7 +73,7 @@
             z-index: 1;
             font-weight: normal;
         }
-        
+
         #show {
             display: block !important; /* atau display: inline atau tampilan lainnya sesuai kebutuhan */
         }
@@ -675,7 +675,7 @@
                                                                 @elseif ($user->subscribe == 'platinum')
                                                                     Tahun
                                                                 @else
-                                                                @endif                                                                
+                                                                @endif
                                                                 <span class="tooltip-icon"
                                                                     data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                     <i
@@ -720,7 +720,7 @@
                                                                     @elseif ($user->subscribe == 'platinum')
                                                                         Tahun
                                                                     @else
-                                                                    @endif                                                                        
+                                                                    @endif
                                                                     </p>
                                                                     <label for="AmountInput" class="unavailable-text"
                                                                         style="color: red;"><i>Tidak
@@ -1187,52 +1187,6 @@
             $("#close-bagikan").click(function() {
                 $('#singkatkan').modal('show');
             });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            var selectId = $('#new_url_key').val();
-            console.log(selectId);
-            // Mendapatkan token CSRF dari meta tag
-            var csrfToken = $('meta[name="csrf-token"]').attr('content');
-
-            // Tambahkan kode berikut di bawahnya
-            $('#submitKustom').click(function() {
-                var url = $('#default_short_url').val();
-                // alert('masuk')
-                var parts = url.split('/'); // Membagi URL menjadi potongan-potongan dengan karakter '/'
-                var newUrlKey = parts[parts.length - 1]; // Mengambil bagian terakhir dari potongan
-                $.ajax({
-                    headers: {
-                        'X-CSRF-Token': csrfToken,
-                    },
-                    url: "/user/update-short-link-id/" + $("#default_short_url_id").val(),
-                    method: 'POST',
-                    data: {
-                        newUrlKey: newUrlKey
-                    },
-                    dataType: 'JSON',
-                    error: function(e) {
-                        console.log(e.responseJSON)
-                        Swal.fire(e.responseJSON.newUrlKey[0])
-                    },
-                    success: function(e) {
-                        Swal.fire({
-                            icon: "success",
-                            title: "Nama tautan berhasil diubah",
-                        });
-                        // location.reload()
-                    }
-                })
-            });
-        });
-
-        $('.edit-link').click(function() {
-            var link = $(this).data('link');
-
-            $('#new_url_key').val(link);
-            $('#new_url_key').attr("data-original", link);
-
         });
     </script>
     <script>
