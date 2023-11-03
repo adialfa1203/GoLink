@@ -72,11 +72,7 @@
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"
                         data-bs-toggle="modal" data-bs-target="#myModal">
                         <i class='bi bi-bell fs-2xl'></i>
-                        <span
-                            class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span
-                                class="notification-badge" id="count-messages"></span><span
-                                class="visually-hidden">unread
-                                messages</span></span>
+                        <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger" style="display: none;"><span class="notification-badge" id="count-messages"></span><span class="visually-hidden">unread messages</span></span>
                     </button>
                     <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/user/subscribe-product-user"
                             type="button" class="btn" style="background-color: #0E2954;><i class=" bi bi-fire></i>
@@ -202,6 +198,49 @@
 
         hamburgerButton.addEventListener('click', function() {
             contentDiv.classList.toggle('hamburger-icon-open');
+        });
+    </script>
+       <script>
+        // Fungsi untuk mengatur cookie
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        // Fungsi untuk mendapatkan nilai cookie
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // Cek apakah elemen harus disembunyikan
+        var shouldHide = getCookie('hideElement') === 'true';
+
+        // Periksa preferensi dan atur properti 'display' sesuai kebutuhan
+        var element = document.querySelector('.position-absolute');
+        if (shouldHide) {
+            element.style.display = 'none';
+        } else {
+            element.style.display = 'block';
+        }
+
+        // Event listener untuk mengubah preferensi saat elemen diklik
+        element.addEventListener('click', function () {
+            shouldHide = !shouldHide; // Toggle status
+            setCookie('hideElement', shouldHide, 365); // Set cookie untuk 1 tahun
         });
     </script>
 @endsection

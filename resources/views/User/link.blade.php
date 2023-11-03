@@ -711,7 +711,7 @@
                                                             </div><!-- /.modal -->
                                                         </form>
                                                         <div class="collapse" id="collapseExample{{ $row->id }}">
-                                                            <div class="card-footer">
+                                                            <div class="card-body">
                                                                 <div class="d-flex">
                                                                     <div class="col-10">
                                                                         <h5><i class="bi bi-bar-chart-line-fill"></i>
@@ -1194,9 +1194,7 @@
             var options = {
                 series: [{
                     name: "jumlah data",
-                    data: {
-                        !!json_encode($result['series'][$i]) !!
-                    },
+                    data: <?= json_encode($result['series'][$i]) ?>,
                 }],
                 chart: {
                     height: 350,
@@ -1212,7 +1210,7 @@
                     curve: 'straight'
                 },
                 title: {
-                    text: 'Link dikunjungi perbulan',
+                    text: 'Data Perbulan',
                     align: 'left'
                 },
                 grid: {
@@ -1222,9 +1220,7 @@
                     },
                 },
                 xaxis: {
-                    categories: {
-                        !!json_encode($result['labels']) !!
-                    },
+                    categories: <?= json_encode($result['labels']) ?>,
                 }
             };
 
@@ -1232,7 +1228,7 @@
             chart.render();
         </script>
     @endforeach
-    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
+   <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
     <script type="text/javascript" src="./jquery.qrcode.js"></script>
     <script type="text/javascript" src="./qrcode.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

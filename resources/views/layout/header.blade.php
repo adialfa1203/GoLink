@@ -170,7 +170,7 @@
                         <i class='bi bi-bell fs-2xl'></i>
                         <span
                             class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span
-                                class="notification-badge">4</span><span class="visually-hidden">unread
+                                class="notification-badge"></span><span class="visually-hidden">unread
                                 messages</span></span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
