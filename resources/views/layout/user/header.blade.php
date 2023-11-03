@@ -68,11 +68,14 @@
                             <i class='bi bi-arrows-fullscreen fs-lg'></i>
                         </button>
                     </div>
-
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"
                         data-bs-toggle="modal" data-bs-target="#myModal">
                         <i class='bi bi-bell fs-2xl'></i>
-                        <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger" style="display: none;"><span class="notification-badge" id="count-messages"></span><span class="visually-hidden">unread messages</span></span>
+                        <span
+                            class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span
+                                class="notification-badge" id="count-messages"></span><span
+                                class="visually-hidden">unread
+                                messages</span></span>
                     </button>
                     <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/user/subscribe-product-user"
                             type="button" class="btn" style="background-color: #0E2954;><i class=" bi bi-fire></i>
@@ -200,7 +203,7 @@
             contentDiv.classList.toggle('hamburger-icon-open');
         });
     </script>
-       <script>
+    <script>
         // Fungsi untuk mengatur cookie
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
@@ -238,7 +241,7 @@
         }
 
         // Event listener untuk mengubah preferensi saat elemen diklik
-        element.addEventListener('click', function () {
+        element.addEventListener('click', function() {
             shouldHide = !shouldHide; // Toggle status
             setCookie('hideElement', shouldHide, 365); // Set cookie untuk 1 tahun
         });
