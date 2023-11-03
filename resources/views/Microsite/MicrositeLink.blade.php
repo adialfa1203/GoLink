@@ -59,6 +59,14 @@
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
 
         }
+
+        .word-wrap {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
     </style>
 @endsection
 <div class="page-content">
@@ -79,9 +87,9 @@
                                         class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
                                 </div>
                                 <div class="mt-3">
-                                    <h5>{{ $accessMicrosite->name_microsite }}<i
+                                    <h5 style="text-overflow: ellipsis;">{{ $accessMicrosite->name_microsite }}<i
                                             class="align-baseline text-info ms-1"></i></h5>
-                                    <p class="text-muted">{!! $accessMicrosite->description !!}</p>
+                                    <p class="text-muted word-wrap">{!! $accessMicrosite->description !!}</p>
                                 </div>
                             </div>
                         </div>
