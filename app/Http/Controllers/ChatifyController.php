@@ -15,4 +15,11 @@ class ChatifyController extends Controller
             ->update(['seen' => true]);
         return redirect()->back()->with('success', 'Pesan sudah dibaca semua');
     }
+    public function setAllMessagesSeenAdmin()
+    {
+        $userId = Auth::id();
+        ChMessage::where('to_id', $userId)
+            ->update(['seen' => true]);
+        return redirect()->back()->with('success', 'Pesan sudah dibaca semua');
+    }
 }
