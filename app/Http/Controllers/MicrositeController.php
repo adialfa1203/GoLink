@@ -102,6 +102,7 @@ class MicrositeController extends Controller
             'name' => 'required|string|regex:/^[^+\/]+$/u|max:35',
             'link_microsite' => 'required|regex:/^[^+\/]+$/u|unique:microsites,link_microsite,id',
         ], [
+            'microsite_selection' => 'Pilih setidaknya satu Tema pada jenis microsite.',
             'name.max' => 'Nama Microsite tidak boleh lebih dari 35 karakter',
             'name.max' => 'Nama microsite tidak valid atau mengandung kata terlarang!',
             'link_microsite.required' => 'Link microsite harus diisi!',
@@ -122,6 +123,9 @@ class MicrositeController extends Controller
         ];
 
         $selectedComponentId = $request->input('microsite_selection');
+        if (empty($selectedComponentId)) {
+            return redirect()->back()->with('error', 'Silakan pilih jenis microsite yang sesuai dengan kebutuhan Anda.');
+        }
         $selectedButtons = $request->input('selectedButtons', []);
 
         $microsite = Microsite::create($data);
@@ -139,13 +143,17 @@ class MicrositeController extends Controller
             'default_short_url' => env('APP_URL') . "/" . $link_microsite,
         ]);
 
-        foreach ($selectedButtons as $select) {
-            $socialData = [
-                'buttons_uuid' => $select,
-                'microsite_uuid' => $microsite->id,
-                'button_link' => null,
-            ];
-            Social::create($socialData);
+        if (count($selectedButtons) === 0) {
+            return redirect()->back()->with('error', 'Silakan pilih setidaknya satu sosial media!');
+        } else {
+            foreach ($selectedButtons as $select) {
+                $socialData = [
+                    'buttons_uuid' => $select,
+                    'microsite_uuid' => $microsite->id,
+                    'button_link' => null,
+                ];
+                Social::create($socialData);
+            }
         }
         // dd($request);
 

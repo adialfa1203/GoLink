@@ -237,6 +237,10 @@
                                                                 </div>
                                                             </div>
                                                         @endforeach
+                                                        @if ($errors->has('microsite_selection'))
+                                                            <span
+                                                                class="text-danger text-center">{{ $errors->first('microsite_selection') }}</span>
+                                                        @endif
                                                     </div>
                                                     <div class="d-flex align-items-start gap-3 mt-4">
                                                         <button type="button"
@@ -530,68 +534,28 @@
                 cards.forEach(otherCard => {
                     if (otherCard !== this) {
                         otherCard.classList.remove('hover');
+                        otherCard.style.border = "none";
                     }
                 });
 
                 radio.checked = !isChecked;
                 this.classList.toggle('hover');
+                if (this.classList.contains('hover')) {
+                    this.style.border = "2px solid black";
+                } else {
+                    this.style.border = "none";
+                }
             });
         });
     </script>
 
     <script>
-        function validateForm() {
-            var micrositeSelection = document.querySelector('input[name="microsite_selection"]:checked');
-            if (!micrositeSelection) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Silakan pilih jenis microsite yang cocok dengan kebutuhan Anda!',
-                    onClose: function() {
-                        document.getElementById('v-pills-bill-info-tab').click();
-                    }
-                })
-                return false;
-            }
-
-            var selectedButtons = document.querySelectorAll('input[name="selectedButtons[]"]:checked');
-            if (selectedButtons.length === 0) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Silakan pilih setidaknya satu sosial media!',
-                    onClose: function() {
-                        document.getElementById('v-pills-bill-info-tab').click();
-                    }
-                })
-                return false;
-            }
-            return true;
-        }
-
-        function submitForm() {
-            if (!validateForm()) {
-                return false;
-            }
-            document.getElementById('form-create').submit();
-        }
-    </script>
-
-    <script>
-        @if ($errors->any())
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'link microsite sudah pernah DIgunakan.',
-            });
-        @endif
         function showSweetAlert() {
             var userSubscribe = "{{ $user->subscribe }}";
             var existingMicrosites = {{ $micrositeCount ?? 0 }};
             var inputsAreValid = validateInputs();
             var maxMicrosites;
 
-            // Menentukan jumlah maksimum microsite berdasarkan jenis langganan
             if (userSubscribe === 'free') {
                 maxMicrosites = 3;
             } else if (userSubscribe === 'silver') {
@@ -599,7 +563,6 @@
             } else if (userSubscribe === 'gold') {
                 maxMicrosites = 10;
             } else if (userSubscribe === 'platinum') {
-                // Jumlah maksimum microsite tidak dibatasi untuk pelanggan platinum
                 maxMicrosites = Infinity;
             }
 
@@ -621,11 +584,15 @@
         function validateInputs() {
             var name_microsite_val = $('#name_microsite').val();
             var linkMicrosite_val = $('#linkMicrosite').val();
-
             var errorMessage = '';
 
+            var micrositeSelection = document.querySelector('input[name="microsite_selection"]:checked');
+            if (!micrositeSelection) {
+                errorMessage = 'Silakan pilih jenis microsite yang sesuai dengan kebutuhan Anda.';
+            }
+
             if (name_microsite_val === '' && linkMicrosite_val === '') {
-                errorMessage = 'Nama microsite dan Link microsite harus diisi.';
+                errorMessage += 'Nama microsite dan Link microsite harus diisi. ';
             } else {
                 if (name_microsite_val === '') {
                     errorMessage += 'Nama microsite harus diisi. ';
@@ -635,11 +602,17 @@
                 }
             }
 
+            var selectedButtons = document.querySelectorAll('input[name="selectedButtons[]"]:checked');
+            if (selectedButtons.length === 0) {
+                errorMessage += 'Silakan pilih setidaknya satu sosial media. ';
+            }
+
             if (errorMessage !== '') {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
+                    title: 'Kesalahan!',
                     text: errorMessage,
+                    confirmButtonText: 'Mengerti'
                 });
                 return false;
             }
