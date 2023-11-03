@@ -130,7 +130,7 @@
                                 @endif
                             </h5>
                         </div>
-                        <div class="card mb-3" style="background-color: #104898; height: 620px;">
+                        <div class="card mb-20" style="background-color: #104898; height: 630px;">
                             <div class="text-center">
                                 <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260"
                                     height="160" style="display: block; margin: 0 auto; object-fit: cover;"
