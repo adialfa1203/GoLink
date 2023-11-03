@@ -58,6 +58,18 @@
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
 
         }
+        .youtube {
+            background: #FF0000;
+        }
+        .youtube:hover {
+            background: #FF0000;
+        }
+        .olshop{
+            background-color: #FF9130;
+        }
+        .olshop:hover {
+            background-color: #FF9130;
+        }
     </style>
 @endsection
 @section('title', $accessMicrosite->name)
@@ -99,6 +111,8 @@
                                                 @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-telegram') tele
                                                 @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-tiktok') tiktok
                                                 @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-spotify') spo
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-youtube') youtube
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-bag-fill') olshop
                                                 @else notfound @endif">
                                                 <i class="{{ $socialItem->button->icon }} " style="color:white;"></i>
                                             </button>
@@ -118,6 +132,8 @@
                                         @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-telegram') tele
                                         @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-tiktok') tiktok
                                         @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-spotify') spo
+                                        @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-youtube') youtube
+                                        @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-bag-fill') olshop
                                         @else notfound @endif"
                                         style="background-color: {{ $socialItem->button->color_hex }}; color: white;"
                                         data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"

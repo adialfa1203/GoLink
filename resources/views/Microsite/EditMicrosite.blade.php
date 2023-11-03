@@ -128,6 +128,22 @@
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
 
         }
+
+        .youtube {
+            background: #FF0000;
+        }
+
+        .youtube:hover {
+            background: #FF0000;
+        }
+
+        .olshop {
+            background-color: #FF9130;
+        }
+
+        .olshop:hover {
+            background-color: #FF9130;
+        }
     </style>
 @endsection
 
@@ -411,16 +427,27 @@
                                 <div class="d-flex flex-wrap justify-content-center text-center mb-4">
                                     @foreach ($social as $socialItem)
                                         <div class="mb-2 mx-2">
-                                            <button style="background-color: {{ $socialItem->button->color_hex }};"
-                                                type="button" class="btn btn-icon"><i
-                                                    class="{{ $socialItem->button->icon }} "
-                                                    style="color:white;"></i></button>
+                                            <button style="color: white;" type="button"
+                                                class="btn btn-icon
+                                                @if (strtolower(trim($socialItem->button->icon)) === 'bi bi-facebook') face
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-twitter') twi
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-instagram') insta
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-linkedin') link
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-telegram') tele
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-tiktok') tiktok
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-spotify') spo
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-youtube') youtube
+                                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-bag-fill') olshop
+                                                @else notfound @endif
+                                                ">
+                                                <i class="{{ $socialItem->button->icon }}"></i>
+                                            </button>
                                         </div>
                                     @endforeach
+
                                 </div>
                                 @foreach ($social as $socialItem)
-                                    <button style="color: white; background-color: {{ $socialItem->button->color_hex }}"
-                                        type="button"
+                                    <button style="color: white;" type="button"
                                         class="col-12 mb-2 btn btn-label rounded-pill
                                 @if (strtolower(trim($socialItem->button->icon)) === 'bi bi-facebook') face
                                 @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-twitter')
@@ -435,6 +462,10 @@
                                     tiktok
                                 @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-spotify')
                                     spo
+                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-youtube')
+                                    youtube
+                                @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-bag-fill')
+                                    olshop
                                 @else
                                     notfound @endif
                                 "

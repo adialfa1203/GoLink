@@ -62,6 +62,22 @@
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
 
         }
+
+        .youtube {
+            background: #FF0000;
+        }
+
+        .youtube:hover {
+            background: #FF0000;
+        }
+
+        .olshop {
+            background-color: #FF9130;
+        }
+
+        .olshop:hover {
+            background-color: #FF9130;
+        }
     </style>
 @endsection
 @section('content')
@@ -182,6 +198,12 @@
                                                                             <option value="bi bi-spotify"
                                                                                 {{ $data->icon == 'bi bi-spotify' ? 'selected' : '' }}>
                                                                                 Spotify</option>
+                                                                            <option value="bi bi-youtube"
+                                                                                {{ $data->icon == 'bi bi-youtube' ? 'selected' : '' }}>
+                                                                                YouTube</option>
+                                                                            <option value="bi bi-bag-fill"
+                                                                                {{ $data->icon == 'bi bi-bag-fill' ? 'selected' : '' }}>
+                                                                                Online Shop</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -267,16 +289,26 @@
                                                 style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                    @else
-                                    @endif
-                                    <!-- <button style="background-color: black; color: white;" type="button"
-                                            class="col-xl-12 col-12 btn btn-label rounded-pill" data-bs-toggle="collapse"
-                                            data-bs-target="{{ $data->id }}" aria-expanded="true"
-                                            aria-controls="{{ $data->id }}">
+                                    @elseif (strtolower(trim($data->icon)) === 'bi bi-youtube')
+                                        <button style="color: white;" type="button"
+                                            class="col-xl-12 col-12 btn btn-label rounded-pill youtube"
+                                            data-bs-toggle="collapse" data-bs-target="{{ $data->id }}"
+                                            aria-expanded="true" aria-controls="{{ $data->id }}">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
                                                 style="color: white;"></i>
                                             {{ $data->name_button }}
-                                        </button> -->
+                                        </button>
+                                    @elseif (strtolower(trim($data->icon)) === 'bi bi-bag-fill')
+                                        <button style="color: white;" type="button"
+                                            class="col-xl-12 col-12 btn btn-label rounded-pill olshop"
+                                            data-bs-toggle="collapse" data-bs-target="{{ $data->id }}"
+                                            aria-expanded="true" aria-controls="{{ $data->id }}">
+                                            <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                style="color: white;"></i>
+                                            {{ $data->name_button }}
+                                        </button>
+                                    @else
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -304,8 +336,8 @@
                                     placeholder="Masukkan Nama Sosial" required value="{{ old('name_button') }}">
                             </div>
                             @if ($errors->has('name_button'))
-                            <span class="text-danger">{{ $errors->first('name_button') }}</span>
-                        @endif
+                                <span class="text-danger">{{ $errors->first('name_button') }}</span>
+                            @endif
                         </div>
                         <div class="col-xxl-12 mt-2 col-md-12">
                             <div class="mt-2">
@@ -326,6 +358,11 @@
                                         Tiktok</option>
                                     <option value="bi bi-spotify" {{ old('icon') === 'bi bi-spotify' ? 'selected' : '' }}>
                                         Spotify</option>
+                                    <option value="bi bi-youtube" {{ old('icon') === 'bi bi-youtube' ? 'selected' : '' }}>
+                                        YouTube</option>
+                                    <option value="bi bi-bag-fill"
+                                        {{ old('icon') === 'bi bi-bag-fill' ? 'selected' : '' }}>
+                                        Online Shop</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Harap isi kolom ini sebelum melanjutkan proses.

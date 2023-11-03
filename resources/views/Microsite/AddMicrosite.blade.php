@@ -78,6 +78,21 @@
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
 
         }
+
+        .youtube {
+            background: #FF0000;
+        }
+
+        .youtube:hover {
+            background: #FF0000;
+        }
+
+        .olshop {
+            background-color: #FF9130;
+        }
+        .olshop:hover {
+            background-color: #FF9130;
+        }
     </style>
 
 @endsection
@@ -425,6 +440,32 @@
                                                                                 <button style="color: white;"
                                                                                     type="button"
                                                                                     class="col-xl-12 col-12 btn btn-label rounded-pill spo"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="{{ $data->id }}"
+                                                                                    aria-expanded="true"
+                                                                                    aria-controls="{{ $data->id }}"
+                                                                                    onclick="toggleCardHover('{{ $data->id }}')">
+                                                                                    <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                                                        style="color: white;"></i>
+                                                                                    {{ $data->name_button }}
+                                                                                </button>
+                                                                            @elseif (strtolower(trim($data->icon)) === 'bi bi-youtube')
+                                                                                <button style="color: white;"
+                                                                                    type="button"
+                                                                                    class="col-xl-12 col-12 btn btn-label rounded-pill youtube"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="{{ $data->id }}"
+                                                                                    aria-expanded="true"
+                                                                                    aria-controls="{{ $data->id }}"
+                                                                                    onclick="toggleCardHover('{{ $data->id }}')">
+                                                                                    <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                                                        style="color: white;"></i>
+                                                                                    {{ $data->name_button }}
+                                                                                </button>
+                                                                            @elseif (strtolower(trim($data->icon)) === 'bi bi-bag-fill')
+                                                                                <button style="color: white;"
+                                                                                    type="button"
+                                                                                    class="col-xl-12 col-12 btn btn-label rounded-pill olshop"
                                                                                     data-bs-toggle="collapse"
                                                                                     data-bs-target="{{ $data->id }}"
                                                                                     aria-expanded="true"

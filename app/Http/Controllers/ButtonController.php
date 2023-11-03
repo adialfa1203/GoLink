@@ -27,7 +27,7 @@ class ButtonController extends Controller
             'name_button' => 'required|string|max:255',
             'icon' => [
                 'required',
-                Rule::in(['bi bi-whatsapp', 'bi bi-facebook', 'bi bi-twitter', 'bi bi-telephone-fill', 'bi bi-instagram', 'bi bi-linkedin', 'bi bi-telegram', 'bi bi-tiktok', 'bi bi-spotify']),
+                Rule::in(['bi bi-whatsapp', 'bi bi-facebook', 'bi bi-twitter', 'bi bi-telephone-fill', 'bi bi-instagram', 'bi bi-linkedin', 'bi bi-telegram', 'bi bi-tiktok', 'bi bi-spotify', 'bi bi-youtube', 'bi bi-bag-fill']),
             ],
             'color_hex' => 'nullable|string|max:7',
         ],[
@@ -59,7 +59,7 @@ class ButtonController extends Controller
             'name_button' => 'required|string|max:255',
             'icon' => [
                 'required',
-                Rule::in(['bi bi-whatsapp', 'bi bi-facebook', 'bi bi-twitter', 'bi bi-telephone-fill', 'bi bi-instagram', 'bi bi-linkedin', 'bi bi-telegram', 'bi bi-tiktok', 'bi bi-spotify']),
+                Rule::in(['bi bi-whatsapp', 'bi bi-facebook', 'bi bi-twitter', 'bi bi-telephone-fill', 'bi bi-instagram', 'bi bi-linkedin', 'bi bi-telegram', 'bi bi-tiktok', 'bi bi-spotify', 'bi bi-youtube', 'bi bi-bag-fill']),
             ],
         ]);
 
