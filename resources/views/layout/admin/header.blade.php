@@ -140,7 +140,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="{{ route('set.all.messages.seen') }}" style="margin-right: 22%; color: red;">Hapus Semua</a>
+                <a href="{{ route('set.all.messages.seen.admin') }}" style="margin-right: 22%; color: red;">Hapus Semua</a>
                 <a href="#">Lihat lebih banyak</a>
             </div>
         </div><!-- /.modal-content -->
