@@ -184,8 +184,7 @@
                                             Sekarang</a>
                                     </div> --}}
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a type="button" class="btn custom col-12" style="margin-top: 30%;">Coming
-                                            Soon...</a>
+                                        <a type="button" class="btn custom col-12" style="margin-top: 50%;">Segera Hadir...</a>
                                     </div>
                                 @elseif (strtolower(trim($subs->tipe)) === 'gold')
                                     <div class="d-flex">
@@ -209,9 +208,9 @@
                                             class="btn custom col-12" style="margin-top:43%;">Berlangganan
                                             Sekarang</a>
                                     </div> --}}
-                                    <div class="col-md-12 col-sm-12 mt-5">
+                                    <div class="col-md-12 col-sm-12 mt-1">
                                         <a type="button"
-                                            class="btn custom col-12" style="margin-top: 30%;">Coming Soon...</a>
+                                            class="btn custom col-12" style="margin-top: 50%;">Segera Hadir...</a>
                                     </div>
                                 @elseif (strtolower(trim($subs->tipe)) === 'platinum')
                                     <div class="d-flex">
@@ -260,9 +259,9 @@
                                             class="btn custom col-12">Berlangganan
                                             Sekarang</a>
                                     </div> --}}
-                                    <div class="col-md-12 col-sm-12 mt-5">
+                                    <div class="col-md-12 col-sm-12 mt-1">
                                         <a type="button"
-                                            class="btn custom col-12" style="margin-top: 30%;">Coming Soon...</a>
+                                            class="btn custom col-12" style="margin-top: 0%; margin-buttom: 50%;">Segera Hadir...</a>
                                     </div>
                                 @endif
                             </div>
