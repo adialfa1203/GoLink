@@ -11,7 +11,7 @@ class ButtonController extends Controller
 {
     public function viewButton()
     {
-        $button = Button::paginate(8);
+        $button = Button::paginate(12);
         // dd($button);
         return view('Button.ViewButton', compact('button'));
     }
