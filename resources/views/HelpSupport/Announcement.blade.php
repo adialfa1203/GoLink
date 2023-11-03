@@ -212,7 +212,7 @@
                                 informatif.</p>
 
                             <p>Kami mendorong Anda untuk membaca Kebijakan Privasi lengkap kami <a
-                                    style="color: #104898" href="/Privacy">di sini</a></p>
+                                    style="color: #104898" href="/privacy">di sini</a></p>
 
                             <p>Harap pastikan bahwa Anda menerima perubahan ini melalui popup setelah Anda
                                 masuk ke situs kami. Ini akan membantu Anda dan komunitas kami memaksimalkan
