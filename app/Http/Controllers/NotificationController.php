@@ -26,7 +26,7 @@ class NotificationController extends Controller
             ->get();
 
             foreach ($ch_messages as $message) {
-                if ($message->fromUser) {
+                if (isset($message->fromUser)) {
                     $message->fromUserName = $message->fromUser->name;
                     if ($message->fromUser->google_id) {
                         $message->fromUserImage = $message->fromUser->profile_picture;
@@ -37,7 +37,7 @@ class NotificationController extends Controller
                     }
                 }
             
-                if ($message->toUser) {
+                if (isset($message->toUser)) {
                     $message->toUserName = $message->toUser->name;
                     if ($message->toUser->google_id) {
                         $message->toUserImage = $message->toUser->profile_picture;
@@ -47,7 +47,7 @@ class NotificationController extends Controller
                         $message->toUserImage = config('app.url') . '/default/default.jpg';
                     }
                 }
-            }
+            }            
 
         // dd($ch_messages);
 
