@@ -69,7 +69,7 @@ Route::middleware(['guest'])->group(function () {
         Route::post('/send-emails', [AuthController::class, 'sendSampleEmail'])->name('sendEmail');
         Route::get('/verification', [AuthController::class, 'verification'])->name('verification');
         Route::post('/verificationCode', [AuthController::class, 'verificationCode'])->name('verificationCode');
-        Route::post('/set-all-messages-seen', [ChatifyController::class, 'setAllMessagesSeen'])->name('set-all-messages-seen');
+
 
         // Route::get('/', [DahsboardController::class, 'home']);
     });
@@ -163,6 +163,7 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'role:user']], function
         Route::get('/delete-expired-links', [LinkController::class, 'deleteDeactive']);
         //Takedown User
         Route::get('/takedown', [DataUserController::class, 'takedownUser']);
+        Route::post('/set-all-messages-seen', [ChatifyController::class, 'setAllMessagesSeen'])->name('set.all.messages.seen');
     });
 });
 Route::get('microsite/{micrositeLink}', [ShortLinkController::class, 'micrositeLink'])->name('microsite.short.link');
@@ -210,14 +211,13 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
         Route::get('view-footer', [DashboardAdminController::class, 'viewFooter'])->name('view.footer');
         Route::put('edit-footer', [DashboardAdminController::class, 'editFooter'])->name('edit.footer');
-
         //profile
         Route::get('/profil-admin', [ProfilController::class, 'profileAdmin'])->name('profileAdmin');
         //Komentar
         Route::get('/view-komentar', [CommentController::class, 'viewkomentar'])->name('viewkomentar');
-
         //Banned
         Route::get('/blokir', [CommentController::class, 'blokir'])->name('blokir');
+        Route::post('/set-all-messages-seen-admin', [ChatifyController::class, 'setAllMessagesSeenAdmin'])->name('set.all.messages.seen.admin');
     });
 });
 Route::get('/nge/ngetes', function () {
