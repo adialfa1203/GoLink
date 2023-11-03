@@ -1,3 +1,4 @@
+@extends('layout.guest.app')
 @section('title', $accessMicrosite->name)
 @section('style')
     <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/link.css') }}" rel="stylesheet" type="text/css">
