@@ -1551,6 +1551,44 @@
 
         inputTanggal.setAttribute('min', waktuHariIni);
     </script>
-
+    <script>
+        $(document).ready(function() {
+            var selectId = $('#destination_url').val();
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    
+            $(document).on('click', '.submitDestination', function() {
+                var id = $(this).data('id');
+                var key = $(this).data('key');
+                var newDestination = $('#destination_url-' + id).val();
+                console.log(newDestination);
+                if (newDestination == null || newDestination == "") {
+                    // Menggunakan Sweet Alert untuk menampilkan pesan kesalahan
+                    Swal.fire('Isi Data Terlebih Dahulu', '', 'error');
+                    return;
+                }
+    
+                $.ajax({
+                    headers: {
+                        'X-CSRF-Token': csrfToken,
+                    },
+                    url: "/user/update-destination/" + key,
+                    method: 'POST',
+                    data: {
+                        newDestination: newDestination
+                    },
+                    dataType: 'JSON',
+                    success: function(e) {
+                        // Menggunakan Sweet Alert untuk menampilkan pesan sukses
+                        Swal.fire('Update Berhasil', '', 'success').then(function() {
+                            location.reload();
+                        });
+                    },
+                    error: function(response) {
+                        console.log(response);
+                    }
+                });
+            });
+        });
+    </script>    
 @endsection
 @endsection

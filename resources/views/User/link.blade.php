@@ -1418,35 +1418,44 @@
 
 
     <script>
-        $(document).ready(function() {
-            var selectId = $('#new_url_key').val();
-            // console.log(selectId);
-            // Mendapatkan token CSRF dari meta tag
-            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    $(document).ready(function() {
+        var selectId = $('#new_url_key').val();
+        // Mendapatkan token CSRF dari meta tag
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-            // Tambahkan kode berikut di bawahnya
-            $('#submitKustom').click(function() {
-                var newUrlKey = $('#new_url_key').val();
-                // alert('masuk')
-                $.ajax({
-                    headers: {
-                        'X-CSRF-Token': csrfToken,
-                    },
-                    url: "/user/update-short-link/" + $('#new_url_key').data("original"),
-                    method: 'POST',
-                    data: {
-                        newUrlKey: newUrlKey
-                    },
-                    dataType: 'JSON',
-                    error: function(e) {
-                        console.log(e.responseJSON)
-                        //    alert(e.responseJSON.newUrlKey[0])
-                        Swal.fire(e.responseJSON.newUrlKey[0])
-                    },
-                    success: function(e) {
-                        location.reload()
-                    }
-                })
+        // Tambahkan kode berikut di bawahnya
+        $('#submitKustom').click(function() {
+            var newUrlKey = $('#new_url_key').val();
+            // alert('masuk')
+            $.ajax({
+                headers: {
+                    'X-CSRF-Token': csrfToken,
+                },
+                url: "/user/update-short-link/" + $('#new_url_key').data("original"),
+                method: 'POST',
+                data: {
+                    newUrlKey: newUrlKey
+                },
+                dataType: 'JSON',
+                error: function(e) {
+                    console.log(e.responseJSON);
+                    // Menggunakan Sweet Alert untuk menampilkan pesan kesalahan
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: e.responseJSON.newUrlKey[0]
+                    });
+                },
+                success: function(e) {
+                    // Menggunakan Sweet Alert untuk menampilkan pesan sukses
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Update Berhasil'
+                    }).then(function() {
+                        location.reload();
+                    });
+                }
             });
         });
 
@@ -1455,9 +1464,9 @@
 
             $('#new_url_key').val(link);
             $('#new_url_key').attr("data-original", link);
-
         });
-    </script>
+    });
+</script>
     <script>
         $(document).ready(function() {
             var selectId = $('#deactivated_at').val();
@@ -1468,8 +1477,8 @@
                 var key = $(this).data('key');
                 var newTime = $('#deactivated_at-' + id).val();
                 if (newTime == null || newTime == "") {
-                    Swal.fire('Isi Data Terlebih Dahulu')
-                    return
+                    Swal.fire('Isi Data Terlebih Dahulu', '', 'error');
+                    return;
                 }
 
                 $.ajax({
@@ -1483,7 +1492,9 @@
                     },
                     dataType: 'JSON',
                     success: function(e) {
-                        location.reload()
+                        Swal.fire('Update Berhasil', '', 'success').then(function() {
+                            location.reload();
+                        });
                     },
                     error: function(response) {
                         console.log(response);
@@ -1493,21 +1504,21 @@
         });
     </script>
     <script>
-        //anjay
         $(document).ready(function() {
             var selectId = $('#destination_url').val();
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
-
+    
             $(document).on('click', '.submitDestination', function() {
                 var id = $(this).data('id');
                 var key = $(this).data('key');
                 var newDestination = $('#destination_url-' + id).val();
                 console.log(newDestination);
                 if (newDestination == null || newDestination == "") {
-                    Swal.fire('Isi Data Terlebih Dahulu')
-                    return
+                    // Menggunakan Sweet Alert untuk menampilkan pesan kesalahan
+                    Swal.fire('Isi Data Terlebih Dahulu', '', 'error');
+                    return;
                 }
-
+    
                 $.ajax({
                     headers: {
                         'X-CSRF-Token': csrfToken,
@@ -1519,7 +1530,10 @@
                     },
                     dataType: 'JSON',
                     success: function(e) {
-                        location.reload()
+                        // Menggunakan Sweet Alert untuk menampilkan pesan sukses
+                        Swal.fire('Update Berhasil', '', 'success').then(function() {
+                            location.reload();
+                        });
                     },
                     error: function(response) {
                         console.log(response);
@@ -1527,7 +1541,7 @@
                 });
             });
         });
-    </script>
+    </script>    
     <script>
         var links = document.querySelectorAll('.access-link');
 
