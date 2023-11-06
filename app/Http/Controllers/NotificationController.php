@@ -13,19 +13,22 @@ class NotificationController extends Controller
     {
         $user = Auth::user();
 
-        $ch_message = ChMessage::where('to_id', $user->id)
-        ->where('seen', false)
-        ->with(['fromUser' => function ($query) use ($user) {
-            $query->where('id', '!=', $user->id);
-        }])
-        ->with(['toUser' => function ($query) use ($user) {
-            $query->where('id', '!=', $user->id);
-        }])
-        ->first();
+        $ch_messages = ChMessage::where(function ($query) use ($user) {
+            $query->where('to_id', $user->id);
+        })
+            ->where('seen', false)
+            ->with(['fromUser' => function ($query) use ($user) {
+                $query->where('id', '!=', $user->id);
+            }])
+            ->with(['toUser' => function ($query) use ($user) {
+                $query->where('id', '!=', $user->id);
+            }])
+            ->take(3)->get();
 
         foreach ($ch_messages as $message) {
             if ($message->fromUser) {
                 $message->fromUserName = $message->fromUser->name;
+                $message->fromUserId = $message->fromUser->id;
                 if ($message->fromUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->fromUser->profile_picture))) {
                     $message->image = asset('profile_pictures/' . $message->fromUser->profile_picture);
                 } elseif ($message->fromUser->google_id && $message->fromUser->profile_picture) {
@@ -37,6 +40,7 @@ class NotificationController extends Controller
 
             if ($message->toUser) {
                 $message->toUserName = $message->toUser->name;
+                $message->toUserId = $message->toUser->id;
                 if ($message->toUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->toUser->profile_picture))) {
                     $message->image = asset('profile_pictures/' . $message->toUser->profile_picture);
                 } elseif ($message->toUser->google_id && $message->toUser->profile_picture) {
@@ -79,6 +83,7 @@ class NotificationController extends Controller
             foreach ($ch_messages as $message) {
                 if ($message->fromUser) {
                     $message->fromUserName = $message->fromUser->name;
+                    $message->fromUserId = $message->fromUser->id;
                     if ($message->fromUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->fromUser->profile_picture))) {
                         $message->image = asset('profile_pictures/' . $message->fromUser->profile_picture);
                     } elseif ($message->fromUser->google_id && $message->fromUser->profile_picture) {
@@ -90,6 +95,7 @@ class NotificationController extends Controller
     
                 if ($message->toUser) {
                     $message->toUserName = $message->toUser->name;
+                    $message->toUserId = $message->toUser->id;
                     if ($message->toUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->toUser->profile_picture))) {
                         $message->image = asset('profile_pictures/' . $message->toUser->profile_picture);
                     } elseif ($message->toUser->google_id && $message->toUser->profile_picture) {

@@ -1056,6 +1056,11 @@
                         <h6 class="mt-0 mb-1 fs-md fw-semibold">
                             ${data.fromUserName ? data.fromUserName : ''}
                         </h6>
+                        <div class="modal-body">
+                        <h6 class="mt-0 mb-1 fs-md fw-semibold">
+                            <a href="/chatify/web-chat/${data.fromUserId}" class="stretched-link">Lihat Chat</a>
+                        </h6>
+                        </div>
                         <div class="fs-sm text-muted">
                             <p class="mb-1"
                                 style="text-overflow: ellipsis; overflow: hidden;
