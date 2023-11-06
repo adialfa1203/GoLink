@@ -26,6 +26,7 @@ class NotificationController extends Controller
         if ($ch_message) {
             if ($ch_message->fromUser) {
                 $ch_message->fromUserName = $ch_message->fromUser->name;
+                $ch_message->fromUserId = $ch_message->fromUser->id;
                 if ($ch_message->fromUser->profile_picture && file_exists(public_path('profile_pictures/' . $ch_message->fromUser->profile_picture))) {
                     $ch_message->image = asset('profile_pictures/' . $ch_message->fromUser->profile_picture);
                 } elseif ($ch_message->fromUser->google_id && $ch_message->fromUser->profile_picture) {
