@@ -542,17 +542,10 @@
                                                                 aria-hidden="true" style="display: none;">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="zoomInModalLabel">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen-to-square"></i>&nbsp;Kustom
-                                                                                Tautan
-                                                                            </h5>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close"></button>
-                                                                        </div>
                                                                         <div class="modal-body">
+                                                                            <h5 class="modal-title text-center"
+                                                                                    id="TimeModalLabel">Atur Waktu
+                                                                                </h5>
                                                                             <div class="card-body d-flex"
                                                                                 style="background-color: #D9D9D9;">
                                                                                 <p><i
@@ -603,28 +596,16 @@
                                                                 style="display: none;">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="TimeModalLabel"><i
-                                                                                    class="fa-solid fa-clock"></i>&nbsp;Atur
-                                                                                Waktu</h5>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal" aria-label="Close"
-                                                                                data-id="{{ $row->id }}"></button>
-                                                                        </div>
                                                                         <div class="modal-body">
-                                                                            <div class="card-body d-flex"
-                                                                                style="background-color: #D9D9D9;">
-                                                                                <p><i class="fa-solid fa-clock"></i></p>
-                                                                                &nbsp;
-                                                                                <p>Tautan berbasis waktu adalah jenis tautan
-                                                                                    yang hanya berlangsung
-                                                                                    selama periode waktu tertentu.
-                                                                                    Ketika tautan telah kedaluwarsa, maka
-                                                                                    tautan
-                                                                                    tersebut tidak
-                                                                                    dapat
-                                                                                    diakses lagi.</p>
-                                                                            </div>
+                                                                            <center>
+                                                                                <h5 class="modal-title text-center"
+                                                                                    id="TimeModalLabel">Atur Waktu
+                                                                                </h5>
+                                                                                <p>jenis tautan yang hanya berlangsung selama periode waktu tertentu.</p>
+                                                                                <img class="mt-3 mb-3"
+                                                                                    src="{{ asset('template/image/password.png') }} "
+                                                                                    width="97" height="69">
+                                                                            </center>
                                                                             <div class="col-lg-12 mb-3 mt-3">
                                                                                 <label for="deactivated_at">Ubah
                                                                                     Tanggal</label>
@@ -657,38 +638,16 @@
                                                                 aria-hidden="true">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close"></button>
-                                                                        </div>
-                                                                        <h5 class="modal-title"
-                                                                            id="customDestinationUrlTitle"
-                                                                            style="text-align: center; display: block; width: 100%;">
-                                                                            Ubah Nama Tautan Asli</h5>
                                                                         <div class="modal-body">
-                                                                            <div class="card-body d-flex"
-                                                                                style="background-color: #D9D9D9;">
-                                                                                <p><svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="20" height="16"
-                                                                                        viewBox="0 0 12 12"
-                                                                                        fill="none">
-                                                                                        <path
-                                                                                            d="M5.5 4.5H6.5V3.5H5.5V4.5ZM6 10C3.795 10 2 8.205 2 6C2 3.795 3.795 2 6 2C8.205 2 10 3.795 10 6C10 8.205 8.205 10 6 10ZM6 1C5.34339 1 4.69321 1.12933 4.08658 1.3806C3.47995 1.63188 2.92876 2.00017 2.46447 2.46447C1.52678 3.40215 1 4.67392 1 6C1 7.32608 1.52678 8.59785 2.46447 9.53553C2.92876 9.99983 3.47995 10.3681 4.08658 10.6194C4.69321 10.8707 5.34339 11 6 11C7.32608 11 8.59785 10.4732 9.53553 9.53553C10.4732 8.59785 11 7.32608 11 6C11 5.34339 10.8707 4.69321 10.6194 4.08658C10.3681 3.47995 9.99983 2.92876 9.53553 2.46447C9.07124 2.00017 8.52005 1.63188 7.91342 1.3806C7.30679 1.12933 6.65661 1 6 1ZM5.5 8.5H6.5V5.5H5.5V8.5Z"
-                                                                                            fill="#555555" />
-                                                                                    </svg>
-                                                                                </p>
-                                                                                &nbsp;
-                                                                                <p>Ubah nama tautan asli anda dan sesuaikan
-                                                                                    dengan keinginan anda. Mengubah nama
-                                                                                    tautan dapat membantu menghindari
-                                                                                    konflik dengan tautan lain di situs web
-                                                                                    Anda atau mengurangi risiko duplikasi
-                                                                                    tautan yang sama. Tautan yang lebih
-                                                                                    menarik dan relevan dapat mendorong
-                                                                                    pengunjung untuk mengkliknya.</p>
-                                                                            </div>
-                                                                            <br>
+                                                                            <center>
+                                                                                <h5 class="modal-title text-center"
+                                                                                    id="TimeModalLabel">Ubah Nama Tautan Asli
+                                                                                </h5>
+                                                                                <p>Ubah nama tautan asli anda dan sesuaikan dengan keinginan anda.</p>
+                                                                                <img class="mt-3 mb-3"
+                                                                                    src="{{ asset('template/image/password.png') }} "
+                                                                                    width="97" height="69">
+                                                                            </center>
                                                                             <div class="col-lg-12 mb-2">
                                                                                 <label class="mb-2" for="destination_url"
                                                                                     style="
