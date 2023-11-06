@@ -582,7 +582,7 @@
                 radio.checked = !isChecked;
                 this.classList.toggle('hover');
                 if (this.classList.contains('hover')) {
-                    this.style.border = "2px solid black";
+                    this.style.border = "1px solid black";
                 } else {
                     this.style.border = "none";
                 }
