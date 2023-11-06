@@ -23,32 +23,32 @@ class NotificationController extends Controller
         }])
         ->first();
 
-        foreach ($ch_messages as $message) {
-            if ($message->fromUser) {
-                $message->fromUserId = $message->fromUser->id;
-                $message->fromUserName = $message->fromUser->name;
-                if ($message->fromUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->fromUser->profile_picture))) {
-                    $message->image = asset('profile_pictures/' . $message->fromUser->profile_picture);
-                } elseif ($message->fromUser->google_id && $message->fromUser->profile_picture) {
-                    $message->image = $message->fromUser->profile_picture;
+        if ($ch_message) {
+            if ($ch_message->fromUser) {
+                $ch_message->fromUserId = $ch_message->fromUser->id;
+                $ch_message->fromUserName = $ch_message->fromUser->name;
+                if ($ch_message->fromUser->profile_picture && file_exists(public_path('profile_pictures/' . $ch_message->fromUser->profile_picture))) {
+                    $ch_message->image = asset('profile_pictures/' . $ch_message->fromUser->profile_picture);
+                } elseif ($ch_message->fromUser->google_id && $ch_message->fromUser->profile_picture) {
+                    $ch_message->image = $ch_message->fromUser->profile_picture;
                 } else {
-                    $message->image = asset('default/default.jpg');
+                    $ch_message->image = asset('default/default.jpg');
                 }
             }
 
-            if ($message->toUser) {
-                $message->toUserName = $message->toUser->name;
-                if ($message->toUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->toUser->profile_picture))) {
-                    $message->image = asset('profile_pictures/' . $message->toUser->profile_picture);
-                } elseif ($message->toUser->google_id && $message->toUser->profile_picture) {
-                    $message->image = $message->toUser->profile_picture;
+            if ($ch_message->toUser) {
+                $ch_message->toUserName = $ch_message->toUser->name;
+                if ($ch_message->toUser->profile_picture && file_exists(public_path('profile_pictures/' . $ch_message->toUser->profile_picture))) {
+                    $ch_message->image = asset('profile_pictures/' . $ch_message->toUser->profile_picture);
+                } elseif ($ch_message->toUser->google_id && $ch_message->toUser->profile_picture) {
+                    $ch_message->image = $ch_message->toUser->profile_picture;
                 } else {
-                    $message->image = asset('default/default.jpg');
+                    $ch_message->image = asset('default/default.jpg');
                 }
-            }            
+            }
         }
 
-        // dd($ch_messages);
+        // dd($ch_message);
 
         $numberOfSenders = ChMessage::where('to_id', $user->id)
             ->where('seen', false)
@@ -57,10 +57,11 @@ class NotificationController extends Controller
 
         return response()->json([
             'user' => $user,
-            'ch_messages' => $ch_messages,
+            'ch_message' => $ch_message,
             'number_of_senders' => $numberOfSenders
         ]);
     }
+
     public function notificationShowAdmin()
     {
         $user = Auth::user();
