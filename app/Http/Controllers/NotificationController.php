@@ -23,7 +23,7 @@ class NotificationController extends Controller
             ->with(['toUser' => function ($query) use ($user) {
                 $query->where('id', '!=', $user->id);
             }])
-            ->get();
+            ->take(3)->get();
 
         foreach ($ch_messages as $message) {
             if ($message->fromUser) {
@@ -76,7 +76,7 @@ class NotificationController extends Controller
             ->with(['toUser' => function ($query) use ($user) {
                 $query->where('id', '!=', $user->id);
             }])
-            ->get();
+            ->take(3)->get();
 
             foreach ($ch_messages as $message) {
                 if ($message->fromUser) {
