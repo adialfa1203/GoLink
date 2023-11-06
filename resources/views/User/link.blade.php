@@ -544,12 +544,13 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-body">
                                                                             <h5 class="modal-title text-center"
-                                                                                    id="TimeModalLabel">Atur Waktu
+                                                                                    id="TimeModalLabel">Kustom Tautan
                                                                                 </h5>
-                                                                            <div class="card-body d-flex"
+                                                                            <div class="card-body d-flex mt-3"
                                                                                 style="background-color: #D9D9D9;">
-                                                                                <p><i
-                                                                                        class="fa-solid fa-pen-to-square"></i>
+                                                                                <p><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+<path d="M5.5 4.5H6.5V3.5H5.5V4.5ZM6 10C3.795 10 2 8.205 2 6C2 3.795 3.795 2 6 2C8.205 2 10 3.795 10 6C10 8.205 8.205 10 6 10ZM6 1C5.34339 1 4.69321 1.12933 4.08658 1.3806C3.47995 1.63188 2.92876 2.00017 2.46447 2.46447C1.52678 3.40215 1 4.67392 1 6C1 7.32608 1.52678 8.59785 2.46447 9.53553C2.92876 9.99983 3.47995 10.3681 4.08658 10.6194C4.69321 10.8707 5.34339 11 6 11C7.32608 11 8.59785 10.4732 9.53553 9.53553C10.4732 8.59785 11 7.32608 11 6C11 5.34339 10.8707 4.69321 10.6194 4.08658C10.3681 3.47995 9.99983 2.92876 9.53553 2.46447C9.07124 2.00017 8.52005 1.63188 7.91342 1.3806C7.30679 1.12933 6.65661 1 6 1ZM5.5 8.5H6.5V5.5H5.5V8.5Z" fill="#555555"/>
+</svg>
                                                                                 </p>
                                                                                 &nbsp;
                                                                                 <p>Kustom tautan adalah fitur yang
@@ -572,7 +573,7 @@
                                                                                     name="new_url_key" id="new_url_key"
                                                                                     placeholder="Kustom nama">
                                                                             </div>
-                                                                            <div class="col-lg-12 mb-3">
+                                                                            <div class="col-lg-12 mb-3" style="margin-top: -11%;">
                                                                                 <label for="new_url_key"></label>
                                                                                 <input type="hidden" class="form-control"
                                                                                     name="custom_name" id="new_url_key"
@@ -1466,7 +1467,7 @@
         $(document).ready(function() {
             var selectId = $('#destination_url').val();
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
-    
+
             $(document).on('click', '.submitDestination', function() {
                 var id = $(this).data('id');
                 var key = $(this).data('key');
@@ -1477,7 +1478,7 @@
                     Swal.fire('Isi Data Terlebih Dahulu', '', 'error');
                     return;
                 }
-    
+
                 $.ajax({
                     headers: {
                         'X-CSRF-Token': csrfToken,
@@ -1500,7 +1501,7 @@
                 });
             });
         });
-    </script>    
+    </script>
     <script>
         var links = document.querySelectorAll('.access-link');
 
