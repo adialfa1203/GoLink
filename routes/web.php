@@ -23,6 +23,7 @@ use App\Http\Controllers\SubscribeUserController;
 // use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\TripayCallbackController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -39,6 +40,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::fallback(function () {
     return to_route('login');
 });
+route::prefix('tripay')->group(function () {
+    Route::post('/callback', [TripayCallbackController::class, 'handle'])->name('handle');
+});
 Route::middleware(['guest'])->group(function () {
     Route::redirect('/', 'id/home');
     Route::prefix('id')->group(function () {
@@ -53,6 +57,7 @@ Route::middleware(['guest'])->group(function () {
 
         Route::get('/auth/redirect/facebook', [SocialController::class, 'redirectFacebook'])->name('redirect.facebook');
         Route::get('/facebook/redirect', [SocialController::class, 'facebookCallback'])->name('facebook.callback');
+
         // Route::get('/auth/redirect/twitter', [SocialController::class, 'redirectTwitter'])->name('redirect.twitter');
         // Route::get('/twitter/redirect', [SocialController::class, 'twitterCallback'])->name('twitter.callback');
 
@@ -92,7 +97,6 @@ Route::prefix('id')->group(function () {
 
     Route::get('/help-support', [DahsboardController::class, 'HelpSupport'])->name('landing.helpsupport');
     Route::post('/create/{id}', [CommentController::class, 'create'])->name('create');
-    Route::post('/callback-tripay', [SubscribeUserController::class, 'handle']);
     // Route::get('/no-internet',[AuthController::class, 'noInternet'])->name('no.internet.connection');
 });
 Route::middleware(['auth'])->group(function () {
