@@ -16,7 +16,7 @@ class NotificationController extends Controller
         $ch_message = ChMessage::where('to_id', $user->id)
         ->where('seen', false)
         ->with(['fromUser' => function ($query) use ($user) {
-            $query->where('id', '!=', $user->id);
+            $query->select('id', 'name', 'profile_picture', 'google_id');
         }])
         ->with(['toUser' => function ($query) use ($user) {
             $query->where('id', '!=', $user->id);
@@ -24,6 +24,9 @@ class NotificationController extends Controller
         ->first();
 
         foreach ($ch_messages as $message) {
+            if ($message->fromUser) {
+                $message->fromUserName = $message->fromUser->id;
+            }
             if ($message->fromUser) {
                 $message->fromUserName = $message->fromUser->name;
                 if ($message->fromUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->fromUser->profile_picture))) {
