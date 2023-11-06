@@ -13,17 +13,15 @@ class NotificationController extends Controller
     {
         $user = Auth::user();
 
-        $ch_messages = ChMessage::where(function ($query) use ($user) {
-            $query->where('to_id', $user->id);
-        })
-            ->where('seen', false)
-            ->with(['fromUser' => function ($query) use ($user) {
-                $query->where('id', '!=', $user->id);
-            }])
-            ->with(['toUser' => function ($query) use ($user) {
-                $query->where('id', '!=', $user->id);
-            }])
-            ->take(3)->get();
+        $ch_message = ChMessage::where('to_id', $user->id)
+        ->where('seen', false)
+        ->with(['fromUser' => function ($query) use ($user) {
+            $query->where('id', '!=', $user->id);
+        }])
+        ->with(['toUser' => function ($query) use ($user) {
+            $query->where('id', '!=', $user->id);
+        }])
+        ->first();
 
         foreach ($ch_messages as $message) {
             if ($message->fromUser) {
