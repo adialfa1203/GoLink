@@ -141,7 +141,7 @@ class ProfilController extends Controller
                 'regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/',
                 Rule::unique('users', 'email')->ignore($admin->id),
             ],
-            'number' => 'required|min:10|max:13',
+            'number' => 'required|min:10|max:13|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ];
@@ -151,6 +151,7 @@ class ProfilController extends Controller
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
             'number.required' => 'Kolom Nomer harus diisi',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
+            'number.regex' => 'Nomor yang dimasukkan tidak valid!',
             'email.unique' => 'Email sudah pernah digunakan',
             'email.required' => 'Kolom Email harus diisi',
             'email.regex' => 'Format alamat email tidak valid.',
