@@ -415,7 +415,7 @@
                                                                                 <div class="card-header fw-bold">
                                                                                     <div class="avatar-sm mx-auto mb-3">
                                                                                         <div
-                                                                                            class="avatar-title bg-custom text-primary fs-xl rounded">
+                                                                                            class="avatar-title bg-custom fs-xl rounded" style="color: #0E2954">
                                                                                             <i
                                                                                                 class="fa-solid fa-lock"></i>
                                                                                         </div>
@@ -590,7 +590,7 @@
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
                                                                             <button id="submitKustom" type="button"
-                                                                                class="btn btn-primary submitKustom">Simpan</button>
+                                                                                class="btn submitKustom" style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
@@ -645,7 +645,7 @@
                                                                                 data-key="{{ $row->url_key }}"
                                                                                 data-id="{{ $row->id }}"
                                                                                 type="button"
-                                                                                class="btn-submit btn btn-primary submitKustom">Simpan</button>
+                                                                                class="btn-submit btn submitKustom" style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
@@ -704,7 +704,7 @@
                                                                                 data-bs-dismiss="modal">Tutup</button>
                                                                             <button id="submitDestination" data-key="{{ $row->url_key }}"
                                                                                 data-id="{{ $row->id }}" type="button"
-                                                                                class="submitDestination btn btn-primary">Simpan</button>
+                                                                                class="submitDestination btn" style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
@@ -894,7 +894,7 @@
                                                                     </h3>
                                                                 </a>
                                                             @else
-                                                            
+
                                                                 <h3 class="garisbawah text-muted card-title mb-2">
                                                                     {{ $url->default_short_url }}
                                                                 </h3>
@@ -1084,7 +1084,7 @@
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
                                                                             <button id="submitKustom" type="button"
-                                                                                class="btn btn-primary submitKustom">Simpan</button>
+                                                                                class="btn submitKustom" style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
@@ -1139,7 +1139,7 @@
                                                                                 data-key="{{ $url->url_key }}"
                                                                                 data-id="{{ $url->id }}"
                                                                                 type="button"
-                                                                                class="btn-submit btn btn-primary submitKustom">Simpan</button>
+                                                                                class="btn-submit btn submitKustom" style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
