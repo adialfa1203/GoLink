@@ -13,17 +13,17 @@ class NotificationController extends Controller
     {
         $user = Auth::user();
 
-        $ch_messages = ChMessage::where(function ($query) use ($user) {
-            $query->where('to_id', $user->id);
-        })
-            ->where('seen', false)
-            ->with(['fromUser' => function ($query) use ($user) {
-                $query->where('id', '!=', $user->id);
-            }])
-            ->with(['toUser' => function ($query) use ($user) {
-                $query->where('id', '!=', $user->id);
-            }])
-            ->take(3)->get();
+        $ch_messages = ChMessage::where('to_id', $user->id)
+        ->where('seen', false)
+        ->with(['fromUser' => function ($query) use ($user) {
+            $query->where('id', '!=', $user->id);
+        }])
+        ->with(['toUser' => function ($query) use ($user) {
+            $query->where('id', '!=', $user->id);
+        }])
+        ->groupBy('from_id')
+        ->take(3) 
+        ->get();
 
         foreach ($ch_messages as $message) {
             if ($message->fromUser) {
@@ -68,17 +68,17 @@ class NotificationController extends Controller
     {
         $user = Auth::user();
 
-        $ch_messages = ChMessage::where(function ($query) use ($user) {
-            $query->where('to_id', $user->id);
-        })
-            ->where('seen', false)
-            ->with(['fromUser' => function ($query) use ($user) {
-                $query->where('id', '!=', $user->id);
-            }])
-            ->with(['toUser' => function ($query) use ($user) {
-                $query->where('id', '!=', $user->id);
-            }])
-            ->take(3)->get();
+        $ch_messages = ChMessage::where('to_id', $user->id)
+        ->where('seen', false)
+        ->with(['fromUser' => function ($query) use ($user) {
+            $query->where('id', '!=', $user->id);
+        }])
+        ->with(['toUser' => function ($query) use ($user) {
+            $query->where('id', '!=', $user->id);
+        }])
+        ->groupBy('from_id')
+        ->take(3) 
+        ->get();
 
             foreach ($ch_messages as $message) {
                 if ($message->fromUser) {
