@@ -582,7 +582,7 @@
                 radio.checked = !isChecked;
                 this.classList.toggle('hover');
                 if (this.classList.contains('hover')) {
-                    this.style.border = "1px solid black";
+                    this.style.border = "";
                 } else {
                     this.style.border = "none";
                 }
@@ -701,7 +701,6 @@
 
                 checkbox.prop("checked", true);
                 cardElement.addClass("selected-card hover");
-                cardElement.css("border", "1px solid black");
                 selectedButtons.push(cardId);
             }
         }

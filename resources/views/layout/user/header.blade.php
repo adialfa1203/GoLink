@@ -14,6 +14,11 @@
             margin-left: 3%;
         }
     }
+    .cha{
+        display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+    }
 </style>
 <header id="page-topbar">
     <div class="atas">
@@ -24,30 +29,24 @@
                     <div class="navbar-brand-box horizontal-logo">
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/logo-sm.png') }}"
-                                    alt="" height="22">
+                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/logo-sm.png') }}" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/logo-dark.png') }}"
-                                    alt="" height="22">
+                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/logo-dark.png') }}" alt="" height="22">
                             </span>
                         </a>
 
                         <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/logo-sm.png') }}"
-                                    alt="" height="22">
+                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/logo-sm.png') }}" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/logo-light.png') }}"
-                                    alt="" height="22">
+                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/logo-light.png') }}" alt="" height="22">
                             </span>
                         </a>
                     </div>
 
-                    <button type="button"
-                        class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none"
-                        id="topnav-hamburger-icon">
+                    <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none" id="topnav-hamburger-icon">
                         <span class="hamburger-icon">
                             <span></span>
                             <span></span>
@@ -63,22 +62,16 @@
                     </div>
 
                     <div class="ms-1 header-item d-none d-sm-flex">
-                        <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"
-                            data-toggle="fullscreen">
+                        <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle" data-toggle="fullscreen">
                             <i class='bi bi-arrows-fullscreen fs-lg'></i>
                         </button>
                     </div>
-                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"
-                        data-bs-toggle="modal" data-bs-target="#myModal">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle" data-bs-toggle="modal" data-bs-target="#myModal">
                         <i class='bi bi-bell fs-2xl'></i>
-                        <span
-                            class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span
-                                class="notification-badge" id="count-messages"></span><span
-                                class="visually-hidden">unread
+                        <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span class="notification-badge" id="count-messages"></span><span class="visually-hidden">unread
                                 messages</span></span>
                     </button>
-                    <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/user/subscribe-product-user"
-                            type="button" class="btn" style="background-color: #0E2954;><i class=" bi bi-fire></i>
+                    <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/user/subscribe-product-user" type="button" class="btn" style="background-color: #0E2954;><i class=" bi bi-fire></i>
                             <span style="color: #ffff;">Berlangganan</span></a>
                     </div>
 
@@ -159,13 +152,12 @@
                         <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout text-muted fs-lg align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
                     </div>
                 </div> --}}
-                </div>
             </div>
         </div>
     </div>
+    </div>
 </header>
-<div id="myModal" class="modal fade mt-5 dal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true"
-    style="display: none;overflow: hidden;">
+<div id="myModal" class="modal fade mt-5 dal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;overflow: hidden;">
     <div class="modal-dialog modal-dialog-right modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -175,11 +167,34 @@
             <div class="modal-body">
                 <div id="data"></div>
                 <div id="empty-messages" style="display: none; text-align: center;">
-                    <img src="{{ asset('no-notification.png') }}" alt="Empty Messages Image"
-                        style="width: 200px; height: 200px;">
+                    <img src="{{ asset('no-notification.png') }}" alt="Empty Messages Image" style="width: 200px; height: 200px;">
                     <p>Tidak ada pesan masuk!</p>
                 </div>
             </div>
+            <!-- <div class="d-flex mt-2">
+                <div class="position-relative me-3 flex-shrink-0">
+                    <img src="https://images.bisnis.com/posts/2020/06/05/1249131/pria-botak.jpg" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
+                </div>
+                <div class="flex-grow-1">
+                    <div class="modal-body">
+                            <div class="d-flex">
+                                <h6 class="col-6">
+                 aaaaaaaa
+                                </h6>
+                                <p class="col-6 me-2" style="font-size: 12px;margin-left: 22%;">
+                                    <a href="/chatify/web-chat/${data.fromUserId}" class="">Lihat Chat</a>
+                                </p>
+                            </div>
+                            <div class="fs-sm text-muted">
+                                <p class="mb-1" style="text-overflow: ellipsis; overflow: hidden;
+                                            -webkit-line-clamp: 1; -webkit-box-orient: vertical; display: -webkit-box;
+                                            word-break: break-word; max-width: 300px;">
+                                          aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+                                </p>
+                            </div>
+                    </div>
+                </div>
+            </div> -->
             <div class="modal-footer">
                 <a href="{{ route('set.all.messages.seen') }}" style="margin-right: 22%; color: red;">Hapus Semua</a>
                 <a href="{{ url('chatify/web-chat') }}">Lihat lebih banyak</a>
@@ -189,61 +204,61 @@
 </div><!-- /.modal -->
 
 @section('script')
-    <script src="path/to/bootstrap.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var dropdown = new bootstrap.Dropdown(document.querySelector('.dropdown-toggle'));
-        });
-    </script>
-    <script>
-        const hamburgerButton = document.getElementById('topnav-hamburger-icon');
-        const contentDiv = document.querySelector('.text-start');
+<script src="path/to/bootstrap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdown = new bootstrap.Dropdown(document.querySelector('.dropdown-toggle'));
+    });
+</script>
+<script>
+    const hamburgerButton = document.getElementById('topnav-hamburger-icon');
+    const contentDiv = document.querySelector('.text-start');
 
-        hamburgerButton.addEventListener('click', function() {
-            contentDiv.classList.toggle('hamburger-icon-open');
-        });
-    </script>
-    <script>
-        // Fungsi untuk mengatur cookie
-        function setCookie(cname, cvalue, exdays) {
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
+    hamburgerButton.addEventListener('click', function() {
+        contentDiv.classList.toggle('hamburger-icon-open');
+    });
+</script>
+<script>
+    // Fungsi untuk mengatur cookie
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
 
-        // Fungsi untuk mendapatkan nilai cookie
-        function getCookie(cname) {
-            var name = cname + "=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) === ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) === 0) {
-                    return c.substring(name.length, c.length);
-                }
+    // Fungsi untuk mendapatkan nilai cookie
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
             }
-            return "";
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
         }
+        return "";
+    }
 
-        // Cek apakah elemen harus disembunyikan
-        var shouldHide = getCookie('hideElement') === 'true';
+    // Cek apakah elemen harus disembunyikan
+    var shouldHide = getCookie('hideElement') === 'true';
 
-        // Periksa preferensi dan atur properti 'display' sesuai kebutuhan
-        var element = document.querySelector('.position-absolute');
-        if (shouldHide) {
-            element.style.display = 'none';
-        } else {
-            element.style.display = 'block';
-        }
+    // Periksa preferensi dan atur properti 'display' sesuai kebutuhan
+    var element = document.querySelector('.position-absolute');
+    if (shouldHide) {
+        element.style.display = 'none';
+    } else {
+        element.style.display = 'block';
+    }
 
-        // Event listener untuk mengubah preferensi saat elemen diklik
-        element.addEventListener('click', function() {
-            shouldHide = !shouldHide; // Toggle status
-            setCookie('hideElement', shouldHide, 365); // Set cookie untuk 1 tahun
-        });
-    </script>
+    // Event listener untuk mengubah preferensi saat elemen diklik
+    element.addEventListener('click', function() {
+        shouldHide = !shouldHide; // Toggle status
+        setCookie('hideElement', shouldHide, 365); // Set cookie untuk 1 tahun
+    });
+</script>
 @endsection
