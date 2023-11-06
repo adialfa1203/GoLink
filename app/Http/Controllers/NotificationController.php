@@ -26,34 +26,29 @@ class NotificationController extends Controller
             ->get();
 
         foreach ($ch_messages as $message) {
-            $isProfileUpdate = true;
-
             if ($message->fromUser) {
                 $message->fromUserName = $message->fromUser->name;
-                
-                if ($isProfileUpdate && $message->fromUser->profile_picture) {
-                    if ($message->fromUser->google_id) {
-                        $message->image = config('app.url') . '/profile_pictures/' . $message->fromUser->profile_picture;
-                    } else {
-                        $message->image = config('app.url') . '/profile_pictures/' . $message->fromUser->profile_picture;
-                    }
+                if ($message->fromUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->fromUser->profile_picture))) {
+                    $message->image = asset('profile_pictures/' . $message->fromUser->profile_picture);
+                } elseif ($message->fromUser->google_id && $message->fromUser->profile_picture) {
+                    $message->image = $message->fromUser->profile_picture;
                 } else {
-                    $message->image = config('app.url') . '/default/default.jpg';
+                    $message->image = asset('default/default.jpg');
                 }
             }
+
             if ($message->toUser) {
                 $message->toUserName = $message->toUser->name;
-                
-                if ($isProfileUpdate && $message->toUser->profile_picture) {
-                    if ($message->toUser->google_id) {
-                        $message->image = config('app.url') . '/profile_pictures/' . $message->toUser->profile_picture;
-                    } else {
-                        $message->image = config('app.url') . '/profile_pictures/' . $message->toUser->profile_picture;
-                    }
+                if ($message->toUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->toUser->profile_picture))) {
+                    $message->image = asset('profile_pictures/' . $message->toUser->profile_picture);
+                } elseif ($message->toUser->google_id && $message->toUser->profile_picture) {
+                    $message->image = $message->toUser->profile_picture;
                 } else {
-                    $message->image = config('app.url') . '/default/default.jpg';
+                    $message->image = asset('default/default.jpg');
                 }
-            }
+            }            
+        }
+
         // dd($ch_messages);
 
         $numberOfSenders = ChMessage::where('to_id', $user->id)
@@ -86,15 +81,10 @@ class NotificationController extends Controller
             foreach ($ch_messages as $message) {
                 if ($message->fromUser) {
                     $message->fromUserName = $message->fromUser->name;
-                
                     if ($message->fromUser->google_id) {
                         $message->image = $message->fromUser->profile_picture;
                     } elseif ($message->fromUser->profile_picture) {
-                        if ($message->fromUser->google_id) {
-                            $message->image = config('app.url') . '/profile_pictures/' . $message->fromUser->profile_picture;
-                        } else {
-                            $message->image = config('app.url') . '/profile_pictures/' . $message->fromUser->profile_picture;
-                        }
+                        $message->image = config('app.url') . '/profile_pictures/' . $message->fromUser->profile_picture;
                     } else {
                         $message->image = config('app.url') . '/default/default.jpg';
                     }
@@ -102,15 +92,10 @@ class NotificationController extends Controller
     
                 if ($message->toUser) {
                     $message->toUserName = $message->toUser->name;
-                
                     if ($message->toUser->google_id) {
                         $message->image = $message->toUser->profile_picture;
                     } elseif ($message->toUser->profile_picture) {
-                        if ($message->toUser->google_id) {
-                            $message->image = config('app.url') . '/profile_pictures/' . $message->toUser->profile_picture;
-                        } else {
-                            $message->image = config('app.url') . '/profile_pictures/' . $message->toUser->profile_picture;
-                        }
+                        $message->image = config('app.url') . '/profile_pictures/' . $message->toUser->profile_picture;
                     } else {
                         $message->image = config('app.url') . '/default/default.jpg';
                     }
