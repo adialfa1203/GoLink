@@ -41,7 +41,7 @@ class ButtonController extends Controller
         }
 
         $button = Button::create([
-            'name_button' => $request->name_button,
+            'name_button' => str_replace(' ', '', $request->name_button),
             'icon' => $request->icon,
         ]);
         return redirect()->route('view.button')->with('success', 'Media Sosial berhasil ditambah.');
@@ -71,7 +71,7 @@ class ButtonController extends Controller
 
         $button = Button::findOrFail($id);
 
-        $button->name_button = $request->name_button;
+        $button->name_button = str_replace(' ', '', $request->name_button);
         $button->icon = $request->icon;
         $socialCount = Social::where('buttons_uuid', $id)->count();
 
