@@ -604,8 +604,8 @@
                                                                                 </h5>
                                                                                 <p>jenis tautan yang hanya berlangsung selama periode waktu tertentu.</p>
                                                                                 <img class="mt-3 mb-3"
-                                                                                    src="{{ asset('template/image/password.png') }} "
-                                                                                    width="97" height="69">
+                                                                                    src="{{ asset('template/image/clock.png') }} "
+                                                                                    width="100">
                                                                             </center>
                                                                             <div class="col-lg-12 mb-3 mt-3">
                                                                                 <label for="deactivated_at">Ubah
@@ -646,8 +646,8 @@
                                                                                 </h5>
                                                                                 <p>Ubah nama tautan asli anda dan sesuaikan dengan keinginan anda.</p>
                                                                                 <img class="mt-3 mb-3"
-                                                                                    src="{{ asset('template/image/password.png') }} "
-                                                                                    width="97" height="69">
+                                                                                    src="{{ asset('template/image/date.png') }} "
+                                                                                    width="100">
                                                                             </center>
                                                                             <div class="col-lg-12 mb-2">
                                                                                 <label class="mb-2" for="destination_url"
