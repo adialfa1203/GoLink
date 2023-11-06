@@ -3,6 +3,7 @@
 
 @section('style')
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <style>
         /* Contoh aturan media queries untuk mengatur ulang tampilan pada layar kecil */
         @media (max-width: 768px) {
@@ -494,9 +495,20 @@
 @endsection
 
 @section('script')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script>
+   $(document).ready(function() {
+            $('#editor').summernote({
+                toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['height', ['height']]
+  ]
+
+            });
+        });
         ClassicEditor
-            .create(document.querySelector('#editor'))
+            .create(document.querySelector('#aja'))
             .catch(error => {
                 console.error(error);
             });
