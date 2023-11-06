@@ -25,7 +25,7 @@ class NotificationController extends Controller
 
         foreach ($ch_messages as $message) {
             if ($message->fromUser) {
-                $message->fromUserId = $ch_message->fromUser->id;
+                $message->fromUserId = $message->fromUser->id;
                 $message->fromUserName = $message->fromUser->name;
                 if ($message->fromUser->profile_picture && file_exists(public_path('profile_pictures/' . $message->fromUser->profile_picture))) {
                     $message->image = asset('profile_pictures/' . $message->fromUser->profile_picture);
