@@ -330,7 +330,7 @@
                                                                     class="btn btn-light me-3 btn-sm custom-destination-url"
                                                                     style="background-color: #CED2D9"
                                                                     data-bs-toggle="modal"
-                                                                    data-bs-target="#customDestinationModal-{{$row->id}}"
+                                                                    data-bs-target="#customDestinationModal-{{ $row->id }}"
                                                                     data-link="{{ $row->url_key }}">
                                                                     <span>
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -414,8 +414,8 @@
                                                                             <div class="card">
                                                                                 <div class="card-header fw-bold">
                                                                                     <div class="avatar-sm mx-auto mb-3">
-                                                                                        <div
-                                                                                            class="avatar-title bg-custom fs-xl rounded" style="color: #0E2954">
+                                                                                        <div class="avatar-title bg-custom fs-xl rounded"
+                                                                                            style="color: #0E2954">
                                                                                             <i
                                                                                                 class="fa-solid fa-lock"></i>
                                                                                         </div>
@@ -486,8 +486,11 @@
                                                                             <div class="but">
                                                                                 <button type="button" class="btn"
                                                                                     style="border-radius: 5px;border: 1px solid #FF2323;background: #FFF;"
-                                                                                    data-bs-dismiss="modal"><span
-                                                                                        style="color: #FF2323;font-family: Poppins;font-size: 14px;font-style: normal;font-weight: 700;line-height: normal;">Hapus</span></button>
+                                                                                    data-bs-dismiss="modal"
+                                                                                    onclick="clearPassword()">
+                                                                                    <span
+                                                                                        style="color: #FF2323;font-family: Poppins;font-size: 14px;font-style: normal;font-weight: 700;line-height: normal;">Hapus</span>
+                                                                                </button>
                                                                                 <button type="button"
                                                                                     class="btn-submit submitKustom"
                                                                                     style="border-radius: 5px;border: 1px solid rgba(0, 0, 0, 0.10);background: #0E2954; color: #fff;">Simpan</button>
@@ -521,8 +524,8 @@
                                                                             <p>{{ $row->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                                                                                        <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                                                                                        </center> -->
+                                                                                                                                                                                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                                                                                                </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -544,13 +547,18 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-body">
                                                                             <h5 class="modal-title text-center"
-                                                                                    id="TimeModalLabel">Kustom Tautan
-                                                                                </h5>
+                                                                                id="TimeModalLabel">Kustom Tautan
+                                                                            </h5>
                                                                             <div class="card-body d-flex mt-3"
                                                                                 style="background-color: #D9D9D9;">
-                                                                                <p><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-<path d="M5.5 4.5H6.5V3.5H5.5V4.5ZM6 10C3.795 10 2 8.205 2 6C2 3.795 3.795 2 6 2C8.205 2 10 3.795 10 6C10 8.205 8.205 10 6 10ZM6 1C5.34339 1 4.69321 1.12933 4.08658 1.3806C3.47995 1.63188 2.92876 2.00017 2.46447 2.46447C1.52678 3.40215 1 4.67392 1 6C1 7.32608 1.52678 8.59785 2.46447 9.53553C2.92876 9.99983 3.47995 10.3681 4.08658 10.6194C4.69321 10.8707 5.34339 11 6 11C7.32608 11 8.59785 10.4732 9.53553 9.53553C10.4732 8.59785 11 7.32608 11 6C11 5.34339 10.8707 4.69321 10.6194 4.08658C10.3681 3.47995 9.99983 2.92876 9.53553 2.46447C9.07124 2.00017 8.52005 1.63188 7.91342 1.3806C7.30679 1.12933 6.65661 1 6 1ZM5.5 8.5H6.5V5.5H5.5V8.5Z" fill="#555555"/>
-</svg>
+                                                                                <p><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="12" height="12"
+                                                                                        viewBox="0 0 12 12"
+                                                                                        fill="none">
+                                                                                        <path
+                                                                                            d="M5.5 4.5H6.5V3.5H5.5V4.5ZM6 10C3.795 10 2 8.205 2 6C2 3.795 3.795 2 6 2C8.205 2 10 3.795 10 6C10 8.205 8.205 10 6 10ZM6 1C5.34339 1 4.69321 1.12933 4.08658 1.3806C3.47995 1.63188 2.92876 2.00017 2.46447 2.46447C1.52678 3.40215 1 4.67392 1 6C1 7.32608 1.52678 8.59785 2.46447 9.53553C2.92876 9.99983 3.47995 10.3681 4.08658 10.6194C4.69321 10.8707 5.34339 11 6 11C7.32608 11 8.59785 10.4732 9.53553 9.53553C10.4732 8.59785 11 7.32608 11 6C11 5.34339 10.8707 4.69321 10.6194 4.08658C10.3681 3.47995 9.99983 2.92876 9.53553 2.46447C9.07124 2.00017 8.52005 1.63188 7.91342 1.3806C7.30679 1.12933 6.65661 1 6 1ZM5.5 8.5H6.5V5.5H5.5V8.5Z"
+                                                                                            fill="#555555" />
+                                                                                    </svg>
                                                                                 </p>
                                                                                 &nbsp;
                                                                                 <p>Kustom tautan adalah fitur yang
@@ -573,18 +581,21 @@
                                                                                     name="new_url_key" id="new_url_key"
                                                                                     placeholder="Kustom nama">
                                                                             </div>
-                                                                            <div class="col-lg-12 mb-3" style="margin-top: -11%;">
+                                                                            <div class="col-lg-12 mb-3"
+                                                                                style="margin-top: -11%;">
                                                                                 <label for="new_url_key"></label>
                                                                                 <input type="hidden" class="form-control"
                                                                                     name="custom_name" id="new_url_key"
                                                                                     placeholder="Kustom nama">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="d-flex justify-content-end mb-3" style="margin-right: 4%; gap: 0.5rem;">
+                                                                        <div class="d-flex justify-content-end mb-3"
+                                                                            style="margin-right: 4%; gap: 0.5rem;">
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
                                                                             <button id="submitKustom" type="button"
-                                                                                class="btn submitKustom" style="background-color:  #0E2954; color:#fff;">Simpan</button>
+                                                                                class="btn submitKustom"
+                                                                                style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
@@ -602,7 +613,8 @@
                                                                                 <h5 class="modal-title text-center"
                                                                                     id="TimeModalLabel">Atur Waktu
                                                                                 </h5>
-                                                                                <p>jenis tautan yang hanya berlangsung selama periode waktu tertentu.</p>
+                                                                                <p>jenis tautan yang hanya berlangsung
+                                                                                    selama periode waktu tertentu.</p>
                                                                                 <img class="mt-3 mb-3"
                                                                                     src="{{ asset('template/image/clock.png') }} "
                                                                                     width="100">
@@ -620,51 +632,65 @@
                                                                                     min="{{ now()->format('Y-m-d\TH:i') }}">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="d-flex justify-content-end mb-3" style="margin-right: 4%; gap: 0.5rem;">
+                                                                        <div class="d-flex justify-content-end mb-3"
+                                                                            style="margin-right: 4%; gap: 0.5rem;">
                                                                             <button type="button" class="btn btn-light"
-                                                                                data-bs-dismiss="modal">Tutup</button>
+                                                                                data-bs-dismiss="modal"
+                                                                                onclick="clearTime()">Tutup</button>
                                                                             <button id="submitTime"
                                                                                 data-key="{{ $row->url_key }}"
                                                                                 data-id="{{ $row->id }}"
                                                                                 type="button"
-                                                                                class="btn-submit btn submitKustom" style="background-color:  #0E2954; color:#fff;">Simpan</button>
+                                                                                class="btn-submit btn submitKustom"
+                                                                                style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
                                                             </div><!-- /.modal -->
                                                         </form>
                                                         <form id="customDestinationUrl">
-                                                            <div id="customDestinationModal-{{$row->id}}" class="modal fade"
-                                                                tabindex="-1" aria-labelledby="customDestinationUrl"
-                                                                aria-hidden="true">
+                                                            <div id="customDestinationModal-{{ $row->id }}"
+                                                                class="modal fade" tabindex="-1"
+                                                                aria-labelledby="customDestinationUrl" aria-hidden="true">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
                                                                         <div class="modal-body">
                                                                             <center>
                                                                                 <h5 class="modal-title text-center"
-                                                                                    id="TimeModalLabel">Ubah Nama Tautan Asli
+                                                                                    id="TimeModalLabel">Ubah Nama Tautan
+                                                                                    Asli
                                                                                 </h5>
-                                                                                <p>Ubah nama tautan asli anda dan sesuaikan dengan keinginan anda.</p>
+                                                                                <p>Ubah nama tautan asli anda dan sesuaikan
+                                                                                    dengan keinginan anda.</p>
                                                                                 <img class="mt-3 mb-3"
                                                                                     src="{{ asset('template/image/date.png') }} "
                                                                                     width="100">
                                                                             </center>
                                                                             <div class="col-lg-12 mb-2">
-                                                                                <label class="mb-2" for="destination_url"
+                                                                                <label class="mb-2"
+                                                                                    for="destination_url"
                                                                                     style="
                                                                                 font-weight: bold;">Ubah
                                                                                     Nama</label>
-                                                                                <input type="text" class="form-control"
-                                                                                    name="destination_url" id="destination_url-{{$row->id}}"
-                                                                                    data-key="{{ $row->url_key }}" placeholder="Ubah Nama">
+                                                                                <input type="text"
+                                                                                    class="form-control destinationUrl"
+                                                                                    name="destination_url"
+                                                                                    id="destination_url-{{ $row->id }}"
+                                                                                    data-key="{{ $row->url_key }}"
+                                                                                    placeholder="Ubah Nama">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="d-flex justify-content-end mb-3" style="margin-right: 4%; gap: 0.5rem;">
+                                                                        <div class="d-flex justify-content-end mb-3"
+                                                                            style="margin-right: 4%; gap: 0.5rem;">
                                                                             <button type="button" class="btn btn-light"
-                                                                                data-bs-dismiss="modal">Tutup</button>
-                                                                            <button id="submitDestination" data-key="{{ $row->url_key }}"
-                                                                                data-id="{{ $row->id }}" type="button"
-                                                                                class="submitDestination btn" style="background-color:  #0E2954; color:#fff;">Simpan</button>
+                                                                                data-bs-dismiss="modal"
+                                                                                onclick="clearDestinationUrl()">Tutup</button>
+                                                                            <button id="submitDestination"
+                                                                                data-key="{{ $row->url_key }}"
+                                                                                data-id="{{ $row->id }}"
+                                                                                type="button"
+                                                                                class="submitDestination btn"
+                                                                                style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
@@ -854,7 +880,6 @@
                                                                     </h3>
                                                                 </a>
                                                             @else
-
                                                                 <h3 class="garisbawah text-muted card-title mb-2">
                                                                     {{ $url->default_short_url }}
                                                                 </h3>
@@ -972,8 +997,8 @@
                                                                             <p>{{ $url->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                                                                                                                                            <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                                                                                                                                        </center> -->
+                                                                                                                                                                                                                                                    <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                                                                                                                                                </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -1044,7 +1069,8 @@
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
                                                                             <button id="submitKustom" type="button"
-                                                                                class="btn submitKustom" style="background-color:  #0E2954; color:#fff;">Simpan</button>
+                                                                                class="btn submitKustom"
+                                                                                style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
@@ -1099,7 +1125,8 @@
                                                                                 data-key="{{ $url->url_key }}"
                                                                                 data-id="{{ $url->id }}"
                                                                                 type="button"
-                                                                                class="btn-submit btn submitKustom" style="background-color:  #0E2954; color:#fff;">Simpan</button>
+                                                                                class="btn-submit btn submitKustom"
+                                                                                style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
@@ -1205,12 +1232,30 @@
             chart.render();
         </script>
     @endforeach
-   <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
+    <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/password-addon.init.js') }}"></script>
     <script type="text/javascript" src="./jquery.qrcode.js"></script>
     <script type="text/javascript" src="./qrcode.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        function clearPassword() {
+            document.getElementById('password-input').value = '';
+        }
+
+        function clearDestinationUrl() {
+            var destinationUrl = document.getElementsByClassName('destinationUrl');
+            for (var i = 0; i < destinationUrl.length; i++) {
+                destinationUrl[i].value = '';
+            }
+        }
+
+        function clearTime() {
+            var datetimeInputs = document.querySelectorAll('input[type=datetime-local]');
+            datetimeInputs.forEach(function(input) {
+                input.value = "";
+            });
+        }
+
         $(document).ready(function() {
             $("#copyButton").click(function() {
                 let id = $(this).data('id-copy');
@@ -1299,7 +1344,6 @@
         });
     </script>
     <script>
-        // Fungsi untuk membuka modal
         function bukaModal() {
             var modal = document.getElementById("modal");
             modal.style.display = "block";
@@ -1378,55 +1422,55 @@
 
 
     <script>
-    $(document).ready(function() {
-        var selectId = $('#new_url_key').val();
-        // Mendapatkan token CSRF dari meta tag
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+        $(document).ready(function() {
+            var selectId = $('#new_url_key').val();
+            // Mendapatkan token CSRF dari meta tag
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-        // Tambahkan kode berikut di bawahnya
-        $('#submitKustom').click(function() {
-            var newUrlKey = $('#new_url_key').val();
-            // alert('masuk')
-            $.ajax({
-                headers: {
-                    'X-CSRF-Token': csrfToken,
-                },
-                url: "/user/update-short-link/" + $('#new_url_key').data("original"),
-                method: 'POST',
-                data: {
-                    newUrlKey: newUrlKey
-                },
-                dataType: 'JSON',
-                error: function(e) {
-                    console.log(e.responseJSON);
-                    // Menggunakan Sweet Alert untuk menampilkan pesan kesalahan
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: e.responseJSON.newUrlKey[0]
-                    });
-                },
-                success: function(e) {
-                    // Menggunakan Sweet Alert untuk menampilkan pesan sukses
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success',
-                        text: 'Update Berhasil'
-                    }).then(function() {
-                        location.reload();
-                    });
-                }
+            // Tambahkan kode berikut di bawahnya
+            $('#submitKustom').click(function() {
+                var newUrlKey = $('#new_url_key').val();
+                // alert('masuk')
+                $.ajax({
+                    headers: {
+                        'X-CSRF-Token': csrfToken,
+                    },
+                    url: "/user/update-short-link/" + $('#new_url_key').data("original"),
+                    method: 'POST',
+                    data: {
+                        newUrlKey: newUrlKey
+                    },
+                    dataType: 'JSON',
+                    error: function(e) {
+                        console.log(e.responseJSON);
+                        // Menggunakan Sweet Alert untuk menampilkan pesan kesalahan
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: e.responseJSON.newUrlKey[0]
+                        });
+                    },
+                    success: function(e) {
+                        // Menggunakan Sweet Alert untuk menampilkan pesan sukses
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Update Berhasil'
+                        }).then(function() {
+                            location.reload();
+                        });
+                    }
+                });
+            });
+
+            $('.edit-link').click(function() {
+                var link = $(this).data('link');
+
+                $('#new_url_key').val(link);
+                $('#new_url_key').attr("data-original", link);
             });
         });
-
-        $('.edit-link').click(function() {
-            var link = $(this).data('link');
-
-            $('#new_url_key').val(link);
-            $('#new_url_key').attr("data-original", link);
-        });
-    });
-</script>
+    </script>
     <script>
         $(document).ready(function() {
             var selectId = $('#deactivated_at').val();
