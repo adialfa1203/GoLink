@@ -128,7 +128,7 @@
                     <div class="card-body">
                         <span class="badge bg-success-subtle text-success float-end"></span>
                         <p style="color: #0E2954; text-muted fw-medium text-uppercase mb-0">Pengunjung Tautan</p>
-                        <h4 class="mt-4"><span class="counter-value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</span></h4>
+                        <h4 class="mt-4"><span class="counter-value" data-target="{{ $totalCountVisits }}">{{ $totalCountVisits }}</span></h4>
                     </div>
                 </div>
             </div>

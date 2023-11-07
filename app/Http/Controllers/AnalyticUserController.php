@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\History;
+use App\Models\HistoryVisits;
 use App\Models\ShortUrl;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\DB;
@@ -35,10 +36,10 @@ class AnalyticUserController extends Controller
                 ->whereBetween('created_at', [$startDateOfMonth, $endDateOfMonth])
                 ->count();
 
-            $countFromOtherTable = History::where('user_id', $user)
+            $historyUrl = History::where('user_id', $user)
                 ->count();
 
-            $totalCount = $countURL + $countFromOtherTable;
+            $totalCount = $countURL + $historyUrl;
 
             $countMicrosite = ShortUrl::where('user_id', $user)
                 ->whereNotNull('microsite_uuid')
@@ -53,6 +54,11 @@ class AnalyticUserController extends Controller
                 ->whereBetween('visited_at', [$startDateOfMonth, $endDateOfMonth])
                 ->count();
 
+            $historyVisits = HistoryVisits::where('user_id', $user)
+            ->count();
+
+            $totalCountVisits = $totalVisits + $historyVisits;
+
             $totalVisitsMicrosite = ShortURLVisit::whereHas('shortUrl', function ($query) use ($user) {
                 $query->where('user_id', $user)
                     ->whereNotNull('microsite_uuid');
@@ -61,7 +67,7 @@ class AnalyticUserController extends Controller
                 ->count();
 
             $totalUrlData[] = ['date' => $startDateOfMonth, 'totalUrl' => $totalCount];
-            $totalVisitsData[] = ['date' => $startDateOfMonth, 'totalVisits' => $totalVisits];
+            $totalVisitsData[] = ['date' => $startDateOfMonth, 'totalVisits' => $totalCountVisits];
             $totalVisitsMicrositeData[] = ['date' => $startDateOfMonth, 'totalVisitsMicrosite' => $totalVisitsMicrosite];
             $countMicrositeData[] = ['date' => $startDateOfMonth, 'countMicrosite' => $countMicrosite];
         }
@@ -118,6 +124,11 @@ class AnalyticUserController extends Controller
                     ->where('archive', '!=', 'yes')
                     ->whereDate('created_at', '>=', $currentMonth);
             })->count();
+
+            $historyVisits = HistoryVisits::where('user_id', $userId)
+            ->count();
+
+            $totalCountVisits = $totalVisits + $historyVisits;
 
             $totalVisitsMicrosite = ShortURLVisit::whereHas('shortURL', function ($query) use ($userId, $currentMonth) {
                 $query->where('user_id', $userId)
@@ -256,7 +267,7 @@ class AnalyticUserController extends Controller
         // $visits = count($shortURL->visits) ;
 
         // dd($totalVisits,$countURL);
-        return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'user', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite', 'TopBrowser', 'TopDevice', 'TopReferer', 'TopIpAdress'));
+        return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'user', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite', 'TopBrowser', 'TopDevice', 'TopReferer', 'TopIpAdress', 'totalCountVisits'));
     }
 
     //data test

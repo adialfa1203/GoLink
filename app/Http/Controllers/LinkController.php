@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\DateHelper;
 use App\Models\History;
+use App\Models\HistoryVisits;
 use App\Models\ShortUrl;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 use Carbon\Carbon;
@@ -52,9 +53,14 @@ class LinkController extends Controller
     {
         $now = Carbon::now();
 
-        $expiredEntries = ShortUrl::where('deactivated_at', '<=', $now)->get();
+        $shortURL = ShortUrl::where('deactivated_at', '<=', $now)->get();
+        $shortUrlVisits = ShortURLVisit::with('ShortUrl')
+        ->whereHas('ShortUrl', function ($query) use ($now) {
+            $query->where('deactivated_at', '<=', $now);
+        })
+        ->get();
 
-        foreach ($expiredEntries as $entry) {
+        foreach ($shortURL as $entry) {
             History::create([
                 'user_id' => $entry->user_id,
                 'title' => $entry->title,
@@ -62,6 +68,21 @@ class LinkController extends Controller
                 'default_short_url' => $entry->default_short_url,
                 'activated_at' => $entry->activated_at,
                 'deactivated_at' => $entry->deactivated_at,
+            ]);
+
+            $entry->delete();
+        }
+
+        foreach ($shortUrlVisits as $entry) {
+            HistoryVisits::create([
+                'user_id' => $entry->user_id,
+                'short_url_id' => $entry->short_url_id,
+                'ip_address' => $entry->ip_address,
+                'operating_system' => $entry->operating_system,
+                'operating_system_version' => $entry->operating_system_version,
+                'browser' => $entry->browser,
+                'browser_version' => $entry->browser_version,
+                'visited_at' => $entry->visited_at,
             ]);
 
             $entry->delete();
