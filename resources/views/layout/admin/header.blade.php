@@ -61,7 +61,7 @@
                 <div class="dropdown topbar-head-dropdown ms-1 header-item">
                 </div>
                 <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"
-                    data-bs-toggle="modal" data-bs-target="#myModal">
+                    data-bs-toggle="modal" data-bs-target="#myModal" id="topbar-badge-hide">
                     <i class='bi bi-bell fs-2xl'></i>
                     <span
                         class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span
