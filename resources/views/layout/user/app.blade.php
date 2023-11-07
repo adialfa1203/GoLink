@@ -1029,7 +1029,7 @@
             return `
             <div class="d-flex mt-2">
                 <div class="position-relative me-3 flex-shrink-0">
-                    <img src="${data.image}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
+                    <img src="${data.image}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic" style="margin-left: 41%;">
                 </div>
                 <div class="flex-grow-1">
                     <div class="modal-body" style="padding-top:0">
