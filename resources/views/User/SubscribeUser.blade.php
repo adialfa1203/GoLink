@@ -4,7 +4,6 @@
 
     <style>
         /* Untuk layar kecil (misalnya, ponsel) */
-        //card dan gambarnya
         @media (max-width: 576px) {
             .card-img-top {
                 width: 50%;
@@ -21,7 +20,7 @@
             }
         }
 
-        //text
+        
         @media (max-width: 576px) {
             .col-lg-7 {
                 width: 100%;
