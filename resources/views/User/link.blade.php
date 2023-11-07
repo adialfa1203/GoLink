@@ -857,7 +857,7 @@
                                                                     style="background-color: #CED2D9"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#customDestinationModal"
-                                                                    data-link="{{ $row->url_key }}">
+                                                                    >
                                                                     <span>
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                                             width="13" height="15"
