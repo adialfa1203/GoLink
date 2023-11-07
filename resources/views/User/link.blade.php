@@ -483,18 +483,15 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="but">
-                                                                                <button type="button" class="btn"
-                                                                                    style="border-radius: 5px;border: 1px solid #FF2323;background: #FFF;"
-                                                                                    data-bs-dismiss="modal"
-                                                                                    onclick="clearPassword()">
-                                                                                    <span
-                                                                                        style="color: #FF2323;font-family: Poppins;font-size: 14px;font-style: normal;font-weight: 700;line-height: normal;">Hapus</span>
-                                                                                </button>
-                                                                                <button type="button"
+                                                                            <div class="d-flex justify-content-end mb-3"
+                                                                            style="margin-top: 30px; gap: 0.5rem;">
+                                                                            <button type="button" class="btn btn-light"
+                                                                            data-bs-dismiss="modal"
+                                                                                    onclick="clearPassword()">Kembali</button>
+                                                                            <button type="button"
                                                                                     class="btn-submit submitKustom"
                                                                                     style="border-radius: 5px;border: 1px solid rgba(0, 0, 0, 0.10);background: #0E2954; color: #fff;">Simpan</button>
-                                                                            </div>
+                                                                        </div>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
