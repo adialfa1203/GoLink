@@ -73,6 +73,7 @@ class Kernel extends HttpKernel
 
     protected $routeMiddleware = [
         'checkBanStatus' => \App\Http\Middleware\CheckUserBanStatus::class,
+        'preventBackHistory' => \App\Http\Middleware\PreventBackHistory::class,
     ];
 
 }
