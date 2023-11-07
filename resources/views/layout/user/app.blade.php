@@ -1077,7 +1077,6 @@
                             $('#count-messages').text('');
                             $('.topbar-badge').hide();
                             $('.modal-footer').hide();
-                            $('#empty-messages').show();
                         } else {
                             $('#count-messages').text(response.ch_messages.length);
                             $.each(response.ch_messages, function(index, data) {
