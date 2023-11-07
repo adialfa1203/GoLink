@@ -66,9 +66,9 @@
                             <i class='bi bi-arrows-fullscreen fs-lg'></i>
                         </button>
                     </div>
-                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle" data-bs-toggle="modal" data-bs-target="#myModal" id="topbar-badge-hide">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle" data-bs-toggle="modal" data-bs-target="#myModal">
                         <i class='bi bi-bell fs-2xl'></i>
-                        <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span class="notification-badge" id="count-messages"></span><span class="visually-hidden">unread
+                        <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger" id="topbar-badge-hide"><span class="notification-badge" id="count-messages"></span><span class="visually-hidden">unread
                                 messages</span></span>
                     </button>
                     <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/user/subscribe-product-user" type="button" class="btn" style="background-color: #0E2954;><i class=" bi bi-fire></i>
