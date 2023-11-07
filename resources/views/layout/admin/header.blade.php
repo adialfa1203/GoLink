@@ -64,7 +64,7 @@
                     data-bs-toggle="modal" data-bs-target="#myModal">
                     <i class='bi bi-bell fs-2xl'></i>
                     <span
-                        class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger" id="topbar-badge-hide"><span
+                        class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span
                             class="notification-badge" id="count-messages"></span><span class="visually-hidden">unread
                             messages</span></span>
                 </button>

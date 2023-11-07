@@ -1058,11 +1058,6 @@
         });
     </script> --}}
         <script>
-            var cek = document.getElementById('preloader');
-            cek.style.display = "block";
-            cek.style.removeProperty('visibility');
-        </script>
-        <script>
             function getNotification() {
                 $.ajax({
                     url: "/user/chat-data-show",
@@ -1075,7 +1070,7 @@
                         console.log(response.ch_messages);
                         if (response.ch_messages.length === 0) {
                             $('#count-messages').text('');
-                            $('#topbar-badge-hide').hide();
+                            $('.topbar-badge').hide();
                             $('.modal-footer').hide();
                             $('#empty-messages').show();
                         } else {
