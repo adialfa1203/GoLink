@@ -1121,7 +1121,7 @@
                                 <h6 class="col-6">
                                     ${data.fromUserName ? (data.fromUserName.length > 9 ? data.fromUserName.substring(0, 9) + '...' : data.fromUserName) : ''}
                                 </h6>
-                                <p class="col-6 me-2" style="font-size: 12px;margin-left: 22%;">
+                                <p class="col-6 me-2 mb-2" style="font-size: 12px;margin-left: 22%;">
                                     <a href="/chatify/web-chat/${data.fromUserId}" class="">Lihat Chat</a>
                                 </p>
                             </div>
