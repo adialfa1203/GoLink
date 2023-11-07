@@ -35,6 +35,11 @@ class AnalyticUserController extends Controller
                 ->whereBetween('created_at', [$startDateOfMonth, $endDateOfMonth])
                 ->count();
 
+            $countFromOtherTable = History::where('user_id', $user)
+                ->count();
+
+            $totalCount = $countURL + $countFromOtherTable;
+
             $countMicrosite = ShortUrl::where('user_id', $user)
                 ->whereNotNull('microsite_uuid')
                 ->whereBetween('created_at', [$startDateOfMonth, $endDateOfMonth])
@@ -55,7 +60,7 @@ class AnalyticUserController extends Controller
                 ->whereBetween('visited_at', [$startDateOfMonth, $endDateOfMonth])
                 ->count();
 
-            $totalUrlData[] = ['date' => $startDateOfMonth, 'totalUrl' => $countURL];
+            $totalUrlData[] = ['date' => $startDateOfMonth, 'totalUrl' => $totalCount];
             $totalVisitsData[] = ['date' => $startDateOfMonth, 'totalVisits' => $totalVisits];
             $totalVisitsMicrositeData[] = ['date' => $startDateOfMonth, 'totalVisitsMicrosite' => $totalVisitsMicrosite];
             $countMicrositeData[] = ['date' => $startDateOfMonth, 'countMicrosite' => $countMicrosite];
@@ -68,6 +73,7 @@ class AnalyticUserController extends Controller
             'totalVisitsData' => $totalVisitsData,
             'totalVisitsMicrositeData' => $totalVisitsMicrositeData,
             'countMicrositeData' => $countMicrositeData,
+            'totalCount' => $totalCount
         ]);
     }
 
