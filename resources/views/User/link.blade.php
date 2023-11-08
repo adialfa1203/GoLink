@@ -654,10 +654,10 @@
                                                                         <div class="modal-body">
                                                                             <center>
                                                                                 <h5 class="modal-title text-center"
-                                                                                    id="TimeModalLabel">Ubah Nama Tautan
+                                                                                    id="TimeModalLabel">Kustom Tautan
                                                                                     Asli
                                                                                 </h5>
-                                                                                <p>Ubah nama tautan asli anda dan sesuaikan
+                                                                                <p>Kustom tautan asli anda dan sesuaikan
                                                                                     dengan keinginan anda.</p>
                                                                                 <img class="mt-3 mb-3"
                                                                                     src="{{ asset('template/image/date.png') }} "
@@ -667,14 +667,14 @@
                                                                                 <label class="mb-2"
                                                                                     for="destination_url"
                                                                                     style="
-                                                                                font-weight: bold;">Ubah
-                                                                                    Nama</label>
+                                                                                font-weight: bold;">Kustom
+                                                                                    Tautan</label>
                                                                                 <input type="text"
                                                                                     class="form-control destinationUrl"
                                                                                     name="destination_url"
                                                                                     id="destination_url-{{ $row->id }}"
                                                                                     data-key="{{ $row->url_key }}"
-                                                                                    placeholder="Ubah Nama">
+                                                                                    placeholder="Kustom Tautan">
                                                                             </div>
                                                                         </div>
                                                                         <div class="d-flex justify-content-end mb-3"
