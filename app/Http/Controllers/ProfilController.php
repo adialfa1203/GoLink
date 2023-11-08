@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -41,10 +42,11 @@ class ProfilController extends Controller
         $validator = Validator::make($request->only('name', 'email', 'number'), [
             'name' => 'required|max:50',
             'email' => 'required|min:11|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
-            'number' => 'required|min:10|max:13',
+            'number' => 'required|min:10|max:13|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/',
         ], [
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
             'number.required' => 'Kolom Nomer harus diisi',
+            'number.regex' => 'Nomor yang dimasukkan tidak valid!',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
             'email.unique' => 'Email sudah pernah digunakan',
             'email.required' => 'Kolom Email harus diisi',
