@@ -188,7 +188,7 @@
         }
 
         .google-btn:active {
-            background: #1669f2;
+            background: #2F5EA2;
         }
 
         .log {
