@@ -234,10 +234,11 @@
                     <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"
                         aria-labelledby="accordionborderedExample2" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <p>Untuk saat ini, batas pembuatan microsite untuk</p>
-                            <p>Pengguna Gratis - 5 Microsite</p>
-                            <p>Pengguna Lite - 10 Microsite</p>
-                            <p>Pengguna Berlangganan - 30 Microsite</p>
+                            <p>Untuk saat ini, batas pembuatan microsite dari bebepa kategori berlangganan</p>
+                            <p><strong>Gratis   - 3/bulan</strong></p>
+                            <p><strong>Silver   - 5/bulan</strong></p>
+                            <p><strong>Gold     - 10/bulan</strong></p>
+                            <p><strong>Premium  - Unlimited</strong></p>
                         </div>
                     </div>
                 </div>
