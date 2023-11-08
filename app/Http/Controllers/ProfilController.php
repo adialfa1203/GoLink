@@ -42,10 +42,10 @@ class ProfilController extends Controller
         $validator = Validator::make($request->only('name', 'email', 'number'), [
             'name' => 'required|max:50',
             'email' => 'required|min:11|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
-            'number' => 'required|min:10|max:13|regex:/^[^-+]+$/u',
+            'number' => 'required|min:10|max:13|regex:/^[0-9+]$/',
         ], [
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
-            'number.required' => 'Kolom Nomer harus diisi',
+            'number.required' => 'Kolom Nomer Telepon harus diisi',
             'number.regex' => 'Nomor yang dimasukkan tidak valid!',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
             'email.unique' => 'Email sudah pernah digunakan',
@@ -143,7 +143,7 @@ class ProfilController extends Controller
                 'regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/',
                 Rule::unique('users', 'email')->ignore($admin->id),
             ],
-            'number' => 'required|min:10|max:13|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/',
+            'number' => 'required|min:10|max:13|regex:/^[0-9+]$/',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ];
@@ -151,7 +151,7 @@ class ProfilController extends Controller
         // Custom error messages
         $messages = [
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
-            'number.required' => 'Kolom Nomer harus diisi',
+            'number.required' => 'Kolom Nomer Telepon harus diisi',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
             'number.regex' => 'Nomor yang dimasukkan tidak valid!',
             'email.unique' => 'Email sudah pernah digunakan',
