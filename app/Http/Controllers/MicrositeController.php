@@ -32,7 +32,7 @@ class MicrositeController extends Controller
             $data = Microsite::whereHas('shortUrl')
                 ->where('user_id', $user_id)
                 ->with('shortUrl')
-                ->orderBy('updated_at', 'desc')
+                ->orderBy('created_at', 'desc')
                 ->paginate(10);
             $d = $data;
         }
