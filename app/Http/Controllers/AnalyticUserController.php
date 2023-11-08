@@ -54,7 +54,7 @@ class AnalyticUserController extends Controller
                 ->whereBetween('visited_at', [$startDateOfMonth, $endDateOfMonth])
                 ->count();
 
-            $historyVisits = HistoryVisits::where('user_id', $user)
+            $historyVisits = HistoryVisits::where('short_url_id', $user)
             ->count();
 
             $totalCountVisits = $totalVisits + $historyVisits;
@@ -125,10 +125,11 @@ class AnalyticUserController extends Controller
                     ->whereDate('created_at', '>=', $currentMonth);
             })->count();
 
-            $historyVisits = HistoryVisits::where('user_id', $userId)
+            $historyVisits = HistoryVisits::where('short_url_id', $userId)
             ->count();
 
             $totalCountVisits = $totalVisits + $historyVisits;
+            // dd($historyVisits);
 
             $totalVisitsMicrosite = ShortURLVisit::whereHas('shortURL', function ($query) use ($userId, $currentMonth) {
                 $query->where('user_id', $userId)
