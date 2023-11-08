@@ -42,7 +42,7 @@ class ProfilController extends Controller
         $validator = Validator::make($request->only('name', 'email', 'number'), [
             'name' => 'required|max:50',
             'email' => 'required|min:11|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
-            'number' => 'required|min:10|max:13|regex:/^[0-9+]+$/',
+            'number' => 'required|min:10|max:13|regex:/^[^-+]+$/u',
         ], [
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
             'number.required' => 'Kolom Nomer harus diisi',
@@ -58,7 +58,6 @@ class ProfilController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -135,6 +134,7 @@ class ProfilController extends Controller
     {
         $admin = User::findOrFail(Auth::user()->id);
 
+        // Validation rules
         $rules = [
             'name' => 'required|max:50',
             'email' => [
@@ -143,13 +143,13 @@ class ProfilController extends Controller
                 'regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/',
                 Rule::unique('users', 'email')->ignore($admin->id),
             ],
-            'number' => 'required|min:10|max:13|regex:/^[0-9+]+$/',
+            'number' => 'required|min:10|max:13|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
         ];
 
+        // Custom error messages
         $messages = [
-            'name.required' => 'Nama tidak boleh kosong!',
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
             'number.required' => 'Kolom Nomer harus diisi',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
@@ -207,5 +207,6 @@ class ProfilController extends Controller
         $admin->save();
 
         return redirect()->back()->with('success', 'Berhasil mengubah foto profil.');
+
     }
 }
