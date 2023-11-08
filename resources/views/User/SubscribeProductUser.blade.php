@@ -11,9 +11,7 @@
             overflow-y: scroll;
             height: 300px;
             scrollbar-color: #000 #00FF00;
-            /* Track color Thumb color */
             scrollbar-width: thin;
-            /* Auto, thin, thick */
         }
 
         .card-body {
@@ -33,26 +31,24 @@
             cursor: pointer;
         }
 
+        /* Coming soon btn */
         .custom:hover {
-            background-color: #FFB000;
-            color: white;
+            background-color: transparent;
+            color: #FFB000;
+            border: 2px solid #FFB000;
         }
-    </style>
-    <style>
+
         .btn.custom {
             display: block;
             margin: 0 auto;
         }
-    </style>
 
-    <style>
         .bagcard {
             border-radius: 20px;
             background: linear-gradient(0deg, #0E2954, #104898);
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         }
-    </style>
-    <style>
+
         .warna {
             color: #104898 !important;
         }
@@ -184,7 +180,8 @@
                                             Sekarang</a>
                                     </div> --}}
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a type="button" class="btn custom col-12" style="margin-top: 50%;">Segera Hadir...</a>
+                                        <a type="button" class="btn custom col-12" style="margin-top: 50%;">Segera
+                                            Hadir...</a>
                                     </div>
                                 @elseif (strtolower(trim($subs->tipe)) === 'gold')
                                     <div class="d-flex">
@@ -209,8 +206,8 @@
                                             Sekarang</a>
                                     </div> --}}
                                     <div class="col-md-12 col-sm-12 mt-1">
-                                        <a type="button"
-                                            class="btn custom col-12" style="margin-top: 50%;">Segera Hadir...</a>
+                                        <a type="button" class="btn custom col-12" style="margin-top: 50%;">Segera
+                                            Hadir...</a>
                                     </div>
                                 @elseif (strtolower(trim($subs->tipe)) === 'platinum')
                                     <div class="d-flex">
@@ -260,8 +257,8 @@
                                             Sekarang</a>
                                     </div> --}}
                                     <div class="col-md-12 col-sm-12 mt-1">
-                                        <a type="button"
-                                            class="btn custom col-12" style="margin-top: 0%; margin-buttom: 50%;">Segera Hadir...</a>
+                                        <a type="button" class="btn custom col-12"
+                                            style="margin-top: 0%; margin-buttom: 50%;">Segera Hadir...</a>
                                     </div>
                                 @endif
                             </div>
