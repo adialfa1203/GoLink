@@ -1020,8 +1020,9 @@
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/apexcharts/apexcharts.min.js') }}"></script> --}}
 
         <!-- Vector map-->
-        <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/js/jsvectormap.min.js') }}"></script>
-        <script src = "{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/maps/world-merc.js') }}" >
+        <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/js/jsvectormap.min.js') }}">
+        </script>
+        <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/jsvectormap/maps/world-merc.js') }}">
         </script>
 
         <!--Swiper slider js-->
@@ -1047,98 +1048,87 @@
         <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/prismjs/prism.js') }}"></script>
         <!-- App js -->
         <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
-
-        {{-- <script>
-        const hamburgerButton = document.getElementById('topnav-hamburger-icon');
-        const contentDiv = document.querySelector('.text-start');
-
-        hamburgerButton.addEventListener('click', function() {
-            contentDiv.classList.toggle('hamburger-icon-open');
-        });
-    </script> --}}
         <script>
             function getNotification() {
-    $.ajax({
-        url: "/user/chat-data-show",
-        type: 'GET',
-        dataType: "JSON",
-        beforeSend: function() {
-            $('#notification').html('');
-        },
-        success: function(response) {
-            console.log(response.ch_messages);
-            if (response.ch_messages.length === 0) {
-                $('#count-messages').text('');
-                $('.topbar-badge').hide();
-                $('.modal-footer').hide();
-                $('#empty-messages').show();
-            } else {
-                $('#count-messages').text(response.ch_messages.length);
-                $('#data').empty(); // Mengosongkan elemen #data sebelum menambahkan elemen baru
-                $.each(response.ch_messages, function(index, data) {
-                    $('#data').append(notificationCard(data));
-                });
+                $.ajax({
+                    url: "/user/chat-data-show",
+                    type: 'GET',
+                    dataType: "JSON",
+                    beforeSend: function() {
+                        $('#notification').html('');
+                    },
+                    success: function(response) {
+                        console.log(response.ch_messages);
+                        if (response.ch_messages.length === 0) {
+                            $('#count-messages').text('');
+                            $('.topbar-badge').hide();
+                            $('.modal-footer').hide();
+                            $('#empty-messages').show();
+                        } else {
+                            $('#count-messages').text(response.ch_messages.length);
+                            $('#data').empty();
+                            $.each(response.ch_messages, function(index, data) {
+                                $('#data').append(notificationCard(data));
+                            });
 
-                // Menggunakan event delegation untuk meng-handle klik pada elemen #notification-read
-                $('#data').on('click', '.notification-read', function() {
-                    const id = $(this).data('id');
-                    notificationRead(id);
-                });
+                            $('#data').on('click', '.notification-read', function() {
+                                const id = $(this).data('id');
+                                notificationRead(id);
+                            });
 
-                $('.preloader').hide(); // Sembunyikan preloader di akhir permintaan AJAX
+                            $('.preloader').hide();
+                        }
+                    }
+                });
             }
-        }
-    });
-}
 
-function notificationRead(id) {
-    $.ajax({
-        url: "/set-all-messages-seen/" + id,
-        type: "PATCH",
-        dataType: "JSON",
-        success: function(response) {
-            // Hapus elemen yang telah dibaca dari tampilan
-            $('#data').find(`[data-id="${id}"]`).remove();
-            getNotification();
-        }
-    });
-}
+            function notificationRead(id) {
+                $.ajax({
+                    url: "/set-all-messages-seen/" + id,
+                    type: "PATCH",
+                    dataType: "JSON",
+                    success: function(response) {
+                        $('#data').find(`[data-id="${id}"]`).remove();
+                        getNotification();
+                    }
+                });
+            }
 
-// Memperbarui daftar pesan saat halaman dimuat
-$(document).ready(function() {
-    getNotification();
-});
+            // Memperbarui daftar pesan saat halaman dimuat
+            $(document).ready(function() {
+                getNotification();
+            });
 
-function notificationCard(data) {
-    return `
-        <div class="d-flex mt-2">
-            <div class="position-relative me-3 flex-shrink-0">
-                <img src="${data.image}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic" style="margin-left: 41%;">
-            </div>
-            <div class="flex-grow-1">
-                <div class="modal-body" style="padding-top:0">
-                    <div class="d-flex">
-                        <h6 class="col-6">
-                            ${data.fromUserName ? (data.fromUserName.length > 9 ? data.fromUserName.substring(0, 9) + '...' : data.fromUserName) : ''}
-                        </h6>
-                        <p class="col-6 me-2 mb-2" style="font-size: 12px;margin-left: 22%;">
-                            <a href="/chatify/web-chat/${data.fromUserId}" class="notification-read" data-id="${data.id}">Lihat Chat</a>
-                        </p>
+            function notificationCard(data) {
+                return `
+                <div class="d-flex mt-2">
+                    <div class="position-relative me-3 flex-shrink-0">
+                        <img src="${data.image}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic" style="margin-left: 41%;">
                     </div>
-                    <div class="fs-sm text-muted">
-                        <p class="mb-1" style="text-overflow: ellipsis; overflow: hidden;
-                            -webkit-line-clamp: 1; -webkit-box-orient: vertical; display: -webkit-box;
-                            word-break: break-word; max-width: 300px;">
-                            ${data.body ? data.body : ''}
-                        </p>
+                    <div class="flex-grow-1">
+                        <div class="modal-body" style="padding-top:0">
+                            <div class="d-flex">
+                                <h6 class="col-6">
+                                    ${data.fromUserName ? (data.fromUserName.length > 9 ? data.fromUserName.substring(0, 9) + '...' : data.fromUserName) : ''}
+                                </h6>
+                                <p class="col-6 me-2 mb-2" style="font-size: 12px;margin-left: 22%;">
+                                    <a href="/chatify/web-chat/${data.fromUserId}" class="notification-read" data-id="${data.id}">Lihat Chat</a>
+                                </p>
+                            </div>
+                            <div class="fs-sm text-muted">
+                                <p class="mb-1" style="text-overflow: ellipsis; overflow: hidden;
+                                    -webkit-line-clamp: 1; -webkit-box-orient: vertical; display: -webkit-box;
+                                    word-break: break-word; max-width: 300px;">
+                                    ${data.body ? data.body : ''}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    `;
-}
-
+            `;
+            }
         </script>
         @yield('script')
     </body>
+
     </html>

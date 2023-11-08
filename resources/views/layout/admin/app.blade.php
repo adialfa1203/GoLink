@@ -1019,15 +1019,15 @@
                             $('#empty-messages').show();
                         } else {
                             $('#count-messages').text(response.ch_messages.length);
+                            $('#data').empty();
                             $.each(response.ch_messages, function(index, data) {
-                                $('#data-admin').append(notificationCard(data));
-                                $('#empty-messages').hide();
+                                $('#data').append(notificationCard(data));
                             });
-                            $('#notification-read').click(function() {
+                            $('#data').on('click', '.notification-read', function() {
                                 const id = $(this).data('id');
                                 notificationRead(id);
-                                $('.preloader').show();
                             });
+                            $('.preloader').hide();
                         }
                     }
                 });
@@ -1040,42 +1040,42 @@
                     type: "PATCH",
                     dataType: "JSON",
                     success: function(response) {
-                        $('.preloader').fadeOut()
-                        getNotification()
+                        $('#data').find(`[data-id="${id}"]`).remove();
+                        getNotification();
                     }
-                })
+                });
             }
 
             function notificationCard(data) {
-                return `<div class="d-flex mt-2">
-                <div class="position-relative me-3 flex-shrink-0">
-                    <img src="${data.image}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
-                </div>
-                <div class="flex-grow-1">
-                    <a href="#!" class="stretched-link">
-                        <h6 class="mt-0 mb-1 fs-md fw-semibold">
-                            ${data.fromUserName ? data.fromUserName : ''}
-                        </h6>
-                        <div class="modal-body">
-                        <h6 class="mt-0 mb-1 fs-md fw-semibold">
-                            <a href="/chatify/web-chat/${data.fromUserId}" class="stretched-link">Lihat Chat</a>
-                        </h6>
-                        </div>
-                        <div class="fs-sm text-muted">
-                            <p class="mb-1"
-                                style="text-overflow: ellipsis; overflow: hidden;
+                return `
+                <div class="d-flex mt-2">
+                    <div class="position-relative me-3 flex-shrink-0">
+                        <img src="${data.image}" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic" style="margin-left: 41%;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <div class="modal-body" style="padding-top:0">
+                            <div class="d-flex">
+                                <h6 class="col-6">
+                                    ${data.fromUserName ? (data.fromUserName.length > 9 ? data.fromUserName.substring(0, 9) + '...' : data.fromUserName) : ''}
+                                </h6>
+                                <p class="col-6 me-2 mb-2" style="font-size: 12px;margin-left: 22%;">
+                                    <a href="/chatify/web-chat/${data.fromUserId}" class="notification-read" data-id="${data.id}">Lihat Chat</a>
+                                </p>
+                            </div>
+                            <div class="fs-sm text-muted">
+                                <p class="mb-1" style="text-overflow: ellipsis; overflow: hidden;
                                     -webkit-line-clamp: 1; -webkit-box-orient: vertical; display: -webkit-box;
                                     word-break: break-word; max-width: 300px;">
-                                ${data.body ? data.body : ''}
-                            </p>
+                                    ${data.body ? data.body : ''}
+                                </p>
+                            </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-            </div>`;
+            `;
             }
         </script>
         @yield('script')
     </body>
-
 
     </html>
