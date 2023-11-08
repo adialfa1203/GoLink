@@ -1019,15 +1019,15 @@
                             $('#empty-messages').show();
                         } else {
                             $('#count-messages').text(response.ch_messages.length);
-                            $('#data').empty();
                             $.each(response.ch_messages, function(index, data) {
-                                $('#data').append(notificationCard(data));
+                                $('#data-admin').append(notificationCard(data));
+                                $('#empty-messages').hide();
                             });
-                            $('#data').on('click', '.notification-read', function() {
+                            $('#notification-read').click(function() {
                                 const id = $(this).data('id');
                                 notificationRead(id);
+                                $('.preloader').show();
                             });
-                            $('.preloader').hide();
                         }
                     }
                 });
@@ -1040,10 +1040,10 @@
                     type: "PATCH",
                     dataType: "JSON",
                     success: function(response) {
-                        $('#data').find(`[data-id="${id}"]`).remove();
-                        getNotification();
+                        $('.preloader').fadeOut()
+                        getNotification()
                     }
-                });
+                })
             }
 
             function notificationCard(data) {
