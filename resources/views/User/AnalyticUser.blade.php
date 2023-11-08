@@ -266,12 +266,14 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($links->sortByDesc('totalVisits') as $link)
-                                        <tr>
-                                            <th scope="row">{{ $loop->iteration }}</th>
-                                            <td>{{ $link->default_short_url }}</td>
-                                            <td>{{ $link->totalVisits }} Pengunjung</td>
-                                        </tr>
-                                        @endforeach
+                                        @if ($link->totalVisits > 0)
+                                            <tr>
+                                                <th scope="row">{{ $loop->iteration }}</th>
+                                                <td>{{ $link->default_short_url }}</td>
+                                                <td>{{ $link->totalVisits }} Pengunjung</td>
+                                            </tr>
+                                        @endif
+                                        @endforeach                                    
                                     </tbody>
                                 </table>
                             </div>
@@ -294,12 +296,14 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($microsites->sortByDesc('totalVisits') as $microsite)
-                                        <tr>
-                                            <th scope="row">{{ $loop->iteration }}</th>
-                                            <td>{{ $microsite->default_short_url }}</td>
-                                            <td>{{ $microsite->totalVisits }} Pengunjung</td>
-                                        </tr>
-                                        @endforeach
+                                        @if ($microsite->totalVisits !== null && $microsite->totalVisits > 0)
+                                            <tr>
+                                                <th scope="row">{{ $loop->iteration }}</th>
+                                                <td>{{ $microsite->default_short_url }}</td>
+                                                <td>{{ $microsite->totalVisits }} Pengunjung</td>
+                                            </tr>
+                                        @endif
+                                        @endforeach                                    
                                     </tbody>
                                 </table>
                             </div>
