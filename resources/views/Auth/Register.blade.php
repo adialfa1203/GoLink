@@ -194,7 +194,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">Nomer Ponsel</label>
                                             <div class="position-relative">
-                                                <input name="number" type="number" class="form-control" placeholder="Masukkan Nomor Ponsel" id="number" value="{{ old('number') }}">
+                                                <input name="number" type="number" class="form-control" placeholder="08..." id="number" value="{{ old('number') }}">
                                             </div>
                                             <div>
                                                 @if ($errors->has('number'))

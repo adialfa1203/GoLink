@@ -237,7 +237,7 @@
                                                     <div class="mb-3">
                                                         <label for="lastnameInput" class="form-label tex">Nomor
                                                             Telepon</label>
-                                                        <input type="number" name="number" class="form-control" value="{{ $admin->number }}">
+                                                        <input type="number" name="number" class="form-control" value="{{ $admin->number }}" placeholder="08...">
                                                     </div>
                                                     <div>
                                                         @if ($errors->has('number'))
