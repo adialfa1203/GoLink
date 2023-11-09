@@ -550,7 +550,7 @@
                                         </span>
                                     </h6>
                                     <div class="progress" data-bs-toggle="tooltip"
-                                        data-bs-title="{{ $countMicrosite }} Nama diubah">
+                                        data-bs-title="{{ $countMicrosite }} Microsite dibuat">
                                         <div class="progress-bar progress-bar-striped progress-bar-animated"
                                             id="total-microsite" role="progressbar"
                                             aria-valuenow="{{ $countMicrosite }}" aria-valuemin="0" aria-valuemax="3"
