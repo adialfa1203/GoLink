@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Role;
+use Ramsey\Uuid\Uuid;
+use App\Models\ChFavorite;
 
 class AuthController extends Controller
 {
@@ -114,6 +116,15 @@ class AuthController extends Controller
         if ($roleUser) {
             $user->assignRole($roleUser);
         }
+
+        if ($user) {
+            $favorite = new ChFavorite();
+            $favorite->id = Uuid::uuid4()->toString();
+            $favorite->user_id = $user->id;
+            $favorite->favorite_id = 1;
+            $favorite->save();
+        }
+
         return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login untuk mulai menggunakan akun Anda.');
     }
 

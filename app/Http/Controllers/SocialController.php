@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Role;
 use Ramsey\Uuid\Uuid;
+use App\Models\ChFavorite;
 
 class SocialController extends Controller
 {
-    public function redirectGoogle(){
+    public function redirectGoogle()
+    {
         return Socialite::driver('google')->redirect();
     }
 
@@ -51,12 +52,21 @@ class SocialController extends Controller
                 $newUser->assignRole($roleUser);
             }
 
+            if ($newUser) {
+                $favorite = new ChFavorite();
+                $favorite->id = Uuid::uuid4()->toString();
+                $favorite->user_id = $newUser->id;
+                $favorite->favorite_id = 1;
+                $favorite->save();
+            }
+
             Auth::login($newUser);
             return redirect()->route('dashboard.user');
         }
     }
 
-    public function redirectFacebook(){
+    public function redirectFacebook()
+    {
         return Socialite::driver('facebook')->redirect();
     }
 
@@ -95,85 +105,93 @@ class SocialController extends Controller
                 $newUser->assignRole($roleUser);
             }
 
+            if ($newUser) {
+                $favorite = new ChFavorite();
+                $favorite->id = Uuid::uuid4()->toString();
+                $favorite->user_id = $newUser->id;
+                $favorite->favorite_id = 1;
+                $favorite->save();
+            }
+
             Auth::login($newUser);
             return redirect()->route('dashboard.user');
         }
     }
 
-//     public function redirectTwitter(){
-//         return Socialite::driver('twitter')->redirect();
-//     }
+    //     public function redirectTwitter(){
+    //         return Socialite::driver('twitter')->redirect();
+    //     }
 
-//     public function twitterCallback()
-//     {
-//         $twitterUser = Socialite::driver('twitter')->user();
-//         $user = User::where('email', '=', $twitterUser->email)->first();
+    //     public function twitterCallback()
+    //     {
+    //         $twitterUser = Socialite::driver('twitter')->user();
+    //         $user = User::where('email', '=', $twitterUser->email)->first();
 
-//         if ($user) {
-//             Auth::login($user);
-//             return redirect()->route('dashboard.user');
-//         } else {
-//             $newUser = User::create([
-//                 'name' => $twitterUser->name,
-//                 'email' => $twitterUser->getEmail(),
-//                 'number' => $twitterUser->number ?? 'default_number',
-//                 'password' => bcrypt('12345678'),
-//                 'twitter_id' => $twitterUser->id,
-//                 'profile_picture' => 'default.jpg'
-//             ]);
+    //         if ($user) {
+    //             Auth::login($user);
+    //             return redirect()->route('dashboard.user');
+    //         } else {
+    //             $newUser = User::create([
+    //                 'name' => $twitterUser->name,
+    //                 'email' => $twitterUser->getEmail(),
+    //                 'number' => $twitterUser->number ?? 'default_number',
+    //                 'password' => bcrypt('12345678'),
+    //                 'twitter_id' => $twitterUser->id,
+    //                 'profile_picture' => 'default.jpg'
+    //             ]);
 
-//             if (!Role::where('name', 'user')->exists()) {
-//                 Role::create(['name' => 'user', 'guard_name' => 'web']);
-//             }
+    //             if (!Role::where('name', 'user')->exists()) {
+    //                 Role::create(['name' => 'user', 'guard_name' => 'web']);
+    //             }
 
-//             $roleUser = Role::where('name', 'user')->first();
+    //             $roleUser = Role::where('name', 'user')->first();
 
-//             if ($roleUser) {
-//                 $newUser->assignRole($roleUser);
-//             }
+    //             if ($roleUser) {
+    //                 $newUser->assignRole($roleUser);
+    //             }
 
-//             Auth::login($newUser);
-//             return redirect()->route('dashboard.user');
-//         }
-//     }
+    //             Auth::login($newUser);
+    //             return redirect()->route('dashboard.user');
+    //         }
+    //     }
 
-//     public function redirectGithub(){
-//         return Socialite::driver('github')->redirect();
-//     }
+    //     public function redirectGithub(){
+    //         return Socialite::driver('github')->redirect();
+    //     }
 
-//     public function githubCallback()
-//     {
-//         $githubUser = Socialite::driver('github')->user();
-//         $user = User::where('name', '=', $githubUser->name)->first();
+    //     public function githubCallback()
+    //     {
+    //         $githubUser = Socialite::driver('github')->user();
+    //         $user = User::where('name', '=', $githubUser->name)->first();
 
-//         if ($user) {
-//             Auth::login($user);
-//             return redirect()->route('dashboard.user');
-//         } else {
-//             $existingUser = User::where('name', '=', $githubUser->name)->first();
+    //         if ($user) {
+    //             Auth::login($user);
+    //             return redirect()->route('dashboard.user');
+    //         } else {
+    //             $existingUser = User::where('name', '=', $githubUser->name)->first();
 
-//             if ($existingUser) {
-//             } else {
-//                 $newUser = User::create([
-//                     'name' => $githubUser->name,
-//                     'profile_picture' => 'default.jpg'
-//                 ]);
+    //             if ($existingUser) {
+    //             } else {
+    //                 $newUser = User::create([
+    //                     'name' => $githubUser->name,
+    //                     'profile_picture' => 'default.jpg'
+    //                 ]);
 
-//                 if (!Role::where('name', 'user')->exists()) {
-//                     Role::create(['name' => 'user', 'guard_name' => 'web']);
-//                 }
+    //                 if (!Role::where('name', 'user')->exists()) {
+    //                     Role::create(['name' => 'user', 'guard_name' => 'web']);
+    //                 }
 
-//                 $roleUser = Role::where('name', 'user')->first();
+    //                 $roleUser = Role::where('name', 'user')->first();
 
-//                 if ($roleUser) {
-//                     $newUser->assignRole($roleUser);
-//                 }
+    //                 if ($roleUser) {
+    //                     $newUser->assignRole($roleUser);
+    //                 }
 
-//                 Auth::login($newUser);
-//             }
+    //                 Auth::login($newUser);
+    //             }
 
-//             return redirect()->route('dashboard.user');
-//         }
-//     }
+    //             return redirect()->route('dashboard.user');
+    //         }
+    //     }
 
 }

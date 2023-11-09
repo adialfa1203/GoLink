@@ -3,12 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Subscribe;
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Ramsey\Uuid\Uuid;
+use App\Models\ChFavorite;
 
 class UserSeeder extends Seeder
 {
@@ -44,5 +43,13 @@ class UserSeeder extends Seeder
             'profile_picture' => null
         ]);
         $user->assignRole($roleUser);
+
+        if ($user) {
+            $favorite = new ChFavorite();
+            $favorite->id = Uuid::uuid4()->toString();
+            $favorite->user_id = $user->id;
+            $favorite->favorite_id = 1;
+            $favorite->save();
+        }
     }
 }
