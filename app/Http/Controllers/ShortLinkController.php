@@ -80,7 +80,7 @@ class ShortLinkController extends Controller
                 return response()->json(['message' => 'Anda telah mencapai batasan pembuatan tautan baru. Untuk dapat membuat lebih banyak tautan baru, pertimbangkan untuk meningkatkan akun Anda ke versi premium. Dengan berlangganan, Anda akan mendapatkan akses ke fitur-fitur tambahan dan batasan yang lebih tinggi.', 'status' => 422]);
             }
         } elseif ($user->subscribe == 'platinum') {
-            
+
         } else {
 
             $shortLinks = $user->shortUrls()
@@ -114,7 +114,6 @@ class ShortLinkController extends Controller
         $find->update([
             'user_id' => auth()->id(),
             'default_short_url' => $shortURLObject->default_short_url,
-            'password' => Hash::make($request->password),
             'archive' => 'no',
             'deleted_add' => $request->deleted_add,
             'click_count' => $request->click_count,
@@ -125,6 +124,29 @@ class ShortLinkController extends Controller
 
         return response()->json($find);
     }
+
+
+    public function updatePassword(Request $request ,$id)
+    {
+        // Validasi data yang diterima dari permintaan AJAX
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|min:6',
+        ]);
+
+        // Cari URL pendek dengan 'url_key' yang diberikan
+        $shortUrl = ShortUrl::find($id);
+
+        if (!$shortUrl) {
+            return response()->json(['error' => 'Tautan tidak ditemukan.'], 404);
+        }
+
+        // Perbarui kata sandi tautan pendek
+        $shortUrl->password = bcrypt($request->input('password'));
+        $shortUrl->save();
+// dd($shortUrl);
+        return response()->json(['success' => 'Kata sandi berhasil diperbarui']);
+    }
+
 
     public function accessShortLink(Request $request, $shortCode)
     {

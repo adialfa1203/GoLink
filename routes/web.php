@@ -118,6 +118,8 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'preventBackHistory', '
 
         //ShortLink
         Route::post('short-link', [ShortLinkController::class, 'shortLink'])->name('shortLink');
+        Route::post('/update-password/{id}', [ShortLinkController::class, 'updatePassword'])->name('update.password');
+        // Route::post('password', [ShortLinkController::class, 'password'])->name('password');
         Route::post('qr', [ShortLinkController::class, 'qr'])->name('qr');
 
         //AccessLink
