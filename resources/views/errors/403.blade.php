@@ -12,9 +12,11 @@
         .center-content {
             text-align: center;
         }
+
         .center-content img {
             max-width: 100%;
-            max-height: 300px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+            max-height: 300px;
+            /* Sesuaikan tinggi gambar sesuai kebutuhan */
             display: block;
             margin: 0 auto;
         }
@@ -34,22 +36,22 @@
         <div class="text-center center-content">
             <img src="https://i.postimg.cc/vByXjXwr/403-Error-Forbidden-rafiki.png" alt="Gambar 404" />
             <b class="fs-3"> <span class="text-danger">Maaf, Anda tidak memiliki izin untuk mengakses halaman
-                ini.</span></b>
+                    ini.</span></b>
             <br>
             <p class="font-weight-bold fs-5" style="color: #0E2954; font-family: Poppins">
-                Server menolak akses sumber daya yang diminta jarebna alasan tertentu
+                Server menolak akses sumber daya yang diminta karena alasan tertentu
             </p>
             @auth
-            @if (auth()->user()->hasRole('admin'))
-                <a class="btn custom-button text-white" href="{{ route('dashboard.admin') }}">Kembali</a>
-            @elseif(auth()->user()->hasRole('user'))
-                <a class="btn custom-button text-white" href="{{ route('dashboard.user') }}">Kembali</a>
+                @if (auth()->user()->hasRole('admin'))
+                    <a class="btn custom-button text-white" href="{{ route('dashboard.admin') }}">Kembali</a>
+                @elseif(auth()->user()->hasRole('user'))
+                    <a class="btn custom-button text-white" href="{{ route('dashboard.user') }}">Kembali</a>
+                @else
+                    <a class="btn custom-button text-white" href="{{ route('login') }}">Kembali ke Login</a>
+                @endif
             @else
-                <a class="btn custom-button text-white" href="{{ route('login') }}">Kembali ke Login</a>
-            @endif
-            @else
-                <a class="btn custom-button text-white" href="{{ route('login') }}">Kembali ke Login</a>
-            @endauth           
+                <a class="btn custom-button text-white" href="javascript:history.back()">Kembali</a>
+            @endauth
         </div>
     </div>
 </body>

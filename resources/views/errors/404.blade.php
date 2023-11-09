@@ -12,9 +12,11 @@
         .center-content {
             text-align: center;
         }
+
         .center-content img {
             max-width: 100%;
-            max-height: 300px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+            max-height: 300px;
+            /* Sesuaikan tinggi gambar sesuai kebutuhan */
             display: block;
             margin: 0 auto;
         }
@@ -47,8 +49,8 @@
                     <a class="btn custom-button text-white" href="{{ route('login') }}">Kembali ke Login</a>
                 @endif
             @else
-                <a class="btn custom-button text-white" href="{{ route('login') }}">Kembali ke Login</a>
-            @endauth            
+                <a class="btn custom-button text-white" href="javascript:history.back()">Kembali</a>
+            @endauth
         </div>
     </div>
 </body>
