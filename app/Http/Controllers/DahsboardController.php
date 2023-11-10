@@ -124,7 +124,7 @@ class DahsboardController extends Controller
                 ->count();
 
             $countURL = $totalUrl + $countHistory;
-
+            
             $countMicrosite = ShortURL::where('user_id', $userId)
                 ->whereNotNull('microsite_uuid')
                 ->whereDate('created_at', '<=', $resetDate)

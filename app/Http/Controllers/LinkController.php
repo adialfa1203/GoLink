@@ -75,7 +75,7 @@ class LinkController extends Controller
 
         foreach ($shortUrlVisits as $entry) {
             HistoryVisits::create([
-                'user_id' => $entry->user_id,
+                'user_id' => $entry->ShortUrl->user_id,
                 'short_url_id' => $entry->short_url_id,
                 'ip_address' => $entry->ip_address,
                 'operating_system' => $entry->operating_system,
