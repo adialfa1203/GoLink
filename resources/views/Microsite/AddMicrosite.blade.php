@@ -487,7 +487,7 @@
                                                     <div class="d-flex align-items-start gap-3 mt-4">
                                                         <button type="button"
                                                             class="btn btn-outline-danger btn-sm previestab"
-                                                            data-previous="v-pills-bill-info-tab"
+                                                            data-previous="v-pills-bill-address-tab"
                                                             style="font-size: 13px;"><i
                                                                 class="ri-arrow-left-line label-icon align-middle fs-lg me-2"></i>Sebelumnya</button>
                                                         <button type="submit" id="submitButton"
