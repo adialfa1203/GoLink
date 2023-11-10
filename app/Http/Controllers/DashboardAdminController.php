@@ -41,11 +41,6 @@ class DashboardAdminController extends Controller
             ->orderBy('date')
             ->get();
 
-        $historyVisits = HistoryVisits::where('short_url_id')
-            ->count();
-
-        $totalCountVisits = $totalVisits + $historyVisits;
-
         $result = [
             'labels' => DateHelper::getAllMonths(5),
             'series' => [
@@ -98,10 +93,10 @@ class DashboardAdminController extends Controller
         $historyVisits = HistoryVisits::where('short_url_id')
             ->count();
 
-        $totalCountVisits = $totalVisits + $historyVisits;            
+        $totalCountVisits = $totalVisits + $historyVisits;
         $berlanggan = User::where('subscribe', '!=', 'free')->count();
         // dd($totalUser);
-        return view('Admin.index', compact('berlanggan', 'totalUser', 'totalUrl', 'totalVisits', 'totalCountVisits'));
+        return view('Admin.index', compact('berlanggan', 'totalUser', 'totalUrl', 'totalVisits'));
     }
 
     public function viewFooter()
