@@ -11,7 +11,7 @@ use App\Models\HistoryVisits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
-
+use Illuminate\Support\Facades\Auth;
 
 class DashboardAdminController extends Controller
 {
@@ -40,6 +40,8 @@ class DashboardAdminController extends Controller
             ->groupBy('date')
             ->orderBy('date')
             ->get();
+
+        $historyVisits = HistoryVisits::count();
 
         $result = [
             'labels' => DateHelper::getAllMonths(5),
@@ -70,12 +72,16 @@ class DashboardAdminController extends Controller
             $result['series']['totalUrl'][$index] = (int)$dataUrl->totalUrl;
         }
 
+        $totalCountVisits = 0;
+
         foreach ($totalVisits as $dataVisits) {
             $parse = Carbon::parse($dataVisits->date);
             $date = $parse->shortMonthName . ' ' . $parse->year;
             $index = array_search($date, $result['labels']);
             $result['series']['totalVisits'][$index] = (int)$dataVisits->totalVisits;
+            $totalCountVisits += $dataVisits->totalVisits;
         }
+        $totalCountVisits += $historyVisits;
 
         return response()->json(compact('startDate', 'result'));
     }
@@ -90,9 +96,8 @@ class DashboardAdminController extends Controller
         $totalVisits = ShortURLVisit::query()
             ->whereRelation('shortURL', 'archive', '!=', 'yes')
             ->count();
-        $historyVisits = HistoryVisits::where('short_url_id')
+        $historyVisits = HistoryVisits::all()
             ->count();
-
         $totalCountVisits = $totalVisits + $historyVisits;
         $berlanggan = User::where('subscribe', '!=', 'free')->count();
         // dd($totalUser);
