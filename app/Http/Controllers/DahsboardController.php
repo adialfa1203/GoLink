@@ -79,7 +79,7 @@ class DahsboardController extends Controller
                     ->whereDate('created_at', '>=', $currentMonth);
             })->count();
 
-            $historyVisits = HistoryVisits::where('short_url_id', $userId)
+            $historyVisits = HistoryVisits::where('user_id', $userId)
             ->count();
 
             $totalCountVisits = $totalVisits + $historyVisits;
