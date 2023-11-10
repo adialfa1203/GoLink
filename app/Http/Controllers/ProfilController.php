@@ -38,12 +38,20 @@ class ProfilController extends Controller
     {
         $user = User::findOrFail(Auth::user()->id);
 
-        // Section 1: Update Name, Email, and Phone Number
-        $validator = Validator::make($request->only('name', 'email', 'number'), [
+        $validator = Validator::make($request->only('name', 'email', 'number', 'old_password'), [
             'name' => 'required|max:50',
             'email' => 'required|min:11|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
             'number' => 'required|min:10|max:13|regex:/^[0-9]+$/',
+            'old_password' => [
+                'required',
+                function ($attribute, $value, $fail) use ($user) {
+                    if (!Hash::check($value, $user->password)) {
+                        $fail('Kata sandi lama tidak cocok.');
+                    }
+                },
+            ],
         ], [
+            'name.required' => 'Kolom Nama harus diisi.',
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
             'number.required' => 'Kolom Nomer Telepon harus diisi',
             'number.regex' => 'Nomor yang dimasukkan tidak valid!',
@@ -51,10 +59,12 @@ class ProfilController extends Controller
             'email.unique' => 'Email sudah pernah digunakan',
             'email.required' => 'Kolom Email harus diisi',
             'email.regex' => 'Format alamat email tidak valid.',
+            'old_password.required' => 'Kolom Password Lama harus diisi jika Anda ingin mengubah password.',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()
+            return redirect()
+                ->back()
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -65,9 +75,9 @@ class ProfilController extends Controller
 
         // Section 2: Update Password
         if ($request->filled('old_password') && $request->filled('new_password')) {
-            if (!Hash::check($request->old_password, $user->password)) {
-                return redirect()->back()->withErrors(['old_password' => 'Kata sandi lama tidak cocok.']);
-            }
+            // if (!Hash::check($request->old_password, $user->password)) {
+            //     return redirect()->back()->withErrors(['old_password' => 'Kata sandi lama tidak cocok.']);
+            // }
 
             $validator = Validator::make($request->only('new_password', 'new_password_confirmation'), [
                 'new_password' => 'min:8|confirmed',
@@ -146,6 +156,14 @@ class ProfilController extends Controller
             'number' => 'required|min:10|max:13|regex:/^[0-9]+$/',
             'new_password' => 'nullable|min:8|confirmed',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
+            'old_password' => [
+                'required',
+                function ($attribute, $value, $fail) use ($admin) {
+                    if (!Hash::check($value, $admin->password)) {
+                        $fail('Kata sandi lama tidak cocok.');
+                    }
+                },
+            ],
         ];
 
         // Custom error messages
@@ -179,9 +197,9 @@ class ProfilController extends Controller
 
         // Update Password
         if ($request->filled('new_password')) {
-            if (!Hash::check($request->old_password, $admin->password)) {
-                return redirect()->back()->withErrors(['old_password' => 'Kata sandi lama tidak cocok.']);
-            }
+            // if (!Hash::check($request->old_password, $admin->password)) {
+            //     return redirect()->back()->withErrors(['old_password' => 'Kata sandi lama tidak cocok.']);
+            // }
             $admin->password = Hash::make($request->new_password);
         }
 
@@ -207,6 +225,5 @@ class ProfilController extends Controller
         $admin->save();
 
         return redirect()->back()->with('success', 'Berhasil mengubah foto profil.');
-
     }
 }
