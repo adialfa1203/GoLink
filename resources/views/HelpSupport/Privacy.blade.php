@@ -117,7 +117,8 @@
                     kepada siapa pun kecuali seperti dijelaskan dalam Kebijakan Privasi ini.</p>
 
                 <p>Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama dengan <a
-                        style="color: #104898" href="{{ url ('id/privacy')}}">Syarat dan Ketentuan</a>, yang
+                        {{-- style="color: #104898" href="{{ url ('id/privacy')}}" --}}
+                        >Syarat dan Ketentuan</a>, yang
                     dapat diakses di MiLink kecuali ditentukan lain dalam Kebijakan Privasi ini.</p>
 
                 <h3 style="font-size: 20px;"><strong>Ketentuan Pengumpulan Informasi</strong></h3>
