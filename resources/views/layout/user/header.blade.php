@@ -182,7 +182,7 @@
                  aaaaaaaa
                                 </h6>
                                 <p class="col-6 me-2" style="font-size: 12px;margin-left: 22%;">
-                                    <a href="/chatify/web-chat/${data.fromUserId}" class="">Lihat Chat</a>
+                                    <a href="/mi/chat/${data.fromUserId}" class="">Lihat Chat</a>
                                 </p>
                             </div>
                             <div class="fs-sm text-muted">
@@ -197,7 +197,7 @@
             </div> -->
             <div class="modal-footer">
                 <a href="{{ route('set.all.messages.seen') }}" style="margin-right: 22%; color: red;">Hapus Semua</a>
-                <a href="{{ url('chatify/web-chat') }}">Lihat lebih banyak</a>
+                <a href="{{ url('mi/chat') }}">Lihat lebih banyak</a>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
