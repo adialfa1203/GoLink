@@ -43,9 +43,11 @@ class ProfilController extends Controller
             'email' => 'required|min:11|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
             'number' => 'required|min:10|max:13|regex:/^[0-9]+$/',
             'old_password' => [
-                'required',
-                function ($attribute, $value, $fail) use ($user) {
-                    if (!Hash::check($value, $user->password)) {
+                Rule::requiredIf(function () use ($request) {
+                    return $request->filled('new_password');
+                }),
+                function ($attribute, $value, $fail) use ($user, $request) {
+                    if ($request->filled('new_password') && !Hash::check($value, $user->password)) {
                         $fail('Kata sandi lama tidak cocok.');
                     }
                 },
