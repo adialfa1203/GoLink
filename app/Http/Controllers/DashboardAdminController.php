@@ -96,7 +96,7 @@ class DashboardAdminController extends Controller
         $totalCountVisits = $totalVisits + $historyVisits;
         $berlanggan = User::where('subscribe', '!=', 'free')->count();
         // dd($totalUser);
-        return view('Admin.index', compact('berlanggan', 'totalUser', 'totalUrl', 'totalVisits'));
+        return view('Admin.index', compact('berlanggan', 'totalUser', 'totalUrl', 'totalVisits', 'totalCountVisits'));
     }
 
     public function viewFooter()
