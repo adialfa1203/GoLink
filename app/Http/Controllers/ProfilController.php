@@ -66,7 +66,8 @@ class ProfilController extends Controller
             return redirect()
                 ->back()
                 ->withErrors($validator)
-                ->withInput();
+                ->withInput()
+                ->with('error', 'Mohon maaf, terdapat kesalahan dalam pengisian data. Harap periksa kembali isian Anda.');
         }
 
         $user->name = $request->name;
@@ -187,7 +188,8 @@ class ProfilController extends Controller
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
-                ->withInput();
+                ->withInput()
+                ->with('error', 'Mohon maaf, terdapat kesalahan dalam pengisian data. Harap periksa kembali isian Anda.');
         }
 
         // Update Name, Email, and Phone Number

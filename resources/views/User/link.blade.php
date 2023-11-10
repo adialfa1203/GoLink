@@ -440,36 +440,64 @@
                                                                 </div>
                                                             </div>
                                                         @else
-                                                        <div id="zoomInModal1" class="modal fade zoomIn" tabindex="-1" aria-labelledby="zoomInModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <center>
-                    <h5 class="modal-title text-center" id="TimeModalLabel">Tautan Terproteksi</h5>
-                    <p>Lindungi tautan anda dengan menambahkan kata sandi</p>
-                    <img class="mt-3 mb-3" src="{{ asset('template/image/password.png') }}" width="97" height="69">
-                </center>
-                <div class="col-lg-12 mb-3 mt-3">
-                    <label style="color: #000; font-family: Poppins; font-size: 14px; font-style: normal; font-weight: 500; line-height: normal;" for="deactivated_at">Masukkan kata sandi</label>
-                    <div class="position-relative auth-pass-inputgroup mb-3">
-                        <input style="background: #F0F0F0;" type="password" class="form-control pe-5 password-input" name="password" placeholder="Masukkan Kata Sandi" id="password-input" value="{{ old('password') }}">
-                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
-                        <div>
-                            @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-end mb-3" style="margin-top: 30px; gap: 0.5rem;">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" onclick="clearPassword()">Kembali</button>
-                    <button type="button" class="btn" data-id="{{ $row->id }}" id="save-button" style="border-radius: 5px; border: 1px solid rgba(0, 0, 0, 0.10); background: #0E2954; color: #fff;">Simpan</button>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
-
+                                                            <div id="zoomInModal1" class="modal fade zoomIn"
+                                                                tabindex="-1" aria-labelledby="zoomInModalLabel"
+                                                                aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-body">
+                                                                            <center>
+                                                                                <h5 class="modal-title text-center"
+                                                                                    id="TimeModalLabel">Tautan Terproteksi
+                                                                                </h5>
+                                                                                <p>Lindungi tautan anda dengan menambahkan
+                                                                                    kata sandi</p>
+                                                                                <img class="mt-3 mb-3"
+                                                                                    src="{{ asset('template/image/password.png') }}"
+                                                                                    width="97" height="69">
+                                                                            </center>
+                                                                            <div class="col-lg-12 mb-3 mt-3">
+                                                                                <label
+                                                                                    style="color: #000; font-family: Poppins; font-size: 14px; font-style: normal; font-weight: 500; line-height: normal;"
+                                                                                    for="deactivated_at">Masukkan kata
+                                                                                    sandi</label>
+                                                                                <div
+                                                                                    class="position-relative auth-pass-inputgroup mb-3">
+                                                                                    <input style="background: #F0F0F0;"
+                                                                                        type="password"
+                                                                                        class="form-control pe-5 password-input"
+                                                                                        name="password"
+                                                                                        placeholder="Masukkan Kata Sandi"
+                                                                                        id="password-input"
+                                                                                        value="{{ old('password') }}">
+                                                                                    <button
+                                                                                        class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                                                        type="button"
+                                                                                        id="password-addon"><i
+                                                                                            class="ri-eye-fill align-middle"></i></button>
+                                                                                    <div>
+                                                                                        @if ($errors->has('password'))
+                                                                                            <span
+                                                                                                class="text-danger">{{ $errors->first('password') }}</span>
+                                                                                        @endif
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-end mb-3"
+                                                                                style="margin-top: 30px; gap: 0.5rem;">
+                                                                                <button type="button"
+                                                                                    class="btn btn-light"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    onclick="clearPassword()">Kembali</button>
+                                                                                <button type="button" class="btn"
+                                                                                    data-id="{{ $row->id }}"
+                                                                                    id="save-button"
+                                                                                    style="border-radius: 5px; border: 1px solid rgba(0, 0, 0, 0.10); background: #0E2954; color: #fff;">Simpan</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!-- /.modal-content -->
+                                                                </div><!-- /.modal-dialog -->
+                                                            </div>
                                                         @endif
                                                         <!-- /.modal -->
                                                         <div id="tombol-modal-{{ $row->id }}"
@@ -495,8 +523,8 @@
                                                                             <p>{{ $row->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                                                                                                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                                                                                                                </center> -->
+                                                                                                                                                                                                            <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                                                                                                            </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -620,52 +648,98 @@
                                                             </div><!-- /.modal -->
                                                         </form>
                                                         <form id="customDestinationUrl">
-                                                            <div id="customDestinationModal-{{ $row->id }}"
-                                                                class="modal fade" tabindex="-1"
-                                                                aria-labelledby="customDestinationUrl" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-body">
-                                                                            <center>
-                                                                                <h5 class="modal-title text-center"
-                                                                                    id="TimeModalLabel">Ubah Nama Tautan
-                                                                                    Asli
-                                                                                </h5>
-                                                                                <p>Ubah nama tautan asli anda dan sesuaikan
-                                                                                    dengan keinginan anda.</p>
-                                                                                <img class="mt-3 mb-3"
-                                                                                    src="{{ asset('template/image/date.png') }} "
-                                                                                    width="100">
-                                                                            </center>
-                                                                            <div class="col-lg-12 mb-2">
-                                                                                <label class="mb-2"
-                                                                                    for="destination_url"
-                                                                                    style="
-                                                                                font-weight: bold;">Ubah
-                                                                                    Nama</label>
-                                                                                <input type="text"
-                                                                                    class="form-control destinationUrl"
-                                                                                    name="destination_url"
-                                                                                    id="destination_url-{{ $row->id }}"
-                                                                                    data-key="{{ $row->url_key }}"
-                                                                                    placeholder="Ubah Nama">
+                                                            @if ($user->subscribe !== 'platinum')
+                                                                <div id="customDestinationModal-{{ $row->id }}"
+                                                                    class="modal fade zoomIn" tabindex="-1"
+                                                                    aria-labelledby="customDestinationUrl"
+                                                                    aria-hidden="true" style="display: none;">
+                                                                    <div class="modal-dialog modal-dialog-centered">
+                                                                        <div class="modal-content">
+                                                                            <div class="col-lg-12">
+                                                                                <div class="card">
+                                                                                    <div class="card-header fw-bold">
+                                                                                        <div
+                                                                                            class="avatar-sm mx-auto mb-3">
+                                                                                            <div class="avatar-title bg-custom fs-xl rounded"
+                                                                                                style="color: #0E2954">
+                                                                                                <i
+                                                                                                    class="fa-solid fa-lock"></i>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card-body text-center">
+                                                                                        <h4 class="card-title">Anda Tidak
+                                                                                            Bisa
+                                                                                            Mengakses Fitur Ini!</h4>
+                                                                                        <p class="card-text text-muted">
+                                                                                            Anda
+                                                                                            perlu
+                                                                                            Beralih ke Berlangganan
+                                                                                            Untuk Bisa Menikmati Fitur Ini
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div class="card-footer text-center">
+                                                                                        <a href="{{ url('user/subscribe-product-user') }}"
+                                                                                            style="color: red;"> Mulai
+                                                                                            Berlangganan? </a>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-end mb-3"
-                                                                            style="margin-right: 4%; gap: 0.5rem;">
-                                                                            <button type="button" class="btn btn-light"
-                                                                                data-bs-dismiss="modal"
-                                                                                onclick="clearDestinationUrl()">Tutup</button>
-                                                                            <button id="submitDestination"
-                                                                                data-key="{{ $row->url_key }}"
-                                                                                data-id="{{ $row->id }}"
-                                                                                type="button"
-                                                                                class="submitDestination btn"
-                                                                                style="background-color:  #0E2954; color:#fff;">Simpan</button>
-                                                                        </div>
-                                                                    </div><!-- /.modal-content -->
-                                                                </div><!-- /.modal-dialog -->
-                                                            </div><!-- /.modal -->
+                                                                        </div><!-- /.modal-dialog -->
+                                                                    </div>
+                                                                </div>
+                                                            @else
+                                                                <div id="customDestinationModal-{{ $row->id }}"
+                                                                    class="modal fade" tabindex="-1"
+                                                                    aria-labelledby="customDestinationUrl"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-body">
+                                                                                <center>
+                                                                                    <h5 class="modal-title text-center"
+                                                                                        id="TimeModalLabel">Ubah Nama
+                                                                                        Tautan
+                                                                                        Asli
+                                                                                    </h5>
+                                                                                    <p>Ubah nama tautan asli anda dan
+                                                                                        sesuaikan
+                                                                                        dengan keinginan anda.</p>
+                                                                                    <img class="mt-3 mb-3"
+                                                                                        src="{{ asset('template/image/date.png') }} "
+                                                                                        width="100">
+                                                                                </center>
+                                                                                <div class="col-lg-12 mb-2">
+                                                                                    <label class="mb-2"
+                                                                                        for="destination_url"
+                                                                                        style="
+                                                                                font-weight: bold;">Ubah
+                                                                                        Nama</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control destinationUrl"
+                                                                                        name="destination_url"
+                                                                                        id="destination_url-{{ $row->id }}"
+                                                                                        data-key="{{ $row->url_key }}"
+                                                                                        placeholder="Ubah Nama">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-end mb-3"
+                                                                                style="margin-right: 4%; gap: 0.5rem;">
+                                                                                <button type="button"
+                                                                                    class="btn btn-light"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    onclick="clearDestinationUrl()">Tutup</button>
+                                                                                <button id="submitDestination"
+                                                                                    data-key="{{ $row->url_key }}"
+                                                                                    data-id="{{ $row->id }}"
+                                                                                    type="button"
+                                                                                    class="submitDestination btn"
+                                                                                    style="background-color:  #0E2954; color:#fff;">Simpan</button>
+                                                                            </div>
+                                                                        </div><!-- /.modal-content -->
+                                                                    </div><!-- /.modal-dialog -->
+                                                                </div><!-- /.modal -->
+                                                            @endif
                                                         </form>
                                                         <div class="collapse" id="collapseExample{{ $row->id }}">
                                                             <div class="card-body">
@@ -830,8 +904,7 @@
                                                                     class="btn btn-light me-3 btn-sm custom-destination-url"
                                                                     style="background-color: #CED2D9"
                                                                     data-bs-toggle="modal"
-                                                                    data-bs-target="#customDestinationModal"
-                                                                    >
+                                                                    data-bs-target="#customDestinationModal">
                                                                     <span>
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                                             width="13" height="15"
@@ -968,8 +1041,8 @@
                                                                             <p>{{ $url->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                                                                                                                                                                    <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                                                                                                                                                                </center> -->
+                                                                                                                                                                                                                                                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                                                                                                                                                            </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -1211,44 +1284,43 @@
     <!-- Tambahkan jQuery jika belum ada -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
-$(document).ready(function() {
-    $('#save-button').on('click', function() {
-        var newPassword = $('#password-input').val();
-        
-        // Get the CSRF token from the <meta> tag
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
-        
-        var userId = $(this).data('id')
-        var updatePasswordRoute = '/user/update-password/' + userId
+    <script>
+        $(document).ready(function() {
+            $('#save-button').on('click', function() {
+                var newPassword = $('#password-input').val();
 
-        $.ajax({
-            url: updatePasswordRoute,
-            type: 'POST',
-            data: {
-                password: newPassword,
-            },
-            headers: {
-                'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the request headers
-            },
-            success: function(response) {
-                console.log(response); // Log the response from the server
-                alert(response.success);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR); // Log the error response
-                var errors = jqXHR.responseJSON.errors;
-                if (errors) {
-                    alert(errors.password[0]);
-                } else {
-                    alert(jqXHR.responseJSON.error);
-                }
-            }
+                // Get the CSRF token from the <meta> tag
+                var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+                var userId = $(this).data('id')
+                var updatePasswordRoute = '/user/update-password/' + userId
+
+                $.ajax({
+                    url: updatePasswordRoute,
+                    type: 'POST',
+                    data: {
+                        password: newPassword,
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the request headers
+                    },
+                    success: function(response) {
+                        console.log(response); // Log the response from the server
+                        alert(response.success);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(jqXHR); // Log the error response
+                        var errors = jqXHR.responseJSON.errors;
+                        if (errors) {
+                            alert(errors.password[0]);
+                        } else {
+                            alert(jqXHR.responseJSON.error);
+                        }
+                    }
+                });
+            });
         });
-    });
-});
-
-</script>
+    </script>
 
 
     <script>
