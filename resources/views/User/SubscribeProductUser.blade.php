@@ -128,8 +128,7 @@
                         </div>
                         <div class="card mb-20" style="background-color: #104898; height: 630px;">
                             <div class="text-center">
-                                <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260"
-                                    height="160" style="display: block; margin: 0 auto; object-fit: cover;"
+                                <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" style="width: 80%; height: 45%; object-fit: cover;"
                                     alt="Card image cap">
                                 <h2 class="mb-3 " style="color: #ffffff; margin-top: 6%;">
                                     Rp.{{ number_format($subs->price, 0, ',', '.') }}
@@ -143,10 +142,6 @@
                                         /Tahun
                                     @endif
                                 </h2>
-                                @if (strtolower(trim($subs->description)))
-                                    <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
-                                    <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
-                                @endif
                                 <h6 style="color: #ffffff; font-size: 13px;">{{ strip_tags($subs->description) }}</h6>
                             </div>
                             <!-- Below this section, you can include the "nomor" section. -->
