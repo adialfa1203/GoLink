@@ -82,7 +82,7 @@ class DashboardAdminController extends Controller
             $totalCountVisits += $dataVisits->totalVisits;
         }
         $totalCountVisits += $historyVisits;
-
+// dd($historyVisits);
         return response()->json(compact('startDate', 'result'));
     }
 
