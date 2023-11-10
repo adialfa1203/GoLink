@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Footer;
 use App\Models\ShortUrl;
 use App\Helpers\DateHelper;
+use App\Models\HistoryVisits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
@@ -39,6 +40,11 @@ class DashboardAdminController extends Controller
             ->groupBy('date')
             ->orderBy('date')
             ->get();
+
+        $historyVisits = HistoryVisits::where('short_url_id')
+            ->count();
+
+        $totalCountVisits = $totalVisits + $historyVisits;
 
         $result = [
             'labels' => DateHelper::getAllMonths(5),
@@ -89,9 +95,13 @@ class DashboardAdminController extends Controller
         $totalVisits = ShortURLVisit::query()
             ->whereRelation('shortURL', 'archive', '!=', 'yes')
             ->count();
+        $historyVisits = HistoryVisits::where('short_url_id')
+            ->count();
+
+        $totalCountVisits = $totalVisits + $historyVisits;            
         $berlanggan = User::where('subscribe', '!=', 'free')->count();
         // dd($totalUser);
-        return view('Admin.index', compact('berlanggan', 'totalUser', 'totalUrl', 'totalVisits'));
+        return view('Admin.index', compact('berlanggan', 'totalUser', 'totalUrl', 'totalVisits', 'totalCountVisits'));
     }
 
     public function viewFooter()
