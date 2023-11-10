@@ -181,7 +181,7 @@
             </div>
         </div>
         <div class="customizer-setting">
-            <a class="floating-button" href="{{ url('chatify/web-chat') }}">
+            <a class="floating-button" href="{{ url('mi/chat') }}">
                 <i class="bi bi-chat-dots"></i>
             </a>
         </div>
@@ -1059,7 +1059,7 @@
                                     ${data.fromUserName ? (data.fromUserName.length > 9 ? data.fromUserName.substring(0, 9) + '...' : data.fromUserName) : ''}
                                 </h6>
                                 <p class="col-6 me-2 mb-2" style="font-size: 12px;margin-left: 22%;">
-                                    <a href="/chatify/web-chat/${data.fromUserId}" class="notification-read" data-id="${data.id}">Lihat Chat</a>
+                                    <a href="/mi/chat/${data.fromUserId}" class="notification-read" data-id="${data.id}">Lihat Chat</a>
                                 </p>
                             </div>
                             <div class="fs-sm text-muted">
