@@ -1015,7 +1015,7 @@
                                         style="color: #0E2954;font-family: Poppins;font-size: 20px;font-style: normal;font-weight: 600;line-height: normal;">
                                         Pengunjung Tautan</p>
                                     <h3 class="mb-0 mt-auto"><span class="counter-value"
-                                            data-target="{{ $totalVisits }}">{{ $totalVisits }}</span></h3>
+                                            data-target="{{ $totalCountVisits }}">{{ $totalCountVisits }}</span></h3>
                                 </div>
                             </div>
                             <img src="{{ asset('template/image/user.png') }} " width="50" height="50"

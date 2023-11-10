@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Footer;
 use App\Models\History;
+use App\Models\HistoryVisits;
 use App\Models\ShortUrl;
 use App\Models\Subscribe;
 use App\Models\User;
@@ -78,6 +79,11 @@ class DahsboardController extends Controller
                     ->whereDate('created_at', '>=', $currentMonth);
             })->count();
 
+            $historyVisits = HistoryVisits::where('short_url_id', $userId)
+            ->count();
+
+            $totalCountVisits = $totalVisits + $historyVisits;
+
             $totalVisitsMicrosite = ShortURLVisit::whereHas('shortURL', function ($query) use ($userId, $currentMonth) {
                 $query->where('user_id', $userId)
                     ->where('microsite_uuid', '!=', null)
@@ -130,7 +136,7 @@ class DahsboardController extends Controller
                 ->count();
 
             $qr = ShortURL::where('user_id', $user->id)->sum('qr_code');
-            return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite', 'user', 'resetDate'));
+            return view('User.DashboardUser', compact('urlStatus', 'micrositeStatus', 'countURL', 'totalVisits', 'countNameChanged', 'totalVisitsMicrosite', 'qr', 'countMicrosite', 'user', 'resetDate', 'totalCountVisits'));
         }
 
         return redirect()->back()->with('error', 'User tidak valid.');
