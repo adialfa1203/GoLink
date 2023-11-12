@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="col-10">
                                         <h3 class="mb-4 custom-icon-size" style="float: right;">
-                                            <span class="counter-value" data-target="{{($totalUrl)}}">{{($totalUrl)}}</span>
+                                            <span class="counter-value" data-target="{{($countURL)}}">{{($countURL)}}</span>
                                         </h3>
                                     </div>
                                 </div>
