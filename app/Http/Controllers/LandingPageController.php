@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Footer;
+use App\Models\History;
+use App\Models\HistoryVisits;
 use App\Models\ShortUrl;
 use AshAllenDesign\ShortURL\Models\ShortURLVisit;
 use Illuminate\Support\Facades\Auth;
@@ -19,11 +21,15 @@ class LandingPageController extends Controller
         $user = Auth::user();
         $currentMonth = Carbon::now()->month;
         $data = Footer::first();
-        $url = ShortUrl::whereNotNull('default_short_url')->count();
+        $countUrl = ShortUrl::whereNotNull('default_short_url')->count();
+        $countHistory = History::count();
+        $url = $countUrl + $countHistory;
         $micrositeuuid = ShortUrl::whereNotNull('microsite_uuid')->count();
-        $totalVisits = ShortURLVisit::query()
+        $countVisits = ShortURLVisit::query()
             ->whereRelation('shortURL', 'microsite_uuid', null)
             ->count();
+        $countHistoryVisits = HistoryVisits::count();
+        $totalVisits = $countUrl + $countHistory;
         return view('Landingpage.Home', compact('tripay', 'channels', 'data', 'url', 'micrositeuuid', 'totalVisits',));
     }
     public function shortLink()

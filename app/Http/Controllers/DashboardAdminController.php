@@ -102,13 +102,12 @@ class DashboardAdminController extends Controller
             ->where('is_banned', '!=', '1')
             ->count();
         $totalUrl = ShortUrl::where('archive', '!=', 'yes')->count();
-        $countHistory = History::all()->count();
+        $countHistory = History::count();
         $countURL = $totalUrl + $countHistory;
         $totalVisits = ShortURLVisit::query()
             ->whereRelation('shortURL', 'archive', '!=', 'yes')
             ->count();
-        $historyVisits = HistoryVisits::all()
-            ->count();
+        $historyVisits = HistoryVisits::count();
         $totalCountVisits = $totalVisits + $historyVisits;
         $berlanggan = User::where('subscribe', '!=', 'free')->count();
         // dd($totalUser);
