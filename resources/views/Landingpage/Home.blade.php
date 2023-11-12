@@ -238,9 +238,9 @@
                 <!-- row start -->
                 <div class="row">
                     <!-- shape animation  -->
-                    <span class="banner_shape1"> <img src="{{ asset('banner-shape1.png') }}" alt="image"> </span>
-                    <span class="banner_shape2"> <img src="{{ asset('banner-shape2.png') }}" alt="image"> </span>
-                    <span class="banner_shape3"> <img src="{{ asset('banner-shape3.png') }}" alt="image"> </span>
+                    <span class="banner_shape1"> <img src="https://i.postimg.cc/Y2njTPws/banner-shape1.png" alt="image"> </span>
+                    <span class="banner_shape2"> <img src="https://i.postimg.cc/k45qcnDX/banner-shape2.png" alt="image"> </span>
+                    <span class="banner_shape3"> <img src="https://i.postimg.cc/rsr6nzTc/banner-shape3.png" alt="image"> </span>
                     <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1500">
                         <!-- banner text -->
                         <div class="banner_text" style="margin-top: -8px;">
