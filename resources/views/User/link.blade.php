@@ -575,7 +575,7 @@
                                                                             <br>
                                                                             <div class="col-lg-12 mb-3">
                                                                                 <label for="new_url_key">Kustom
-                                                                                    Nama</label>
+                                                                                    Tautan</label>
                                                                                 <input type="text" class="form-control"
                                                                                     name="new_url_key" id="new_url_key"
                                                                                     placeholder="Kustom nama">
@@ -698,7 +698,7 @@
                                                                             <div class="modal-body">
                                                                                 <center>
                                                                                     <h5 class="modal-title text-center"
-                                                                                        id="TimeModalLabel">Ubah Nama
+                                                                                        id="TimeModalLabel">Ubah
                                                                                         Tautan
                                                                                         Asli
                                                                                     </h5>
@@ -714,7 +714,7 @@
                                                                                         for="destination_url"
                                                                                         style="
                                                                                 font-weight: bold;">Ubah
-                                                                                        Nama</label>
+                                                                                        Tautan</label>
                                                                                     <input type="text"
                                                                                         class="form-control destinationUrl"
                                                                                         name="destination_url"
