@@ -39,14 +39,16 @@ class DashboardAdminController extends Controller
         $countHistory = History::count();
 
 
-        $totalVisits = ShortURLVisit::where('created_at', '>=', $startDate)
-            ->selectRaw('MONTH(created_at) as month, COUNT(*) as totalVisits')
+        $totalCountVisits = ShortURLVisit::where('created_at', '>=', $startDate)
+            ->selectRaw('MONTH(created_at) as date, COUNT(*) as totalVisits')
             ->whereRelation('shortURL', 'archive', '!=', 'yes')
             ->groupBy('month')
             ->orderBy('month')
             ->get();
 
         $historyVisits = HistoryVisits::count();
+
+        $totalVisits = $totalCountVisits + $historyVisits;
 
         $result = [
             'labels' => DateHelper::getAllMonths(5),
