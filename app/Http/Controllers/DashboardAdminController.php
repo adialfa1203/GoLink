@@ -28,7 +28,6 @@ class DashboardAdminController extends Controller
             ->orderBy('month')
             ->get();
 
-
         $totalUrl = ShortUrl::where('created_at', '>=', $startDate)
             ->selectRaw('MONTH(created_at) as month, COUNT(*) as totalUrl')
             ->where('archive', '!=', 'yes')
@@ -36,19 +35,18 @@ class DashboardAdminController extends Controller
             ->orderBy('month')
             ->get();
 
-        $countHistory = History::count();
-
-
-        $totalCountVisits = ShortURLVisit::where('created_at', '>=', $startDate)
-            ->selectRaw('MONTH(created_at) as date, COUNT(*) as totalVisits')
+        $totalVisits = ShortURLVisit::where('created_at', '>=', $startDate)
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as totalVisits')
             ->whereRelation('shortURL', 'archive', '!=', 'yes')
             ->groupBy('month')
             ->orderBy('month')
             ->get();
 
-        $historyVisits = HistoryVisits::count();
-
-        $totalVisits = $totalCountVisits + $historyVisits;
+        $historyVisits = HistoryVisits::selectRaw('MONTH(created_at) as month, COUNT(*) as totalVisits')
+            ->where('created_at', '>=', $startDate)
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get();
 
         $result = [
             'labels' => DateHelper::getAllMonths(5),
@@ -81,23 +79,23 @@ class DashboardAdminController extends Controller
             $result['series']['totalUrl'][$index] = (int)$dataUrl->totalUrl;
             $countURL += $dataUrl->totalUrl;
         }
-        $countURL += $countHistory;
-
-        $totalCountVisits = 0;
-
 
         foreach ($totalVisits as $dataVisits) {
             $parse = Carbon::parse($dataVisits->date);
             $date = $parse->shortMonthName . ' ' . $parse->year;
             $index = array_search($date, $result['labels']);
             $result['series']['totalVisits'][$index] = (int)$dataVisits->totalVisits;
-            $totalCountVisits += $dataVisits->totalVisits;
         }
-        $totalCountVisits += $historyVisits;
+
+        foreach ($historyVisits as $dataVisits) {
+            $parse = Carbon::parse($dataVisits->date);
+            $date = $parse->shortMonthName . ' ' . $parse->year;
+            $index = array_search($date, $result['labels']);
+            $result['series']['totalVisits'][$index] += (int)$dataVisits->totalVisits;
+        }
 
         return response()->json(compact('startDate', 'result'));
     }
-
 
     public function dashboardAdmin()
     {
