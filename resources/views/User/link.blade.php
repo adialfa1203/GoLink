@@ -1285,41 +1285,53 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#save-button').on('click', function() {
-                var newPassword = $('#password-input').val();
+    $(document).ready(function() {
+    $('#save-button').on('click', function() {
+        var newPassword = $('#password-input').val();
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+        var userId = $(this).data('id');
+        var updatePasswordRoute = '/user/update-password/' + userId;
 
-                // Get the CSRF token from the <meta> tag
-                var csrfToken = $('meta[name="csrf-token"]').attr('content');
-
-                var userId = $(this).data('id')
-                var updatePasswordRoute = '/user/update-password/' + userId
-
-                $.ajax({
-                    url: updatePasswordRoute,
-                    type: 'POST',
-                    data: {
-                        password: newPassword,
-                    },
-                    headers: {
-                        'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the request headers
-                    },
-                    success: function(response) {
-                        console.log(response); // Log the response from the server
-                        alert(response.success);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.log(jqXHR); // Log the error response
-                        var errors = jqXHR.responseJSON.errors;
-                        if (errors) {
-                            alert(errors.password[0]);
-                        } else {
-                            alert(jqXHR.responseJSON.error);
-                        }
-                    }
-                });
-            });
+        $.ajax({
+            url: updatePasswordRoute,
+            type: 'POST',
+            data: {
+                password: newPassword,
+            },
+            headers: {
+                'X-CSRF-TOKEN': csrfToken
+            },
+            success: function(response) {
+                console.log(response);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: response.success
+                }).then(function() {
+                            location.reload();
+                        });
+            },
+            error: function(jqXHR) {
+                console.log(jqXHR);
+                var errors = jqXHR.responseJSON.errors;
+                if (errors) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: errors.password[0]
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: jqXHR.responseJSON.error
+                    });
+                }
+            }
         });
+    });
+});
+
     </script>
 
 
