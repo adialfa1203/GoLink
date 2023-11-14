@@ -702,7 +702,7 @@
                                                                                         Tautan
                                                                                         Asli
                                                                                     </h5>
-                                                                                    <p>Ubah nama tautan asli anda dan
+                                                                                    <p>Ubah tautan asli anda dan
                                                                                         sesuaikan
                                                                                         dengan keinginan anda.</p>
                                                                                     <img class="mt-3 mb-3"
@@ -714,7 +714,7 @@
                                                                                         for="destination_url"
                                                                                         style="
                                                                                 font-weight: bold;">Ubah
-                                                                                        Tautan</label>
+                                                                                        Tautan Asli</label>
                                                                                     <input type="text"
                                                                                         class="form-control destinationUrl"
                                                                                         name="destination_url"
@@ -1067,7 +1067,7 @@
                                                                             <h5 class="modal-title" id="zoomInModalLabel">
                                                                                 <i
                                                                                     class="fa-solid fa-pen-to-square"></i>&nbsp;Kustom
-                                                                                Tautan
+                                                                                Nama Tautan
                                                                             </h5>
                                                                             <button type="button" class="btn-close"
                                                                                 data-bs-dismiss="modal"
@@ -1080,7 +1080,7 @@
                                                                                         class="fa-solid fa-pen-to-square"></i>
                                                                                 </p>
                                                                                 &nbsp;
-                                                                                <p>Kustom tautan adalah fitur yang
+                                                                                <p>Kustom nama tautan adalah fitur yang
                                                                                     memungkinkan
                                                                                     pengguna untuk membuat tautan pendek
                                                                                     yang
