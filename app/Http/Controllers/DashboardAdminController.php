@@ -23,26 +23,27 @@ class DashboardAdminController extends Controller
 
         $totalUser = User::where('created_at', '>=', $startDate)
             ->where('email', '!=', 'admin@gmail.com')
-            ->selectRaw('DATE(created_at) as date, COUNT(*) as totalUser')
-            ->groupBy('date')
-            ->orderBy('date')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as totalUser')
+            ->groupBy('month')
+            ->orderBy('month')
             ->get();
 
+
         $totalUrl = ShortUrl::where('created_at', '>=', $startDate)
-            ->selectRaw('DATE(created_at) as date, COUNT(*) as totalUrl')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as totalUrl')
             ->where('archive', '!=', 'yes')
-            ->groupBy('date')
-            ->orderBy('date')
+            ->groupBy('month')
+            ->orderBy('month')
             ->get();
 
         $countHistory = History::count();
-            
+
 
         $totalVisits = ShortURLVisit::where('created_at', '>=', $startDate)
-            ->selectRaw('DATE(created_at) as date, COUNT(*) as totalVisits')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as totalVisits')
             ->whereRelation('shortURL', 'archive', '!=', 'yes')
-            ->groupBy('date')
-            ->orderBy('date')
+            ->groupBy('month')
+            ->orderBy('month')
             ->get();
 
         $historyVisits = HistoryVisits::count();
@@ -68,7 +69,7 @@ class DashboardAdminController extends Controller
             $index = array_search($date, $result['labels']);
             $result['series']['totalUser'][$index] = (int)$dataUser->totalUser;
         }
-        
+
         $countURL = 0;
 
         foreach ($totalUrl as $dataUrl) {
@@ -81,7 +82,7 @@ class DashboardAdminController extends Controller
         $countURL += $countHistory;
 
         $totalCountVisits = 0;
-        
+
 
         foreach ($totalVisits as $dataVisits) {
             $parse = Carbon::parse($dataVisits->date);
@@ -109,7 +110,7 @@ class DashboardAdminController extends Controller
             ->count();
         $historyVisits = HistoryVisits::count();
         $totalCountVisits = $totalVisits + $historyVisits;
-        $berlanggan = User::where('subscribe', '!=', 'free')->count();        
+        $berlanggan = User::where('subscribe', '!=', 'free')->count();
         return view('Admin.index', compact('berlanggan', 'totalUser', 'totalUrl', 'totalVisits', 'totalCountVisits', 'countURL'));
     }
 
