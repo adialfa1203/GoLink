@@ -720,7 +720,7 @@
                                                                                         name="destination_url"
                                                                                         id="destination_url-{{ $row->id }}"
                                                                                         data-key="{{ $row->url_key }}"
-                                                                                        placeholder="Ubah Nama">
+                                                                                        placeholder="Ubah Tautan Asli">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="d-flex justify-content-end mb-3"
