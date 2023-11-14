@@ -70,6 +70,12 @@
         .olshop:hover {
             background-color: #FF9130;
         }
+        .page-content{
+            padding: 13px;
+        }
+        body{
+            overflow: hidden;
+        }
     </style>
 @endsection
 @section('title', $accessMicrosite->name)
