@@ -523,8 +523,8 @@
                                                                             <p>{{ $row->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                                                                                                                            <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                                                                                                                            </center> -->
+                                                                                                                                                                                                                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                                                                                                                                </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -721,6 +721,8 @@
                                                                                         id="destination_url-{{ $row->id }}"
                                                                                         data-key="{{ $row->url_key }}"
                                                                                         placeholder="Ubah Tautan Asli">
+                                                                                    <span id="urlError"
+                                                                                        class="text-danger"></span>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="d-flex justify-content-end mb-3"
@@ -1041,8 +1043,8 @@
                                                                             <p>{{ $url->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                                                                                                                                                                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                                                                                                                                                                            </center> -->
+                                                                                                                                                                                                                                                                                    <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                                                                                                                                                                                </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -1285,53 +1287,52 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-    $(document).ready(function() {
-    $('#save-button').on('click', function() {
-        var newPassword = $('#password-input').val();
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
-        var userId = $(this).data('id');
-        var updatePasswordRoute = '/user/update-password/' + userId;
+        $(document).ready(function() {
+            $('#save-button').on('click', function() {
+                var newPassword = $('#password-input').val();
+                var csrfToken = $('meta[name="csrf-token"]').attr('content');
+                var userId = $(this).data('id');
+                var updatePasswordRoute = '/user/update-password/' + userId;
 
-        $.ajax({
-            url: updatePasswordRoute,
-            type: 'POST',
-            data: {
-                password: newPassword,
-            },
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            },
-            success: function(response) {
-                console.log(response);
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Berhasil!',
-                    text: response.success
-                }).then(function() {
+                $.ajax({
+                    url: updatePasswordRoute,
+                    type: 'POST',
+                    data: {
+                        password: newPassword,
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: response.success
+                        }).then(function() {
                             location.reload();
                         });
-            },
-            error: function(jqXHR) {
-                console.log(jqXHR);
-                var errors = jqXHR.responseJSON.errors;
-                if (errors) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error!',
-                        text: errors.password[0]
-                    });
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error!',
-                        text: jqXHR.responseJSON.error
-                    });
-                }
-            }
+                    },
+                    error: function(jqXHR) {
+                        console.log(jqXHR);
+                        var errors = jqXHR.responseJSON.errors;
+                        if (errors) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: errors.password[0]
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: jqXHR.responseJSON.error
+                            });
+                        }
+                    }
+                });
+            });
         });
-    });
-});
-
     </script>
 
 
@@ -1614,10 +1615,13 @@
                 var id = $(this).data('id');
                 var key = $(this).data('key');
                 var newDestination = $('#destination_url-' + id).val();
-                console.log(newDestination);
-                if (newDestination == null || newDestination == "") {
-                    // Menggunakan Sweet Alert untuk menampilkan pesan kesalahan
-                    Swal.fire('Isi Data Terlebih Dahulu', '', 'error');
+                var urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+                var urlError = document.getElementById('urlError');
+                urlError.textContent = '';
+
+                if (!urlPattern.test(newDestination)) {
+                    urlError.textContent =
+                        'Tautan tidak valid. Pastikan formatnya seperti http://domain-mu.id.';
                     return;
                 }
 
@@ -1632,16 +1636,17 @@
                     },
                     dataType: 'JSON',
                     success: function(e) {
-                        // Menggunakan Sweet Alert untuk menampilkan pesan sukses
                         Swal.fire('Update Berhasil', '', 'success').then(function() {
                             location.reload();
                         });
                     },
                     error: function(response) {
                         console.log(response);
+                        Swal.fire('Error', 'Terjadi kesalahan saat melakukan update', 'error');
                     }
                 });
             });
+
         });
     </script>
     <script>
