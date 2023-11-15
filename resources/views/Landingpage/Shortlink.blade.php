@@ -187,18 +187,22 @@
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90" style="margin-top: 10%;">
-                                <circle cx="45" cy="45" r="45" fill="#D9D9D9" />
-                                <path d="M62.379 41.974H60.0515V35.864C60.0515 28.7528 53.4372 22.9653 45.3101 22.9653C37.1829 22.9653 30.5687 28.7528 30.5687 35.864V41.974H28.2411C25.6711 41.974 23.5859 43.7984 23.5859 46.0472V62.3403C23.5859 64.5891 25.6711 66.4136 28.2411 66.4136H62.379C64.9491 66.4136 67.0342 64.5891 67.0342 62.3403V46.0472C67.0342 43.7984 64.9491 41.974 62.379 41.974ZM52.2928 41.974H38.3273V35.864C38.3273 32.4951 41.4599 29.7541 45.3101 29.7541C49.1603 29.7541 52.2928 32.4951 52.2928 35.864V41.974Z" fill="#104898" />
-                            </svg>
+                            <div class="rounded" data-aos="fade-up" data-aos-duration="1500" style="border-radius: 100%;">
+                                <div class="text-center" style="background-color: #D9D9D9; margin-top:10%;  border-radius: 100%; display: inline-block; padding: 3%;">
+                                    <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M40.4795 10.8123C43.8966 7.39524 49.4368 7.39524 52.8539 10.8123L59.1876 17.1461C62.6047 20.5632 62.6047 26.1034 59.1876 29.5204L28.3124 60.3957C27.7654 60.9426 27.0235 61.2499 26.25 61.2499H11.6667C10.0558 61.2499 8.75 59.9441 8.75 58.3333V43.7499C8.75 42.9764 9.05729 42.2345 9.60427 41.6875L40.4795 10.8123ZM48.7291 14.9371C47.59 13.7981 45.7433 13.7981 44.6043 14.9371L42.0415 17.4999L52.5 27.9585L55.0628 25.3957C56.2019 24.2566 56.2018 22.4099 55.0628 21.2709L48.7291 14.9371ZM25.0419 55.4166L15.5 53.5V44.5L25.0419 55.4166Z" fill="#104898" />
+                                    </svg>
+    
+                                </div>
+                            </div>
                             <div class="story_text">
                                 <h6 style="color: #104898;" class="mb-3 fs-17">Kustom Tautan</h6>
-                                <p class="text-muted">Anda dapat dengan mudah mengganti atau mengkustom tautan yang sudah di perpendek sesuka hati</p></p>
+                                <p class="text-muted">Anda dapat dengan mudah mengganti atau mengkustom tautan yang sudah di perpendek sesuka hati</p>
                             </div>
                         </div>
                     </div>
-
-
+                    
+                    
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
