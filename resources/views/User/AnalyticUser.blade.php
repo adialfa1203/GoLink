@@ -476,7 +476,7 @@
                                                         @if ($TopBrowser->browser)
                                                             <td>{{ $TopBrowser->browser }}</td>
                                                         @else
-                                                            <td class="text-danger">Data tidak ditemukan</td>
+                                                            <td class="text-danger">Data tidak dikenal</td>
                                                         @endif
                                                         <td @if (!$TopBrowser->browser) class="text-danger" @endif>
                                                             {{ $TopBrowser->total }} Pengunjung</td>
@@ -511,7 +511,7 @@
                                                         @if ($TopDevice->device_type)
                                                             <td>{{ $TopDevice->device_type }}</td>
                                                         @else
-                                                            <td class="text-danger">Data tidak ditemukan</td>
+                                                            <td class="text-danger">Data tidak dikenal</td>
                                                         @endif
                                                         <td @if (!$TopDevice->device_type) class="text-danger" @endif>
                                                             {{ $TopDevice->total }} Pengunjung</td>
@@ -546,7 +546,7 @@
                                                         @if ($TopReferer->referer_url)
                                                             <td>{{ $TopReferer->referer_url }}</td>
                                                         @else
-                                                            <td class="text-danger">Data tidak ditemukan</td>
+                                                            <td class="text-danger">Data tidak dikenal</td>
                                                         @endif
                                                         <td @if (!$TopReferer->referer_url) class="text-danger" @endif>
                                                             {{ $TopReferer->total }} Pengunjung</td>
@@ -581,10 +581,80 @@
                                                         @if ($TopIpAdress->ip_address)
                                                             <td>{{ $TopIpAdress->ip_address }}</td>
                                                         @else
-                                                            <td class="text-danger">Data tidak ditemukan</td>
+                                                            <td class="text-danger">Data tidak dikenal</td>
                                                         @endif
                                                         <td @if (!$TopIpAdress->ip_address) class="text-danger" @endif>
                                                             {{ $TopIpAdress->total }} Pengunjung</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card lower" id="agenciesList">
+                                <div class="card-body">
+                                    <h5 class="tex">Sistem Operasi Teratas</h5>
+                                    <hr>
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless table-nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Nama Sistem Operasi</th>
+                                                    <th scope="col">Pengunjung</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($TopOperatingSystem->sortByDesc('totalTopBrowser') as $TopOperatingSystem)
+                                                    <tr>
+                                                        <th scope="row"
+                                                            @if (!$TopOperatingSystem->operating_system) class="text-danger" @endif>
+                                                            {{ $loop->iteration }}</th>
+                                                        @if ($TopOperatingSystem->operating_system)
+                                                            <td>{{ $TopOperatingSystem->operating_system }}</td>
+                                                        @else
+                                                            <td class="text-danger">Data tidak dikenal</td>
+                                                        @endif
+                                                        <td @if (!$TopOperatingSystem->operating_system) class="text-danger" @endif>
+                                                            {{ $TopOperatingSystem->total }} Pengunjung</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card lower" id="agenciesList">
+                                <div class="card-body">
+                                    <h5 class="tex">Versi Sistem Operasi Teratas</h5>
+                                    <hr>
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless table-nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Versi Sistem Operasi</th>
+                                                    <th scope="col">Pengunjung</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($TopOperatingSystemVersion->sortByDesc('totalTopBrowser') as $TopOperatingSystemVersion)
+                                                    <tr>
+                                                        <th scope="row"
+                                                            @if (!$TopOperatingSystemVersion->operating_system_version) class="text-danger" @endif>
+                                                            {{ $loop->iteration }}</th>
+                                                        @if ($TopOperatingSystemVersion->operating_system_version)
+                                                            <td>{{ $TopOperatingSystemVersion->operating_system_version }}</td>
+                                                        @else
+                                                            <td class="text-danger">Data tidak dikenal</td>
+                                                        @endif
+                                                        <td @if (!$TopOperatingSystemVersion->operating_system_version) class="text-danger" @endif>
+                                                            {{ $TopOperatingSystemVersion->total }} Pengunjung</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

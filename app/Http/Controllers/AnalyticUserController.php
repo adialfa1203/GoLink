@@ -236,6 +236,20 @@ class AnalyticUserController extends Controller
         ->take(3)
         ->get();
 
+        $TopOperatingSystem = ShortUrlVisit::select('operating_system', DB::raw('count(*) as total'))
+        ->groupBy('operating_system')
+        ->whereRelation('shortUrl','user_id',$userId)
+        ->orderByDesc('total')
+        ->take(3)
+        ->get();
+
+        $TopOperatingSystemVersion = ShortUrlVisit::select('operating_system_version', DB::raw('count(*) as total'))
+        ->groupBy('operating_system_version')
+        ->whereRelation('shortUrl','user_id',$userId)
+        ->orderByDesc('total')
+        ->take(3)
+        ->get();
+
         $dataLink = SHortURL::all();
 
         $totalVisits = ShortURLVisit::whereHas('shortURL', function ($query) use ($userId, $currentMonth) {
@@ -268,7 +282,7 @@ class AnalyticUserController extends Controller
         // $visits = count($shortURL->visits) ;
 
         // dd($totalVisits,$countURL);
-        return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'user', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite', 'TopBrowser', 'TopDevice', 'TopReferer', 'TopIpAdress', 'totalCountVisits'));
+        return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'user', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite', 'TopBrowser', 'TopDevice', 'TopReferer', 'TopIpAdress', 'totalCountVisits', 'TopOperatingSystem', 'TopOperatingSystemVersion'));
     }
 
     //data test
