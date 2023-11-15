@@ -194,7 +194,7 @@ class AnalyticUserController extends Controller
             ->orderBy('totalVisits', 'desc')
             ->take(3)
             ->get();
-
+        // dd($links);
         $microsites = ShortUrl::withCount([
             'visits AS totalVisits' => function ($query) use ($userId) {
                 $query->whereHas('shortUrl', function ($query) use ($userId) {

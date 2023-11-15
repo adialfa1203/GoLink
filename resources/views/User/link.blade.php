@@ -384,7 +384,7 @@
                                                                             title="Tautan berbasis waktu"><i
                                                                                 class="fa-solid fa-clock"></i>&nbsp;Atur
                                                                             waktu</span></button>
-                                                                    <button type="button"
+                                                                    {{-- <button type="button"
                                                                         class="btn btn-light me-3 btn-sm"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#zoomInModal1"><span
@@ -392,7 +392,7 @@
                                                                             data-bs-placement="left"
                                                                             title="Tautan terlindungi"><i
                                                                                 class="fa-solid fa-lock"></i>&nbsp;kata
-                                                                            sandi</span></button>
+                                                                            cela aku mau</span></button> --}}
                                                                     <button type="button" class="btn btn-light btn-sm"
                                                                         data-bs-toggle="collapse"
                                                                         href="#collapseExample{{ $row->id }}"
@@ -404,7 +404,7 @@
 
                                                             </div>
                                                         </div>
-                                                        @if ($user->subscribe !== 'platinum')
+                                                        {{-- @if ($user->subscribe !== 'platinum')
                                                             <div id="zoomInModal1" class="modal fade zoomIn"
                                                                 tabindex="-1" aria-labelledby="zoomInModalLabel"
                                                                 aria-hidden="true" style="display: none;">
@@ -498,7 +498,7 @@
                                                                     </div><!-- /.modal-content -->
                                                                 </div><!-- /.modal-dialog -->
                                                             </div>
-                                                        @endif
+                                                        @endif //gamau --}}
                                                         <!-- /.modal -->
                                                         <div id="tombol-modal-{{ $row->id }}"
                                                             class="modal fade zoomIn modal-sm" tabindex="-1"
