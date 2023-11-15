@@ -474,7 +474,7 @@
                                                         @if ($TopBrowser->browser)
                                                             <td>{{ $TopBrowser->browser }}</td>
                                                         @else
-                                                            <td>Data tidak ditemukan</td>
+                                                            <td class="text-danger">Data tidak ditemukan</td>
                                                         @endif
                                                         <td>{{ $TopBrowser->total }} Pengunjung</td>
                                                     </tr>
@@ -506,7 +506,7 @@
                                                         @if ($TopDevice->device_type)
                                                             <td>{{ $TopDevice->device_type }}</td>
                                                         @else
-                                                            <td>Data tidak ditemukan</td>
+                                                            <td class="text-danger">Data tidak ditemukan</td>
                                                         @endif
                                                         <td>{{ $TopDevice->total }} Pengunjung</td>
                                                     </tr>
@@ -538,7 +538,7 @@
                                                         @if ($TopReferer->referer_url)
                                                             <td>{{ $TopReferer->referer_url }}</td>
                                                         @else
-                                                            <td>Data tidak ditemukan</td>
+                                                            <td class="text-danger">Data tidak ditemukan</td>
                                                         @endif
                                                         <td>{{ $TopReferer->total }} Pengunjung</td>
                                                     </tr>
@@ -570,7 +570,7 @@
                                                         @if ($TopIpAdress->ip_address)
                                                             <td>{{ $TopIpAdress->ip_address }}</td>
                                                         @else
-                                                            <td>Data tidak ditemukan</td>
+                                                            <td class="text-danger">Data tidak ditemukan</td>
                                                         @endif
                                                         <td>{{ $TopIpAdress->total }} Pengunjung</td>
                                                     </tr>
