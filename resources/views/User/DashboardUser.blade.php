@@ -1200,94 +1200,109 @@
         }
 
         $(document).ready(function() {
-            var userId = "{{ auth()->user()->subscribe }}";
-            console.log(userId);
-            $("#shortlinkSubmit").submit(function(event) {
-                event.preventDefault();
-                var destinationUrl = $("#AmountInput").val();
-                if (!destinationUrl) {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Kesalahan!",
-                        text: "Anda harus mengisi data terlebih dahulu.",
-                    });
-                    $("#addAmount").modal("hide");
-                    $("#addAmount").modal("hide");
-                    setTimeout(function() {
-                        $('#close-singkatkan').click();
-                    }, 1000);
-                } else {
-                    var countURL = {{ $countURL }};
-                    var countUrl;
-                    @if (auth()->user()->subscribe == 'free')
-                        countUrl = 15;
-                    @elseif (auth()->user()->subscribe == 'silver')
-                        countUrl = 25;
-                    @elseif (auth()->user()->subscribe == 'gold')
-                        countUrl = 35;
-                    @elseif (auth()->user()->subscribe == 'platinum')
-                        countUrl = Number.MAX_SAFE_INTEGER;
-                    @endif
-                    if (countURL >= countUrl) {
+    var userId = "{{ auth()->user()->subscribe }}";
+    console.log(userId);
+
+    $("#shortlinkSubmit").submit(function(event) {
+        event.preventDefault();
+        var destinationUrl = $("#AmountInput").val();
+
+        if (!destinationUrl) {
+            // Menampilkan pesan kesalahan jika URL tujuan tidak diisi
+            Swal.fire({
+                icon: "error",
+                title: "Kesalahan!",
+                text: "Anda harus mengisi data terlebih dahulu.",
+            });
+
+            // Menutup modal dan mengatur penundaan sebelum menyembunyikan elemen
+            $("#addAmount").modal("hide");
+            setTimeout(function() {
+                $('#close-singkatkan').click();
+            }, 1000);
+        } else {
+            var countURL = {{ $countURL }};
+            var countUrl;
+
+            // Mengatur batas URL berdasarkan langganan pengguna
+            @if (auth()->user()->subscribe == 'free')
+                countUrl = 15;
+            @elseif (auth()->user()->subscribe == 'silver')
+                countUrl = 25;
+            @elseif (auth()->user()->subscribe == 'gold')
+                countUrl = 35;
+            @elseif (auth()->user()->subscribe == 'platinum')
+                countUrl = Number.MAX_SAFE_INTEGER;
+            @endif
+
+            if (countURL >= countUrl) {
+                // Menampilkan pesan kesalahan jika batas URL terlampaui
+                Swal.fire({
+                    icon: "error",
+                    title: "Kesalahan!",
+                    text: "Anda telah mencapai batas maksimum link diperpendek.",
+                });
+            } else {
+                // Jika belum mencapai batas, kirim permintaan Ajax untuk memperpendek URL
+                var formData = $(this).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "short-link",
+                    data: formData,
+                    success: function(response) {
+                        // Handle respons sukses dari server
+                        if (response.status == 'gagal') {
+                            // Menampilkan pesan kesalahan jika permintaan gagal
+                            Swal.fire({
+                                title: 'Kesalahan...',
+                                icon: 'error',
+                                html: response.message +
+                                    ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
+                                    'untuk info lebih lanjut tentang langganan premium.',
+                            });
+                            setTimeout(function() {
+                                $('#close-singkatkan').click();
+                            }, 1000);
+                        } else {
+                            // Mengisi form dengan data hasil dari permintaan
+                            var defaultShort = response.default_short_url;
+                            var title = response.title;
+                            var url = response.destination_url;
+
+                            $("#default_short_url_id").val(response.id);
+                            $("#default_short_url").val(defaultShort);
+                            $("#title").val(title);
+                            $('#destination_url').val(url);
+
+                            $("#copyButton").show();
+                            $('#singkatkan').modal('show');
+                        }
+                    },
+                    error: function(error) {
+                        // Menampilkan pesan kesalahan jika terjadi kesalahan dalam permintaan Ajax
+                        $("#addAmount").modal("hide");
+                        $('#singkatkan').modal('hide');
                         Swal.fire({
                             icon: "error",
                             title: "Kesalahan!",
-                            text: "Anda telah mencapai batas maksimum link diperpendek.",
+                            text: "URL tidak valid",
                         });
-                    } else {
-                        var formData = $(this).serialize();
-                        $.ajax({
-                            type: "POST",
-                            url: "short-link",
-                            data: formData,
-                            success: function(response) {
-                                if (response.status == 'gagal') {
-                                    Swal.fire({
-                                        title: 'Kesalahan...',
-                                        icon: 'error',
-                                        html: response.message +
-                                            ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
-                                            'untuk info lebih lanjut tentang langganan premium.',
-                                    });
-                                    setTimeout(function() {
-                                        $('#close-singkatkan').click();
-                                    }, 1000);
-                                }
-                                console.log(response.default_short_url);
-                                var defaultShort = response.default_short_url;
-                                var title = response.title;
-                                var url = response.destination_url;
-                                console.log(response.url_key);
-                                $("#default_short_url_id").val(response.id);
-                                $("#default_short_url").val(defaultShort);
-                                $("#title").val(title);
-                                $('#destination_url').val(url);
-
-                                $("#copyButton").show();
-                                $('#singkatkan').modal('show');
-                            },
-                            error: function(error) {
-                                $("#addAmount").modal("hide");
-                                $('#singkatkan').modal('hide');
-                                Swal.fire({
-                                    icon: "error",
-                                    title: "Kesalahan!",
-                                    text: "URL tidak valid",
-                                });
-                                console.error("Error:", error.responseJSON.message);
-                            }
-                        });
+                        console.error("Error:", error.responseJSON.message);
                     }
-                }
+                });
+            }
+        }
 
-                $("#AmountInput").val("");
-                $("#cardNumber").val("");
-                $(".password-input").val("");
-                $(".time-input").val("");
-                $(".close-edit").val("");
-                $("#addAmount").modal("hide");
-            });
-        });
+        // Mengosongkan nilai input dan menutup modal
+        $("#AmountInput").val("");
+        $("#cardNumber").val("");
+        $(".password-input").val("");
+        $(".time-input").val("");
+        $(".close-edit").val("");
+        $("#addAmount").modal("hide");
+    });
+});
+
 
         $("#password-addon").click(function() {
             var passwordInput = $(".password-input");

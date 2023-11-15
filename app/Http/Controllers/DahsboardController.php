@@ -67,6 +67,7 @@ class DahsboardController extends Controller
                     $urlStatus = 'Status tidak valid';
                     $micrositeStatus = 'Status tidak valid';
                     break;
+
             }
 
             $userId = $user->id;
@@ -92,6 +93,7 @@ class DahsboardController extends Controller
 
             $subscriptionPeriod = $user->subscribe;
 
+            // Perbarui bagian ini untuk menentukan tanggal reset sesuai dengan langganan
             switch ($subscriptionPeriod) {
                 case 'silver':
                     $subscriptionStartDate = Carbon::createFromFormat('Y-m-d H:i:s', $user->subscription_start_date);
@@ -106,12 +108,14 @@ class DahsboardController extends Controller
                     $resetDate = $subscriptionStartDate->copy()->addYear();
                     break;
                 case 'free':
+                    // Perbarui tanggal reset untuk akun gratis agar setiap bulan
                     $resetDate = Carbon::now()->addMonthNoOverflow()->startOfMonth();
                     break;
                 default:
                     $resetDate = null;
                     break;
             }
+
 
 
             $totalUrl = ShortURL::where('user_id', $userId)
@@ -124,7 +128,7 @@ class DahsboardController extends Controller
                 ->count();
 
             $countURL = $totalUrl + $countHistory;
-            
+
             $countMicrosite = ShortURL::where('user_id', $userId)
                 ->whereNotNull('microsite_uuid')
                 ->whereDate('created_at', '<=', $resetDate)
