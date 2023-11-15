@@ -207,7 +207,6 @@
                                     </div>
                                 </div>
                                 
-                            
                             <div class="card2 mb-3" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
                                     <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260"

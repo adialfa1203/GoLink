@@ -23,8 +23,8 @@ class UserSeeder extends Seeder
 
         $admin = User::create([
             'name' => "Admin",
-            'number' => "089637885692",
-            'email' => 'admin@gmail.com',
+            'number' => "087812294699",
+            'email' => 'milink.idn@gmail.com',
             'password' => Hash::make('password'),
             'profile_picture' => null
         ]);
