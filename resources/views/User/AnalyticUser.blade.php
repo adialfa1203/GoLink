@@ -470,13 +470,16 @@
                                             <tbody>
                                                 @foreach ($TopBrowser->sortByDesc('totalTopBrowser') as $TopBrowser)
                                                     <tr>
-                                                        <th scope="row">{{ $loop->iteration }}</th>
+                                                        <th scope="row"
+                                                            @if (!$TopBrowser->browser) class="text-danger" @endif>
+                                                            {{ $loop->iteration }}</th>
                                                         @if ($TopBrowser->browser)
                                                             <td>{{ $TopBrowser->browser }}</td>
                                                         @else
                                                             <td class="text-danger">Data tidak ditemukan</td>
                                                         @endif
-                                                        <td>{{ $TopBrowser->total }} Pengunjung</td>
+                                                        <td @if (!$TopBrowser->browser) class="text-danger" @endif>
+                                                            {{ $TopBrowser->total }} Pengunjung</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -502,13 +505,16 @@
                                             <tbody>
                                                 @foreach ($TopDevice->sortByDesc('totalTopBrowser') as $TopDevice)
                                                     <tr>
-                                                        <th scope="row">{{ $loop->iteration }}</th>
+                                                        <th scope="row"
+                                                            @if (!$TopDevice->device_type) class="text-danger" @endif>
+                                                            {{ $loop->iteration }}</th>
                                                         @if ($TopDevice->device_type)
                                                             <td>{{ $TopDevice->device_type }}</td>
                                                         @else
                                                             <td class="text-danger">Data tidak ditemukan</td>
                                                         @endif
-                                                        <td>{{ $TopDevice->total }} Pengunjung</td>
+                                                        <td @if (!$TopDevice->device_type) class="text-danger" @endif>
+                                                            {{ $TopDevice->total }} Pengunjung</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -534,13 +540,16 @@
                                             <tbody>
                                                 @foreach ($TopReferer->sortByDesc('totalTopBrowser') as $TopReferer)
                                                     <tr>
-                                                        <th scope="row">{{ $loop->iteration }}</th>
+                                                        <th scope="row"
+                                                            @if (!$TopReferer->referer_url) class="text-danger" @endif>
+                                                            {{ $loop->iteration }}</th>
                                                         @if ($TopReferer->referer_url)
                                                             <td>{{ $TopReferer->referer_url }}</td>
                                                         @else
                                                             <td class="text-danger">Data tidak ditemukan</td>
                                                         @endif
-                                                        <td>{{ $TopReferer->total }} Pengunjung</td>
+                                                        <td @if (!$TopReferer->referer_url) class="text-danger" @endif>
+                                                            {{ $TopReferer->total }} Pengunjung</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -566,13 +575,16 @@
                                             <tbody>
                                                 @foreach ($TopIpAdress->sortByDesc('totalTopBrowser') as $TopIpAdress)
                                                     <tr>
-                                                        <th scope="row">{{ $loop->iteration }}</th>
+                                                        <th scope="row"
+                                                            @if (!$TopIpAdress->ip_address) class="text-danger" @endif>
+                                                            {{ $loop->iteration }}</th>
                                                         @if ($TopIpAdress->ip_address)
                                                             <td>{{ $TopIpAdress->ip_address }}</td>
                                                         @else
                                                             <td class="text-danger">Data tidak ditemukan</td>
                                                         @endif
-                                                        <td>{{ $TopIpAdress->total }} Pengunjung</td>
+                                                        <td @if (!$TopIpAdress->ip_address) class="text-danger" @endif>
+                                                            {{ $TopIpAdress->total }} Pengunjung</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
