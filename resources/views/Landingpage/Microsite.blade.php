@@ -179,7 +179,6 @@
                 <div class="position-relative" style="z-index: 1;">
                     <div class="row align-items-center">
                         <div class="col-lg-12">
-                            <h5 class="mt-5" style="color: #104898; font-weight: bold;">Jelajahi dengan Microsite</h5>
 
                             <div class="col-lg-12">
                                 <div class="mt-lg-0 mt-5 d-flex flex-column flex-lg-row">
@@ -187,9 +186,10 @@
                                         <img src="{{ asset('landing-page 2.png') }}" alt="home04" class="img-fluid" width="450" height="300">
                                     </div>
                                     <div class="col-lg-6">
+                                        <h4 class="mt-5" style="color: #104898; font-weight: bold;">Jelajahi dengan Microsite</h4>
                                         <div class="boy">
-                                            <h5 class="mt-5" style="color: #104898;">Microsite adalah kanvas kreatif Anda, bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini, Anda dapat menuangkan ide dan konten lebih bebas.</h5>
-                                            <h5 style="color: #104898;">Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan</h5>
+                                            <p class="mt-5" style="color: #104898;">Microsite adalah kanvas kreatif Anda, bukan hanya untuk menggabungkan banyak tautan menjadi satu URL. Di sini, Anda dapat menuangkan ide dan konten lebih bebas.</p>
+                                            <p style="color: #104898;">Kami hadir sebagai solusi untuk acaramu. Manfaatkan berbagai komponen yang telah kami sediakan</p>
                                         </div>
                                     </div>
                                 </div>

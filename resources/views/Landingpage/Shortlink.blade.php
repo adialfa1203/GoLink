@@ -192,8 +192,8 @@
                                 <path d="M62.379 41.974H60.0515V35.864C60.0515 28.7528 53.4372 22.9653 45.3101 22.9653C37.1829 22.9653 30.5687 28.7528 30.5687 35.864V41.974H28.2411C25.6711 41.974 23.5859 43.7984 23.5859 46.0472V62.3403C23.5859 64.5891 25.6711 66.4136 28.2411 66.4136H62.379C64.9491 66.4136 67.0342 64.5891 67.0342 62.3403V46.0472C67.0342 43.7984 64.9491 41.974 62.379 41.974ZM52.2928 41.974H38.3273V35.864C38.3273 32.4951 41.4599 29.7541 45.3101 29.7541C49.1603 29.7541 52.2928 32.4951 52.2928 35.864V41.974Z" fill="#104898" />
                             </svg>
                             <div class="story_text">
-                                <h6 style="color: #104898;" class="mb-3 fs-17">Tautan Terlindungi</h6>
-                                <p class="text-muted">Dengan tautan terlindungi, keamanan tautan Anda adalah prioritas utama.</p>
+                                <h6 style="color: #104898;" class="mb-3 fs-17">Kustom Tautan</h6>
+                                <p class="text-muted">Anda dapat dengan mudah mengganti atau mengkustom tautan yang sudah di perpendek sesuka hati</p></p>
                             </div>
                         </div>
                     </div>
