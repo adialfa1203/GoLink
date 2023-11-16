@@ -8,13 +8,12 @@ use Illuminate\Support\Facades\Response;
 
 class TripayCallbackController extends Controller
 {
-    protected $privateKey = 'private_key_anda';
 
     public function handle(Request $request)
     {
         $callbackSignature = $request->server('HTTP_X_CALLBACK_SIGNATURE');
         $json = $request->getContent();
-        $signature = hash_hmac('sha256', $json, $this->privateKey);
+        $signature = hash_hmac('sha256', $json, env('TRIPAY_PRIVATE_KEY'));
 
         if ($signature !== (string) $callbackSignature) {
             return Response::json([
