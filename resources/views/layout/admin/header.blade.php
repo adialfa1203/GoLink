@@ -141,7 +141,7 @@
             </div>
             <div class="modal-footer">
                 <a href="{{ route('set.all.messages.seen.admin') }}" style="margin-right: 22%; color: red;">Hapus Semua</a>
-                <a href="{{ url('mi/chat') }}">Lihat lebih banyak</a>
+                <a href="{{ url('milink/chat') }}">Lihat lebih banyak</a>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

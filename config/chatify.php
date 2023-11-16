@@ -6,7 +6,7 @@ return [
     | Messenger display name
     |-------------------------------------
     */
-    'name' => env('CHATIFY_NAME', 'MiChat'),
+    'name' => env('CHATIFY_NAME', 'MiLink-Chat'),
 
     /*
     |-------------------------------------
@@ -22,7 +22,7 @@ return [
     |-------------------------------------
     */
     'routes' => [
-        'prefix' => env('CHATIFY_ROUTES_PREFIX', 'mi/chat'),
+        'prefix' => env('CHATIFY_ROUTES_PREFIX', 'milink/chat'),
         'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web','auth']),
         'namespace' => env('CHATIFY_ROUTES_NAMESPACE', 'Chatify\Http\Controllers'),
     ],
