@@ -62,7 +62,7 @@ class TripayCallbackController extends Controller
                    $tipe = $transaction->subscribe->tipe;
 
                    User::findOrFail($transaction->user_id)->update(['subscribe' => $tipe]);
-                           
+                   User::findOrFail($transaction->user_id)->update(['subscription_start_date' => $transaction->created_at]);
                     break;
 
                 case 'EXPIRED':
