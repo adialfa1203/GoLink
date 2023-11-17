@@ -61,7 +61,7 @@ class TripayCallbackController extends Controller
                     $transaction->update(['status' => 'PAID']);
         
                    $tipe = $transaction->subscribe->tipe;
-        
+                    dd($tipe);
                         // Update data langganan di dalam tabel user
                         $user = User::find($transaction->user_id)->update(['subscribe' => $tipe]);
                         // Misalnya, Anda memiliki kolom 'subscribe' di tabel 'user'    
