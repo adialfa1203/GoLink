@@ -60,20 +60,18 @@ class TripayCallbackController extends Controller
                     // Update status transaksi
                     $transaction->update(['status' => 'PAID']);
         
-                    // Dapatkan langganan terkait
-                    $subscription = Subscribe::where('user_id', $transaction->user_id)
-                        ->where('tipe', $transaction->tipe)
-                        ->first();
+                    // Dapatkan data langganan dari tabel Subscribe
+                    $subscription = Subscribe::where('tipe', $transaction->tipe)->first();
         
                     if ($subscription) {
-                        // Perbarui data pengguna berdasarkan jenis langganan
+                        // Update data langganan di dalam tabel user
                         $user = User::find($transaction->user_id);
-                        // Mengasumsikan Anda memiliki metode seperti updateSubscriptionStatus di model User Anda
-                        $user->updateSubscriptionStatus($subscription->tipe, 'PAID');
+                        // Misalnya, Anda memiliki kolom 'subscribe' di tabel 'user'
+                        $user->update(['subscribe' => $subscription->tipe]);
                     } else {
                         return Response::json([
                             'success' => false,
-                            'message' => 'Tidak ada langganan ditemukan untuk pengguna',
+                            'message' => 'Tidak ada langganan ditemukan untuk tipe langganan ini',
                         ]);
                     }
         
