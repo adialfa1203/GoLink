@@ -60,6 +60,7 @@ class TripayCallbackController extends Controller
                     // Update status transaksi
                     $transaction->update(['status' => 'PAID']);
         
+                    dd($transaction);
                     // Dapatkan data langganan dari tabel Subscribe
                     $subscription = Subscribe::where('tipe', $transaction->tipe)->first();
                     dd($subscription);
