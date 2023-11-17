@@ -63,12 +63,9 @@ class TripayCallbackController extends Controller
                    $tipe = $transaction->subscribe->tipe;
         
                         // Update data langganan di dalam tabel user
-                        $user = User::find($transaction->user_id);
-                        dd($user);
-                        // Misalnya, Anda memiliki kolom 'subscribe' di tabel 'user'
-                        $user->update(['subscribe' => $tipe]);
-                   
-        
+                        $user = User::find($transaction->user_id)->update(['subscribe' => $tipe]);
+                        // Misalnya, Anda memiliki kolom 'subscribe' di tabel 'user'    
+                           
                     break;
 
                 case 'EXPIRED':
