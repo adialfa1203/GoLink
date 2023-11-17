@@ -90,6 +90,7 @@
         .olshop {
             background-color: #FF9130;
         }
+
         .olshop:hover {
             background-color: #FF9130;
         }
@@ -640,6 +641,13 @@
                 }
                 if (linkMicrosite_val === '') {
                     errorMessage += 'Link microsite harus diisi. ';
+                } else {
+                    var regexPattern = /^[a-zA-Z0-9](?:[a-zA-Z0-9\s-]*[a-zA-Z0-9])?$/;
+
+                    if (!regexPattern.test(linkMicrosite_val)) {
+                        errorMessage +=
+                            'Link Microsite hanya boleh berisi huruf (a-z atau A-Z), angka (0-9), spasi, dan tanda "-". ';
+                    }
                 }
             }
 
@@ -653,7 +661,7 @@
                     icon: 'error',
                     title: 'Kesalahan!',
                     text: errorMessage,
-                    confirmButtonText: 'Mengerti'
+                    confirmButtonText: 'Ok'
                 });
                 return false;
             }
