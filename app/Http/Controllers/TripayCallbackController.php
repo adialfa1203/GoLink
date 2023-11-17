@@ -62,6 +62,7 @@ class TripayCallbackController extends Controller
         
                     // Dapatkan data langganan dari tabel Subscribe
                     $subscription = Subscribe::where('tipe', $transaction->tipe)->first();
+                    dd($subscription);
         
                     if ($subscription) {
                         // Update data langganan di dalam tabel user
