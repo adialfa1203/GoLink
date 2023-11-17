@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subscribe;
 use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
@@ -49,13 +51,32 @@ class TripayCallbackController extends Controller
             if (!$transaction) {
                 return Response::json([
                     'success' => false,
-                    'message' => 'No invoice found or already paid: ' . $tripayReference,
+                    'message' => 'Tidak ada tagihan ditemukan atau sudah dibayar: ' . $tripayReference,
                 ]);
             }
 
             switch ($status) {
                 case 'PAID':
+                    // Update status transaksi
                     $transaction->update(['status' => 'PAID']);
+        
+                    // Dapatkan langganan terkait
+                    $subscription = Subscribe::where('user_id', $transaction->user_id)
+                        ->where('tipe', $transaction->tipe)
+                        ->first();
+        
+                    if ($subscription) {
+                        // Perbarui data pengguna berdasarkan jenis langganan
+                        $user = User::find($transaction->user_id);
+                        // Mengasumsikan Anda memiliki metode seperti updateSubscriptionStatus di model User Anda
+                        $user->updateSubscriptionStatus($subscription->tipe, 'PAID');
+                    } else {
+                        return Response::json([
+                            'success' => false,
+                            'message' => 'Tidak ada langganan ditemukan untuk pengguna',
+                        ]);
+                    }
+        
                     break;
 
                 case 'EXPIRED':
@@ -69,7 +90,7 @@ class TripayCallbackController extends Controller
                 default:
                     return Response::json([
                         'success' => false,
-                        'message' => 'Unrecognized payment status',
+                        'message' => 'Status pembayaran tidak dikenali',
                     ]);
             }
 
