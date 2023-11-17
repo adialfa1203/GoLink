@@ -28,6 +28,7 @@ class User extends Authenticatable
         'subscribe',
         'is_banned',
         'google_id',
+        'subscription_start_date',
         'profile_picture',
         'verification_code',
         'github_id',
