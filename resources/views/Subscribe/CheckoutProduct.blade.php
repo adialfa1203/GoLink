@@ -263,7 +263,7 @@
                                             </div>
                                         </div>
                                         <!-- <div class="col-md-12 col-sm-12">
-                                <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button" class="btn custom col-12" style="margin-top: 65px;">Berlangganan
+                                <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12" style="margin-top: 65px;">Berlangganan
                                     Sekarang</a>
                             </div> -->
                                         @endif
