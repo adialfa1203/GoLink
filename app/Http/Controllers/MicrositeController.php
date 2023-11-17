@@ -99,8 +99,8 @@ class MicrositeController extends Controller
 
         $validator = Validator::make($request->all(), [
             'microsite_selection' => 'required',
-            'name' => 'required|string|regex:/^[^+\/]+$/u|max:35',
-            'link_microsite' => 'required|regex:/^[^+\/]+$/u|unique:microsites,link_microsite,id',
+            'name' => 'required|string|regex:^[a-zA-Z0-9]*$|max:35',
+            'link_microsite' => 'required|regex:^[a-zA-Z0-9]*$|unique:microsites,link_microsite,id',
         ], [
             'microsite_selection' => 'Pilih setidaknya satu Tema pada jenis microsite.',
             'name.max' => 'Nama Microsite tidak boleh lebih dari 35 karakter',

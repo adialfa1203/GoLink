@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('expired');
             $table->integer('amount');
             $table->integer('fee_amount');
-            $table->enum('payment_method', ['BNIVA', 'BRIVA	', 'MANDIRIVA', 'BCAVA', 'OVO', 'DANA']);
+            $table->enum('payment_method', ['BNIVA', 'BRIVA	', 'MANDIRIVA', 'BCAVA', 'BSIVA']);
             $table->enum('status', ['UNPAID', 'PAID', 'EXPIRED', 'FAILED', 'REFUND']);
             $table->timestamps();
         });

@@ -549,12 +549,12 @@
                 return;
             }
 
-            const regexPattern = /^[a-zA-Z0-9\s-]+$/;
+            const regexPattern = /^[a-zA-Z0-9](?:[a-zA-Z0-9\s-]*[a-zA-Z0-9])?$/;
 
             if (!regexPattern.test(linkMicrosite)) {
                 linkMicrositeError.textContent =
                     'Link Microsite hanya boleh berisi huruf (a-z atau A-Z), angka (0-9), spasi, dan tanda "-"';
-                successMessage.textContent = ''; // Hapus pesan sukses jika validasi gagal
+                successMessage.textContent = '';
             } else {
                 linkMicrositeError.textContent = '';
                 successMessage.textContent = 'Link Microsite Anda sudah berisi data yang valid!';
