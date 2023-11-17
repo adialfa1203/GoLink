@@ -9,7 +9,7 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'subscribe_id', 'reference', 'expired', 'amount', 'fee_amount', 'payment_method', 'status'];
+    protected $fillable = ['user_id', 'subscribe_id', 'reference', 'expired', 'amount', 'fee_amount', 'payment_method', 'status', 'subscription_start_date'];
     public function subscribe()
     {
         return $this->belongsTo(Subscribe::class, 'subscribe_id');
