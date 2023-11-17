@@ -14,17 +14,32 @@ $timeAndSeen = "<span data-time='$created_at' class='message-time'>
     @endif
     {{-- Card --}}
     <div class="message-card-content">
-        @if (@$attachment->type != 'image' || $message)
-            <div class="message">
-                {!! ($message == null && $attachment != null && @$attachment->type != 'file') ? $attachment->title : nl2br($message) !!}
-                {!! $timeAndSeen !!}
-                {{-- If attachment is a file --}}
-                @if(@$attachment->type == 'file')
+    @if (@$attachment->type != 'image' || $message)
+    <div class="message">
+        {!! ($message == null && $attachment != null && @$attachment->type != 'file') ? $attachment->title : nl2br($message) !!}
+        {!! $timeAndSeen !!}
+
+        {{-- If attachment is a file --}}
+        @if(@$attachment->file)
+            <?php
+                $videoExtensions = ['mp4', 'avi', 'mkv'];
+                $mp3file = ['mp3'];
+                $fileExtension = pathinfo($attachment->file, PATHINFO_EXTENSION);
+            ?>
+            @if (in_array(strtolower($fileExtension), $videoExtensions))
+                <video class="video" width="370" height="210" controls>
+                    <source src="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>$attachment->file]) }}" type="video/{{$fileExtension}}">
+                </video>
+            @else
+                {{-- If the file is not a video --}}
                 <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>$attachment->file]) }}" class="file-download">
                     <span class="fas fa-file"></span> {{$attachment->title}}</a>
-                @endif
-            </div>
+            @endif
         @endif
+    </div>
+@endif
+
+
         @if(@$attachment->type == 'image')
         <div class="image-wrapper" style="text-align: {{$isSender ? 'end' : 'start'}}">
             <div class="image-file chat-image" style="background-image: url('{{ Chatify::getAttachmentUrl($attachment->file) }}')">
