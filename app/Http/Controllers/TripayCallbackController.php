@@ -61,8 +61,7 @@ class TripayCallbackController extends Controller
                     
                    $tipe = $transaction->subscribe->tipe;
 
-                   $test = User::findOrFail($transaction->user_id)->update(['subscribe' => $tipe]);
-                   dd($test);
+                   User::findOrFail($transaction->user_id)->update(['subscribe' => $tipe]);
                            
                     break;
 
