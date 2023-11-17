@@ -30,6 +30,7 @@ class LandingPageController extends Controller
             ->count();
         $countHistoryVisits = HistoryVisits::count();
         $totalVisits = $countUrl + $countHistory;
+        // dd($channels);
         return view('Landingpage.Home', compact('tripay', 'channels', 'data', 'url', 'micrositeuuid', 'totalVisits',));
     }
     public function shortLink()
