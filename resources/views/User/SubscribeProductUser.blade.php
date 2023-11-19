@@ -103,10 +103,14 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="#" type="button"
+                                            class="btn custom col-12" style="margin-top:155px;">Segera Hadir...</a>
+                                    </div>
+                                    {{-- <div class="col-md-12 col-sm-12 mt-5">
                                         <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top: 30%;">Berlangganan
                                             Sekarang</a>
-                                    </div>              
+                                    </div>               --}}
                                 @elseif (strtolower(trim($subs->tipe)) === 'gold')
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
@@ -124,15 +128,15 @@
                                             Membuat Microsite sebanyak 20×/bulan
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="" type="button"
-                                            class="btn custom col-12" style="margin-top:155px;">Segera Hadir...</a>
-                                    </div> --}}
                                     <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="#" type="button"
+                                            class="btn custom col-12" style="margin-top:155px;">Segera Hadir...</a>
+                                    </div>
+                                    {{-- <div class="col-md-12 col-sm-12 mt-5">
                                         <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top: 30%;">Berlangganan
                                             Sekarang</a>
-                                    </div>
+                                    </div> --}}
                                 @elseif (strtolower(trim($subs->tipe)) === 'platinum')
                                     <div class="d-flex mt-5">
                                         <div class="flex-shrink-0">
@@ -174,15 +178,15 @@
                                             Memproteksi tautan dengan kata sandi
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="" type="button"
-                                            class="btn custom col-12" style="margin-top: 65px;">Segera Hadir...</a>
-                                    </div> --}}
                                     <div class="col-md-12 col-sm-12 mt-5">
+                                        <a href="#" type="button"
+                                            class="btn custom col-12" style="margin-top:155px;">Segera Hadir...</a>
+                                    </div>
+                                    {{-- <div class="col-md-12 col-sm-12 mt-5">
                                         <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
                                             class="btn custom col-12" style="margin-top: 30%;">Berlangganan
                                             Sekarang</a>
-                                    </div>
+                                    </div> --}}
                                 @endif
                             </div>
                         </div>
