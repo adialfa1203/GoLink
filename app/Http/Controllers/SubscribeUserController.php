@@ -88,7 +88,9 @@ class SubscribeUserController extends Controller
     {
         $detailTransaction = $this->service->detail($reference);
         $detailTransaction = json_decode($detailTransaction);
-        // $transaction = Transaction::Findorfail($reference)
-        return view('Subscribe.TransactionShow', compact('detailTransaction'));
+        $transaction = Transaction::where('reference', $reference)
+        ->with('subscribe')->first();
+        // dd($transaction);
+        return view('Subscribe.TransactionShow', compact('detailTransaction','transaction'));
     }
 }

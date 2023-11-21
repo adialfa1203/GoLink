@@ -66,7 +66,7 @@
                             <div class="card-body text-white"
                                 style="background-image: linear-gradient(to bottom right, #0E2954, #104898); border-radius: 0 0 20px 20px;">
                                 <center>
-                                    <img class="mt-3 mb-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" style="width: 80%; height: 100px; object-fit: cover;" alt="Card image cap"> 
+                                    <img class="mt-3 mb-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" style="width: 80%; height: 100px; object-fit: cover;" alt="Card image cap">
                                 </center>
                                 <h5 class="card-title text-center mb-2">
                                     Rp.{{ number_format($subs->price, 0, ',', '.') }}
@@ -103,8 +103,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="#" type="button"
-                                            class="btn custom col-12" style="margin-top:155px;">Segera Hadir...</a>
+                                    <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
+                                            class="btn custom col-12" style="margin-top: 30%;">Berlangganan
+                                            Sekarang</a>
                                     </div>
                                     {{-- <div class="col-md-12 col-sm-12 mt-5">
                                         <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
@@ -129,8 +130,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="#" type="button"
-                                            class="btn custom col-12" style="margin-top:155px;">Segera Hadir...</a>
+                                       <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
+                                            class="btn custom col-12" style="margin-top: 30%;">Berlangganan
+                                            Sekarang</a>
                                     </div>
                                     {{-- <div class="col-md-12 col-sm-12 mt-5">
                                         <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
@@ -179,8 +181,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 mt-5">
-                                        <a href="#" type="button"
-                                            class="btn custom col-12" style="margin-top:155px;">Segera Hadir...</a>
+                                    <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
+                                            class="btn custom col-12" style="margin-top: 30%;">Berlangganan
+                                            Sekarang</a>
                                     </div>
                                     {{-- <div class="col-md-12 col-sm-12 mt-5">
                                         <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button"
