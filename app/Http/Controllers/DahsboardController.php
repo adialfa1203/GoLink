@@ -108,7 +108,6 @@ class DahsboardController extends Controller
                     $resetDate = $subscriptionStartDate->copy()->addYear();
                     break;
                 case 'free':
-                    // Perbarui tanggal reset untuk akun gratis agar setiap bulan
                     $resetDate = Carbon::now()->addMonthNoOverflow()->startOfMonth();
                     break;
                 default:
@@ -120,10 +119,12 @@ class DahsboardController extends Controller
 
             $totalUrl = ShortURL::where('user_id', $userId)
                 ->whereNull('microsite_uuid')
+                ->whereMonth('created_at', now()->month)
                 ->whereDate('created_at', '<=', $resetDate)
                 ->count();
 
             $countHistory = History::where('user_id', $userId)
+                ->whereMonth('created_at', now()->month)
                 ->whereDate('created_at', '<=', $resetDate)
                 ->count();
 
@@ -131,11 +132,13 @@ class DahsboardController extends Controller
 
             $countMicrosite = ShortURL::where('user_id', $userId)
                 ->whereNotNull('microsite_uuid')
+                ->whereMonth('created_at', now()->month)
                 ->whereDate('created_at', '<=', $resetDate)
                 ->count();
 
             $countNameChanged = ShortURL::where('user_id', $userId)
                 ->where('custom_name', 'yes')
+                ->whereMonth('created_at', now()->month)
                 ->whereNull('microsite_uuid')
                 ->count();
 

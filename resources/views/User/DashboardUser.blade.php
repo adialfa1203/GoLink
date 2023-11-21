@@ -704,7 +704,7 @@
                                                     Kuota direset pada <span id="nextMonthDate"></span> pukul 00.00
                                                 </div> --}}
                                                     @else
-                                                        <div class="col-lg-12">
+                                                        {{-- <div class="col-lg-12">
                                                             <div class="col-lg-12">
                                                                 <div>
                                                                     <p for="cardNumber" class="form-label">Tautan original
@@ -726,11 +726,31 @@
                                                                 </div>
                                                             </div>
                                                             <br>
-                                                        </div>
+                                                        </div> --}} 
                     @endif
+                    @php
+                            $userdeactivated = Auth::user()->subscribe;
+                    @endphp
+                    @if ($userdeactivated)
+                    <?php
+                    // Mengambil waktu saat ini
+                    $currentDate = new DateTime();
+
+                    // Menghitung waktu satu bulan dari saat ini
+                    $userDeactivated = clone $currentDate;
+                    $userDeactivated->add(new DateInterval('P1M'));
+
+                    // Format tanggal sesuai kebutuhan
+                    $formattedDate = $userDeactivated->format('Y-m-d');
+
+                    // Tampilkan tanggal di HTML
+                    echo '<div class="quota-reset">Kuota direset pada ' . $formattedDate . ' pukul 00.00</div>';
+                    ?>
+                    @else
                     <div class="quota-reset">
                         Kuota direset pada <span id="nextMonthDate"></span> pukul 00.00
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -1509,5 +1529,16 @@
                 $(editCollapse).collapse('hide');
             });
         });
+    </script>
+    <script>
+        var currentDate = new Date();
+        var userDeactivated = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+        var options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        var formattedDate = userDeactivated.toLocaleDateString('id-ID', options);
+        document.getElementById('userDeactivated').textContent = formattedDate;
     </script>
 @endsection
