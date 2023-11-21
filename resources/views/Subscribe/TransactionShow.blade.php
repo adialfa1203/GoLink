@@ -237,7 +237,7 @@
                                     <P>Apakah anda yakin untuk membayar paket berlangganan ini dengan metode pembayaran tersebut?</P>
                                     <div class="d-flex">
 <div class="col-6">
-    <button type="button" class="btn btn-light col-12">Kembali</button>
+    <button type="button" data-bs-dismiss="modal" class="btn btn-light col-12">Kembali</button>
 </div>
 <div class="col-6">
     <button type="button" class="btn btn-success col-12">Bayar</button>
