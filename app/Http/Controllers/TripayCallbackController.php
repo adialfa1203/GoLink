@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subscribe;
 use App\Models\Transaction;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
@@ -62,22 +63,27 @@ class TripayCallbackController extends Controller
                    $tipe = $transaction->subscribe->tipe;
 
                    $userSubscribe = $transaction->subscribe->tipe;
+
+                   $user = User::findOrFail($transaction->user_id);
+
+                   $endDate = Carbon::parse($user->subscription_end_date);
                    
                    switch ($userSubscribe) {
                     case 'silver':
-                        $subscription_end_date = now()->addDay(7);
+                        $subscription_end_date = $endDate->addDay(7);
                         break;
                     case 'gold':
-                        $subscription_end_date = now()->addDay(14);
+                        $subscription_end_date = $endDate->addDay(14);
                         break;
                     case 'platinum':
-                        $subscription_end_date = now()->addMonth(1);
+                        $subscription_end_date = $endDate->addMonth(1);
                         break;
                     default:
                         $subscription_end_date = null;
                         break;
                    }
-                   User::findOrFail($transaction->user_id)->update(['subscribe' => $tipe, 'subscription_start_date' => now(), 'subscription_end_date' => $subscription_end_date]);
+
+                   $user->update(['subscribe' => $tipe, 'subscription_start_date' => now(), 'subscription_end_date' => $subscription_end_date]);
                     break;
 
                 case 'EXPIRED':
