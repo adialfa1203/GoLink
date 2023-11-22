@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         @foreach ($channels as $channel)
-                        <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
+                        <div class="card card-animate" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                             <div class="card-body">
                                 <form action="{{ route('payment') }}" method="POST">
                                     @csrf
