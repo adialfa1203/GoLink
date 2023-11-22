@@ -10,24 +10,27 @@
     @media (min-width: 1025px) {
 
         /* Atur gaya CSS khusus untuk perangkat laptop di sini */
-        .pay {
+        .but {
             /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
         }
-        .bod {
+
+        .buttons {
             /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(1, 1fr);
             gap: 1rem;
+            margin-left: 77%;
+            margin-right: 3%;
         }
     }
 
     @media (min-width: 601px) and (max-width: 1024px) {
 
         /* Atur gaya CSS khusus untuk perangkat tablet di sini */
-        .pay {
+        .but {
             /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -38,11 +41,15 @@
     @media (max-width: 768px) {
 
         /* Atur gaya CSS khusus untuk perangkat tablet di sini */
-        .pay {
+        .but {
             /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+        }
+
+        .buttons {
+            margin-right: 20%;
         }
     }
 </style>
@@ -52,74 +59,68 @@
 <div class="page-content">
     <div class="container-fluid">
         <!--- Content1 --->
-        <div class="row bod">
-            <div class="mb-4" style="grid-column: span 3 / span 3;">
+        <div class="row">
+            <div class="mb-4 col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <center>
+                <div class="col-10">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-0">Pilih Metode Pembayaran</h4>
+                            <h4 class="mb-0" style="color:#0E2954;">Pilih metode pembayaran anda untuk melakukan</h4>
                         </div>
                     </div>
                 </div>
+                @foreach ($channels as $channel)
                 <div class="card" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                     <div class="card-body">
-                        <h4 class="card-title" style="color:#0E2954;">Pilih metode pembayaran anda untuk melakukan</h4>
-                        <h4 class="card-title mb-4" style="color:#0E2954;">Transaksi</h4>
-                        <h4 class="card-title mb-3 mt-5" style="color:#0E2954;">E-Wallet</h4>
-                        <div class="pay">
-                            @foreach ($channels as $channel)
-                            @if ($channel->group == 'E-Wallet')
-                            <div class="card-animate" style="border-radius: 30px;height: 10%;padding: 6px;">
-                                <form action="{{ route('payment') }}" method="POST">
-                                    @csrf
-                                    <!-- <input type="hidden" name="subscribe_id" value="{{ $subscribe->id }}">
+                        <form action="{{ route('payment') }}" method="POST">
+                            @csrf
+                            <!-- <input type="hidden" name="subscribe_id" value="{{ $subscribe->id }}">
                                             <input type="hidden" name="method" value="{{ $channel->code }}">
                                             <button type="submit" class="card border-0">
                                                 <img class="card-img-top img-fluid" src="{{ $channel->icon_url }}"
                                                     style="width: 100%;" alt="Card image cap">
                                             </button>-->
-
+                            <div class="but">
+                                <div class="">
                                     <input type="hidden" name="subscribe_id" value="{{ $subscribe->id }}">
                                     <input type="hidden" name="method" value="{{ $channel->code }}">
-                                    <button type="submit" class="card " style="background: #F0F0F0; border: 1.5px solid #0E2954;border-radius: 9px;height: 100%;padding: 6px;margin: 0;">
-                                        <img class="card-img-top img-fluid" src="{{ $channel->icon_url }}" style="object-fit: contain; width: 100px;height: 30px;" alt="Card image cap">
-                                    </button>
-                                </form>
+                                    <img class="card-img-top img-fluid" src="{{ $channel->icon_url }}" style="object-fit: contain; width: 100px;height: 30px;margin-top: 1%;margin-right: 60%;" alt="Card image cap">
+                                </div>
+                                <div class="buttons">
+                                    <button type="button" class="btn"  data-bs-toggle="modal" data-bs-target="#bayar{{$channel->code}}" style="color: #fff;background-color: #0E2954; height: 100%;padding: 6px;">Pilih</button>
+                                </div>
                             </div>
-                            @endif
-                            @endforeach
-                        </div>
-                        <h4 class="card-title mb-3 mt-3" style="color:#0E2954;">E-Wallet</h4>
-                        <div class="pay">
-                            @foreach ($channels as $channel)
-                            @if ($channel->group == 'Virtual Account')
-                            <div class="card-animate" style="border-radius: 30px;height: 10%;padding: 6px;">
-                                <form action="{{ route('payment') }}" method="POST">
-                                    @csrf
-                                    <!-- <input type="hidden" name="subscribe_id" value="{{ $subscribe->id }}">
-                                            <input type="hidden" name="method" value="{{ $channel->code }}">
-                                            <button type="submit" class="card border-0">
-                                                <img class="card-img-top img-fluid" src="{{ $channel->icon_url }}"
-                                                    style="width: 100%;" alt="Card image cap">
-                                            </button>-->
-
-                                    <input type="hidden" name="subscribe_id" value="{{ $subscribe->id }}">
-                                    <input type="hidden" name="method" value="{{ $channel->code }}">
-                                    <button type="submit" class="card " style="background: #F0F0F0;border: 1.5px solid #0E2954;border-radius: 9px;height: 100%;padding: 6px; margin: 0;">
-                                        <img class="card-img-top img-fluid" src="{{ $channel->icon_url }}" style="object-fit: contain; width: 100px;height: 30px;" alt="Card image cap">
-                                    </button>
-                                </form>
-                            </div>
-                            @endif
-                            @endforeach
-                        </div>
-
+                            <div id="bayar{{$channel->code}}" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog modal-dialog-centered modal-md">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="" alt="">
+                                        <P>Apakah anda yakin untuk membayar paket berlangganan ini dengan metode pembayaran tersebut?</P>
+                                        <div class="d-flex">
+                                            <div class="col-6">
+                                                <button type="button" class="btn btn-light col-12" data-bs-dismiss="modal" aria-label="close">Kembali</button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button type="submit" class="btn btn-success col-12">Bayar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                        </form>
                     </div>
                 </div>
+                @endforeach
+                </div>
+                </center>
             </div>
 
             <!--- Content2 --->
-            <div class="mb-4">
+            <div class="mb-4 col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <center>
+                    <div class="col-10">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -277,6 +278,8 @@
                         </div>
                     </div>
                 </div>
+                    </div>
+                </center>
             </div>
         </div>
     </div>

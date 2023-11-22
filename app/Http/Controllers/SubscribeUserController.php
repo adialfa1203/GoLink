@@ -49,7 +49,7 @@ class SubscribeUserController extends Controller
 
         $tripay = new TripayController();
         $channels = $tripay->getPaymentChannels();
-
+// dd($channels);
         $tax = $subscribe->price * 0.11;
         $totalPrice = $subscribe->price + $tax;
 // dd($subscribe);
@@ -90,7 +90,9 @@ class SubscribeUserController extends Controller
         $detailTransaction = json_decode($detailTransaction);
         $transaction = Transaction::where('reference', $reference)
         ->with('subscribe')->first();
-        // dd($transaction);
-        return view('Subscribe.TransactionShow', compact('detailTransaction','transaction'));
+        $tripay = new TripayController();
+        $foto1 = $tripay->getPaymentChannels();
+        // dd($foto1);
+        return view('Subscribe.TransactionShow', compact('detailTransaction','transaction','foto1'));
     }
 }
