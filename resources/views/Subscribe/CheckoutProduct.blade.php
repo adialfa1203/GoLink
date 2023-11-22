@@ -33,8 +33,11 @@
         .but {
             /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+        }
+        .buttons{
+            margin-left: 65%;
         }
     }
 
@@ -49,8 +52,32 @@
         }
 
         .buttons {
-            margin-right: 20%;
+            margin-left: 40%;
         }
+    }
+
+    .rata {
+        float: left;
+    }
+
+    .rata1 {
+        float: right;
+    }
+    .keluar{
+        background-color: transparent;
+        border: 2px solid #FF2323;
+        color: #FF2323;
+        padding: 6px 10px; /* Mengatur jarak teks dari tepi tombol yang lebih kecil */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px; /* Mengatur ukuran teks yang lebih kecil */
+        cursor: pointer;
+        height: 100%;
+    }
+    .keluar:hover {
+        background-color: #FF2323;
+        color: #fff;
     }
 </style>
 @endsection
@@ -94,31 +121,56 @@
                                     <div id="bayar{{$channel->code}}" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog modal-dialog-centered modal-md">
                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="myModalLabel"></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                                </div>
                                                 <div class="modal-body">
-                                                    <hr>
-
-                                                    <h5 class="card-title text-center">
-                                                        Rp.{{ number_format($subscribe->price, 0, ',', '.') }}
-                                                        @if (strtolower(trim($subscribe->period)) === 'forever')
-                                                        @elseif (strtolower(trim($subscribe->period)) === '1_week')
-                                                        @elseif (strtolower(trim($subscribe->period)) === '1_month')
-                                                        @else
-                                                        @endif
-                                                    </h5>
-                                                    <h5>Rp.{{$channel->total_fee->flat}} </h5>
-                                                    <h5>Rp.{{ $channel->total_fee->flat + $subscribe->price }}</h5>
-                                                    <div class="d-flex">
+                                                    <hr style="margin-top: 0;">
+                                                    <div class="row">
                                                         <div class="col-6">
-                                                            <button type="button" class="btn btn-light col-12" data-bs-dismiss="modal" aria-label="close">Kembali</button>
+                                                            <p class="rata">Harga Paket</p>
                                                         </div>
                                                         <div class="col-6">
-                                                            <button type="submit" class="btn btn-success col-12">Bayar</button>
+                                                            <p class="card-title text-center rata1">
+                                                                Rp.{{ number_format($subscribe->price, 0, ',', '.') }}
+                                                                @if (strtolower(trim($subscribe->period)) === 'forever')
+                                                                @elseif (strtolower(trim($subscribe->period)) === '1_week')
+                                                                @elseif (strtolower(trim($subscribe->period)) === '1_month')
+                                                                @else
+                                                                @endif
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <p class="rata">Pajak Bank</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <p class="rata1">Rp.{{$channel->total_fee->flat}} </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <h5 class="rata">Total</h5>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <h5 class="rata1">Rp.{{ $channel->total_fee->flat + $subscribe->price }}</h5>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="d-flex">
+                                                        <div class="col-6">
+                                                            <button type="button" class="btn btn-light btn-md keluar col-12" data-bs-dismiss="modal" aria-label="close" style="color: #FF2323;">Kembali</button>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <button type="submit" class="btn btn-success btn-md col-12">Bayar</button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div><!-- /.modal-content -->
-                                        </div><!-- /.modal-dialog -->
-                                    </div><!-- /.modal -->
+                                            </div>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
