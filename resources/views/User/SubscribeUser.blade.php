@@ -20,7 +20,7 @@
             }
         }
 
-        
+
         @media (max-width: 576px) {
             .col-lg-7 {
                 width: 100%;
@@ -44,6 +44,9 @@
         .th th:last-child {
             border-top-right-radius: 10px;
             border-bottom-right-radius: 0px;
+        }
+        .page-content{
+            background-color: #ffff;
         }
     </style>
 
