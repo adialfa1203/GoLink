@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('verification_code')->nullable();
             $table->boolean('is_banned')->default(false);
             $table->timestamp('subscription_start_date')->nullable();
+            $table->timestamp('subscription_end_date')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

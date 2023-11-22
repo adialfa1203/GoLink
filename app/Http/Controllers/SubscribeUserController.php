@@ -56,7 +56,6 @@ class SubscribeUserController extends Controller
         return view('Subscribe.CheckoutProduct', compact('subscribe', 'channels', 'tripay', 'tax', 'totalPrice'));
     }
 
-
     public function payment(Request $request)
     {
         $subscribe = Subscribe::findOrFail($request->subscribe_id);
