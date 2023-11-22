@@ -179,7 +179,7 @@
 
                                     <div data-provider="flatpickr" data-range-date="true" data-date-format="d M, Y"
                                         data-default-date="{{ $firstDayOfMonth }} to {{ $lastDayOfMonth }}">
-                                        {{ $firstDayOfMonth }} to {{ $lastDayOfMonth }} <i class="align-middle ms-1"></i>
+                                        {{ $firstDayOfMonth }} sampai {{ $lastDayOfMonth }} <i class="align-middle ms-1"></i>
                                     </div>
                                 </div>
                             </div>
