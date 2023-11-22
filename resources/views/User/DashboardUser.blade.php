@@ -153,7 +153,7 @@
                                         <div class="conte" style="margin-left: 5%;">
                                             <h4 style="color: #fff;">Selamat Datang {{ Auth::user()->name }}!</h4>
                                             <p style="margin: 0;">Ayo buat tautan pendekmu sekarang!</p>
-                                            <p>Jangan lupakan fitur Micosite dan buat Microsite pribadimu!</p>
+                                            <p>Jangan lupakan fitur Microsite dan buat Microsite pribadimu!</p>
                                         </div>
                                     </div>
                                     <div class="im " style="padding: 20px;">

@@ -24,7 +24,7 @@
     text-align: center;
 }
 .card1 {
-            background: linear-gradient(to bottom, #ffffff, #ffffff);
+            background: linear-gradient(to bottom, #F0F0F0, #F0F0F0);
             font-weight: bold;
             color: #000;
             /* Mengatur warna teks menjadi hitam */
@@ -77,7 +77,7 @@
         }
 
         .card1 {
-            background: linear-gradient(to bottom, #ffffff, #ffffff);
+            background: linear-gradient(to bottom, #F0F0F0, #F0F0F0);
             font-weight: bold;
             color: #000;
             /* Mengatur warna teks menjadi hitam */
@@ -178,12 +178,12 @@
                         @php
                             $i++;
                         @endphp
-                     
+
                         {{-- bts --}}
                          <div class="row text-center">
                             <div class="col-12">
-                                <div class="card1" style="position: relative;">
-                                    <h5 style="font-weight: bold; color:#0E2954;">
+                                <div class="card1" style="position: relative; background-color:#F0F0F0;">
+                                    <h5 style="font-weight: bold; color:#0E2954; margin-top:10px;">
                                         @if (strtolower(trim($subs->tipe)) === 'silver')
                                             <span class="">Silver</span>
                                         @elseif (strtolower(trim($subs->tipe)) === 'gold')
@@ -194,19 +194,19 @@
                                             <span class="">Data Kosong</span>
                                         @endif
                                     </h5>
-                                    
+
                                     <div class="dropdown" style="position: absolute; top: 0; right: 0;">
                                         <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="bi bi-three-dots-vertical"></i>
                                         </a>
-                                        
+
                                         <ul class="dropdown-menu">
                                             <li> <a class="dropdown-item" href="{{ route('edit.subscribe', ['id' => $subs->id]) }}">Edit</a></li>
                                             <li><button type="button" class="dropdown-item" onclick="confirmDelete('{{ $subs->id }}')">Hapus</button></li>
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                             <div class="card2 mb-3" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
                                     <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260"
@@ -219,12 +219,12 @@
                                     <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
                                     @endif
                                 </div>
-                                
+
                                 <div data-simplebar data-simplebar-auto-hide="false" style="height: 300px;" class="px-3">
                                     <div class="flex-grow-1 ms-2 mt-2 text-white text-center">
                                         {{ strip_tags($subs->description) }}
                                     </div>
-                                  
+
                                     @if (strtolower(trim($subs->tipe)) === 'silver')
                                     <div class="d-flex mt-4">
                                         <div class="col-1 align-self-start" style="color: #fff">
@@ -242,7 +242,7 @@
                                            <p class="p1"> Membuat Microsite sebanyak 5×/bulan</p>
                                         </div>
                                     </div>
-                                    
+
                                     <!-- <div class="col-md-12 col-sm-12 mt-5">
                                         <a href="{{ route('subscribe.now', ['id' => $subs->id]) }}" type="button" class="btn custom col-12" style="margin-top: 180px;">Berlangganan
                                             Sekarang</a>
@@ -320,21 +320,21 @@
                                     <a href="{{ url('user/subscribe-product-user') }}" type="button" class="btn btn-outline-warning mx-auto" style="margin-top: -30px;">Mulai Berlangganan</a>
                                 </div>
                             </center> --}}
-                                
+
                             </div>
 
                         </div>
                          </div>
                     {{-- batas --}}
-                   
+
                     @endforeach
                 </div>
                 @endif
-           
+
         </div>
 
     @section('script')
-    
+
         <script>
             function confirmDelete(id) {
                 Swal.fire({
