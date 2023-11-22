@@ -161,19 +161,19 @@
                                                         <td>
                                                             @if ($transaction->status === 'PAID')
                                                                 <span
-                                                                    class="badge bg-success">{{ $transaction->status }}</span>
+                                                                    class="badge bg-success">DIBAYAR</span>
                                                             @elseif ($transaction->status === 'REFUND')
                                                                 <span
-                                                                    class="badge bg-primary">{{ $transaction->status }}</span>
+                                                                    class="badge bg-primary">PENGEMBALIAN DANA</span>
                                                             @elseif ($transaction->status === 'EXPIRED')
                                                                 <span
-                                                                    class="badge bg-warning">{{ $transaction->status }}</span>
+                                                                    class="badge bg-warning">KADALUWARSA</span>
                                                             @elseif ($transaction->status === 'UNPAID')
                                                                 <span
-                                                                    class="badge bg-danger">{{ $transaction->status }}</span>
+                                                                    class="badge bg-danger">BELUM BAYAR</span>
                                                             @else
                                                                 <span
-                                                                    class="badge bg-secondary">{{ $transaction->status }}</span>
+                                                                    class="badge bg-secondary">GAGAL</span>
                                                             @endif
                                                         </td>
                                                     </tr>
