@@ -210,7 +210,7 @@
                             <div class="card2 mb-3" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
                                     <img class="mt-3" src="{{ asset('pictureSubs/' . $subs->picture) }}" width="260"
-                                    height="160" style="display: block; margin: 0 auto; object-fit: cover;"
+                                    height="190" style="display: block; margin: 0 auto; object-fit: cover;"
                                     alt="Card image cap">
                                     <br>
                                     <h2 class="mb-2" style="color: #ffffff;">Rp.{{ number_format($subs->price, 0, ',', '.') }}/Bulan</h2>
