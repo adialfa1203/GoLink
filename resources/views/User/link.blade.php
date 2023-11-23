@@ -207,7 +207,7 @@
             </div><br>
 
             <div class="col-xxl-12">
-                <div class="card">
+                <div class="pencarian card">
                     <div class="card-body" style="padding: 0;">
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="animation-home" role="tabpanel">
@@ -1668,11 +1668,12 @@
         $(document).ready(function() {
             $('.search').keyup(function() {
                 var searchText = $(this).val().toLowerCase();
-                $('.card').each(function() {
+                $('.pencarian').each(function() {
                     var cardText = $(this).text().toLowerCase();
                     if (cardText.includes(searchText)) {
                         $(this).show();
                     } else {
+                        console.log($(this).val());
                         $(this).hide();
                     }
                 });
