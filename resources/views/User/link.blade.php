@@ -232,7 +232,7 @@
                                             <form>
                                                 @csrf
                                                 <div class="col-lg-12">
-                                                    <div class="card aa"
+                                                    <div class="card pencarian"
                                                         style="border: 1px solid var(--tb-border-color-translucent); box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);"
                                                         id="card{{ $row->id }}">
                                                         <div class="card-body" style="">
@@ -1304,7 +1304,6 @@
                         'X-CSRF-TOKEN': csrfToken
                     },
                     success: function(response) {
-                        console.log(response);
                         Swal.fire({
                             icon: 'success',
                             title: 'Berhasil!',
@@ -1314,7 +1313,6 @@
                         });
                     },
                     error: function(jqXHR) {
-                        console.log(jqXHR);
                         var errors = jqXHR.responseJSON.errors;
                         if (errors) {
                             Swal.fire({
@@ -1406,15 +1404,12 @@
                     window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(shortUrl));
                     break;
                 case "whatsapp":
-                    console.log(shortUrl)
                     window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shortUrl));
                     break;
                 case "copy":
                     var copyText = $(this).data('url')
-                    console.log()
                     try {
                         navigator.clipboard.writeText(copyText);
-                        console.log('Content copied to clipboard');
                     } catch (err) {
                         console.error('Failed to copy: ', err);
                         alert('gagal ' + err)
@@ -1453,7 +1448,6 @@
         var tombolModal = document.getElementById("tombol-modal");
 
         function tombolmodal(id) {
-            console.log(id);
             var qrcodeSrcString = qrcodeSrc.toString();
 
             if (qrcodeSrcString !== null && qrcodeSrcString !== undefined) {
@@ -1471,7 +1465,6 @@
                         qrcodeSrc++;
                     },
                     error: function(response) {
-                        console.log(response)
                     }
                 });
             }
@@ -1541,7 +1534,6 @@
                     },
                     dataType: 'JSON',
                     error: function(e) {
-                        console.log(e.responseJSON);
                         // Menggunakan Sweet Alert untuk menampilkan pesan kesalahan
                         Swal.fire({
                             icon: 'error',
@@ -1600,7 +1592,6 @@
                         });
                     },
                     error: function(response) {
-                        console.log(response);
                     }
                 });
             });
@@ -1641,7 +1632,6 @@
                         });
                     },
                     error: function(response) {
-                        console.log(response);
                         Swal.fire('Error', 'Terjadi kesalahan saat melakukan update', 'error');
                     }
                 });
@@ -1673,7 +1663,6 @@
                     if (cardText.includes(searchText)) {
                         $(this).show();
                     } else {
-                        console.log($(this).val());
                         $(this).hide();
                     }
                 });
