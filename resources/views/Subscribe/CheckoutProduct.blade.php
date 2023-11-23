@@ -98,10 +98,10 @@
                             </div>
                         </div>
                         @foreach ($channels as $channel)
+                        <form action="{{ route('payment') }}" method="POST">
+                            @csrf
                         <div class="card card-animate" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
                             <div class="card-body">
-                                <form action="{{ route('payment') }}" method="POST">
-                                    @csrf
                                     <!-- <input type="hidden" name="subscribe_id" value="{{ $subscribe->id }}">
                                             <input type="hidden" name="method" value="{{ $channel->code }}">
                                             <button type="submit" class="card border-0">
@@ -118,62 +118,62 @@
                                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bayar{{$channel->code}}" style="color: #fff;background-color: #0E2954; height: 100%;padding: 6px;">Pilih</button>
                                         </div>
                                     </div>
-                                    <div id="bayar{{$channel->code}}" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                        <div class="modal-dialog modal-dialog-centered modal-md">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="myModalLabel"></h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                </div>
+                            </div>
+                            <div id="bayar{{$channel->code}}" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog modal-dialog-centered modal-md">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myModalLabel"></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <hr style="margin-top: 0;">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="rata">Harga Paket</p>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <hr style="margin-top: 0;">
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <p class="rata">Harga Paket</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="card-title text-center rata1">
-                                                                Rp.{{ number_format($subscribe->price, 0, ',', '.') }}
-                                                                @if (strtolower(trim($subscribe->period)) === 'forever')
-                                                                @elseif (strtolower(trim($subscribe->period)) === '1_week')
-                                                                @elseif (strtolower(trim($subscribe->period)) === '1_month')
-                                                                @else
-                                                                @endif
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <p class="rata">Pajak Bank</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="rata1">Rp.{{$channel->total_fee->flat}} </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <h5 class="rata">Total</h5>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <h5 class="rata1">Rp.{{ $channel->total_fee->flat + $subscribe->price }}</h5>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="d-flex">
-                                                        <div class="col-6">
-                                                            <button type="button" class="btn btn-light btn-md keluar col-12" data-bs-dismiss="modal" aria-label="close" style="color: #FF2323;">Kembali</button>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <button type="submit" class="btn btn-success btn-md col-12">Bayar</button>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-6">
+                                                    <p class="card-title text-center rata1">
+                                                        Rp.{{ number_format($subscribe->price, 0, ',', '.') }}
+                                                        @if (strtolower(trim($subscribe->period)) === 'forever')
+                                                        @elseif (strtolower(trim($subscribe->period)) === '1_week')
+                                                        @elseif (strtolower(trim($subscribe->period)) === '1_month')
+                                                        @else
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="rata">Pajak Bank</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="rata1">Rp.{{$channel->total_fee->flat}} </p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <h5 class="rata">Total</h5>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h5 class="rata1">Rp.{{ $channel->total_fee->flat + $subscribe->price }}</h5>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex">
+                                                <div class="col-6">
+                                                    <button type="button" class="btn btn-light btn-md keluar col-12" data-bs-dismiss="modal" aria-label="close">Kembali</button>
+                                                </div>
+                                                <div class="col-6">
+                                                    <button type="submit" class="btn btn-success btn-md col-12">Bayar</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                         @endforeach
                     </div>
                 </center>
