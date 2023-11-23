@@ -187,7 +187,7 @@
                     <!-- story -->
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500" style="height: 100%;">
-                            <div class="rounded" data-aos="fade-up" data-aos-duration="1500" style="border-radius: 100%;">
+                            <div class="rounded"  style="border-radius: 100%;">
                                 <div class="text-center" style="background-color: #D9D9D9; margin-top:10%;  border-radius: 100%; display: inline-block; padding: 3%;">
                                     <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" >
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M40.4795 10.8123C43.8966 7.39524 49.4368 7.39524 52.8539 10.8123L59.1876 17.1461C62.6047 20.5632 62.6047 26.1034 59.1876 29.5204L28.3124 60.3957C27.7654 60.9426 27.0235 61.2499 26.25 61.2499H11.6667C10.0558 61.2499 8.75 59.9441 8.75 58.3333V43.7499C8.75 42.9764 9.05729 42.2345 9.60427 41.6875L40.4795 10.8123ZM48.7291 14.9371C47.59 13.7981 45.7433 13.7981 44.6043 14.9371L42.0415 17.4999L52.5 27.9585L55.0628 25.3957C56.2019 24.2566 56.2018 22.4099 55.0628 21.2709L48.7291 14.9371ZM25.0419 55.4166L15.5 53.5V44.5L25.0419 55.4166Z" fill="#104898" />
