@@ -702,11 +702,6 @@
                             a.push(value.totalVisitsMicrosite);
                         })
                         var monthData = groupDataByMonth(data);
-                        console.log("Jumlah Tautan:", monthData.totalUrlData);
-                        console.log("Pengunjung Tautan:", totalVisits);
-                        console.log("Jumlah Microsite:", totalMicrosite);
-                        console.log("Pengunjung Microsite:", a);
-                        console.log("Bulan:", monthData.monthLabels);
 
                         var options = {
                             series: [{
@@ -774,11 +769,9 @@
                             currentMonth = currentMonthNew;
                         }
                     } else {
-                        console.log("Data tidak tersedia.");
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error(error);
                 }
             });
         }
@@ -844,7 +837,6 @@
                     updateChart(countURL, countMicrosite);
                 },
                 error: function(xhr, status, error) {
-                    console.log(error);
                 }
             });
         }

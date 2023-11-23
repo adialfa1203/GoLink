@@ -1064,8 +1064,7 @@
     <script>
         $(document).ready(function() {
             var selectId = $('#new_url_key').val();
-            // console.log(selectId);
-            console.log(selectId);
+        //             
             // Mendapatkan token CSRF dari meta tag
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
@@ -1085,8 +1084,7 @@
                         newUrlKey: newUrlKey
                     },
                     dataType: 'JSON',
-                    error: function(e) {
-                        console.log(e.responseJSON)
+                    error: function(e) {                        
                         Swal.fire(e.responseJSON.newUrlKey[0])
                     },
                     success: function(e) {
@@ -1122,8 +1120,7 @@
                     var countMicrosite = response.countMicrosite;
                     updateChart(countURL, countMicrosite);
                 },
-                error: function(xhr, status, error) {
-                    console.log(error);
+                error: function(xhr, status, error) {                    
                 }
             });
         }
@@ -1195,13 +1192,11 @@
         let edit = false;
 
         function statusEdit() {
-            edit = !edit;
-            console.log(edit);
+            edit = !edit;            
         }
 
         $(document).ready(function() {
-    var userId = "{{ auth()->user()->subscribe }}";
-    console.log(userId);
+    var userId = "{{ auth()->user()->subscribe }}";    
 
     $("#shortlinkSubmit").submit(function(event) {
         event.preventDefault();
@@ -1340,8 +1335,7 @@
                     break;
                 case "copy":
                     var tempInput = $('<input>');
-                    $('#body').append(tempInput);
-                    console.log(shortUrl)
+                    $('#body').append(tempInput);                    
                     tempInput.val(shortUrl).select();
                     document.execCommand('copy');
                     tempInput.remove();
@@ -1349,8 +1343,7 @@
                         title: 'Berhasil!',
                         icon: 'success',
                         text: 'Tautan Berhasil Disalin ke clipboard'
-                    })
-                    console.log(shortUrl)
+                    })                    
                     break;
                 case "qr":
                     window.open(

@@ -500,16 +500,15 @@
                 case "twitter":
                     window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(shortUrl));
                     break;
-                case "whatsapp":
-                    console.log(shortUrl)
+                case "whatsapp":                    
                     window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shortUrl));
                     break;
                     // case "copy":
                     //     var copyText = $(this).data('url')
-                    //     console.log()
+                //     
                     //     try {
                     //         navigator.clipboard.writeText(copyText);
-                    //         console.log('Content copied to clipboard');
+                //         
                     //     } catch (err) {
                     //         console.error('Failed to copy: ', err);
                     //         alert('gagal ' + err)
@@ -557,11 +556,9 @@
             }
         }
 
-        function copyLinkMicrosite(id) {
-            console.log('Copying link for ID: ' + id);
+        function copyLinkMicrosite(id) {            
             var platformElement = document.querySelector(".platform[data-id-alert='" + id + "']");
-            var linkMicrosite = platformElement ? platformElement.getAttribute("data-url") : null;
-            console.log('Link Microsite: ' + linkMicrosite);
+            var linkMicrosite = platformElement ? platformElement.getAttribute("data-url") : null;            
             if (linkMicrosite) {
                 copyToClipboard(linkMicrosite);
             } else {
@@ -594,8 +591,7 @@
                     data: {
                         button_id: buttonId
                     },
-                    success: function(response) {
-                        console.log(response);
+                    success: function(response) {                        
                     },
                     error: function(xhr, status, error) {
                         console.error(error);
