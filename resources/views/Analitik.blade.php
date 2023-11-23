@@ -72,12 +72,12 @@
                             <div class="col-2">
                                 <div class="d-flex flex-column align-items-md-start" style="margin-left: 15px;">
                                     <h6 class="md-4">Adi</h6>
-                                    <h6 class="md-4" style="color:#DC3545;">Shortlink<span style="color: #104898;">.id/Adi</span></h6>
+                                    <h6 class="md-4" style="color:#DC3545;">MiLink<span style="color: #104898;">.id/Adi</span></h6>
                                     <span class="badge" style="background-color:#4A2579">Microsite</span>
                                 </div>
                             </div>
-                        </div>                                                
-                       
+                        </div>
+
                         <div class="row col-9 ms-auto">
                             <div class="col-2 ms-auto ">
                                 <div class="row mt-0">
@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!--end row-->                                                
+                        </div><!--end row-->
                     </div>
                     <div class="mb-2">
                         <button type="button" class="btn rounded-pill btn-danger btn-sm">Download QR</button>

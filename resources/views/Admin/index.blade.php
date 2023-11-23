@@ -143,7 +143,7 @@
                     url: "{{ route('dashboard.chart') }}",
                     method: "GET",
                     success: function(data) {
-                        console.log(data);
+
 
                         var options = {
                             chart: {
@@ -223,7 +223,7 @@
                     url: "{{ route('dashboard.chart') }}",
                     method: "GET",
                     success: function(data) {
-                        console.log(data);
+                       
 
                         var options = {
                             chart: {
