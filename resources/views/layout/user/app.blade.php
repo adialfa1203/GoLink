@@ -1058,7 +1058,6 @@
                         $('#notification').html('');
                     },
                     success: function(response) {
-                        console.log(response.ch_messages);
                         if (response.ch_messages.length === 0) {
                             $('#count-messages').text('');
                             $('.topbar-badge').hide();

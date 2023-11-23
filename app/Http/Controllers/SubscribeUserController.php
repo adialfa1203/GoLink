@@ -6,9 +6,9 @@ use Carbon\Carbon;
 use App\Models\Subscribe;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Services\CallbackService;
 use App\Services\DetailTransactionService;
-use Illuminate\Http\Response;
 use League\CommonMark\Reference\Reference;
 
 class SubscribeUserController extends Controller
@@ -36,11 +36,7 @@ class SubscribeUserController extends Controller
     {
         $subscribe = Subscribe::orderBy('created_at', 'asc')->get();
 
-        $tripay = new TripayController();
-
-        $channels = $tripay->getPaymentChannels();
-
-        return view('User.SubscribeProductUser', compact('subscribe', 'channels'));
+        return view('User.SubscribeProductUser', compact('subscribe'));
     }
 
     public function subscribeNow($id)

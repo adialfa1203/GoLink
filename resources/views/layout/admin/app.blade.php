@@ -12,8 +12,7 @@
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}"
-        style="width: 200px; height: 200px;">
+    <link rel="shortcut icon" href="{{ asset('template/image/M-gelap.png') }}" style="width: 200px; height: 200px;">
 
 
     <!-- Fonts css load -->
@@ -1011,7 +1010,6 @@
                         $('#notification').html('');
                     },
                     success: function(response) {
-                        console.log(response.ch_messages);
                         if (response.ch_messages.length === 0) {
                             $('#count-messages').text('');
                             $('.topbar-badge').hide();
