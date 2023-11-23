@@ -236,7 +236,7 @@
                                                         style="border: 1px solid var(--tb-border-color-translucent); box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);"
                                                         id="card{{ $row->id }}">
                                                         <div class="card-body" style="">
-                                                            <h6 class="col-lg-3 col-md-4 col-sm-12">{{ $row->title }}</h6>
+                                                            <h5 class="col-lg-3 col-md-4 col-sm-12">{{ $row->title }}</h5>
                                                             <div
                                                                 class="col-lg-12 col-md-12 col-sm-9 d-flex flex-row justify-content-end">
                                                                 <button type="button" id="button-email"
@@ -346,7 +346,7 @@
                                                             <br>
                                                             <a href="{{ $row->default_short_url }}" target="_blank"
                                                                 class="garisbawah card-title mb-2">
-                                                                <h4>{{ $row->default_short_url }}</h4>
+                                                                <h5>{{ $row->default_short_url }}</h5>
                                                             </a>
                                                             <a href="{{ $row->destination_url }}"
                                                                 class="card-subtitle font-14 text-muted">{{ $row->destination_url }}</a>
@@ -815,8 +815,8 @@
                                                         style="border: 1px solid var(--tb-border-color-translucent); padding: 0px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);"
                                                         id="card{{ $url->id }}">
                                                         <div class="card-body">
-                                                            <h6 class="col-lg-3 col-md-4 col-sm-12">{{ $url->title }}
-                                                            </h6>
+                                                            <h5 class="col-lg-3 col-md-4 col-sm-12">{{ $url->title }}
+                                                            </h5>
                                                             <div
                                                                 class="col-lg-12 col-md-12 col-sm-9 d-flex flex-url justify-content-end">
                                                                 <button disabled type="button" id="button-email"
