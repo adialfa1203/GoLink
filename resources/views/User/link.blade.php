@@ -320,7 +320,7 @@
                                                                 <button type="button"
                                                                     class="btn btn-light me-3 btn-sm edit-link"
                                                                     style="background-color: #CED2D9;"
-                                                                    data-bs-toggle="modal" data-bs-target="#zoomInModal"
+                                                                    data-bs-toggle="modal" data-bs-target="#customUrlModal-{{ $row->id }}"
                                                                     data-link="{{ $row->url_key }}">
                                                                     <span><i
                                                                             class="fa-solid fa-pen-to-square icon-abu"></i></span>
@@ -539,7 +539,7 @@
                                                             {{ $row->default_short_url }}
                                                         </p>
                                                         <form id="formKustom">
-                                                            <div id="zoomInModal" class="modal fade zoomIn"
+                                                            <div id="customUrlModal-{{ $row->id }}" class="modal fade zoomIn"
                                                                 tabindex="-1" aria-labelledby="zoomInModalLabel"
                                                                 aria-hidden="true" style="display: none;">
                                                                 <div class="modal-dialog modal-dialog-centered">
@@ -896,7 +896,7 @@
                                                                 <button disabled type="button"
                                                                     class="btn btn-light me-3 btn-sm edit-link"
                                                                     style="background-color: #CED2D9"
-                                                                    data-bs-toggle="modal" data-bs-target="#zoomInModal"
+                                                                    data-bs-toggle="modal" data-bs-target="#customUrlModal"
                                                                     data-link="{{ $url->url_key }}">
                                                                     <span><i
                                                                             class="fa-solid fa-pen-to-square icon-abu"></i></span>
@@ -1060,7 +1060,7 @@
                                                         </p>
 
                                                         <form id="formKustom">
-                                                            <div id="zoomInModal" class="modal fade zoomIn"
+                                                            <div id="customUrlModal-{{ $url->id }}" class="modal fade zoomIn"
                                                                 tabindex="-1" aria-labelledby="zoomInModalLabel"
                                                                 aria-hidden="true" style="display: none;">
                                                                 <div class="modal-dialog modal-dialog-centered">
