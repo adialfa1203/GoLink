@@ -226,9 +226,15 @@
                 </div>
 
             </div>
+            <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-secondary mt-3"
+            id="accordionBordered">
+            <div class="accordion-item mb-5">
+               
+            </div>
 
+        </div>
         </div><!--end col-->
-
+    </div>
     </div>
     @include('layout.landingPage.footer')
     <!-- Footer-Section end -->
