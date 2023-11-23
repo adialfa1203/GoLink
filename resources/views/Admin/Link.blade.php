@@ -118,7 +118,7 @@
             <div class="col-lg-12">
                 <div class="card" id="orderList"
                     style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #F0F0F0;">
                         <div class="row align-items-center gy-3">
                         </div>
                     </div>
