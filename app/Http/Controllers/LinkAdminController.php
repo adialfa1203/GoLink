@@ -12,7 +12,7 @@ class LinkAdminController extends Controller
     {
         $data = User::where('is_banned', 0)->role('user')->get();
         //Menghitung total user
-        $totalUser = User::where('email', '!=', 'admin@gmail.com')
+        $totalUser = User::where('email', '!=', 'milink.idn@gmail.com')
             ->where('is_banned', '!=', '1')
             ->count();
         //Menghitung total url
@@ -23,13 +23,13 @@ class LinkAdminController extends Controller
         $totalMicrosite = ShortUrl::whereNotNull('microsite_uuid')->count();
 
         //Menampilkan data user di dalam tabel
-        // $users = User::where('email', '!=', 'admin@gmail.com')->get();
+        // $users = User::where('email', '!=', 'milink.idn@gmail.com')->get();
         // //Menampilkan total url untuk setiap user
         // $count = [];
         // foreach ($users as $user) {
         //     $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();
         //
-        $users = User::where('email', '!=', 'admin@gmail.com')
+        $users = User::where('email', '!=', 'milink.idn@gmail.com')
             ->where('is_banned', '!=', '1')
             ->paginate(10);
         $d = $users;

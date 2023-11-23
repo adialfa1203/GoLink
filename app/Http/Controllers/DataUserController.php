@@ -22,7 +22,7 @@ class DataUserController extends Controller
         $d = $data;
         $bannedUser = User::where('is_banned', 1)->paginate(10, ['*'], 'page_banned');
 
-        $totalUser = User::where('email', '!=', 'admin@gmail.com')
+        $totalUser = User::where('email', '!=', 'milink.idn@gmail.com')
             ->where('is_banned', '!=', '1')
             ->count();
 
@@ -37,7 +37,7 @@ class DataUserController extends Controller
         $totaldiblokir = User::where('is_banned', 1)->count();
         $berlanggan = User::where('subscribe', '!=', 'free')->count();
 
-        $users = User::where('email', '!=', 'admin@gmail.com')->get();
+        $users = User::where('email', '!=', 'milink.idn@gmail.com')->get();
         $count = [];
         foreach ($users as $user) {
             $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();

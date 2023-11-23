@@ -265,7 +265,7 @@ class AnalyticUserController extends Controller
                 ->whereDate('created_at', '>=', $currentMonth);
         })->count();
 
-        $user = User::where('email', '!=', 'admin@gmail.com')->get();
+        $user = User::where('email', '!=', 'milink.idn@gmail.com')->get();
         $count = [];
         foreach ($user as $user) {
             $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();
@@ -342,7 +342,7 @@ class AnalyticUserController extends Controller
     //     ->whereRelation('shortURL', 'archive', '!=', 'yes')
     //     ->count();
 
-    //     $users = User::where('email', '!=', 'admin@gmail.com')->get();
+    //     $users = User::where('email', '!=', 'milink.idn@gmail.com')->get();
     //     $count = [];
     //     foreach ($users as $user) {
     //         $count[$user->id] = ShortUrl::where('user_id', $user->id)->count();

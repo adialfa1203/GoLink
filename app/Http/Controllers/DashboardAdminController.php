@@ -22,7 +22,7 @@ class DashboardAdminController extends Controller
         $endDate = DateHelper::getCurrentTimestamp('Y-m-d H:i:s');
 
         $totalUser = User::where('created_at', '>=', $startDate)
-            ->where('email', '!=', 'admin@gmail.com')
+            ->where('email', '!=', 'milink.idn@gmail.com')
             ->selectRaw('MONTH(created_at) as month, COUNT(*) as totalUser')
             ->groupBy('month')
             ->orderBy('month')
@@ -99,7 +99,7 @@ class DashboardAdminController extends Controller
 
     public function dashboardAdmin()
     {
-        $totalUser = User::where('email', '!=', 'admin@gmail.com')
+        $totalUser = User::where('email', '!=', 'milink.idn@gmail.com')
             ->where('is_banned', '!=', '1')
             ->count();
         $totalUrl = ShortUrl::where('archive', '!=', 'yes')->count();
