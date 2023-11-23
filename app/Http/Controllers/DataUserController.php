@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\BlokirEmail;
 use App\Mail\UnblockEmail;
 use App\Models\History;
+use App\Models\HistoryVisits;
 use App\Models\Microsite;
 use App\Models\ShortUrl;
 use App\Models\Subscribe;
@@ -72,6 +73,8 @@ class DataUserController extends Controller
             ShortUrl::where('user_id', $user->id)->delete();
             Microsite::where('user_id', $user->id)->delete();
             History::where('user_id', $user->id)->delete();
+            ShortURLVisit::where('user_id', $user->id)->delete();
+            HistoryVisits::where('user_id', $user->id)->delete();
             Mail::to($user->email)->send(new BlokirEmail());
 
             // Update semua tautan pendek yang dimiliki oleh pengguna ke status diblokir
