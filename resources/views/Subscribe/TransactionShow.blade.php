@@ -12,6 +12,21 @@
     .rata1 {
         float: right;
     }
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+
+        /* Atur gaya CSS khusus untuk perangkat tablet di sini */
+        .kotak {
+            margin-top: 10%;
+        }
+    }
+
+    /* Responsive styles for smaller screens (e.g., tablets and below) */
+    @media (max-width: 768px) {
+        .kotak {
+            margin-top: 10%;
+        }
+    }
 </style>
 @endsection
 @section('title', 'Berlangganan')
@@ -104,7 +119,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <button type="button" class="btn col-10 mt-2" style="background-color: #0E2954;color: #fff;" data-bs-toggle="modal" data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button>
+                                <button type="button" class="btn col-10 mt-2" style="background-color: #FF2323;color: #fff;">Batalkan</button>
+                                <!-- <button type="button" class="btn col-10 mt-2" style="background-color: #0E2954;color: #fff;" data-bs-toggle="modal" data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button> -->
                             </center>
                             <div id="pembayaran" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog modal-dialog-centered modal-md">
@@ -221,7 +237,7 @@
                                 </div><!-- /.modal-dialog -->
                             </div><!-- /.modal -->
                         </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 kotak">
                             <center>
                                 <div class="col-8">
                                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
