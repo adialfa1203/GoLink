@@ -19,6 +19,7 @@
 
         .hover {
             background-color: #f8f8f8;
+            border: 1px solid rgba(0, 0, 0, 0.50);
             transform: scale(1.05);
             transition: background-color 0.3s, transform 0.3s;
         }
