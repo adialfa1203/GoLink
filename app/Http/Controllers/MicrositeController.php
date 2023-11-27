@@ -290,6 +290,39 @@ class MicrositeController extends Controller
         ]);
         return redirect()->route('view.component')->with('success', 'Komponen berhasil disimpan.');
     }
+    public function saveSampul(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'component_name' => 'required|string|max:20',
+            'cover_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'profile_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ], [
+            'component_name.required' => 'Nama wajib diisi',
+            'component_name.max' => 'Tidak boleh lebih besar dari 20 karakter',
+            'cover_img' => 'Kolom gambar sampul harus berupa gambar.',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', 'Gagal, Ada data yang  tidak terisi dengan benar!')
+                ->withErrors($validator->errors())
+                ->withInput();
+        }
+        $coverImage = $request->file('cover_img');
+        $profileImage = $request->file('profile_img');
+
+        $coverImageName = time() . '_cover.' . $coverImage->getClientOriginalExtension();
+        $coverImage->move(public_path('component'), $coverImageName);
+
+        // $profileImageName = time() . '_profile.' . $profileImage->getClientOriginalExtension();
+        // $profileImage->move(public_path('component'), $profileImageName);
+
+        $component = Components::create([
+            'component_name' => $request->component_name,
+            'cover_img' => $coverImageName,
+            // 'profile_img' => $profileImageName,
+        ]);
+        return redirect()->route('add.microsite')->with('success', 'Komponen berhasil disimpan.');
+    }
 
     public function editComponent($id)
     {

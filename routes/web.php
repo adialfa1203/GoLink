@@ -156,6 +156,7 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'preventBackHistory', '
         Route::get('/edit-microsite/{id}', [MicrositeController::class, 'editMicrosite'])->name('edit.microsite');
         Route::post('/update-microsite/{id}', [MicrositeController::class, 'micrositeUpdate'])->name('update.microsite');
         Route::get('/add-microsite', [MicrositeController::class, 'addMicrosite'])->name('add.microsite');
+        Route::post('/save-Sampul', [MicrositeController::class, 'saveSampul'])->name('save.Sampul');
         Route::post('/url-microsite', [MicrositeController::class, 'urlMicrosite'])->name('url.microsite');
         //update key
         Route::post('/update-short-link/{shortCode}', [ShortLinkController::class, 'updateShortLink'])->name('update.shortlink');
