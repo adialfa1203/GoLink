@@ -93,6 +93,10 @@ class LinkController extends Controller
 
     public function updateDeactivated(HttpRequest $request, $keyTime)
     {
+        $request->validate([
+            'newTime' => ['required', 'date'],
+        ]);
+
         $updateUrl = ShortUrl::where('url_key', $keyTime);
 
         if (!$updateUrl->exists()) {

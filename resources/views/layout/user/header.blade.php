@@ -71,7 +71,7 @@
                         <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span class="notification-badge" id="count-messages"></span><span class="visually-hidden">unread
                                 messages</span></span>
                     </button>
-                    <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="/user/subscribe-product-user" type="button" class="btn" style="background-color: #0E2954;><i class=" bi bi-fire></i>
+                    <div class="dropdown topbar-head-dropdown ms-1 header-item"><a href="{{url('user/subscribe-product-user')}}" type="button" class="btn" style="background-color: #0E2954;><i class=" bi bi-fire></i>
                             <span style="color: #ffff;">Berlangganan</span></a>
                     </div>
 
@@ -157,7 +157,7 @@
     </div>
     </div>
 </header>
-<div id="myModal" class="modal fade mt-5 dal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;overflow: hidden;">
+<div id="myModal" class="modal fade mt-5 modal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;overflow: hidden;">
     <div class="modal-dialog modal-dialog-right modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -171,37 +171,13 @@
                     <p>Tidak ada pesan masuk!</p>
                 </div>
             </div>
-            <!-- <div class="d-flex mt-2">
-                <div class="position-relative me-3 flex-shrink-0">
-                    <img src="https://images.bisnis.com/posts/2020/06/05/1249131/pria-botak.jpg" class="rounded-circle avatar-xs object-fit-cover" alt="user-pic">
-                </div>
-                <div class="flex-grow-1">
-                    <div class="modal-body">
-                            <div class="d-flex">
-                                <h6 class="col-6">
-                 aaaaaaaa
-                                </h6>
-                                <p class="col-6 me-2" style="font-size: 12px;margin-left: 22%;">
-                                    <a href="/milink/chat/${data.fromUserId}" class="">Lihat Chat</a>
-                                </p>
-                            </div>
-                            <div class="fs-sm text-muted">
-                                <p class="mb-1" style="text-overflow: ellipsis; overflow: hidden;
-                                            -webkit-line-clamp: 1; -webkit-box-orient: vertical; display: -webkit-box;
-                                            word-break: break-word; max-width: 300px;">
-                                          aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-                                </p>
-                            </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="modal-footer">
                 <a href="{{ route('set.all.messages.seen') }}" style="margin-right: 22%; color: red;">Hapus Semua</a>
                 <a href="{{ url('milink/chat') }}">Lihat lebih banyak</a>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
 
 @section('script')
 <script src="path/to/bootstrap.min.js"></script>
