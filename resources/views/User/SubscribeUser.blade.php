@@ -187,6 +187,7 @@
                                 </div>
                             </div>
                         </div><!--end card-->
+                        @if ($data->total() > 0)
                         <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
                             <a class="page-item pagination-prev {{ $data->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
                                 href="{{ $data->previousPageUrl() ? $data->previousPageUrl() : '#' }}">
@@ -228,6 +229,7 @@
                                 Selanjutnya
                             </a>
                         </div>
+                        @endif
                     </div><!--end col-->
                 </div><!--end row-->
             </div>

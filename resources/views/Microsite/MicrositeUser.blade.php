@@ -339,6 +339,7 @@
                         @endif
                     @endforeach
                 @endif
+                @if ($d->total() > 0)
                 <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
                     <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}"
                         href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
@@ -358,8 +359,7 @@
 
                         @for ($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
                             <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
-                                <a class="page" href="{{ $d->url($i) }}"
-                                    data-i="{{ $i }}">{{ $i }}</a>
+                                <a class="page" href="{{ $d->url($i) }}" data-i="{{ $i }}">{{ $i }}</a>
                             </li>
                         @endfor
 
@@ -370,16 +370,16 @@
                                 </li>
                             @endif
                             <li>
-                                <a class="page"
-                                    href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
+                                <a class="page" href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
                             </li>
                         @endif
                     </ul>
                     <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}"
                         href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
                         Selanjutnya
-                        </a>
+                    </a>
                 </div>
+                @endif
             </div>
         </div>
     </div>
@@ -500,15 +500,15 @@
                 case "twitter":
                     window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(shortUrl));
                     break;
-                case "whatsapp":                    
+                case "whatsapp":
                     window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shortUrl));
                     break;
                     // case "copy":
                     //     var copyText = $(this).data('url')
-                //     
+                //
                     //     try {
                     //         navigator.clipboard.writeText(copyText);
-                //         
+                //
                     //     } catch (err) {
                     //         console.error('Failed to copy: ', err);
                     //         alert('gagal ' + err)
@@ -556,9 +556,9 @@
             }
         }
 
-        function copyLinkMicrosite(id) {            
+        function copyLinkMicrosite(id) {
             var platformElement = document.querySelector(".platform[data-id-alert='" + id + "']");
-            var linkMicrosite = platformElement ? platformElement.getAttribute("data-url") : null;            
+            var linkMicrosite = platformElement ? platformElement.getAttribute("data-url") : null;
             if (linkMicrosite) {
                 copyToClipboard(linkMicrosite);
             } else {
@@ -591,7 +591,7 @@
                     data: {
                         button_id: buttonId
                     },
-                    success: function(response) {                        
+                    success: function(response) {
                     },
                     error: function(xhr, status, error) {
                         console.error(error);

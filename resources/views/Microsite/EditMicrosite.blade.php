@@ -419,8 +419,8 @@
                                         @endif
                                     </div>
                                     <div class="mt-3">
-                                        <h5>Nama Profil<i class="align-baseline text-info ms-1"></i></h5>
-                                        <p class="text-black">Deskripsi Profil</p>
+                                        <h5>{{ isset($microsite->name_microsite) ? $microsite->name_microsite : 'Nama Anda' }}<i class="align-baseline text-info ms-1"></i></h5>
+                                        <p class="text-black">{!! isset($microsite->description) ? $microsite->description : 'Deskripsi Anda' !!}</p>
                                     </div>
                                 </div>
                             </div>
@@ -480,10 +480,10 @@
                                 <div class="card card-body text-center">
                                     <h4 type="button" class="card-title" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFour" aria-expanded="false"
-                                        aria-controls="collapseFour">Nama Perusahaan Anda</h4>
+                                        aria-controls="collapseFour">{{ isset($microsite->company_name) ? $microsite->company_name : 'Nama Perusahaan Anda' }}</h4>
                                     <p type="button" class="card-text text-black" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFive" aria-expanded="false"
-                                        aria-controls="collapseFive">Alamat Perusahaan Anda</p>
+                                        aria-controls="collapseFive">{{ isset($microsite->company_address) ? $microsite->company_address : 'Alamat Perusahaan Anda' }}</p>
                                 </div>
                             </div>
                         </div><!--end card-->
