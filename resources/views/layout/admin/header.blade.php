@@ -63,10 +63,10 @@
                 <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"
                     data-bs-toggle="modal" data-bs-target="#myModal">
                     <i class='bi bi-bell fs-2xl'></i>
-                    <span
-                        class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span
-                            class="notification-badge" id="count-messages"></span><span class="visually-hidden">unread
-                            messages</span></span>
+                    {{-- <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"> --}}
+                        <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger notification-badge" id="count-messages"></span>
+                        <span class="visually-hidden">unread messages</span>
+                    {{-- </span> --}}
                 </button>
                 <div class="ms-1 header-item d-none d-sm-flex">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle"

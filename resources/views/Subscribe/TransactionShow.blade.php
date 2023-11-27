@@ -93,23 +93,23 @@
                                             switch ($status) {
                                             case 'unpaid':
                                             $badgeClass = 'bg-danger';
-                                            $displayText = 'UNPAID';
+                                            $displayText = 'BELUM BAYAR';
                                             break;
                                             case 'paid':
                                             $badgeClass = 'bg-success';
-                                            $displayText = 'PAID';
+                                            $displayText = 'DIBAYAR';
                                             break;
                                             case 'expired':
                                             $badgeClass = 'bg-warning';
-                                            $displayText = 'EXPIRED';
+                                            $displayText = 'KADALUWARSA';
                                             break;
                                             case 'refund':
                                             $badgeClass = 'bg-info';
-                                            $displayText = 'REFUND';
+                                            $displayText = 'PENGEMBALIAN DANA';
                                             break;
                                             default:
                                             $badgeClass = 'bg-info';
-                                            $displayText = 'Data Tidak Valid';
+                                            $displayText = 'GAGAL';
                                             }
                                             @endphp
                                             <span class="badge {{ $badgeClass }}">{{ $displayText }}</span>
@@ -119,8 +119,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <button type="button" class="btn col-10 mt-2" style="background-color: #FF2323;color: #fff;">Batalkan</button>
-                                <!-- <button type="button" class="btn col-10 mt-2" style="background-color: #0E2954;color: #fff;" data-bs-toggle="modal" data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button> -->
+                                <button type="button" class="btn col-10 mt-2" style="background-color: #ff2323;color: #fff;" data-bs-toggle="modal" data-bs-target="#">Batalkan</button>
+                                {{-- <button type="button" class="btn col-10 mt-2" style="background-color: #0E2954;color: #fff;" data-bs-toggle="modal" data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button> --}}
                             </center>
                             <div id="pembayaran" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog modal-dialog-centered modal-md">
