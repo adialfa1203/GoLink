@@ -77,7 +77,7 @@
                 </div>
                 {{-- header buttons --}}
                 <nav class="m-header-right">
-                    <a type="button" class="add-to-favorite"><i class="fas fa-star"></i></a>
+                    <!-- <a type="button" class="add-to-favorite"><i class="fas fa-star"></i></a> -->
                     <a type="button" onclick="goBack()"><i class="fas fa-home"></i></a>
                     <a type="button" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                 </nav>
