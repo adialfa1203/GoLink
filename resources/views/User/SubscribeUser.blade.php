@@ -45,7 +45,8 @@
             border-top-right-radius: 10px;
             border-bottom-right-radius: 0px;
         }
-        .page-content{
+
+        .page-content {
             background-color: #ffff;
         }
     </style>
@@ -123,6 +124,7 @@
                                                 <th class="" data-sort="price">Harga</th>
                                                 <th class="" data-sort="products">Tanggal Bayar</th>
                                                 <th class="" data-sort="price">Status</th>
+                                                <th class="" data-sort="price">Aksi</th>
                                             </tr>
                                         </thead>
 
@@ -163,22 +165,22 @@
                                                         <td>{{ $transaction->updated_at }}</td>
                                                         <td>
                                                             @if ($transaction->status === 'PAID')
-                                                                <span
-                                                                    class="badge bg-success">DIBAYAR</span>
+                                                                <span class="badge bg-success">DIBAYAR</span>
                                                             @elseif ($transaction->status === 'REFUND')
-                                                                <span
-                                                                    class="badge bg-primary">PENGEMBALIAN DANA</span>
+                                                                <span class="badge bg-primary">PENGEMBALIAN DANA</span>
                                                             @elseif ($transaction->status === 'EXPIRED')
-                                                                <span
-                                                                    class="badge bg-warning">KADALUWARSA</span>
+                                                                <span class="badge bg-warning">KADALUWARSA</span>
                                                             @elseif ($transaction->status === 'UNPAID')
-                                                                <span
-                                                                    class="badge bg-danger">BELUM BAYAR</span>
+                                                                <span class="badge bg-danger">BELUM BAYAR</span>
                                                             @else
-                                                                <span
-                                                                    class="badge bg-secondary">GAGAL</span>
+                                                                <span class="badge bg-secondary">GAGAL</span>
                                                             @endif
                                                         </td>
+                                                        <td><a href="{{ route('transaction.delete', ['reference' => $transaction->reference]) }}"
+                                                                class="btn d-flex justify-content-center col-2 bi bi-trash-fill"
+                                                                style="background-color: #ff2323; color: #fff;"
+                                                                onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}');">
+                                                            </a></td>
                                                     </tr>
                                                 @endforeach
                                             @endif
@@ -188,47 +190,47 @@
                             </div>
                         </div><!--end card-->
                         @if ($data->total() > 0)
-                        <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
-                            <a class="page-item pagination-prev {{ $data->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
-                                href="{{ $data->previousPageUrl() ? $data->previousPageUrl() : '#' }}">
-                                Sebelumnya
-                            </a>
-                            <ul class="pagination listjs-pagination mb-0">
-                                @if ($data->currentPage() > 2)
-                                    <li>
-                                        <a class="page" href="{{ $data->url(1) }}">1</a>
-                                    </li>
-                                    @if ($data->currentPage() > 3)
-                                        <li class="ellipsis">
-                                            <span>...</span>
+                            <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
+                                <a class="page-item pagination-prev {{ $data->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
+                                    href="{{ $data->previousPageUrl() ? $data->previousPageUrl() : '#' }}">
+                                    Sebelumnya
+                                </a>
+                                <ul class="pagination listjs-pagination mb-0">
+                                    @if ($data->currentPage() > 2)
+                                        <li>
+                                            <a class="page" href="{{ $data->url(1) }}">1</a>
+                                        </li>
+                                        @if ($data->currentPage() > 3)
+                                            <li class="ellipsis">
+                                                <span>...</span>
+                                            </li>
+                                        @endif
+                                    @endif
+
+                                    @for ($i = max(1, $data->currentPage() - 1); $i <= min($data->lastPage(), $data->currentPage() + 1); $i++)
+                                        <li class="{{ $i == $data->currentPage() ? 'active' : '' }}">
+                                            <a class="page" href="{{ $data->url($i) }}"
+                                                data-i="{{ $i }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+
+                                    @if ($data->currentPage() < $data->lastPage() - 1)
+                                        @if ($data->currentPage() < $data->lastPage() - 2)
+                                            <li class="ellipsis">
+                                                <span>...</span>
+                                            </li>
+                                        @endif
+                                        <li>
+                                            <a class="page"
+                                                href="{{ $data->url($data->lastPage()) }}">{{ $data->lastPage() }}</a>
                                         </li>
                                     @endif
-                                @endif
-
-                                @for ($i = max(1, $data->currentPage() - 1); $i <= min($data->lastPage(), $data->currentPage() + 1); $i++)
-                                    <li class="{{ $i == $data->currentPage() ? 'active' : '' }}">
-                                        <a class="page" href="{{ $data->url($i) }}"
-                                            data-i="{{ $i }}">{{ $i }}</a>
-                                    </li>
-                                @endfor
-
-                                @if ($data->currentPage() < $data->lastPage() - 1)
-                                    @if ($data->currentPage() < $data->lastPage() - 2)
-                                        <li class="ellipsis">
-                                            <span>...</span>
-                                        </li>
-                                    @endif
-                                    <li>
-                                        <a class="page"
-                                            href="{{ $data->url($data->lastPage()) }}">{{ $data->lastPage() }}</a>
-                                    </li>
-                                @endif
-                            </ul>
-                            <a class="page-item pagination-next {{ $data->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
-                                href="{{ $data->nextPageUrl() ? $data->nextPageUrl() : '#' }}">
-                                Selanjutnya
-                            </a>
-                        </div>
+                                </ul>
+                                <a class="page-item pagination-next {{ $data->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
+                                    href="{{ $data->nextPageUrl() ? $data->nextPageUrl() : '#' }}">
+                                    Selanjutnya
+                                </a>
+                            </div>
                         @endif
                     </div><!--end col-->
                 </div><!--end row-->
@@ -236,4 +238,24 @@
         </div>
         <!-- container-fluid -->
     </div>
+@endsection
+@section('script')
+    <script>
+        function confirmDelete(reference) {
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Apakah Anda yakin ingin membatalkan transaksi ini?',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ url('user/back/') }}/' + reference;
+                }
+            });
+        }
+    </script>
 @endsection

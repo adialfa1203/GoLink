@@ -461,22 +461,23 @@
     </div>
 @endsection
 @section('script')
-<script>
-    function confirmDelete(reference) {
-        Swal.fire({
-            title: 'Konfirmasi',
-            text: 'Apakah Anda yakin ingin membatalkan transaksi ini?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Kembali'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = '{{ url('user/back/') }}/' + reference;
-            }
-        });
-    }
- </script>
+    <script>
+        function confirmDelete(reference) {
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Apakah Anda yakin ingin membatalkan transaksi ini?',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ url('user/back/') }}/' + reference;
+                }
+            });
+        }
+    </script>
 
 @endsection
