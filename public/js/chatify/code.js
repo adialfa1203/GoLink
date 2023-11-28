@@ -396,14 +396,28 @@ function IDinfo(id) {
           NProgress.remove();
           return;
         }
-        // avatar photo
-        $(".messenger-infoView")
-          .find(".avatar")
-          .css("background-image", 'url("' + data.user_avatar + '")');
-        $(".header-avatar").css(
-          "background-image",
-          'url("' + data.user_avatar + '")'
-        );
+        if (data.fetch.profile_picture !=null) {
+            // profile
+            $(".messenger-infoView")
+            .find(".avatar")
+            .css("background-image",'url('+'/profile_pictures/' + data.fetch.profile_picture + ')');
+            // header
+            $(".header-avatar").css(
+              "background-image",
+              'url('+'/profile_pictures/' + data.fetch.profile_picture + ')'
+            );
+          }else{
+            // profile
+            $(".messenger-infoView")
+            .find(".avatar")
+            .css("background-image",'url('+'/images/default.jpg'+ ')');
+            // header
+            $(".header-avatar").css(
+              "background-image",
+              'url('+'/images/default.jpg'+ ')'
+            );
+            }
+
         // Show shared and actions
         $(".messenger-infoView-btns .delete-conversation").show();
         $(".messenger-infoView-shared").show();
