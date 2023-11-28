@@ -167,6 +167,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
@@ -187,6 +188,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
     'Permission' => Spatie\Permission\Facades\Permission::class,
     'Chatify' => Chatify\Facades\ChatifyMessenger::class,
+    'PDF' => Barryvdh\DomPDF\Facade::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

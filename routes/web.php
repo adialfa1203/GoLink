@@ -23,6 +23,7 @@ use App\Http\Controllers\SubscribeUserController;
 // use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\TripayCallbackController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -110,6 +111,8 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'preventBackHistory', '
     Route::prefix('user')->group(function () {
         // //search
         // Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+        Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
 
         //Dashboard
         Route::get('/dashboard-user', [DahsboardController::class, 'dashboardUser'])->name('dashboard.user');
@@ -231,3 +234,4 @@ Route::group(['middleware' => ['auth', 'preventBackHistory', 'role:admin']], fun
 Route::get('/nge/ngetes', function () {
     return view('welcome');
 });
+Route::get('/coba/generate-pdf', [PDFController::class, 'generatePDF']);

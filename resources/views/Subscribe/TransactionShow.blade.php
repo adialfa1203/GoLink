@@ -287,7 +287,7 @@
                                                             d="M5.25066 9H5.11208C4.90421 9 4.76562 9.13858 4.76562 9.34646C4.76562 9.55433 4.90421 9.69291 5.11208 9.69291H5.25066C5.45854 9.69291 5.59712 9.55433 5.59712 9.34646C5.59712 9.13858 5.45854 9 5.25066 9Z"
                                                             fill="white" />
                                                     </svg>
-                                                    Cetak Bukti Pembayaran
+                                                    <a href="{{url('user/generate-pdf')}}">Cetak Bukti Pembayaran</a>
                                                 </button>
                                             </div>
                                         </div><!-- /.modal-content -->
