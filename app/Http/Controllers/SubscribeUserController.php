@@ -87,8 +87,7 @@ class SubscribeUserController extends Controller
         ->with('subscribe')->first();
         $tripay = new TripayController();
         $foto1 = $tripay->getPaymentChannels();
-        // dd($foto1);
-        // dd($detailTransaction);
+        // dd($transaction);
         return view('Subscribe.TransactionShow', compact('detailTransaction','transaction','foto1'));
     }
 }

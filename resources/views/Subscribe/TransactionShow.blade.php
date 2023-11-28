@@ -1,6 +1,6 @@
 @extends('layout.user.app')
+@section('title', 'Berlangganan')
 @section('style')
-<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
 <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
 <style>
@@ -29,7 +29,6 @@
     }
 </style>
 @endsection
-@section('title', 'Berlangganan')
 @section('content')
 
 <div class="page-content">
@@ -119,8 +118,13 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <button type="button" class="btn col-10 mt-2" style="background-color: #ff2323;color: #fff;" data-bs-toggle="modal" data-bs-target="#">Batalkan</button>
-                                {{-- <button type="button" class="btn col-10 mt-2" style="background-color: #0E2954;color: #fff;" data-bs-toggle="modal" data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button> --}}
+                                
+                                
+                                @if($transaction->status == 'PAID')
+                                    <button type="button" class="btn col-10 mt-2" style="background-color: #0E2954;color: #fff;" data-bs-toggle="modal" data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button>
+                                @else
+                                    <button type="button" class="btn col-10 mt-2" style="background-color: #ff2323;color: #fff;" data-bs-toggle="modal" data-bs-target="#">Batalkan</button>
+                                @endif
                             </center>
                             <div id="pembayaran" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog modal-dialog-centered modal-md">

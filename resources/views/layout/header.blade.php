@@ -168,10 +168,10 @@
                         id="page-header-notifications-dropdown" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
                         <i class='bi bi-bell fs-2xl'></i>
-                        <span
-                            class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"><span
-                                class="notification-badge"></span><span class="visually-hidden">unread
-                                messages</span></span>
+                        {{-- <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger"> --}}
+                            <span class="position-absolute topbar-badge fs-3xs translate-middle badge rounded-pill bg-danger notification-badge" id="count-messages"></span>
+                            <span class="visually-hidden">unread messages</span>
+                        {{-- </span> --}}
                     </button>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                         aria-labelledby="page-header-notifications-dropdown">
