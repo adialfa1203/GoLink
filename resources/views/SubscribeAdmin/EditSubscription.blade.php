@@ -26,10 +26,10 @@
                                         <label for="tipe" class="form-label">Tipe Langganan</label>
                                         <select name="tipe" class="form-select" id="tipe" required>
                                             <option value="" disabled selected>Pilih Tipe Langganan...</option>
-                            
+
                                             <option value="silver"
                                                 {{ old('tipe', $subscribe->tipe) === 'silver' ? 'selected' : '' }}>
-                                               Silver
+                                                Silver
                                             </option>
                                             <option value="gold"
                                                 {{ old('tipe', $subscribe->tipe) === 'gold' ? 'selected' : '' }}>
@@ -37,7 +37,7 @@
                                             </option>
                                             <option value="platinum"
                                                 {{ old('tipe', $subscribe->tipe) === 'platinum' ? 'selected' : '' }}>
-                                               Platinum
+                                                Platinum
                                             </option>
                                         </select>
                                         @if ($errors->has('tipe'))
@@ -45,35 +45,6 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-lg-6 md-12 sm-12">
-                                    <div class="mb-3">
-                                        <label for="period" class="form-label">Pilih Periode Berakhir:</label>
-                                        <select name="period" class="form-select" id="period" required>
-                                            <option value="" disabled selected>Pilih Masa Periode...</option>
-                                            <option value="forever"
-                                                {{ old('period', $subscribe->period) === 'forever' ? 'selected' : '' }}>
-                                                Selamanya
-                                            </option>
-                                            <option value="1_week"
-                                                {{ old('period', $subscribe->period) === '1_week' ? 'selected' : '' }}>1
-                                                Minggu
-                                            </option>
-                                            <option value="1_month"
-                                                {{ old('period', $subscribe->period) === '1_month' ? 'selected' : '' }}>1
-                                                Bulan
-                                            </option>
-                                            <option value="1_year"
-                                                {{ old('period', $subscribe->period) === '1_year' ? 'selected' : '' }}>1
-                                                Tahun
-                                            </option>
-                                        </select>
-                                        @if ($errors->has('period'))
-                                            <span class="text-danger">{{ $errors->first('period') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-lg-6 md-12 sm-12">
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Harga</label>
@@ -84,7 +55,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 md-12 sm-12">
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 md-12 sm-12">
                                     <label for="picture" class="form-label me-3">Tambah Foto</label>
                                     <div class="mb-3 d-flex align-items-center">
                                         <div class="position-relative" style="width: 100%;">

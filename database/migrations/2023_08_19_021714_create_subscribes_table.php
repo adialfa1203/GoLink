@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('subscribes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->enum('tipe', ['free', 'silver', 'gold', 'platinum'])->default('free');
-            $table->string('period');
             $table->bigInteger('price');
             $table->string('picture');
             $table->string('description');

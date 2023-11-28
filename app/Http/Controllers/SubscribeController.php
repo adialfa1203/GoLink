@@ -21,15 +21,12 @@ class SubscribeController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'tipe' => 'required|in:free,silver,gold,platinum',
-            'period' => 'required|in:forever,1_week,1_month,1_year',
             'price' => 'required|numeric|min:0',
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|min:10',
         ], [
             'tipe.required' => 'Pilih tipe langganan.',
             'tipe.in' => 'Tipe langganan tidak valid.',
-            'period.required' => 'Pilih masa periode.',
-            'period.in' => 'Masa periode tidak valid.',
             'price.required' => 'Harga tidak boleh kosong.',
             'price.numeric' => 'Harga harus berupa angka.',
             'price.min' => 'Harga tidak valid.',
@@ -53,7 +50,6 @@ class SubscribeController extends Controller
 
         $subscribe = Subscribe::create([
             'tipe' => $request->tipe,
-            'period' => $request->period,
             'price' => $request->price,
             'picture' => $subsImageName,
             'description' => $request->description,
@@ -71,15 +67,12 @@ class SubscribeController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'tipe' => 'required|in:free,silver,gold,platinum',
-            'period' => 'required|in:forever,1_week,1_month,1_year',
             'price' => 'required|numeric|min:0',
             'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|min:10',
         ], [
             'tipe.required' => 'Pilih tipe langganan.',
             'tipe.in' => 'Tipe langganan tidak valid.',
-            'period.required' => 'Pilih masa periode.',
-            'period.in' => 'Masa periode tidak valid.',
             'price.required' => 'Harga tidak boleh kosong.',
             'price.numeric' => 'Harga harus berupa angka.',
             'price.min' => 'Harga tidak valid.',
