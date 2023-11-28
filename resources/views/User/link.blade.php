@@ -320,7 +320,8 @@
                                                                 <button type="button"
                                                                     class="btn btn-light me-3 btn-sm edit-link"
                                                                     style="background-color: #CED2D9;"
-                                                                    data-bs-toggle="modal" data-bs-target="#customUrlModal-{{ $row->id }}"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#customUrlModal-{{ $row->id }}"
                                                                     data-link="{{ $row->url_key }}">
                                                                     <span><i
                                                                             class="fa-solid fa-pen-to-square icon-abu"></i></span>
@@ -523,8 +524,8 @@
                                                                             <p>{{ $row->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                                                                                                                                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                                                                                                                                                </center> -->
+                                                                                                                                                                                                                                        <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                                                                                                                                        </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -539,9 +540,10 @@
                                                             {{ $row->default_short_url }}
                                                         </p>
                                                         <form id="formKustom">
-                                                            <div id="customUrlModal-{{ $row->id }}" class="modal fade zoomIn"
-                                                                tabindex="-1" aria-labelledby="zoomInModalLabel"
-                                                                aria-hidden="true" style="display: none;">
+                                                            <div id="customUrlModal-{{ $row->id }}"
+                                                                class="modal fade zoomIn" tabindex="-1"
+                                                                aria-labelledby="zoomInModalLabel" aria-hidden="true"
+                                                                style="display: none;">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
                                                                         <div class="modal-body">
@@ -768,24 +770,29 @@
                                             </form>
                                         @endforeach
                                     @endif
-                                    <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
-                                        id="pagination-element">
-                                        <div class="col-sm">
-                                            <div class="text-muted">
-                                                Menampilkan <span class="fw-semibold">{{ $urlshort->firstItem() }}</span>
-                                                hingga <span class="fw-semibold">{{ $urlshort->lastItem() }}</span>
-                                                dari total <span class="fw-semibold">{{ $urlshort->total() }}</span> Hasil
+                                    @if ($urlshort->isEmpty())
+                                    @else
+                                        <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
+                                            id="pagination-element">
+                                            <div class="col-sm">
+                                                <div class="text-muted">
+                                                    Menampilkan <span
+                                                        class="fw-semibold">{{ $urlshort->firstItem() }}</span>
+                                                    hingga <span class="fw-semibold">{{ $urlshort->lastItem() }}</span>
+                                                    dari total <span class="fw-semibold">{{ $urlshort->total() }}</span>
+                                                    Hasil
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-auto mt-3 mt-sm-0">
-                                            <div
-                                                class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
-                                                <div class="page-item">
-                                                    {{ $urlshort->appends(['page_history' => $history->currentPage()])->links('pagination::bootstrap-5') }}
+                                            <div class="col-sm-auto mt-3 mt-sm-0">
+                                                <div
+                                                    class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
+                                                    <div class="page-item">
+                                                        {{ $urlshort->appends(['page_history' => $history->currentPage()])->links('pagination::bootstrap-5') }}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                     <!-- end col -->
                                 </div>
                             </div>
@@ -896,7 +903,8 @@
                                                                 <button disabled type="button"
                                                                     class="btn btn-light me-3 btn-sm edit-link"
                                                                     style="background-color: #CED2D9"
-                                                                    data-bs-toggle="modal" data-bs-target="#customUrlModal"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#customUrlModal"
                                                                     data-link="{{ $url->url_key }}">
                                                                     <span><i
                                                                             class="fa-solid fa-pen-to-square icon-abu"></i></span>
@@ -1043,8 +1051,8 @@
                                                                             <p>{{ $url->default_short_url }}</p>
                                                                         </div>
                                                                         <!-- <center>
-                                                                                                                                                                                                                                                                                    <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
-                                                                                                                                                                                                                                                                                </center> -->
+                                                                                                                                                                                                                                                                                            <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/qr.png') }}" alt="" width="100%">
+                                                                                                                                                                                                                                                                                        </center> -->
                                                                     </div>
                                                                     {{-- <center>
                                                                     <button type="button" class="btn btn-danger">Download</button>
@@ -1060,9 +1068,10 @@
                                                         </p>
 
                                                         <form id="formKustom">
-                                                            <div id="customUrlModal-{{ $url->id }}" class="modal fade zoomIn"
-                                                                tabindex="-1" aria-labelledby="zoomInModalLabel"
-                                                                aria-hidden="true" style="display: none;">
+                                                            <div id="customUrlModal-{{ $url->id }}"
+                                                                class="modal fade zoomIn" tabindex="-1"
+                                                                aria-labelledby="zoomInModalLabel" aria-hidden="true"
+                                                                style="display: none;">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
@@ -1203,25 +1212,30 @@
                                             </form>
                                         @endforeach
                                     @endif
-                                    <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
-                                        id="pagination-element">
-                                        <div class="col-sm">
-                                            <div class="text-muted">
-                                                Menampilkan <span class="fw-semibold">{{ $history->firstItem() }}</span>
-                                                hingga <span class="fw-semibold">{{ $history->lastItem() }}</span> dari
-                                                total
-                                                <span class="fw-semibold">{{ $history->total() }}</span> Hasil
+                                    @if ($history->isEmpty())
+                                    @else
+                                        <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
+                                            id="pagination-element">
+                                            <div class="col-sm">
+                                                <div class="text-muted">
+                                                    Menampilkan <span
+                                                        class="fw-semibold">{{ $history->firstItem() }}</span>
+                                                    hingga <span class="fw-semibold">{{ $history->lastItem() }}</span>
+                                                    dari
+                                                    total
+                                                    <span class="fw-semibold">{{ $history->total() }}</span> Hasil
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-auto mt-3 mt-sm-0">
-                                            <div
-                                                class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
-                                                <div class="page-item">
-                                                    {{ $history->appends(['page_urlshort' => $urlshort->currentPage()])->links('pagination::bootstrap-5') }}
+                                            <div class="col-sm-auto mt-3 mt-sm-0">
+                                                <div
+                                                    class="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
+                                                    <div class="page-item">
+                                                        {{ $history->appends(['page_urlshort' => $urlshort->currentPage()])->links('pagination::bootstrap-5') }}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                     <!-- end col -->
                                 </div>
                             </div>
@@ -1464,8 +1478,7 @@
                     success: function(response) {
                         qrcodeSrc++;
                     },
-                    error: function(response) {
-                    }
+                    error: function(response) {}
                 });
             }
         }
@@ -1591,8 +1604,7 @@
                             location.reload();
                         });
                     },
-                    error: function(response) {
-                    }
+                    error: function(response) {}
                 });
             });
         });

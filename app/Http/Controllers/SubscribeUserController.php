@@ -96,7 +96,7 @@ class SubscribeUserController extends Controller
         // dd($transaction);
         if ($transaction) {
             $transaction->delete();
-            return redirect()->route('subscribe.user')->with('success', 'Transaksi berhasil dihapus.');
+            return redirect()->route('subscribe.user')->with('success', 'Transaksi berhasil dibatalkan.');
         } else {
             return redirect()->route('subscribe.user')->with('error', 'Transaksi tidak ditemukan.');
         }

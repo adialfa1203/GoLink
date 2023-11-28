@@ -294,60 +294,64 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
-                                                id="pagination-element">
-                                                <div class="col-sm">
-                                                    <div class="text-muted">
-                                                        Menampilkan
-                                                        <span class="fw-semibold">{{ $d->firstItem() }}</span>
-                                                        hingga
-                                                        <span class="fw-semibold">{{ $d->lastItem() }}</span>
-                                                        dari total
-                                                        <span class="fw-semibold">{{ $d->total() }}</span>
-                                                        Hasil
+                                            @if ($data->isEmpty())
+                                            @else
+                                                <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
+                                                    id="pagination-element">
+                                                    <div class="col-sm">
+                                                        <div class="text-muted">
+                                                            Menampilkan
+                                                            <span class="fw-semibold">{{ $d->firstItem() }}</span>
+                                                            hingga
+                                                            <span class="fw-semibold">{{ $d->lastItem() }}</span>
+                                                            dari total
+                                                            <span class="fw-semibold">{{ $d->total() }}</span>
+                                                            Hasil
+                                                        </div>
+                                                    </div>
+                                                    <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
+                                                        <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
+                                                            href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
+                                                            Sebelumnya
+                                                        </a>
+                                                        <ul class="pagination listjs-pagination mb-0">
+                                                            @if ($d->currentPage() > 2)
+                                                                <li>
+                                                                    <a class="page" href="{{ $d->url(1) }}">1</a>
+                                                                </li>
+                                                                @if ($d->currentPage() > 3)
+                                                                    <li class="ellipsis">
+                                                                        <span>...</span>
+                                                                    </li>
+                                                                @endif
+                                                            @endif
+
+                                                            @for ($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
+                                                                <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
+                                                                    <a class="page" href="{{ $d->url($i) }}"
+                                                                        data-i="{{ $i }}">{{ $i }}</a>
+                                                                </li>
+                                                            @endfor
+
+                                                            @if ($d->currentPage() < $d->lastPage() - 1)
+                                                                @if ($d->currentPage() < $d->lastPage() - 2)
+                                                                    <li class="ellipsis">
+                                                                        <span>...</span>
+                                                                    </li>
+                                                                @endif
+                                                                <li>
+                                                                    <a class="page"
+                                                                        href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
+                                                                </li>
+                                                            @endif
+                                                        </ul>
+                                                        <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
+                                                            href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
+                                                            Selanjutnya
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
-                                                    <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
-                                                        href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
-                                                        Sebelumnya
-                                                    </a>
-                                                    <ul class="pagination listjs-pagination mb-0">
-                                                        @if ($d->currentPage() > 2)
-                                                            <li>
-                                                                <a class="page" href="{{ $d->url(1) }}">1</a>
-                                                            </li>
-                                                            @if ($d->currentPage() > 3)
-                                                                <li class="ellipsis">
-                                                                    <span>...</span>
-                                                                </li>
-                                                            @endif
-                                                        @endif
-
-                                                        @for ($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
-                                                            <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
-                                                                <a class="page" href="{{ $d->url($i) }}"
-                                                                    data-i="{{ $i }}">{{ $i }}</a>
-                                                            </li>
-                                                        @endfor
-
-                                                        @if ($d->currentPage() < $d->lastPage() - 1)
-                                                            @if ($d->currentPage() < $d->lastPage() - 2)
-                                                                <li class="ellipsis">
-                                                                    <span>...</span>
-                                                                </li>
-                                                            @endif
-                                                            <li>
-                                                                <a class="page" href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
-                                                            </li>
-                                                        @endif
-                                                    </ul>
-                                                    <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
-                                                        href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
-                                                        Selanjutnya
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -486,60 +490,67 @@
                                                     </div>
                                                 </div>
                                             </div> --}}
-                                            <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
-                                                id="pagination-element">
-                                                <div class="col-sm">
-                                                    <div class="text-muted">
-                                                        Menampilkan
-                                                        <span class="fw-semibold">{{ $bannedUser->firstItem() }}</span>
-                                                        hingga
-                                                        <span class="fw-semibold">{{ $bannedUser->lastItem() }}</span>
-                                                        dari total
-                                                        <span class="fw-semibold">{{ $bannedUser->total() }}</span>
-                                                        Hasil
+                                            @if ($bannedUser->isEmpty())
+                                            @else
+                                                <div class="row align-items-center mb-4 justify-content-between text-center text-sm-start"
+                                                    id="pagination-element">
+                                                    <div class="col-sm">
+                                                        <div class="text-muted">
+                                                            Menampilkan
+                                                            <span
+                                                                class="fw-semibold">{{ $bannedUser->firstItem() }}</span>
+                                                            hingga
+                                                            <span class="fw-semibold">{{ $bannedUser->lastItem() }}</span>
+                                                            dari total
+                                                            <span class="fw-semibold">{{ $bannedUser->total() }}</span>
+                                                            Hasil
+                                                        </div>
+                                                    </div>
+                                                    <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
+                                                        <a class="page-item pagination-prev {{ $bannedUser->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
+                                                            href="{{ $bannedUser->previousPageUrl() ? $bannedUser->previousPageUrl() : '#' }}">
+                                                            Sebelumnya
+                                                        </a>
+                                                        <ul class="pagination listjs-pagination mb-0">
+                                                            @if ($bannedUser->currentPage() > 2)
+                                                                <li>
+                                                                    <a class="page"
+                                                                        href="{{ $bannedUser->url(1) }}">1</a>
+                                                                </li>
+                                                                @if ($bannedUser->currentPage() > 3)
+                                                                    <li class="ellipsis">
+                                                                        <span>...</span>
+                                                                    </li>
+                                                                @endif
+                                                            @endif
+
+                                                            @for ($i = max(1, $bannedUser->currentPage() - 1); $i <= min($bannedUser->lastPage(), $bannedUser->currentPage() + 1); $i++)
+                                                                <li
+                                                                    class="{{ $i == $bannedUser->currentPage() ? 'active' : '' }}">
+                                                                    <a class="page" href="{{ $bannedUser->url($i) }}"
+                                                                        data-i="{{ $i }}">{{ $i }}</a>
+                                                                </li>
+                                                            @endfor
+
+                                                            @if ($bannedUser->currentPage() < $bannedUser->lastPage() - 1)
+                                                                @if ($bannedUser->currentPage() < $bannedUser->lastPage() - 2)
+                                                                    <li class="ellipsis">
+                                                                        <span>...</span>
+                                                                    </li>
+                                                                @endif
+                                                                <li>
+                                                                    <a class="page"
+                                                                        href="{{ $bannedUser->url($bannedUser->lastPage()) }}">{{ $bannedUser->lastPage() }}</a>
+                                                                </li>
+                                                            @endif
+                                                        </ul>
+                                                        <a class="page-item pagination-next {{ $bannedUser->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
+                                                            href="{{ $bannedUser->nextPageUrl() ? $bannedUser->nextPageUrl() : '#' }}">
+                                                            Selanjutnya
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <div class="pagination-wrap hstack justify-content-center gap-2 mb-4">
-                                                    <a class="page-item pagination-prev {{ $bannedUser->previousPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
-                                                        href="{{ $bannedUser->previousPageUrl() ? $bannedUser->previousPageUrl() : '#' }}">
-                                                        Sebelumnya
-                                                    </a>
-                                                    <ul class="pagination listjs-pagination mb-0">
-                                                        @if ($bannedUser->currentPage() > 2)
-                                                            <li>
-                                                                <a class="page" href="{{ $bannedUser->url(1) }}">1</a>
-                                                            </li>
-                                                            @if ($bannedUser->currentPage() > 3)
-                                                                <li class="ellipsis">
-                                                                    <span>...</span>
-                                                                </li>
-                                                            @endif
-                                                        @endif
-
-                                                        @for ($i = max(1, $bannedUser->currentPage() - 1); $i <= min($bannedUser->lastPage(), $bannedUser->currentPage() + 1); $i++)
-                                                            <li class="{{ $i == $bannedUser->currentPage() ? 'active' : '' }}">
-                                                                <a class="page" href="{{ $bannedUser->url($i) }}"
-                                                                    data-i="{{ $i }}">{{ $i }}</a>
-                                                            </li>
-                                                        @endfor
-
-                                                        @if ($bannedUser->currentPage() < $bannedUser->lastPage() - 1)
-                                                            @if ($bannedUser->currentPage() < $bannedUser->lastPage() - 2)
-                                                                <li class="ellipsis">
-                                                                    <span>...</span>
-                                                                </li>
-                                                            @endif
-                                                            <li>
-                                                                <a class="page" href="{{ $bannedUser->url($bannedUser->lastPage()) }}">{{ $bannedUser->lastPage() }}</a>
-                                                            </li>
-                                                        @endif
-                                                    </ul>
-                                                    <a class="page-item pagination-next {{ $bannedUser->nextPageUrl() ? '' : 'disabled' }} d-none d-sm-block"
-                                                        href="{{ $bannedUser->nextPageUrl() ? $bannedUser->nextPageUrl() : '#' }}">
-                                                        Selanjutnya
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
