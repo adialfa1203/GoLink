@@ -45,10 +45,10 @@ class SubscribeUserController extends Controller
 
         $tripay = new TripayController();
         $channels = $tripay->getPaymentChannels();
-// dd($channels);
+        // dd($channels);
         $tax = $subscribe->price * 0.11;
         $totalPrice = $subscribe->price + $tax;
-// dd($subscribe);
+        // dd($subscribe);
         return view('Subscribe.CheckoutProduct', compact('subscribe', 'channels', 'tripay', 'tax', 'totalPrice'));
     }
 
@@ -84,10 +84,21 @@ class SubscribeUserController extends Controller
         $detailTransaction = $this->service->detail($reference);
         $detailTransaction = json_decode($detailTransaction);
         $transaction = Transaction::where('reference', $reference)
-        ->with('subscribe')->first();
+            ->with('subscribe')->first();
         $tripay = new TripayController();
         $foto1 = $tripay->getPaymentChannels();
         // dd($transaction);
-        return view('Subscribe.TransactionShow', compact('detailTransaction','transaction','foto1'));
+        return view('Subscribe.TransactionShow', compact('detailTransaction', 'transaction', 'foto1'));
+    }
+    public function deleteTransaction($reference)
+    {
+        $transaction = Transaction::where('reference', $reference)->first();
+        // dd($transaction);
+        if ($transaction) {
+            $transaction->delete();
+            return redirect()->route('subscribe.user')->with('success', 'Transaksi berhasil dihapus.');
+        } else {
+            return redirect()->route('subscribe.user')->with('error', 'Transaksi tidak ditemukan.');
+        }
     }
 }

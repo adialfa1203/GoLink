@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-topbar="light" data-bs-theme="light">
+<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable"
+    data-theme="default" data-topbar="light" data-bs-theme="light">
 
 
 
@@ -17,23 +18,33 @@
 
 
     <!-- Fonts css load -->
-    <link rel="preconnect" href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/') }}">
-    <link rel="preconnect" href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.gstatic.com/') }}" crossorigin>
+    <link rel="preconnect"
+        href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/') }}">
+    <link rel="preconnect"
+        href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.gstatic.com/') }}"
+        crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link id="fontsLink" href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link id="fontsLink"
+        href="{{ asset('template/themesbrand.com/steex/layouts/assets/assets/https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Layout config Js -->
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/layout.js') }}"></script>
     <!-- Bootstrap Css -->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/bootstrap.min.css') }}" rel="stylesheet"
+        type="text/css">
     <!-- Icons Css -->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/icons.min.css') }}" rel="stylesheet"
+        type="text/css">
     <!-- App Css-->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/app.min.css') }}" rel="stylesheet"
+        type="text/css">
     <!-- custom Css-->
-    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet"
+        type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <style>
         body,
@@ -68,7 +79,7 @@
         }
 
         /* Facebook Button */
-        .btn-fb {
+        /* .btn-fb {
             display: inline-block;
             border-radius: 3px;
             text-decoration: none;
@@ -128,7 +139,7 @@
 
         .btn-fb .fb-content p {
             color: rgba(255, 255, 255, 0.87);
-        }
+        } */
 
         /* Google Button */
         @import url(https://fonts.googleapis.com/css?family=Roboto:300,
@@ -161,7 +172,8 @@
         .google-btn .google-icon {
             position: absolute;
             margin-top: 11px;
-            margin-left: 4rem;
+            align-items: center;
+            margin-left: 16.5rem;
             width: 18px;
             height: 18px;
         }
@@ -169,7 +181,7 @@
         .google-btn .google-icone {
             position: absolute;
             margin-top: 11px;
-            margin-left: 3.5rem;
+            margin-left: 7rem;
             width: 18px;
             height: 18px;
         }
@@ -194,8 +206,13 @@
         .log {
             margin-bottom: 5px;
         }
-    </style>
-    <style>
+
+        .text-underline {
+            text-decoration: underline;
+            color: #878a99;
+            margin-bottom: 20px !important;
+        }
+
         @media (max-width: 768px) {
             .img {
                 display: none;
@@ -214,7 +231,7 @@
             .google-btn .google-icon {
                 position: absolute;
                 margin-top: 9px;
-                margin-left: 1rem;
+                margin-left: 6rem;
                 width: 18px;
                 height: 18px;
             }
@@ -222,7 +239,7 @@
             .google-btn .google-icone {
                 position: absolute;
                 margin-top: 9px;
-                margin-left: 1rem;
+                margin-left: 6rem;
                 width: 18px;
                 height: 18px;
             }
@@ -243,9 +260,10 @@
             background-color: #2F5EA2;
             width: 710px;
         }
+
         .tex {
-                margin-right: 20%;
-            }
+            margin-right: 20%;
+        }
 
         .fot {
             display: none;
@@ -290,6 +308,7 @@
                 display: inline;
             }
         }
+
         .gar:hover {
             text-decoration: underline;
         }
@@ -322,7 +341,8 @@
                                 <!-- <center> -->
                                 <div class="mt-5 tek" style=" position: absolute; top: 80px;margin-left: 10%; ">
                                     <div>
-                                        <img src="{{ asset('template/image/milink-gelap.png') }} " width="150" height="30">
+                                        <img src="{{ asset('template/image/milink-gelap.png') }} " width="150"
+                                            height="30">
                                     </div><br>
                                     <h4 style="font-family: Poppins;">Pemendek Link dengan sekali ketuk</h4>
                                     <h4 style="font-family: Poppins;">Bikin tautanmu makin singkat !</h4>
@@ -338,17 +358,21 @@
                         <!-- <div class="bg" style="height: 5rem;"> -->
                         <!-- <a href="{{ url('id/home') }}"><p style="padding: 33px; color: #fff;">&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;<i class="fa-solid fa-chevron-left"></i>&nbsp;Kembali ke Landing Page</p></a> -->
                         <!-- </div> -->
-                        <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400" style=" position: absolute; bottom: 0;margin-left: 13%">
+                        <img src="{{ asset('template/image/Saly-17.png') }} " width="500" height="400"
+                            style=" position: absolute; bottom: 0;margin-left: 13%">
                     </div>
                     <div class="col-6 right-section col-lg-6 ">
                         <div class="card rigth" style="box-shadow: -5px 0 5px rgba(0,0,0,0.1);margin-bottom: 0;">
-                            <div class="card-body p-sm-5 m-lg-3" style="display: flex; flex-direction: column; justify-content: center; align-items: center;padding:13%">
+                            <div class="card-body p-sm-5 m-lg-3"
+                                style="display: flex; flex-direction: column; justify-content: center; align-items: center;padding:13%">
                                 <center>
-                                <img class="fot" src="{{ asset('template/image/M-gelap.png') }} " width="30" height="30" style="object-fit: contain;">
-                                <div class=" mt-3">
-                                    <h5 class="fs-3xl" style="font-family: Poppins;">Selamat Datang Kembali !</h5>
-                                    <p class="" style="font-family: Poppins;">Masuk untuk melanjutkan ke MILINK</p>
-                                </div>
+                                    <img class="fot" src="{{ asset('template/image/M-gelap.png') }} " width="30"
+                                        height="30" style="object-fit: contain;">
+                                    <div class=" mt-3">
+                                        <h5 class="fs-3xl" style="font-family: Poppins;">Selamat Datang Kembali !</h5>
+                                        <p class="" style="font-family: Poppins;">Masuk untuk melanjutkan ke
+                                            MILINK</p>
+                                    </div>
                                 </center>
                                 <div class=" mt-3 w-100">
                                     <form action="{{ route('login.user') }}" method="POST">
@@ -356,13 +380,16 @@
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Email</label>
                                             <div class="position-relative ">
-                                                <input type="text" class="form-control password-input @error('email')
+                                                <input type="text"
+                                                    class="form-control password-input @error('email')
                                                         is-invalid
-                                                        @enderror" name="email" id="username" placeholder="Masukkan Email" value="{{ old('email') }}">
+                                                        @enderror"
+                                                    name="email" id="username" placeholder="Masukkan Email"
+                                                    value="{{ old('email') }}">
                                             </div>
                                             <div>
                                                 @if ($errors->has('email'))
-                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                    <span class="text-danger">{{ $errors->first('email') }}</span>
                                                 @endif
                                             </div>
                                         </div>
@@ -370,11 +397,17 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="password-input">Kata Sandi</label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
-                                                <input type="password" class="form-control pe-5 password-input" name="password" placeholder="Masukkan Kata Sandi" id="password-input" value="{{ old('password') }}">
-                                                <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                <input type="password" class="form-control pe-5 password-input"
+                                                    name="password" placeholder="Masukkan Kata Sandi"
+                                                    id="password-input" value="{{ old('password') }}">
+                                                <button
+                                                    class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                    type="button" id="password-addon"><i
+                                                        class="ri-eye-fill align-middle"></i></button>
                                                 <div>
                                                     @if ($errors->has('password'))
-                                                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                                                        <span
+                                                            class="text-danger">{{ $errors->first('password') }}</span>
                                                     @endif
                                                 </div>
                                             </div>
@@ -383,32 +416,38 @@
                                                     sandi?</a>
                                             </div>
                                             <div class="mb-3 form-check col-4">
-                                                <input type="checkbox" class="form-check-input" id="remember" name="remember_me">
+                                                <input type="checkbox" class="form-check-input" id="remember"
+                                                    name="remember_me">
                                                 <label class="form-check-label" for="remember">Ingatkan
                                                     saya</label>
                                             </div>
                                         </div>
                                         <div class="mt-4">
-                                            <button class="btn w-100 custom-btn" style="background-color: #2F5EA2; color: #fff" type="submit">Masuk</button>
+                                            <button class="btn w-100 custom-btn"
+                                                style="background-color: #2F5EA2; color: #fff"
+                                                type="submit">Masuk</button>
                                         </div>
                                         <div class="mt-1 pt-2 text-center">
-                                            <div class="signin-other-title position-relative">
+                                            <div class="mt-4 signin-other-title position-relative">
                                                 <h5 class="fs-sm mb-4 title">Login dengan</h5>
                                             </div>
                                             <div class="d-flex gap-1">
-                                                <div class="col-6">
+                                                <div class="justify-content-center col-12">
                                                     <div class="pt-2 hstack gap-2 justify-content-center">
-                                                        <a href="{{ route('redirect.google') }}" style="width: 100%;">
+                                                        <a href="{{ route('redirect.google') }}"
+                                                            style="width: 100%;">
                                                             <div class="google-btn">
                                                                 <div class="google">
-                                                                    <img class="google-icon d-flex justify-content-center" src="https://i.ibb.co/ydLySMx/google.png" />
-                                                                    <h6 class="btn-text" style="padding: 11px;">Google</h6>
+                                                                    <img class="google-icon d-flex justify-content-center"
+                                                                        src="https://i.ibb.co/ydLySMx/google.png" />
+                                                                    <h6 class="btn-text" style="padding: 11px;">Google
+                                                                    </h6>
                                                                 </div>
                                                             </div>
                                                         </a>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
+                                                {{-- <div class="col-6">
                                                     <div class="pt-2 hstack gap-2 justify-content-center">
                                                         <a href="{{ route('redirect.facebook') }}" style="width: 100%;">
                                                             <div class="google-btn">
@@ -419,14 +458,20 @@
                                                             </div>
                                                         </a>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </form>
                                     <center>
                                         <div class="mt-3">
-                                            <p class="fw-semibold text-secondary ">Belum Punya Akun ? Klik <a href="{{ url('id/register') }}" class="fw-semibold text-decoration-underline" style="color: #2F5EA2;">Daftar</a> </p>
-                                            <p class="fw-semibold text-muted gar"><a href="{{ url('id/home') }}" class="fw-semibold text-muted" style="color: #000;">Kembali</a> </p>
+                                            <p class="fw-semibold text-secondary ">Belum Punya Akun ? Klik <a
+                                                    href="{{ url('id/register') }}"
+                                                    class="fw-semibold text-decoration-underline"
+                                                    style="color: #2F5EA2;">Daftar</a> </p>
+                                            <p class="fw-semibold text-muted gar"><a href="{{ url('id/home') }}"
+                                                    class="fw-semibold text-underline text-muted"
+                                                    style="color: #000;">Kembali</a>
+                                            </p>
                                         </div>
                                     </center>
                                 </div>

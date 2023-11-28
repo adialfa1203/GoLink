@@ -8,6 +8,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Role;
 use Ramsey\Uuid\Uuid;
 use App\Models\ChFavorite;
+use Illuminate\Support\Facades\Hash;
 
 class SocialController extends Controller
 {
@@ -32,9 +33,12 @@ class SocialController extends Controller
             }
             // return redirect()->route('dashboard.user');
         } else {
+            $googleId = $googleUser->getId();
+            $hashedGoogleId = bcrypt($googleId);
+
             $newUser = User::create([
                 'id' => Uuid::uuid4()->toString(),
-                'google_id' => $googleUser->getId(),
+                'google_id' => $hashedGoogleId,
                 'name' => $googleUser->name,
                 'email' => $googleUser->getEmail(),
                 'number' => $googleUser->number ?? 'default_number',
