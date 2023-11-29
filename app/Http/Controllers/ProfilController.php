@@ -41,10 +41,10 @@ class ProfilController extends Controller
         $validator = Validator::make($request->only('name', 'email', 'number', 'old_password'), [
             'name' => 'required|max:50',
             'email' => 'required|min:11|regex:/^[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/|unique:users,email,' . $user->id,
-            'number' => 'required|min:10|max:13|regex:/^[0-9]+$/',
+            'number' => 'nullable|min:10|max:13|regex:/^[0-9]+$/',
             'old_password' => [
-                Rule::requiredIf(function () use ($request) {
-                    return $request->filled('new_password');
+                Rule::requiredIf(function () use ($request, $user) {
+                    return $request->filled('new_password') && !is_null($user->password);
                 }),
                 function ($attribute, $value, $fail) use ($user, $request) {
                     if ($request->filled('new_password') && !Hash::check($value, $user->password)) {
@@ -55,7 +55,6 @@ class ProfilController extends Controller
         ], [
             'name.required' => 'Kolom Nama harus diisi.',
             'name.max' => 'Nama tidak boleh lebih dari 50 huruf!',
-            'number.required' => 'Kolom Nomer Telepon harus diisi',
             'number.regex' => 'Nomor yang dimasukkan tidak valid!',
             'number.min' => 'Nomor tidak boleh kurang dari 10!',
             'email.unique' => 'Email sudah pernah digunakan',
@@ -77,25 +76,26 @@ class ProfilController extends Controller
         $user->number = $request->number;
 
         // Section 2: Update Password
-        if ($request->filled('old_password') && $request->filled('new_password')) {
-            // if (!Hash::check($request->old_password, $user->password)) {
-            //     return redirect()->back()->withErrors(['old_password' => 'Kata sandi lama tidak cocok.']);
-            // }
-
+        if ($request->filled('new_password')) {
             $validator = Validator::make($request->only('new_password', 'new_password_confirmation'), [
                 'new_password' => 'min:8|confirmed',
             ], [
                 'new_password.min' => 'Password baru harus memiliki panjang minimal 8 karakter.',
                 'new_password.confirmed' => 'Konfirmasi password baru tidak cocok dengan password baru.',
             ]);
-
             if ($validator->fails()) {
                 return redirect()->back()
                     ->withErrors($validator)
                     ->withInput();
             }
-
-            $user->password = Hash::make($request->new_password);
+            if (is_null($user->password)) {
+                $user->password = Hash::make($request->new_password);
+            } else {
+                if ($request->filled('old_password') && !Hash::check($request->old_password, $user->password)) {
+                    return redirect()->back()->withErrors(['old_password' => 'Kata sandi lama tidak cocok.']);
+                }
+                $user->password = Hash::make($request->new_password);
+            }
         }
 
         // Section 3: Update Profile Picture

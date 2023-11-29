@@ -42,7 +42,6 @@ class SocialController extends Controller
                 'name' => $googleUser->name,
                 'email' => $googleUser->getEmail(),
                 'number' => $googleUser->number ?? 'default_number',
-                'password' => bcrypt('12345678'),
                 'profile_picture' => $avatar
             ]);
 

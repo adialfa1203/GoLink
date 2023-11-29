@@ -222,31 +222,20 @@
                                     <div class="card-header isi align-items-xl-center d-xl-flex">
                                         <p class="text-muted flex-grow-1 mb-xl-0"></p>
                                         <div class="flex-shrink-0">
-                                            @if ($user->google_id !== null)
-                                                <ul class="nav nav-pills card-header-pills" role="tablist">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link active fw-bold" data-bs-toggle="tab"
-                                                            href="#developers" role="tab">
-                                                            Profil
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            @else
-                                                <ul class="nav nav-pills card-header-pills" role="tablist">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link active fw-bold" data-bs-toggle="tab"
-                                                            href="#developers" role="tab">
-                                                            Profil
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link fw-bold" data-bs-toggle="tab" href="#designers"
-                                                            role="tab">
-                                                            Kata Sandi
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            @endif
+                                            <ul class="nav nav-pills card-header-pills" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active fw-bold" data-bs-toggle="tab"
+                                                        href="#developers" role="tab">
+                                                        Profil
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link fw-bold" data-bs-toggle="tab" href="#designers"
+                                                        role="tab">
+                                                        Kata Sandi
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div><!-- end card header -->
                                     <div class="card-body">
@@ -295,7 +284,7 @@
                                                                 Telepon</label>
                                                             <input type="number" name="number" class="form-control"
                                                                 value="{{ old('number', $user->number) }}"
-                                                                placeholder="08..." required>
+                                                                placeholder="08...">
                                                         </div>
                                                         <div>
                                                             @if ($errors->has('number'))
@@ -311,27 +300,29 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <!-- Div untuk input kata sandi lama -->
-                                                        <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label tex">Kata
-                                                                sandi lama</label>
-                                                            <div class="position-relative auth-pass-inputgroup mb-3">
-                                                                <input name="old_password" type="password"
-                                                                    class="form-control pe-5 password-input"
-                                                                    placeholder="Kata sandi lama">
-                                                                <button
-                                                                    class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
-                                                                    type="button" id="password-addon">
-                                                                    <i class="ri-eye-fill align-middle"></i>
-                                                                </button>
+                                                        @if ($user->password != null)
+                                                            <div class="mb-3">
+                                                                <label for="phonenumberInput" class="form-label tex">Kata
+                                                                    sandi lama</label>
+                                                                <div class="position-relative auth-pass-inputgroup mb-3">
+                                                                    <input name="old_password" type="password"
+                                                                        class="form-control pe-5 password-input"
+                                                                        placeholder="Kata sandi lama">
+                                                                    <button
+                                                                        class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                                        type="button" id="password-addon">
+                                                                        <i class="ri-eye-fill align-middle"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div>
+                                                                    @if ($errors->has('old_password'))
+                                                                        <span
+                                                                            class="text-danger">{{ $errors->first('old_password') }}</span>
+                                                                    @endif
+                                                                </div>
                                                             </div>
-                                                            <div>
-                                                                @if ($errors->has('old_password'))
-                                                                    <span
-                                                                        class="text-danger">{{ $errors->first('old_password') }}</span>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-
+                                                        @else
+                                                        @endif
                                                         <!-- Div untuk input kata sandi baru -->
                                                         <div class="mb-3">
                                                             <label for="newPassword" class="form-label tex">Kata sandi
