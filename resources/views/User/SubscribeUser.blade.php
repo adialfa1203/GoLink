@@ -102,7 +102,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6" style="color: #0E2954">
-                        <h5 class="card-title mb-0">Riwayat Transaksi Terakhir</h5>
+                        <h5 class="card-title mb-0">Riwayat Transaksi</h5>
                     </div>
                     <div class="col-6 mb-4 d-flex justify-content-end">
                         <a href="{{ url('user/subscribe-product-user') }}" type="button"
