@@ -254,6 +254,43 @@
                                                                 </div>
                                                             </div>
                                                         @endforeach
+                                                        @foreach ($customThemesData as $microsite)
+                                                            <div class="col-xl-4 col-sm-12 mb-4">
+                                                                <div class="card clickable-card"
+                                                                    data-microsite-id="{{ $microsite->id }}"
+                                                                    style="box-shadow: 2px 5px 4px 0px rgba(0, 0, 0, 0.25);">
+                                                                    <div class="text-center">
+                                                                        <strong
+                                                                            class="fs-md text-muted mb-0">{{ $microsite->name }}</strong>
+                                                                    </div>
+                                                                    <div>
+                                                                        <img src="{{ asset('component/' . $microsite->cover_img) }}"
+                                                                            alt=""
+                                                                            class="card-img-top profile-wid-img object-fit-cover"
+                                                                            style="height: 200px;">
+                                                                    </div>
+                                                                    <div class="card-body pt-0 mt-n5">
+                                                                        <div class="text-center">
+                                                                            <div
+                                                                                class="profile-user position-relative d-inline-block mx-auto">
+                                                                                <img src="{{ asset('template/themesbrand.com/steex/layouts/assets/images/users/default.jpg') }}"
+                                                                                    alt=""
+                                                                                    class="avatar-lg rounded-circle object-fit-cover border-0 img-thumbnail user-profile-image">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="text-center mt-3">
+                                                                            <label class="form-check-label">
+                                                                                <input type="radio"
+                                                                                    id="tema{{ $microsite->id }}"
+                                                                                    name="microsite_selection"
+                                                                                    value="{{ $microsite->id }}"
+                                                                                    class="form-check-input visually-hidden">&nbsp;{{ $microsite->component_name }}
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
                                                         @if ($errors->has('microsite_selection'))
                                                             <span
                                                                 class="text-danger text-center">{{ $errors->first('microsite_selection') }}</span>

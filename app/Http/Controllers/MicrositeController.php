@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Helpers\DateHelper;
 use App\Models\Button;
 use App\Models\Components;
+use App\Models\CustomTheme;
 use App\Models\Microsite;
 use App\Models\ShortUrl;
 use App\Models\Social;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 class MicrositeController extends Controller
@@ -73,13 +73,15 @@ class MicrositeController extends Controller
 
         if ($statusSubscribe === 'platinum') {
             $data = Components::all();
+            $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         } else {
             $data = Components::orderBy('created_at', 'asc')->take(3)->get();
+            $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         }
 
         $button = Button::all();
         $micrositeCount = $user->microsites()->count();
-        return view('Microsite.AddMicrosite', compact('user', 'data', 'button', 'micrositeCount'));
+        return view('Microsite.AddMicrosite', compact('user', 'data', 'button', 'micrositeCount', 'customThemesData'));
     }
 
     public function createMicrosite(Request $request, Microsite $microsite)
@@ -115,13 +117,21 @@ class MicrositeController extends Controller
         }
         $link = $request->link_microsite;
         $micrositeStr = str_replace(' ', '-', $link);
-        $data = [
-            'components_uuid' => $request->microsite_selection,
-            'user_id' => auth()->user()->id,
-            'name' => $request->name,
-            'link_microsite' => $micrositeStr,
-        ];
-
+        if ($request->has('components_uuid')) {
+            $data = [
+                'components_uuid' => $request->microsite_selection,
+                'user_id' => $user->id,
+                'name' => $request->name,
+                'link_microsite' => $micrositeStr,
+            ];
+        } else {
+            $data = [
+                'customtheme_uuid' => $request->microsite_selection,
+                'user_id' => $user->id,
+                'name' => $request->name,
+                'link_microsite' => $micrositeStr,
+            ];
+        }
         $selectedComponentId = $request->input('microsite_selection');
         if (empty($selectedComponentId)) {
             return redirect()->back()->with('error', 'Silakan pilih jenis microsite yang sesuai dengan kebutuhan Anda.');
@@ -316,11 +326,14 @@ class MicrositeController extends Controller
         // $profileImageName = time() . '_profile.' . $profileImage->getClientOriginalExtension();
         // $profileImage->move(public_path('component'), $profileImageName);
 
-        $component = Components::create([
+        $user = auth()->user();
+        $component = CustomTheme::create([
+            'user_id' => auth()->user()->id,
             'component_name' => $request->component_name,
             'cover_img' => $coverImageName,
             // 'profile_img' => $profileImageName,
         ]);
+        // dd($component);
         return redirect()->route('add.microsite')->with('success', 'Komponen berhasil disimpan.');
     }
 

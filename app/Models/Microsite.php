@@ -34,6 +34,10 @@ class Microsite extends Model
     {
         return $this->belongsTo(Components::class, 'components_uuid', 'id');
     }
+    public function customtheme(): BelongsTo
+    {
+        return $this->belongsTo(CustomTheme::class, 'customtheme_uuid', 'id');
+    }
 
     public function user(): BelongsTo
     {

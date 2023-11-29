@@ -58,22 +58,28 @@
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
 
         }
+
         .youtube {
             background: #FF0000;
         }
+
         .youtube:hover {
             background: #FF0000;
         }
-        .olshop{
+
+        .olshop {
             background-color: #FF9130;
         }
+
         .olshop:hover {
             background-color: #FF9130;
         }
-        .page-content{
+
+        .page-content {
             padding: 13px;
         }
-        body{
+
+        body {
             overflow: hidden;
         }
     </style>
@@ -86,9 +92,17 @@
                 <div class="card real-estate-grid-widgets card-animate">
                     <div class="card overflow-hidden">
                         <div>
-                            <img src="{{ asset('component/' . $accessMicrosite->component->cover_img) }}" alt=""
-                                class="card-img-top profile-wid-img object-fit-cover" style="height: 200px;">
+                            @if ($accessMicrosite->component)
+                                <img src="{{ asset('component/' . $accessMicrosite->component->cover_img) }}"
+                                    alt="" class="card-img-top profile-wid-img object-fit-cover"
+                                    style="height: 200px;">
+                            @else
+                                <img src="{{ asset('component/' . $accessMicrosite->customtheme->cover_img) }}"
+                                    alt="" class="card-img-top profile-wid-img object-fit-cover"
+                                    style="height: 200px;">
+                            @endif
                         </div>
+
                         <div class="card-body pt-0 mt-n5">
                             <div class="text-center">
                                 <div class="profile-user position-relative d-inline-block mx-auto">

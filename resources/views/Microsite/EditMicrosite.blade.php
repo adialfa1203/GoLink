@@ -393,8 +393,9 @@
                         style="box-shadow: 2px 5px 4px 0px rgba(0, 0, 0, 0.25);">
                         <div class="card overflow-hidden">
                             <div>
-                                <img src="{{ asset('component/' . $microsite->component->cover_img) }}" alt=""
-                                    class="card-img-top profile-wid-img object-fit-cover" style="height: 200px;">
+                                <img src="{{ asset('component/' . ($microsite->components_uuid ? $microsite->component->cover_img : $microsite->customtheme->cover_img)) }}"
+                                    alt="" class="card-img-top profile-wid-img object-fit-cover"
+                                    style="height: 200px;">
                             </div>
                             <div class="card-body pt-0 mt-n5">
                                 <div class="text-center">
@@ -419,7 +420,8 @@
                                         @endif
                                     </div>
                                     <div class="mt-3">
-                                        <h5>{{ isset($microsite->name_microsite) ? $microsite->name_microsite : 'Nama Anda' }}<i class="align-baseline text-info ms-1"></i></h5>
+                                        <h5>{{ isset($microsite->name_microsite) ? $microsite->name_microsite : 'Nama Anda' }}<i
+                                                class="align-baseline text-info ms-1"></i></h5>
                                         <p class="text-black">{!! isset($microsite->description) ? $microsite->description : 'Deskripsi Anda' !!}</p>
                                     </div>
                                 </div>
@@ -480,10 +482,14 @@
                                 <div class="card card-body text-center">
                                     <h4 type="button" class="card-title" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFour" aria-expanded="false"
-                                        aria-controls="collapseFour">{{ isset($microsite->company_name) ? $microsite->company_name : 'Nama Perusahaan Anda' }}</h4>
+                                        aria-controls="collapseFour">
+                                        {{ isset($microsite->company_name) ? $microsite->company_name : 'Nama Perusahaan Anda' }}
+                                    </h4>
                                     <p type="button" class="card-text text-black" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFive" aria-expanded="false"
-                                        aria-controls="collapseFive">{{ isset($microsite->company_address) ? $microsite->company_address : 'Alamat Perusahaan Anda' }}</p>
+                                        aria-controls="collapseFive">
+                                        {{ isset($microsite->company_address) ? $microsite->company_address : 'Alamat Perusahaan Anda' }}
+                                    </p>
                                 </div>
                             </div>
                         </div><!--end card-->
@@ -495,15 +501,15 @@
 @endsection
 
 @section('script')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script>
-   $(document).ready(function() {
+        $(document).ready(function() {
             $('#editor').summernote({
                 toolbar: [
-    // [groupName, [list of button]]
-    ['style', ['bold', 'italic', 'underline', 'clear']],
-    ['height', ['height']]
-  ]
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['height', ['height']]
+                ]
 
             });
         });
