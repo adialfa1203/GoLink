@@ -57,7 +57,7 @@
                 <tr>
                     <td style="width: 50%;">
                         <h5 class="rata" style="color: #088C0D;margin-bottom: 0;font-weight: bold;">
-                        <i class="ri-checkbox-circle-fill text-success"></i>
+                            <img src="template/image/icon.png" alt="" srcset="">
                             Transaksi Berhasil
                         </h5>
                     </td>
