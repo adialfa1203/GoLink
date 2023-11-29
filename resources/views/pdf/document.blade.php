@@ -21,9 +21,6 @@
 <body>
     <div class="container mt-5">
         <div class="card" style="background-color: #F0F0F0;">
-            <center>
-                <img src="{{ asset('template/image/milink-gelap.png') }}" alt="" width="40%" height="30%" style="padding: 22px;">
-            </center>
             <div class="row" style="padding: 30px;">
                 <div class="row">
                     <div class="col-6">

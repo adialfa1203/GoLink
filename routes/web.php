@@ -112,7 +112,7 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'preventBackHistory', '
         // //search
         // Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-        Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
+        Route::get('/transaction-pdf', [PDFController::class, 'generatePDF'])->name('generate.pdf');
 
         //Dashboard
         Route::get('/dashboard-user', [DahsboardController::class, 'dashboardUser'])->name('dashboard.user');

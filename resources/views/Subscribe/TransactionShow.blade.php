@@ -129,17 +129,17 @@
                                     </div>
 
 
-                                    @if ($transaction->status == 'PAID')
+                                    {{-- @if ($transaction->status == 'PAID') --}}
                                         <button type="button" class="btn col-10 mt-2"
                                             style="background-color: #0E2954;color: #fff;" data-bs-toggle="modal"
                                             data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button>
-                                    @else
+                                    {{-- @else --}}
                                         <a href="{{ route('transaction.delete', ['reference' => $transaction->reference]) }}"
                                             class="btn col-10 mt-2" style="background-color: #ff2323; color: #fff;"
                                             onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}');">
                                             Batalkan
                                         </a>
-                                    @endif
+                                    {{-- @endif --}}
                                 </center>
                                 <div id="pembayaran" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel"
                                     aria-hidden="true" style="display: none;">
@@ -261,8 +261,9 @@
                                                     </div>
                                                 </div>
                                                 <button type="button" class="btn mt-2"
-                                                    style="width:100%;background-color: #0E2954;color: #fff;"
-                                                    data-bs-toggle="modal" data-bs-target="#pembayaran">
+                                                style="width:100%;background-color: #0E2954;color: #fff;"
+                                                data-bs-toggle="modal" data-bs-target="#pembayaran"
+                                                onclick="printReceipt()">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24"
                                                         viewBox="0 0 23 24" fill="none">
                                                         <path
@@ -287,7 +288,7 @@
                                                             d="M5.25066 9H5.11208C4.90421 9 4.76562 9.13858 4.76562 9.34646C4.76562 9.55433 4.90421 9.69291 5.11208 9.69291H5.25066C5.45854 9.69291 5.59712 9.55433 5.59712 9.34646C5.59712 9.13858 5.45854 9 5.25066 9Z"
                                                             fill="white" />
                                                     </svg>
-                                                    <a href="{{url('user/generate-pdf')}}">Cetak Bukti Pembayaran</a>
+                                                    Cetak Bukti Pembayaran
                                                 </button>
                                             </div>
                                         </div><!-- /.modal-content -->
@@ -461,23 +462,28 @@
     </div>
 @endsection
 @section('script')
-    <script>
-        function confirmDelete(reference) {
-            Swal.fire({
-                title: 'Konfirmasi',
-                text: 'Apakah Anda yakin ingin membatalkan transaksi ini?',
-                icon: 'info',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Ya',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '{{ url('user/back/') }}/' + reference;
-                }
-            });
-        }
-    </script>
+<script>
+    function confirmDelete(reference) {
+        Swal.fire({
+            title: 'Konfirmasi',
+            text: 'Apakah Anda yakin ingin membatalkan transaksi ini?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Kembali'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '{{ url('user/back/') }}/' + reference;
+            }
+        });
+    }
+ </script>
+ <script>
+    function printReceipt() {
+        window.open('/user/transaction-pdf', '_blank');
+    }
+</script>
+
 
 @endsection
