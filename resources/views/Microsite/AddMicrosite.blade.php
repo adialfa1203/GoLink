@@ -211,10 +211,21 @@
                                             <div class="tab-content">
                                                 <div class="tab-pane fade show active" id="v-pills-bill-info"
                                                     role="tabpanel" aria-labelledby="v-pills-bill-info-tab">
-                                                    <div>
-                                                        <h5>Jenis Microsite</h5>
-                                                        <p class="text-muted">Pilih jenis microsite yang cocok dengan
-                                                            kebutuhan Anda!</p>
+                                                    <div class="d-flex">
+                                                        <div class="col-12 col-md-6">
+                                                            <h5>Jenis Microsite</h5>
+                                                            <p class="text-muted">Pilih jenis microsite yang cocok dengan
+                                                                kebutuhan Anda!</p>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 text-end">
+                                                            <button type="button" class="btn btn-label"
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                style="font-size: 13px; background-color: #0E2954; color: #fff;">
+                                                                <i
+                                                                    class="ri-add-line label-icon align-middle fs-lg me-2"></i>Kustom
+                                                                Tema
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                     <div class="row g-2">
                                                         @foreach ($data as $microsite)
@@ -296,17 +307,11 @@
                                                                 class="text-danger text-center">{{ $errors->first('microsite_selection') }}</span>
                                                         @endif
                                                     </div>
-                                                    <div class="d-flex align-items-start gap-3 mt-4">
-                                                        <div class="col-6 col-md-6">
-                                                            <button type="button"
-                                                                class="btn btn-label" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                style="font-size: 13px; background-color: #0E2954; color: #fff;"><i
-                                                                    class="ri-add-line label-icon align-middle fs-lg me-2"></i>Kustom Tema</button>
-                                                        </div>
-                                                        <div class="col-6 col-md-6" style="margin-left: -8px;">
+                                                    <div class="d-flex align-items-start gap-3 mb-3 mt-4">
+                                                        <div class="col-12 col-md-12" style="margin-left: -8px;">
                                                             <button type="button"
                                                                 class="btn btn-label right ms-auto nexttab nexttab"
-                                                                data-nexttab="v-pills-payment-tab"
+                                                                data-nexttab="v-pills-bill-address-tab"
                                                                 style="float: right; background: #088C0D; color: #FFF;"><i
                                                                     class="ri-arrow-right-line label-icon align-middle fs-lg ms-2"></i>Selanjutnya</button>
                                                         </div>
@@ -318,7 +323,8 @@
                                                     aria-labelledby="v-pills-bill-address-tab">
                                                     <div>
                                                         <h5>Pilih Nama</h5>
-                                                        <p class="text-muted">Buat nama dan link sesuai keinginan Anda!</p>
+                                                        <p class="text-muted">Buat nama dan link sesuai keinginan Anda!
+                                                        </p>
                                                     </div>
                                                     <div>
                                                         <div class="row g-2">
@@ -360,7 +366,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="d-flex align-items-start gap-3 mt-4">
+                                                    <div class="d-flex align-items-start gap-3 mb-3 mt-4">
                                                         <div class="col-6 col-md-6">
                                                             <button type="button"
                                                                 class="btn btn-outline-danger btn-sm previestab"
@@ -383,7 +389,8 @@
                                                     aria-labelledby="v-pills-payment-tab">
                                                     <div>
                                                         <h5>Sosial Media</h5>
-                                                        <p class="text-muted">Pilih sosial media yang sering anda gunakan!
+                                                        <p class="text-muted">Pilih sosial media yang sering anda
+                                                            gunakan!
                                                         </p>
                                                     </div>
                                                     <div class="row">
@@ -529,7 +536,7 @@
                                                             </div>
                                                         @endforeach
                                                     </div>
-                                                    <div class="d-flex align-items-start gap-3 mt-4">
+                                                    <div class="d-flex align-items-start gap-3 mb-3 mt-4">
                                                         <button type="button"
                                                             class="btn btn-outline-danger btn-sm previestab"
                                                             data-previous="v-pills-bill-address-tab"
@@ -647,7 +654,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
-         document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const imageInput = document.getElementById('profile-foreground-img-file-input');
             const previewImage = document.getElementById('data-img');
 
