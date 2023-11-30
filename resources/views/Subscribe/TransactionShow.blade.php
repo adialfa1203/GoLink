@@ -263,7 +263,7 @@
                                                 <button type="button" class="btn mt-2"
                                                 style="width:100%;background-color: #0E2954;color: #fff;"
                                                 data-bs-toggle="modal" data-bs-target="#pembayaran"
-                                                onclick="printReceipt()">
+                                                onclick="printReceipt('{{ $transaction->reference }}')">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24"
                                                         viewBox="0 0 23 24" fill="none">
                                                         <path
@@ -480,9 +480,11 @@
     }
  </script>
  <script>
-    function printReceipt() {
-        window.open('/user/transaction-pdf', '_blank');
-    }
+     function printReceipt(reference) {
+    // Assuming you have the 'reference' variable available
+    window.open('/user/transaction-pdf/' + reference, '_blank');
+}
+
 </script>
 
 

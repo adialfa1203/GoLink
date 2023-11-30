@@ -62,7 +62,7 @@
                         </h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="font-weight:bold; margin-bottom: 0;">Bni</h5>
+                        <h5 class="rata1" style="font-weight:bold; margin-bottom: 0;"> {{ $detailTransaction->data->payment_method }}</h5>
                     </td>
                 </tr>
             </table>
@@ -81,7 +81,7 @@
                         <h5 class="rata" style="font-weight: bold;">Total Bayar</h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="font-weight: bold;">Rp</h5>
+                        <h5 class="rata1" style="font-weight: bold;">Rp.{{ number_format($detailTransaction->data->amount, 2, ',', '.') }}</h5>
                     </td>
                 </tr>
                 <tr>
@@ -89,7 +89,7 @@
                         <h5 class="rata">Harga </h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1">Rp</h5>
+                        <h5 class="rata1">Rp.{{ $detailTransaction->data->order_items[0]->price }}</h5>
                     </td>
                 </tr>
                 <tr>
@@ -97,7 +97,7 @@
                         <h5 class="rata" style="margin-bottom: 0">Biaya Admin</h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="margin-bottom: 0">Rp</h5>
+                        <h5 class="rata1" style="margin-bottom: 0"> Rp.{{ number_format($detailTransaction->data->total_fee, 2, ',', '.') }}</h5>
                     </td>
                 </tr>
             </table>
@@ -113,7 +113,7 @@
                         <h5 class="rata">Nama</h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1">Rp</h5>
+                        <h5 class="rata1">{{ $detailTransaction->data->customer_name }}</h5>
                     </td>
                 </tr>
                 <tr>
@@ -121,7 +121,7 @@
                         <h5 class="rata">Berlangganan</h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1">Rp</h5>
+                        <h5 class="rata1">{{ $detailTransaction->data->order_items[0]->name }}</h5>
                     </td>
                 </tr>
                 <tr>
@@ -129,7 +129,7 @@
                         <h5 class="rata">Nomor Telepon </h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1">Rp</h5>
+                        <h5 class="rata1">{{ $detailTransaction->data->customer_phone }}</h5>
                     </td>
                 </tr>
                 <tr>
@@ -137,7 +137,7 @@
                         <h5 class="rata" style="margin-bottom: 0">Referensi</h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="margin-bottom: 0">Rp</h5>
+                        <h5 class="rata1" style="margin-bottom: 0">{{ $detailTransaction->data->reference }}</h5>
                     </td>
                 </tr>
             </table>
