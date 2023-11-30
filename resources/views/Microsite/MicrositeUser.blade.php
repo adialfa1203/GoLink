@@ -3,9 +3,10 @@
 
 @section('style')
     <style>
-          .page-content{
+        .page-content {
             overflow-x: hidden;
-          }
+        }
+
         .custom-alert {
             display: none;
             position: absolute;
@@ -66,60 +67,24 @@
             border-radius: 50%;
             /* Membuat huruf menjadi lingkaran */
         }
-
-
-        /* Tampilkan teks hanya di perangkat selain seluler */
-        @media (min-width: 576px) {
-            .square-button .btn-text {
-                display: inline-block;
-                margin-left: 10px;
-                /* Atur jarak antara ikon dan teks jika diperlukan */
-            }
-        }
-
-        /* Sembunyikan teks di perangkat seluler */
-        @media (max-width: 575px) {
-            .square-button .btn-text {
-                display: none;
-            }
-
-            /* Tampilkan teks hanya di perangkat selain seluler */
-            .square-button {
-                width: 20px;
-                /* Ubah lebar sesuai kebutuhan Anda */
-                height: 40px;
-                /* Ubah tinggi sesuai kebutuhan Anda */
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                /* Tambahkan ini */
-            }
-            .button{
-                width: 70px;
-                height: 40px;
-                font-size: 10px;
-            }
-            .btn-subtle-primary{
-                width: 122px;
-                height: 40px;
-                font-size: 10px;
-
-            }
-        }
     </style>
     <style>
         /* Gaya CSS untuk tampilan hp */
         @media (max-width: 576px) {
+            .mesm4 {
+                margin-right: 1.5rem !important;
+            }
+
             .search-box {
-                width: 100%; /* Lebar 100% untuk tampilan hp */
-                margin-top: 10px; /* Spasi atas untuk tampilan hp */
+                width: 100%;
+                /* Lebar 100% untuk tampilan hp */
+                margin-top: 10px;
+                /* Spasi atas untuk tampilan hp */
             }
         }
-
     </style>
     <style>
-        .page-content{
+        .page-content {
             background: #ffffff !important;
         }
     </style>
@@ -132,7 +97,7 @@
             <!-- start page title -->
             <div class="d-flex flex-column flex-sm-row">
                 <div class="col-12 col-sm-4">
-                {{-- <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    {{-- <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0">Microsite</h4>
                     </div> --}}
                 </div>
@@ -147,22 +112,26 @@
             </div>
             <!-- end page title -->
 
-            <div class="row">
-                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10 col-10 mb-2">
-                    <button type="button" class="btn btn-subtle-primary active-hover" style="background-color: #104898; color:#fff;" id="semuaButton">Semua</button>
-                    <button type="button" class="btn btn-subtle-primary" style="background-color: #2F5EA2; color:#fff;" id="showAdditionalData"
-                    onclick="filterTerakhirDiperbarui()">Terakhir Diperbarui</button>
-               </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2 col-2 mb-2">
-                    <div class="hstack gap-2 justify-content-end">
+            <div class="d-flex flex-column flex-md-row">
+                <div class="col-md-8 col-sm-12 mb-2 d-flex">
+                    <button type="button" class="btn btn-subtle-primary col-5 col-sm-auto me-2 mesm4 active-hover"
+                        style="background-color: #104898; color:#fff;" id="semuaButton">Semua</button>
+                    <button type="button" class="btn btn-subtle-primary col-6 col-sm-auto"
+                        style="background-color: #2F5EA2; color:#fff;" id="showAdditionalData"
+                        onclick="filterTerakhirDiperbarui()">Terakhir Diperbarui</button>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-2">
+                    <div class="hstack gap-2 justify-content-md-end justify-content-center">
                         <a href="{{ route('add.microsite') }}" type="button"
-                            class="btn btn-label square-button" style="background-color: #088C0D">
+                            class="btn btn-label col-12 col-sm-auto square-button" style="background-color: #088C0D">
                             <i class="ri-add-line label-icon align-middle fs-lg icon-color" style="color: white;"></i>
                             <span class="btn-text square-button" style="color: #ffffff;">Buat Microsite</span>
                         </a>
                     </div>
                 </div>
-            </div><br>
+            </div>
+
+            <br>
             @php
                 $i = 0;
             @endphp
@@ -182,7 +151,9 @@
                                 $i++;
                             @endphp
                             <div class="">
-                                <div class="card card-body" style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);" id="searchResults">
+                                <div class="card card-body"
+                                    style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);"
+                                    id="searchResults">
                                     <div class="wrapper row  align-items-center">
                                         <div class="avatar-md col-xl-1 col-lg-1 col-md-1 col-sm-1 col-12">
                                             <div class="avatar-title">
@@ -208,19 +179,21 @@
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-8 col-sm-6 col-12" style="float: right ;">
                                             <div class="" style="float: right;">
-                                                <button type="button" class="btn btn-sm" style="background-color: #0E2954; color:#fff;" data-bs-toggle="collapse"
-                                                    href="#collapseExample{{ $row->id }}" role="button" aria-expanded="true"
-                                                    aria-controls="collapseExample{{ $row->id }}">
+                                                <button type="button" class="btn btn-sm"
+                                                    style="background-color: #0E2954; color:#fff;" data-bs-toggle="collapse"
+                                                    href="#collapseExample{{ $row->id }}" role="button"
+                                                    aria-expanded="true" aria-controls="collapseExample{{ $row->id }}">
                                                     <i class="bi bi-bar-chart-fill icon-color"></i> statistik
                                                 </button>
                                                 {{-- @dd($row) --}}
                                                 <a href="{{ route('edit.microsite', ['id' => $row->id]) }}"
-                                                    class="btn btn-sm" style="background-color: #0E2954; color:#fff;"><i class="bi bi-pencil-square icon-color"></i>
+                                                    class="btn btn-sm" style="background-color: #0E2954; color:#fff;"><i
+                                                        class="bi bi-pencil-square icon-color"></i>
                                                     Edit</a>
-                                                <button type="button" id="button-email" class="btn me-3 btn-sm" style="background-color: #0E2954; color:#fff;"
-                                                    data-bs-toggle="modal" data-bs-target="#bagikan{{ $i }}"
-                                                    aria-haspopup="true" aria-expanded="false"><i
-                                                        class="fa-solid fa-share-nodes icon-color"></i>
+                                                <button type="button" id="button-email" class="btn me-3 btn-sm"
+                                                    style="background-color: #0E2954; color:#fff;" data-bs-toggle="modal"
+                                                    data-bs-target="#bagikan{{ $i }}" aria-haspopup="true"
+                                                    aria-expanded="false"><i class="fa-solid fa-share-nodes icon-color"></i>
                                                     &nbsp;Bagikan</button>
                                                 <!-- Modal bagikan -->
                                                 <div class="modal fade" id="bagikan{{ $i }}" tabindex="-1"
@@ -340,45 +313,46 @@
                     @endforeach
                 @endif
                 @if ($d->total() > 0)
-                <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
-                    <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}"
-                        href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
-                        Sebelumnya
-                    </a>
-                    <ul class="pagination listjs-pagination mb-0">
-                        @if ($d->currentPage() > 2)
-                            <li>
-                                <a class="page" href="{{ $d->url(1) }}">1</a>
-                            </li>
-                            @if ($d->currentPage() > 3)
-                                <li class="ellipsis">
-                                    <span>...</span>
+                    <div class="pagination-wrap hstack justify-content-center gap-2 mb-3">
+                        <a class="page-item pagination-prev {{ $d->previousPageUrl() ? '' : 'disabled' }}"
+                            href="{{ $d->previousPageUrl() ? $d->previousPageUrl() : '#' }}">
+                            Sebelumnya
+                        </a>
+                        <ul class="pagination listjs-pagination mb-0">
+                            @if ($d->currentPage() > 2)
+                                <li>
+                                    <a class="page" href="{{ $d->url(1) }}">1</a>
+                                </li>
+                                @if ($d->currentPage() > 3)
+                                    <li class="ellipsis">
+                                        <span>...</span>
+                                    </li>
+                                @endif
+                            @endif
+
+                            @for ($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
+                                <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
+                                    <a class="page" href="{{ $d->url($i) }}"
+                                        data-i="{{ $i }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+
+                            @if ($d->currentPage() < $d->lastPage() - 1)
+                                @if ($d->currentPage() < $d->lastPage() - 2)
+                                    <li class="ellipsis">
+                                        <span>...</span>
+                                    </li>
+                                @endif
+                                <li>
+                                    <a class="page" href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
                                 </li>
                             @endif
-                        @endif
-
-                        @for ($i = max(1, $d->currentPage() - 1); $i <= min($d->lastPage(), $d->currentPage() + 1); $i++)
-                            <li class="{{ $i == $d->currentPage() ? 'active' : '' }}">
-                                <a class="page" href="{{ $d->url($i) }}" data-i="{{ $i }}">{{ $i }}</a>
-                            </li>
-                        @endfor
-
-                        @if ($d->currentPage() < $d->lastPage() - 1)
-                            @if ($d->currentPage() < $d->lastPage() - 2)
-                                <li class="ellipsis">
-                                    <span>...</span>
-                                </li>
-                            @endif
-                            <li>
-                                <a class="page" href="{{ $d->url($d->lastPage()) }}">{{ $d->lastPage() }}</a>
-                            </li>
-                        @endif
-                    </ul>
-                    <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}"
-                        href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
-                        Selanjutnya
-                    </a>
-                </div>
+                        </ul>
+                        <a class="page-item pagination-next {{ $d->nextPageUrl() ? '' : 'disabled' }}"
+                            href="{{ $d->nextPageUrl() ? $d->nextPageUrl() : '#' }}">
+                            Selanjutnya
+                        </a>
+                    </div>
                 @endif
             </div>
         </div>
@@ -505,10 +479,10 @@
                     break;
                     // case "copy":
                     //     var copyText = $(this).data('url')
-                //
+                    //
                     //     try {
                     //         navigator.clipboard.writeText(copyText);
-                //
+                    //
                     //     } catch (err) {
                     //         console.error('Failed to copy: ', err);
                     //         alert('gagal ' + err)
@@ -591,8 +565,7 @@
                     data: {
                         button_id: buttonId
                     },
-                    success: function(response) {
-                    },
+                    success: function(response) {},
                     error: function(xhr, status, error) {
                         console.error(error);
                     }

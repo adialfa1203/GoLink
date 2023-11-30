@@ -711,7 +711,7 @@
                 return;
             }
 
-            const regexPattern = /^[a-zA-Z0-9](?:[a-zA-Z0-9\s-]*[a-zA-Z0-9])?$/;
+            const regexPattern = /^[\s]*[a-zA-Z0-9\s-]+[a-zA-Z0-9\s-]*[\s]*$/;
 
             if (!regexPattern.test(linkMicrosite)) {
                 linkMicrositeError.textContent =
@@ -803,7 +803,7 @@
                 if (linkMicrosite_val === '') {
                     errorMessage += 'Link microsite harus diisi. ';
                 } else {
-                    var regexPattern = /^[a-zA-Z0-9](?:[a-zA-Z0-9\s-]*[a-zA-Z0-9])?$/;
+                    var regexPattern = /^[\s]*[a-zA-Z0-9\s-]+[a-zA-Z0-9\s-]*[\s]*$/;
 
                     if (!regexPattern.test(linkMicrosite_val)) {
                         errorMessage +=

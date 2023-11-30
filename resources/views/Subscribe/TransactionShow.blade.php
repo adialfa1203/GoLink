@@ -261,9 +261,9 @@
                                                     </div>
                                                 </div>
                                                 <button type="button" class="btn mt-2"
-                                                style="width:100%;background-color: #0E2954;color: #fff;"
-                                                data-bs-toggle="modal" data-bs-target="#pembayaran"
-                                                onclick="printReceipt('{{ $transaction->reference }}')">
+                                                    style="width:100%;background-color: #0E2954;color: #fff;"
+                                                    data-bs-toggle="modal" data-bs-target="#pembayaran"
+                                                    onclick="printReceipt('{{ $transaction->reference }}')">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24"
                                                         viewBox="0 0 23 24" fill="none">
                                                         <path
@@ -462,30 +462,30 @@
     </div>
 @endsection
 @section('script')
-<script>
-    function confirmDelete(reference) {
-        Swal.fire({
-            title: 'Konfirmasi',
-            text: 'Apakah Anda yakin ingin membatalkan transaksi ini?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Kembali'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = '{{ url('user/back/') }}/' + reference;
-            }
-        });
-    }
- </script>
- <script>
-     function printReceipt(reference) {
-    // Assuming you have the 'reference' variable available
-    window.open('/user/transaction-pdf/' + reference, '_blank');
-}
-
-</script>
+    <script>
+        function confirmDelete(reference) {
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Apakah Anda yakin ingin membatalkan transaksi ini?',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ url('user/back/') }}/' + reference;
+                }
+            });
+        }
+    </script>
+    <script>
+        function printReceipt(reference) {
+            // Assuming you have the 'reference' variable available
+            window.open('/user/transaction-pdf/' + reference, '_blank');
+        }
+    </script>
 
 
 @endsection

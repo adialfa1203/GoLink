@@ -106,7 +106,7 @@ class MicrositeController extends Controller
         ], [
             'microsite_selection' => 'Pilih setidaknya satu Tema pada jenis microsite.',
             'name.max' => 'Nama Microsite tidak boleh lebih dari 35 karakter',
-            'name.max' => 'Nama microsite tidak valid atau mengandung kata terlarang!',
+            'name.regex' => 'Nama microsite tidak valid atau mengandung kata terlarang!',
             'link_microsite.required' => 'Link microsite harus diisi!',
             'link_microsite.regex' => 'Link microsite tidak valid atau mengandung kata terlarang!',
         ]);
