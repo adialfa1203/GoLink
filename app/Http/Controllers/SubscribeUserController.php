@@ -27,7 +27,9 @@ class SubscribeUserController extends Controller
     public function subscribeUser()
     {
         $userId = auth()->user()->id;
+        $transaction = Transaction::where('user_id', $userId)->get();
         $data = Transaction::where('user_id', $userId)->paginate(10);
+        // dd($transaction);
         return view('User.SubscribeUser', compact('data'));
     }
 
@@ -59,6 +61,7 @@ class SubscribeUserController extends Controller
         $method = $request->method;
 
         $tripay = new TripayController();
+        // dd($method);
 
         $transaction = $tripay->requestTransaction($method, $subscribe);
         $data = json_decode($transaction);
@@ -70,7 +73,7 @@ class SubscribeUserController extends Controller
             'expired' => Carbon::parse($data->expired_time)->format('Y-m-d'),
             'amount' => $data->amount,
             'fee_amount' => $data->total_fee,
-            'payment_method' => $data->payment_method,
+            'payment_method' => $method
         ]);
 
         $transaction = json_decode($transaction);

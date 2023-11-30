@@ -31,14 +31,12 @@ class PDFController extends Controller
     {
         $data = User::all();
         $detailTransaction = $this->service->detail($reference);
+        // dd($detailTransaction);
         $detailTransaction = json_decode($detailTransaction);
         $transaction = Transaction::where('reference', $reference)
             ->with('subscribe')->first();
-// dd($detailTransaction);
-        // Pass $data and $detailTransaction to the view
         $pdf = PDF::loadView('pdf.document', ['data' => $data, 'detailTransaction' => $detailTransaction]);
 
-        return $pdf->download('transaction.pdf');
-
+        return $pdf->download('Transaction' . $reference . '.pdf');
     }
 }
