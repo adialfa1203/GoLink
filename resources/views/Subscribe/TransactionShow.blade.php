@@ -129,17 +129,17 @@
                                     </div>
 
 
-                                    {{-- @if ($transaction->status == 'PAID') --}}
+                                    @if ($transaction->status == 'PAID')
                                         <button type="button" class="btn col-10 mt-2"
                                             style="background-color: #0E2954;color: #fff;" data-bs-toggle="modal"
                                             data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button>
-                                    {{-- @else --}}
+                                    @else
                                         <a href="{{ route('transaction.delete', ['reference' => $transaction->reference]) }}"
                                             class="btn col-10 mt-2" style="background-color: #ff2323; color: #fff;"
                                             onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}');">
                                             Batalkan
                                         </a>
-                                    {{-- @endif --}}
+                                    @endif
                                 </center>
                                 <div id="pembayaran" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel"
                                     aria-hidden="true" style="display: none;">

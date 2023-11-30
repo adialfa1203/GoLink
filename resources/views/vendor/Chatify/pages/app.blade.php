@@ -22,7 +22,7 @@
                 </a>
                 {{-- header buttons --}}
                 <nav class="m-header-right">
-                    <a type="button"><i class="fas fa-cog settings-btn"></i></a>
+                    {{-- <a type="button"><i class="fas fa-cog settings-btn"></i></a> --}}
                     <a type="button" class="listView-x"><i class="fas fa-times"></i></a>
                 </nav>
             </nav>
@@ -56,7 +56,7 @@
                 {{-- items --}}
                 <p class="messenger-title"><span>Cari</span></p>
                 <div class="search-records">
-                    <p class="message-hint center-el"><span>Ketik untuk mennnnncari..</span></p>
+                    <p class="message-hint center-el"><span>Ketik untuk mencari..</span></p>
                 </div>
             </div>
         </div>
@@ -77,8 +77,8 @@
                 </div>
                 {{-- header buttons --}}
                 <nav class="m-header-right">
-                    <!-- <a type="button" class="add-to-favorite"><i class="fas fa-star"></i></a> -->
-                    <a type="button" onclick="goBack()"><i class="fas fa-home"></i></a>
+                    <a type="button" class="add-to-favorite"><i class="fas fa-star"></i></a>
+                    {{-- <a type="button" onclick="goBack()"><i class="fas fa-home"></i></a> --}}
                     <a type="button" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                 </nav>
             </nav>
