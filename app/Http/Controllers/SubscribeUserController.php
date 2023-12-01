@@ -47,10 +47,8 @@ class SubscribeUserController extends Controller
 
         $tripay = new TripayController();
         $channels = $tripay->getPaymentChannels();
-        dd($channels);
         $tax = $subscribe->price * 0.11;
         $totalPrice = $subscribe->price + $tax;
-        // dd($subscribe);
         return view('Subscribe.CheckoutProduct', compact('subscribe', 'channels', 'tripay', 'tax', 'totalPrice'));
     }
 
@@ -61,7 +59,6 @@ class SubscribeUserController extends Controller
         $method = $request->method;
 
         $tripay = new TripayController();
-        // dd($method);
 
         $transaction = $tripay->requestTransaction($method, $subscribe);
         $data = json_decode($transaction);

@@ -84,8 +84,6 @@ class TripayController extends Controller
 
         curl_close($curl);
 
-        // dd($response);
-
         return $response ? $response : $error;
     }
 
