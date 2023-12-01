@@ -62,6 +62,7 @@ class SubscribeUserController extends Controller
 
         $transaction = $tripay->requestTransaction($method, $subscribe);
         $data = json_decode($transaction);
+        dd($data);
         $data = $data->data;
         Transaction::query()->create([
             'user_id' => auth()->user()->id,
