@@ -47,7 +47,6 @@ class SubscribeUserController extends Controller
 
         $tripay = new TripayController();
         $channels = $tripay->getPaymentChannels();
-        dd($channels);
         $tax = $subscribe->price * 0.11;
         $totalPrice = $subscribe->price + $tax;
         return view('Subscribe.CheckoutProduct', compact('subscribe', 'channels', 'tripay', 'tax', 'totalPrice'));
