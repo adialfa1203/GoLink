@@ -1,142 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+APP_TIMEZONE=Asia/Jakarta
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:xGOPLGKxuUhgAyUemtVOGjbi0jvff+wBKG9UIR10VMI=
+APP_DEBUG=true
+APP_URL=http://milink.id
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .rata {
-            text-align: left;
-            margin-top: 0;
-            font-family: sans-serif;
-            font-weight: lighter;
-        }
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
 
-        .rata1 {
-            text-align: right;
-            margin-top: 0;
-            font-family: sans-serif;
-            font-weight: lighter;
-        }
-        @media print {
-        body {
-            margin: 0;
-            padding: 0;
-        }
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_DATABASE=u752471078_milink
+DB_USERNAME=u752471078_milink
+DB_PASSWORD=Milinkaja!1
 
-        .print-container {
-            width: 100%;
-            margin: 1cm; /* Adjust margins as needed */
-        }
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
 
-        .rata svg {
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 5px; /* Adjust spacing between the SVG and text */
+MEMCACHED_HOST=127.0.0.1
 
-        }}
-    </style>
-</head>
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
 
-<body>
-    <div class="container mt-5">
-        <div class="card" style="background-color: #F0F0F0;padding: 30px; ">
-            <table class="table" style=" width: 100%;">
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata" style="color: #088C0D;margin-bottom: 0;font-weight: bold;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                    <path d="M14 6.70096C14 10.4018 10.866 13.4019 7 13.4019C3.134 13.4019 0 10.4018 0 6.70096C0 3.00011 3.134 0 7 0C10.866 0 14 3.00011 14 6.70096ZM6.19031 10.2491L11.3839 5.27738C11.5602 5.10856 11.5602 4.83482 11.3839 4.666L10.7452 4.05462C10.5688 3.88577 10.2829 3.88577 10.1065 4.05462L5.87097 8.10919L3.8935 6.21619C3.71714 6.04737 3.43119 6.04737 3.2548 6.21619L2.61614 6.82758C2.43978 6.9964 2.43978 7.27014 2.61614 7.43896L5.55162 10.249C5.728 10.4179 6.01393 10.4179 6.19031 10.2491Z" fill="#088C0D" />
-                                </svg>
-                            Transaksi Berhasil
-                        </h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="font-weight:bold; margin-bottom: 0;">Bni</h5>
-                    </td>
-                </tr>
-            </table>
-            <hr>
-            <table class="table" style=" width: 100%;">
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata" style="color: #888888;">Telah Dibayar</h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="color: #888888;">2023-10-10 </h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata" style="font-weight: bold;">Total Bayar</h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="font-weight: bold;">Rp</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata">Harga </h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1">Rp</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata" style="margin-bottom: 0">Biaya Admin</h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="margin-bottom: 0">Rp</h5>
-                    </td>
-                </tr>
-            </table>
-            <hr>
-            <table class="table" style=" width: 100%;">
-                <tr>
-                    <td>
-                        <h5 style="margin-top: 0;font-family: sans-serif;font-weight: bold;">Detail Pesanan</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata">Nama</h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1">Rp</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata">Berlangganan</h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1">Rp</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata">N0mor Telepon </h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1">Rp</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata" style="margin-bottom: 0">Referensi</h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="margin-bottom: 0">Rp</h5>
-                    </td>
-                </tr>
-            </table>
-            <hr>
-            <h5 style="margin: 0;font-family: sans-serif;font-weight: lighter; color: #888888;">PT Hummatech Digital Indonesia</h5>
-            <h5 style="margin: 0;font-family: sans-serif;font-weight: lighter; color: #888888;">Perum Permata Regency 1 Blok 10/28, Perun Gpa, Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</h5>
-        </div>
-    </div>
-</body>
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=milink.idn@gmail.com
+MAIL_PASSWORD=xcljxnwuhsayblfz
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS='milink.idn@gmail.com'
+MAIL_FROM_NAME='MiLink'
 
-</html>
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+PUSHER_APP_ID=1689760
+PUSHER_APP_KEY=9d7f8e80d07f08c3b69c
+PUSHER_APP_SECRET=23bf39c46347f4264406
+PUSHER_HOST=
+PUSHER_PORT=443
+PUSHER_SCHEME=https
+PUSHER_APP_CLUSTER=ap1
+
+VITE_APP_NAME="${APP_NAME}"
+VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+VITE_PUSHER_HOST="${PUSHER_HOST}"
+VITE_PUSHER_PORT="${PUSHER_PORT}"
+VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
+VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+TRIPAY_API_KEY=mDzKZ7Io5FS9cZO94RJ3upsuNUF7otAAaMMSS91s
+TRIPAY_PRIVATE_KEY=zweBk-5pVG0-EoG1p-Ujvxs-qBiVv
+TRIPAY_MERCHANT_CODE=T27494
+TRIPAY_MERCHANT_CODE=T27494
+
+GOOGLE_CLIENT_ID=947706442816-3rvfo4n7gllqlqsg33tijmkc8cgsbeaq.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+GOOGLE_REDIRECT_URI=https://milink.id/id/google/redirect
+
+FACEBOOK_CLIENT_ID=639564148314511
+FACEBOOK_CLIENT_SECRET=6221fba41020881ee12661f4f5211b04
+FACEBOOK_REDIRECT_URI=https://milink.id/id/facebook/redirect
