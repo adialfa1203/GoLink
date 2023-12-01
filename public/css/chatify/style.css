@@ -234,6 +234,12 @@ body {
   cursor: pointer;
   transition: background 0.1s;
 }
+.messenger-list-item1 {
+  margin: 0;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.1s;
+}
 .m-list-active span,
 .m-list-active p {
   color: #fff !important;
@@ -254,7 +260,14 @@ body {
 .messenger-list-item td {
   padding: 10px;
 }
+.messenger-list-item1 td {
+  padding: 10px;
+}
 .messenger-list-item tr > td:first-child {
+  padding-right: 0;
+  width: 55px;
+}
+.messenger-list-item1 tr > td:first-child {
   padding-right: 0;
   width: 55px;
 }
@@ -262,7 +275,14 @@ body {
   margin-bottom: 4px;
   font-size: 14px;
 }
+.messenger-list-item1 td p {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
 .messenger-list-item td p span {
+  float: right;
+}
+.messenger-list-item1 td p span {
   float: right;
 }
 .messenger-list-item td span {
@@ -270,7 +290,23 @@ body {
   font-weight: 400;
   font-size: 12px;
 }
+.messenger-list-item1 td span {
+  color: #cacaca;
+  font-weight: 400;
+  font-size: 12px;
+}
 .messenger-list-item td b {
+  float: right;
+  color: #fff;
+  background: var(--primary-color);
+  padding: 0px 4px;
+  border-radius: 20px;
+  font-size: 13px;
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+.messenger-list-item1 td b {
   float: right;
   color: #fff;
   background: var(--primary-color);

@@ -34,7 +34,10 @@
 }
 
 .messenger-list-item:hover {
-    background: var(--secondary-bg-color);
+    background: #104898;
+}
+.messenger-list-item1:hover {
+    background:var(--primary-bg-color)
 }
 .messenger-messagingView {
     border-top: 1px solid var(--secondary-bg-color);

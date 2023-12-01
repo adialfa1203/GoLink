@@ -70,7 +70,6 @@ class MicrositeController extends Controller
     {
         $user = auth()->user();
         $statusSubscribe = $user->subscribe;
-
         if ($statusSubscribe === 'platinum') {
             $data = Components::all();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
@@ -86,17 +85,23 @@ class MicrositeController extends Controller
 
     public function createMicrosite(Request $request, Microsite $microsite)
     {
+
         $user = auth()->user();
-        if ($user->subscribe === 'free' && $user->microsites()->count() >= 3) {
+        $mounth = Microsite::where('user_id', $user->id)
+        ->whereYear('created_at', Carbon::now()->year)
+        ->whereMonth('created_at', Carbon::now()->month)
+        ->count();
+
+        if ($user->subscribe == 'free' && $mounth >= 3) {
             return redirect()->back();
         }
-        if ($user->subscribe === 'silver' && $user->microsites()->count() >= 5) {
+        if ($user->subscribe == 'silver' && $mounth >= 5) {
             return redirect()->back();
         }
-        if ($user->subscribe === 'gold' && $user->microsites()->count() >= 10) {
+        if ($user->subscribe == 'gold' && $mounth >= 10) {
             return redirect()->back();
         }
-        if ($user->subscribe === 'platinum') {
+        if ($user->subscribe == 'platinum') {
         }
 
         $validator = Validator::make($request->all(), [
