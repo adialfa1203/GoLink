@@ -67,7 +67,6 @@ class DahsboardController extends Controller
                     $urlStatus = 'Status tidak valid';
                     $micrositeStatus = 'Status tidak valid';
                     break;
-
             }
 
             $userId = $user->id;
@@ -81,7 +80,7 @@ class DahsboardController extends Controller
             })->count();
 
             $historyVisits = HistoryVisits::where('user_id', $userId)
-            ->count();
+                ->count();
 
             $totalCountVisits = $totalVisits + $historyVisits;
 
@@ -133,9 +132,9 @@ class DahsboardController extends Controller
             $countMicrosite = ShortURL::where('user_id', $userId)
                 ->whereNotNull('microsite_uuid')
                 ->whereMonth('created_at', now()->month)
-                ->whereDate('created_at', '<=', $resetDate)
+                ->whereDate('created_at', '<=', [now()->startOfMonth(),$resetDate] )
                 ->count();
-
+                // dd($countMicrosite);
             $countNameChanged = ShortURL::where('user_id', $userId)
                 ->where('custom_name', 'yes')
                 ->whereMonth('created_at', now()->month)

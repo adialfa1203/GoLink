@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('profile_picture')->nullable();
             $table->string('verification_code')->nullable();
             $table->boolean('is_banned')->default(false);
+            $table->string('session_id')->nullable();
             $table->timestamp('subscription_start_date')->nullable();
             $table->timestamp('subscription_end_date')->nullable();
             $table->rememberToken();

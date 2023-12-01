@@ -100,7 +100,6 @@ class SubscribeController extends Controller
         }
 
         $subscribe->tipe = $request->tipe;
-        $subscribe->period = $request->period;
         $subscribe->price = $request->price;
         $subscribe->description = $request->description;
 
