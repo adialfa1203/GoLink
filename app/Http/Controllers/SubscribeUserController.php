@@ -47,7 +47,7 @@ class SubscribeUserController extends Controller
 
         $tripay = new TripayController();
         $channels = $tripay->getPaymentChannels();
-        // dd($channels);
+        dd($channels);
         $tax = $subscribe->price * 0.11;
         $totalPrice = $subscribe->price + $tax;
         // dd($subscribe);
