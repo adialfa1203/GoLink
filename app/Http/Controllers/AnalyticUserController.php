@@ -55,7 +55,7 @@ class AnalyticUserController extends Controller
                 ->count();
 
             $historyVisits = HistoryVisits::where('user_id', $user)
-            ->count();
+                ->count();
 
             $totalCountVisits = $totalVisits + $historyVisits;
 
@@ -126,7 +126,7 @@ class AnalyticUserController extends Controller
             })->count();
 
             $historyVisits = HistoryVisits::where('user_id', $userId)
-            ->count();
+                ->count();
 
             $totalCountVisits = $totalVisits + $historyVisits;
             // dd($historyVisits);
@@ -163,10 +163,12 @@ class AnalyticUserController extends Controller
 
             $totalUrl = ShortURL::where('user_id', $userId)
                 ->whereNull('microsite_uuid')
+                ->whereMonth('created_at', now()->month)
                 ->whereDate('created_at', '<=', $resetDate)
                 ->count();
 
             $countHistory = History::where('user_id', $userId)
+                ->whereMonth('created_at', now()->month)
                 ->whereDate('created_at', '<=', $resetDate)
                 ->count();
 
@@ -174,7 +176,8 @@ class AnalyticUserController extends Controller
 
             $countMicrosite = ShortURL::where('user_id', $userId)
                 ->whereNotNull('microsite_uuid')
-                ->whereDate('created_at', '<=', $resetDate)
+                ->whereMonth('created_at', now()->month)
+                ->whereDate('created_at', '<=', [now()->startOfMonth(), $resetDate])
                 ->count();
 
             $countNameChanged = ShortURL::where('user_id', $userId)
@@ -209,46 +212,46 @@ class AnalyticUserController extends Controller
             ->get();
 
         $TopBrowser = ShortUrlVisit::select('browser', DB::raw('count(*) as total'))
-        ->groupBy('browser')
-        ->whereRelation('shortUrl','user_id',$userId)
-        ->orderByDesc('total')
-        ->take(3)
-        ->get();
+            ->groupBy('browser')
+            ->whereRelation('shortUrl', 'user_id', $userId)
+            ->orderByDesc('total')
+            ->take(3)
+            ->get();
 
         $TopDevice = ShortUrlVisit::select('device_type', DB::raw('count(*) as total'))
-        ->groupBy('device_type')
-        ->whereRelation('shortUrl','user_id',$userId)
-        ->orderByDesc('total')
-        ->take(3)
-        ->get();
+            ->groupBy('device_type')
+            ->whereRelation('shortUrl', 'user_id', $userId)
+            ->orderByDesc('total')
+            ->take(3)
+            ->get();
 
         $TopReferer = ShortUrlVisit::select('referer_url', DB::raw('count(*) as total'))
-        ->groupBy('referer_url')
-        ->whereRelation('shortUrl','user_id',$userId)
-        ->orderByDesc('total')
-        ->take(3)
-        ->get();
+            ->groupBy('referer_url')
+            ->whereRelation('shortUrl', 'user_id', $userId)
+            ->orderByDesc('total')
+            ->take(3)
+            ->get();
 
         $TopIpAdress = ShortUrlVisit::select('ip_address', DB::raw('count(*) as total'))
-        ->groupBy('ip_address')
-        ->whereRelation('shortUrl','user_id',$userId)
-        ->orderByDesc('total')
-        ->take(3)
-        ->get();
+            ->groupBy('ip_address')
+            ->whereRelation('shortUrl', 'user_id', $userId)
+            ->orderByDesc('total')
+            ->take(3)
+            ->get();
 
         $TopOperatingSystem = ShortUrlVisit::select('operating_system', DB::raw('count(*) as total'))
-        ->groupBy('operating_system')
-        ->whereRelation('shortUrl','user_id',$userId)
-        ->orderByDesc('total')
-        ->take(3)
-        ->get();
+            ->groupBy('operating_system')
+            ->whereRelation('shortUrl', 'user_id', $userId)
+            ->orderByDesc('total')
+            ->take(3)
+            ->get();
 
         $TopOperatingSystemVersion = ShortUrlVisit::select('operating_system_version', DB::raw('count(*) as total'))
-        ->groupBy('operating_system_version')
-        ->whereRelation('shortUrl','user_id',$userId)
-        ->orderByDesc('total')
-        ->take(3)
-        ->get();
+            ->groupBy('operating_system_version')
+            ->whereRelation('shortUrl', 'user_id', $userId)
+            ->orderByDesc('total')
+            ->take(3)
+            ->get();
 
         $dataLink = SHortURL::all();
 
