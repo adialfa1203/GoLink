@@ -79,7 +79,10 @@ class MicrositeController extends Controller
         }
 
         $button = Button::all();
-        $micrositeCount = $user->microsites()->count();
+        $micrositeCount = ShortURL::where('user_id', $user)
+                ->whereNotNull('microsite_uuid')
+                ->whereMonth('created_at', now()->month)
+                ->count();
         return view('Microsite.AddMicrosite', compact('user', 'data', 'button', 'micrositeCount', 'customThemesData'));
     }
 
