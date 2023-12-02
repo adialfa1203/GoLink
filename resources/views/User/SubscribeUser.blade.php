@@ -177,35 +177,25 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <div class="d-flex gap-2">
+                                                            <div class="d-flex gap-2">             
                                                                 <div>
-
                                                                     <a href="{{ route('transaction.delete', ['reference' => $transaction->reference]) }}"
-                                                                        class="btn  bi bi-trash-fill"
+                                                                        class="btn bi bi-trash-fill"
                                                                         style="background-color: #ff2323; color: #fff;"
-                                                                        onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}');">
+                                                                        onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}', '{{ $transaction->status }}');">
                                                                     </a>
-                                                                </div>
+                                                                </div>                                                                                                                   
                                                                 @if ($transaction->status == 'PAID')
-                                                                    <button type="button" class="btn  "
-                                                                        style="background-color: #0E2954;color: #fff;"
+                                                                    <button type="button" class="btn"
+                                                                        style="background-color: #0E2954; color: #fff;"
                                                                         data-bs-toggle="modal"
-                                                                        data-bs-target="#pembayaran-{{ $transaction->id }}"><svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="15" height="15"
-                                                                            viewBox="0 0 24 24">
-                                                                            <path fill="currentColor"
-                                                                                d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3z" />
-                                                                        </svg></button>
-                                                                @else
-                                                                    <a href="{{ route('transaction.delete', ['reference' => $transaction->reference]) }}"
-                                                                        class="btn mt-2"
-                                                                        style="background-color: #ff2323; color: #fff;"
-                                                                        onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}');">
-                                                                        Batalkan
-                                                                    </a>
+                                                                        data-bs-target="#pembayaran-{{ $transaction->id }}">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                                                            <path fill="currentColor" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3z" />
+                                                                        </svg>
+                                                                    </button>                                                                                                                    
                                                                 @endif
-                                                            </div>
+                                                            </div>                                                                                                                      
                                                         </td>
                                                     </tr>
                                                     <div id="pembayaran-{{ $transaction->id }}" class="modal fade"
@@ -432,26 +422,38 @@
     </div>
 @endsection
 @section('script')
-    <script>
-        function confirmDelete(reference) {
-            Swal.fire({
-                title: 'Konfirmasi',
-                text: 'Apakah Anda yakin ingin membatalkan transaksi ini?',
-                icon: 'info',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Ya',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '{{ url('user/back/') }}/' + reference;
-                }
-            });
+<script>
+    function confirmDelete(reference, status) {
+        let confirmationText = '';
+
+        // Set the confirmation text based on the transaction status
+        if (status === 'PAID') {
+            confirmationText = 'Apakah Anda yakin ingin menghapus riwayat transaksi ini?';
+        } else if (status === 'UNPAID') {
+            confirmationText = 'Apakah Anda yakin ingin membatalkan transaksi ini?';
+        }else {
+            confirmationText = 'Apakah Anda yakin ingin menghapus transaksi ini?';
         }
 
-        function printReceipt(reference) {
-            window.open('/user/transaction-pdf/' + reference, '_blank');
-        }
-    </script>
+        Swal.fire({
+            title: 'Konfirmasi',
+            text: confirmationText,
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '{{ url('user/back/') }}/' + reference;
+            }
+        });
+    }
+
+    function printReceipt(reference) {
+        window.open('/user/transaction-pdf/' + reference, '_blank');
+    }
+</script>
+
 @endsection
