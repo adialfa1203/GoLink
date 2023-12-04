@@ -206,16 +206,7 @@
                                         <div class="card-body text-white" style="background-image: linear-gradient(to bottom right, #0E2954, #104898); border-radius: 0 0 20px 20px;height: auto;display: inline-block; min-height: 200px;">
                                             <div class="row">
                                                 <h5 class="card-title text-center mt-3">
-                                                    Rp.{{ number_format($subscribe->price, 0, ',', '.') }}
-                                                    @if (strtolower(trim($subscribe->period)) === 'forever')
-                                                    /Selamanya
-                                                    @elseif (strtolower(trim($subscribe->period)) === '1_week')
-                                                    /Minggu
-                                                    @elseif (strtolower(trim($subscribe->period)) === '1_month')
-                                                    /Bulan
-                                                    @else
-                                                    /Tahun
-                                                    @endif
+                                                    Rp.{{ number_format($subscribe->price, 0, ',', '.') }}/Bulan
                                                 </h5>
                                             </div>
                                             <div data-simplebar data-simplebar-auto-hide="false" style="height: 300px;" class="px-3">
