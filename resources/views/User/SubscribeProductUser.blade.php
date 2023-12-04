@@ -31,6 +31,11 @@
             margin-top: 0;
             margin-bottom: 1rem;
         }
+        .bagcard {
+            border-radius: 20px;
+            background: linear-gradient(0deg, #0E2954, #104898);
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        }
     </style>
 @endsection
 @section('content')
@@ -39,12 +44,26 @@
 
             <div class="col-sm-12 col-xl-12x`">
                 <div class="card">
-                    <div class="card-body"
-                        style="background-image: linear-gradient(to bottom right, #104898, #104898); border-radius: 15px;">
-                        <h4 class="card-title mb-2 mt-3 text-white">Hi {!! Auth::user()->name !!}!</h4>
-                        <h6 class="card-subtitle font-14 text-white mb-3 mt-1">Silakan pilih paket berlangganan dan
-                            nikmati fitur yang
-                            kamu dapatkan </h6>
+                    <div class="bagcard">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-lg-2 col-md-3 col-12 mb-3 mb-md-0">
+                                <img class="card-img-top img-fluid" src="{{ asset('tangan.png') }}"
+                                    style="width: 100%;" alt="Card image cap">
+                            </div>
+                            <div class="col-lg-7 col-md-6 col-12">
+                                <h1 class="card-title long-text mt-3" style="color: #ffff; font-size: 30px;">Hi
+                                    {!! Auth::user()->name !!}!</h1>
+                                <p class="card-text long-text" style="color: #ffff;">Jangan lewatkan kesempatan
+                                    untuk mengambil yang terbaik!
+                                    Berlangganan bersama kami untuk manfaatkan semua fitur canggih kami</p>
+                            </div>
+                            {{-- <div class="col-lg-3 col-md-3 col-12 text-center">
+                                <a href="{{ url('user/subscribe-product-user') }}" type="button"
+                                    class="btn btn-outline-danger col-12 mt-3">Berlangganan Sekarang</a>
+                            </div> --}}
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
