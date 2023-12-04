@@ -70,10 +70,10 @@ class TripayCallbackController extends Controller
                    
                    switch ($userSubscribe) {
                     case 'silver':
-                        $subscription_end_date = $endDate->addDay(7);
+                        $subscription_end_date = $endDate->addMonth(1);
                         break;
                     case 'gold':
-                        $subscription_end_date = $endDate->addDay(14);
+                        $subscription_end_date = $endDate->addMonth(1);
                         break;
                     case 'platinum':
                         $subscription_end_date = $endDate->addMonth(1);

@@ -82,16 +82,7 @@
                                 <br>
                                 <div class="text-center">
                                     <h2 class="mb-2" style="color: #ffffff;">
-                                        Rp.{{ number_format($subs->price, 0, ',', '.') }}
-                                        @if (strtolower(trim($subs->period)) === 'forever')
-                                            /Selamanya
-                                        @elseif (strtolower(trim($subs->period)) === '1_week')
-                                            /Minggu
-                                        @elseif (strtolower(trim($subs->period)) === '1_month')
-                                            /Bulan
-                                        @else
-                                            /Tahun
-                                        @endif
+                                        Rp.{{ number_format($subs->price, 0, ',', '.') }}/Bulan
 
                                     </h2>
 
