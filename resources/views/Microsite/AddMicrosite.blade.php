@@ -256,7 +256,7 @@
                                                                             <label class="form-check-label">
                                                                                 <input type="radio"
                                                                                     id="tema{{ $microsite->id }}"
-                                                                                    name="microsite_selection"
+                                                                                    name="components_uuid"
                                                                                     value="{{ $microsite->id }}"
                                                                                     class="form-check-input visually-hidden">&nbsp;{{ $microsite->component_name }}
                                                                             </label>
@@ -293,7 +293,7 @@
                                                                             <label class="form-check-label">
                                                                                 <input type="radio"
                                                                                     id="tema{{ $microsite->id }}"
-                                                                                    name="microsite_selection"
+                                                                                    name="customtheme_uuid"
                                                                                     value="{{ $microsite->id }}"
                                                                                     class="form-check-input visually-hidden">&nbsp;{{ $microsite->component_name }}
                                                                             </label>
@@ -789,8 +789,9 @@
             var linkMicrosite_val = $('#linkMicrosite').val();
             var errorMessage = '';
 
-            var micrositeSelection = document.querySelector('input[name="microsite_selection"]:checked');
-            if (!micrositeSelection) {
+            var micrositeSelection = document.querySelector('input[name="components_uuid"]:checked');
+            var customTheme = document.querySelector('input[name="customtheme_uuid"]:checked');
+            if (!micrositeSelection && !customTheme) {
                 errorMessage = 'Silakan pilih jenis microsite yang sesuai dengan kebutuhan Anda.';
             }
 

@@ -80,9 +80,9 @@ class MicrositeController extends Controller
 
         $button = Button::all();
         $micrositeCount = ShortURL::where('user_id', $user)
-                ->whereNotNull('microsite_uuid')
-                ->whereMonth('created_at', now()->month)
-                ->count();
+            ->whereNotNull('microsite_uuid')
+            ->whereMonth('created_at', now()->month)
+            ->count();
         return view('Microsite.AddMicrosite', compact('user', 'data', 'button', 'micrositeCount', 'customThemesData'));
     }
 
@@ -90,10 +90,10 @@ class MicrositeController extends Controller
     {
 
         $user = auth()->user();
-        $mounth = Microsite::where('user_id', $user->id)
-        ->whereYear('created_at', Carbon::now()->year)
-        ->whereMonth('created_at', Carbon::now()->month)
-        ->count();
+        $mounth = ShortURL::where('user_id', $user)
+            ->whereNotNull('microsite_uuid')
+            ->whereMonth('created_at', now()->month)
+            ->count();
 
         if ($user->subscribe == 'free' && $mounth >= 3) {
             return redirect()->back();
@@ -108,7 +108,6 @@ class MicrositeController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'microsite_selection' => 'required',
             'name' => 'required|string|regex:/^[a-zA-Z0-9 ]+$/|max:35',
             'link_microsite' => 'required|regex:/^[a-zA-Z0-9 ]+$/|unique:microsites,link_microsite,id',
         ], [
@@ -125,26 +124,31 @@ class MicrositeController extends Controller
         }
         $link = $request->link_microsite;
         $micrositeStr = str_replace(' ', '-', $link);
+        $custom = CustomTheme::find($request->customtheme_uuid);
         if ($request->has('components_uuid')) {
             $data = [
-                'components_uuid' => $request->microsite_selection,
-                'user_id' => $user->id,
+                'components_uuid' => $request->components_uuid,
+                'user_id' => auth()->user()->id,
+                'name' => $request->name,
+                'link_microsite' => $micrositeStr,
+            ];
+        } else if ($request->has('customtheme_uuid')) {
+            $data = [
+                'customtheme_uuid' => $custom->id,
+                'user_id' => auth()->user()->id,
                 'name' => $request->name,
                 'link_microsite' => $micrositeStr,
             ];
         } else {
-            $data = [
-                'customtheme_uuid' => $request->microsite_selection,
-                'user_id' => $user->id,
-                'name' => $request->name,
-                'link_microsite' => $micrositeStr,
-            ];
+            return redirect()->back()->with('error', 'Pilih satu jenis Microsite terlebih dahulu.');
         }
-        $selectedComponentId = $request->input('microsite_selection');
-        if (empty($selectedComponentId)) {
+        $selectedComponentId = $request->input('components_uuid');
+        $customCheck = $request->input('customtheme_uuid');
+        if (empty($selectedComponentId) && empty($customCheck)) {
             return redirect()->back()->with('error', 'Silakan pilih jenis microsite yang sesuai dengan kebutuhan Anda.');
         }
         $selectedButtons = $request->input('selectedButtons', []);
+
 
         $microsite = Microsite::create($data);
         $builder = new \AshAllenDesign\ShortURL\Classes\Builder();
