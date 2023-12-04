@@ -87,7 +87,7 @@
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 Masa
                                                 Kadaluwarsa Pembayaran
-                                                <span>{{ date('Y-m-d H:i:s', strtotime($detailTransaction->data->expired_time)) }}</span>
+                                                <span>{{ ('Y-m-d H:i:s', ($detailTransaction->data->expired_time)) }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 Status
