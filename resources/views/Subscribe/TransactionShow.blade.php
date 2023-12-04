@@ -67,7 +67,14 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 Referensi
-                                                <span>{{ $detailTransaction->data->reference }}</span>
+                                                <span id="copy">{{ $detailTransaction->data->reference }}
+                                                    <button onclick="copy()" class="btn btn-sm btn-primary"> <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                                            viewBox="0 0 24 24">
+                                                            <path fill="currentColor"
+                                                                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                                                        </svg></button>
+                                                </span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 Jenis
@@ -135,7 +142,8 @@
                                             data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button>
                                     @else
                                         <div class="col-12 gap-1">
-                                            <a class="btn btn-success mt-2 col-5" href="{{ route('subscribe.user') }}">Kembali</a>
+                                            <a class="btn btn-success mt-2 col-5"
+                                                href="{{ route('subscribe.user') }}">Kembali</a>
                                             <a href="{{ route('transaction.delete', ['reference' => $transaction->reference]) }}"
                                                 class="btn col-5 mt-2" style="background-color: #ff2323; color: #fff;"
                                                 onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}');">
@@ -478,8 +486,28 @@
     </script>
     <script>
         function printReceipt(reference) {
-            // Assuming you have the 'reference' variable available
             window.open('/user/transaction-pdf/' + reference, '_blank');
+        }
+    </script>
+    <script>
+        function copy() {
+            var copyText = document.getElementById("copy");
+            var textToCopy = copyText.innerText || copyText.textContent;
+
+            var range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            document.execCommand("copy");
+
+            window.getSelection().removeAllRanges();
+
+            Swal.fire({
+                'icon':'success',
+                'title':'Berhasil!',
+                'text':'Berhasil menyalin referensi'
+            })
         }
     </script>
 
