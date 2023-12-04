@@ -88,7 +88,7 @@
 <div class="page-content">
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
-            <div class="col-lg-3">
+            <div class="col-lg-3" style="margin-top: 5%;">
                 <div class="card real-estate-grid-widgets card-animate">
                     <div class="card overflow-hidden">
                         <div>
