@@ -62,6 +62,7 @@ class SubscribeUserController extends Controller
 
         $transaction = $tripay->requestTransaction($method, $subscribe);
         $data = json_decode($transaction);
+        dd($data);
         $data = $data->data;
         Transaction::query()->create([
             'user_id' => auth()->user()->id,
@@ -93,7 +94,6 @@ class SubscribeUserController extends Controller
     public function deleteTransaction($reference)
     {
         $transaction = Transaction::where('reference', $reference)->first();
-        // dd($transaction);
         if ($transaction) {
             $transaction->delete();
             return redirect()->route('subscribe.user')->with('success', 'Transaksi berhasil dibatalkan.');
