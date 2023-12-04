@@ -353,6 +353,7 @@ class MicrositeController extends Controller
 
     public function updateComponent(Request $request, $id)
     {
+        // dd($id);
         $validator = Validator::make($request->all(), [
             'component_name' => 'required|max:20',
             'cover_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -370,7 +371,6 @@ class MicrositeController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-
         $component = Components::findOrFail($id);
 
         $micrositeCount = Microsite::where('components_uuid', $id)->count();
