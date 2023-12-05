@@ -85,9 +85,9 @@
                                             style="width: 100%;" alt="Card image cap">
                                     </div>
                                     <div class="col-lg-7 col-md-6 col-12">
-                                        <h1 class="card-title long-text mt-3" style="color: #ffff; font-size: 30px;">Hi
+                                        <h1 class="card-title long-text m-3" style="color: #ffff; font-size: 30px;">Hi
                                             {!! Auth::user()->name !!}!</h1>
-                                        <p class="card-text long-text" style="color: #ffff;">Jangan lewatkan kesempatan
+                                        <p class="card-text long-text m-3" style="color: #ffff;">Jangan lewatkan kesempatan
                                             untuk mengambil yang terbaik!
                                             Berlangganan bersama kami untuk manfaatkan semua fitur canggih kami</p>
                                     </div>
