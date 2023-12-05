@@ -1659,16 +1659,16 @@ observer.observe(document, config);
  * to fit the new height.
  *-------------------------------------------------------------
  */
-var resizeTimeout;
-window.visualViewport.addEventListener("resize", (e) => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(function () {
-    const h = e.target.height;
-    if (h) {
-      $(".messenger-messagingView").css({ height: h + "px" });
-    }
-  }, 100);
-});
+ var resizeTimeout;
+ window.visualViewport.addEventListener("resize", (e) => {
+   clearTimeout(resizeTimeout);
+   resizeTimeout = setTimeout(function () {
+     const h = e.target.height;
+     if (h) {
+       $(".messenger-messagingView").css({ height: "" });
+     }
+   }, 100);
+ });
 
 /**
  *-------------------------------------------------------------
