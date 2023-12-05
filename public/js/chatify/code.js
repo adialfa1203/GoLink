@@ -1665,7 +1665,7 @@ observer.observe(document, config);
    resizeTimeout = setTimeout(function () {
      const h = e.target.height;
      if (h) {
-       $(".messenger-messagingView").css({ height: "" });
+       $(".messenger-messagingView").css({ height: "none" });
      }
    }, );
  });
