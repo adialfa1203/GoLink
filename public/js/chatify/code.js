@@ -1667,7 +1667,7 @@ observer.observe(document, config);
      if (h) {
        $(".messenger-messagingView").css({ height: "" });
      }
-   }, 100);
+   }, );
  });
 
 
