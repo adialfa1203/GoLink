@@ -520,17 +520,7 @@
                                             {{ $urlStatus }}
                                     </p>
                                     <br>
-                                    <h6 class="card-title" style="color: #0E2954;">Microsite dibuat /
-                                        @if ($user->subscribe == 'free')
-                                            Bulan
-                                        @elseif ($user->subscribe == 'silver')
-                                            Minggu
-                                        @elseif ($user->subscribe == 'gold')
-                                            Bulan
-                                        @elseif ($user->subscribe == 'platinum')
-                                            Tahun
-                                        @else
-                                        @endif
+                                    <h6 class="card-title" style="color: #0E2954;">Microsite dibuat / Bulan
 
                                         <span class="tooltip-icon"
                                             data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi.">
@@ -589,18 +579,7 @@
                                                         <p class="text-muted mb-0"><b>{{ $countURL }} dari
                                                                 {{ $urlStatus }}</p>
                                                         <br>
-                                                        <h3 class="card-title">Microsite dibuat /
-                                                            @if ($user->subscribe == 'free')
-                                                                Bulan
-                                                            @elseif ($user->subscribe == 'silver')
-                                                                Minggu
-                                                            @elseif ($user->subscribe == 'gold')
-                                                                Bulan
-                                                            @elseif ($user->subscribe == 'platinum')
-                                                                Tahun
-                                                            @else
-                                                            @endif
-
+                                                        <h3 class="card-title">Microsite dibuat / Bulan
                                                             <span class="tooltip-icon"
                                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                 <i
@@ -762,23 +741,12 @@
                         </b>
                     </p>
                     <br>
-                    <h6 class="card-title" style="color: #0E2954;">Microsite dibuat /
-                        @if ($user->subscribe == 'free')
-                            Bulan
-                        @elseif ($user->subscribe == 'silver')
-                            Minggu
-                        @elseif ($user->subscribe == 'gold')
-                            Bulan
-                        @elseif ($user->subscribe == 'platinum')
-                            Tahun
-                        @else
-                        @endif
-
+                    <h6 class="card-title" style="color: #0E2954;">Microsite dibuat / Bulan
                         <span class="tooltip-icon"
                             data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi.">
                             <i
-                                class="bi
-                                            bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
+                                class="bi bi-exclamation-circle align-baseline ms-1 fs-sm">
+                            </i>
                         </span>
                     </h6>
                     <div class="progress" data-bs-toggle="tooltip" data-bs-title="{{ $countMicrosite }} Nama diubah">
@@ -841,18 +809,7 @@
                                             </b>
                                         </p>
                                         <br>
-                                        <h3 class="card-title">Microsite dibuat /
-                                            @if ($user->subscribe == 'free')
-                                                Bulan
-                                            @elseif ($user->subscribe == 'silver')
-                                                Minggu
-                                            @elseif ($user->subscribe == 'gold')
-                                                Bulan
-                                            @elseif ($user->subscribe == 'platinum')
-                                                Tahun
-                                            @else
-                                            @endif
-
+                                        <h3 class="card-title">Microsite dibuat / Bulan
                                             <span class="tooltip-icon"
                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                 <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
