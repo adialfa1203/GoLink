@@ -31,12 +31,14 @@ $lastMessageBody = strlen($lastMessageBody) > 30 ? mb_substr($lastMessageBody, 0
                 <span class="activeStatus"></span>
             @endif
         <div class="avatar av-m"
-        @if($user->profile_picture)
-                style="background-image: url('{{ asset('profile_pictures/' . $user->profile_picture) }}');"
-            @else
-                style="background-image: url('{{ asset('default/default.jpg') }}');"
-            @endif
-        >
+        @if ($user->google_id && $user->profile_picture)
+        style="background-image: url('{{ $user->profile_picture }}');"
+    @elseif ($user->profile_picture && file_exists(public_path('profile_pictures/' . $user->profile_picture)))
+        style="background-image: url('{{ asset('profile_pictures/' . $user->profile_picture) }}');"
+    @else
+        style="background-image: url('{{ asset('default/default.jpg') }}');"
+    @endif
+>
         </div>
         </td>
         {{-- center side --}}
@@ -74,12 +76,14 @@ $lastMessageBody = strlen($lastMessageBody) > 30 ? mb_substr($lastMessageBody, 0
         {{-- Avatar side --}}
         <td>
         <div class="avatar av-m"
-        @if($user->profile_picture)
-                style="background-image: url('{{ asset('profile_pictures/' . $user->profile_picture) }}');"
-            @else
-                style="background-image: url('{{ asset('default/default.jpg') }}');"
-            @endif
-        >
+       @if ($user->google_id && $user->profile_picture)
+        style="background-image: url('{{ $user->profile_picture }}');"
+    @elseif ($user->profile_picture && file_exists(public_path('profile_pictures/' . $user->profile_picture)))
+        style="background-image: url('{{ asset('profile_pictures/' . $user->profile_picture) }}');"
+    @else
+        style="background-image: url('{{ asset('default/default.jpg') }}');"
+    @endif
+>
         </div>
         </td>
         {{-- center side --}}

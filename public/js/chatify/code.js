@@ -396,8 +396,18 @@ function IDinfo(id) {
           NProgress.remove();
           return;
         }
-        if (data.fetch.profile_picture !=null) {
+        if (data.fetch.google_id && data.fetch.profile_picture) {
             // profile
+
+            $(".messenger-infoView")
+            .find(".avatar")
+            .css("background-image",'url('+ data.fetch.profile_picture + ')');
+            // header
+            $(".header-avatar").css(
+              "background-image",
+              'url('+ data.fetch.profile_picture + ')'
+            );
+          }else if (data.fetch.profile_picture !=null) {
             $(".messenger-infoView")
             .find(".avatar")
             .css("background-image",'url('+'/profile_pictures/' + data.fetch.profile_picture + ')');

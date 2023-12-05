@@ -1251,3 +1251,16 @@ div.loadingPlaceholder-date {
   border-radius: 4px;
   background: transparent;
 }
+  @media (max-width: 768px) {
+    .an{
+        display: none;
+    }
+    }
+    
+    .an {
+        text-decoration: none; /* Agar tautan tidak terlihat */
+        cursor: pointer;
+        display: inline-block;
+        /* margin: 10px; */
+    }
+/*
