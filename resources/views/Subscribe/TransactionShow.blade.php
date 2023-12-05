@@ -370,7 +370,7 @@
                 cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '{{ url('user/back/') }}/' + reference;
+                    window.location.href = '{{ url('user/failed/') }}/' + reference;
                 }
             });
         }

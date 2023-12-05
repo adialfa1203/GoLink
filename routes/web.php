@@ -153,6 +153,7 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'checksinglesession', '
         Route::post('/payment-method', [SubscribeUserController::class, 'payment'])->name('payment');
         Route::get('/transaction/{reference}', [SubscribeUserController::class, 'detail'])->name('transaction.show');
         Route::get('/back/{reference}', [SubscribeUserController::class, 'deleteTransaction'])->name('transaction.delete');
+        Route::get('/failed/{reference}', [SubscribeUserController::class, 'failedTransaction'])->name('failed.delete');
 
         // microsite
         Route::get('/microsite-user', [MicrositeController::class, 'microsite'])->name('microsite');

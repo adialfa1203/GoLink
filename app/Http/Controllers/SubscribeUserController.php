@@ -71,7 +71,7 @@ class SubscribeUserController extends Controller
             'expired' => Carbon::parse($data->expired_time)->format('Y-m-d'),
             'amount' => $data->amount,
             'fee_amount' => $data->total_fee,
-            'payment_method' => $method
+            'payment_method' => $data->payment_method
         ]);
 
         $transaction = json_decode($transaction);
@@ -102,6 +102,18 @@ class SubscribeUserController extends Controller
         $transaction = Transaction::where('reference', $reference)->first();
         if ($transaction) {
             $transaction->delete();
+            return redirect()->route('subscribe.user')->with('success', 'Data Transaksi Berhasil Dihapus.');
+        } else {
+            return redirect()->route('subscribe.user')->with('error', 'Transaksi tidak ditemukan.');
+        }
+    }
+
+    public function failedTransaction($reference)
+    {
+        $transaction = Transaction::where('reference', $reference)->first();
+
+        if ($transaction) {
+            $transaction->update(['status' => 'failed']);
             return redirect()->route('subscribe.user')->with('success', 'Transaksi berhasil dibatalkan.');
         } else {
             return redirect()->route('subscribe.user')->with('error', 'Transaksi tidak ditemukan.');
