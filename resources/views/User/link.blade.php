@@ -281,7 +281,8 @@
                                                                                             data-url="{{ $row->default_short_url }}"
                                                                                             data-id-copy="{{ $i }}">
                                                                                             <i
-                                                                                                class="bi bi-clipboard-fill"></i>
+                                                                                                class="bi bi-clipboard-fill">
+                                                                                            </i>
                                                                                             &nbsp; Copy
                                                                                         </label>
                                                                                     </div>
@@ -323,8 +324,7 @@
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#customUrlModal-{{ $row->id }}"
                                                                     data-link="{{ $row->url_key }}">
-                                                                    <span><i
-                                                                            class="fa-solid fa-pen-to-square icon-abu"></i></span>
+                                                                    <span><i class="fa-solid fa-pen-to-square icon-abu"></i></span>
                                                                 </button>
 
                                                                 <button type="button"
