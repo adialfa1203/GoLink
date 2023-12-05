@@ -226,22 +226,20 @@
                                             <div class="tab-content">
                                                 <div class="tab-pane fade show active" id="v-pills-bill-info"
                                                     role="tabpanel" aria-labelledby="v-pills-bill-info-tab">
-                                                    <div class="container">
-                                                        <div class="d-flex flexresponsive">
-                                                            <div class="col-12 col-md-6">
-                                                                <h5>Jenis Microsite</h5>
-                                                                <p class="text-muted">Pilih jenis microsite yang cocok
-                                                                    dengan kebutuhan Anda!</p>
-                                                            </div>
-                                                            <div class="col-12 col-md-6 text-end textfullright">
-                                                                <button type="button" class="btn btn-label mb-3 max"
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    style="font-size: 13px; background-color: #0E2954; color: #fff;">
-                                                                    <i
-                                                                        class="ri-add-line label-icon align-middle fs-lg me-2"></i>Kustom
-                                                                    Tema
-                                                                </button>
-                                                            </div>
+                                                    <div class="d-flex flexresponsive">
+                                                        <div class="col-12 col-md-6">
+                                                            <h5>Jenis Microsite</h5>
+                                                            <p class="text-muted">Pilih jenis microsite yang cocok
+                                                                dengan kebutuhan Anda!</p>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 text-end textfullright">
+                                                            <button type="button" class="btn btn-label mb-3 max"
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                style="font-size: 13px; background-color: #0E2954; color: #fff;">
+                                                                <i
+                                                                    class="ri-add-line label-icon align-middle fs-lg me-2"></i>Kustom
+                                                                Tema
+                                                            </button>
                                                         </div>
                                                     </div>
                                                     <div class="row g-2">
