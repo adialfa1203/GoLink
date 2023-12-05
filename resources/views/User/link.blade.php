@@ -517,7 +517,7 @@
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <div class="visible-print text-center">
-                                                                            {!! QrCode::size(200)->generate($row->destination_url) !!}
+                                                                            {!! QrCode::size(200)->generate($row->default_short_url) !!}
                                                                         </div>
                                                                         <br>
                                                                         <div class="text-center">
