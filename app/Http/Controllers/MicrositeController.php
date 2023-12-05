@@ -316,8 +316,7 @@ class MicrositeController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'component_name' => 'required|string|max:20',
-            'cover_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            // 'profile_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'cover_img' => 'required|image|mimes:jpeg,png,jpg,gif',
         ], [
             'component_name.required' => 'Nama wajib diisi',
             'component_name.max' => 'Tidak boleh lebih besar dari 20 karakter',
