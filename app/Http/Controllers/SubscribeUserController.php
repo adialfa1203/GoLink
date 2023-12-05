@@ -84,13 +84,19 @@ class SubscribeUserController extends Controller
     {
         $detailTransaction = $this->service->detail($reference);
         $detailTransaction = json_decode($detailTransaction);
+
         $transaction = Transaction::where('reference', $reference)
             ->with('subscribe')->first();
+
         $tripay = new TripayController();
         $foto1 = $tripay->getPaymentChannels();
         $expired = Carbon::parse($detailTransaction->data->expired_time)->isoFormat('DD MMMM Y H:mm:ss');
-        return view('Subscribe.TransactionShow', compact('detailTransaction', 'transaction', 'foto1', 'expired'));
+
+        $instructions = $detailTransaction->data->instructions;
+
+        return view('Subscribe.TransactionShow', compact('detailTransaction', 'transaction', 'foto1', 'expired', 'instructions'));
     }
+
     public function deleteTransaction($reference)
     {
         $transaction = Transaction::where('reference', $reference)->first();

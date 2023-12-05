@@ -47,9 +47,9 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-7">
                                 <center>
-                                    <div class="card col-12 col-sm-12 col-lg-10">
+                                    <div class="card col-12 col-sm-12 col-lg-12">
                                         <ul class="list-group" style="padding: 35px;">
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 Nama
@@ -67,14 +67,7 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 Referensi
-                                                <span id="copy">{{ $detailTransaction->data->reference }}
-                                                    <button onclick="copy()" class="btn btn-sm btn-primary"> <svg
-                                                            xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                                            viewBox="0 0 24 24">
-                                                            <path fill="currentColor"
-                                                                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
-                                                        </svg></button>
-                                                </span>
+                                                <span>{{ $detailTransaction->data->reference }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 Jenis
@@ -142,7 +135,7 @@
                                             data-bs-target="#pembayaran">Lihat Bukti Pembayaran</button>
                                     @else
                                         <div class="col-12 gap-1">
-                                            <a class="btn btn-success mt-2 col-5"
+                                            <a class="btn mt-2 col-5" style="background-color: #088C0D; color:white"
                                                 href="{{ route('subscribe.user') }}">Kembali</a>
                                             <a href="{{ route('transaction.delete', ['reference' => $transaction->reference]) }}"
                                                 class="btn col-5 mt-2" style="background-color: #ff2323; color: #fff;"
@@ -308,154 +301,52 @@
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- /.modal -->
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 kotak">
-                                <center>
-                                    <div class="col-8">
-                                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                            <div class="col-12">
-                                                <div class="card card-animate"
-                                                    style="border-radius: 20px;background: #F0F0F0; margin: 0;">
-                                                    <div class="card-body">
-                                                        @if (strtolower(trim($transaction->subscribe->tipe)) === 'free')
-                                                            <h4 class="card-title mb-2 text-center">Gratis</h4>
-                                                        @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'silver')
-                                                            <h4 class="card-title mb-2 text-center">Dasar</h4>
-                                                        @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'gold')
-                                                            <h4 class="card-title mb-2 text-center">Menengah</h4>
-                                                        @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'platinum')
-                                                            <h4 class="card-title mb-2 text-center">Premium</h4>
-                                                        @else
-                                                            <h4 class="card-title mb-2 text-center">Data Tidak Valid</h4>
-                                                        @endif
-                                                    </div>
-                                                    <div class="card-body text-white"
-                                                        style="background-image: linear-gradient(to bottom right, #0E2954, #104898); border-radius: 0 0 20px 20px;height: auto;display: inline-block; min-height: 200px;">
-                                                        <div class="row">
-                                                            <h5 class="card-title text-center mt-3">
-                                                                Rp.{{ number_format($transaction->subscribe->price, 0, ',', '.') }}/Bulan
-                                                            </h5>
-                                                        </div>
-                                                        <div data-simplebar data-simplebar-auto-hide="false"
-                                                            style="height: 300px;" class="px-3">
-                                                            <div class="flex-grow-1 ms-2 mt-2 text-white text-center">
-                                                                {{ strip_tags($transaction->subscribe->description) }}
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-5">
+                                <div class="col-12">
+                                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title mb-0">Intruksi Pembayaran</h4>
+                                                </div><!-- end card header -->
+
+                                                <div class="card-body">
+                                                    <div class="accordion" id="default-accordion-example">
+                                                        @foreach ($instructions as $index => $data)
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header"
+                                                                    id="heading{{ $index }}">
+                                                                    <button class="accordion-button collapsed"
+                                                                        type="button" data-bs-toggle="collapse"
+                                                                        data-bs-target="#collapse{{ $index }}"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="collapse{{ $index }}">
+                                                                        {{ $data->title }}
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapse{{ $index }}"
+                                                                    class="accordion-collapse collapse"
+                                                                    aria-labelledby="heading{{ $index }}"
+                                                                    data-bs-parent="#default-accordion-example">
+                                                                    <div class="accordion-body">
+                                                                        <ul style="list-style-type: none; padding: 0;">
+                                                                            @foreach ($data->steps as $step)
+                                                                                <li>{{ $loop->iteration }}.
+                                                                                    {!! $step !!}</li>
+                                                                            @endforeach
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            @if (strtolower(trim($transaction->subscribe->tipe)) === 'free')
-                                                                <div class="d-flex mt-5">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Menyingkat tautan batas sebanyak 35/bulan
-                                                                    </div>
-                                                                </div>
-                                                                <div class="d-flex mt-2">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Membuat Microsite sebanyak 3/bulan
-                                                                    </div>
-                                                                </div>
-                                                            @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'silver')
-                                                                <div class="d-flex mt-5">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Menyingkat tautan batas sebanyak 50×/bulan
-                                                                    </div>
-                                                                </div>
-                                                                <div class="d-flex mt-2">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Membuat Microsite sebanyak 10×/bulan
-                                                                    </div>
-                                                                </div>
-                                                            @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'gold')
-                                                                <div class="d-flex mt-5">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Menyingkat tautan batas sebanyak 100×/bulan
-                                                                    </div>
-                                                                </div>
-                                                                <div class="d-flex mt-2">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Membuat Microsite sebanyak 20×/bulan
-                                                                    </div>
-                                                                </div>
-                                                            @elseif (strtolower(trim($transaction->subscribe->tipe)) === 'platinum')
-                                                                <div class="d-flex mt-5">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Menyingkat tautan tanpa batas
-                                                                    </div>
-                                                                </div>
-                                                                <div class="d-flex mt-2">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Membuat Microsite tanpa batas
-                                                                    </div>
-                                                                </div>
-                                                                <div class="d-flex mt-2">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Menggunakan semua tema tanpa terkunci
-                                                                    </div>
-                                                                </div>
-                                                                <div class="d-flex mt-2">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Memantau tautan dengan terperinci
-                                                                    </div>
-                                                                </div>
-                                                                <div class="d-flex mt-2">
-                                                                    <div class="flex-shrink-0">
-                                                                        <i
-                                                                            class="ri-checkbox-circle-fill text-success"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ms-2 text-white">
-                                                                        Memproteksi tautan dengan kata sandi
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-                                                        </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div><!-- end card -->
                                         </div>
                                     </div>
-                                </center>
+                                </div>
                             </div>
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -504,9 +395,9 @@
             window.getSelection().removeAllRanges();
 
             Swal.fire({
-                'icon':'success',
-                'title':'Berhasil!',
-                'text':'Berhasil menyalin referensi'
+                'icon': 'success',
+                'title': 'Berhasil!',
+                'text': 'Berhasil menyalin referensi'
             })
         }
     </script>
