@@ -177,7 +177,8 @@ class AnalyticUserController extends Controller
             $countMicrosite = ShortURL::where('user_id', $userId)
                 ->whereNotNull('microsite_uuid')
                 ->whereMonth('created_at', now()->month)
-                ->whereDate('created_at', '<=', [now()->startOfMonth(), $resetDate])
+                ->whereDate('created_at', '>=', now()->startOfMonth())
+                ->whereDate('created_at', '<=', $resetDate)
                 ->count();
 
             $countNameChanged = ShortURL::where('user_id', $userId)
@@ -197,8 +198,8 @@ class AnalyticUserController extends Controller
             ->orderBy('totalVisits', 'desc')
             ->take(3)
             ->get();
-        // dd($links);
-        $microsites = ShortUrl::withCount([
+
+            $microsites = ShortUrl::withCount([
             'visits AS totalVisits' => function ($query) use ($userId) {
                 $query->whereHas('shortUrl', function ($query) use ($userId) {
                     $query->where('user_id', $userId);
@@ -284,7 +285,7 @@ class AnalyticUserController extends Controller
         // hitung jumlah array / collection dari shortURL
         // $visits = count($shortURL->visits) ;
 
-        // dd($totalVisits,$countURL);
+        // dd($countMicrosite);
         return view('User.AnalyticUser', compact('urlStatus', 'micrositeStatus', 'totalVisits', 'countURL', 'count', 'user', 'links', 'dataLink', 'countMicrosite', 'qr', 'microsites', 'totalVisitsMicrosite', 'TopBrowser', 'TopDevice', 'TopReferer', 'TopIpAdress', 'totalCountVisits', 'TopOperatingSystem', 'TopOperatingSystemVersion'));
     }
 

@@ -133,7 +133,6 @@ class DahsboardController extends Controller
                 ->whereNotNull('microsite_uuid')
                 ->whereMonth('created_at', now()->month)
                 ->count();
-                // dd($countMicrosite);
             $countNameChanged = ShortURL::where('user_id', $userId)
                 ->where('custom_name', 'yes')
                 ->whereMonth('created_at', now()->month)
