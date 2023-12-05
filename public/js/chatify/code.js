@@ -1667,7 +1667,7 @@ window.visualViewport.addEventListener("resize", (e) => {
     if (h) {
       $(".messenger-messagingView").css({ height: h + "px" });
     }
-  }, 100);
+  }, 1);
 });
 
 /**
