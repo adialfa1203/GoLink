@@ -501,17 +501,7 @@
                                     <div class="d-flex pb-1">
                                         <div class="flex-grow-1">
                                             <h6 class="card-title" style="color: #0E2954;">
-                                                Tautan dibuat /
-                                                @if ($user->subscribe == 'free')
-                                                    Bulan
-                                                @elseif ($user->subscribe == 'silver')
-                                                    Minggu
-                                                @elseif ($user->subscribe == 'gold')
-                                                    Bulan
-                                                @elseif ($user->subscribe == 'platinum')
-                                                    Tahun
-                                                @else
-                                                @endif
+                                                Tautan dibuat / Bulan
                                                 <span class="tooltip-icon"
                                                     data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                     <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
@@ -582,17 +572,7 @@
                                             <div class="modal-body">
                                                 <div class="row g-3">
                                                     <div class="card-body">
-                                                        <h3 class="card-title">Tautan dibuat /
-                                                            @if ($user->subscribe == 'free')
-                                                                Bulan
-                                                            @elseif ($user->subscribe == 'silver')
-                                                                Minggu
-                                                            @elseif ($user->subscribe == 'gold')
-                                                                Bulan
-                                                            @elseif ($user->subscribe == 'platinum')
-                                                                Tahun
-                                                            @else
-                                                            @endif
+                                                        <h3 class="card-title">Tautan dibuat / Bulan
                                                             <span class="tooltip-icon"
                                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                                 <i
@@ -758,18 +738,7 @@
                     <div class="d-flex pb-1">
                         <div class="flex-grow-1">
                             <h6 class="card-title" style="color: #0E2954;">
-                                Tautan dibuat /
-                                @if ($user->subscribe == 'free')
-                                    Bulan
-                                @elseif ($user->subscribe == 'silver')
-                                    Minggu
-                                @elseif ($user->subscribe == 'gold')
-                                    Bulan
-                                @elseif ($user->subscribe == 'platinum')
-                                    Tahun
-                                @else
-                                @endif
-
+                                Tautan dibuat / Bulan
                                 <span class="tooltip-icon"
                                     data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                     <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
@@ -849,17 +818,7 @@
                                 <div class="row g-3">
                                     <div class="card-body">
                                         <h6 class="card-title">
-                                            Tautan dibuat /
-                                            @if ($user->subscribe == 'free')
-                                                Bulan
-                                            @elseif ($user->subscribe == 'silver')
-                                                Minggu
-                                            @elseif ($user->subscribe == 'gold')
-                                                Bulan
-                                            @elseif ($user->subscribe == 'platinum')
-                                                Tahun
-                                            @else
-                                            @endif
+                                            Tautan dibuat / Bulan
                                             <span class="tooltip-icon"
                                                 data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi">
                                                 <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"></i>
