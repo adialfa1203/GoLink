@@ -81,23 +81,7 @@
                         <h5 class="rata" style="font-weight: bold;">Total Bayar</h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="font-weight: bold;">Rp.{{ number_format($detailTransaction->data->amount, 2, ',', '.') }}</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata">Harga </h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1">Rp.{{ $detailTransaction->data->order_items[0]->price }}</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50%;">
-                        <h5 class="rata" style="margin-bottom: 0">Biaya Admin</h5>
-                    </td>
-                    <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="margin-bottom: 0"> Rp.{{ number_format($detailTransaction->data->total_fee, 2, ',', '.') }}</h5>
+                        <h5 class="rata1" style="font-weight: bold;margin-bottom: 0;">Rp.{{ number_format($detailTransaction->data->amount, 2, ',', '.') }}</h5>
                     </td>
                 </tr>
             </table>

@@ -124,14 +124,13 @@
                                                         alt="Card image cap">
                                                 </div>
                                                 <div class="buttons">
-                                                    <button type="button" class="btn" data-bs-toggle="modal"
-                                                        data-bs-target="#bayar{{ $channel->code }}"
-                                                        style="color: #fff;background-color: #0E2954; height: 100%;padding: 6px;">Pilih</button>
+                                                    <button type="button" class="btn"
+                                                        style="color: #fff;background-color: #0E2954; height: 100%;padding: 6px;" onclick="showSweetAlert()">Pilih</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="bayar{{ $channel->code }}" class="modal fade" tabindex="-1"
+                                    <!-- <div id="bayar{{ $channel->code }}" class="modal fade" tabindex="-1"
                                         aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog modal-dialog-centered modal-md">
                                             <div class="modal-content">
@@ -193,7 +192,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </form>
                             @endforeach
                         </div>
@@ -363,4 +362,25 @@
 
     </div>
     </div>
+    @section('script')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  function showSweetAlert() {
+    Swal.fire({
+      title: 'Apakah anda yakin memilih metode pembayaran ini?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya, saya yakin!',
+      cancelButtonText: 'Batal'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Jika pengguna memilih Ya, lakukan sesuatu di sini
+        Swal.fire('Terima kasih!', 'Anda telah memilih metode pembayaran.', 'success');
+      }
+    });
+  }
+</script>
+    @endsection
 @endsection
