@@ -160,7 +160,7 @@
                                                                 Unknown
                                                             @endif
                                                         </td>
-                                                        @if ($transaction->status === 'FAILED')
+                                                        @if ($transaction->status === 'FAILED' || $transaction->status === 'EXPIRED')
                                                             <td>{{ $transaction->payment_method }}</td>
                                                         @else
                                                             <td><a href="{{ route('transaction.show', ['reference' => $transaction->reference]) }}"
@@ -185,11 +185,17 @@
                                                         <td>
                                                             <div class="d-flex gap-2">
                                                                 <div>
-                                                                    <a href="{{ route('transaction.delete', ['reference' => $transaction->reference]) }}"
-                                                                        class="btn bi bi-trash-fill"
-                                                                        style="background-color: #ff2323; color: #fff;"
-                                                                        onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}', '{{ $transaction->status }}');">
-                                                                    </a>
+                                                                    @if ($transaction->status == 'UNPAID')
+                                                                        <a href="#" class="btn bi bi-trash-fill"
+                                                                            style="background-color: #ff2323; color: #fff;"
+                                                                            onclick="event.preventDefault(); confirmCancel('{{ $transaction->reference }}', '{{ $transaction->status }}');">
+                                                                        </a>
+                                                                    @else
+                                                                        <a href="#" class="btn bi bi-trash-fill"
+                                                                            style="background-color: #ff2323; color: #fff;"
+                                                                            onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}', '{{ $transaction->status }}');">
+                                                                        </a>
+                                                                    @endif
                                                                 </div>
                                                                 @if ($transaction->status == 'PAID')
                                                                     <button type="button" class="btn"
@@ -457,6 +463,23 @@
 
         function printReceipt(reference) {
             window.open('/user/transaction-pdf/' + reference, '_blank');
+        }
+
+        function confirmCancel(reference) {
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Apakah Anda yakin ingin membatalkan transaksi ini?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ url('user/failed/') }}/' + reference;
+                }
+            });
         }
     </script>
 

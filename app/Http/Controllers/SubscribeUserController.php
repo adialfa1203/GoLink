@@ -27,10 +27,23 @@ class SubscribeUserController extends Controller
     public function subscribeUser()
     {
         $userId = auth()->user()->id;
-        $transaction = Transaction::where('user_id', $userId)->get();
+        $transactions = Transaction::where('user_id', $userId)
+            ->where('status', 'UNPAID')
+            ->get();
+
+        foreach ($transactions as $transaction) {
+            if ($transaction->expired <= now()) {
+                $transaction->update([
+                    'status' => 'EXPIRED'
+                ]);
+            }
+        }
+
         $data = Transaction::where('user_id', $userId)->paginate(10);
+
         return view('User.SubscribeUser', compact('data'));
     }
+
 
 
     public function subscribeProductUser()

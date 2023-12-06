@@ -137,8 +137,8 @@
                                         <div class="col-12 gap-1">
                                             <a class="btn mt-2 col-5" style="background-color: #088C0D; color:white"
                                                 href="{{ route('subscribe.user') }}">Kembali</a>
-                                            <a href="{{ route('transaction.delete', ['reference' => $transaction->reference]) }}"
-                                                class="btn col-5 mt-2" style="background-color: #ff2323; color: #fff;"
+                                            <a href="#" class="btn col-5 mt-2"
+                                                style="background-color: #ff2323; color: #fff;"
                                                 onclick="event.preventDefault(); confirmDelete('{{ $transaction->reference }}');">
                                                 Batalkan
                                             </a>
