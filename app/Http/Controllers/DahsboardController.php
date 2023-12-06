@@ -114,8 +114,6 @@ class DahsboardController extends Controller
                     break;
             }
 
-
-
             $totalUrl = ShortURL::where('user_id', $userId)
                 ->whereNull('microsite_uuid')
                 ->whereMonth('created_at', now()->month)

@@ -121,5 +121,5 @@ class SubscribeController extends Controller
         $subscribe->delete();
 
         return redirect()->back()->with('success', 'Langganan berhasil dihapus.');
-    }
+    }    
 }

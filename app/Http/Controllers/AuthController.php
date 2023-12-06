@@ -14,6 +14,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Role;
 use Ramsey\Uuid\Uuid;
 use App\Models\ChFavorite;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -45,8 +46,18 @@ class AuthController extends Controller
                 ->withInput();
         }
 
+        
+
         if (Auth::attempt($credentials, $remember)) {
             $user = Auth::user();
+            $today = Carbon::now();
+
+                if ($user->subscription_end_date && $user->subscription_end_date < $today) {
+                    if ($user->subscribe == 'silver' || $user->subscribe == 'gold' || $user->subscribe == 'platinum') {
+                        $user->update(['subscribe' => 'free']);
+                    }
+            }
+
             if ($user->hasRole('admin')) {
                 return redirect()->route('dashboard.admin');
             } elseif ($user->hasRole('user')) {
@@ -60,6 +71,19 @@ class AuthController extends Controller
         }
 
         return redirect()->route('login')->with('error', 'Email atau Password Yang Anda Masukkan Salah');
+    }
+
+    private function checkSubscriptions()
+    {
+        $user = Auth::user();
+        $today = Carbon::now();
+
+            if ($user->subscription_end_date && $user->subscription_end_date < $today) {
+                if ($user->status == 'silver' || $user->status == 'gold' || $user->status == 'platinum') {
+                    $user->update(['status' => 'free']);
+                }
+        }
+        return response()->json(['message' => 'Pemeriksaan langganan berhasil dijalankan.']);
     }
 
     public function register()

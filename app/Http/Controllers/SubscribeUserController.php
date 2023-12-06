@@ -29,7 +29,6 @@ class SubscribeUserController extends Controller
         $userId = auth()->user()->id;
         $transaction = Transaction::where('user_id', $userId)->get();
         $data = Transaction::where('user_id', $userId)->paginate(10);
-        // dd($transaction);
         return view('User.SubscribeUser', compact('data'));
     }
 
@@ -62,7 +61,6 @@ class SubscribeUserController extends Controller
 
         $transaction = $tripay->requestTransaction($method, $subscribe);
         $data = json_decode($transaction);
-        // dd($data);
         $data = $data->data;
         Transaction::query()->create([
             'user_id' => auth()->user()->id,

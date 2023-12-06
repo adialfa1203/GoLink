@@ -60,7 +60,6 @@ class ShortLinkController extends Controller
                 ->whereNull('microsite_uuid')
                 ->whereMonth('created_at', now())
                 ->count();
-                // dd($shortLinks);
             $history = $user->history()
                 ->whereMonth('created_at', now())
                 ->count();
