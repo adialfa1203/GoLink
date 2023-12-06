@@ -143,7 +143,6 @@
             </table>
             <hr>
             <h5 style="margin: 0;font-family: sans-serif;font-weight: lighter; color: #888888;">PT Hummatech Digital Indonesia</h5>
-            <h5 style="margin: 0;font-family: sans-serif;font-weight: lighter; color: #888888;">Perum Permata Regency 1 Blok 10/28, Perun Gpa, Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</h5>
         </div>
     </div>
 </body>

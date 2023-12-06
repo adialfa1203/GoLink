@@ -259,9 +259,6 @@
                                                         <hr>
                                                         <p class="text-muted" style="margin: 0;">PT Hummatech Digital
                                                             Indonesia</p>
-                                                        <p class="text-muted" style="margin: 0;">Perum Permata Regency 1
-                                                            Blok 10/28, Perun Gpa, Ngijo, Kec. Karang Ploso, Kabupaten
-                                                            Malang, Jawa Timur 65152</p>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex">
