@@ -6,21 +6,17 @@ use Carbon\Carbon;
 use App\Models\Subscribe;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Services\CallbackService;
 use App\Services\DetailTransactionService;
-use League\CommonMark\Reference\Reference;
 
 class SubscribeUserController extends Controller
 {
     protected $privateKey = 'CK3tY-WMaEe-U2niV-eDYKP-5hZTB';
 
     private DetailTransactionService $service;
-    private CallbackService $callbackService;
     public function __construct(DetailTransactionService $service, CallbackService $callbackService)
     {
         $this->service = $service;
-        $this->callbackService = $callbackService;
     }
 
 
@@ -72,14 +68,17 @@ class SubscribeUserController extends Controller
 
         $tripay = new TripayController();
 
+        $timezone = 'Asia/Jakarta';
         $transaction = $tripay->requestTransaction($method, $subscribe);
         $data = json_decode($transaction);
         $data = $data->data;
+        $expiryDateTime = Carbon::now($timezone)->addHours(24);
+
         Transaction::query()->create([
             'user_id' => auth()->user()->id,
             'subscribe_id' => $subscribe->id,
             'reference' => $data->reference,
-            'expired' => Carbon::parse($data->expired_time)->format('Y-m-d'),
+            'expired' => $expiryDateTime->toDateTimeString(),
             'amount' => $data->amount,
             'fee_amount' => $data->total_fee,
             'payment_method' => $data->payment_method
@@ -101,8 +100,7 @@ class SubscribeUserController extends Controller
 
         $tripay = new TripayController();
         $foto1 = $tripay->getPaymentChannels();
-        $expired = Carbon::parse($detailTransaction->data->expired_time)->isoFormat('DD MMMM Y');
-        // H:mm:ss
+        $expired = Carbon::parse($detailTransaction->data->expired_time)->format('d-M-Y H:i:s');
         $instructions = $detailTransaction->data->instructions;
 
         return view('Subscribe.TransactionShow', compact('detailTransaction', 'transaction', 'foto1', 'expired', 'instructions'));

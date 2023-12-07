@@ -168,7 +168,7 @@
                                                             </td>
                                                         @endif
                                                         <td>Rp.{{ number_format($transaction->amount, 2, ',', '.') }}</td>
-                                                        <td>{{ $transaction->updated_at }}</td>
+                                                        <td>{{ $transaction->expired }}</td>
                                                         <td>
                                                             @if ($transaction->status === 'PAID')
                                                                 <span class="badge bg-success">DIBAYAR</span>
@@ -254,7 +254,9 @@
                                                                                         Dibayar</h6>
                                                                                 </div>
                                                                                 <div class="col-6">
-                                                                                    <h6 class="rata1 text-muted">{{ \Carbon\Carbon::parse($transaction->updated_at)->isoFormat('D MMMM YYYY HH:mm:ss') }}</h6>
+                                                                                    <h6 class="rata1 text-muted">
+                                                                                        {{ \Carbon\Carbon::parse($transaction->updated_at)->isoFormat('D MMMM YYYY HH:mm:ss') }}
+                                                                                    </h6>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row">
@@ -448,7 +450,7 @@
             Swal.fire({
                 title: 'Konfirmasi',
                 text: confirmationText,
-                icon: 'info',
+                icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
