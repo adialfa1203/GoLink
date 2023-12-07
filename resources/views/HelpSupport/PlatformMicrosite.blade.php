@@ -204,40 +204,17 @@
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#accor_borderedExamplecollapse1" aria-expanded="true"
                             aria-controls="accor_borderedExamplecollapse1" style="backround">
-                            Bagaimana cara menghapus microsite?
+                            Apakah ada batasan dalam membuat Microsite
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </h2>
                     <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
                         aria-labelledby="accordionborderedExample1" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <p>1. Login ke dalam akun MiLink anda dan masuk ke Dashboard
-                            </p>
-                            <p>2. Pilih Microsite yang ingin anda edit dengan pilih Edit
-                            </p>
-                            <p>3. Pilih pengaturan</p>
-                            <p>4. Scroll kebawah dan pilih Hapus Microsite</p>
-                            <p>5. Ketik nama microsite/alamat microsite nya dan klik Hapus
-                                Microsite</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item mt-2">
-                    <h2 class="accordion-header" id="accordionborderedExample2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#accor_borderedExamplecollapse2" aria-expanded="false"
-                            aria-controls="accor_borderedExamplecollapse2">
-                            Apakah ada batasan dalam membuat Microsite
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </h2>
-                    <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"
-                        aria-labelledby="accordionborderedExample2" data-bs-parent="#accordionBordered">
-                        <div class="accordion-body">
                             <p>Untuk saat ini, batas pembuatan microsite dari bebepa kategori berlangganan</p>
-                            <p><strong>Gratis   - 3/bulan</strong></p>
-                            <p><strong>Silver   - 5/bulan</strong></p>
-                            <p><strong>Gold     - 10/bulan</strong></p>
+                            <p><strong>Gratis   - 3 microsite/bulan</strong></p>
+                            <p><strong>Silver   - 5 microsite/bulan</strong></p>
+                            <p><strong>Gold     - 10 microsite/bulan</strong></p>
                             <p><strong>Premium  - Unlimited</strong></p>
                         </div>
                     </div>
@@ -254,11 +231,11 @@
                     <div id="accor_borderedExamplecollapse3" class="accordion-collapse collapse"
                         aria-labelledby="accordionborderedExample3" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <p>1. Di Dashboard MiLink Anda Klik Microsite</p>
+                            <p>1. Di Sidebar sebelah kiri, Anda Klik Microsite</p>
                             <p>2. Kemudian pilih URL Microsite yang ingin Anda bagikan
                             </p>
-                            <p>3. Klik Bagikan</p>
-                            <p>4. Pilih Media social yang ingin kamu bagikan</p>
+                            <p>3. Klik icon Bagikan</p>
+                            <p>4. Pilih Media social yang akan anda gunakan untuk mengirim microsite anda.</p>
                         </div>
                     </div>
                 </div>

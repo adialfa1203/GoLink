@@ -202,16 +202,15 @@
                         <div class="accordion-body">
                             <b>MiLink</b> adalah platform untuk orang-orang menunjukkan keahlian
                             mereka dalam membuat situs mikro dan memperpendek tautan dengan kode
-                            <b>MiLink/</b>. Produk yang dipasarkan ke semua orang melalui fitur-fitur yang disediakan
-                            oleh
-                            <b>MiLink</b>.Kami sangat senang Anda ada di sini. Anda dapat langsung masuk
+                            <b>http://milink.id/milink</b>.Kami sangat senang Anda ada di sini. Anda dapat langsung masuk
                             membuat microsite dan dengan mudah mempersingkat,
                             memodifikasi, dan membagikan tautan Anda. Mari kita mulai dengan dasar-dasarnya.
+                            <p></p>
                             <b>Buat Tautan Pendek</b>
                             <p>Ubah tautan panjang Anda menjadi tautan pendek.</p>
                             <b>Sesuaikan agar mudah diingat</b>
                             <p>Ubah link dari https://MiLink/11SUi menjadi link seperti ini
-                                https://MiLink/nwsltr. Atau bisa dengan nama Anda agar mudah diingat.</p>
+                                https://MiLink/Danny. Atau kata lain agar mudah diingat.</p>
                             <b>Buat Tautan Situs Mikro/Bio</b>
                             <p>Microsite adalah cara untuk membagikan seluruh konten online Anda hanya
                                 menggunakan satu tautan.</p>
@@ -234,13 +233,16 @@
                         <div class="accordion-body">
                             Sesuaikan Penyingkat URL Anda dengan fitur yang memberi Anda pemendekan tautan
                             berkualitas lebih baik.
+                            <p></p>
                             <p>1. Masuk ke akun <b>MiLink</b> Anda yang ada.</p>
                             <p>2. Klik Buat Tautan Baru di menu bilah sisi kanan.</p>
                             <p>3. Terdapat empat fitur yang tersedia yang dapat anda gunakan.</p>
-                            <p>4. Pertama, anda dapat menyunting tautan pendek anda..</p>
-                            <p>5. Kedua, anda dapat menyalin tautan anda</p>
-                            <p>6. Ketiga, terdapat laporan statistik dari jumlah pengunjung dalam seminggu</p>
-                            <p>7. Dan terakhir, jika Anda ingin membagikan tautan, klik tombol bagikan. Ada juga Scan QR
+                            <p> - Fitur Pertama, anda dapat menyunting tautan pendek anda..</p>
+                            <p> - Fitur Kedua, anda dapat menyalin tautan anda</p>
+                            <p> - Fitur Ketiga, terdapat laporan statistik dari jumlah pengunjung tautan perbulannya.</p>
+                            <p> - Fitur Keempat anda juga bisa membagika tautan.</p>
+                            <p> - Fitur Kelima anda juga bisa mengatur waktu kadaluarsa tautan tersebut.</p>
+                            <p> - Dan Fitur terakhir, jika Anda ingin membagikan tautan, klik tombol bagikan. Ada juga Scan QR
                                 Code</p>
                         </div>
                     </div>
@@ -263,15 +265,18 @@
                             <p>Membuat microsite sangat mudah:</p>
 
                             <p>1. Masuk ke akun <b>MiLink</b> Anda yang ada.</p>
-                            <p>2. Dari menu Beranda, Klik Buat Microsite Baru kemudian Klik. Kemudian Anda akan
-                                diarahkan ke Buat Microsite Baru</p>
-                            <p>3. Pilih satu tema microsite dan klik Selajutnya.</p>
+                            <p>2. Dari menu Beranda, Klik Buat Microsite Baru. Kemudian Anda akan
+                                diarahkan ke Halaman Pembuatan Microsite Baru</p>
+                            <p>3. Pilih satu tema microsite dan klik Selajutnya. Anda juga bisa memanfaatkan Kustom Tema sesuai dengan apa yang diinginkan.</p>
                             <p>4. Masukkan Nama dan URL microsite Anda dan klik Selanjutnya.</p>
                             <p>5. Kemudian, mulailah menambahkan media sosial apa saja yang anda punya.
                             </p>
-                            <p>6. Terakhir, Anda akan diarahkan ke halaman Edit Microsite untuk melengkapi Microsite
+                            <p>6. Setelahg dikirim, Anda akan diarahkan ke halaman Edit Microsite untuk melengkapi Microsite
                                 Anda.
                             </p>
+                            <p>7. Pada halaman edit anda bisa menambahkan Nama Profile dan deskripsi jika perlu.</p>
+                            <p>8. Anda akan diwajibkan mengisi URL Sosial Media Anda.</p>
+                            <p>9. Terakhir, pada Tab Pengaturan ada pengeditan Nama Microsite dan Tautan Microsite. Tetapi hanya bisa diakses oleh akun yang sudah terdaftar premium.</p>
                         </div>
                     </div>
                 </div>

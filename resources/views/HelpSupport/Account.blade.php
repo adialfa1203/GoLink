@@ -189,49 +189,14 @@
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#accor_borderedExamplecollapse1" aria-expanded="true"
                             aria-controls="accor_borderedExamplecollapse1" style="backround">
-                            Apa yang dimaksud dengan pengunjung unik?
-                            <i class="fas fa-chevron-right"></i>
+                            Apa yang dimaksud dengan pengunjung tautan atau microsite?
 
+                            <i class="fas fa-chevron-right"></i>
                         </button>
                     </h2>
                     <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
                         aria-labelledby="accordionborderedExample1" data-bs-parent="#accordionBordered">
-                        <div class="accordion-body">
-                            <p><strong>Pengunjung Unik</strong> <i>(Unique Visitor)</i> adalah istilah yang umum
-                                digunakan dalam analisis web untuk mengukur jumlah individu yang mengunjungi
-                                suatu situs web atau halaman web selama periode waktu tertentu. Konsep
-                                pengunjung unik bertujuan untuk mengidentifikasi dan menghitung setiap
-                                individu yang mengakses situs web, meskipun mereka mengunjungi situs
-                                tersebut beberapa kali dalam periode waktu yang sama.</p>
-
-                            <p><strong>Contoh:</strong></p>
-                            <p>10 orang dalam 1 jaringan WIFI mengunjungi tautan atau microsite Anda,
-                                maka akan terhitung sebagai 1 <strong>pengunjung unik</strong> dan 10
-                                pengunjung.</p>
-                            <p>3 orang dalam koneksi yang berbeda, baik itu menggunakan selular maupun
-                                WIFI, maka akan terhitung sebagai 3 <strong>pengunjung unik</strong> dan
-                                3 pengunjung.</p>
-
-                            <p>Hal ini disebabkan karena jika seseorang kembali mengunjungi situs tautan
-                                atau microsite Anda, sistem akan memeriksa apakah informasi unik tersebut
-                                sudah ada. Jika iya, maka pengunjung tersebut tidak dihitung sebagai
-                                pengunjung unik baru.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item mt-2 mb-5">
-                    <h2 class="accordion-header" id="accordionborderedExample2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#accor_borderedExamplecollapse2" aria-expanded="false"
-                            aria-controls="accor_borderedExamplecollapse2">
-                            Apa yang dimaksud dengan pengunjung?
-                            <i class="fas fa-chevron-right"></i>
-
-                        </button>
-                    </h2>
-                    <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"
-                        aria-labelledby="accordionborderedExample2" data-bs-parent="#accordionBordered">
-                        <div class="accordion-body">
+                        <div class="accordion-body mb-4">
                             <p><strong>Pengunjung</strong> adalah seseorang atau entitas yang mengunjungi
                                 tautan atau microsite Anda. Anda dapat melihat jumlah total pengunjung dalam
                                 periode tertentu atau yang telah ditentukan melalui statistik di dashboard

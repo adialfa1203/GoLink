@@ -202,22 +202,21 @@
 
                             <p>Halo Pengguna MiLink,</p>
                             <p>Kami ingin memberi tahu Anda bahwa kami telah melakukan beberapa perbaikan
-                                dalam cara kami beroperasi dan telah memperbarui Kebijakan Privasi serta
-                                Kebijakan Privasi kami untuk mencerminkan perubahan ini. Perbaikan-perbaikan
+                                dalam cara kami beroperasi dan telah memperbarui Kebijakan Privasi kami. Perbaikan-perbaikan
                                 ini termasuk:</p>
-                            <p><strong>Perubahan dalam cara tautan MiLink berfungsi</strong> - Kami telah
-                                mengubah arah pengembangan MiLink. Tidak hanya sebagai penyingkat tautan,
-                                MiLink sekarang juga merupakan pembangun microsite yang dapat digunakan
-                                untuk membuat tautan di bio media sosial Anda lebih menarik dan
-                                informatif.</p>
+                            <p><strong>Perubahan dalam cara tautan MiLink berfungsi</strong> 
+                                <p>- Kami telah
+                                    mengubah arah pengembangan MiLink. Tidak hanya sebagai penyingkat tautan,
+                                    MiLink sekarang juga merupakan pembangun microsite yang dapat digunakan
+                                    untuk membuat tautan di bio media sosial Anda lebih menarik dan
+                                    informatif.</p></p>
 
                             <p>Kami mendorong Anda untuk membaca Kebijakan Privasi lengkap kami <a
                                     style="color: #104898" href="/id/privacy">di sini</a></p>
 
                             <p>Harap pastikan bahwa Anda menerima perubahan ini melalui popup setelah Anda
                                 masuk ke situs kami. Ini akan membantu Anda dan komunitas kami memaksimalkan
-                                fitur-fitur yang baru. Jika Anda tidak menerima perubahan tersebut, Anda
-                                tidak akan dapat terus menggunakan layanan kami hingga Anda menerimanya.</p>
+                                fitur-fitur yang baru.</p>
 
                             <p>Terima kasih banyak,</p>
                             <p>MiLink - Penyingkat Tautan dan Pembangun Microsite</p>

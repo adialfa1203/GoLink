@@ -197,19 +197,14 @@
                     <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
                         aria-labelledby="accordionborderedExample1" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <p>Apa saja keuntungan dari layanan Starter?</p>
+                            <p>Apa saja keuntungan dari layanan Premium?</p>
 
-                            <p>Berikut ini adalah fitur-fitur yang tersedia dalam layanan Starter:</p>
-                            <p>1. Kustomisasi Nama URL - Anda dapat mengganti nama URL
-                                hingga 30 kali per bulan.</p>
-                            <p>2. Mengganti Alamat Tujuan Shortlink - Anda dapat
-                                mengganti alamat tujuan shortlink hingga 3 kali per bulan.</p>
+                            <p>Berikut ini adalah fitur-fitur yang tersedia dalam layanan Premium:</p>
+                            <p>1. Kustomisasi Nama URL</p>
+                            <p>2. Mengganti URL Shortlink</p>
                             <p>3. Mengganti Nama Microsite</p>
-                            <p>4. Menyembunyikan Watermark</p>
-                            <p>5. Tampilan Rentang Analitik - Sampai dengan 60 hari.
-                            </p>
-                            <p>6. Retensi Analitik - Data analitik dapat disimpan
-                                hingga 180 hari ke belakang.</p>
+                            <p>4. Dapat mengatur waktu kadaluarsa pada Shortlink</p>
+                            <p>6. Retensi Analitik</p>
                             <p>7. Bebas Iklan</p>
                         </div>
                     </div>
@@ -227,15 +222,16 @@
                     <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"
                         aria-labelledby="accordionborderedExample2" data-bs-parent="#accordionBordered">
                         <div class="accordion-body">
-                            <p>1. Kunjungi https://home.MiLink/subscription </p>
-                            <p>2. Silahkan Login dahulu dengan klik Masuk/Daftar sebelah kanan
+                            <p>1. Kunjungi https://milink.id/user/subscribe-product-user </p>
+                            <p>2. Jika belum Login, silahkan Login dahulu dengan klik Masuk/Daftar sebelah kanan
                                 atas</p>
-                            <p>3. Pilih paket yang kamu butuhkan</p>
-                            <p>4. Klik process <i>payment</i> atau pembayaran</p>
-                            <p>5. Pilih metode pembayaran</p>
-                            <p>6. Selamat, pembayaran Anda berhasil</p>
-                            <p>7. Riwayat pembayaran Anda akan ada di pengaturan -
-                                berlangganan.</p>
+                            <p>3. Setelah masuk pada halaman dashboard User, pilih bagian menu sidebar Berlangganan</p>
+                            <p>4. Setelah masuk pada halaman Berlangganan, pilih button Berlangganan Sekarang sebelah kanan</p>
+                            <p>5. Pilih paket yang kamu butuhkan</p>
+                            <p>6. Klik <i>Berlangganan Sekarang</i></p>
+                            <p>7. Pilih metode pembayaran</p>
+                            <p>8. Selamat, pembayaran Anda berhasil</p>
+                            <p>9. Riwayat pembayaran Anda akan ada di halaman berlangganan</p>
                             <p>8. Luar biasa! Kini Anda bisa menikmati semua fitur yang
                                 ada.</p>
                         </div>
