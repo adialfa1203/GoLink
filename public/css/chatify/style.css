@@ -136,7 +136,6 @@ body {
   padding: var(--headers-padding);
 }
 .messenger-messagingView .m-body {
-  position: relative;
   padding-top: 15px;
   overflow-x: hidden;
   overflow-y: auto;
