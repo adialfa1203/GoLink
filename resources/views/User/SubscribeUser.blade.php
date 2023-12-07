@@ -160,13 +160,13 @@
                                                                 Unknown
                                                             @endif
                                                         </td>
-                                                        {{-- @if ($transaction->status === 'FAILED' || $transaction->status === 'EXPIRED') --}}
+                                                        @if ($transaction->status === 'FAILED' || $transaction->status === 'EXPIRED')
                                                             <td>{{ $transaction->payment_method }}</td>
-                                                        {{-- @else
+                                                        @else
                                                             <td><a href="{{ route('transaction.show', ['reference' => $transaction->reference]) }}"
                                                                     class="text-decoration-underline">{{ $transaction->payment_method }}</a>
                                                             </td>
-                                                        @endif --}}
+                                                        @endif
                                                         <td>Rp.{{ number_format($transaction->amount, 2, ',', '.') }}</td>
                                                         <td>{{ $transaction->expired }}</td>
                                                         <td>
