@@ -145,7 +145,6 @@
                                                     </td>
                                                 </tr>
                                             @else
-                                            @dd($data); 
                                                 @foreach ($data as $transaction)
                                                     <tr>
                                                         <td>
