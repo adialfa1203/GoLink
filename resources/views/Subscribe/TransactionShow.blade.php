@@ -112,7 +112,7 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Masa
                                         Kadaluwarsa Pembayaran
-                                        <span style="overflow-wrap: anywhere">{{ $expired }}</span>
+                                        <span style="overflow-wrap: anywhere">{{ \Carbon\Carbon::parse($expired)->isoFormat('D MMMM YYYY HH:mm') }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Status
