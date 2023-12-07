@@ -104,7 +104,7 @@
                                 </div>
                             </div>
                             @foreach ($channels as $channel)
-                                <form action="{{ route('payment') }}" method="POST">
+                                <form id="myForm" action="{{ route('payment') }}" method="POST">
                                     @csrf
                                     <div class="card card-animate"
                                         style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
@@ -124,7 +124,7 @@
                                                         alt="Card image cap">
                                                 </div>
                                                 <div class="buttons">
-                                                    <button type="button" class="btn"
+                                                    <button type="button" class="btn" id="submitButton"
                                                         style="color: #fff;background-color: #0E2954; height: 100%;padding: 6px;" onclick="showSweetAlert()">Pilih</button>
                                                 </div>
                                             </div>
@@ -366,21 +366,35 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   function showSweetAlert() {
-    Swal.fire({
-      title: 'Apakah anda yakin memilih metode pembayaran ini?',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Ya, saya yakin!',
-      cancelButtonText: 'Batal'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Jika pengguna memilih Ya, lakukan sesuatu di sini
-        Swal.fire('Terima kasih!', 'Anda telah memilih metode pembayaran.', 'success');
-      }
-    });
-  }
+  Swal.fire({
+    title: 'Apakah anda yakin memilih metode pembayaran ini?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, saya yakin!',
+    cancelButtonText: 'Batal'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Jika pengguna mengklik "Ya, saya yakin!"
+      // Lakukan tindakan submit di sini
+      submitForm();
+    }
+  });
+}
+
+function submitForm() {
+  // Ambil formulir (gantilah "myForm" dengan ID formulir Anda)
+  var form = document.getElementById('myForm');
+
+  // Lakukan submit formulir
+  form.submit();
+}
+
+// Tambahkan event listener pada tombol
+var submitButton = document.getElementById('submitButton');
+submitButton.addEventListener('click', showSweetAlert);
+</script>
 </script>
     @endsection
 @endsection
