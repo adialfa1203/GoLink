@@ -73,7 +73,7 @@
                         <h5 class="rata" style="color: #888888;">Telah Dibayar</h5>
                     </td>
                     <td style="text-align: right; padding-right: 20px;">
-                        <h5 class="rata1" style="color: #888888;">2023-10-10 </h5>
+                        <h5 class="rata1" style="color: #888888;">{{ \Carbon\Carbon::parse($transaction->updated_at)->isoFormat('D MMMM YYYY HH:mm:ss') }}</h5>
                     </td>
                 </tr>
                 <tr>

@@ -35,7 +35,7 @@ class PDFController extends Controller
         $detailTransaction = json_decode($detailTransaction);
         $transaction = Transaction::where('reference', $reference)
             ->with('subscribe')->first();
-        $pdf = PDF::loadView('pdf.document', ['data' => $data, 'detailTransaction' => $detailTransaction]);
+        $pdf = PDF::loadView('pdf.document', ['data' => $data, 'detailTransaction' => $detailTransaction,'transaction' => $transaction]);
 
         return $pdf->download('Transaction' . $reference . '.pdf');
     }

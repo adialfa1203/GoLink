@@ -192,7 +192,7 @@
                                                         <h6 class="rata text-muted">Telah Dibayar</h6>
                                                     </div>
                                                     <div class="col-6">
-                                                        <h6 class="rata1 text-muted">Rp. </h6>
+                                                        <h6 class="rata1 text-muted">{{ \Carbon\Carbon::parse($transaction->updated_at)->isoFormat('D MMMM YYYY HH:mm:ss') }}</h6>
                                                     </div>
                                                 </div>
                                                 <div class="row">
