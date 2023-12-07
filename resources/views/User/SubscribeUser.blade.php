@@ -168,7 +168,7 @@
                                                             </td>
                                                         @endif
                                                         <td>Rp.{{ number_format($transaction->amount, 2, ',', '.') }}</td>
-                                                        <td>{{ $transaction->expired }}</td>
+                                                        <td>{{ \Carbon\Carbon::parse($transaction->expired)->isoFormat('D MMMM YYYY') }}</td>
                                                         <td>
                                                             @if ($transaction->status === 'PAID')
                                                                 <span class="badge bg-success">DIBAYAR</span>
