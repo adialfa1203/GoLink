@@ -85,6 +85,7 @@ class SubscribeUserController extends Controller
         ]);
 
         $transaction = json_decode($transaction);
+        dd($transaction);
 
         return redirect()->route('transaction.show', parameters: [
             'reference' => $transaction->data->reference,
