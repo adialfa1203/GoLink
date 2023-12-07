@@ -392,7 +392,7 @@
                         <div class=" story_box jarak" style="min-height:220px" data-aos="fade-up" data-aos-duration="1500">
                     <div class="story_text">
                         <h4 style="color: #104898;">
-                            <h3 style="color: #104898;" class="counter_value" data-target="{{ $totalVisits }}">{{ $totalVisits }}</h3>
+                            <h3 style="color: #104898;" class="counter_value" data-target="{{ $countMicrositeVisits }}">{{ $countMicrositeVisits }}</h3>
                         </h4>
                         <p class="text-muted">Ratusan tautan dan pengunjung mengakses situs mikro dengan
                             MiLink.id</p>
