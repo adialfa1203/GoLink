@@ -83,7 +83,7 @@ class SubscribeUserController extends Controller
             'fee_amount' => $data->total_fee,
             'payment_method' => $data->payment_method
         ]);
-        // dd($trans);
+        dd($trans);
 
         $transaction = json_decode($transaction);
 
