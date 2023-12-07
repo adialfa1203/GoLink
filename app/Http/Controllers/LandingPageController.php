@@ -21,17 +21,25 @@ class LandingPageController extends Controller
         $user = Auth::user();
         $currentMonth = Carbon::now()->month;
         $data = Footer::first();
-        $countUrl = ShortUrl::whereNotNull('default_short_url')->count();
+        $countUrl = ShortUrl::whereNull('microsite_uuid')->count();
         $countHistory = History::count();
         $url = $countUrl + $countHistory;
+        // dd($countUrl , $url);
         $micrositeuuid = ShortUrl::whereNotNull('microsite_uuid')->count();
         $countVisits = ShortURLVisit::query()
-            ->whereRelation('shortURL', 'microsite_uuid', null)
-            ->count();
+        ->whereHas('shortURL', function ($query) {
+            $query->whereNull('microsite_uuid');
+        })
+        ->count();
         $countHistoryVisits = HistoryVisits::count();
-        $totalVisits = $countUrl + $countHistory;
-        // dd($channels);
-        return view('Landingpage.Home', compact('tripay', 'channels', 'data', 'url', 'micrositeuuid', 'totalVisits',));
+        $totalVisits = $countVisits + $countHistoryVisits;
+        $countMicrositeVisits = ShortURLVisit::query()
+        ->whereHas('shortURL', function ($query) {
+            $query->whereNotNull('microsite_uuid');
+        })
+        ->count();
+        // dd($countVisits , $countHistoryVisits , $countMicrositeVisits);
+        return view('Landingpage.Home', compact('tripay', 'channels', 'data', 'url', 'micrositeuuid','countMicrositeVisits', 'totalVisits',));
     }
     public function shortLink()
     {
