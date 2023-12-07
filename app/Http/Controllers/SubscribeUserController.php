@@ -74,7 +74,7 @@ class SubscribeUserController extends Controller
         $data = $data->data;
         $expiryDateTime = Carbon::now($timezone)->addHours(24);
 
-        Transaction::query()->create([
+        $trans = Transaction::query()->create([
             'user_id' => auth()->user()->id,
             'subscribe_id' => $subscribe->id,
             'reference' => $data->reference,
@@ -83,9 +83,9 @@ class SubscribeUserController extends Controller
             'fee_amount' => $data->total_fee,
             'payment_method' => $data->payment_method
         ]);
+        dd($trans);
 
         $transaction = json_decode($transaction);
-        dd($transaction);
 
         return redirect()->route('transaction.show', parameters: [
             'reference' => $transaction->data->reference,
