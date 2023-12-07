@@ -1106,6 +1106,7 @@ div.loadingPlaceholder-date {
     position: relative;
     top: 0;
     left: 0;
+    min-height: fit-content;
   }
   .messenger-infoView {
     display: none;
