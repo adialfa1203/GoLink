@@ -1103,7 +1103,7 @@ div.loadingPlaceholder-date {
 }
 @media (max-width: 680px) {
   .messenger-messagingView {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
   }
