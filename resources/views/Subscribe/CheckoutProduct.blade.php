@@ -104,7 +104,7 @@
                                 </div>
                             </div>
                             @foreach ($channels as $channel)
-                                <form id="myForm" action="{{ route('payment') }}" method="POST">
+                                <form id="myForm{{ $channel->code }}" action="{{ route('payment') }}" method="POST">
                                     @csrf
                                     <div class="card card-animate"
                                         style="background-color: #F0F0F0; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);">
@@ -124,9 +124,9 @@
                                                         alt="Card image cap">
                                                 </div>
                                                 <div class="buttons">
-                                                    <button type="button" class="btn" id="submitButton"
-                                                        style="color: #fff;background-color: #0E2954; height: 100%;padding: 6px;" onclick="showSweetAlert('{{ $channel->code }}')">Pilih</button>
-                                                </div>
+                <button type="button" class="btn" onclick="showSweetAlert('{{ $channel->code }}')"
+                        style="color: #fff;background-color: #0E2954; height: 100%;padding: 6px;">Pilih</button>
+            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -364,47 +364,24 @@
     </div>
     @section('script')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-   function showSweetAlert(channelCode) {
-    Swal.fire({
-      title: 'Apakah anda yakin memilih metode pembayaran ini?',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Ya, saya yakin!',
-      cancelButtonText: 'Batal'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Jika pengguna mengklik "Ya, saya yakin!"
-        // Lakukan tindakan submit di sini
-        submitForm(channelCode);
-      }
-    });
-  }
-
-  function submitForm(channelCode) {
-    // Ambil formulir (gantilah "myForm" dengan ID formulir Anda)
-    var form = document.getElementById('myForm');
-
-    // Setel nilai field 'method' dengan channelCode sebelum submit
-    var methodInput = document.createElement('input');
-    methodInput.type = 'hidden';
-    methodInput.name = 'method';
-    methodInput.value = channelCode;
-    form.appendChild(methodInput);
-
-    // Lakukan submit formulir
-    form.submit();
-  }
-
-  // Tambahkan event listener pada tombol
-  var submitButton = document.getElementById('submitButton');
-  submitButton.addEventListener('click', function () {
-    // Gantilah "yourChannelCode" dengan nilai yang sesuai
-    showSweetAlert('{{ $channel->code }}');
-  });
-</script>
+    <script>
+    function showSweetAlert(channelCode) {
+        Swal.fire({
+            title: 'Konfirmasi Pembayaran',
+            text: 'Anda yakin memilih metode pembayaran ini?',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, saya yakin!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If the user clicks "Ya, Pilih!", submit the form
+                document.getElementById('myForm' + channelCode).submit();
+            }
+        });
+    }
 </script>
     @endsection
 @endsection
