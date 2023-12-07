@@ -685,7 +685,7 @@
                                                                 </div>
                                                             </div>
                                                             <br>
-                                                        </div> --}} 
+                                                        </div> --}}
                     @endif
                     <div class="quota-reset">
                         Kuota direset pada <span id="nextMonthDate"></span> pukul 00.00
@@ -980,7 +980,7 @@
     <script>
         $(document).ready(function() {
             var selectId = $('#new_url_key').val();
-        //             
+        //
             // Mendapatkan token CSRF dari meta tag
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
@@ -1000,7 +1000,7 @@
                         newUrlKey: newUrlKey
                     },
                     dataType: 'JSON',
-                    error: function(e) {                        
+                    error: function(e) {
                         Swal.fire(e.responseJSON.newUrlKey[0])
                     },
                     success: function(e) {
@@ -1036,7 +1036,7 @@
                     var countMicrosite = response.countMicrosite;
                     updateChart(countURL, countMicrosite);
                 },
-                error: function(xhr, status, error) {                    
+                error: function(xhr, status, error) {
                 }
             });
         }
@@ -1108,11 +1108,11 @@
         let edit = false;
 
         function statusEdit() {
-            edit = !edit;            
+            edit = !edit;
         }
 
         $(document).ready(function() {
-    var userId = "{{ auth()->user()->subscribe }}";    
+    var userId = "{{ auth()->user()->subscribe }}";
 
     $("#shortlinkSubmit").submit(function(event) {
         event.preventDefault();
@@ -1251,7 +1251,7 @@
                     break;
                 case "copy":
                     var tempInput = $('<input>');
-                    $('#body').append(tempInput);                    
+                    $('#body').append(tempInput);
                     tempInput.val(shortUrl).select();
                     document.execCommand('copy');
                     tempInput.remove();
@@ -1259,7 +1259,7 @@
                         title: 'Berhasil!',
                         icon: 'success',
                         text: 'Tautan Berhasil Disalin ke clipboard'
-                    })                    
+                    })
                     break;
                 case "qr":
                     window.open(
@@ -1419,4 +1419,5 @@
             });
         });
     </script>
+  
 @endsection

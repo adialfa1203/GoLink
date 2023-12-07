@@ -124,7 +124,7 @@
 </div>
 <script>
     function goBack() {
-        window.history.back();
+        window.location = localStorage.getItem('currentUrl');
     }
 </script>
 @include('Chatify::layouts.modals')
