@@ -408,15 +408,15 @@
                         </div>
                         <div class="story_text text-center">
                             <br>
-                            <p class="text-muted warna" style="font-weight: 600;">Menyingkat</p>
-                            <p class="text-muted warna" style="font-weight: 600;">20 Tautan/Bulan</p>
+                            <p class="text-muted warna" style="font-weight: 600;">Menyingkatkan</p>
+                            <p class="text-muted warna" style="font-weight: 600;">15 Tautan/Bulan</p>
                         </div>
                     </div>
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="rounded" data-aos="fade-up" data-aos-duration="1500" style="border-radius: 100%;">
                             <div class="text-center" style="background-color: #D2E0FB;  border-radius: 100%; display: inline-block; padding: 8%;">
-                                <svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M80.4695 49.5064L76.7612 53.2147L69.1591 45.6127L72.8674 41.9043C73.6462 41.1256 74.9441 41.1256 75.7229 41.9043L80.4695 46.651C81.2483 47.4297 81.2483 48.7277 80.4695 49.5064ZM44.4987 70.236L66.9712 47.7635L74.5733 55.3656L52.1379 77.8752H44.4987V70.236ZM44.4987 51.9168C28.1079 51.9168 14.832 58.5547 14.832 66.7502V74.1668H37.082V67.1581L51.9154 52.3247C49.4679 52.0281 46.9833 51.9168 44.4987 51.9168ZM44.4987 14.8335C40.5647 14.8335 36.7917 16.3963 34.0099 19.1781C31.2282 21.9599 29.6654 25.7328 29.6654 29.6668C29.6654 33.6009 31.2282 37.3738 34.0099 40.1556C36.7917 42.9374 40.5647 44.5002 44.4987 44.5002C48.4327 44.5002 52.2057 42.9374 54.9874 40.1556C57.7692 37.3738 59.332 33.6009 59.332 29.6668C59.332 25.7328 57.7692 21.9599 54.9874 19.1781C52.2057 16.3963 48.4327 14.8335 44.4987 14.8335Z" fill="#104898" />
+                                <svg width="89" height="89" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M40.4795 10.8123C43.8966 7.39524 49.4368 7.39524 52.8539 10.8123L59.1876 17.1461C62.6047 20.5632 62.6047 26.1034 59.1876 29.5204L28.3124 60.3957C27.7654 60.9426 27.0235 61.2499 26.25 61.2499H11.6667C10.0558 61.2499 8.75 59.9441 8.75 58.3333V43.7499C8.75 42.9764 9.05729 42.2345 9.60427 41.6875L40.4795 10.8123ZM48.7291 14.9371C47.59 13.7981 45.7433 13.7981 44.6043 14.9371L42.0415 17.4999L52.5 27.9585L55.0628 25.3957C56.2019 24.2566 56.2018 22.4099 55.0628 21.2709L48.7291 14.9371ZM25.0419 55.4166L15.5 53.5V44.5L25.0419 55.4166Z" fill="#104898" />
                                 </svg>
 
                             </div>
@@ -430,17 +430,16 @@
                     <div class="col-md-4" style="margin-bottom: 2%;">
                         <div class="rounded" data-aos="fade-up" data-aos-duration="1500" style="border-radius: 100%;">
                             <div class="text-center" style="background-color: #D2E0FB;  border-radius: 100%; display: inline-block; padding: 8%;">
-                                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M40.4795 10.8123C43.8966 7.39524 49.4368 7.39524 52.8539 10.8123L59.1876 17.1461C62.6047 20.5632 62.6047 26.1034 59.1876 29.5204L28.3124 60.3957C27.7654 60.9426 27.0235 61.2499 26.25 61.2499H11.6667C10.0558 61.2499 8.75 59.9441 8.75 58.3333V43.7499C8.75 42.9764 9.05729 42.2345 9.60427 41.6875L40.4795 10.8123ZM48.7291 14.9371C47.59 13.7981 45.7433 13.7981 44.6043 14.9371L42.0415 17.4999L52.5 27.9585L55.0628 25.3957C56.2019 24.2566 56.2018 22.4099 55.0628 21.2709L48.7291 14.9371ZM25.0419 55.4166L15.5 53.5V44.5L25.0419 55.4166Z" fill="#104898" />
+                                <svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M80.4695 49.5064L76.7612 53.2147L69.1591 45.6127L72.8674 41.9043C73.6462 41.1256 74.9441 41.1256 75.7229 41.9043L80.4695 46.651C81.2483 47.4297 81.2483 48.7277 80.4695 49.5064ZM44.4987 70.236L66.9712 47.7635L74.5733 55.3656L52.1379 77.8752H44.4987V70.236ZM44.4987 51.9168C28.1079 51.9168 14.832 58.5547 14.832 66.7502V74.1668H37.082V67.1581L51.9154 52.3247C49.4679 52.0281 46.9833 51.9168 44.4987 51.9168ZM44.4987 14.8335C40.5647 14.8335 36.7917 16.3963 34.0099 19.1781C31.2282 21.9599 29.6654 25.7328 29.6654 29.6668C29.6654 33.6009 31.2282 37.3738 34.0099 40.1556C36.7917 42.9374 40.5647 44.5002 44.4987 44.5002C48.4327 44.5002 52.2057 42.9374 54.9874 40.1556C57.7692 37.3738 59.332 33.6009 59.332 29.6668C59.332 25.7328 57.7692 21.9599 54.9874 19.1781C52.2057 16.3963 48.4327 14.8335 44.4987 14.8335Z" fill="#104898" />
                                 </svg>
 
                             </div>
                         </div>
                         <div class="story_text text-center">
                             <br>
-                            <p class="text-muted warna" style="font-weight: 600;">Mengubah</p>
-                            <p class="text-muted warna" style="font-weight: 600;"> 5 Nama Tautan </p>
-                            <p class="text-muted warna" style="font-weight: 600;"> Kustomisasi / Bulan </p>
+                            <p class="text-muted warna" style="font-weight: 600;">Pembuatan Microsie</p>
+                            <p class="text-muted warna" style="font-weight: 600;">3 Microsite/Bulan</p>
                         </div>
                     </div>
 
@@ -463,7 +462,7 @@
                             <div class="card mb-3" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
                                     <img src="{{asset('silver.png')}}" alt="Silver" style="margin-top: -38px; margin-right: 10px; width: 55%; height: auto;">
-                                    <h5 style="color: #ffffff; font-weight: bold;">Rp.16.000/Bulan</h5>
+                                    <h5 style="color: #ffffff; font-weight: bold;">Rp.25.000/Bulan</h5>
                                     <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
                                     <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
                                 </div>
@@ -474,7 +473,7 @@
                                             <i class="fa-solid fa-circle-check"></i>
                                         </div>
                                         <div class="col-11">
-                                        <p class="p1"> Menyingkat tautan batas sebanyak 50x/bulan</p>
+                                        <p class="p1"> Menyingkatkan Tautan sebanyak 25x/bulan</p>
                                     </div>
                                     </div>
                                     <div class="d-flex">
@@ -482,7 +481,7 @@
                                             <i class="fa-solid fa-circle-check"></i>
                                         </div>
                                         <div class="col-11">
-                                        <p class="p1"> Membuat Microsite sebanyak 10x/bulan</p>
+                                        <p class="p1"> Membuat Microsite sebanyak 5x/bulan</p>
                                     </div>
                                     </div>
                                 </div>
@@ -496,18 +495,17 @@
                             <div class="card mb-3" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
                                     <img src="{{asset('gold.png')}}" alt="Gold" style="margin-top: -70px; margin-right: 20px; width: 70%; height: auto;">
-                                    <h5 style="color: #ffffff; font-weight:bold; margin-top: -9%;">Rp.29.000/Bulan</h5>
+                                    <h5 style="color: #ffffff; font-weight:bold; margin-top: -9%;">Rp.45.000/Bulan</h5>
                                     <h6 style="color: #ffffff; font-size:13px;">Paket menengah untuk menawarkan</h6>
-                                    <h6 style="color: #ffffff; font-size: 13px;">atau memberikan fitur-fitur yang</h6>
-                                    <h6 style="color: #ffffff; font-size: 13px;">lebih canggih</h6>
+                                    <h6 style="color: #ffffff; font-size: 13px;">kuota pengguna</h6>
                                 </div>
-                                <div class="container text-center"  style="margin-top: 20px;">
+                                <div class="container text-center"  style="margin-top: 40px;">
                                     <div class="d-flex">
                                         <div class="col-1">
                                             <i class="fa-solid fa-circle-check"></i>
                                         </div>
                                         <div class="col-11">
-                                            <p class="p1" style="color: #ffffff"> Menyingkat tautan batas sebanyak 100x/bulan</p>
+                                            <p class="p1" style="color: #ffffff"> Menyingkat tautan batas sebanyak 35x/bulan</p>
                                         </div>
                                     </div>
                                     <div class="d-flex">
@@ -515,7 +513,7 @@
                                             <i class="fa-solid fa-circle-check"></i>
                                         </div>
                                         <div class="col-11">
-                                            <p class="p1" style="color: #ffffff"> Membuat Microsite sebanyak 20x/bulan</p>
+                                            <p class="p1" style="color: #ffffff"> Membuat Microsite sebanyak 10x/bulan</p>
                                         </div>
                                     </div>
                                 </div>
@@ -538,7 +536,7 @@
                                             <i class="fa-solid fa-circle-check"></i>
                                         </div>
                                         <div class="col-11">
-                                            <p class="p1" style="color: #ffffff">Membuat Microsite tanpa batas</p>
+                                            <p class="p1" style="color: #ffffff">Membuat Tautan tanpa batas</p>
                                         </div>
                                     </div>
                                     <div class="d-flex">
@@ -546,7 +544,7 @@
                                             <i class="fa-solid fa-circle-check"></i>
                                         </div>
                                         <div class="col-11">
-                                            <p class="p1" style="color: #ffffff"> Menggunakan semua tema tanpa terkunci</p>
+                                            <p class="p1" style="color: #ffffff"> Membuat Microsite tanpa batas</p>
                                         </div>
                                     </div>
                                     <div class="d-flex">
@@ -554,8 +552,7 @@
                                             <i class="fa-solid fa-circle-check"></i>
                                         </div>
                                         <div class="col-11">
-                                            <p class="p1" style="color: #ffffff"> Memantau tautan dengan terperinci</p>
-
+                                            <p class="p1" style="color: #ffffff"> Memantau tautan dan microsite dengan terperinci</p>
                                         </div>
                                     </div>
                                     <div class="d-flex">
@@ -563,7 +560,7 @@
                                             <i class="fa-solid fa-circle-check"></i>
                                         </div>
                                         <div class="col-11">
-                                            <p class="p1" style="color: #ffffff"> Memproteksi tautan dengan kata sandi</p>
+                                            <p class="p1" style="color: #ffffff"> Mengubah tautan asli</p>
                                         </div>
                                     </div>
                                 </div>
