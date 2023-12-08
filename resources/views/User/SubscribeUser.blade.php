@@ -168,16 +168,28 @@
                                                             </td>
                                                         @endif
                                                         <td>Rp.{{ number_format($transaction->amount, 2, ',', '.') }}</td>
-                                                        <td>{{ \Carbon\Carbon::parse($transaction->expired)->isoFormat('D MMMM YYYY') }}</td>
+                                                        @if ($transaction->status === 'FAILED')
+                                                            <td>GAGAL
+                                                            </td>
+                                                        @elseif ($transaction->status === 'PAID')
+                                                            <td>DIBAYAR
+                                                            </td>
+                                                        @elseif ($transaction->status === 'UNPAID')
+                                                            <td>{{ \Carbon\Carbon::parse($transaction->expired)->isoFormat('D MMMM YYYY HH:mm:ss') }}
+                                                            </td>
+                                                        @else
+                                                            <td>EXPIRED
+                                                            </td>
+                                                        @endif
                                                         <td>
                                                             @if ($transaction->status === 'PAID')
-                                                                <span class="badge bg-success">DIBAYAR</span>
+                                                                <span class="badge" style="background-color: #337CCF; color:white">DIBAYAR</span>
                                                             @elseif ($transaction->status === 'REFUND')
                                                                 <span class="badge bg-primary">PENGEMBALIAN DANA</span>
                                                             @elseif ($transaction->status === 'EXPIRED')
-                                                                <span class="badge bg-warning">KADALUWARSA</span>
+                                                                <span class="badge" style="background-color: #A6A1A1; color:white;">KADALUWARSA</span>
                                                             @elseif ($transaction->status === 'UNPAID')
-                                                                <span class="badge bg-danger">BELUM BAYAR</span>
+                                                                <span class="badge" style="background-color: #FFC727; color:white;">BELUM BAYAR</span>
                                                             @else
                                                                 <span class="badge bg-secondary">GAGAL</span>
                                                             @endif
