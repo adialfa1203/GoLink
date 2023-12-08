@@ -301,13 +301,9 @@ class MicrositeController extends Controller
         $coverImageName = time() . '_cover.' . $coverImage->getClientOriginalExtension();
         $coverImage->move(public_path('component'), $coverImageName);
 
-        // $profileImageName = time() . '_profile.' . $profileImage->getClientOriginalExtension();
-        // $profileImage->move(public_path('component'), $profileImageName);
-
         $component = Components::create([
             'component_name' => $request->component_name,
             'cover_img' => $coverImageName,
-            // 'profile_img' => $profileImageName,
         ]);
         return redirect()->route('view.component')->with('success', 'Komponen berhasil disimpan.');
     }
