@@ -121,9 +121,9 @@ footer .top_footer {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://twitter.com/{{ $data->twitter }}" target="_blank">
+                                    <a href="https://tiktok.com/{{ $data->twitter }}" target="_blank">
                                         <i class="fab fa-twitter"></i>
-                                        Twitter
+                                        Tiktok
                                         {{-- {{ $data->twitter }} --}}
                                     </a>
                                 </li>
