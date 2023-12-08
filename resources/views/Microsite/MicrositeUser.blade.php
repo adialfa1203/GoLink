@@ -185,7 +185,6 @@
                                                     aria-expanded="true" aria-controls="collapseExample{{ $row->id }}">
                                                     <i class="bi bi-bar-chart-fill icon-color"></i> statistik
                                                 </button>
-                                                {{-- @dd($row) --}}
                                                 <a href="{{ route('edit.microsite', ['id' => $row->id]) }}"
                                                     class="btn btn-sm" style="background-color: #0E2954; color:#fff;"><i
                                                         class="bi bi-pencil-square icon-color"></i>
@@ -300,11 +299,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card">
-                                            <div class="card-body">
                                                 <div id="chart{{ $row->id }}"></div>
-                                            </div><!-- end card-body -->
-                                        </div><!-- end card -->
                                     </div>
 
                                 </div>
