@@ -630,7 +630,15 @@
                                                         {{ $data->name_button }}
                                                     </button>
                                                 @else
-                                                    Button tidak ada!
+                                                <button style="color:#fff;background-color: {{ $data->color_hex }};" type="button"
+                                                        class="col-xl-012 col-12 btn btn-label rounded-pill"
+                                                        data-bs-toggle="collapse" data-bs-target="{{ $data->id }}"
+                                                        aria-expanded="true" aria-controls="{{ $data->id }}"
+                                                        onclick="toggleCardHover('{{ $data->id }}')">
+                                                        <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                            style="color: white;"></i>
+                                                        {{ $data->name_button }}
+                                                    </button>
                                                 @endif
                                             </div>
                                         </div>
