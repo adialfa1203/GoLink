@@ -46,6 +46,10 @@ class ButtonController extends Controller
         return redirect()->route('view.button')->with('success', 'Media Sosial berhasil ditambah.');
     }
 
+    public function customButton(Request $request) {
+        
+    }
+
     public function editButton($id)
     {
         $button = Button::find($id);

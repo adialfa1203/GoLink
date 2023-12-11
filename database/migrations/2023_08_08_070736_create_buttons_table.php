@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('buttons', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name_button');
-            $table->string('icon');
+            $table->foreignUuid('component_uuid')->nullable()->constrained('components');
+            $table->foreignId('user_id')->nullable()->constrained('users');
             $table->string('color_hex')->nullable();
             $table->timestamps();
         });

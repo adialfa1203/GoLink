@@ -359,6 +359,7 @@ class MicrositeController extends Controller
             'component_name' => 'required|max:20',
             'cover_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'profile_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'premium' => 'required|in:0,1',
         ], [
             'component_name.required' => 'Nama komponen harus diisi',
             'component_name.max' => 'Jumlah karakter tidak boleh lebih dari 20',
@@ -408,7 +409,7 @@ class MicrositeController extends Controller
             $component->profile_img = $profileImageName;
         }
 
-        // dd($request->cover_img);
+        $component->premium = $request->input('premium');
         $component->component_name = $request->component_name;
         $component->save();
 
