@@ -159,7 +159,7 @@
     </div>
     </div>
 </header>
-<div id="myModal" class="modal fade mt-5 modal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;overflow: hidden;">
+<div id="myModal" class="modal fade mt-5 dal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;overflow: hidden;">
     <div class="modal-dialog modal-dialog-right modal-sm">
         <div class="modal-content">
             <div class="modal-header">
