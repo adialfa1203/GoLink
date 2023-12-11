@@ -599,7 +599,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Buat Sosial</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Kustom Tema</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -609,7 +609,7 @@
                         <div class="card-body">
                             <div class="col-xxl-12 mt-2 col-md-12">
                                 <div class="mb-3">
-                                    <label for="validationCustom01" class="form-label">Nama Komponen</label>
+                                    <label for="validationCustom01" class="form-label">Nama Tema</label>
                                     <input type="text" class="form-control" id="validationCustom01"
                                         placeholder="Masukkan nama komponen" name="component_name"
                                         value="{{ old('component_name') }}">
