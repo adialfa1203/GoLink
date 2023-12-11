@@ -964,17 +964,17 @@
                                                                 </div>
                                                                 <div
                                                                     class="col-12 col-sm-7 d-flex flex-row justify-content-end mt-2 mt-sm-0">
-                                                                    <button disabled type="button"
+                                                                     <button disabled type="button"
                                                                         class="btn btn-light  me-3 btn-sm"
                                                                         data-bs-toggle="modal"
-                                                                        data-bs-target="#TimeModal-{{ $url->id }}"
-                                                                        data-link="{{ $url->url_key }}"><span
+                                                                        data-bs-target="#TimeModal-{{ $row->id }}"
+                                                                        data-link="{{ $row->url_key }}"><span
                                                                             data-bs-toggle="tooltip"
                                                                             data-bs-placement="left"
                                                                             title="Tautan berbasis waktu"><i
                                                                                 class="fa-solid fa-clock"></i>&nbsp;Atur
                                                                             waktu</span></button>
-                                                                    <button disabled type="button"
+                                                                    {{-- <button type="button"
                                                                         class="btn btn-light me-3 btn-sm"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#zoomInModal1"><span
@@ -982,13 +982,12 @@
                                                                             data-bs-placement="left"
                                                                             title="Tautan terlindungi"><i
                                                                                 class="fa-solid fa-lock"></i>&nbsp;kata
-                                                                            sandi</span></button>
-                                                                    <button disabled type="button"
-                                                                        class="btn btn-light btn-sm"
+                                                                            cela aku mau</span></button> --}}
+                                                                    <button disabled type="button" class="btn btn-light btn-sm"
                                                                         data-bs-toggle="collapse"
-                                                                        href="#collapseExample{{ $url->id }}"
+                                                                        href="#collapseExample{{ $row->id }}"
                                                                         role="button" aria-expanded="true"
-                                                                        aria-controls="collapseExample{{ $url->id }}">
+                                                                        aria-controls="collapseExample{{ $row->id }}">
                                                                         <i class="bi bi-bar-chart-line-fill"></i> statistik
                                                                     </button>
                                                                 </div>
