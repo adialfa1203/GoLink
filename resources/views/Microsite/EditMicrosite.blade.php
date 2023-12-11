@@ -214,7 +214,7 @@
                                         @endif
                                     </div>
                                     <div class="mb-3">
-                                        <div class="card-body">
+                                        <div class="card-body" style="padding-left: 0; padding-right: 0;">
                                             <div class="accordion" id="default-accordion-example">
                                                 @foreach ($social as $data)
                                                 {{-- @dd($social) --}}
