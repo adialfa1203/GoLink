@@ -187,7 +187,8 @@ class MicrositeController extends Controller
         $user = Auth::user();
         $microsite = Microsite::findOrFail($id);
         $social = Social::where('microsite_uuid', $id)->get();
-        $button = Button::all();
+        // dd($social);
+        $button = Button::where('microsite_uuid', $id)->orWhereNull('microsite_uuid')->get();
         $short_url = ShortUrl::where('microsite_uuid', $id)->first();
 
         return view('Microsite.EditMicrosite', compact('microsite', 'user', 'id', 'social', 'short_url', 'button'));

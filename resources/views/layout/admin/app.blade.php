@@ -180,7 +180,7 @@
             </div>
         </div>
         <div class="customizer-setting">
-            <a class="floating-button" href="{{ url('milink/chat') }}">
+        <a class="floating-button" onclick="setCurrentUrl()" href="{{ url('milink/chat') }}">
                 <i class="bi bi-chat-dots"></i>
             </a>
         </div>
@@ -1001,6 +1001,9 @@
         <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/app.js') }}"></script>
 
         <script>
+               function setCurrentUrl() {
+                localStorage.setItem('currentUrl', window.location.href);
+            }
             function getNotification() {
                 $.ajax({
                     url: "/admin/chat-data-show-admin",
