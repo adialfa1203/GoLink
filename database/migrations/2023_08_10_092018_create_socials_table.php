@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('socials', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('microsite_uuid')->nullable();
             $table->foreign('microsite_uuid')->references('id')->on('microsites')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('buttons_uuid')->nullable();

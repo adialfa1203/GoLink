@@ -134,4 +134,11 @@ class ButtonController extends Controller
 
         return redirect()->route('view.button')->with('success', 'Media Sosial sukses dihapus.');
     }
+
+    public function deleteButtonsByMicrosite($id)
+    {
+        Button::query()->where('id', $id)->delete();
+
+        return redirect()->back()->with('success', 'Media Sosial sukses dihapus.');
+    }
 }

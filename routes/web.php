@@ -174,6 +174,7 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'checksinglesession', '
         //Detele data
         Route::get('/delete-expired-links', [LinkController::class, 'deleteDeactive']);
         //Takedown User
+        Route::post('/delete-buttons/{id}', [ButtonController::class, 'deleteButtonsByMicrosite'])->name('user.delete.buttons');
         Route::get('/takedown', [DataUserController::class, 'takedownUser']);
         Route::get('/set-all-messages-seen', [ChatifyController::class, 'setAllMessagesSeen'])->name('set.all.messages.seen');
         Route::post('/custom-btn-save', [ButtonController::class, 'customBtnSave'])->name('custom.btn.save');
