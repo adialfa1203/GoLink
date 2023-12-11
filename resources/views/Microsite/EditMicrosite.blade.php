@@ -229,7 +229,16 @@
                                                         <div class="accordion-body">
                                                             <div class="col-xxl-12">
                                                                 <div>
-                                                                    <label for="placeholderInput" class="form-label">{{ $data->button->name_button }}</label>
+                                                                    <div class="row">
+                                                                        <div class="col-11">
+                                                                            <label for="placeholderInput" class="form-label">{{ $data->button->name_button }}</label>
+                                                                        </div>
+                                                                        <div class="col-1 d-flex justify-content-end">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                                                                <path d="M7.4987 2.625V3.5H3.33203V5.25H4.16536V16.625C4.16536 17.0891 4.34096 17.5342 4.65352 17.8624C4.96608 18.1906 5.39 18.375 5.83203 18.375H14.1654C14.6074 18.375 15.0313 18.1906 15.3439 17.8624C15.6564 17.5342 15.832 17.0891 15.832 16.625V5.25H16.6654V3.5H12.4987V2.625H7.4987ZM5.83203 5.25H14.1654V16.625H5.83203V5.25ZM7.4987 7V14.875H9.16536V7H7.4987ZM10.832 7V14.875H12.4987V7H10.832Z" fill="black" fill-opacity="0.3" />
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
                                                                     <input type="text" class="form-control" id="placeholderInput" placeholder="Isi Link {{ $data->button->name_button }} Anda " name="button_link[{{ $data->button->id }}]" value="{{ old('button_link.' . $data->button->id, $data->button_link) }}">
                                                                     <div>
                                                                     </div>
@@ -433,7 +442,7 @@
                                     </button>
                                     @else
                                     <button style="color:#fff;background-color: {{ $socialItem->button->color_hex }};" type="button" class="btn btn-icon">
-                                        <i class="bi bi-link-45deg" style="color: white;"></i>
+                                        <i class="bi bi-link-45deg" style="color: white;font-size: 200px;"></i>
                                     </button>
                                     @endif
                                 </div>
@@ -444,53 +453,53 @@
                             @if (strtolower(trim($socialItem->button->icon)) === 'bi bi-facebook')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill face" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-twitter')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill twi" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-instagram')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill insta" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-linkedin')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill link" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-telegram')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill tele" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-tiktok')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill tiktok" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-spotify')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill spo" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-youtube')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill youtube" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-bag-fill')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill olshop" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @else
                             <button style="color:#fff;background-color: {{ $socialItem->button->color_hex }}; width: 100%;" type="button" class="col-xl-012 col-12 mt-2 btn btn-label rounded-pill" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id
                                                         }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}">
                                 <i class="bi bi-link-45deg label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
-                                {{ $socialItem->button->name_button }}
+                                <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}</p>
                             </button>
                             @endif
                             @endforeach
