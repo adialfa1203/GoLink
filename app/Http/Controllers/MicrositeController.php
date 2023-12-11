@@ -78,7 +78,7 @@ class MicrositeController extends Controller
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         }
 
-        $button = Button::all();
+        $button = Button::whereNull('microsite_uuid')->get();
         $micrositeCount = ShortURL::where('user_id', $user)
             ->whereNotNull('microsite_uuid')
             ->whereMonth('created_at', now()->month)

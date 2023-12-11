@@ -11,7 +11,7 @@ class ButtonController extends Controller
 {
     public function viewButton()
     {
-        $button = Button::paginate(12);
+        $button = Button::whereNull('microsite_uuid')->paginate(12);
         return view('Button.ViewButton', compact('button'));
     }
 
