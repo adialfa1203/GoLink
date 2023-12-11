@@ -442,7 +442,7 @@
                                     </button>
                                     @else
                                     <button style="color:#fff;background-color: {{ $socialItem->button->color_hex }};" type="button" class="btn btn-icon">
-                                        <i class="bi bi-link-45deg" style="color: white;font-size: 200px;"></i>
+                                        <i class="bi bi-link-45deg" style="color: white;font-size: 20px;"></i>
                                     </button>
                                     @endif
                                 </div>
