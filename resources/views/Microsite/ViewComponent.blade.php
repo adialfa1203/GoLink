@@ -1,5 +1,5 @@
 @extends('layout.admin.app')
-@section('title', 'Kategori')
+@section('title', 'Tema')
 @section('style')
 <link href="{{ asset('template/themesbrand.com/steex/layouts/assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -122,7 +122,7 @@
         <div class="">
             <div class="d-flex align-items-start gap-3 mt-4">
                 <button type="button" class="btn btn-label" style="background-color: #088C0D; color:#fff;" data-bs-toggle="modal" data-bs-target="#staticBackdrop" role="button">
-                    <i class="ri-add-line label-icon align-middle fs-lg ms-2" style="color: #fff;"></i>Tambah Kategori
+                    <i class="ri-add-line label-icon align-middle fs-lg ms-2" style="color: #fff;"></i>Tambah Tema
                 </button>
             </div>
             <div class="row mt-4">
@@ -280,7 +280,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Buat Sosial</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Tema</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -289,8 +289,8 @@
                     <div class="card-body">
                         <div class="col-xxl-12 mt-2 col-md-12">
                             <div class="mb-3">
-                                <label for="validationCustom01" class="form-label">Nama Komponen</label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Masukkan nama komponen" name="component_name" value="{{ old('component_name') }}">
+                                <label for="validationCustom01" class="form-label">Nama Tema</label>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="Masukkan nama tema" name="component_name" value="{{ old('component_name') }}">
 
                                 @if ($errors->has('component_name'))
                                 <span class="text-danger">{{ $errors->first('component_name') }}</span>
@@ -300,6 +300,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-xxl-12 mt-2 col-md-12">
                             <div class="card overflow-hidden">
                                 <div>

@@ -212,31 +212,36 @@
                                         <div class="card card-animate"
                                             style="border-radius: 20px;background: #F0F0F0; margin: 0;">
                                             <div class="card-body">
-                                                @if (strtolower(trim($subscribe->tipe)) === 'free')
-                                                    <h4 class="card-title mb-2 text-center">Gratis</h4>
-                                                @elseif (strtolower(trim($subscribe->tipe)) === 'silver')
-                                                    <h4 class="card-title mb-2 text-center">Dasar</h4>
+                                                @if (strtolower(trim($subscribe->tipe)) === 'silver')
+                                                    <h4 class="card-title mb-2 text-center">Silver</h4>
                                                 @elseif (strtolower(trim($subscribe->tipe)) === 'gold')
-                                                    <h4 class="card-title mb-2 text-center">Menengah</h4>
+                                                    <h4 class="card-title mb-2 text-center">Gold</h4>
                                                 @elseif (strtolower(trim($subscribe->tipe)) === 'platinum')
-                                                    <h4 class="card-title mb-2 text-center">Premium</h4>
+                                                    <h4 class="card-title mb-2 text-center">Platinum</h4>
                                                 @else
                                                     <h4 class="card-title mb-2 text-center">Data Tidak Valid</h4>
                                                 @endif
                                             </div>
                                             <div class="card-body text-white"
                                                 style="background-image: linear-gradient(to bottom right, #0E2954, #104898); border-radius: 0 0 20px 20px;height: auto;display: inline-block; min-height: 200px;">
+                                                <img class="mt-3" src="{{ asset('pictureSubs/' . $subscribe->picture) }}" width="220"
+                                                  height="150" style="display: block; margin: 0 auto; object-fit: cover;"
+                                                 alt="Card image cap">
                                                 <div class="row">
                                                     <h5 class="card-title text-center mt-3">
                                                         Rp.{{ number_format($subscribe->price, 0, ',', '.') }}/Bulan
                                                     </h5>
                                                 </div>
+                                                @if (strtolower(trim($subscribe->description)))
+                                               <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
+                                               <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
+                                                @endif
                                                 <div data-simplebar data-simplebar-auto-hide="false"
                                                     style="height: 300px;" class="px-3">
                                                     <div class="flex-grow-1 ms-2 mt-2 text-white text-center">
                                                         {{ strip_tags($subscribe->description) }}
                                                     </div>
-                                                    @if (strtolower(trim($subscribe->tipe)) === 'free')
+                                                    {{-- @if (strtolower(trim($subscribe->tipe)) === 'free')
                                                         <div class="d-flex mt-5">
                                                             <div class="flex-shrink-0">
                                                                 <i class="ri-checkbox-circle-fill text-success"></i>
@@ -255,90 +260,90 @@
                                                         </div>
                                                         <!-- <div class="col-md-12 col-sm-12 mt-5">
                                     <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12" style="margin-top: 180px;">Berlangganan Sekarang</a>
-                                </div> -->
-                                                    @elseif (strtolower(trim($subscribe->tipe)) === 'silver')
-                                                        <div class="d-flex mt-5">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="ri-checkbox-circle-fill text-success"></i>
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2 text-white">
-                                                                Menyingkat tautan batas sebanyak 50×/bulan
-                                                            </div>
+                                </div> --> --}}
+                                                    @if (strtolower(trim($subscribe->tipe)) === 'silver')
+                                                    <div class="d-flex mt-4">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
                                                         </div>
-                                                        <div class="d-flex mt-2">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="ri-checkbox-circle-fill text-success"></i>
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2 text-white">
-                                                                Membuat Microsite sebanyak 10×/bulan
-                                                            </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1">Menyingkat tautan batas sebanyak 25×/bulan</p>
                                                         </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Membuat Microsite sebanyak 5×/bulan</p>
+                                                        </div>
+                                                    </div>
                                                         <!-- <div class="col-md-12 col-sm-12 mt-5">
                                     <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12" style="margin-top: 180px;">Berlangganan
                                         Sekarang</a>
                                 </div> -->
                                                     @elseif (strtolower(trim($subscribe->tipe)) === 'gold')
-                                                        <div class="d-flex mt-5">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="ri-checkbox-circle-fill text-success"></i>
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2 text-white">
-                                                                Menyingkat tautan batas sebanyak 100×/bulan
-                                                            </div>
+                                                    <div class="d-flex mt-4">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
                                                         </div>
-                                                        <div class="d-flex mt-2">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="ri-checkbox-circle-fill text-success"></i>
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2 text-white">
-                                                                Membuat Microsite sebanyak 20×/bulan
-                                                            </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Membuat Microsite batas sebanyak 35×/bulan</p>
                                                         </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Membuat Microsite sebanyak 10×/bulan</p>
+                                                        </div>
+                                                    </div>
                                                         <!-- <div class="col-md-12 col-sm-12 mt-5">
                                     <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12" style="margin-top:155px;">Berlangganan
                                         Sekarang</a>
                                 </div> -->
                                                     @elseif (strtolower(trim($subscribe->tipe)) === 'platinum')
-                                                        <div class="d-flex mt-5">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="ri-checkbox-circle-fill text-success"></i>
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2 text-white">
-                                                                Menyingkat tautan tanpa batas
-                                                            </div>
+                                                    <div class="d-flex mt-4">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
                                                         </div>
-                                                        <div class="d-flex mt-2">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="ri-checkbox-circle-fill text-success"></i>
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2 text-white">
-                                                                Membuat Microsite tanpa batas
-                                                            </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Menyingkat tautan tanpa batas</p>
                                                         </div>
-                                                        <div class="d-flex mt-2">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="ri-checkbox-circle-fill text-success"></i>
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2 text-white">
-                                                                Menggunakan semua tema tanpa terkunci
-                                                            </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
                                                         </div>
-                                                        <div class="d-flex mt-2">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="ri-checkbox-circle-fill text-success"></i>
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2 text-white">
-                                                                Memantau tautan dengan terperinci
-                                                            </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Membuat Microsite tanpa batas</p>
                                                         </div>
-                                                        <div class="d-flex mt-2">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="ri-checkbox-circle-fill text-success"></i>
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2 text-white">
-                                                                Memproteksi tautan dengan kata sandi
-                                                            </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
                                                         </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Menggunakan semua tema tanpa terkunci</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Memantau tautan dengan terperinci </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Memproteksi tautan dengan kata sandi</p>
+                                                        </div>
+                                                    </div>
                                                         <!-- <div class="col-md-12 col-sm-12">
                                     <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12" style="margin-top: 65px;">Berlangganan
                                         Sekarang</a>

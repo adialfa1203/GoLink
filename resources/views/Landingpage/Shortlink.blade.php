@@ -226,9 +226,9 @@
                                 <path d="M23.5859 41.586H42.2066V22.9653H23.5859V41.586ZM29.7928 29.1722H35.9997V35.3791H29.7928V29.1722ZM48.4135 22.9653V41.586H67.0342V22.9653H48.4135ZM60.8273 35.3791H54.6204V29.1722H60.8273V35.3791ZM23.5859 66.4136H42.2066V47.7929H23.5859V66.4136ZM29.7928 53.9998H35.9997V60.2067H29.7928V53.9998ZM63.9308 47.7929H67.0342V60.2067H57.7239V57.1033H54.6204V66.4136H48.4135V47.7929H57.7239V50.8964H63.9308V47.7929ZM63.9308 63.3102H67.0342V66.4136H63.9308V63.3102ZM57.7239 63.3102H60.8273V66.4136H57.7239V63.3102Z" fill="#104898" />
                             </svg>
                             <div class="story_text">
-                                <h6 style="color: #104898;" class="mb-3 fs-17">Kode QR yang dapat disesuaikan</h6>
-                                <p class="text-muted">Buat Kode QR yang sesuai dengan keinginan Anda dengan mudah.</p>
-                            </div>
+                                <h6 style="color: #104898;" class="mb-3 fs-17">Bagikan informasi unik Anda secara Praktis</h6>
+                                <p class="text-muted">Dengan QR, kemudahan adalah kunci. Cukup pindai kode dan dapatkan akses instan ke informasi, tautan, atau data lainnya</p>
+                            </div>                            
                         </div>
                     </div>
                     <!-- Story -->

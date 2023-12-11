@@ -215,7 +215,7 @@
                             <p><strong>Gratis   - 3 microsite/bulan</strong></p>
                             <p><strong>Silver   - 5 microsite/bulan</strong></p>
                             <p><strong>Gold     - 10 microsite/bulan</strong></p>
-                            <p><strong>Premium  - Unlimited</strong></p>
+                            <p><strong>Premium  - Unlimited/bulan</strong></p>
                         </div>
                     </div>
                 </div>
