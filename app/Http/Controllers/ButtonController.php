@@ -69,6 +69,11 @@ class ButtonController extends Controller
             'user_id' => $userId,
             'color_hex' => $request->color_hex,
         ]);
+
+        $social = Social::create([
+            'microsite_uuid' => $micrositeUuid,
+            'buttons_uuid' => $button->id,
+        ]);
         // dd($button);
 
         return redirect()->back()->with('success', 'Media Sosial berhasil ditambah.');
