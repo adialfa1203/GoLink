@@ -92,8 +92,8 @@
                 </div>
                 <div class="mb-2 mt-2 d-flex">
                     <div class="avatar-xs d-block flex-shrink-0 me-3">
-                        <span class="avatar-title rounded-circle bg-info-subtle text-info">
-                            <i class="bi bi-twitter"></i>
+                        <span class="avatar-title rounded-circle text-info" style="background-color: #D9D9D9;">
+                        <i class="fa-brands fa-tiktok" style="color: #000;"></i>
                         </span>
                     </div>
                     <input type="text" name="twitter" class="form-control" id="twitter" placeholder="LinkId_"
