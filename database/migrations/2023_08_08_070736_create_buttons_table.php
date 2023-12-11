@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('buttons', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('icon');
+            $table->string('icon')->nullable();
             $table->string('name_button');
-            $table->foreignUuid('component_uuid')->nullable()->constrained('components');
             $table->foreignId('user_id')->nullable()->constrained('users');
+            $table->foreignUuid('microsite_uuid')->nullable()->constrained('microsites');
             $table->string('color_hex')->nullable();
             $table->timestamps();
         });

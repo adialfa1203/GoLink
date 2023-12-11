@@ -52,4 +52,8 @@ class Microsite extends Model
     {
         return $this->hasOne(ShortUrl::class, 'microsite_uuid', 'id');
     }
+    public function buttons()
+    {
+        return $this->hasMany(Button::class, 'microsite_uuid', 'id');
+    }
 }

@@ -29,7 +29,7 @@ class ButtonController extends Controller
                 Rule::in(['bi bi-whatsapp', 'bi bi-facebook', 'bi bi-twitter', 'bi bi-telephone-fill', 'bi bi-instagram', 'bi bi-linkedin', 'bi bi-telegram', 'bi bi-tiktok', 'bi bi-spotify', 'bi bi-youtube', 'bi bi-bag-fill']),
             ],
             'color_hex' => 'nullable|string|max:7',
-        ],[
+        ], [
             'name_button.required' => 'Nama button sosial wajib diisi',
 
         ]);
@@ -46,8 +46,37 @@ class ButtonController extends Controller
         return redirect()->route('view.button')->with('success', 'Media Sosial berhasil ditambah.');
     }
 
-    public function customButton(Request $request) {
-        
+    public function customBtnSave(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name_button' => 'required|string|max:255',
+            'icon' => [
+                'nullable',
+                Rule::in(['bi bi-whatsapp', 'bi bi-facebook', 'bi bi-twitter', 'bi bi-telephone-fill', 'bi bi-instagram', 'bi bi-linkedin', 'bi bi-telegram', 'bi bi-tiktok', 'bi bi-spotify', 'bi bi-youtube', 'bi bi-bag-fill']),
+            ],
+            'color_hex' => 'nullable|string|max:7',
+        ], [
+            'name_button.required' => 'Nama button sosial wajib diisi',
+        ]);
+
+        $micrositeUuid = $request->input('microsite_uuid');
+        $userId = $request->input('user_id');
+
+        $button = Button::create([
+            'name_button' => str_replace(' ', '', $request->name_button),
+            'icon' => $request->icon,
+            'microsite_uuid' => $micrositeUuid,
+            'user_id' => $userId,
+            'color_hex' => $request->color_hex,
+        ]);
+        // dd($button);
+
+        return redirect()->back()->with('success', 'Media Sosial berhasil ditambah.');
+    }
+
+
+    public function customButton(Request $request)
+    {
     }
 
     public function editButton($id)
@@ -100,5 +129,4 @@ class ButtonController extends Controller
 
         return redirect()->route('view.button')->with('success', 'Media Sosial sukses dihapus.');
     }
-
 }

@@ -9,11 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Button extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name_button',
-        'icon',
-        'color_hex',
-    ];
+    protected $fillable = ['name_button', 'icon', 'microsite_uuid', 'user_id', 'color_hex'];
 
     protected $keyType = 'string';
     public $incrementing = false;
@@ -26,13 +22,21 @@ class Button extends Model
         });
     }
 
-    public function socials() :HasMany
+    public function socials(): HasMany
     {
-        return $this->hasMany(Social::class,'buttons_uuid', 'id');
+        return $this->hasMany(Social::class, 'buttons_uuid', 'id');
     }
     public function buttonLinks(): HasMany
     {
         return $this->hasMany(ButtonLinks::class, 'buttons_uuid', 'id');
     }
+    public function setMicrositeUuidAttribute($value)
+    {
+        $this->attributes['microsite_uuid'] = $value;
+    }
 
+    public function setUserIdAttribute($value)
+    {
+        $this->attributes['user_id'] = $value;
+    }
 }

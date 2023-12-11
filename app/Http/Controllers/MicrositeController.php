@@ -185,13 +185,14 @@ class MicrositeController extends Controller
     public function editMicrosite($id)
     {
         $user = Auth::user();
-        $microsite = Microsite::findorFail($id);
+        $microsite = Microsite::findOrFail($id);
         $social = Social::where('microsite_uuid', $id)->get();
         $button = Button::all();
         $short_url = ShortUrl::where('microsite_uuid', $id)->first();
-        // $buttonLink = ButtonLink::findorFail($id);
-        return view('Microsite.EditMicrosite', compact('microsite', 'user', 'id', 'social', 'short_url','button'));
+
+        return view('Microsite.EditMicrosite', compact('microsite', 'user', 'id', 'social', 'short_url', 'button'));
     }
+
 
     public function micrositeUpdate(Request $request, $id)
     {
