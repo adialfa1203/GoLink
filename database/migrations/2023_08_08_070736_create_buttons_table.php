@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name_button');
             $table->string('icon');
+            $table->string('color_hex')->nullable();
             $table->timestamps();
         });
     }

@@ -12,8 +12,13 @@ class Components extends Model
     protected $fillable = [
         'component_name',
         'cover_img',
-        'profile_img',
+        'premium',
     ];
+
+    protected $casts = [
+        'premium' => 'boolean',
+    ];
+
     protected $keyType = 'string';
     public $incrementing = false;
     public static function boot()

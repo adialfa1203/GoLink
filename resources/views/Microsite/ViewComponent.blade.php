@@ -196,6 +196,23 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="row">
+                                                        <div class="col-xxl-12 mt-2 col-md-12">
+                                                            <div class="mt-2">
+                                                                <label for="premium" class="form-label">Premium</label>
+                                                                <select name="premium" class="form-select" id="premium">
+                                                                    <option value="" disabled selected>Pilih Kondisi Tema...</option>
+                                                                    <option value="1" {{ old('premium') === '1' ? 'selected' : '' }}>Khusus Platinum</option>
+                                                                    <option value="0" {{ old('premium') === '0' ? 'selected' : '' }}>Gratis</option>
+                                                                </select>
+                                                                <div class="invalid-feedback">
+                                                                    Harap isi kolom ini sebelum melanjutkan proses.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
                                                         <div class="col-xxl-12">
                                                             <div class="card overflow-hidden">
                                                                 <div>
@@ -300,7 +317,19 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <div class="col-xxl-12 mt-2 col-md-12">
+                            <div class="mt-2">
+                                <label for="premium" class="form-label">Premium</label>
+                                <select name="premium" class="form-select" id="premium" required>
+                                    <option value="" disabled selected>Pilih Kondisi Tema...</option>
+                                    <option value="1" {{ old('premium') === '1' ? 'selected' : '' }}>Khusus Platinum</option>
+                                    <option value="0" {{ old('premium') === '0' ? 'selected' : '' }}>Gratis</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Harap isi kolom ini sebelum melanjutkan proses.
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xxl-12 mt-2 col-md-12">
                             <div class="card overflow-hidden">
                                 <div>

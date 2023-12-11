@@ -74,7 +74,7 @@ class MicrositeController extends Controller
             $data = Components::all();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         } else {
-            $data = Components::orderBy('created_at', 'asc')->take(3)->get();
+            $data = Components::where('premium', 0)->orderBy('created_at', 'asc')->take(3)->get();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         }
 
@@ -285,6 +285,7 @@ class MicrositeController extends Controller
         $validator = Validator::make($request->all(), [
             'component_name' => 'required|string|max:20',
             'cover_img' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'premium' => 'required|in:0,1',
         ], [
             'component_name.required' => 'Nama wajib diisi',
             'component_name.max' => 'Tidak boleh lebih besar dari 20 karakter',
@@ -305,6 +306,7 @@ class MicrositeController extends Controller
         $component = Components::create([
             'component_name' => $request->component_name,
             'cover_img' => $coverImageName,
+            'premium' => $request->input('premium'),
         ]);
         return redirect()->route('view.component')->with('success', 'Komponen berhasil disimpan.');
     }

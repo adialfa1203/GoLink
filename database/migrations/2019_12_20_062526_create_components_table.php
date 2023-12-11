@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('component_name');
             $table->string('cover_img');
-            $table->string('profile_img')->nullable();
+            $table->boolean('premium')->default(false);
             $table->string('link_component')->nullable();
             $table->timestamps();
         });
