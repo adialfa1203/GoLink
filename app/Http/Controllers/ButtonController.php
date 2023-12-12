@@ -141,4 +141,16 @@ class ButtonController extends Controller
 
         return redirect()->back()->with('success', 'Media Sosial sukses dihapus.');
     }
+
+    public function saveButtonSocial(Request $request)
+    {
+        $micrositeUuid = $request->input('microsite_uuid');
+        $buttonsUuid = $request->input('button_uuid');
+
+        $social = Social::create([
+            'microsite_uuid' => $micrositeUuid,
+            'buttons_uuid' => $buttonsUuid,
+        ]);
+        return redirect()->back()->with('success', 'Data berhasil disimpan!');
+    }
 }

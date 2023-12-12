@@ -178,6 +178,7 @@ Route::group(['middleware' => ['auth', 'checkBanStatus', 'checksinglesession', '
         Route::get('/takedown', [DataUserController::class, 'takedownUser']);
         Route::get('/set-all-messages-seen', [ChatifyController::class, 'setAllMessagesSeen'])->name('set.all.messages.seen');
         Route::post('/custom-btn-save', [ButtonController::class, 'customBtnSave'])->name('custom.btn.save');
+        Route::post('/save-button-social', [ButtonController::class, 'saveButtonSocial'])->name('save-button-social');
     });
 });
 Route::get('microsite/{micrositeLink}', [ShortLinkController::class, 'micrositeLink'])->name('microsite.short.link');
