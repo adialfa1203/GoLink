@@ -546,49 +546,49 @@
                                 <div class="card-footer text-center">
                                     <div class="d-flex align-items-center justify-content-end">
                                         <label class="mb-0 me-2">
-                                            <input type="checkbox" id="selectedButtons" name="selectedButtons[]" value="{{ $data->id }}" class="checkbox" style="display: none;">
+                                            <input type="radio" id="selectedButtons" name="selectedButtons[]" value="{{ $data->id }}" class="radio" style="display: none;">
                                         </label>
-                                        @if ($data->icon)) === 'bi bi-cebook')
+                                        @if ($data->icon === 'bi bi-facebook')
                                         <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill face">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif ($data->icon)) === 'bi bi-itter')
+                                        @elseif ($data->icon === 'bi bi-twitter')
                                         <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill twi">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif ($data->icon)) === 'bi bi-stagram')
+                                        @elseif ($data->icon === 'bi bi-instagram')
                                         <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill insta">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif ($data->icon)) === 'bi bi-nkedin')
+                                        @elseif ($data->icon === 'bi bi-linkedin')
                                         <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill link">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif ($data->icon)) === 'bi bi-legram')
+                                        @elseif ($data->icon === 'bi bi-telegram')
                                         <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill tele">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif ($data->icon)) === 'bi bi-ktok')
+                                        @elseif ($data->icon === 'bi bi-tiktok')
                                         <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill tiktok">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif ($data->icon)) === 'bi bi-otify')
+                                        @elseif ($data->icon === 'bi bi-spotify')
                                         <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill spo">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif ($data->icon)) === 'bi bi-utube')
+                                        @elseif ($data->icon === 'bi bi-youtube')
                                         <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill youtube">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif ($data->icon)) === 'bi bi-g-fill')
+                                        @elseif ($data->icon === 'bi bi-bag-fill')
                                         <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill olshop">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
