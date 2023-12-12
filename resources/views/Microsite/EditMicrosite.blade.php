@@ -409,39 +409,39 @@
                             <div class="d-flex flex-wrap justify-content-center text-center mb-4">
                                 @foreach ($social as $socialItem)
                                 <div class="mb-2 mx-2">
-                                    @if (strtolower(trim($socialItem->button->icon)) === 'bi bi-facebook')
+                                    @if ($socialItem->button->icon === 'bi bi-facebook')
                                     <button style="color: white;" type="button" class="btn btn-icon face">
                                         <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
                                     </button>
-                                    @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-twitter')
+                                    @elseif ($socialItem->button->icon === 'bi bi-twitter')
                                     <button style="color: white;" type="button" class="btn btn-icon twi">
                                         <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
                                     </button>
-                                    @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-instagram')
+                                    @elseif ($socialItem->button->icon === 'bi bi-instagram')
                                     <button style="color: white;" type="button" class="btn btn-icon insta">
                                         <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
                                     </button>
-                                    @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-linkedin')
+                                    @elseif ($socialItem->button->icon === 'bi bi-linkedin')
                                     <button style="color: white;" type="button" class="btn btn-icon link">
                                         <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
                                     </button>
-                                    @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-telegram')
+                                    @elseif ($socialItem->button->icon === 'bi bi-telegram')
                                     <button style="color: white;" type="button" class="btn btn-icon tele">
                                         <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
                                     </button>
-                                    @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-tiktok')
+                                    @elseif ($socialItem->button->icon === 'bi bi-tiktok')
                                     <button style="color: white;" type="button" class="btn btn-icon tiktok">
                                         <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
                                     </button>
-                                    @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-spotify')
+                                    @elseif ($socialItem->button->icon === 'bi bi-spotify')
                                     <button style="color: white;" type="button" class="btn btn-icon spo">
                                         <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
                                     </button>
-                                    @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-youtube')
+                                    @elseif ($socialItem->button->icon === 'bi bi-youtube')
                                     <button style="color: white;" type="button" class="btn btn-icon youtube">
                                         <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
                                     </button>
-                                    @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-bag-fill')
+                                    @elseif ($socialItem->button->icon === 'bi bi-bag-fill')
                                     <button style="color: white;" type="button" class="btn btn-icon olshop">
                                         <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
                                     </button>
@@ -455,62 +455,62 @@
 
                             </div>
                             @foreach ($social as $socialItem)
-                            @if (strtolower(trim($socialItem->button->icon)) === 'bi bi-facebook')
-                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill face" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
+                            @if ($socialItem->button->icon === 'bi bi-facebook')
+                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill face">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
                             </button>
-                            @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-twitter')
-                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill twi" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
+                            @elseif ($socialItem->button->icon === 'bi bi-twitter')
+                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill twi">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
                             </button>
-                            @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-instagram')
-                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill insta" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
+                            @elseif ($socialItem->button->icon === 'bi bi-instagram')
+                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill insta">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
                             </button>
-                            @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-linkedin')
-                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill link" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
+                            @elseif ($socialItem->button->icon === 'bi bi-linkedin')
+                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill link">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
                             </button>
-                            @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-telegram')
-                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill tele" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
+                            @elseif ($socialItem->button->icon === 'bi bi-telegram')
+                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill tele">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
                             </button>
-                            @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-tiktok')
-                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill tiktok" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
+                            @elseif ($socialItem->button->icon === 'bi bi-tiktok')
+                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill tiktok">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
                             </button>
-                            @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-spotify')
-                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill spo" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
+                            @elseif ($socialItem->button->icon === 'bi bi-spotify')
+                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill spo">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
                             </button>
-                            @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-youtube')
-                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill youtube" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
+                            @elseif ($socialItem->button->icon === 'bi bi-youtube')
+                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill youtube">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
                             </button>
-                            @elseif (strtolower(trim($socialItem->button->icon)) === 'bi bi-bag-fill')
-                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill olshop" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}" onclick="toggleCardHover('{{ $socialItem->button->id }}')">
+                            @elseif ($socialItem->button->icon === 'bi bi-bag-fill')
+                            <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill olshop">
                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
                             </button>
                             @else
-                            <button style="color:#fff;background-color: {{ $socialItem->button->color_hex }}; width: 100%;" type="button" class="col-xl-012 col-12 mt-2 btn btn-label rounded-pill" data-bs-toggle="collapse" data-bs-target="{{ $socialItem->button->id }}" aria-expanded="true" aria-controls="{{ $socialItem->button->id }}">
+                            <button style="color:#fff;background-color: {{ $socialItem->button->color_hex }}; width: 100%;" type="button" class="col-xl-012 col-12 mt-2 btn btn-label rounded-pill">
                                 <i class="bi bi-link-45deg label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                 <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
                                 </p>
@@ -548,53 +548,53 @@
                                         <label class="mb-0 me-2">
                                             <input type="checkbox" id="selectedButtons" name="selectedButtons[]" value="{{ $data->id }}" class="checkbox" style="display: none;">
                                         </label>
-                                        @if (strtolower(trim($data->icon)) === 'bi bi-facebook')
-                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill face" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        @if ($data->icon)) === 'bi bi-cebook')
+                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill face">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif (strtolower(trim($data->icon)) === 'bi bi-twitter')
-                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill twi" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        @elseif ($data->icon)) === 'bi bi-itter')
+                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill twi">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif (strtolower(trim($data->icon)) === 'bi bi-instagram')
-                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill insta" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        @elseif ($data->icon)) === 'bi bi-stagram')
+                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill insta">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif (strtolower(trim($data->icon)) === 'bi bi-linkedin')
-                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill link" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        @elseif ($data->icon)) === 'bi bi-nkedin')
+                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill link">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif (strtolower(trim($data->icon)) === 'bi bi-telegram')
-                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill tele" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        @elseif ($data->icon)) === 'bi bi-legram')
+                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill tele">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif (strtolower(trim($data->icon)) === 'bi bi-tiktok')
-                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill tiktok" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        @elseif ($data->icon)) === 'bi bi-ktok')
+                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill tiktok">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif (strtolower(trim($data->icon)) === 'bi bi-spotify')
-                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill spo" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        @elseif ($data->icon)) === 'bi bi-otify')
+                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill spo">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif (strtolower(trim($data->icon)) === 'bi bi-youtube')
-                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill youtube" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        @elseif ($data->icon)) === 'bi bi-utube')
+                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill youtube">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
-                                        @elseif (strtolower(trim($data->icon)) === 'bi bi-bag-fill')
-                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill olshop" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        @elseif ($data->icon)) === 'bi bi-g-fill')
+                                        <button style="color: white;" type="button" class="col-xl-12 col-12 btn btn-label rounded-pill olshop">
                                             <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
                                         @else
-                                        <button style="color:#fff;background-color: {{ $data->color_hex }};" type="button" class="col-xl-012 col-12 btn btn-label rounded-pill" data-bs-toggle="collapse" data-bs-target="{{ $data->id }}" aria-expanded="true" aria-controls="{{ $data->id }}" onclick="toggleCardHover('{{ $data->id }}')">
+                                        <button style="color:#fff;background-color: {{ $data->color_hex }};" type="button" class="col-xl-012 col-12 btn btn-label rounded-pill">
                                             <i class="bi bi-link-45deg label-icon align-middle rounded-pill fs-lg me-2" style="color: white;"></i>
                                             {{ $data->name_button }}
                                         </button>
