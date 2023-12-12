@@ -241,13 +241,11 @@
                                                                             <label for="placeholderInput" class="form-label">{{ $data->button->name_button }}</label>
                                                                         </div>
                                                                         <div class="col-1 d-flex justify-content-end">
-                                                                            @if ($data->button->microsite_uuid)
                                                                             <a type="button" onclick="confirmDelete('{{ $data->id }}')">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
                                                                                     <path d="M7.4987 2.625V3.5H3.33203V5.25H4.16536V16.625C4.16536 17.0891 4.34096 17.5342 4.65352 17.8624C4.96608 18.1906 5.39 18.375 5.83203 18.375H14.1654C14.6074 18.375 15.0313 18.1906 15.3439 17.8624C15.6564 17.5342 15.832 17.0891 15.832 16.625V5.25H16.6654V3.5H12.4987V2.625H7.4987ZM5.83203 5.25H14.1654V16.625H5.83203V5.25ZM7.4987 7V14.875H9.16536V7H7.4987ZM10.832 7V14.875H12.4987V7H10.832Z" fill="black" fill-opacity="0.3" />
                                                                                 </svg>
                                                                             </a>
-                                                                            @endif
                                                                         </div>
                                                                     </div>
                                                                     <input type="hidden" {{-- @dd($data) --}} name="social_id[{{ $data->id }}]" value="{{ $data->id }}">
