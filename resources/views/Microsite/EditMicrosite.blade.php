@@ -257,7 +257,7 @@
                                                                                     class="col-1 d-flex justify-content-end">
                                                                                     @if ($data->button->microsite_uuid)
                                                                                         <a type="button"
-                                                                                            onclick="confirmDelete('{{ $data->button->id }}')">
+                                                                                            onclick="confirmDelete('{{ $data->id }}')">
                                                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                                                 width="20"
                                                                                                 height="21"
@@ -645,9 +645,6 @@
                     <div class="acitivity-timeline p-4">
                         <div class="row">
                             @foreach ($button as $data)
-                                <input type="hidden" name="icon" value="{{ $data->icon }}">
-                                <input type="hidden" name="name_button" value="{{ $data->name_button }}">
-                                <input type="hidden" name="color_hex" value="{{ $data->color_hex }}">
                                 <div class="col-xl-12 col-sm-12 mb-4">
                                     <div class="card" id="{{ $data->id }}"
                                         style="box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);"

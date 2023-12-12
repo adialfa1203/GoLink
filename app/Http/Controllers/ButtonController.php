@@ -137,7 +137,7 @@ class ButtonController extends Controller
 
     public function deleteButtonsByMicrosite($id)
     {
-        Button::query()->where('id', $id)->delete();
+        Social::query()->where('id', $id)->delete();
 
         return redirect()->back()->with('success', 'Media Sosial sukses dihapus.');
     }
@@ -145,23 +145,12 @@ class ButtonController extends Controller
     public function saveButtonSocial(Request $request)
     {
         $micrositeUuid = $request->input('microsite_uuid');
-        $userId = $request->input('user_id');
-
-        $button = Button::create([
-            'name_button' => $request->input('name_button'),
-            'icon' => $request->input('icon'),
-            'microsite_uuid' => $micrositeUuid,
-            'user_id' => $userId,
-            'color_hex' => $request->input('color_hex'),
-        ]);
-
-        $buttonsUuid = $button->id;
+        $buttonsUuid = $request->input('button_uuid');
 
         $social = Social::create([
             'microsite_uuid' => $micrositeUuid,
             'buttons_uuid' => $buttonsUuid,
         ]);
-
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }
 }
