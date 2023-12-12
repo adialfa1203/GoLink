@@ -229,19 +229,18 @@
                                             <div class="card-body" style="padding-left: 0; padding-right: 0;">
                                                 <div class="accordion" id="default-accordion-example">
                                                     @foreach ($social as $data)
-                                                        {{-- @dd($social) --}}
                                                         <div class="accordion-item">
                                                             <h2 class="accordion-header" id="headingOne">
                                                                 <button class="accordion-button collapsed" type="button"
                                                                     data-bs-toggle="collapse"
-                                                                    data-bs-target="#data{{ $loop->iteration }}"
+                                                                    data-bs-target="#data{{ $data->id }}"
                                                                     aria-expanded="false"
-                                                                    aria-controls="data{{ $loop->iteration }}">
+                                                                    aria-controls="data{{ $data->id }}">
                                                                     Silahkan isi URL {{ $data->button->name_button }} anda
                                                                     disini! (Wajib)
                                                                 </button>
                                                             </h2>
-                                                            <div id="data{{ $loop->iteration }}"
+                                                            <div id="data{{ $data->id }}"
                                                                 class="accordion-collapse collapse"
                                                                 aria-labelledby="headingOne"
                                                                 data-bs-parent="#default-accordion-example">
@@ -272,11 +271,16 @@
                                                                                     @endif
                                                                                 </div>
                                                                             </div>
+                                                                            <input type="hidden"
+                                                                            {{-- @dd($data) --}}
+                                                                                name="social_id[{{ $data->id }}]"
+                                                                                value="{{ $data->id }}">
                                                                             <input type="text" class="form-control"
                                                                                 id="placeholderInput"
                                                                                 placeholder="Isi Link {{ $data->button->name_button }} Anda "
-                                                                                name="button_link[{{ $data->button->id }}]"
-                                                                                value="{{ old('button_link.' . $data->button->id, $data->button_link) }}">
+                                                                                name="button_link[{{ $data->id }}]"
+                                                                            value="{{ old('button_link.' . $data->id, $data->button_link) }}">
+
                                                                             <div>
                                                                             </div>
                                                                             <div class="mt-1">

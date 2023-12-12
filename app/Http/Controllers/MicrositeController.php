@@ -262,11 +262,11 @@ class MicrositeController extends Controller
             }
         }
 
+        foreach ($buttonLinks as $socialId => $buttonLink) {
+            if ($buttonLink !== null && $socialId !== null) {
+                $social = $socials->find($socialId);
 
-        foreach ($buttonLinks as $index => $buttonLink) {
-            if ($buttonLink !== null) {
-                $social = $socials->where('buttons_uuid', $index)->first();
-
+                // dd($socialId, $buttonLink, $social);
                 if ($social) {
                     $social->button_link = $buttonLink;
                     $social->save();
