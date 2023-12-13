@@ -412,54 +412,6 @@
                             </div>
                         </div>
                         <div class="card-body border-top">
-                            <div class="d-flex flex-wrap justify-content-center text-center mb-4">
-                                @foreach ($social as $socialItem)
-                                <div class="mb-2 mx-2">
-                                    @if ($socialItem->button->icon === 'bi bi-facebook')
-                                    <button style="color: white;" type="button" class="btn btn-icon face">
-                                        <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
-                                    </button>
-                                    @elseif ($socialItem->button->icon === 'bi bi-twitter')
-                                    <button style="color: white;" type="button" class="btn btn-icon twi">
-                                        <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
-                                    </button>
-                                    @elseif ($socialItem->button->icon === 'bi bi-instagram')
-                                    <button style="color: white;" type="button" class="btn btn-icon insta">
-                                        <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
-                                    </button>
-                                    @elseif ($socialItem->button->icon === 'bi bi-linkedin')
-                                    <button style="color: white;" type="button" class="btn btn-icon link">
-                                        <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
-                                    </button>
-                                    @elseif ($socialItem->button->icon === 'bi bi-telegram')
-                                    <button style="color: white;" type="button" class="btn btn-icon tele">
-                                        <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
-                                    </button>
-                                    @elseif ($socialItem->button->icon === 'bi bi-tiktok')
-                                    <button style="color: white;" type="button" class="btn btn-icon tiktok">
-                                        <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
-                                    </button>
-                                    @elseif ($socialItem->button->icon === 'bi bi-spotify')
-                                    <button style="color: white;" type="button" class="btn btn-icon spo">
-                                        <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
-                                    </button>
-                                    @elseif ($socialItem->button->icon === 'bi bi-youtube')
-                                    <button style="color: white;" type="button" class="btn btn-icon youtube">
-                                        <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
-                                    </button>
-                                    @elseif ($socialItem->button->icon === 'bi bi-bag-fill')
-                                    <button style="color: white;" type="button" class="btn btn-icon olshop">
-                                        <i class="{{ $socialItem->button->icon }}" style="color: white;"></i>
-                                    </button>
-                                    @else
-                                    <button style="color:#fff;background-color: {{ $socialItem->button->color_hex }};" type="button" class="btn btn-icon">
-                                        <i class="bi bi-link-45deg" style="color: white;font-size: 20px;"></i>
-                                    </button>
-                                    @endif
-                                </div>
-                                @endforeach
-
-                            </div>
                             @foreach ($social as $socialItem)
                             @if ($socialItem->button->icon === 'bi bi-facebook')
                             <button style="color: white;" type="button" class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill face">
