@@ -171,7 +171,7 @@ class MicrositeController extends Controller
             return redirect()->back()->with('error', 'Silakan pilih setidaknya satu sosial media!');
         } else {
             foreach ($selectedButtons as $select) {
-                $order = $socialCount + 1; 
+                $order = $socialCount + 1;
                 $socialData = [
                     'buttons_uuid' => $select,
                     'microsite_uuid' => $microsite->id,
@@ -191,7 +191,9 @@ class MicrositeController extends Controller
     {
         $user = Auth::user();
         $microsite = Microsite::findOrFail($id);
-        $social = Social::where('microsite_uuid', $id)->get();
+        $social = Social::where('microsite_uuid', $id)
+            ->orderBy('order')
+            ->get();
         // dd($social);
         $button = Button::where('microsite_uuid', $id)->orWhereNull('microsite_uuid')->get();
         $short_url = ShortUrl::where('microsite_uuid', $id)->first();
