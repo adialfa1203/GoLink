@@ -11,7 +11,9 @@
         /* Aturan CSS untuk tampilan pada layar kecil di sini */
         /* Misalnya, mengurangi font size atau mengubah jumlah kolom grid */
     }
-
+    .navbar-brand-box{
+            padding: 30px;
+        }
     .nav-link {
         display: block;
         padding: 0.5rem 1rem;
