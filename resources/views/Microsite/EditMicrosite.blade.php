@@ -616,11 +616,10 @@
         </div>
         <div class="offcanvas-foorter border p-3 text-center d-flex justify-content-between">
             <button type="button" class="btn btn-label mb-3 max" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="font-size: 13px; background-color: #0E2954; color: #fff;">
-                <i class="ri-add-line label-icon align-middle fs-lg me-2"></i>Kustom
-                Tema
+                <i class="ri-add-line label-icon align-middle fs-lg me-2"></i>Kustom Button
             </button>
-            <button type="submit" class="btn btn-label mb-3 max" style="font-size: 13px; background-color: #0E2954; color: #fff;">
-                <i class="ri-add-line label-icon align-middle fs-lg me-2"></i>Kirim
+            <button type="submit" class="btn btn-label mb-3 max" style="font-size: 13px; background-color: #088C0D; color: #fff;">
+                <i class="ri-add-line label-icon align-middle fs-lg me-2"></i>Tambah Button
             </button>
         </div>
     </form>
