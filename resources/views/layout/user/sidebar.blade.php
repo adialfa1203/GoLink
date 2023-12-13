@@ -158,7 +158,23 @@
                                     max-width: 100px; /* Sesuaikan dengan lebar yang sesuai */">
                                     {!! Auth::user()->name !!}
                                 </div>
+                                @php
+                                    $userStatus = Auth::user()->subscribe;
+                                @endphp
                             </span>
+                            @if ($userStatus == 'free')
+                            @elseif (strtolower(trim($userStatus)) === 'silver')
+                                <span class="badge" style="background-color: #A6A1A1; color: #504E4E;">Status
+                                    Silver.</span>
+                            @elseif (strtolower(trim($userStatus)) === 'gold')
+                                <span class="badge" style="background-color: #F3D897; color: #C68B00;">Status
+                                    Gold.</span>
+                            @elseif (strtolower(trim($userStatus)) === 'platinum')
+                                <span class="badge" style="background-color: #98B5E1; color: #244680;">Status
+                                    Platinum.</span>
+                            @else
+                                <span class="badge bg-secondary">Data Kosong</span>
+                            @endif
                         </div>
                     </button>
                 </li>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('buttons_uuid')->nullable();
             $table->foreign('buttons_uuid')->references('id')->on('buttons')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('button_link')->nullable();
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

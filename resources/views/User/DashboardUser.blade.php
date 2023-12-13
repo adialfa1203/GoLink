@@ -154,6 +154,20 @@
                                             <h4 style="color: #fff;">Selamat Datang {{ Auth::user()->name }}!</h4>
                                             <p style="margin: 0;">Ayo buat tautan pendekmu sekarang!</p>
                                             <p>Jangan lupakan fitur Microsite dan buat Microsite pribadimu!</p>
+                                            @if ($user->subscribe == 'free')
+                                            @elseif (strtolower(trim($user->subscribe)) === 'silver')
+                                                <span class="badge" style="background-color: #A6A1A1; color: #504E4E;">Anda
+                                                    telah mencapai status keanggotaan Silver.</span>
+                                            @elseif (strtolower(trim($user->subscribe)) === 'gold')
+                                                <span class="badge" style="background-color: #F3D897; color: #C68B00;">Anda
+                                                    telah mencapai status keanggotaan Gold.</span>
+                                            @elseif (strtolower(trim($user->subscribe)) === 'platinum')
+                                                <span class="badge" style="background-color: #98B5E1; color: #244680;">Anda
+                                                    telah mencapai status keanggotaan Platinum.</span>
+                                            @else
+                                                <span class="badge bg-secondary">Data
+                                                    Kosong</span>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="im " style="padding: 20px;">
@@ -744,8 +758,7 @@
                     <h6 class="card-title" style="color: #0E2954;">Microsite dibuat / Bulan
                         <span class="tooltip-icon"
                             data-tooltip="Setiap bulan pengguna akan dikenakan kuota sesuai dengan layanan yang digunakan. Kuota akan tersedia kembali setelah tanggal reset kuota {{ $resetDate->format('Y-M-d') }} atau melakukan upgrade ke layanan yang lebih tinggi.">
-                            <i
-                                class="bi bi-exclamation-circle align-baseline ms-1 fs-sm">
+                            <i class="bi bi-exclamation-circle align-baseline ms-1 fs-sm">
                             </i>
                         </span>
                     </h6>
@@ -980,7 +993,7 @@
     <script>
         $(document).ready(function() {
             var selectId = $('#new_url_key').val();
-        //
+            //
             // Mendapatkan token CSRF dari meta tag
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
@@ -1036,8 +1049,7 @@
                     var countMicrosite = response.countMicrosite;
                     updateChart(countURL, countMicrosite);
                 },
-                error: function(xhr, status, error) {
-                }
+                error: function(xhr, status, error) {}
             });
         }
 
@@ -1112,107 +1124,107 @@
         }
 
         $(document).ready(function() {
-    var userId = "{{ auth()->user()->subscribe }}";
+            var userId = "{{ auth()->user()->subscribe }}";
 
-    $("#shortlinkSubmit").submit(function(event) {
-        event.preventDefault();
-        var destinationUrl = $("#AmountInput").val();
+            $("#shortlinkSubmit").submit(function(event) {
+                event.preventDefault();
+                var destinationUrl = $("#AmountInput").val();
 
-        if (!destinationUrl) {
-            // Menampilkan pesan kesalahan jika URL tujuan tidak diisi
-            Swal.fire({
-                icon: "error",
-                title: "Kesalahan!",
-                text: "Anda harus mengisi data terlebih dahulu.",
-            });
+                if (!destinationUrl) {
+                    // Menampilkan pesan kesalahan jika URL tujuan tidak diisi
+                    Swal.fire({
+                        icon: "error",
+                        title: "Kesalahan!",
+                        text: "Anda harus mengisi data terlebih dahulu.",
+                    });
 
-            // Menutup modal dan mengatur penundaan sebelum menyembunyikan elemen
-            $("#addAmount").modal("hide");
-            setTimeout(function() {
-                $('#close-singkatkan').click();
-            }, 1000);
-        } else {
-            var countURL = {{ $countURL }};
-            var countUrl;
+                    // Menutup modal dan mengatur penundaan sebelum menyembunyikan elemen
+                    $("#addAmount").modal("hide");
+                    setTimeout(function() {
+                        $('#close-singkatkan').click();
+                    }, 1000);
+                } else {
+                    var countURL = {{ $countURL }};
+                    var countUrl;
 
-            // Mengatur batas URL berdasarkan langganan pengguna
-            @if (auth()->user()->subscribe == 'free')
-                countUrl = 15;
-            @elseif (auth()->user()->subscribe == 'silver')
-                countUrl = 25;
-            @elseif (auth()->user()->subscribe == 'gold')
-                countUrl = 35;
-            @elseif (auth()->user()->subscribe == 'platinum')
-                countUrl = Number.MAX_SAFE_INTEGER;
-            @endif
+                    // Mengatur batas URL berdasarkan langganan pengguna
+                    @if (auth()->user()->subscribe == 'free')
+                        countUrl = 15;
+                    @elseif (auth()->user()->subscribe == 'silver')
+                        countUrl = 25;
+                    @elseif (auth()->user()->subscribe == 'gold')
+                        countUrl = 35;
+                    @elseif (auth()->user()->subscribe == 'platinum')
+                        countUrl = Number.MAX_SAFE_INTEGER;
+                    @endif
 
-            if (countURL >= countUrl) {
-                // Menampilkan pesan kesalahan jika batas URL terlampaui
-                Swal.fire({
-                    icon: "error",
-                    title: "Kesalahan!",
-                    text: "Anda telah mencapai batas maksimum link diperpendek.",
-                });
-            } else {
-                // Jika belum mencapai batas, kirim permintaan Ajax untuk memperpendek URL
-                var formData = $(this).serialize();
-                $.ajax({
-                    type: "POST",
-                    url: "short-link",
-                    data: formData,
-                    success: function(response) {
-                        // Handle respons sukses dari server
-                        if (response.status == 'gagal') {
-                            // Menampilkan pesan kesalahan jika permintaan gagal
-                            Swal.fire({
-                                title: 'Kesalahan...',
-                                icon: 'error',
-                                html: response.message +
-                                    ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
-                                    'untuk info lebih lanjut tentang langganan premium.',
-                            });
-                            setTimeout(function() {
-                                $('#close-singkatkan').click();
-                            }, 1000);
-                        } else {
-                            // Mengisi form dengan data hasil dari permintaan
-                            var defaultShort = response.default_short_url;
-                            var title = response.title;
-                            var url = response.destination_url;
-
-                            $("#default_short_url_id").val(response.id);
-                            $("#default_short_url").val(defaultShort);
-                            $("#title").val(title);
-                            $('#destination_url').val(url);
-
-                            $("#copyButton").show();
-                            $('#singkatkan').modal('show');
-                        }
-                    },
-                    error: function(error) {
-                        // Menampilkan pesan kesalahan jika terjadi kesalahan dalam permintaan Ajax
-                        $("#addAmount").modal("hide");
-                        $('#singkatkan').modal('hide');
+                    if (countURL >= countUrl) {
+                        // Menampilkan pesan kesalahan jika batas URL terlampaui
                         Swal.fire({
                             icon: "error",
                             title: "Kesalahan!",
-                            text: "URL tidak valid",
+                            text: "Anda telah mencapai batas maksimum link diperpendek.",
                         });
-                        console.error("Error:", error.responseJSON.message);
-                    }
-                });
-            }
-        }
+                    } else {
+                        // Jika belum mencapai batas, kirim permintaan Ajax untuk memperpendek URL
+                        var formData = $(this).serialize();
+                        $.ajax({
+                            type: "POST",
+                            url: "short-link",
+                            data: formData,
+                            success: function(response) {
+                                // Handle respons sukses dari server
+                                if (response.status == 'gagal') {
+                                    // Menampilkan pesan kesalahan jika permintaan gagal
+                                    Swal.fire({
+                                        title: 'Kesalahan...',
+                                        icon: 'error',
+                                        html: response.message +
+                                            ' Klik <a href="/BillingSubscriptions">di sini</a> ' +
+                                            'untuk info lebih lanjut tentang langganan premium.',
+                                    });
+                                    setTimeout(function() {
+                                        $('#close-singkatkan').click();
+                                    }, 1000);
+                                } else {
+                                    // Mengisi form dengan data hasil dari permintaan
+                                    var defaultShort = response.default_short_url;
+                                    var title = response.title;
+                                    var url = response.destination_url;
 
-        // Mengosongkan nilai input dan menutup modal
-        $("#AmountInput").val("");
-        $("#cardNumber").val("");
-        $(".password-input").val("");
-        $(".time-input").val("");
-        $(".close-edit").val("");
-        $("#addAmount").modal("hide");
-    });
-});
+                                    $("#default_short_url_id").val(response.id);
+                                    $("#default_short_url").val(defaultShort);
+                                    $("#title").val(title);
+                                    $('#destination_url').val(url);
+
+                                    $("#copyButton").show();
+                                    $('#singkatkan').modal('show');
+                                }
+                            },
+                            error: function(error) {
+                                // Menampilkan pesan kesalahan jika terjadi kesalahan dalam permintaan Ajax
+                                $("#addAmount").modal("hide");
+                                $('#singkatkan').modal('hide');
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Kesalahan!",
+                                    text: "URL tidak valid",
+                                });
+                                console.error("Error:", error.responseJSON.message);
+                            }
+                        });
+                    }
+                }
+
+                // Mengosongkan nilai input dan menutup modal
+                $("#AmountInput").val("");
+                $("#cardNumber").val("");
+                $(".password-input").val("");
+                $(".time-input").val("");
+                $(".close-edit").val("");
+                $("#addAmount").modal("hide");
+            });
+        });
 
 
         $("#password-addon").click(function() {
@@ -1419,5 +1431,5 @@
             });
         });
     </script>
-  
+
 @endsection

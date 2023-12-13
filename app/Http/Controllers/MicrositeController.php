@@ -94,6 +94,8 @@ class MicrositeController extends Controller
             ->whereNotNull('microsite_uuid')
             ->whereMonth('created_at', now()->month)
             ->count();
+        $socialCount = Social::where('microsite_uuid', $microsite->id)->count();
+
 
         if ($user->subscribe == 'free' && $mounth >= 3) {
             return redirect()->back();
@@ -169,12 +171,15 @@ class MicrositeController extends Controller
             return redirect()->back()->with('error', 'Silakan pilih setidaknya satu sosial media!');
         } else {
             foreach ($selectedButtons as $select) {
+                $order = $socialCount + 1; 
                 $socialData = [
                     'buttons_uuid' => $select,
                     'microsite_uuid' => $microsite->id,
                     'button_link' => null,
+                    'order' => $order,
                 ];
                 Social::create($socialData);
+                $socialCount++;
             }
         }
         // dd($mounth);
