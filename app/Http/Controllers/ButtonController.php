@@ -62,6 +62,13 @@ class ButtonController extends Controller
         $micrositeUuid = $request->input('microsite_uuid');
         $userId = $request->input('user_id');
 
+        $lastOrder = Social::where('microsite_uuid', $micrositeUuid)
+            ->orderBy('order', 'desc')
+            ->first();
+        // dd($lastOrder);
+
+        $order = $lastOrder ? $lastOrder->order + 1 : 1;
+
         $button = Button::create([
             'name_button' => str_replace(' ', '', $request->name_button),
             'icon' => $request->icon,
@@ -70,9 +77,11 @@ class ButtonController extends Controller
             'color_hex' => $request->color_hex,
         ]);
 
+
         $social = Social::create([
             'microsite_uuid' => $micrositeUuid,
             'buttons_uuid' => $button->id,
+            'order' => $order,
         ]);
         // dd($button);
 
@@ -147,9 +156,16 @@ class ButtonController extends Controller
         $micrositeUuid = $request->input('microsite_uuid');
         $buttonsUuid = $request->input('button_uuid');
 
+        $lastOrder = Social::where('microsite_uuid', $micrositeUuid)
+            ->orderBy('order', 'desc')
+            ->first();
+
+        $order = $lastOrder ? $lastOrder->order + 1 : 1;
+
         $social = Social::create([
             'microsite_uuid' => $micrositeUuid,
             'buttons_uuid' => $buttonsUuid,
+            'order' => $order,
         ]);
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }
