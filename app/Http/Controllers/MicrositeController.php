@@ -198,7 +198,15 @@ class MicrositeController extends Controller
         $button = Button::where('microsite_uuid', $id)->orWhereNull('microsite_uuid')->get();
         $short_url = ShortUrl::where('microsite_uuid', $id)->first();
 
-        return view('Microsite.EditMicrosite', compact('microsite', 'user', 'id', 'social', 'short_url', 'button'));
+
+        $baseUrl = config('app.url');
+        if ($short_url) {
+            $parsedUrl = parse_url($short_url->default_short_url);
+            $path = str_replace('/', '', $parsedUrl['path']) . (isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '');
+        }
+        
+
+        return view('Microsite.EditMicrosite', compact('microsite', 'user', 'id', 'social', 'short_url', 'baseUrl', 'path', 'button'));
     }
 
 
