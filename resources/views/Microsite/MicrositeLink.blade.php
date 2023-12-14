@@ -193,10 +193,10 @@
                             @endforeach
                             <div class="card card-body text-center">
                                 <h4 type="button" class="card-title" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    {{ isset($accessMicrosite->company_name) ? $accessMicrosite->company_name : 'Nama Perusahaan Anda' }}
+                                    {{ isset($accessMicrosite->company_name) ? $accessMicrosite->company_name : '' }}
                                 </h4>
                                 <p type="button" class="card-text text-black" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    {{ isset($accessMicrosite->company_address) ? $accessMicrosite->company_address : 'Alamat Perusahaan Anda' }}
+                                    {{ isset($accessMicrosite->company_address) ? $accessMicrosite->company_address : '' }}
                                 </p>
                             </div>
                         </div>
