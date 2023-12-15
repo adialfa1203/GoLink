@@ -513,11 +513,11 @@
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-twitter')
@@ -530,11 +530,11 @@
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-instagram')
@@ -547,11 +547,11 @@
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-linkedin')
@@ -564,11 +564,11 @@
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-telegram')
@@ -581,11 +581,11 @@
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-tiktok')
@@ -594,14 +594,14 @@
                                             <div class="d-flex justify-content-center align-items-center flex-grow-1">
                                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
                                                     style="color: white;"></i>
-                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                <p class="my-auto">
                                                     {{ $socialItem->button->name_button }}</p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-spotify')
@@ -614,11 +614,11 @@
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-youtube')
@@ -631,11 +631,11 @@
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-bag-fill')
@@ -648,11 +648,11 @@
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @else
@@ -667,11 +667,11 @@
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                    style="color: white; margin-bottom: 5%;"></i>
                                             </div>
                                         </button>
                                     @endif
@@ -765,8 +765,8 @@
 
                                                     <a style="color: white; background-color: {{ $data->color_hex }};"
                                                         type="button"
-                                                        class="col-xl-12 col-12 btn btn-label rounded-pill {{ $buttonClass }}">
-                                                        <i class="{{ $data->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                        class="col-xl-12 col-12 btn btn-label {{ $buttonClass }}">
+                                                        <i class="{{ $data->icon }} label-icon align-middle fs-lg me-2"
                                                             style="color: white;"></i>
                                                         {{ $data->name_button }}
                                                     </a>
