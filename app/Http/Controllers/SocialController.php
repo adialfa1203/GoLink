@@ -123,6 +123,38 @@ class SocialController extends Controller
         }
     }
 
+    public function moveUp(Social $social, $microsite_uuid) {
+        $currentPosition = $social->order;
+        $angkaDiatas = Social::where('microsite_uuid', $microsite_uuid)
+            ->where('order', '<', $currentPosition)
+            ->orderByDesc('order')
+            ->first();
+
+        if ($angkaDiatas) {
+            $h = $currentPosition;
+
+            $social->update(['order' => $angkaDiatas->order]);
+            Social::findOrFail($angkaDiatas->id)->update(['order'=> $h]);
+        }
+        return response()->json(['code' => 200]);
+    }
+
+    public function moveDown(Social $social, $microsite_uuid) {
+        $currentPosition = $social->order;
+        $angkaDiatas = Social::where('microsite_uuid', $microsite_uuid)
+            ->where('order', '>', $currentPosition)
+            ->orderBy('order')
+            ->first();
+
+        if ($angkaDiatas) {
+            $h = $currentPosition;
+
+            $social->update(['order' => $angkaDiatas->order]);
+            Social::findOrFail($angkaDiatas->id)->update(['order'=> $h]);
+        }
+        return response()->json(['code' => 200]);
+    }
+
     //     public function redirectTwitter(){
     //         return Socialite::driver('twitter')->redirect();
     //     }

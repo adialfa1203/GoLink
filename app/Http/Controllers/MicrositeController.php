@@ -192,7 +192,7 @@ class MicrositeController extends Controller
         $user = Auth::user();
         $microsite = Microsite::findOrFail($id);
         $social = Social::where('microsite_uuid', $id)
-            ->orderBy('order','desc')
+            ->orderBy('order')
             ->get();
         // dd($social);
         $button = Button::where('microsite_uuid', $id)->orWhereNull('microsite_uuid')->get();

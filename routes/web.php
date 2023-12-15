@@ -109,8 +109,9 @@ Route::middleware(['auth'])->group(function () {
 //Middleware User
 Route::group(['middleware' => ['auth', 'checkBanStatus', 'checksinglesession', 'preventBackHistory', 'role:user']], function () {
     Route::prefix('user')->group(function () {
-        // //search
-        // Route::get('/search', [SearchController::class, 'search'])->name('search');
+        //move button
+        Route::post('/move-up/{social}/{microsite_uuid}', [SocialController::class, 'moveUp'])->name('move-up');
+        Route::post('/move-down/{social}/{microsite_uuid}', [SocialController::class, 'moveDown'])->name('move-down');
 
         Route::get('/transaction-pdf/{reference}', [PDFController::class, 'generatePDF'])->name('generate.pdf');
 
