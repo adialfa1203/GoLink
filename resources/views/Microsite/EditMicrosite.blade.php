@@ -506,83 +506,173 @@
                                     @if ($socialItem->button->icon === 'bi bi-facebook')
                                         <button style="color: white;" type="button"
                                             class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill face">
-                                            <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                                </p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-twitter')
                                         <button style="color: white;" type="button"
                                             class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill twi">
-                                            <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                                </p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-instagram')
                                         <button style="color: white;" type="button"
                                             class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill insta">
-                                            <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                                </p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-linkedin')
                                         <button style="color: white;" type="button"
-                                            class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill link">
-                                            <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill link">
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                                </p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-telegram')
                                         <button style="color: white;" type="button"
-                                            class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill tele">
-                                            <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill tele">
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                                </p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-tiktok')
                                         <button style="color: white;" type="button"
-                                            class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill tiktok">
-                                            <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill tiktok">
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-spotify')
                                         <button style="color: white;" type="button"
-                                            class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill spo">
-                                            <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill spo">
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                                </p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-youtube')
                                         <button style="color: white;" type="button"
-                                            class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill youtube">
-                                            <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill youtube">
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                                </p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-bag-fill')
                                         <button style="color: white;" type="button"
-                                            class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill olshop">
-                                            <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill olshop">
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                                </p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @else
                                         <button
                                             style="color:#fff;background-color: {{ $socialItem->button->color_hex }}; width: 100%;"
-                                            type="button" class="col-xl-012 col-12 mt-2 btn btn-label rounded-pill">
-                                            <i class="bi bi-link-45deg label-icon align-middle rounded-pill fs-lg me-2"
-                                                style="color: white;"></i>
-                                            <p style="margin: 0; margin-left:-8%;">{{ $socialItem->button->name_button }}
-                                            </p>
+                                            type="button"
+                                            class="d-flex col-xl-012 col-12 mt-2 btn btn-label rounded-pill">
+                                            <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                                                <i class="bi bi-link-45deg label-icon align-middle rounded-pill fs-lg me-2"
+                                                    style="color: white;"></i>
+                                                <p class="my-auto" style="margin-top: 2%!important;">
+                                                    {{ $socialItem->button->name_button }}</p>
+                                                </p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center mt-1">
+                                                <i class="bi bi-caret-up-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                                <i class="bi bi-caret-down-fill fa-sm"
+                                                    style="color: white; margin-bottom: 30%;"></i>
+                                            </div>
                                         </button>
                                     @endif
                                 @endforeach
