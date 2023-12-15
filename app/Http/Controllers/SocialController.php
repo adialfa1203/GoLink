@@ -8,6 +8,8 @@ use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Role;
 use Ramsey\Uuid\Uuid;
 use App\Models\ChFavorite;
+use App\Models\Social;
+use Flasher\Laravel\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class SocialController extends Controller
