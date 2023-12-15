@@ -505,7 +505,7 @@
                                 @foreach ($social as $socialItem)
                                     @if ($socialItem->button->icon === 'bi bi-facebook')
                                         <button style="color: white;" type="button"
-                                            class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill face">
+                                            class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill face">
                                             <div class="d-flex justify-content-center align-items-center flex-grow-1">
                                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
                                                     style="color: white;"></i>
@@ -522,7 +522,7 @@
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-twitter')
                                         <button style="color: white;" type="button"
-                                            class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill twi">
+                                            class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill twi">
                                             <div class="d-flex justify-content-center align-items-center flex-grow-1">
                                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
                                                     style="color: white;"></i>
@@ -539,7 +539,7 @@
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-instagram')
                                         <button style="color: white;" type="button"
-                                            class="col-xl-12 col-12 mt-2 btn btn-label rounded-pill insta">
+                                            class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill insta">
                                             <div class="d-flex justify-content-center align-items-center flex-grow-1">
                                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
                                                     style="color: white;"></i>
