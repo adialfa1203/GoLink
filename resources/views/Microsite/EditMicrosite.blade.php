@@ -515,9 +515,9 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-twitter')
@@ -525,16 +525,16 @@
                                             class="d-flex col-xl-12 col-12 mt-2 btn btn-label rounded-pill twi">
                                             <div class="d-flex justify-content-center align-items-center flex-grow-1">
                                                 <i class="{{ $socialItem->button->icon }} label-icon align-middle rounded-pill fs-lg me-2"
-                                                    style="color: white;"></i>
+                                                    style="color: white;"></>
                                                 <p class="my-auto" style="margin-top: 2%!important;">
                                                     {{ $socialItem->button->name_button }}</p>
                                                 </p>
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-instagram')
@@ -549,9 +549,9 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-linkedin')
@@ -566,9 +566,9 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-telegram')
@@ -583,9 +583,9 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-tiktok')
@@ -599,9 +599,9 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-spotify')
@@ -616,9 +616,9 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-youtube')
@@ -633,9 +633,9 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @elseif ($socialItem->button->icon === 'bi bi-bag-fill')
@@ -650,9 +650,9 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @else
@@ -669,9 +669,9 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-center">
                                                 <i class="bi bi-caret-up-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahAtas('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                                 <i class="bi bi-caret-down-fill fa-sm"
-                                                    style="color: white; margin-bottom: 5%;"></i>
+                                                    style="color: white; margin-bottom: 5%;" onclick="pindahBawah('{{ $socialItem->id }}', '{{ $socialItem->microsite_uuid }}')"></i>
                                             </div>
                                         </button>
                                     @endif
@@ -946,5 +946,59 @@
         }
     </script>
 
+    <script>
+        function pindahAtas(id, micrositeUuid) {
+            $.ajax({
+                url: '/user/move-up/' + id + "/" + micrositeUuid,
+                type: 'POST',
+                success: function(response) {
+                    Swal.fire({
+                        title: 'Berhasil',
+                        text: 'Data dipindahkan keatas.',
+                        icon: 'success',
+                        timer: 1500,
+                        showConfirmButton: false
+                    }).then(() => {
+                        location.reload();
+                    });
+                },
+                error: function(error) {
+                    Swal.fire(
+                        'Gagal',
+                        'Terjadi kesalahan saat menghapus data.',
+                        'error'
+                    );
+                },
+                complete: function() {}
+            })
+        }
+    </script>
+    <script>
+        function pindahBawah(id, micrositeUuid) {
+            $.ajax({
+                url: '/user/move-down/' + id + "/" + micrositeUuid,
+                type: 'POST',
+                success: function(response) {
+                    Swal.fire({
+                        title: 'Berhasil',
+                        text: 'Data dipindahkan kebawah.',
+                        icon: 'success',
+                        timer: 1500,
+                        showConfirmButton: false
+                    }).then(() => {
+                        location.reload();
+                    });
+                },
+                error: function(error) {
+                    Swal.fire(
+                        'Gagal',
+                        'Terjadi kesalahan saat menghapus data.',
+                        'error'
+                    );
+                },
+                complete: function() {}
+            })
+        }
+    </script>
     <script src="{{ asset('template/themesbrand.com/steex/layouts/assets/js/pages/profile-setting.init.js') }}"></script>
 @endsection
