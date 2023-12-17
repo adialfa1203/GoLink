@@ -965,7 +965,7 @@
                 error: function(error) {
                     Swal.fire(
                         'Gagal',
-                        'Terjadi kesalahan saat menghapus data.',
+                        'Terjadi kesalahan saat memindahkan data.',
                         'error'
                     );
                 },
@@ -992,7 +992,7 @@
                 error: function(error) {
                     Swal.fire(
                         'Gagal',
-                        'Terjadi kesalahan saat menghapus data.',
+                        'Terjadi kesalahan saat memindahkan data.',
                         'error'
                     );
                 },
