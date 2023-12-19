@@ -100,8 +100,11 @@
                                     alt="Card image cap">
                                 <br>
                                 <div class="text-center">
+                                    @php
+                                     $discountPrince = $subs->price - ($subs->price * ($subs->discount / 100));
+                                    @endphp
                                     <h2 class="mb-2" style="color: #ffffff;">
-                                        Rp.{{ number_format($subs->price, 0, ',', '.') }}/Bulan
+                                        Rp.{{ number_format($discountPrince, 0, ',', '.') }}/Bulan
 
                                     </h2>
 

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->enum('tipe', ['free', 'silver', 'gold', 'platinum'])->default('free');
             $table->bigInteger('price');
+            $table->bigInteger('discount')->nullable();
             $table->string('picture');
             $table->string('description');
             $table->timestamps();

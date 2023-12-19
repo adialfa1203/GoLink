@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6 md-12 sm-12">
+                                <div class="col-lg-12 md-12 sm-12">
                                     <div class="mb-3">
                                         <label for="tipe" class="form-label">Tipe Langganan</label>
                                         <select name="tipe" class="form-select" id="tipe" required>
@@ -52,6 +52,15 @@
                                             <input type="number" class="form-control password-input" id="username"
                                                 name="price" placeholder="Rp : 1.000.000,00" required
                                                 value="{{ old('price', $subscribe->price) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 md-12 sm-12">
+                                    <div class="mb-3">
+                                        <label for="discount" class="form-label">Diskon</label>
+                                        <div class="position-relative">
+                                            <input type="number" class="form-control password-input" id="discount"
+                                                name="discount" placeholder="Masukkan Jumlah Diskon" required max="80">
                                         </div>
                                     </div>
                                 </div>

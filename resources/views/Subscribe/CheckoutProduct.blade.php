@@ -227,9 +227,12 @@
                                                 <img class="mt-3" src="{{ asset('pictureSubs/' . $subscribe->picture) }}" width="220"
                                                   height="150" style="display: block; margin: 0 auto; object-fit: cover;"
                                                  alt="Card image cap">
+                                                 @php                                                    
+                                                     $discountPrince = $subscribe->price - ($subscribe->price * ($subscribe->discount / 100));
+                                                 @endphp
                                                 <div class="row">
                                                     <h5 class="card-title text-center mt-3">
-                                                        Rp.{{ number_format($subscribe->price, 0, ',', '.') }}/Bulan
+                                                        Rp.{{ number_format($discountPrince, 0, ',', '.') }}/Bulan
                                                     </h5>
                                                 </div>
                                                 @if (strtolower(trim($subscribe->description)))

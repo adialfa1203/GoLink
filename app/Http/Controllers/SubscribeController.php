@@ -70,6 +70,7 @@ class SubscribeController extends Controller
             'price' => 'required|numeric|min:0',
             'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|min:10',
+            'discount' => 'required|numeric|min:0|max:75'
         ], [
             'tipe.required' => 'Pilih tipe langganan.',
             'tipe.in' => 'Tipe langganan tidak valid.',
@@ -81,8 +82,11 @@ class SubscribeController extends Controller
             'picture.max' => 'Ukuran gambar terlalu besar. Maksimal 2MB.',
             'description.required' => 'Deskripsi tidak boleh kosong.',
             'description.min' => 'Deskripsi harus memiliki setidaknya 10 karakter.',
+            'discount.reuired' => 'Jumlah diskon tidak boleh kosong',
+            'discount.numeric' => 'Diskon harus berupa angka',
+            'discount.min' => 'Diskon tidak valid',
+            'discount.max' => 'Jumlah diskon tidak boleh lebih dari 75%'
         ]);
-        // dd($request->tipe);
 
         if ($validator->fails()) {
             return redirect()->back()
@@ -101,6 +105,7 @@ class SubscribeController extends Controller
 
         $subscribe->tipe = $request->tipe;
         $subscribe->price = $request->price;
+        $subscribe->discount = $request->discount;
         $subscribe->description = $request->description;
 
         $subscribe->save();
