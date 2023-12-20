@@ -72,7 +72,7 @@ class MicrositeController extends Controller
             $data = Components::all();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         } else {
-            $data = Components::whereIn('premium', 'especially_free')->orderBy('created_at', 'asc')->take(3)->get();
+            $data = Components::where('premium', 'especially_free')->orderBy('created_at', 'asc')->take(3)->get();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         }
 

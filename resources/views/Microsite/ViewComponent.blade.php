@@ -187,7 +187,7 @@
                                                 enctype="multipart/form-data" method="POST">
                                                 @csrf
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title" id="editComponentModalLabel">Edit Komponen</h4>
+                                                    <h4 class="modal-title" id="editComponentModalLabel">Edit Tema</h4>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
@@ -199,7 +199,7 @@
                                                                     <div class="col-lg-12">
                                                                         <div class="mb-2">
                                                                             <label class="form-label">Nama
-                                                                                Komponen</label>
+                                                                                Tema</label>
                                                                             <input type="text" class="form-control"
                                                                                 value="{{ $item->component_name }}"
                                                                                 placeholder="Designation"
@@ -253,7 +253,7 @@
                                                                                         <i
                                                                                             class="ri-image-edit-line align-bottom me-1"></i>
                                                                                         Edit
-                                                                                        Gambar Sampul</label>
+                                                                                        Gambar</label>
                                                                                     <!-- Input file yang tersembunyi -->
                                                                                     <input type="file"
                                                                                         id="fileInput{{ $item->id }}"
@@ -366,7 +366,7 @@
                             </div>
                             <div class="col-xxl-12 mt-2 col-md-12">
                                 <div class="mt-2 mb-3">
-                                    <label for="premium" class="form-label">Jenis Component</label>
+                                    <label for="premium" class="form-label">Jenis Tema</label>
                                     <select name="premium" class="form-select" id="premium" required>
                                         <option value="" disabled selected>Pilih Kondisi Tema...</option>
                                         <option value="especially_platinum"
@@ -400,7 +400,7 @@
                                             </div>
                                             <label for="profile-foreground-img-file-input-create"
                                                 class="profile-photo-edit btn btn-light btn-sm position-absolute end-0 top-0 m-3">
-                                                <i class="ri-image-edit-line align-bottom me-1"></i>Tambah Gambar Sampul
+                                                <i class="ri-image-edit-line align-bottom me-1"></i>Tambah Gambar
                                             </label>
                                         </div>
                                     </div>

@@ -172,11 +172,11 @@
                 </li>
                 <li class="nav-item hidden-item">
                         <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('view.component') ? 'active' : '' }} {{ request()->routeIs('create.component') ? 'active' : '' }} {{ request()->routeIs('edit.component') ? 'active' : '' }}" href="{{ url('admin/view-component') }}" class="nav-link menu-link"><i class="bi bi-grid"></i>
-                        <span data-key="t-email">Kategori</span> </a>
+                        <span data-key="t-email">Tema</span> </a>
                 </li>
                 <li class="nav-item hidden-item">
                         <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('view.button') ? 'active' : '' }} {{ request()->routeIs('create.button') ? 'active' : '' }} {{ request()->routeIs('edit.button') ? 'active' : '' }}" href="{{ url('admin/view-button') }}" class="nav-link menu-link"><i class="bi bi-back"></i>
-                        <span data-key="t-email">Sosial</span> </a>
+                        <span data-key="t-email">Sosial Media</span> </a>
                 </li>
                 <li class="nav-item hidden-item">
                         <a style="margin-top:10px;" class="nav-link menu-link {{ request()->routeIs('viewkomentar') ? 'active' : '' }}" href="{{ url('admin/view-komentar') }}" class="nav-link menu-link"><i class="bi bi-chat-right-text-fill"></i>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('component_name');
             $table->string('cover_img');
-            $table->enum('premium', ['especially_platinum', 'especially_free', 'special_event']);
+            $table->enum('premium', ['especially_platinum', 'especially_free', 'special_event'])->default('especially_free');
             $table->string('link_component')->nullable();
             $table->timestamps();
             $table->softDeletes();
