@@ -20,7 +20,6 @@ class MicrositeController extends Controller
     {
         $user_id = auth()->user()->id;
         $microsite_uuid = 'fb2ee8d9-d618-4578-8f34-84cac949cf0b';
-        // dd($user_id);
         $qr = ShortUrl::where('microsite_uuid', $microsite_uuid)->get();
 
         if ($request->has('filter') && $request->filter == 'terakhir_diperbarui') {
@@ -62,7 +61,6 @@ class MicrositeController extends Controller
 
         $short_urls = ShortUrl::whereIn('microsite_uuid', $data->pluck('id'))->get();
 
-        // dd($urlshort, $d);
         return view('Microsite.MicrositeUser', compact('data', 'urlshort', 'short_urls', 'result', 'd', 'qr', 'user_id'));
     }
 
@@ -74,7 +72,7 @@ class MicrositeController extends Controller
             $data = Components::all();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         } else {
-            $data = Components::where('premium', 0)->orderBy('created_at', 'asc')->take(3)->get();
+            $data = Components::whereIn('premium', 'especially_free')->orderBy('created_at', 'asc')->take(3)->get();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         }
 
@@ -182,7 +180,6 @@ class MicrositeController extends Controller
                 $socialCount++;
             }
         }
-        // dd($mounth);
 
         return redirect()->route('edit.microsite', ['id' => $microsite->id])->with('success', 'Microsite berhasil dibuat');
     }
@@ -204,7 +201,7 @@ class MicrositeController extends Controller
             $parsedUrl = parse_url($short_url->default_short_url);
             $path = str_replace('/', '', $parsedUrl['path']) . (isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '');
         }
-        
+
 
         return view('Microsite.EditMicrosite', compact('microsite', 'user', 'id', 'social', 'short_url', 'baseUrl', 'path', 'button'));
     }
@@ -242,7 +239,6 @@ class MicrositeController extends Controller
                 ->with('error', 'Kesalahan, ada kolom yang belum terisi dengan benar!');
         }
 
-        // Update data berdasarkan input
         $microsite->name = $request->input('name') ?? $microsite->name;
         $microsite->name_microsite = $request->input('name_microsite') ?? $microsite->name_microsite;
         $microsite->description = $request->input('description') ?? $microsite->description;
@@ -281,7 +277,6 @@ class MicrositeController extends Controller
             if ($buttonLink !== null && $socialId !== null) {
                 $social = $socials->find($socialId);
 
-                // dd($socialId, $buttonLink, $social);
                 if ($social) {
                     $social->button_link = $buttonLink;
                     $social->save();
@@ -302,7 +297,7 @@ class MicrositeController extends Controller
         $validator = Validator::make($request->all(), [
             'component_name' => 'required|string|max:20',
             'cover_img' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'premium' => 'required|in:0,1',
+            'premium' => 'required|in:especially_platinum,special_event,especially_free',
         ], [
             'component_name.required' => 'Nama wajib diisi',
             'component_name.max' => 'Tidak boleh lebih besar dari 20 karakter',
@@ -349,15 +344,11 @@ class MicrositeController extends Controller
         $coverImageName = time() . '_cover.' . $coverImage->getClientOriginalExtension();
         $coverImage->move(public_path('component'), $coverImageName);
 
-        // $profileImageName = time() . '_profile.' . $profileImage->getClientOriginalExtension();
-        // $profileImage->move(public_path('component'), $profileImageName);
-
         $user = auth()->user();
         $component = CustomTheme::create([
             'user_id' => auth()->user()->id,
             'component_name' => $request->component_name,
             'cover_img' => $coverImageName,
-            // 'profile_img' => $profileImageName,
         ]);
         // dd($component);
         return redirect()->route('add.microsite')->with('success', 'Komponen berhasil disimpan.');
@@ -436,22 +427,23 @@ class MicrositeController extends Controller
 
     public function deleteComponent($id)
     {
-        $component = Components::findOrFail($id);
+        $component = Components::withTrashed()->findOrFail($id);
 
-        $micrositeCount = Microsite::where('components_uuid', $id)->count();
+        if ($component->premium === 'special_event') {
+            $component->delete();
+        } else {
+            $micrositeCount = Microsite::where('components_uuid', $id)->count();
 
-        if ($micrositeCount > 0) {
-            // return redirect()->back();
-            return redirect()->back()->with('error', 'Tidak dapat menghapus komponen ini karena data masih digunakan.');
+            if ($micrositeCount > 0) {
+                return redirect()->back()->with('error', 'Tidak dapat menghapus komponen ini karena data masih digunakan.');
+            }
+
+            if (file_exists(public_path('component/' . $component->cover_img))) {
+                unlink(public_path('component/' . $component->cover_img));
+            }
+
+            $component->forceDelete();
         }
-
-        if (file_exists(public_path('component/' . $component->cover_img))) {
-            unlink(public_path('component/' . $component->cover_img));
-        }
-        // if (file_exists(public_path('component/' . $component->profile_img))) {
-        //     unlink(public_path('component/' . $component->profile_img));
-        // }
-        $component->delete();
 
         return redirect()->back()->with('success', 'Komponen berhasil dihapus.');
     }

@@ -225,8 +225,13 @@ class ShortLinkController extends Controller
 
     public function micrositeLink($micrositeLink)
     {
-        $accessMicrosite = Microsite::with('component')->where('link_microsite', $micrositeLink)->first();
-        if ($accessMicrosite->user->is_banned) {
+        try {
+            $accessMicrosite = Microsite::with(['component' => function ($query) {
+                $query->withTrashed();
+            }])
+                ->where('link_microsite', $micrositeLink)
+                ->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             abort(404);
         }
 

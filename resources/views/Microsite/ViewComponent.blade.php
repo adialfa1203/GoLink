@@ -197,12 +197,13 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-xxl-12 mt-2 col-md-12">
-                                                            <div class="mt-2">
-                                                                <label for="premium" class="form-label">Premium</label>
+                                                            <div class="mt-2 mb-3">
+                                                                <label for="premium" class="form-label">Jenis Tema</label>
                                                                 <select name="premium" class="form-select" id="premium">
                                                                     <option value="" disabled selected>Pilih Kondisi Tema...</option>
-                                                                    <option value="1" {{ old('premium') === '1' ? 'selected' : '' }}>Khusus Platinum</option>
-                                                                    <option value="0" {{ old('premium') === '0' ? 'selected' : '' }}>Gratis</option>
+                                                                    <option value="especially_platinum" {{ old('premium') === 'especially_platinum' ? 'selected' : '' }}>Khusus Platinum</option>
+                                                                    <option value="special_event" {{ old('premium') === 'special_event' ? 'selected' : '' }}>Event</option>
+                                                                    <option value="especially_free" {{ old('premium') === 'especially_free' ? 'selected' : '' }}>Gratis</option>
                                                                 </select>
                                                                 <div class="invalid-feedback">
                                                                     Harap isi kolom ini sebelum melanjutkan proses.
@@ -215,7 +216,7 @@
                                                     <div class="row">
                                                         <div class="col-xxl-12">
                                                             <div class="card overflow-hidden">
-                                                                <div>
+                                                                <div class="mt-2">
                                                                     <div>
                                                                         <img src="{{ asset('component/' . $item->cover_img) }}" alt=""  id="data-img{{ $item->id }}" class="card-img-top profile-wid-img object-fit-cover " style="height: 200px;">
                                                                         <label for="fileInput{{ $item->id }}" class="profile-photo-edit btn btn-light btn-sm position-absolute end-0 top-0 m-3">
@@ -318,12 +319,13 @@
                             </div>
                         </div>
                         <div class="col-xxl-12 mt-2 col-md-12">
-                            <div class="mt-2">
-                                <label for="premium" class="form-label">Premium</label>
+                            <div class="mt-2 mb-3">
+                                <label for="premium" class="form-label">Jenis Component</label>
                                 <select name="premium" class="form-select" id="premium" required>
                                     <option value="" disabled selected>Pilih Kondisi Tema...</option>
-                                    <option value="1" {{ old('premium') === '1' ? 'selected' : '' }}>Khusus Platinum</option>
-                                    <option value="0" {{ old('premium') === '0' ? 'selected' : '' }}>Gratis</option>
+                                    <option value="especially_platinum" {{ old('premium') === 'especially_platinum' ? 'selected' : '' }}>Khusus Platinum</option>
+                                    <option value="special_event" {{ old('premium') === 'special_event' ? 'selected' : '' }}>Event</option>
+                                    <option value="especially_free" {{ old('premium') === 'especially_free' ? 'selected' : '' }}>Gratis</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Harap isi kolom ini sebelum melanjutkan proses.
