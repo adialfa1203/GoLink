@@ -104,9 +104,13 @@ class SubscribeController extends Controller
         }
 
         $subscribe->tipe = $request->tipe;
-        $subscribe->price = $request->price;
+        $subscribe->price = $request->price - ($request->price * ($request->discount / 100));
         $subscribe->discount = $request->discount;
         $subscribe->description = $request->description;
+
+        // $discountedPrice = $request->price - ($request->price * ($request->discount / 100));
+
+        // $subscribe->discounted_price = $discountedPrice;
 
         $subscribe->save();
 
