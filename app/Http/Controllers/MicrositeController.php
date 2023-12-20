@@ -72,7 +72,7 @@ class MicrositeController extends Controller
             $data = Components::all();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         } else {
-            $data = Components::where('premium', 'especially_free')->orderBy('created_at', 'asc')->take(3)->get();
+            $data = Components::whereIn('premium', ['especially_free', 'special_event'])->orderBy('created_at', 'asc')->take(3)->get();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         }
 
@@ -362,7 +362,6 @@ class MicrositeController extends Controller
 
     public function updateComponent(Request $request, $id)
     {
-        // dd($id);
         $validator = Validator::make($request->all(), [
             'component_name' => 'required|max:20',
             'cover_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -381,41 +380,20 @@ class MicrositeController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+
         $component = Components::findOrFail($id);
 
         $micrositeCount = Microsite::where('components_uuid', $id)->count();
 
         if ($micrositeCount > 0) {
-            return redirect()->route('view.component')->with('error', 'Tidak dapat mengedit komponen ini karena masih ada data terkait.');
+            return redirect()->route('view.component')->with('error', 'Tidak dapat mengedit komponen ini karena masih ada data mikrositus terkait.');
         }
 
-        if ($request->hasFile('cover_img')) {
-            if ($component->cover_img) {
-                $oldCoverImagePath = public_path('component/' . $component->cover_img);
-                if (file_exists($oldCoverImagePath)) {
-                    unlink($oldCoverImagePath);
-                }
-            }
+        $this->deleteOldImage($component, 'cover_img');
+        $this->deleteOldImage($component, 'profile_img');
 
-            $coverImage = $request->file('cover_img');
-            $coverImageName = time() . '_cover.' . $coverImage->getClientOriginalExtension();
-            $coverImage->move(public_path('component'), $coverImageName);
-            $component->cover_img = $coverImageName;
-        }
-
-        if ($request->hasFile('profile_img')) {
-            if ($component->profile_img) {
-                $oldProfileImagePath = public_path('component/' . $component->profile_img);
-                if (file_exists($oldProfileImagePath)) {
-                    unlink($oldProfileImagePath);
-                }
-            }
-
-            $profileImage = $request->file('profile_img');
-            $profileImageName = time() . '_profile.' . $profileImage->getClientOriginalExtension();
-            $profileImage->move(public_path('component'), $profileImageName);
-            $component->profile_img = $profileImageName;
-        }
+        $this->uploadAndSaveImage($request, 'cover_img', $component, 'cover_img');
+        $this->uploadAndSaveImage($request, 'profile_img', $component, 'profile_img');
 
         $component->premium = $request->input('premium');
         $component->component_name = $request->component_name;
@@ -423,7 +401,6 @@ class MicrositeController extends Controller
 
         return redirect()->route('view.component')->with('success', 'Komponen berhasil diedit.');
     }
-
 
     public function deleteComponent($id)
     {

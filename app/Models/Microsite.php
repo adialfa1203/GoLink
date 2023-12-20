@@ -32,7 +32,7 @@ class Microsite extends Model
 
     public function component(): BelongsTo
     {
-        return $this->belongsTo(Components::class, 'components_uuid', 'id');
+        return $this->belongsTo(Components::class, 'components_uuid', 'id')->withTrashed();
     }
     public function customtheme(): BelongsTo
     {

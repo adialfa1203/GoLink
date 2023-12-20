@@ -25,7 +25,7 @@ class ShortUrl extends Model
     {
         return $this->hasMany(ShortURLVisit::class, 'short_url_id');
     }
-    
+
     public function TopBrowser()
     {
         return $this->hasMany(ShortURLVisit::class, 'browser');
@@ -57,6 +57,6 @@ class ShortUrl extends Model
     }
     public function component(): BelongsTo
     {
-        return $this->BelongsTo(Components::class, 'components_uuid', 'id');
+        return $this->BelongsTo(Components::class, 'components_uuid', 'id')->withTrashed();
     }
 }
