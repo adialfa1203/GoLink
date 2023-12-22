@@ -196,7 +196,7 @@
                                         @endif
                                     </h5>
 
-                                    <div class="dropdown" style="position: absolute; top: 0; right: 0;">
+                                    <div class="dropdown" style="position: absolute; top: 7px; right: 0;">
                                         <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="bi bi-three-dots-vertical"></i>
                                         </a>
@@ -325,7 +325,7 @@
                             <div class="col-12">
                                 <div class="card1" style="position: relative; background-color:#F0F0F0;">
                                     <div class="discount-label"
-                                    style="position: absolute; top: -30px; right: -25px; background: radial-gradient(circle, #0E2954 50%, #ffffff 52%, #0E2954 55%); color: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; z-index: 2; padding: 10px; width: 80px; height: 80px; text-align: center; line-height: 1;">
+                                    style="position: absolute; top: -30px; right: -25px; background: radial-gradient(circle, #0E2954 50%, #ffffff 52%, #0E2954 55%); color: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; z-index: 2; padding: 10px; width: 70px; height: 70px; text-align: center; line-height: 1;">
                                     <span style="font-size: 12px;">
                                         <span style="font-weight: normal;">Spesial</span>
                                         <span style="font-weight: bold; color: yellow;">{{$subs->type_of_discount}}</span>
@@ -343,7 +343,7 @@
                                         @endif
                                     </h5>
 
-                                    <div class="dropdown" style="position: absolute; top: 0; right: 0;">
+                                    <div class="dropdown" style="position: absolute; top: 7px;left: 0;">
                                         <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="bi bi-three-dots-vertical"></i>
                                         </a>
