@@ -16,6 +16,9 @@ return new class extends Migration
             $table->enum('tipe', ['free', 'silver', 'gold', 'platinum'])->default('free');
             $table->bigInteger('price');
             $table->bigInteger('discount')->nullable();
+            $table->bigInteger('starting_price')->nullable();
+            $table->bigInteger('total_discount')->nullable();
+            $table->string('type_of_discount')->nullable();
             $table->string('picture');
             $table->string('description');
             $table->timestamps();

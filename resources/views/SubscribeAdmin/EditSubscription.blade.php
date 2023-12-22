@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-12 md-12 sm-12">
+                                <div class="col-lg-6 md-12 sm-12">
                                     <div class="mb-3">
                                         <label for="tipe" class="form-label">Tipe Langganan</label>
                                         <select name="tipe" class="form-select" id="tipe" required>
@@ -59,8 +59,16 @@
                                     <div class="mb-3">
                                         <label for="discount" class="form-label">Diskon</label>
                                         <div class="position-relative">
-                                            <input type="number" class="form-control password-input" id="discount"
-                                                name="discount" placeholder="Masukkan Jumlah Diskon" required max="80">
+                                            <input type="number" class="form-control password-input" id="discount" name="discount" placeholder="Masukkan Jumlah Diskon" max="80" oninput="checkDiscount()">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6 md-12 sm-12">
+                                    <div class="mb-3">
+                                        <label for="discountType" class="form-label">Jenis Diskon</label>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control password-input" id="type_of_discount" name="type_of_discount" placeholder="Masukkan Jenis Diskon">
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +79,7 @@
                                     <div class="mb-3 d-flex align-items-center">
                                         <div class="position-relative" style="width: 100%;">
                                             <input type="file" class="form-control password-input" id="picture"
-                                                name="picture" required>
+                                                name="picture">
                                             <span id="file-name"></span>
                                             @if ($errors->has('picture'))
                                                 <span class="text-danger">{{ $errors->first('picture') }}</span>
@@ -181,6 +189,18 @@
                 "{{ asset('pictureSubs/' . $subscribe->picture) }}";
             imgPreview.src = imgSrc;
         });
+    </script>
+    <script>
+        function checkDiscount() {
+            var discountInput = document.getElementById('discount');
+            var discountTypeInput = document.getElementById('type_of_discount');
+
+            if (discountInput.value.trim() !== '') {
+                discountTypeInput.required = true;
+            } else {
+                discountTypeInput.required = false;
+            }
+        }
     </script>
 @endsection
 @endsection

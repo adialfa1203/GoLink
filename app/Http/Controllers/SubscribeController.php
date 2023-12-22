@@ -70,7 +70,8 @@ class SubscribeController extends Controller
             'price' => 'required|numeric|min:0',
             'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|min:10',
-            'discount' => 'required|numeric|min:0|max:75'
+            'discount' => 'nullable|numeric|min:0|max:75',
+            'type_of_discount' => 'nullable|string'
         ], [
             'tipe.required' => 'Pilih tipe langganan.',
             'tipe.in' => 'Tipe langganan tidak valid.',
@@ -82,7 +83,6 @@ class SubscribeController extends Controller
             'picture.max' => 'Ukuran gambar terlalu besar. Maksimal 2MB.',
             'description.required' => 'Deskripsi tidak boleh kosong.',
             'description.min' => 'Deskripsi harus memiliki setidaknya 10 karakter.',
-            'discount.reuired' => 'Jumlah diskon tidak boleh kosong',
             'discount.numeric' => 'Diskon harus berupa angka',
             'discount.min' => 'Diskon tidak valid',
             'discount.max' => 'Jumlah diskon tidak boleh lebih dari 75%'
@@ -103,10 +103,17 @@ class SubscribeController extends Controller
             $subscribe->picture = $subsImageName;
         }
 
+        $subscribe->starting_price = $subscribe->price; 
         $subscribe->tipe = $request->tipe;
         $subscribe->price = $request->price - ($request->price * ($request->discount / 100));
         $subscribe->discount = $request->discount;
         $subscribe->description = $request->description;
+        $subscribe->type_of_discount = $request->type_of_discount;
+
+        $previousTotalDiscount = $subscribe->total_discount;
+
+        $newTotalDiscount = $previousTotalDiscount + $request->discount;
+        $subscribe->total_discount = $newTotalDiscount;
 
         // $discountedPrice = $request->price - ($request->price * ($request->discount / 100));
 
