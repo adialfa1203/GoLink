@@ -204,6 +204,7 @@
                     <center>
                         <div class="col-10">
                             <div class="row">
+                                @if ($subscribe->discount == null)
                                 <div class="col-12">
                                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                         <h4 class="mb-0">Langganan Pembelian</h4>
@@ -358,6 +359,168 @@
                                         </div>
                                     </div>
                                 </div>
+                                @else
+                                <div class="col-12">
+                                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">                                        
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="card card-animate"
+                                            style="border-radius: 20px;background: #F0F0F0; margin: 0;">
+                                            <div class="discount-label"
+                                            style="position: absolute; top: -30px; right: -25px; background: radial-gradient(circle, #0E2954 50%, #ffffff 52%, #0E2954 55%); color: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; z-index: 2; padding: 10px; width: 75px; height: 75px; text-align: center; line-height: 1;">
+                                            <span style="font-size: 11px;">
+                                                <span style="font-weight: normal;">Spesial</span>
+                                                <span style="font-weight: bold; color: yellow;">{{$subscribe->type_of_discount}}</span>
+                                            </span>
+                                        </div>
+                                            <div class="card-body">
+                                                @if (strtolower(trim($subscribe->tipe)) === 'silver')
+                                                    <h4 class="card-title mb-2 text-center">Silver</h4>
+                                                @elseif (strtolower(trim($subscribe->tipe)) === 'gold')
+                                                    <h4 class="card-title mb-2 text-center">Gold</h4>
+                                                @elseif (strtolower(trim($subscribe->tipe)) === 'platinum')
+                                                    <h4 class="card-title mb-2 text-center">Platinum</h4>
+                                                @else
+                                                    <h4 class="card-title mb-2 text-center">Data Tidak Valid</h4>
+                                                @endif
+                                            </div>
+                                            <div class="card-body text-white"
+                                                style="background-image: linear-gradient(to bottom right, #0E2954, #104898); border-radius: 0 0 20px 20px;height: auto;display: inline-block; min-height: 200px;">
+                                                <img class="mt-3" src="{{ asset('pictureSubs/' . $subscribe->picture) }}" width="220"
+                                                  height="150" style="display: block; margin: 0 auto; object-fit: cover;"
+                                                 alt="Card image cap">
+                                                <div class="row">
+                                                    <h5 class="card-title text-center mt-3 mb-2"
+                                                        style="color: #ffffff; text-decoration: line-through; text-decoration-color: red;">
+                                                        Rp.{{ number_format($subscribe->starting_price, 0, ',', '.') }}/Bulan
+                                                    </h5>
+                                                    <h2 class="mb-2" style="color: #ffffff;">
+                                                        Rp.{{ number_format($subscribe->price, 0, ',', '.') }}/Bulan
+                                                    </h2>
+                                                </div>
+                                                <div data-simplebar data-simplebar-auto-hide="false"
+                                                    style="height: 300px;" class="px-3">
+                                                    <div class="flex-grow-1 ms-2 text-white text-center">
+                                                        <h6 style="color: #ffffff; font-size: 13px;">{{ strip_tags($subscribe->description) }}</h6>
+                                                    </div>
+                                                    {{-- @if (strtolower(trim($subscribe->tipe)) === 'free')
+                                                        <div class="d-flex mt-5">
+                                                            <div class="flex-shrink-0">
+                                                                <i class="ri-checkbox-circle-fill text-success"></i>
+                                                            </div>
+                                                            <div class="flex-grow-1 ms-2 text-white">
+                                                                Menyingkat tautan batas sebanyak 35/bulan
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex mt-2">
+                                                            <div class="flex-shrink-0">
+                                                                <i class="ri-checkbox-circle-fill text-success"></i>
+                                                            </div>
+                                                            <div class="flex-grow-1 ms-2 text-white">
+                                                                Membuat Microsite sebanyak 3/bulan
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="col-md-12 col-sm-12 mt-5">
+                                    <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12" style="margin-top: 180px;">Berlangganan Sekarang</a>
+                                </div> --> --}}
+                                                    @if (strtolower(trim($subscribe->tipe)) === 'silver')
+                                                    <div class="d-flex mt-4">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1">Menyingkat tautan batas sebanyak 25×/bulan</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Membuat Microsite sebanyak 5×/bulan</p>
+                                                        </div>
+                                                    </div>
+                                                        <!-- <div class="col-md-12 col-sm-12 mt-5">
+                                    <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12" style="margin-top: 180px;">Berlangganan
+                                        Sekarang</a>
+                                </div> -->
+                                                    @elseif (strtolower(trim($subscribe->tipe)) === 'gold')
+                                                    <div class="d-flex mt-4">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Membuat Microsite batas sebanyak 35×/bulan</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Membuat Microsite sebanyak 10×/bulan</p>
+                                                        </div>
+                                                    </div>
+                                                        <!-- <div class="col-md-12 col-sm-12 mt-5">
+                                    <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12" style="margin-top:155px;">Berlangganan
+                                        Sekarang</a>
+                                </div> -->
+                                                    @elseif (strtolower(trim($subscribe->tipe)) === 'platinum')
+                                                    <div class="d-flex mt-4">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Menyingkat tautan tanpa batas</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Membuat Microsite tanpa batas</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Menggunakan semua tema tanpa terkunci</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Memantau tautan dengan terperinci </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex mt-2">
+                                                        <div class="col-1 align-self-start" style="color: #fff">
+                                                            <i class="fa-solid fa-circle-check" style="margin-top: 5px;"></i>
+                                                        </div>
+                                                        <div class="col-11 text-white">
+                                                            <p class="p1"> Memproteksi tautan dengan kata sandi</p>
+                                                        </div>
+                                                    </div>
+                                                        <!-- <div class="col-md-12 col-sm-12">
+                                    <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12" style="margin-top: 65px;">Berlangganan
+                                        Sekarang</a>
+                                </div> -->
+                                                    @endif
+                                                </div>
+                                                <!-- <div class="col-md-12 col-sm-12 mt-3">
+                                        <a href="{{ route('subscribe.now', ['id' => $subscribe->id]) }}" type="button" class="btn custom col-12">Berlangganan
+                                            Sekarang</a>
+                                    </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                    
+                                @endif
                             </div>
                         </div>
                     </center>

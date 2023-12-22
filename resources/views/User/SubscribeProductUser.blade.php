@@ -263,17 +263,12 @@
                                         <h2 class="mb-2" style="color: #ffffff;">
                                             Rp.{{ number_format($subs->price, 0, ',', '.') }}/Bulan
                                         </h2>
-                                        @if (strtolower(trim($subs->description)))
-                                            <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan
-                                            </h6>
-                                            <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
-                                        @endif
                                     </div>
                                     <div data-simplebar data-simplebar-auto-hide="false" style="height: 300px;"
                                         class="px-3">
                                         <div class="flex-grow-1 ms-2 text-white text-center"
                                             style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
-                                            {{ strip_tags($subs->description) }}
+                                            <h6 style="color: #ffffff; font-size: 13px;">{{ strip_tags($subs->description) }}</h6>
                                         </div>
                                         @if (strtolower(trim($subs->tipe)) === 'silver')
                                             <div class="d-flex mt-4">
