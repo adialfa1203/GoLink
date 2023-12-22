@@ -229,13 +229,14 @@
                     @else
                         <div class="col-sm-6 col-xl-4">
                             <div class="card card-animate" style="border-radius: 10px 10px;">
-                                <div class="discount-label"
-                                    style="position: absolute; top: -30px; right: -25px; background: radial-gradient(circle, #0E2954 50%, #ffffff 52%, #0E2954 55%); color: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; z-index: 2; padding: 10px; width: 80px; height: 80px; text-align: center; line-height: 1;">
+                                <div class="discount-label" style="position: absolute; top: -30px; right: -25px; background: radial-gradient(circle, #0E2954 50%, #ffffff 52%, #0E2954 55%); color: #ffffff; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-weight: bold; z-index: 2; padding: 10px; width: 80px; height: 80px; text-align: center; line-height: 1;">
+                                    <img src="https://i.postimg.cc/nz2SmDrH/Bintang-5.png" style="width: 20px;" alt="vector">
                                     <span style="font-size: 12px;">
                                         <span style="font-weight: normal;">Spesial</span>
-                                        <span style="font-weight: bold; color: yellow;">{{$subs->type_of_discount}}</span>
+                                        <span style="font-weight: bold; color: yellow; white-space: nowrap;">{{$subs->type_of_discount}}</span>
                                     </span>
-                                </div>
+                                    <img src="https://i.postimg.cc/bNsVGdhh/Bintang-6.png" style="width: 20px;" alt="vector">
+                                </div>                                
                                 <div class="card-body" style="position: relative; background-color:#F0F0F0;">
                                     <div class="card-body " style="color: #0E2954; font-size: 16px; font-weight: bold; ">
                                         @if (strtolower(trim($subs->tipe)) === 'silver')

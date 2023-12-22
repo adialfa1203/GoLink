@@ -367,12 +367,14 @@
                                         <div class="card card-animate"
                                             style="border-radius: 20px;background: #F0F0F0; margin: 0;">
                                             <div class="discount-label"
-                                            style="position: absolute; top: -30px; right: -25px; background: radial-gradient(circle, #0E2954 50%, #ffffff 52%, #0E2954 55%); color: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; z-index: 2; padding: 10px; width: 75px; height: 75px; text-align: center; line-height: 1;">
-                                            <span style="font-size: 11px;">
-                                                <span style="font-weight: normal;">Spesial</span>
-                                                <span style="font-weight: bold; color: yellow;">{{$subscribe->type_of_discount}}</span>
-                                            </span>
-                                        </div>
+                                                style="position: absolute; top: -30px; right: -25px; background: radial-gradient(circle, #0E2954 50%, #ffffff 52%, #0E2954 55%); color: #ffffff; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-weight: bold; z-index: 2; padding: 10px; width: 80px; height: 80px; text-align: center; line-height: 1;">
+                                                <img src="https://i.postimg.cc/nz2SmDrH/Bintang-5.png" style="width: 20px;" alt="vector">
+                                                <span style="font-size: 12px;">
+                                                    <span style="font-weight: normal;">Spesial</span>
+                                                    <span style="font-weight: bold; color: yellow; white-space: nowrap;">{{$subscribe->type_of_discount}}</span>
+                                                </span>
+                                                <img src="https://i.postimg.cc/bNsVGdhh/Bintang-6.png" style="width: 20px;" alt="vector">
+                                            </div>
                                             <div class="card-body">
                                                 @if (strtolower(trim($subscribe->tipe)) === 'silver')
                                                     <h4 class="card-title mb-2 text-center">Silver</h4>
