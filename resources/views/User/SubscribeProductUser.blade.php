@@ -229,7 +229,7 @@
                     @else
                         <div class="col-sm-6 col-xl-4">
                             <div class="card card-animate" style="border-radius: 10px 10px;">
-                                <div class="discount-label" style="position: absolute; top: -30px; right: -25px; background: radial-gradient(circle, #0E2954 50%, #ffffff 52%, #0E2954 55%); color: #ffffff; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-weight: bold; z-index: 2; padding: 10px; width: 80px; height: 80px; text-align: center; line-height: 1;">
+                                <div class="discount-label" style="position: absolute; top: -30px; right: -20px; background: radial-gradient(circle, #0E2954 50%, #ffffff 52%, #0E2954 55%); color: #ffffff; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-weight: bold; z-index: 2; padding: 10px; width: 80px; height: 80px; text-align: center; line-height: 1;">
                                     <img src="https://i.postimg.cc/nz2SmDrH/Bintang-5.png" style="width: 20px;" alt="vector">
                                     <span style="font-size: 12px;">
                                         <span style="font-weight: normal;">Spesial</span>
