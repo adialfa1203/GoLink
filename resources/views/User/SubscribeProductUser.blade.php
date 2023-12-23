@@ -99,14 +99,10 @@
                                         height="190" style="display: block; margin: 0 auto; object-fit: cover;"
                                         alt="Card image cap">
                                     <br>
-                                    <div class="text-center">
+                                    <div class="text-center">                                        
                                         <h2 class="mb-2" style="color: #ffffff;">
                                             Rp.{{ number_format($subs->price, 0, ',', '.') }}/Bulan
                                         </h2>
-                                        @if (strtolower(trim($subs->description)))
-                                            <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
-                                            <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
-                                        @endif
                                     </div>
                                     <div data-simplebar data-simplebar-auto-hide="false" style="height: 300px;"
                                         class="px-3">
