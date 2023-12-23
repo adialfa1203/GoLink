@@ -59,7 +59,7 @@
                                     <div class="mb-3">
                                         <label for="discount" class="form-label">Diskon</label>
                                         <div class="position-relative">
-                                            <input type="number" class="form-control password-input" id="discount" name="discount" placeholder="Masukkan Jumlah Diskon" max="80" oninput="checkDiscount()">
+                                            <input type="number" class="form-control password-input" id="discount" name="discount" placeholder="Masukkan Jumlah Diskon" value="{{ old('discount', $subscribe->discount) }}" max="80" oninput="checkDiscount()">
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                                     <div class="mb-3">
                                         <label for="discountType" class="form-label">Jenis Diskon</label>
                                         <div class="position-relative">
-                                            <input type="text" class="form-control password-input" id="type_of_discount" name="type_of_discount" placeholder="Masukkan Jenis Diskon">
+                                            <input type="text" class="form-control password-input" id="type_of_discount" name="type_of_discount" value="{{ old('type_of_discount', $subscribe->type_of_discount) }}" placeholder="Masukkan Jenis Diskon">
                                         </div>
                                     </div>
                                 </div>
