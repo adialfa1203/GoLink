@@ -69,10 +69,14 @@ class MicrositeController extends Controller
         $user = auth()->user();
         $statusSubscribe = $user->subscribe;
         if ($statusSubscribe === 'platinum') {
-            $data = Components::all();
+            $data = Components::withoutTrashed()->get();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         } else {
-            $data = Components::whereIn('premium', ['especially_free', 'special_event'])->orderBy('created_at', 'asc')->take(3)->get();
+            $data = Components::withoutTrashed()
+                ->whereIn('premium', ['especially_free', 'special_event'])
+                ->orderBy('created_at', 'asc')
+                ->take(3)
+                ->get();
             $customThemesData = CustomTheme::where('user_id', $user->id)->get();
         }
 
