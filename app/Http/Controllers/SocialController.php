@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Role;
 use Ramsey\Uuid\Uuid;
 use App\Models\ChFavorite;
 use App\Models\Social;
+use Carbon\Carbon;
 use Flasher\Laravel\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,6 +25,13 @@ class SocialController extends Controller
         $googleUser = Socialite::driver('google')->user();
         $avatar = $googleUser->getAvatar();
         $user = User::where('email', '=', $googleUser->email)->first();
+        $today = Carbon::now();
+
+        if ($user->subscription_end_date && $user->subscription_end_date < $today) {
+            if ($user->subscribe == 'silver' || $user->subscribe == 'gold' || $user->subscribe == 'platinum') {
+                $user->update(['subscribe' => 'free']);
+            }
+        }
 
         if ($user) {
             Auth::login($user);

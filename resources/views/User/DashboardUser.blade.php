@@ -150,20 +150,17 @@
                             <div class="flex-grow-1">
                                 <div class="up">
                                     <div class="" style="color: #fff;padding:20px;margin-top:1%">
-                                        <div class="conte" style="margin-left: 5%;">
+                                        <div class="content" style="margin-left: 5%;">
                                             <h4 style="color: #fff;">Selamat Datang {{ Auth::user()->name }}!</h4>
                                             <p style="margin: 0;">Ayo buat tautan pendekmu sekarang!</p>
                                             <p>Jangan lupakan fitur Microsite dan buat Microsite pribadimu!</p>
                                             @if ($user->subscribe == 'free')
                                             @elseif (strtolower(trim($user->subscribe)) === 'silver')
-                                                <span class="badge" style="background-color: #A6A1A1; color: #504E4E;">Anda
-                                                    telah mencapai status keanggotaan Silver.</span>
+                                                <span class="badge" style="background-color: #A6A1A1; color: #504E4E;">Anda mencapai keanggotaan Silver.</span>
                                             @elseif (strtolower(trim($user->subscribe)) === 'gold')
-                                                <span class="badge" style="background-color: #F3D897; color: #C68B00;">Anda
-                                                    telah mencapai status keanggotaan Gold.</span>
+                                                <span class="badge" style="background-color: #F3D897; color: #C68B00;">Anda mencapai keanggotaan Gold.</span>
                                             @elseif (strtolower(trim($user->subscribe)) === 'platinum')
-                                                <span class="badge" style="background-color: #98B5E1; color: #244680;">Anda
-                                                    telah mencapai status keanggotaan Platinum.</span>
+                                                <span class="badge" style="background-color: #98B5E1; color: #244680;">Anda mencapai keanggotaan Platinum.</span>
                                             @else
                                                 <span class="badge bg-secondary">Data
                                                     Kosong</span>
