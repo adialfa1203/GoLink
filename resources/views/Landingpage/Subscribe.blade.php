@@ -264,9 +264,9 @@
                 <!-- row start -->
                 <div class="row">
                     <!-- shape animation  -->
-                    <span class="banner_shape1"> <img src="https://i.postimg.cc/Y2njTPws/banner-shape1.png" alt="image"> </span>
-                    <span class="banner_shape2"> <img src="https://i.postimg.cc/k45qcnDX/banner-shape2.png" alt="image"> </span>
-                    <span class="banner_shape3"> <img src="https://i.postimg.cc/rsr6nzTc/banner-shape3.png" alt="image"> </span>
+                    <span class="banner_shape1"> <img src="{{ asset ('banner-shape1.png')}}" alt="image"> </span>
+                    <span class="banner_shape2"> <img src="{{ asset ('banner-shape2.png')}}" alt="image"> </span>
+                    <span class="banner_shape3"> <img src="{{ asset ('banner-shape3.png')}}" alt="image"> </span>
                     <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1500">
                         <!-- banner text -->
                         <div class="banner_text" style="margin-top: -8px;">
@@ -470,7 +470,7 @@
                             </div>
                             <div class="card mb-3" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
-                                    <img src="{{asset('silver.png')}}" alt="Silver" style="margin-top: -38px; margin-right: 10px; width: 55%; height: auto;">
+                                    <img src="{{asset('silver2.0.png')}}" alt="Silver" style="margin-top: -38px; margin-right: 10px; width: 55%; height: auto;">
                                     <h5 style="color: #ffffff; font-weight: bold;">Rp.25.000/Bulan</h5>
                                     <h6 style="color: #ffffff; font-size: 13px;">Paket dasar untuk meningkatkan</h6>
                                     <h6 style="color: #ffffff; font-size: 13px;">pengalaman pengguna</h6>
@@ -503,8 +503,8 @@
                             </div>
                             <div class="card mb-3" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
-                                    <img src="{{asset('gold.png')}}" alt="Gold" style="margin-top: -70px; margin-right: 20px; width: 70%; height: auto;">
-                                    <h5 style="color: #ffffff; font-weight:bold; margin-top: -9%;">Rp.45.000/Bulan</h5>
+                                    <img src="{{asset('gold2.0.png')}}" alt="Gold" style="margin-top: -38px; margin-right: 10px; width: 55%; height: auto;">
+                                    <h5 style="color: #ffffff; font-weight:bold;">Rp.45.000/Bulan</h5>
                                     <h6 style="color: #ffffff; font-size:13px;">Paket menengah untuk menawarkan</h6>
                                     <h6 style="color: #ffffff; font-size: 13px;">kuota pengguna</h6>
                                 </div>
@@ -534,8 +534,8 @@
                             </div>
                             <div class="card" style="background-color: #104898;height: 620px;">
                                 <div class="text-center">
-                                    <img src="{{asset('platinum.png')}}" alt="Platinum" style="margin-top: -56px; margin-left: 11px; width: 60%; height: auto;">
-                                    <h5 style="color: #ffffff; font-weight:bold;  margin-top: -2%;">Rp 75.000/Bulan</h5>
+                                    <img src="{{asset('platinum2.0.png')}}" alt="Platinum" style="margin-top: -38px; margin-right: 10px; width: 55%; height: auto;">
+                                    <h5 style="color: #ffffff; font-weight:bold;">Rp 75.000/Bulan</h5>
                                     <h6 style="color: #ffffff; font-size:13px;">Paket premium yang menawarkan</h6>
                                     <h6 style="color: #ffffff; font-size: 13px;">fitur-fitur ekslusif</h6>
                                 </div>
