@@ -503,8 +503,7 @@
                                                         <!-- /.modal -->
                                                         <div id="tombol-modal-{{ $row->id }}"
                                                             class="modal fade zoomIn modal-sm" tabindex="-1"
-                                                            aria-labelledby="zoomInModalLabel" aria-hidden="true"
-                                                            style="display: none;">
+                                                            aria-labelledby="zoomInModalLabel" aria-hidden="true" style="display: none;">
                                                             <div class="modal-dialog modal-dialog-centered">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -964,14 +963,8 @@
                                                                 </div>
                                                                 <div
                                                                     class="col-12 col-sm-7 d-flex flex-row justify-content-end mt-2 mt-sm-0">
-                                                                     <button disabled type="button"
-                                                                        class="btn btn-light  me-3 btn-sm"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#TimeModal-{{ $row->id }}"
-                                                                        data-link="{{ $row->url_key }}"><span
-                                                                            data-bs-toggle="tooltip"
-                                                                            data-bs-placement="left"
-                                                                            title="Tautan berbasis waktu"><i
+                                                                     <button disabled type="button" class="btn btn-light  me-3 btn-sm" data-bs-toggle="modal"><span
+                                                                            data-bs-toggle="tooltip" data-bs-placement="left" title="Tautan berbasis waktu"><i
                                                                                 class="fa-solid fa-clock"></i>&nbsp;Atur
                                                                             waktu</span></button>
                                                                     {{-- <button type="button"
@@ -984,10 +977,7 @@
                                                                                 class="fa-solid fa-lock"></i>&nbsp;kata
                                                                             cela aku mau</span></button> --}}
                                                                     <button disabled type="button" class="btn btn-light btn-sm"
-                                                                        data-bs-toggle="collapse"
-                                                                        href="#collapseExample{{ $row->id }}"
-                                                                        role="button" aria-expanded="true"
-                                                                        aria-controls="collapseExample{{ $row->id }}">
+                                                                        data-bs-toggle="collapse" >
                                                                         <i class="bi bi-bar-chart-line-fill"></i> statistik
                                                                     </button>
                                                                 </div>
