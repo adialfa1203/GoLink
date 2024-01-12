@@ -27,7 +27,7 @@ class SocialController extends Controller
         $user = User::where('email', '=', $googleUser->email)->first();
         $today = Carbon::now();
 
-        if ($user->subscription_end_date && $user->subscription_end_date < $today) {
+        if ($user && $user->subscribe == 'free' && $user->subscription_end_date && $user->subscription_end_date < $today) {
             if ($user->subscribe == 'silver' || $user->subscribe == 'gold' || $user->subscribe == 'platinum') {
                 $user->update(['subscribe' => 'free']);
             }
@@ -52,6 +52,7 @@ class SocialController extends Controller
                 'name' => $googleUser->name,
                 'email' => $googleUser->getEmail(),
                 'number' => $googleUser->number ?? 'default_number',
+                'subscribe' => 'free',
                 'profile_picture' => $avatar
             ]);
 
