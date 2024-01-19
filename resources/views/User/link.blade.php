@@ -593,7 +593,7 @@
                                                                             style="margin-right: 4%; gap: 0.5rem;">
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
-                                                                            <button id="submitKustom" type="button"
+                                                                            <button id="submitKustom" type="submit"
                                                                                 class="btn submitKustom"
                                                                                 style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
@@ -735,7 +735,7 @@
                                                                                 <button id="submitDestination"
                                                                                     data-key="{{ $row->url_key }}"
                                                                                     data-id="{{ $row->id }}"
-                                                                                    type="button"
+                                                                                    type="submit"
                                                                                     class="submitDestination btn"
                                                                                     style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                             </div>
@@ -1112,7 +1112,7 @@
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Tutup</button>
-                                                                            <button id="submitKustom" type="button"
+                                                                            <button id="submitKustom" type="submit"
                                                                                 class="btn submitKustom"
                                                                                 style="background-color:  #0E2954; color:#fff;">Simpan</button>
                                                                         </div>
@@ -1522,7 +1522,8 @@
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
             // Tambahkan kode berikut di bawahnya
-            $('#submitKustom').click(function() {
+            $('#submitKustom').click(function(event) {
+                event.preventDefault();
                 var newUrlKey = $('#new_url_key').val();
                 // alert('masuk')
                 $.ajax({
@@ -1603,7 +1604,8 @@
             var selectId = $('#destination_url').val();
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-            $(document).on('click', '.submitDestination', function() {
+            $(document).on('click', '.submitDestination', function(event) {
+                event.preventDefault();
                 var id = $(this).data('id');
                 var key = $(this).data('key');
                 var newDestination = $('#destination_url-' + id).val();

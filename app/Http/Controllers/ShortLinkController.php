@@ -191,7 +191,10 @@ class ShortLinkController extends Controller
             'custom_name' => 'yes',
         ]);
 
-        return response()->json(['message' => 'URL key updated successfully']);
+        return response()->json([
+            'message' => 'URL key updated successfully',
+            'success' => true
+        ]);
     }
     public function updateIdShortUrl(Request $request, $shortCode)
     {
